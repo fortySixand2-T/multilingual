@@ -18,7 +18,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.auth import get_current_user
 from app.content.tables import ContentLesson, ContentUnit
 from app.db.session import get_session
-from app.progress.models import LessonCompletion
+from app.progress.service import completed_lesson_ids
 from app.users.models import User
 
 router = APIRouter(prefix="/content", tags=["content"])
@@ -50,13 +50,6 @@ def compute_unit_status(
     return out
 
 
-async def _completed_lesson_ids(session: AsyncSession, user_id: int) -> set[str]:
-    rows = await session.execute(
-        select(LessonCompletion.lesson_id).where(LessonCompletion.user_id == user_id)
-    )
-    return set(rows.scalars())
-
-
 @router.get("/path")
 async def get_path(
     level: str,
@@ -70,7 +63,7 @@ async def get_path(
     if not units:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"no content for level {level!r}")
 
-    completed = await _completed_lesson_ids(session, user.id)
+    completed = await completed_lesson_ids(session, user.id)
     status_by_unit = compute_unit_status(units, completed)
     return {
         "level": level,

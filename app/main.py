@@ -1,7 +1,9 @@
 from __future__ import annotations
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 
+from app.ai.errors import AllProvidersFailedError
 from app.ai.registry import build_default_registry
 from app.ai.router import AIRouter
 from app.api.auth import router as auth_router
@@ -11,7 +13,16 @@ from app.config.settings import get_settings
 from app.content.api import router as content_router
 from app.progress.api import router as progress_router
 from app.srs.api import router as srs_router
+from app.storage.factory import build_storage
 from app.tutor.api import router as tutor_router
+
+
+async def _ai_unavailable(request: Request, exc: AllProvidersFailedError) -> JSONResponse:
+    # A provider outage is a transient, retryable condition — degrade gracefully.
+    return JSONResponse(
+        status_code=503,
+        content={"detail": "The AI service is temporarily unavailable. Please try again shortly."},
+    )
 
 
 def create_app() -> FastAPI:
@@ -23,7 +34,10 @@ def create_app() -> FastAPI:
     app.state.settings = settings
     app.state.registry = registry
     app.state.cache = cache
+    app.state.storage = build_storage(settings)
     app.state.ai_router = AIRouter.from_yaml(registry, settings.ai_routing_path, cache=cache)
+
+    app.add_exception_handler(AllProvidersFailedError, _ai_unavailable)
 
     app.include_router(health_router)
     app.include_router(auth_router)

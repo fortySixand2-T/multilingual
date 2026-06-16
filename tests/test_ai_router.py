@@ -1,6 +1,7 @@
 import pytest
 
 from app.ai.accounting import make_usage
+from app.ai.errors import AllProvidersFailedError
 from app.ai.interfaces import LLMResult, Msg
 from app.ai.registry import ProviderRegistry
 from app.ai.router import AIRouter, ProfileConfig
@@ -44,6 +45,17 @@ def test_unknown_profile_raises():
     r = AIRouter(ProviderRegistry(), {})
     with pytest.raises(KeyError):
         r.run("nope", system="s", messages=[])
+
+
+def test_all_providers_failing_raises_typed_error():
+    reg = ProviderRegistry()
+    reg.register(FakeFail("ollama"))
+    reg.register(FakeFail("anthropic"))
+    r = AIRouter(reg, {"drill": ProfileConfig("llm", "ollama/llama3.1", fallback="anthropic/claude-haiku-4-5")})
+    with pytest.raises(AllProvidersFailedError) as ei:
+        r.run("drill", system="s", messages=[Msg("user", "x")])
+    assert ei.value.profile == "drill"
+    assert isinstance(ei.value.last_error, RuntimeError)
 
 
 def test_from_yaml(tmp_path):

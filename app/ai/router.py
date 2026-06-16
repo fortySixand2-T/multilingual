@@ -17,6 +17,7 @@ from dataclasses import dataclass, replace
 import yaml
 from pathlib import Path
 
+from app.ai.errors import AllProvidersFailedError
 from app.ai.interfaces import LLMResult, Msg, Usage
 
 
@@ -110,7 +111,7 @@ class AIRouter:
             if key is not None:
                 self._cache.set(key, _result_to_cache(result), prof.cache_ttl)
             return result
-        raise RuntimeError(f"all providers failed for profile '{profile_name}'") from last_err
+        raise AllProvidersFailedError(profile_name, last_err) from last_err
 
 
 def _result_to_cache(result: LLMResult) -> str:

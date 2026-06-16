@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     cache_ttl_seconds: int = 300
     cache_max_entries: int = 1024
 
+    # Object storage: "local" (dev) or "s3" (MinIO/R2/B2/S3). Swap via config.
+    storage_backend: str = "local"
+    local_storage_dir: str = "./data/assets"
     s3_endpoint_url: str | None = None
     s3_bucket: str = "tef-assets"
     s3_access_key: str = ""

@@ -10,6 +10,7 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 import app.content.tables  # noqa: F401
 import app.tutor.models  # noqa: F401
 from app.ai.accounting import make_usage
+from app.ai.errors import AllProvidersFailedError
 from app.ai.interfaces import LLMResult
 from app.api.auth import get_current_user
 from app.content.loader import load_content
@@ -160,3 +161,17 @@ def test_drill_endpoint_returns_scaffolded_drill():
 def test_drill_endpoint_unknown_lesson_404():
     client = _make_client(FakeRouter())
     assert client.post("/tutor/drill", json={"lesson_id": "nope"}).status_code == 404
+
+
+class FailingRouter:
+    """Stands in for a total provider outage."""
+
+    def run(self, profile, *, system, messages, **kw):
+        raise AllProvidersFailedError(profile, RuntimeError("connection refused"))
+
+
+def test_drill_endpoint_degrades_to_503_when_no_provider():
+    client = _make_client(FailingRouter())
+    r = client.post("/tutor/drill", json={"lesson_id": "greetings-01"})
+    assert r.status_code == 503
+    assert "unavailable" in r.json()["detail"].lower()

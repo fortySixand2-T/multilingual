@@ -63,3 +63,9 @@
 - [2026-06-15] Created: web/src/App.tsx, main.tsx, styles.css — app shell, router, Duolingo-style theme
 - [2026-06-15] Created: web/src/screens/{Login,Path,Lesson,Review,Drill,GroupBoard}.tsx — Phase 1 screens
 - [2026-06-15] Created: web/README.md — frontend run instructions
+- [2026-06-15] Created: app/ai/errors.py — typed AllProvidersFailedError (vendor-free)
+- [2026-06-15] Modified: app/ai/router.py — raise AllProvidersFailedError instead of bare RuntimeError
+- [2026-06-15] Modified: app/main.py — 503 handler for provider outages; build_storage into app.state
+- [2026-06-15] Created: app/storage/factory.py — config-driven storage backend (lazy boto3); settings storage_backend/local_storage_dir
+- [2026-06-15] Created: app/progress/service.py — completed_lesson_ids(); content gating now depends on this function, not the LessonCompletion table
+- [2026-06-15] Created: tests/test_storage.py — local-FS round-trip + factory; added AI all-fail + tutor-503 tests
