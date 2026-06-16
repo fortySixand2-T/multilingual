@@ -10,6 +10,7 @@ case "$cmd" in
   content-sync) uv run python -m app.content.sync "${2:-a1}" ;;
   comprehension-sync) uv run python -m app.comprehension.sync "${2:-a1}" ;;
   writing-sync) uv run python -m app.assessment.sync "${2:-a1}" ;;
+  exam-sync)    uv run python -m app.exam.sync "${2:-a1}" ;;
   ollama-pull)  docker compose exec ollama ollama pull "${2:-llama3.1}" ;;
-  *) echo "usage: $0 {serve|test|lint|fmt|migrate|content-sync|comprehension-sync|writing-sync [level]|ollama-pull [model]}"; exit 1 ;;
+  *) echo "usage: $0 {serve|test|lint|fmt|migrate|content-sync|comprehension-sync|writing-sync|exam-sync [level]|ollama-pull [model]}"; exit 1 ;;
 esac

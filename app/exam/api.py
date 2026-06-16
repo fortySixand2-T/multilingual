@@ -1,0 +1,156 @@
+"""Exam simulation API: start a timed mock, record each section's outcome, finish
+with an aggregate per-skill CLB report, and review history.
+
+Composition only — section outcomes (comprehension correct/total, writing/speaking
+CLB) are produced by the existing modules and reported here; the exam computes the
+CLB profile. The report is an estimate, never an official score.
+"""
+from __future__ import annotations
+
+from datetime import datetime, timezone
+
+from fastapi import APIRouter, Depends, HTTPException, status
+from pydantic import BaseModel
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.api.auth import get_current_user
+from app.db.session import get_session
+from app.exam.clb import aggregate_report, clb_from_fraction
+from app.exam.models import Skill
+from app.exam.tables import ExamAttempt, ExamBlueprintRow
+from app.users.models import User
+
+router = APIRouter(prefix="/exam", tags=["exam"])
+
+
+class StartBody(BaseModel):
+    blueprint_id: str
+
+
+class SectionResultBody(BaseModel):
+    skill: Skill
+    correct: int | None = None       # reading / listening
+    total: int | None = None
+    clb_estimate: int | None = None  # writing / speaking
+
+
+async def _owned_attempt(session: AsyncSession, attempt_id: int, user_id: int) -> ExamAttempt:
+    attempt = await session.get(ExamAttempt, attempt_id)
+    if attempt is None or attempt.user_id != user_id:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "attempt not found")
+    return attempt
+
+
+@router.get("/blueprints")
+async def list_blueprints(
+    level: str,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    rows = (
+        await session.execute(
+            select(ExamBlueprintRow).where(ExamBlueprintRow.level == level).order_by(ExamBlueprintRow.id)
+        )
+    ).scalars().all()
+    return {
+        "blueprints": [
+            {"id": r.id, "title": r.data["title"], "sections": len(r.data["sections"])}
+            for r in rows
+        ]
+    }
+
+
+@router.post("/start")
+async def start(
+    body: StartBody,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    bp = await session.get(ExamBlueprintRow, body.blueprint_id)
+    if bp is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"blueprint {body.blueprint_id!r} not found")
+    attempt = ExamAttempt(
+        user_id=user.id,
+        blueprint_id=bp.id,
+        level=bp.level,
+        status="in_progress",
+        sections={},
+        clb_report=None,
+        started_at=datetime.now(timezone.utc).replace(tzinfo=None),
+    )
+    session.add(attempt)
+    await session.flush()
+    aid = attempt.id
+    await session.commit()
+    return {"attempt_id": aid, "blueprint": bp.data}
+
+
+@router.post("/{attempt_id}/section")
+async def record_section(
+    attempt_id: int,
+    body: SectionResultBody,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    attempt = await _owned_attempt(session, attempt_id, user.id)
+    if attempt.status != "in_progress":
+        raise HTTPException(status.HTTP_409_CONFLICT, "attempt already finished")
+
+    if body.skill in ("reading", "listening"):
+        if body.correct is None or not body.total:
+            raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "need correct + total")
+        clb = clb_from_fraction(body.correct / body.total)
+        detail = {"correct": body.correct, "total": body.total}
+    else:
+        if body.clb_estimate is None:
+            raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "need clb_estimate")
+        clb = max(1, min(12, body.clb_estimate))
+        detail = {"clb_estimate": clb}
+
+    sections = dict(attempt.sections)
+    sections[body.skill] = {"clb": clb, "detail": detail}
+    attempt.sections = sections
+    await session.commit()
+    return {"skill": body.skill, "clb": clb, "recorded": sorted(sections)}
+
+
+@router.post("/{attempt_id}/finish")
+async def finish(
+    attempt_id: int,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    attempt = await _owned_attempt(session, attempt_id, user.id)
+    per_skill = {skill: data["clb"] for skill, data in attempt.sections.items()}
+    report = aggregate_report(per_skill)
+    attempt.clb_report = report
+    attempt.status = "finished"
+    attempt.finished_at = datetime.now(timezone.utc).replace(tzinfo=None)
+    await session.commit()
+    return {"attempt_id": attempt.id, "report": report}
+
+
+@router.get("/history")
+async def history(
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    rows = (
+        await session.execute(
+            select(ExamAttempt).where(ExamAttempt.user_id == user.id).order_by(ExamAttempt.id.desc())
+        )
+    ).scalars().all()
+    return {
+        "attempts": [
+            {
+                "attempt_id": a.id,
+                "blueprint_id": a.blueprint_id,
+                "status": a.status,
+                "clb_report": a.clb_report,
+                "started_at": a.started_at.isoformat(),
+                "finished_at": a.finished_at.isoformat() if a.finished_at else None,
+            }
+            for a in rows
+        ]
+    }

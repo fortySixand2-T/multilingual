@@ -1,0 +1,19 @@
+id: mock-1
+level: a1
+title: "TEF Canada mock — A1 practice"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-cafe-01
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-greet-01
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-a-invite, write-b-opinion]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Présentez-vous : votre nom, d'où vous venez, ce que vous aimez faire."
+      - "Vous voulez organiser une sortie avec un ami. Posez-lui des questions."

@@ -13,6 +13,7 @@ from app.cache.factory import build_cache
 from app.comprehension.api import router as comprehension_router
 from app.config.settings import get_settings
 from app.content.api import router as content_router
+from app.exam.api import router as exam_router
 from app.progress.api import router as progress_router
 from app.speech.api import router as speech_router
 from app.speech.factory import build_stt, build_tts
@@ -54,6 +55,7 @@ def create_app() -> FastAPI:
     app.include_router(comprehension_router)
     app.include_router(assessment_router)
     app.include_router(speech_router)
+    app.include_router(exam_router)
     return app
 
 

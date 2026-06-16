@@ -12,6 +12,7 @@ from app.users.models import Base
 import app.assessment.tables  # noqa: E402,F401
 import app.comprehension.tables  # noqa: E402,F401
 import app.content.tables  # noqa: E402,F401
+import app.exam.tables  # noqa: E402,F401
 import app.progress.models  # noqa: E402,F401
 import app.speech.tables  # noqa: E402,F401
 import app.srs.models  # noqa: E402,F401

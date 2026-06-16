@@ -102,3 +102,9 @@
 - [2026-06-16] Modified: web/src/api.ts — speech multipart upload + history
 - [2026-06-16] Created: web/src/screens/Speaking.tsx — mic record → transcript + examiner reply + TTS playback
 - [2026-06-16] Modified: web/src/App.tsx — speaking nav link + route
+- [2026-06-16] Created: app/exam/{models,clb,tables,loader,sync,api}.py — Phase 5 exam simulation (timed 4-section mock, per-skill CLB report)
+- [2026-06-16] Created: content/a1/exam/mock-1.yaml — example four-section mock blueprint
+- [2026-06-16] Created: migrations/versions/0008_exam.py — exam_blueprints + exam_attempts
+- [2026-06-16] Modified: app/main.py, migrations/env.py, start.sh — wire exam router/table/sync
+- [2026-06-16] Created: tests/test_exam.py — CLB mapping, blueprint schema, full mock flow, history
+- [2026-06-16] Created: app/loaders.py — shared load_keyed_yaml; comprehension/assessment/exam loaders now reuse it (DRY)
