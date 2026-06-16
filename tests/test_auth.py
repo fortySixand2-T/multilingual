@@ -1,38 +1,48 @@
 """AC0.9 — invite-code signup + JWT login + protected route.
 
-Sets a temp DB and invite codes in the environment *before* importing the app,
-so `app.db.session` binds its engine to the throwaway database.
+Fully isolated: its own engine + overridden get_session/get_settings, so it never
+touches the global engine or a persistent DB (and is order-independent in the suite).
+The real signup/login/JWT flow (get_current_user) is exercised unchanged.
 """
 import asyncio
-import os
 import tempfile
 
-_TMP_DB = os.path.join(tempfile.mkdtemp(), "auth_test.db")
-os.environ["DATABASE_URL"] = f"sqlite+aiosqlite:///{_TMP_DB}"
-os.environ["INVITE_CODES"] = "good-code,second-code"
-os.environ["JWT_SECRET"] = "test-secret"
+from fastapi.testclient import TestClient
 
-from fastapi.testclient import TestClient  # noqa: E402
+from app.config.settings import Settings, get_settings
+from app.db.session import get_session
+from app.main import create_app
+from app.users.models import Base
 
-from app.config.settings import get_settings  # noqa: E402
+_DB = f"sqlite+aiosqlite:///{tempfile.mkdtemp()}/auth.db"
 
-get_settings.cache_clear()
+from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine  # noqa: E402
 
-from app.db.session import engine  # noqa: E402
-from app.main import create_app  # noqa: E402
-from app.users.models import Base  # noqa: E402
+_engine = create_async_engine(_DB)
+_Session = async_sessionmaker(_engine, expire_on_commit=False)
+_settings = Settings(
+    invite_codes="good-code,second-code", jwt_secret="test-secret-key-32-bytes-minimum!!", database_url=_DB
+)
 
 
 def _create_schema():
     async def go():
-        async with engine.begin() as conn:
+        async with _engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
 
     asyncio.run(go())
 
 
+async def _override_session():
+    async with _Session() as s:
+        yield s
+
+
 _create_schema()
-client = TestClient(create_app())
+app = create_app()
+app.dependency_overrides[get_session] = _override_session
+app.dependency_overrides[get_settings] = lambda: _settings
+client = TestClient(app)
 
 
 def test_signup_requires_valid_invite_code():

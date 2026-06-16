@@ -17,6 +17,7 @@ dependencies = [
     "pyjwt>=2.9",
     "boto3>=1.35",
     "fsrs>=4.0",
+    "python-multipart>=0.0.9",
 ]
 
 [build-system]

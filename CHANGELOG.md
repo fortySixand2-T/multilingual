@@ -92,3 +92,10 @@
 - [2026-06-15] Created: web/src/screens/Writing.tsx — writing task list (Section A/B)
 - [2026-06-15] Created: web/src/screens/WritingTask.tsx — editor (live word count) + CLB/rubric/corrections feedback view
 - [2026-06-15] Modified: web/src/App.tsx — writing nav link + routes
+- [2026-06-16] Created: app/ai/adapters/{faster_whisper_adapter,piper_adapter}.py — real STT/TTS adapters (lazy, vendor-confined)
+- [2026-06-16] Created: app/speech/{factory,examiner,api,tables}.py + prompts/{examiner,conversation}.md — Phase 4 speaking loop
+- [2026-06-16] Modified: app/api/deps.py — added shared get_storage; main.py builds STT/TTS into app.state
+- [2026-06-16] Created: migrations/versions/0007_speech.py — speech_turns (no raw-audio column, R10)
+- [2026-06-16] Modified: settings/.env.example/env.py/pyproject — speech backends, budget, python-multipart
+- [2026-06-16] Created: tests/test_speech.py — transcribe→examiner→TTS, R1/R2/R10, budget, history, disabled→503
+- [2026-06-16] Modified: tests/test_auth.py — isolated with own engine + overrides (fix cross-run pollution)

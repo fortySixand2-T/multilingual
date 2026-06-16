@@ -14,6 +14,8 @@ from app.comprehension.api import router as comprehension_router
 from app.config.settings import get_settings
 from app.content.api import router as content_router
 from app.progress.api import router as progress_router
+from app.speech.api import router as speech_router
+from app.speech.factory import build_stt, build_tts
 from app.srs.api import router as srs_router
 from app.storage.factory import build_storage
 from app.tutor.api import router as tutor_router
@@ -37,6 +39,8 @@ def create_app() -> FastAPI:
     app.state.registry = registry
     app.state.cache = cache
     app.state.storage = build_storage(settings)
+    app.state.stt = build_stt(settings)
+    app.state.tts = build_tts(settings)
     app.state.ai_router = AIRouter.from_yaml(registry, settings.ai_routing_path, cache=cache)
 
     app.add_exception_handler(AllProvidersFailedError, _ai_unavailable)
@@ -49,6 +53,7 @@ def create_app() -> FastAPI:
     app.include_router(tutor_router)
     app.include_router(comprehension_router)
     app.include_router(assessment_router)
+    app.include_router(speech_router)
     return app
 
 
