@@ -9,6 +9,7 @@ from app.ai.router import AIRouter
 from app.api.auth import router as auth_router
 from app.api.health import router as health_router
 from app.cache.factory import build_cache
+from app.comprehension.api import router as comprehension_router
 from app.config.settings import get_settings
 from app.content.api import router as content_router
 from app.progress.api import router as progress_router
@@ -45,6 +46,7 @@ def create_app() -> FastAPI:
     app.include_router(srs_router)
     app.include_router(progress_router)
     app.include_router(tutor_router)
+    app.include_router(comprehension_router)
     return app
 
 

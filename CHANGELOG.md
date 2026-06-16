@@ -69,3 +69,10 @@
 - [2026-06-15] Created: app/storage/factory.py — config-driven storage backend (lazy boto3); settings storage_backend/local_storage_dir
 - [2026-06-15] Created: app/progress/service.py — completed_lesson_ids(); content gating now depends on this function, not the LessonCompletion table
 - [2026-06-15] Created: tests/test_storage.py — local-FS round-trip + factory; added AI all-fail + tutor-503 tests
+- [2026-06-15] Created: app/comprehension/{models,tables,loader,sync,api}.py — Phase 2 reading/listening comprehension + audio pipeline
+- [2026-06-15] Modified: app/progress/service.py — added get_or_create_progress + record_activity (shared streak/XP path)
+- [2026-06-15] Modified: app/progress/api.py — lesson result now uses shared record_activity
+- [2026-06-15] Created: migrations/versions/0005_comprehension.py — comprehension_sets + attempts
+- [2026-06-15] Modified: app/main.py, migrations/env.py, start.sh — wire comprehension router/table/sync command
+- [2026-06-15] Created: content/a1/comprehension/{reading-cafe,listening-greet}.yaml + content/a1/audio/greet-qc.mp3 (placeholder)
+- [2026-06-15] Created: tests/test_comprehension.py — schema, sync, leak-free delivery, grading, timing, no-replay, audio pipeline

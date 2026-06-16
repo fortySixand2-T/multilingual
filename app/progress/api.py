@@ -8,7 +8,7 @@ read your own progress, and the group board.
 """
 from __future__ import annotations
 
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
@@ -18,7 +18,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.auth import get_current_user
 from app.content.tables import ContentLesson
 from app.db.session import get_session
-from app.progress.models import LessonCompletion, UserProgress, compute_streak
+from app.progress.models import LessonCompletion, UserProgress
+from app.progress.service import get_or_create_progress, record_activity
 from app.srs.service import seed_cards
 from app.users.models import User
 
@@ -29,15 +30,6 @@ XP_PER_LESSON = 10
 
 class LessonResultBody(BaseModel):
     score: float
-
-
-async def _get_or_create_progress(session: AsyncSession, user_id: int, level: str) -> UserProgress:
-    prog = await session.get(UserProgress, user_id)
-    if prog is None:
-        prog = UserProgress(user_id=user_id, level=level, xp=0, streak=0, last_active=None)
-        session.add(prog)
-        await session.flush()
-    return prog
 
 
 async def _already_completed(session: AsyncSession, user_id: int, lesson_id: str) -> bool:
@@ -62,9 +54,9 @@ async def submit_result(
 
     data = lesson.data
     passed = body.score >= float(data.get("pass_threshold", 0.8))
-    prog = await _get_or_create_progress(session, user.id, level=lesson.level)
 
     if not passed:
+        prog = await get_or_create_progress(session, user.id, lesson.level)
         await session.commit()
         return {
             "lesson_id": lesson_id,
@@ -74,7 +66,6 @@ async def submit_result(
             "xp": prog.xp,
         }
 
-    today = date.today()
     first_time = not await _already_completed(session, user.id, lesson_id)
     if first_time:
         session.add(
@@ -86,13 +77,12 @@ async def submit_result(
                 completed_at=datetime.now(timezone.utc).replace(tzinfo=None),
             )
         )
-
-    # Streak counts daily activity (once per day); XP + SRS seed only on first pass.
-    prog.streak = compute_streak(prog.streak, prog.last_active, today)
-    prog.last_active = today
-    if first_time:
-        prog.xp += XP_PER_LESSON
         await seed_cards(session, user.id, data.get("new_vocab", []))
+
+    # Shared write path: streak counts daily activity; XP only on first pass.
+    prog = await record_activity(
+        session, user.id, xp_award=(XP_PER_LESSON if first_time else 0), level=lesson.level
+    )
 
     await session.commit()
     return {

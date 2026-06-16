@@ -8,6 +8,7 @@ case "$cmd" in
   fmt)         uv run ruff format . ;;
   migrate)      uv run alembic upgrade head ;;
   content-sync) uv run python -m app.content.sync "${2:-a1}" ;;
+  comprehension-sync) uv run python -m app.comprehension.sync "${2:-a1}" ;;
   ollama-pull)  docker compose exec ollama ollama pull "${2:-llama3.1}" ;;
-  *) echo "usage: $0 {serve|test|lint|fmt|migrate|content-sync [level]|ollama-pull [model]}"; exit 1 ;;
+  *) echo "usage: $0 {serve|test|lint|fmt|migrate|content-sync [level]|comprehension-sync [level]|ollama-pull [model]}"; exit 1 ;;
 esac

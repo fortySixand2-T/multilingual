@@ -1,0 +1,20 @@
+id: read-cafe-01
+level: a1
+skill: reading
+title: "Au café"
+time_limit_seconds: 120
+pass_threshold: 0.6
+passage: |
+  Marie entre dans un café. Elle dit : « Bonjour, un café, s'il vous plaît. »
+  Le serveur répond : « Bien sûr, madame. Avec du sucre ? » Marie dit : « Non, merci. »
+questions:
+  - id: read-cafe-01.q1
+    prompt: "Où est Marie ?"
+    options: ["Dans un café", "À la maison", "Au parc"]
+    answer: "Dans un café"
+    explain: "« Marie entre dans un café » — she enters a café."
+  - id: read-cafe-01.q2
+    prompt: "Veut-elle du sucre ?"
+    options: ["Oui", "Non", "On ne sait pas"]
+    answer: "Non"
+    explain: "She answers « Non, merci » when offered sugar."

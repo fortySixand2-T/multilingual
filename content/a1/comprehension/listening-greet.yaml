@@ -1,0 +1,20 @@
+id: listen-greet-01
+level: a1
+skill: listening
+title: "Une salutation (Québec)"
+time_limit_seconds: 90
+allow_replay: false          # no-replay: exam-style listening
+accent: qc                   # Québécois accent (R6 — real recording)
+audio_ref: a1/audio/greet-qc.mp3
+pass_threshold: 0.5
+questions:
+  - id: listen-greet-01.q1
+    prompt: "What greeting is used?"
+    options: ["Bonjour", "Bonsoir", "Salut"]
+    answer: "Bonjour"
+    explain: "The speaker opens with « Bonjour »."
+  - id: listen-greet-01.q2
+    prompt: "Is the register formal or casual?"
+    options: ["Formal", "Casual"]
+    answer: "Formal"
+    explain: "« Bonjour, madame » is a formal register."
