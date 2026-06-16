@@ -193,6 +193,36 @@ export type WritingGrade = {
   feedback: WritingFeedback | null;
 };
 
+export type ExamSection = {
+  skill: "reading" | "listening" | "writing" | "speaking";
+  time_limit_seconds: number;
+  comprehension_set_id?: string | null;
+  writing_task_ids?: string[];
+  speaking_prompts?: string[];
+};
+export type ExamBlueprint = { id: string; level: string; title: string; sections: ExamSection[] };
+export type ExamBlueprintSummary = { id: string; title: string; sections: number };
+export type ClbReport = {
+  per_skill: Record<string, number>;
+  overall: number | null;
+  target_met: boolean;
+  note: string;
+};
+export type ExamSectionResult = {
+  skill: ExamSection["skill"];
+  correct?: number;
+  total?: number;
+  clb_estimate?: number;
+};
+export type ExamAttemptSummary = {
+  attempt_id: number;
+  blueprint_id: string;
+  status: string;
+  clb_report: ClbReport | null;
+  started_at: string;
+  finished_at: string | null;
+};
+
 export const api = {
   signup: (b: { email: string; password: string; invite_code: string; display_name: string }) =>
     req<TokenResponse>("/auth/signup", { method: "POST", body: JSON.stringify(b) }),
@@ -243,4 +273,19 @@ export const api = {
     }),
 
   speechHistory: () => req<{ turns: SpeechHistoryTurn[] }>("/speech/history"),
+
+  examBlueprints: (level = "a1") => req<{ blueprints: ExamBlueprintSummary[] }>(`/exam/blueprints?level=${encodeURIComponent(level)}`),
+  examStart: (blueprint_id: string) =>
+    req<{ attempt_id: number; blueprint: ExamBlueprint }>("/exam/start", {
+      method: "POST",
+      body: JSON.stringify({ blueprint_id }),
+    }),
+  examSection: (attemptId: number, body: ExamSectionResult) =>
+    req<{ skill: string; clb: number; recorded: string[] }>(`/exam/${attemptId}/section`, {
+      method: "POST",
+      body: JSON.stringify(body),
+    }),
+  examFinish: (attemptId: number) =>
+    req<{ attempt_id: number; report: ClbReport }>(`/exam/${attemptId}/finish`, { method: "POST" }),
+  examHistory: () => req<{ attempts: ExamAttemptSummary[] }>("/exam/history"),
 };

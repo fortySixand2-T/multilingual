@@ -108,3 +108,6 @@
 - [2026-06-16] Modified: app/main.py, migrations/env.py, start.sh — wire exam router/table/sync
 - [2026-06-16] Created: tests/test_exam.py — CLB mapping, blueprint schema, full mock flow, history
 - [2026-06-16] Created: app/loaders.py — shared load_keyed_yaml; comprehension/assessment/exam loaders now reuse it (DRY)
+- [2026-06-16] Modified: web/src/api.ts — exam endpoints + types
+- [2026-06-16] Created: web/src/screens/Exam.tsx — mock runner (start → record sections → CLB report) + score history; links to existing practice screens (no duplicated players)
+- [2026-06-16] Modified: web/src/App.tsx — exam nav link + route
