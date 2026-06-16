@@ -7,6 +7,7 @@ from app.ai.errors import AllProvidersFailedError
 from app.ai.registry import build_default_registry
 from app.ai.router import AIRouter
 from app.api.auth import router as auth_router
+from app.assessment.api import router as assessment_router
 from app.api.health import router as health_router
 from app.cache.factory import build_cache
 from app.comprehension.api import router as comprehension_router
@@ -47,6 +48,7 @@ def create_app() -> FastAPI:
     app.include_router(progress_router)
     app.include_router(tutor_router)
     app.include_router(comprehension_router)
+    app.include_router(assessment_router)
     return app
 
 

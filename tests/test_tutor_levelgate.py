@@ -8,7 +8,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 import app.content.tables  # noqa: F401
-import app.tutor.models  # noqa: F401
+import app.usage.models  # noqa: F401
 from app.ai.accounting import make_usage
 from app.ai.errors import AllProvidersFailedError
 from app.ai.interfaces import LLMResult

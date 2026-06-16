@@ -1,0 +1,10 @@
+id: write-b-opinion
+level: a1
+section: B
+title: "Donner son opinion"
+min_words: 150
+max_words: 250
+prompt: |
+  Certaines personnes pensent qu'il est important d'apprendre une deuxième langue.
+  Êtes-vous d'accord ? Donnez votre opinion et justifiez-la avec des exemples
+  concrets de votre expérience.

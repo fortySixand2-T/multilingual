@@ -1,0 +1,20 @@
+# Human-rated sample answers for grader calibration (R3).
+# The grader's clb_estimate should land within tolerance of expected_clb.
+- task_id: write-a-invite
+  section: A
+  task_prompt: "Répondez à une invitation à une fête : acceptez ou refusez, et posez une question."
+  expected_clb: 4
+  text: |
+    Salut ! Merci pour ton invitation. Oui, je peux venir samedi soir. Je vais
+    apporter du jus. À quelle heure commence la fête ? À samedi !
+
+- task_id: write-a-invite
+  section: A
+  task_prompt: "Répondez à une invitation à une fête : acceptez ou refusez, et posez une question."
+  expected_clb: 7
+  text: |
+    Salut ! Merci beaucoup pour ton invitation, ça me fait vraiment plaisir.
+    Malheureusement, je ne pourrai pas venir samedi car je travaille tard ce
+    soir-là. C'est dommage, j'aurais adoré être avec vous. Est-ce que tu prévois
+    d'organiser autre chose le week-end prochain ? J'aimerais beaucoup me
+    rattraper. Encore désolé, et amusez-vous bien !

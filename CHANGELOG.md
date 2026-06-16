@@ -80,3 +80,11 @@
 - [2026-06-15] Created: web/src/screens/Comprehension.tsx — reading/listening set list
 - [2026-06-15] Created: web/src/screens/ComprehensionSet.tsx — player: passage/audio (no-replay), countdown timer, MCQ, graded results
 - [2026-06-15] Modified: web/src/App.tsx — comprehension nav link + routes
+- [2026-06-15] Created: app/usage/{models,service}.py — shared per-feature daily token budget (replaces tutor-only table)
+- [2026-06-15] Created: app/api/deps.py — shared get_ai_router dependency
+- [2026-06-15] Modified: app/tutor/{orchestrator,api}.py — use shared usage + deps; Deleted: app/tutor/models.py
+- [2026-06-15] Created: app/assessment/{models,tables,loader,sync,grader,calibration,api}.py + prompts/writing_grader.md — Phase 3 writing assessment
+- [2026-06-15] Created: migrations/versions/0006_usage_assessment.py — daily_usage + writing tables (drops tutor_daily_usage)
+- [2026-06-15] Modified: app/main.py, migrations/env.py, start.sh, settings, .env.example — wire assessment + writing budget
+- [2026-06-15] Created: content/a1/writing/{section-a-invite,section-b-opinion}.yaml + calibration/samples.yaml
+- [2026-06-15] Created: tests/test_assessment.py — schema, JSON parsing, grading, API, calibration; updated tutor test import

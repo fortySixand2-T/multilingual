@@ -1,0 +1,10 @@
+id: write-a-invite
+level: a1
+section: A
+title: "Répondre à une invitation"
+min_words: 40
+max_words: 100
+prompt: |
+  Votre ami(e) vous envoie ce message : « Salut ! J'organise une fête samedi soir
+  chez moi. Tu peux venir ? Apporte quelque chose à boire ! »
+  Répondez au message : acceptez ou refusez, et posez une question.

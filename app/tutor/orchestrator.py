@@ -22,11 +22,12 @@ import anyio
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.interfaces import Msg
-from app.tutor.models import TutorDailyUsage
+from app.usage.service import add_usage, tokens_used_today
 
 _PROMPT_DIR = Path(__file__).parent / "prompts"
 _PROMPT_BY_LEVEL = {"a1": (_PROMPT_DIR / "a1_drill.md").read_text(encoding="utf-8")}
 _PROFILE_BY_LEVEL = {"a1": "drill_a1"}
+_FEATURE = "tutor_drill"
 
 OVER_BUDGET_MESSAGE = (
     "You've hit today's practice limit — come back tomorrow to keep your streak going."
@@ -42,23 +43,6 @@ class DrillResult:
     profile: str
     tokens_used_today: int
     daily_budget: int
-
-
-async def tokens_used_today(session: AsyncSession, user_id: int, day: date) -> int:
-    row = await session.get(TutorDailyUsage, (user_id, day))
-    return (row.input_tokens + row.output_tokens) if row else 0
-
-
-async def _add_usage(
-    session: AsyncSession, user_id: int, day: date, input_tokens: int, output_tokens: int
-) -> None:
-    row = await session.get(TutorDailyUsage, (user_id, day))
-    if row is None:
-        row = TutorDailyUsage(user_id=user_id, day=day, input_tokens=0, output_tokens=0)
-        session.add(row)
-        await session.flush()
-    row.input_tokens += input_tokens
-    row.output_tokens += output_tokens
 
 
 class Tutor:
@@ -105,7 +89,7 @@ class Tutor:
         today: date | None = None,
     ) -> DrillResult:
         today = today or date.today()
-        used = await tokens_used_today(session, user_id, today)
+        used = await tokens_used_today(session, user_id, _FEATURE, today)
         if used >= daily_budget:
             return DrillResult(
                 over_budget=True,
@@ -124,8 +108,8 @@ class Tutor:
             functools.partial(self._router.run, self._profile, system=system, messages=messages)
         )
         spent = result.usage.input_tokens + result.usage.output_tokens
-        await _add_usage(
-            session, user_id, today, result.usage.input_tokens, result.usage.output_tokens
+        await add_usage(
+            session, user_id, _FEATURE, result.usage.input_tokens, result.usage.output_tokens, today
         )
         return DrillResult(
             over_budget=False,

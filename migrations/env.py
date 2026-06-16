@@ -9,11 +9,12 @@ from alembic import context
 from app.users.models import Base
 
 # Import models so their tables register on Base.metadata for autogenerate.
+import app.assessment.tables  # noqa: E402,F401
 import app.comprehension.tables  # noqa: E402,F401
 import app.content.tables  # noqa: E402,F401
 import app.progress.models  # noqa: E402,F401
 import app.srs.models  # noqa: E402,F401
-import app.tutor.models  # noqa: E402,F401
+import app.usage.models  # noqa: E402,F401
 
 config = context.config
 if config.config_file_name:

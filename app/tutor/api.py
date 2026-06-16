@@ -5,12 +5,13 @@ The AI router comes from app.state via a dependency so tests can inject a fake
 """
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.router import AIRouter
 from app.api.auth import get_current_user
+from app.api.deps import get_ai_router  # re-exported for callers/tests
 from app.config.settings import Settings, get_settings
 from app.content.tables import ContentLesson
 from app.db.session import get_session
@@ -18,10 +19,6 @@ from app.tutor.orchestrator import Tutor
 from app.users.models import User
 
 router = APIRouter(prefix="/tutor", tags=["tutor"])
-
-
-def get_ai_router(request: Request) -> AIRouter:
-    return request.app.state.ai_router
 
 
 class DrillBody(BaseModel):
