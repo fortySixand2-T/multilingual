@@ -35,6 +35,17 @@ export class ApiError extends Error {
   }
 }
 
+// Audio is auth-protected, and <audio src> can't send the Bearer header —
+// so fetch the bytes with auth and hand back an object URL.
+export async function fetchAudioUrl(path: string): Promise<string> {
+  const token = getToken();
+  const res = await fetch(`${BASE}${path}`, {
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+  });
+  if (!res.ok) throw new ApiError(res.status, "audio fetch failed");
+  return URL.createObjectURL(await res.blob());
+}
+
 // --- shapes (subset of what the backend returns) ---
 export type TokenResponse = { access_token: string; token_type: string };
 export type Unit = {
@@ -75,6 +86,46 @@ export type Drill = {
   daily_budget: number;
 };
 
+export type CompSetSummary = {
+  id: string;
+  skill: "reading" | "listening";
+  title: string;
+  accent: string | null;
+  time_limit_seconds: number | null;
+  allow_replay: boolean;
+  questions: number;
+};
+export type CompQuestion = { id: string; prompt: string; options: string[] };
+export type CompSetView = {
+  id: string;
+  skill: "reading" | "listening";
+  title: string;
+  level: string;
+  time_limit_seconds: number | null;
+  allow_replay: boolean;
+  accent: string | null;
+  questions: CompQuestion[];
+  passage?: string;
+  audio_url?: string;
+};
+export type CompQResult = {
+  question_id: string;
+  correct: boolean;
+  your_answer: string | null;
+  correct_answer: string;
+  explain: string;
+};
+export type CompResult = {
+  set_id: string;
+  score: number;
+  correct: number;
+  total: number;
+  passed: boolean;
+  first_pass: boolean;
+  over_time: boolean;
+  results: CompQResult[];
+};
+
 export const api = {
   signup: (b: { email: string; password: string; invite_code: string; display_name: string }) =>
     req<TokenResponse>("/auth/signup", { method: "POST", body: JSON.stringify(b) }),
@@ -101,4 +152,15 @@ export const api = {
 
   drill: (lesson_id: string, attempt?: string) =>
     req<Drill>("/tutor/drill", { method: "POST", body: JSON.stringify({ lesson_id, attempt }) }),
+
+  comprehensionSets: (level = "a1", skill?: "reading" | "listening") =>
+    req<{ sets: CompSetSummary[] }>(
+      `/comprehension/sets?level=${encodeURIComponent(level)}${skill ? `&skill=${skill}` : ""}`
+    ),
+  comprehensionSet: (id: string) => req<CompSetView>(`/comprehension/sets/${encodeURIComponent(id)}`),
+  submitComprehension: (id: string, answers: Record<string, string>, elapsed_seconds: number) =>
+    req<CompResult>(`/comprehension/sets/${encodeURIComponent(id)}/submit`, {
+      method: "POST",
+      body: JSON.stringify({ answers, elapsed_seconds }),
+    }),
 };

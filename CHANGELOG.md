@@ -76,3 +76,7 @@
 - [2026-06-15] Modified: app/main.py, migrations/env.py, start.sh — wire comprehension router/table/sync command
 - [2026-06-15] Created: content/a1/comprehension/{reading-cafe,listening-greet}.yaml + content/a1/audio/greet-qc.mp3 (placeholder)
 - [2026-06-15] Created: tests/test_comprehension.py — schema, sync, leak-free delivery, grading, timing, no-replay, audio pipeline
+- [2026-06-15] Modified: web/src/api.ts — comprehension endpoints + authed audio-blob fetch
+- [2026-06-15] Created: web/src/screens/Comprehension.tsx — reading/listening set list
+- [2026-06-15] Created: web/src/screens/ComprehensionSet.tsx — player: passage/audio (no-replay), countdown timer, MCQ, graded results
+- [2026-06-15] Modified: web/src/App.tsx — comprehension nav link + routes
