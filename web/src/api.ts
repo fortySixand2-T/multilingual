@@ -46,6 +46,46 @@ export async function fetchAudioUrl(path: string): Promise<string> {
   return URL.createObjectURL(await res.blob());
 }
 
+export type SpeechTurnResult = {
+  turn_id?: number;
+  over_budget: boolean;
+  transcript: string;
+  reply_text?: string;
+  reply_audio_url?: string | null;
+  provider?: string;
+  model?: string;
+};
+export type SpeechHistoryTurn = {
+  turn_id: number;
+  mode: string;
+  transcript: string;
+  reply_text: string;
+  reply_audio_url: string | null;
+};
+
+// Multipart upload of recorded audio (FormData — don't set Content-Type by hand).
+export async function postSpeechTurn(audio: Blob, mode: string): Promise<SpeechTurnResult> {
+  const token = getToken();
+  const form = new FormData();
+  form.append("audio", audio, "turn.webm");
+  form.append("mode", mode);
+  const res = await fetch(`${BASE}/speech/turn`, {
+    method: "POST",
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    body: form,
+  });
+  if (!res.ok) {
+    let detail = res.statusText;
+    try {
+      detail = (await res.json()).detail ?? detail;
+    } catch {
+      /* non-JSON */
+    }
+    throw new ApiError(res.status, typeof detail === "string" ? detail : "speech failed");
+  }
+  return res.json();
+}
+
 // --- shapes (subset of what the backend returns) ---
 export type TokenResponse = { access_token: string; token_type: string };
 export type Unit = {
@@ -201,4 +241,6 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ text }),
     }),
+
+  speechHistory: () => req<{ turns: SpeechHistoryTurn[] }>("/speech/history"),
 };

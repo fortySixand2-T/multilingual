@@ -10,6 +10,7 @@ import Comprehension from "./screens/Comprehension";
 import ComprehensionSet from "./screens/ComprehensionSet";
 import Writing from "./screens/Writing";
 import WritingTask from "./screens/WritingTask";
+import Speaking from "./screens/Speaking";
 
 export default function App() {
   const { authed, logout } = useAuth();
@@ -27,6 +28,7 @@ export default function App() {
           <NavLink to="/review">Review</NavLink>
           <NavLink to="/comprehension">Read &amp; Listen</NavLink>
           <NavLink to="/writing">Write</NavLink>
+          <NavLink to="/speaking">Speak</NavLink>
           <NavLink to="/drill">Drill</NavLink>
           <NavLink to="/board">Group</NavLink>
         </nav>
@@ -42,6 +44,7 @@ export default function App() {
           <Route path="/comprehension/:id" element={<ComprehensionSet />} />
           <Route path="/writing" element={<Writing />} />
           <Route path="/writing/:id" element={<WritingTask />} />
+          <Route path="/speaking" element={<Speaking />} />
           <Route path="/drill" element={<Drill />} />
           <Route path="/board" element={<GroupBoard />} />
           <Route path="*" element={<Navigate to="/" replace />} />

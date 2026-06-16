@@ -99,3 +99,6 @@
 - [2026-06-16] Modified: settings/.env.example/env.py/pyproject — speech backends, budget, python-multipart
 - [2026-06-16] Created: tests/test_speech.py — transcribe→examiner→TTS, R1/R2/R10, budget, history, disabled→503
 - [2026-06-16] Modified: tests/test_auth.py — isolated with own engine + overrides (fix cross-run pollution)
+- [2026-06-16] Modified: web/src/api.ts — speech multipart upload + history
+- [2026-06-16] Created: web/src/screens/Speaking.tsx — mic record → transcript + examiner reply + TTS playback
+- [2026-06-16] Modified: web/src/App.tsx — speaking nav link + route
