@@ -1,0 +1,11 @@
+- id: cafe
+  fr: café
+  en: coffee
+  pos: noun
+  tags: [drink]
+
+- id: eau
+  fr: eau
+  en: water
+  pos: noun
+  tags: [drink]

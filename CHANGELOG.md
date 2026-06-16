@@ -1,0 +1,40 @@
+# Changelog
+
+- [2026-06-15] Moved: extracted Phase 0 scaffold (tef-platform/*) into project root
+- [2026-06-15] Created: app/cache/interface.py — `Cache` protocol (application data-cache abstraction)
+- [2026-06-15] Created: app/cache/memory.py — in-process TTL + LRU cache backend
+- [2026-06-15] Created: app/cache/factory.py — config-driven cache backend selection
+- [2026-06-15] Modified: app/config/settings.py — added cache + invite-code settings
+- [2026-06-15] Modified: app/ai/router.py — opt-in per-profile response caching (cache hit skips provider call)
+- [2026-06-15] Modified: app/config/ai_routing.yaml — grammar_explain opts into caching
+- [2026-06-15] Modified: app/main.py — build cache, wire into router, include auth router
+- [2026-06-15] Modified: app/api/health.py — report active cache backend
+- [2026-06-15] Modified: app/users/models.py — added password_hash column
+- [2026-06-15] Modified: app/users/auth.py — added PBKDF2 password hash/verify helpers
+- [2026-06-15] Created: app/api/auth.py — invite-code signup + JWT login + protected-route dependency (AC0.9)
+- [2026-06-15] Created: migrations/versions/0001_init.py — initial users-table migration (AC0.7)
+- [2026-06-15] Modified: pyproject.toml — added hatchling build-system so `uv sync` installs the project
+- [2026-06-15] Modified: .env.example — documented invite-code + cache settings
+- [2026-06-15] Created: tests/test_cache.py — cache backend unit tests
+- [2026-06-15] Created: tests/test_router_cache.py — router response-cache tests
+- [2026-06-15] Created: tests/test_auth.py — signup/login/protected-route integration tests
+- [2026-06-15] Modified: PHASE0_STATUS.md — marked AC0.7 and AC0.9 verified; documented cache layer
+- [2026-06-15] Created: app/content/models.py — Phase 1 lesson-path schema (path/unit/lesson/vocab + exercise union)
+- [2026-06-15] Created: app/content/loader.py — file loader + cross-file referential-integrity validation
+- [2026-06-15] Created: content/a1/path.yaml — example A1 unit path with gating
+- [2026-06-15] Created: content/a1/lessons/greetings-01.yaml, cafe-01.yaml — example lessons (mcq/word_bank/listen_type/match_pairs/translate)
+- [2026-06-15] Created: content/a1/vocab/greetings.yaml, cafe.yaml — example vocab
+- [2026-06-15] Created: tests/test_content_loader.py — loader + schema validation tests
+- [2026-06-15] Created: app/content/tables.py — SQLAlchemy content tables (units/lessons/vocab) on shared Base
+- [2026-06-15] Created: app/content/sync.py — delete-and-replace DB sync + `content-sync` CLI entrypoint
+- [2026-06-15] Created: app/content/api.py — GET /content/path (derived gating) + GET /content/lessons/{id}
+- [2026-06-15] Created: migrations/versions/0002_content.py — content tables migration
+- [2026-06-15] Modified: app/db/session.py — added shared get_session FastAPI dependency
+- [2026-06-15] Modified: app/api/auth.py — use shared get_session from db.session
+- [2026-06-15] Modified: app/main.py — include content router
+- [2026-06-15] Modified: migrations/env.py — register content tables on Base.metadata
+- [2026-06-15] Modified: start.sh — added content-sync subcommand
+- [2026-06-15] Created: tests/test_content_sync.py — DB sync + content API + gating tests
+- [2026-06-15] Modified: .gitignore — ignore files.zip, .claude/settings.local.json, .DS_Store; keep data/ via .gitkeep
+- [2026-06-15] Created: data/.gitkeep — track the data dir while ignoring the SQLite file
+- [2026-06-15] Chore: initialized git repository and made the initial commit

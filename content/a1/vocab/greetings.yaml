@@ -1,0 +1,18 @@
+- id: bonjour
+  fr: bonjour
+  en: "hello (formal)"
+  audio: a1/audio/bonjour.mp3
+  pos: interjection
+  tags: [greeting]
+
+- id: salut
+  fr: salut
+  en: "hi (casual)"
+  pos: interjection
+  tags: [greeting]
+
+- id: bonsoir
+  fr: bonsoir
+  en: "good evening"
+  pos: interjection
+  tags: [greeting]

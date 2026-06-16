@@ -1,0 +1,30 @@
+id: greetings-01
+title: "Saying hello"
+grammar_point: "formal vs informal greeting"
+est_minutes: 4
+new_vocab: [bonjour, salut, bonsoir]
+pass_threshold: 0.8
+exercises:
+  - id: greetings-01.e1
+    type: mcq
+    prompt: "Which is a *formal* greeting?"
+    options: [salut, bonjour, coucou]
+    answer: bonjour
+    explain: "‘bonjour’ is neutral/formal; ‘salut’ is casual."
+
+  - id: greetings-01.e2
+    type: word_bank
+    prompt: "Build: “Good evening, sir.”"
+    tokens: [Bonsoir, monsieur, Bonjour, madame]
+    answer: [Bonsoir, monsieur]
+
+  - id: greetings-01.e3
+    type: listen_type
+    audio_ref: a1/audio/bonjour-qc.mp3
+    answer: bonjour
+
+  - id: greetings-01.e4
+    type: match_pairs
+    pairs:
+      - [bonjour, hello]
+      - [salut, hi]

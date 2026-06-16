@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+data/*
+!data/.gitkeep
+*.db
+.ruff_cache/
+.pytest_cache/
+
+# Local tooling / artifacts
+.claude/settings.local.json
+*.zip
+.DS_Store

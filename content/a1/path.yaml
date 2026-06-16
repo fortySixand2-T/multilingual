@@ -1,0 +1,14 @@
+level: a1
+title: "A1 — Beginner"
+units:
+  - id: a1.u1
+    title: "First contact"
+    icon: wave
+    lessons: [greetings-01]
+    unlock: { type: none }
+
+  - id: a1.u2
+    title: "Café & numbers"
+    icon: coffee
+    lessons: [cafe-01]
+    unlock: { type: all_of, requires: [a1.u1] }

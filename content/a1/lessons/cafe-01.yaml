@@ -1,0 +1,18 @@
+id: cafe-01
+title: "At the café"
+grammar_point: "indefinite article un/une"
+est_minutes: 5
+new_vocab: [cafe, eau]
+exercises:
+  - id: cafe-01.e1
+    type: mcq
+    prompt: "“a coffee” = ?"
+    options: ["un café", "une café", "un eau"]
+    answer: "un café"
+    explain: "café is masculine → un café."
+
+  - id: cafe-01.e2
+    type: translate
+    prompt: "Translate: “a water”"
+    answer: "une eau"
+    accept: ["de l'eau"]
