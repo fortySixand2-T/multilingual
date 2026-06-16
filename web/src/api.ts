@@ -126,6 +126,33 @@ export type CompResult = {
   results: CompQResult[];
 };
 
+export type WritingTaskSummary = {
+  id: string;
+  section: "A" | "B";
+  title: string;
+  prompt: string;
+  min_words: number;
+  max_words: number | null;
+};
+export type CriterionScore = { name: string; score: number; comment: string };
+export type InlineCorrection = { excerpt: string; correction: string; explanation: string; reference: string };
+export type WritingFeedback = {
+  clb_estimate: number;
+  criteria: CriterionScore[];
+  corrections: InlineCorrection[];
+  overall: string;
+};
+export type WritingGrade = {
+  task_id: string;
+  over_budget: boolean;
+  word_count: number;
+  meets_min_words?: boolean;
+  submission_id?: number;
+  provider?: string;
+  model?: string;
+  feedback: WritingFeedback | null;
+};
+
 export const api = {
   signup: (b: { email: string; password: string; invite_code: string; display_name: string }) =>
     req<TokenResponse>("/auth/signup", { method: "POST", body: JSON.stringify(b) }),
@@ -162,5 +189,16 @@ export const api = {
     req<CompResult>(`/comprehension/sets/${encodeURIComponent(id)}/submit`, {
       method: "POST",
       body: JSON.stringify({ answers, elapsed_seconds }),
+    }),
+
+  writingTasks: (level = "a1", section?: "A" | "B") =>
+    req<{ tasks: WritingTaskSummary[] }>(
+      `/assessment/tasks?level=${encodeURIComponent(level)}${section ? `&section=${section}` : ""}`
+    ),
+  writingTask: (id: string) => req<WritingTaskSummary & { level: string }>(`/assessment/tasks/${encodeURIComponent(id)}`),
+  submitWriting: (id: string, text: string) =>
+    req<WritingGrade>(`/assessment/tasks/${encodeURIComponent(id)}/submit`, {
+      method: "POST",
+      body: JSON.stringify({ text }),
     }),
 };

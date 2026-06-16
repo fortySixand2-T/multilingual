@@ -88,3 +88,7 @@
 - [2026-06-15] Modified: app/main.py, migrations/env.py, start.sh, settings, .env.example — wire assessment + writing budget
 - [2026-06-15] Created: content/a1/writing/{section-a-invite,section-b-opinion}.yaml + calibration/samples.yaml
 - [2026-06-15] Created: tests/test_assessment.py — schema, JSON parsing, grading, API, calibration; updated tutor test import
+- [2026-06-15] Modified: web/src/api.ts — assessment endpoints + writing feedback types
+- [2026-06-15] Created: web/src/screens/Writing.tsx — writing task list (Section A/B)
+- [2026-06-15] Created: web/src/screens/WritingTask.tsx — editor (live word count) + CLB/rubric/corrections feedback view
+- [2026-06-15] Modified: web/src/App.tsx — writing nav link + routes
