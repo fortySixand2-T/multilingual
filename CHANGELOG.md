@@ -58,3 +58,8 @@
 - [2026-06-15] Modified: app/config/settings.py, .env.example — tutor_daily_token_budget
 - [2026-06-15] Modified: app/main.py, migrations/env.py — wire tutor router + table
 - [2026-06-15] Created: tests/test_tutor_levelgate.py — level gate, drill_a1 routing, budget enforcement
+- [2026-06-15] Created: web/ — Vite+React+TS SPA scaffold (package.json, tsconfig, vite.config, index.html)
+- [2026-06-15] Created: web/src/api.ts, auth.tsx — typed backend client + JWT auth context
+- [2026-06-15] Created: web/src/App.tsx, main.tsx, styles.css — app shell, router, Duolingo-style theme
+- [2026-06-15] Created: web/src/screens/{Login,Path,Lesson,Review,Drill,GroupBoard}.tsx — Phase 1 screens
+- [2026-06-15] Created: web/README.md — frontend run instructions
