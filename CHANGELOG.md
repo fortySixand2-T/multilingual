@@ -38,3 +38,15 @@
 - [2026-06-15] Modified: .gitignore — ignore files.zip, .claude/settings.local.json, .DS_Store; keep data/ via .gitkeep
 - [2026-06-15] Created: data/.gitkeep — track the data dir while ignoring the SQLite file
 - [2026-06-15] Chore: initialized git repository and made the initial commit
+- [2026-06-15] Created: app/srs/fsrs.py — FSRS engine wrapper (only module importing the fsrs lib)
+- [2026-06-15] Created: app/srs/models.py — srs_cards table
+- [2026-06-15] Created: app/srs/service.py — seed/queue/review persistence
+- [2026-06-15] Created: app/srs/api.py — GET /srs/queue, POST /srs/review
+- [2026-06-15] Created: app/progress/models.py — progress_user + lesson_completions tables; compute_streak
+- [2026-06-15] Created: app/progress/api.py — lesson result hub (gating+streak+XP+SRS seed), /progress/me, /progress/board
+- [2026-06-15] Modified: app/content/api.py — gating now reads real completions from progress
+- [2026-06-15] Modified: app/main.py — include srs + progress routers
+- [2026-06-15] Modified: migrations/env.py — register srs + progress tables
+- [2026-06-15] Created: migrations/versions/0003_srs_progress.py — srs + progress tables migration
+- [2026-06-15] Modified: pyproject.toml — added fsrs dependency
+- [2026-06-15] Created: tests/test_srs.py, tests/test_progress.py — SRS scheduling + full completion-chain tests

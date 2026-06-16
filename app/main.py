@@ -9,6 +9,8 @@ from app.api.health import router as health_router
 from app.cache.factory import build_cache
 from app.config.settings import get_settings
 from app.content.api import router as content_router
+from app.progress.api import router as progress_router
+from app.srs.api import router as srs_router
 
 
 def create_app() -> FastAPI:
@@ -25,6 +27,8 @@ def create_app() -> FastAPI:
     app.include_router(health_router)
     app.include_router(auth_router)
     app.include_router(content_router)
+    app.include_router(srs_router)
+    app.include_router(progress_router)
     return app
 
 

@@ -18,6 +18,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.auth import get_current_user
 from app.content.tables import ContentLesson, ContentUnit
 from app.db.session import get_session
+from app.progress.models import LessonCompletion
 from app.users.models import User
 
 router = APIRouter(prefix="/content", tags=["content"])
@@ -50,8 +51,10 @@ def compute_unit_status(
 
 
 async def _completed_lesson_ids(session: AsyncSession, user_id: int) -> set[str]:
-    # TODO(progress): read completed lessons for this user from the progress module.
-    return set()
+    rows = await session.execute(
+        select(LessonCompletion.lesson_id).where(LessonCompletion.user_id == user_id)
+    )
+    return set(rows.scalars())
 
 
 @router.get("/path")

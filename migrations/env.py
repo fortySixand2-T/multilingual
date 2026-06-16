@@ -10,6 +10,8 @@ from app.users.models import Base
 
 # Import models so their tables register on Base.metadata for autogenerate.
 import app.content.tables  # noqa: E402,F401
+import app.progress.models  # noqa: E402,F401
+import app.srs.models  # noqa: E402,F401
 
 config = context.config
 if config.config_file_name:

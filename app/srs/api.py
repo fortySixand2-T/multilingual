@@ -1,0 +1,62 @@
+"""Review-queue API: fetch due cards, submit a review."""
+from __future__ import annotations
+
+from typing import Literal
+
+from fastapi import APIRouter, Depends, HTTPException, status
+from pydantic import BaseModel
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.api.auth import get_current_user
+from app.content.tables import ContentVocab
+from app.db.session import get_session
+from app.srs.fsrs import RATINGS
+from app.srs.service import due_cards, review_card
+from app.users.models import User
+
+router = APIRouter(prefix="/srs", tags=["srs"])
+
+
+class ReviewBody(BaseModel):
+    card_key: str
+    rating: Literal["again", "hard", "good", "easy"]
+
+
+@router.get("/queue")
+async def get_queue(
+    limit: int = 20,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    cards = await due_cards(session, user.id, limit=limit)
+    vocab: dict[str, dict] = {}
+    keys = [c.card_key for c in cards]
+    if keys:
+        rows = (
+            await session.execute(select(ContentVocab).where(ContentVocab.id.in_(keys)))
+        ).scalars().all()
+        vocab = {r.id: r.data for r in rows}
+    return {
+        "due": [
+            {"card_key": c.card_key, "due": c.due.isoformat(), "vocab": vocab.get(c.card_key)}
+            for c in cards
+        ]
+    }
+
+
+@router.post("/review")
+async def post_review(
+    body: ReviewBody,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    new_due = await review_card(session, user.id, body.card_key, body.rating)
+    if new_due is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"no card {body.card_key!r} for user")
+    await session.commit()
+    return {"card_key": body.card_key, "rating": body.rating, "due": new_due.isoformat()}
+
+
+# Exposed so callers/tests can introspect valid ratings without importing the engine.
+VALID_RATINGS = RATINGS
