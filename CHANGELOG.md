@@ -50,3 +50,11 @@
 - [2026-06-15] Created: migrations/versions/0003_srs_progress.py — srs + progress tables migration
 - [2026-06-15] Modified: pyproject.toml — added fsrs dependency
 - [2026-06-15] Created: tests/test_srs.py, tests/test_progress.py — SRS scheduling + full completion-chain tests
+- [2026-06-15] Created: app/tutor/prompts/a1_drill.md — A1 scaffolded-drill system prompt (the level gate)
+- [2026-06-15] Created: app/tutor/orchestrator.py — level-gated Tutor; drill_a1 routing; daily token budget
+- [2026-06-15] Created: app/tutor/models.py — tutor_daily_usage table
+- [2026-06-15] Created: app/tutor/api.py — POST /tutor/drill (graceful over-budget)
+- [2026-06-15] Created: migrations/versions/0004_tutor.py — tutor_daily_usage migration
+- [2026-06-15] Modified: app/config/settings.py, .env.example — tutor_daily_token_budget
+- [2026-06-15] Modified: app/main.py, migrations/env.py — wire tutor router + table
+- [2026-06-15] Created: tests/test_tutor_levelgate.py — level gate, drill_a1 routing, budget enforcement

@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     # Invite-code signup (closed group). Comma-separated allowed codes.
     invite_codes: str = ""
 
+    # Per-user daily token budget for the tutor (AC1.5; cost guard, R7).
+    tutor_daily_token_budget: int = 50000
+
     # Application data cache (in-process now; swap path to Redis later).
     cache_backend: str = "memory"
     cache_ttl_seconds: int = 300
