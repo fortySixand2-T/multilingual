@@ -7,10 +7,10 @@ Create Date: 2026-06-15
 Replaces the tutor-specific usage table with a shared per-feature daily ledger,
 and adds Phase 3 writing tasks + submissions.
 """
+
 from __future__ import annotations
 
 import sqlalchemy as sa
-
 from alembic import op
 
 revision = "0006_usage_assessment"

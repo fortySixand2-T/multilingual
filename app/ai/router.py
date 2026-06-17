@@ -8,14 +8,15 @@ is keyed on the full request (profile, system, messages, model, params), so any
 change in input is a cache miss. Leave `cache` off for anything that should vary
 per call.
 """
+
 from __future__ import annotations
 
 import hashlib
 import json
 from dataclasses import dataclass, replace
+from pathlib import Path
 
 import yaml
-from pathlib import Path
 
 from app.ai.errors import AllProvidersFailedError
 from app.ai.interfaces import LLMResult, Msg, Usage
@@ -37,11 +38,9 @@ class AIRouter:
         self._cache = cache
 
     @classmethod
-    def from_yaml(cls, registry, path: str, cache=None) -> "AIRouter":
+    def from_yaml(cls, registry, path: str, cache=None) -> AIRouter:
         raw = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
-        profiles = {
-            name: ProfileConfig(**cfg) for name, cfg in (raw.get("profiles") or {}).items()
-        }
+        profiles = {name: ProfileConfig(**cfg) for name, cfg in (raw.get("profiles") or {}).items()}
         return cls(registry, profiles, cache=cache)
 
     def profiles(self) -> list[str]:

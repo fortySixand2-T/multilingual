@@ -1,6 +1,7 @@
 """AC1.6 — progress (streak/XP/board) and the full completion chain:
 lesson result → completion recorded → content gating unlocks → SRS seeded.
 """
+
 import asyncio
 import tempfile
 from datetime import date, timedelta
@@ -59,15 +60,17 @@ client = TestClient(app)
 
 # --- pure streak logic --------------------------------------------------------
 
+
 def test_compute_streak():
     today = date(2026, 6, 15)
-    assert compute_streak(0, None, today) == 1                       # first ever
-    assert compute_streak(3, today, today) == 3                      # same day, no change
+    assert compute_streak(0, None, today) == 1  # first ever
+    assert compute_streak(3, today, today) == 3  # same day, no change
     assert compute_streak(3, today - timedelta(days=1), today) == 4  # consecutive day
     assert compute_streak(9, today - timedelta(days=2), today) == 1  # gap resets
 
 
 # --- full chain over HTTP -----------------------------------------------------
+
 
 def test_failing_score_does_not_complete():
     r = client.post("/progress/lessons/greetings-01/result", json={"score": 0.5})
@@ -113,4 +116,6 @@ def test_recompletion_same_day_is_idempotent():
 def test_review_endpoint_reschedules_a_card():
     r = client.post("/srs/review", json={"card_key": "bonjour", "rating": "good"})
     assert r.status_code == 200 and r.json()["card_key"] == "bonjour"
-    assert client.post("/srs/review", json={"card_key": "ghost", "rating": "good"}).status_code == 404
+    assert (
+        client.post("/srs/review", json={"card_key": "ghost", "rating": "good"}).status_code == 404
+    )

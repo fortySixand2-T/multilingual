@@ -5,9 +5,10 @@ grader on submit (so a timed set can't be cheated from the payload). Audio is
 served through the storage interface, so the backend is identical for local-FS
 dev and S3/MinIO in prod.
 """
+
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import anyio
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
@@ -32,7 +33,7 @@ def get_storage(request: Request) -> ObjectStorage:
 
 
 class SubmitBody(BaseModel):
-    answers: dict[str, str]            # question_id -> chosen option
+    answers: dict[str, str]  # question_id -> chosen option
     elapsed_seconds: int | None = None
 
 
@@ -131,7 +132,9 @@ async def submit(
     score = correct / total if total else 0.0
     passed = score >= float(data.get("pass_threshold", 0.6))
     limit = data.get("time_limit_seconds")
-    over_time = limit is not None and body.elapsed_seconds is not None and body.elapsed_seconds > limit
+    over_time = (
+        limit is not None and body.elapsed_seconds is not None and body.elapsed_seconds > limit
+    )
 
     prior_pass = (
         await session.execute(
@@ -149,7 +152,7 @@ async def submit(
             set_id=set_id,
             score=score,
             elapsed_seconds=body.elapsed_seconds,
-            created_at=datetime.now(timezone.utc).replace(tzinfo=None),
+            created_at=datetime.now(UTC).replace(tzinfo=None),
         )
     )
 

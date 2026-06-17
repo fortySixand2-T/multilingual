@@ -1,4 +1,5 @@
 """AC1.3/1.4/1.5 — tutor level gate, drill_a1 routing, and daily budget."""
+
 import asyncio
 import tempfile
 from datetime import date
@@ -59,12 +60,13 @@ class FakeRouter:
 
 # --- the level gate (no LLM, no DB) -------------------------------------------
 
+
 def test_a1_prompt_forbids_open_conversation_and_free_form():
     p = Tutor(FakeRouter()).system_prompt.lower()
-    assert "model" in p and "sentence" in p          # scaffolds with a model sentence
-    assert "one" in p or "single" in p               # one small manipulation
+    assert "model" in p and "sentence" in p  # scaffolds with a model sentence
+    assert "one" in p or "single" in p  # one small manipulation
     assert "not a conversation" in p or ("do not" in p and "conversation" in p)
-    assert "free-form" in p or "free form" in p      # explicitly bans free production
+    assert "free-form" in p or "free form" in p  # explicitly bans free production
 
 
 def test_build_messages_requests_a_single_scaffolded_drill():
@@ -89,6 +91,7 @@ def test_unsupported_level_rejected():
 
 # --- routing + budget (DB) ----------------------------------------------------
 
+
 def test_drill_routes_through_drill_a1_profile():
     fake = FakeRouter()
 
@@ -101,10 +104,10 @@ def test_drill_routes_through_drill_a1_profile():
             return res
 
     res = _run(go())
-    assert fake.calls[0]["profile"] == "drill_a1"     # AC1.4
+    assert fake.calls[0]["profile"] == "drill_a1"  # AC1.4
     assert res.profile == "drill_a1"
     assert res.over_budget is False
-    assert res.tokens_used_today == 160               # 120 + 40 recorded
+    assert res.tokens_used_today == 160  # 120 + 40 recorded
 
 
 def test_daily_budget_blocks_next_call_gracefully():
@@ -125,13 +128,14 @@ def test_daily_budget_blocks_next_call_gracefully():
         return first, second
 
     first, second = _run(go())
-    assert first.over_budget is False                 # 160 tokens spent (> budget 100)
-    assert second.over_budget is True                 # next call blocked
+    assert first.over_budget is False  # 160 tokens spent (> budget 100)
+    assert second.over_budget is True  # next call blocked
     assert second.text == OVER_BUDGET_MESSAGE
-    assert len(fake.calls) == 1                        # no provider call when over budget
+    assert len(fake.calls) == 1  # no provider call when over budget
 
 
 # --- HTTP endpoint with injected fake router ----------------------------------
+
 
 def _make_client(fake):
     async def _override_session():

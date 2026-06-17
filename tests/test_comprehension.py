@@ -1,4 +1,5 @@
 """Phase 2 — comprehension delivery, grading, and the audio pipeline."""
+
 import asyncio
 import tempfile
 from pathlib import Path
@@ -80,6 +81,7 @@ client = TestClient(app)
 
 # --- schema / loader (no DB) --------------------------------------------------
 
+
 def test_loads_example_sets():
     sets = load_sets(CONTENT_ROOT, "a1")
     assert set(sets) == {"read-cafe-01", "listen-greet-01"}
@@ -91,20 +93,34 @@ def test_loads_example_sets():
 
 def test_reading_without_passage_rejected():
     with pytest.raises(ValidationError):
-        ComprehensionSet(id="x", level="a1", skill="reading", title="t",
-                         questions=[{"id": "q", "prompt": "p", "options": ["a"], "answer": "a"}])
+        ComprehensionSet(
+            id="x",
+            level="a1",
+            skill="reading",
+            title="t",
+            questions=[{"id": "q", "prompt": "p", "options": ["a"], "answer": "a"}],
+        )
 
 
 def test_question_answer_must_be_in_options():
     with pytest.raises(ValidationError):
-        ComprehensionSet(id="x", level="a1", skill="reading", title="t", passage="p",
-                         questions=[{"id": "q", "prompt": "p", "options": ["a"], "answer": "z"}])
+        ComprehensionSet(
+            id="x",
+            level="a1",
+            skill="reading",
+            title="t",
+            passage="p",
+            questions=[{"id": "q", "prompt": "p", "options": ["a"], "answer": "z"}],
+        )
 
 
 # --- delivery (no answers leaked) ---------------------------------------------
 
+
 def test_list_sets_filters_by_skill():
-    listening = client.get("/comprehension/sets", params={"level": "a1", "skill": "listening"}).json()["sets"]
+    listening = client.get(
+        "/comprehension/sets", params={"level": "a1", "skill": "listening"}
+    ).json()["sets"]
     assert [s["id"] for s in listening] == ["listen-greet-01"]
     assert listening[0]["allow_replay"] is False
     all_sets = client.get("/comprehension/sets", params={"level": "a1"}).json()["sets"]
@@ -128,11 +144,15 @@ def test_listening_set_exposes_audio_url_not_ref():
 
 # --- grading ------------------------------------------------------------------
 
+
 def test_submit_grades_and_reveals_explanations():
-    r = client.post("/comprehension/sets/read-cafe-01/submit", json={
-        "answers": {"read-cafe-01.q1": "Dans un café", "read-cafe-01.q2": "Non"},
-        "elapsed_seconds": 40,
-    })
+    r = client.post(
+        "/comprehension/sets/read-cafe-01/submit",
+        json={
+            "answers": {"read-cafe-01.q1": "Dans un café", "read-cafe-01.q2": "Non"},
+            "elapsed_seconds": 40,
+        },
+    )
     body = r.json()
     assert body["score"] == 1.0 and body["passed"] and body["correct"] == 2
     assert body["over_time"] is False
@@ -142,23 +162,30 @@ def test_submit_grades_and_reveals_explanations():
 
 
 def test_second_pass_is_not_first_pass():
-    r = client.post("/comprehension/sets/read-cafe-01/submit", json={
-        "answers": {"read-cafe-01.q1": "Dans un café", "read-cafe-01.q2": "Non"},
-    })
+    r = client.post(
+        "/comprehension/sets/read-cafe-01/submit",
+        json={
+            "answers": {"read-cafe-01.q1": "Dans un café", "read-cafe-01.q2": "Non"},
+        },
+    )
     assert r.json()["first_pass"] is False  # no double XP
 
 
 def test_partial_and_over_time():
-    r = client.post("/comprehension/sets/read-cafe-01/submit", json={
-        "answers": {"read-cafe-01.q1": "Au parc", "read-cafe-01.q2": "Non"},
-        "elapsed_seconds": 999,
-    })
+    r = client.post(
+        "/comprehension/sets/read-cafe-01/submit",
+        json={
+            "answers": {"read-cafe-01.q1": "Au parc", "read-cafe-01.q2": "Non"},
+            "elapsed_seconds": 999,
+        },
+    )
     body = r.json()
     assert body["correct"] == 1 and body["score"] == 0.5
     assert body["over_time"] is True
 
 
 # --- audio pipeline -----------------------------------------------------------
+
 
 def test_audio_streams_from_storage():
     r = client.get("/comprehension/audio/listen-greet-01")

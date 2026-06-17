@@ -17,7 +17,9 @@ _PBKDF2_ITERATIONS = 200_000
 
 def create_token(*, subject: str, secret: str, ttl_seconds: int = 7 * 24 * 3600) -> str:
     now = int(time.time())
-    return jwt.encode({"sub": subject, "iat": now, "exp": now + ttl_seconds}, secret, algorithm=ALGO)
+    return jwt.encode(
+        {"sub": subject, "iat": now, "exp": now + ttl_seconds}, secret, algorithm=ALGO
+    )
 
 
 def verify_token(token: str, secret: str) -> dict:

@@ -8,10 +8,10 @@ Phase 1 learner-state tables: SRS review cards and progress (per-user streak/XP 
 lesson completions). Keyed by user_id/lesson_id/vocab-id strings, no FK into
 content — content re-syncs never touch learner state.
 """
+
 from __future__ import annotations
 
 import sqlalchemy as sa
-
 from alembic import op
 
 revision = "0003_srs_progress"
@@ -52,12 +52,8 @@ def upgrade() -> None:
         sa.Column("completed_at", sa.DateTime(), nullable=False),
         sa.UniqueConstraint("user_id", "lesson_id", name="uq_completion_user_lesson"),
     )
-    op.create_index(
-        "ix_completions_user_id", "progress_lesson_completions", ["user_id"]
-    )
-    op.create_index(
-        "ix_completions_lesson_id", "progress_lesson_completions", ["lesson_id"]
-    )
+    op.create_index("ix_completions_user_id", "progress_lesson_completions", ["user_id"])
+    op.create_index("ix_completions_lesson_id", "progress_lesson_completions", ["lesson_id"])
 
 
 def downgrade() -> None:

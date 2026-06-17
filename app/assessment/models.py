@@ -6,6 +6,7 @@ criterion scores, inline corrections that cite a grammar reference (R4), and a C
 estimate (clamped to a valid band). Parsing is lenient on extra keys but strict on
 structure, so a malformed grade is caught rather than silently trusted (R3).
 """
+
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, field_validator
@@ -15,7 +16,7 @@ class WritingTask(BaseModel):
     model_config = ConfigDict(extra="forbid")
     id: str
     level: str
-    section: Literal["A", "B"]   # TEF tâche 1 (short response) / tâche 2 (argumentative)
+    section: Literal["A", "B"]  # TEF tâche 1 (short response) / tâche 2 (argumentative)
     title: str
     prompt: str
     min_words: int
@@ -27,19 +28,19 @@ class InlineCorrection(BaseModel):
     excerpt: str
     correction: str
     explanation: str
-    reference: str = ""          # cited grammar reference (R4)
+    reference: str = ""  # cited grammar reference (R4)
 
 
 class CriterionScore(BaseModel):
     model_config = ConfigDict(extra="ignore")
     name: str
-    score: int                   # 0–10
+    score: int  # 0–10
     comment: str = ""
 
 
 class WritingFeedback(BaseModel):
     model_config = ConfigDict(extra="ignore")
-    clb_estimate: int            # 1–12
+    clb_estimate: int  # 1–12
     criteria: list[CriterionScore]
     corrections: list[InlineCorrection]
     overall: str

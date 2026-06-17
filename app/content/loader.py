@@ -8,6 +8,7 @@ Beyond per-model validation (in `models.py`), this enforces *referential
 integrity across files*: path lesson refs resolve, unlock prerequisites exist,
 and every `new_vocab` id has a vocab entry. Authoring errors fail the load.
 """
+
 from __future__ import annotations
 
 from pathlib import Path as FsPath

@@ -4,6 +4,7 @@ Learner state keyed by `user_id` / `lesson_id` strings — no FK into content, s
 content re-sync never touches progress (plan §6). `LessonCompletion` is also what
 the content path reads to compute gating.
 """
+
 from __future__ import annotations
 
 from datetime import date, datetime, timedelta

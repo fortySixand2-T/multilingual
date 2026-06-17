@@ -14,7 +14,9 @@ class FakeProvider:
 
     def complete(self, *, system, messages, model, **kw):
         self.calls.append(model)
-        return LLMResult(text=f"{self.name}:{model}", provider=self.name, model=model, usage=make_usage())
+        return LLMResult(
+            text=f"{self.name}:{model}", provider=self.name, model=model, usage=make_usage()
+        )
 
 
 def _registry():

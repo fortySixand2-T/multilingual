@@ -6,9 +6,10 @@ read your own progress, and the group board.
 - updates the daily streak and XP,
 - seeds the lesson's `new_vocab` into the SRS review queue.
 """
+
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
@@ -74,7 +75,7 @@ async def submit_result(
                 lesson_id=lesson_id,
                 level=lesson.level,
                 score=body.score,
-                completed_at=datetime.now(timezone.utc).replace(tzinfo=None),
+                completed_at=datetime.now(UTC).replace(tzinfo=None),
             )
         )
         await seed_cards(session, user.id, data.get("new_vocab", []))

@@ -1,4 +1,5 @@
 """Phase 5 — exam simulation: CLB mapping, blueprint loading, and the mock flow."""
+
 import asyncio
 import tempfile
 from pathlib import Path
@@ -55,6 +56,7 @@ client = TestClient(app)
 
 # --- pure CLB logic -----------------------------------------------------------
 
+
 def test_clb_from_fraction():
     assert clb_from_fraction(0.95) == 9
     assert clb_from_fraction(0.72) == 7
@@ -73,6 +75,7 @@ def test_aggregate_overall_is_floor_across_skills():
 
 # --- blueprint schema / loader ------------------------------------------------
 
+
 def test_loads_example_blueprint():
     bps = load_blueprints(CONTENT_ROOT, "a1")
     assert "mock-1" in bps
@@ -89,14 +92,19 @@ def test_section_requires_matching_refs():
 
 # --- full mock flow over HTTP -------------------------------------------------
 
+
 def test_full_mock_start_sections_finish_history():
     bps = client.get("/exam/blueprints", params={"level": "a1"}).json()["blueprints"]
     assert bps[0]["id"] == "mock-1" and bps[0]["sections"] == 4
 
     aid = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
 
-    client.post(f"/exam/{aid}/section", json={"skill": "reading", "correct": 8, "total": 10})    # 0.8 -> 8
-    client.post(f"/exam/{aid}/section", json={"skill": "listening", "correct": 7, "total": 10})  # ->7
+    client.post(
+        f"/exam/{aid}/section", json={"skill": "reading", "correct": 8, "total": 10}
+    )  # 0.8 -> 8
+    client.post(
+        f"/exam/{aid}/section", json={"skill": "listening", "correct": 7, "total": 10}
+    )  # ->7
     client.post(f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 7})
     r = client.post(f"/exam/{aid}/section", json={"skill": "speaking", "clb_estimate": 6})
     assert set(r.json()["recorded"]) == {"reading", "listening", "writing", "speaking"}
@@ -119,7 +127,12 @@ def test_section_validation_and_finished_guard():
     assert client.post(f"/exam/{aid}/section", json={"skill": "writing"}).status_code == 422
     client.post(f"/exam/{aid}/finish")
     # can't record after finishing
-    assert client.post(f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 7}).status_code == 409
+    assert (
+        client.post(
+            f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 7}
+        ).status_code
+        == 409
+    )
 
 
 def test_start_unknown_blueprint_404():

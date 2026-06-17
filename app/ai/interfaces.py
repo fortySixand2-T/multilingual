@@ -3,6 +3,7 @@
 No provider SDK is ever imported here or anywhere outside app/ai/adapters/.
 STT/TTS protocols are defined now (Phase 0) but get adapters in Phase 4.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass

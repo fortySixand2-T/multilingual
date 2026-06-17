@@ -3,10 +3,11 @@
 Datetimes are stored as naive UTC so comparisons work uniformly on SQLite and
 Postgres; the FSRS engine works in tz-aware UTC, and we convert at the boundary.
 """
+
 from __future__ import annotations
 
 from collections.abc import Iterable
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -18,12 +19,12 @@ _engine = FSRSEngine()
 
 
 def _now_aware() -> datetime:
-    return datetime.now(timezone.utc)
+    return datetime.now(UTC)
 
 
 def _naive_utc(dt: datetime) -> datetime:
     if dt.tzinfo is not None:
-        dt = dt.astimezone(timezone.utc)
+        dt = dt.astimezone(UTC)
     return dt.replace(tzinfo=None)
 
 
@@ -76,9 +77,7 @@ async def review_card(
 ) -> datetime | None:
     """Apply a rating; returns the new due date, or None if the card doesn't exist."""
     result = await session.execute(
-        select(ReviewCard).where(
-            ReviewCard.user_id == user_id, ReviewCard.card_key == card_key
-        )
+        select(ReviewCard).where(ReviewCard.user_id == user_id, ReviewCard.card_key == card_key)
     )
     card = result.scalar_one_or_none()
     if card is None:

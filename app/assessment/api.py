@@ -4,9 +4,10 @@ Grading routes through the AI router (injected, so tests use a fake). A malforme
 grade is a graceful 502; a provider outage is the global 503. The CLB estimate is
 presented as an estimate (R3) — the prompt + low temperature keep it stable.
 """
+
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
@@ -111,7 +112,7 @@ async def submit(
         text=body.text,
         clb_estimate=fb.clb_estimate,
         feedback=fb.model_dump(mode="json"),
-        created_at=datetime.now(timezone.utc).replace(tzinfo=None),
+        created_at=datetime.now(UTC).replace(tzinfo=None),
     )
     session.add(submission)
     await session.commit()

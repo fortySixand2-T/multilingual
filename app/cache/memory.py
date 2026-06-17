@@ -4,6 +4,7 @@ Bounded by `max_entries` (LRU eviction) so a long-running process can't grow the
 cache without limit. Expired entries are dropped lazily on access and also
 evicted when encountered during insertion.
 """
+
 from __future__ import annotations
 
 import threading
@@ -19,7 +20,7 @@ class MemoryCache:
         self._max_entries = max_entries
         self._lock = threading.Lock()
         # key -> (expires_at_epoch | None, value)
-        self._store: "OrderedDict[str, tuple[float | None, str]]" = OrderedDict()
+        self._store: OrderedDict[str, tuple[float | None, str]] = OrderedDict()
 
     def _expired(self, expires_at: float | None) -> bool:
         return expires_at is not None and time.monotonic() >= expires_at

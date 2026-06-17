@@ -3,6 +3,7 @@
 Uses a local engine and FastAPI dependency overrides so it's independent of the
 global engine and of real auth.
 """
+
 import asyncio
 import tempfile
 from pathlib import Path
@@ -43,6 +44,7 @@ _run(_setup())
 
 # --- app with overridden session + auth ---------------------------------------
 
+
 class _FakeUser:
     id = 1
 
@@ -61,7 +63,9 @@ client = TestClient(app)
 def test_sync_wrote_expected_rows():
     async def go():
         async with _Session() as s:
-            units = (await s.execute(select(ContentUnit).order_by(ContentUnit.ordinal))).scalars().all()
+            units = (
+                (await s.execute(select(ContentUnit).order_by(ContentUnit.ordinal))).scalars().all()
+            )
             lessons = (await s.execute(select(ContentLesson))).scalars().all()
             vocab = (await s.execute(select(ContentVocab))).scalars().all()
             return [u.id for u in units], {lz.id for lz in lessons}, {v.id for v in vocab}
@@ -85,7 +89,9 @@ def test_resync_is_idempotent():
 def test_gating_function():
     async def units():
         async with _Session() as s:
-            return (await s.execute(select(ContentUnit).order_by(ContentUnit.ordinal))).scalars().all()
+            return (
+                (await s.execute(select(ContentUnit).order_by(ContentUnit.ordinal))).scalars().all()
+            )
 
     us = _run(units())
     # nothing completed -> first unit open, gated unit locked

@@ -7,6 +7,7 @@ code uses `FSRSEngine` + plain `CardState`, never `fsrs` types.
 State is the library's serializable card dict (persisted as JSON); `due` is
 denormalized out so the review queue can query it without deserializing FSRS.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -25,8 +26,8 @@ RATINGS = tuple(_RATINGS)  # ("again", "hard", "good", "easy")
 
 @dataclass(frozen=True)
 class CardState:
-    state: dict       # opaque, JSON-serializable FSRS card dict
-    due: datetime     # next review time (tz-aware UTC)
+    state: dict  # opaque, JSON-serializable FSRS card dict
+    due: datetime  # next review time (tz-aware UTC)
 
 
 class FSRSEngine:

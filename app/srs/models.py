@@ -1,4 +1,5 @@
 """SRS review-card table. One row per (user, vocab id)."""
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -14,8 +15,8 @@ class ReviewCard(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(Integer, index=True)
-    card_key: Mapped[str] = mapped_column(String(64))   # vocab id (immutable content id)
+    card_key: Mapped[str] = mapped_column(String(64))  # vocab id (immutable content id)
     due: Mapped[datetime] = mapped_column(DateTime, index=True)  # naive UTC, for queue queries
-    state: Mapped[dict] = mapped_column(JSON)           # opaque FSRS card dict
+    state: Mapped[dict] = mapped_column(JSON)  # opaque FSRS card dict
 
     __table_args__ = (UniqueConstraint("user_id", "card_key", name="uq_srs_user_card"),)

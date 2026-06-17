@@ -1,4 +1,5 @@
 """Comprehension tables: synced sets + per-user attempts."""
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -16,7 +17,7 @@ class ComprehensionSetRow(Base):
     level: Mapped[str] = mapped_column(String(16), index=True)
     skill: Mapped[str] = mapped_column(String(16), index=True)
     accent: Mapped[str | None] = mapped_column(String(16), nullable=True)
-    data: Mapped[dict] = mapped_column(JSON)   # full set incl. answers + explanations
+    data: Mapped[dict] = mapped_column(JSON)  # full set incl. answers + explanations
 
 
 class ComprehensionAttempt(Base):

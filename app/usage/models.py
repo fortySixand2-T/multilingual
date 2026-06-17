@@ -4,6 +4,7 @@ One mechanism for every metered AI feature (tutor drills, writing grading, …),
 keyed by `feature` so each can have its own budget while sharing the table and
 service. Replaces feature-specific usage tables.
 """
+
 from __future__ import annotations
 
 from datetime import date

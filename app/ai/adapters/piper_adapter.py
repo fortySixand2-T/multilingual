@@ -3,6 +3,7 @@
 Piper synthesizes WAV to stdout. Blocking; callers run it in a worker thread.
 Output is cacheable by (text, voice) — see plan §6.
 """
+
 from __future__ import annotations
 
 import subprocess

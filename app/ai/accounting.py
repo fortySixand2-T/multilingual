@@ -1,5 +1,6 @@
 """Usage/cost helpers. Deliberately vendor-free: adapters compute provider
 cost (they have the SDK) and hand plain numbers here."""
+
 from __future__ import annotations
 
 from app.ai.interfaces import Usage

@@ -1,4 +1,5 @@
 """Anthropic via LiteLLM. Vendor lib confined to this directory."""
+
 from __future__ import annotations
 
 import litellm

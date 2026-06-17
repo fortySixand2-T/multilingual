@@ -1,4 +1,5 @@
 """Load + validate exam blueprints (content/<level>/exam/*.yaml)."""
+
 from __future__ import annotations
 
 from pathlib import Path

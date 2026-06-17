@@ -8,10 +8,10 @@ Phase 4 speaking: stores transcript + examiner reply (and a key to the cached TT
 reply). Deliberately no raw-audio column — learner audio is discarded after
 transcription (R10).
 """
+
 from __future__ import annotations
 
 import sqlalchemy as sa
-
 from alembic import op
 
 revision = "0007_speech"

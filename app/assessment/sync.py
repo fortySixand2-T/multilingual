@@ -1,4 +1,5 @@
 """Sync writing tasks into the DB (delete-and-replace per level)."""
+
 from __future__ import annotations
 
 import asyncio

@@ -4,6 +4,7 @@ Selecting the backend is a settings change, not a code change. The S3 import is
 lazy so boto3 only loads when S3 is actually used — keeping the vendor dependency
 off the local-dev import path.
 """
+
 from __future__ import annotations
 
 from app.storage.interface import ObjectStorage

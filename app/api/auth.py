@@ -3,6 +3,7 @@
 Closes AC0.9. The JWT/password primitives live in `app/users/auth.py` (framework
 -free); this module is the FastAPI surface over them.
 """
+
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -69,7 +70,9 @@ async def signup(
         await session.rollback()
         raise HTTPException(status.HTTP_409_CONFLICT, "email already registered") from None
     await session.refresh(user)
-    return TokenResponse(access_token=create_token(subject=str(user.id), secret=settings.jwt_secret))
+    return TokenResponse(
+        access_token=create_token(subject=str(user.id), secret=settings.jwt_secret)
+    )
 
 
 @router.post("/login", response_model=TokenResponse)
@@ -81,7 +84,9 @@ async def login(
     user = await _user_by_email(session, body.email)
     if user is None or not verify_password(body.password, user.password_hash):
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "invalid credentials")
-    return TokenResponse(access_token=create_token(subject=str(user.id), secret=settings.jwt_secret))
+    return TokenResponse(
+        access_token=create_token(subject=str(user.id), secret=settings.jwt_secret)
+    )
 
 
 async def get_current_user(

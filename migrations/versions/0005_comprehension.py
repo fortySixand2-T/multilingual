@@ -7,10 +7,10 @@ Create Date: 2026-06-15
 Phase 2 comprehension: synced reading/listening sets (JSON blob) and per-user
 attempts.
 """
+
 from __future__ import annotations
 
 import sqlalchemy as sa
-
 from alembic import op
 
 revision = "0005_comprehension"

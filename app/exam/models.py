@@ -4,6 +4,7 @@ The mock references content that other modules own (comprehension sets, writing
 tasks, speaking prompts); the exam module orchestrates timing and aggregates a
 per-skill CLB report. It does not re-implement grading.
 """
+
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, model_validator
@@ -17,9 +18,9 @@ class ExamSection(BaseModel):
     model_config = _Strict
     skill: Skill
     time_limit_seconds: int
-    comprehension_set_id: str | None = None   # reading / listening
-    writing_task_ids: list[str] = []          # writing
-    speaking_prompts: list[str] = []          # speaking
+    comprehension_set_id: str | None = None  # reading / listening
+    writing_task_ids: list[str] = []  # writing
+    speaking_prompts: list[str] = []  # speaking
 
     @model_validator(mode="after")
     def _refs_match_skill(self) -> "ExamSection":

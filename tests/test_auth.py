@@ -4,6 +4,7 @@ Fully isolated: its own engine + overridden get_session/get_settings, so it neve
 touches the global engine or a persistent DB (and is order-independent in the suite).
 The real signup/login/JWT flow (get_current_user) is exercised unchanged.
 """
+
 import asyncio
 import tempfile
 
@@ -21,7 +22,9 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine  # no
 _engine = create_async_engine(_DB)
 _Session = async_sessionmaker(_engine, expire_on_commit=False)
 _settings = Settings(
-    invite_codes="good-code,second-code", jwt_secret="test-secret-key-32-bytes-minimum!!", database_url=_DB
+    invite_codes="good-code,second-code",
+    jwt_secret="test-secret-key-32-bytes-minimum!!",
+    database_url=_DB,
 )
 
 

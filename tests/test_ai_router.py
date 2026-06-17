@@ -36,7 +36,10 @@ def test_fallback_used_when_primary_fails():
     reg = ProviderRegistry()
     reg.register(FakeFail("ollama"))
     reg.register(FakeOK("anthropic"))
-    r = AIRouter(reg, {"drill": ProfileConfig("llm", "ollama/llama3.1", fallback="anthropic/claude-haiku-4-5")})
+    r = AIRouter(
+        reg,
+        {"drill": ProfileConfig("llm", "ollama/llama3.1", fallback="anthropic/claude-haiku-4-5")},
+    )
     out = r.run("drill", system="s", messages=[Msg("user", "x")])
     assert out.provider == "anthropic"
 
@@ -51,7 +54,10 @@ def test_all_providers_failing_raises_typed_error():
     reg = ProviderRegistry()
     reg.register(FakeFail("ollama"))
     reg.register(FakeFail("anthropic"))
-    r = AIRouter(reg, {"drill": ProfileConfig("llm", "ollama/llama3.1", fallback="anthropic/claude-haiku-4-5")})
+    r = AIRouter(
+        reg,
+        {"drill": ProfileConfig("llm", "ollama/llama3.1", fallback="anthropic/claude-haiku-4-5")},
+    )
     with pytest.raises(AllProvidersFailedError) as ei:
         r.run("drill", system="s", messages=[Msg("user", "x")])
     assert ei.value.profile == "drill"

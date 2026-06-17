@@ -7,10 +7,10 @@ Create Date: 2026-06-16
 Phase 5 exam simulation: synced blueprints + per-user attempts with the aggregate
 CLB report.
 """
+
 from __future__ import annotations
 
 import sqlalchemy as sa
-
 from alembic import op
 
 revision = "0008_exam"

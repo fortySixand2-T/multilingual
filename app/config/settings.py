@@ -26,10 +26,10 @@ class Settings(BaseSettings):
     speaking_daily_token_budget: int = 60000
 
     # Speech (Phase 4): "disabled" until local models are configured on a self-host box.
-    stt_backend: str = "disabled"          # disabled | faster-whisper
-    tts_backend: str = "disabled"          # disabled | piper
+    stt_backend: str = "disabled"  # disabled | faster-whisper
+    tts_backend: str = "disabled"  # disabled | piper
     whisper_model: str = "large-v3"
-    piper_voice: str = ""                  # path to a Piper .onnx voice model
+    piper_voice: str = ""  # path to a Piper .onnx voice model
 
     # Application data cache (in-process now; swap path to Redis later).
     cache_backend: str = "memory"

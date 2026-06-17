@@ -4,6 +4,7 @@ A set is a passage (reading) or an audio clip (listening) with MCQ questions, ea
 carrying its own explanation (shown after grading). Listening sets are accent-
 tagged (R6) and carry a no-replay flag for exam-style practice.
 """
+
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, model_validator
@@ -32,11 +33,11 @@ class ComprehensionSet(BaseModel):
     level: str
     skill: Literal["reading", "listening"]
     title: str
-    time_limit_seconds: int | None = None   # timed sets (None = untimed)
-    passage: str | None = None               # reading
-    audio_ref: str | None = None             # listening — storage key
-    accent: str | None = None                # e.g. "qc", "fr" — accent-tagged library
-    allow_replay: bool = True                # False = no-replay (exam mode)
+    time_limit_seconds: int | None = None  # timed sets (None = untimed)
+    passage: str | None = None  # reading
+    audio_ref: str | None = None  # listening — storage key
+    accent: str | None = None  # e.g. "qc", "fr" — accent-tagged library
+    allow_replay: bool = True  # False = no-replay (exam mode)
     pass_threshold: float = 0.6
     questions: list[ComprehensionQuestion]
 

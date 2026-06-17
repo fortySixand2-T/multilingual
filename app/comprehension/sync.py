@@ -6,6 +6,7 @@ interface under key `<level>/audio/<filename>` — which is what listening sets
 reference as `audio_ref`. Real Québec clips are licensing-gated (R6); the example
 ships a tiny placeholder so the pipeline runs end to end.
 """
+
 from __future__ import annotations
 
 import asyncio

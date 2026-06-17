@@ -3,10 +3,8 @@ from __future__ import annotations
 import os
 from logging.config import fileConfig
 
-from sqlalchemy import engine_from_config, pool
-
 from alembic import context
-from app.users.models import Base
+from sqlalchemy import engine_from_config, pool
 
 # Import models so their tables register on Base.metadata for autogenerate.
 import app.assessment.tables  # noqa: E402,F401
@@ -17,6 +15,7 @@ import app.progress.models  # noqa: E402,F401
 import app.speech.tables  # noqa: E402,F401
 import app.srs.models  # noqa: E402,F401
 import app.usage.models  # noqa: E402,F401
+from app.users.models import Base
 
 config = context.config
 if config.config_file_name:

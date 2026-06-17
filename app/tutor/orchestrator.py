@@ -11,6 +11,7 @@ returns a graceful message and makes no provider call (AC1.5).
 The router call is synchronous (adapters use blocking HTTP/LiteLLM); we run it in
 a worker thread so the async event loop isn't blocked (plan §4.1 concurrency rule).
 """
+
 from __future__ import annotations
 
 import functools

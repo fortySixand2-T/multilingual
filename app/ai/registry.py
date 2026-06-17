@@ -4,6 +4,7 @@ Adapter imports are LAZY (inside the factory) so this module stays importable
 in unit tests without provider SDKs installed, and so vendor libs never enter
 the import graph until a provider is actually constructed.
 """
+
 from __future__ import annotations
 
 

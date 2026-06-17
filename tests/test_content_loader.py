@@ -1,4 +1,5 @@
 """Content loader + schema validation (Phase 1 content slice)."""
+
 from pathlib import Path as FsPath
 
 import pytest

@@ -9,10 +9,10 @@ JWT auth). Hand-authored so the up/down cycle is reproducible without a live
 autogenerate run; future schema changes should use
 `alembic revision --autogenerate`.
 """
+
 from __future__ import annotations
 
 import sqlalchemy as sa
-
 from alembic import op
 
 revision = "0001_init"

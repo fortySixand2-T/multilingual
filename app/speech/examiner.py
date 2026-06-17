@@ -9,6 +9,7 @@ Honors the speech risks:
 Blocking STT/TTS/LLM calls run in a worker thread (plan §4.1). Daily budget via the
 shared usage ledger.
 """
+
 from __future__ import annotations
 
 import functools

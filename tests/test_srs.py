@@ -1,8 +1,8 @@
 """AC1.2 — FSRS scheduling + the review-queue persistence layer."""
+
 import asyncio
 import tempfile
-from datetime import datetime, timezone
-from pathlib import Path
+from datetime import UTC, datetime
 
 import pytest
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
@@ -31,9 +31,10 @@ _run(_create())
 
 # --- engine (no DB) -----------------------------------------------------------
 
+
 def test_new_card_then_good_moves_due_into_future():
     eng = FSRSEngine()
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     fresh = eng.new(now=now)
     reviewed = eng.review(fresh.state, "good", now=now)
     assert reviewed.due > now
@@ -41,7 +42,7 @@ def test_new_card_then_good_moves_due_into_future():
 
 def test_again_schedules_sooner_than_good():
     eng = FSRSEngine()
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     fresh = eng.new(now=now)
     again = eng.review(fresh.state, "again", now=now)
     good = eng.review(fresh.state, "good", now=now)
@@ -56,6 +57,7 @@ def test_unknown_rating_raises():
 
 # --- service (DB) -------------------------------------------------------------
 
+
 def test_seed_is_idempotent_and_queue_returns_due_cards():
     async def go():
         async with _Session() as s:
@@ -67,8 +69,8 @@ def test_seed_is_idempotent_and_queue_returns_due_cards():
             return created, again, sorted(c.card_key for c in queue)
 
     created, again, keys = _run(go())
-    assert created == 2          # de-duped; "bonjour" counted once
-    assert again == 0            # existing cards not re-seeded
+    assert created == 2  # de-duped; "bonjour" counted once
+    assert again == 0  # existing cards not re-seeded
     assert keys == ["bonjour", "salut"]
 
 

@@ -4,6 +4,7 @@ Only the in-process backend ships now (plan §4.1: no Redis at this scale). A
 future `redis` backend slots in here behind the same `Cache` protocol with no
 change to any caller.
 """
+
 from __future__ import annotations
 
 from app.cache.interface import Cache

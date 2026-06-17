@@ -9,6 +9,7 @@ domain-code change.
 Values are `str` (callers JSON-encode structured data) so an external backend
 that only speaks strings/bytes is a drop-in replacement.
 """
+
 from __future__ import annotations
 
 from typing import Protocol, runtime_checkable

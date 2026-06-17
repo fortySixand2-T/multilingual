@@ -4,6 +4,7 @@ Deliberately bypasses the router library to prove the LLMProvider abstraction
 holds for a provider that does NOT go through LiteLLM - i.e. even the router is
 swappable. Local inference => cost is always 0.
 """
+
 from __future__ import annotations
 
 import httpx

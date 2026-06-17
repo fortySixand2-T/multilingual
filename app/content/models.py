@@ -13,7 +13,8 @@ IDs (unit/lesson/exercise/vocab) are an immutable contract: learner SRS cards an
 progress reference content by these string ids, so renaming one orphans state.
 The loader upserts by id; never reuse or rename a published id.
 """
-from typing import Annotated, Literal, Union
+
+from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -21,6 +22,7 @@ _Strict = ConfigDict(extra="forbid")
 
 
 # --- exercises (discriminated union on `type`) ---------------------------------
+
 
 class McqExercise(BaseModel):
     model_config = _Strict
@@ -45,8 +47,8 @@ class WordBankExercise(BaseModel):
     id: str
     type: Literal["word_bank"]
     prompt: str
-    tokens: list[str]          # the tile bank (includes distractors)
-    answer: list[str]          # the correct ordered subset
+    tokens: list[str]  # the tile bank (includes distractors)
+    answer: list[str]  # the correct ordered subset
 
     @model_validator(mode="after")
     def _answer_drawn_from_tokens(self) -> "WordBankExercise":
@@ -91,18 +93,13 @@ class TranslateExercise(BaseModel):
 
 
 Exercise = Annotated[
-    Union[
-        McqExercise,
-        WordBankExercise,
-        ListenTypeExercise,
-        MatchPairsExercise,
-        TranslateExercise,
-    ],
+    McqExercise | WordBankExercise | ListenTypeExercise | MatchPairsExercise | TranslateExercise,
     Field(discriminator="type"),
 ]
 
 
 # --- lessons, vocab, path ------------------------------------------------------
+
 
 class Lesson(BaseModel):
     model_config = _Strict
@@ -110,14 +107,14 @@ class Lesson(BaseModel):
     title: str
     grammar_point: str = ""
     est_minutes: int = 5
-    new_vocab: list[str] = []          # vocab ids seeded into SRS on completion
+    new_vocab: list[str] = []  # vocab ids seeded into SRS on completion
     pass_threshold: float = 0.8
     exercises: list[Exercise]
 
 
 class Vocab(BaseModel):
     model_config = _Strict
-    id: str                            # this IS the FSRS card key
+    id: str  # this IS the FSRS card key
     fr: str
     en: str
     audio: str = ""
@@ -128,7 +125,7 @@ class Vocab(BaseModel):
 class UnlockRule(BaseModel):
     model_config = _Strict
     type: Literal["none", "all_of"]
-    requires: list[str] = []           # unit or lesson ids
+    requires: list[str] = []  # unit or lesson ids
 
 
 class Unit(BaseModel):
@@ -136,7 +133,7 @@ class Unit(BaseModel):
     id: str
     title: str
     icon: str = ""
-    lessons: list[str]                 # lesson ids, ordered
+    lessons: list[str]  # lesson ids, ordered
     unlock: UnlockRule
 
 

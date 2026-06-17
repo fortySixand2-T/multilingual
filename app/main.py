@@ -7,8 +7,8 @@ from app.ai.errors import AllProvidersFailedError
 from app.ai.registry import build_default_registry
 from app.ai.router import AIRouter
 from app.api.auth import router as auth_router
-from app.assessment.api import router as assessment_router
 from app.api.health import router as health_router
+from app.assessment.api import router as assessment_router
 from app.cache.factory import build_cache
 from app.comprehension.api import router as comprehension_router
 from app.config.settings import get_settings

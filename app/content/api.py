@@ -7,6 +7,7 @@ and currently returns empty, so the first unit is `available` and gated units ar
 `locked`. That's the real gating logic running against a real (empty) progress
 state, not a stub of the response.
 """
+
 from __future__ import annotations
 
 from collections.abc import Iterable
@@ -36,9 +37,7 @@ def compute_unit_status(
 ) -> dict[str, str]:
     """Map unit id -> 'complete' | 'available' | 'locked'."""
     units = list(units)
-    complete_units = {
-        u.id for u in units if u.lessons and set(u.lessons) <= completed_lessons
-    }
+    complete_units = {u.id for u in units if u.lessons and set(u.lessons) <= completed_lessons}
     out: dict[str, str] = {}
     for u in units:
         if u.id in complete_units:

@@ -7,6 +7,7 @@ a migration. Crucially, learner state (progress, SRS) references these ids as
 plain strings, *not* foreign keys, so a content re-sync never cascades into
 learner data (plan §6).
 """
+
 from __future__ import annotations
 
 from sqlalchemy import JSON, Integer, String
@@ -23,7 +24,7 @@ class ContentUnit(Base):
     ordinal: Mapped[int] = mapped_column(Integer)
     title: Mapped[str] = mapped_column(String(200))
     icon: Mapped[str] = mapped_column(String(64), default="")
-    lessons: Mapped[list] = mapped_column(JSON)          # ordered list[str] of lesson ids
+    lessons: Mapped[list] = mapped_column(JSON)  # ordered list[str] of lesson ids
     unlock_type: Mapped[str] = mapped_column(String(16))
     unlock_requires: Mapped[list] = mapped_column(JSON)  # list[str] of unit/lesson ids
 
@@ -34,7 +35,7 @@ class ContentLesson(Base):
     id: Mapped[str] = mapped_column(String(64), primary_key=True)
     level: Mapped[str] = mapped_column(String(16), index=True)
     title: Mapped[str] = mapped_column(String(200))
-    data: Mapped[dict] = mapped_column(JSON)             # full Lesson dump (incl. exercises)
+    data: Mapped[dict] = mapped_column(JSON)  # full Lesson dump (incl. exercises)
 
 
 class ContentVocab(Base):
@@ -42,4 +43,4 @@ class ContentVocab(Base):
 
     id: Mapped[str] = mapped_column(String(64), primary_key=True)
     level: Mapped[str] = mapped_column(String(16), index=True)
-    data: Mapped[dict] = mapped_column(JSON)             # full Vocab dump
+    data: Mapped[dict] = mapped_column(JSON)  # full Vocab dump

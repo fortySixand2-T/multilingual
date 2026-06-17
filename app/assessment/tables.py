@@ -1,4 +1,5 @@
 """Assessment tables: synced writing tasks + graded submissions."""
+
 from __future__ import annotations
 
 from datetime import datetime

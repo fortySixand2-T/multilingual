@@ -4,6 +4,7 @@ Self-host path (plan §4.1): runs on CPU/GPU on the same box. The model is loade
 once at construction; transcription is a blocking call, so callers run it in a
 worker thread.
 """
+
 from __future__ import annotations
 
 import io
@@ -14,7 +15,9 @@ from app.ai.interfaces import Transcript
 class FasterWhisperAdapter:
     name = "faster-whisper"
 
-    def __init__(self, *, model: str = "large-v3", device: str = "cpu", compute_type: str = "int8") -> None:
+    def __init__(
+        self, *, model: str = "large-v3", device: str = "cpu", compute_type: str = "int8"
+    ) -> None:
         from faster_whisper import WhisperModel  # lazy: heavy dep only when used
 
         self._model = WhisperModel(model, device=device, compute_type=compute_type)

@@ -4,18 +4,16 @@ Several modules load a directory of single-object YAML files keyed by `.id`
 (comprehension sets, writing tasks, exam blueprints). One helper instead of a copy
 per module. Each caller keeps its own error type via `duplicate_error`.
 """
+
 from __future__ import annotations
 
 from collections.abc import Callable
 from pathlib import Path
-from typing import TypeVar
 
 import yaml
 
-T = TypeVar("T")
 
-
-def load_keyed_yaml(
+def load_keyed_yaml[T](
     directory: str | Path,
     model: type[T],
     *,

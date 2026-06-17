@@ -4,6 +4,7 @@ Exposing functions (not ORM tables) keeps callers — content gating, comprehens
 — decoupled from the progress schema. `record_activity` is the single source of
 truth for the daily streak + XP, shared by lessons and comprehension.
 """
+
 from __future__ import annotations
 
 from datetime import date

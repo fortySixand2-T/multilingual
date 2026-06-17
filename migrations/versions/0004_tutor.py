@@ -6,10 +6,10 @@ Create Date: 2026-06-15
 
 Per-user/day tutor token usage for daily-budget enforcement (AC1.5).
 """
+
 from __future__ import annotations
 
 import sqlalchemy as sa
-
 from alembic import op
 
 revision = "0004_tutor"

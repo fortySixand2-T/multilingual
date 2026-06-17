@@ -5,6 +5,7 @@ Robustness for R3: low temperature + few-shot-anchored prompt (in the prompt
 file) keep scores stable; strict parse + Pydantic validation reject a malformed
 grade instead of silently trusting it.
 """
+
 from __future__ import annotations
 
 import functools
@@ -67,11 +68,13 @@ class WritingGrader:
         self._router = router
         self._system = _PROMPT
 
-    def build_messages(self, *, task_prompt: str, section: str, submission: str) -> tuple[str, list[Msg]]:
+    def build_messages(
+        self, *, task_prompt: str, section: str, submission: str
+    ) -> tuple[str, list[Msg]]:
         user = (
             f"Section: {section}\n"
             f"Task: {task_prompt}\n\n"
-            f"Learner's submission:\n\"\"\"\n{submission}\n\"\"\"\n\n"
+            f'Learner\'s submission:\n"""\n{submission}\n"""\n\n'
             "Grade it and return only the JSON object."
         )
         return self._system, [Msg("user", user)]
@@ -98,12 +101,18 @@ class WritingGrader:
         )
         result = await anyio.to_thread.run_sync(
             functools.partial(
-                self._router.run, _PROFILE, system=system, messages=messages,
-                temperature=0.1, max_tokens=1500,
+                self._router.run,
+                _PROFILE,
+                system=system,
+                messages=messages,
+                temperature=0.1,
+                max_tokens=1500,
             )
         )
         spent = result.usage.input_tokens + result.usage.output_tokens
-        await add_usage(session, user_id, _FEATURE, result.usage.input_tokens, result.usage.output_tokens, today)
+        await add_usage(
+            session, user_id, _FEATURE, result.usage.input_tokens, result.usage.output_tokens, today
+        )
         feedback = parse_feedback(result.text)  # raises GradingError on bad output
         return GradeResult(
             False, feedback, result.provider, result.model, used + spent, daily_budget, word_count

@@ -4,6 +4,7 @@ Default is "disabled" so the app runs without the heavy local models; speech
 endpoints then return a clear 503. On a self-host box, set STT_BACKEND=faster-whisper
 and TTS_BACKEND=piper. Vendor adapters are imported lazily.
 """
+
 from __future__ import annotations
 
 _OFF = {"disabled", "none", ""}

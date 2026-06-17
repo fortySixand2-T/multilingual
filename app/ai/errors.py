@@ -4,6 +4,7 @@ Lets callers distinguish a *runtime* provider outage (retryable, → 503) from a
 *configuration* mistake like an unknown profile (a bug, → 500). The router raises
 these; the API maps `AllProvidersFailedError` to a graceful response.
 """
+
 from __future__ import annotations
 
 

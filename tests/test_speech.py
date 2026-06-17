@@ -1,8 +1,8 @@
 """Phase 4 — speaking loop: transcribe -> examiner -> TTS, honoring R1/R2/R10."""
+
 import asyncio
 import tempfile
 from datetime import date
-from pathlib import Path
 
 from fastapi.testclient import TestClient
 from sqlalchemy import select
@@ -91,6 +91,7 @@ class FakeStorage:
 
 # --- examiner orchestration (no HTTP) -----------------------------------------
 
+
 def test_prompt_excludes_pronunciation_and_uses_transcript():
     p = SpeakingExaminer(FakeSTT(), FakeTTS(), FakeRouter()).system_prompt("examiner").lower()
     assert "transcript" in p
@@ -111,7 +112,7 @@ def test_turn_returns_transcript_and_reply_and_records_usage():
 
     res = _run(go())
     assert res.over_budget is False
-    assert res.transcript.startswith("Je voudrais")     # R1: transcript surfaced
+    assert res.transcript.startswith("Je voudrais")  # R1: transcript surfaced
     assert "?" in res.reply_text
     assert res.reply_audio == b"RIFFfakewavbytes"
     assert fake_router.calls[0]["profile"] == "examiner_roleplay"
@@ -141,6 +142,7 @@ def test_budget_blocks_without_calling_stt():
 
 # --- HTTP + R10 (no raw audio stored) -----------------------------------------
 
+
 def _client(*, stt=None, tts=None, uid=99):
     storage = FakeStorage()
 
@@ -163,7 +165,11 @@ def _client(*, stt=None, tts=None, uid=99):
 
 def test_turn_endpoint_stores_transcript_not_audio_and_serves_reply():
     client, storage = _client(stt=FakeSTT(), tts=FakeTTS())
-    r = client.post("/speech/turn", files={"audio": ("a.wav", b"rawaudio", "audio/wav")}, data={"mode": "examiner"})
+    r = client.post(
+        "/speech/turn",
+        files={"audio": ("a.wav", b"rawaudio", "audio/wav")},
+        data={"mode": "examiner"},
+    )
     assert r.status_code == 200
     body = r.json()
     assert body["transcript"].startswith("Je voudrais")
@@ -172,12 +178,16 @@ def test_turn_endpoint_stores_transcript_not_audio_and_serves_reply():
     # R10: stored turn has the transcript, never the uploaded audio bytes
     async def check():
         async with _Session() as s:
-            turn = (await s.execute(select(SpeechTurn).where(SpeechTurn.id == body["turn_id"]))).scalar_one()
+            turn = (
+                await s.execute(select(SpeechTurn).where(SpeechTurn.id == body["turn_id"]))
+            ).scalar_one()
             return turn
 
     turn = _run(check())
     assert turn.transcript and turn.reply_text
-    assert b"rawaudio" not in (storage.objects.get(turn.reply_audio_key) or b"")  # only TTS reply stored
+    assert b"rawaudio" not in (
+        storage.objects.get(turn.reply_audio_key) or b""
+    )  # only TTS reply stored
     assert storage.objects[turn.reply_audio_key] == b"RIFFfakewavbytes"
 
     # examiner audio is served back

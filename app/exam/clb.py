@@ -1,4 +1,5 @@
-"""CLB band mapping + aggregation. Output is an *estimate*, never an official score (R3, Phase 5 stop)."""
+"""CLB band mapping + aggregation. Output is an estimate, never an official score (R3)."""
+
 from __future__ import annotations
 
 # comprehension score fraction -> CLB band (approximate; calibrate against real data later)

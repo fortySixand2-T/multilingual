@@ -4,6 +4,7 @@ A calibration set is sample answers with an expected CLB band. We grade each and
 measure how often the estimate lands within tolerance. The agreement math is a
 pure function (unit-tested); the live grading CLI needs an LLM provider.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass

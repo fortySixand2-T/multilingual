@@ -7,10 +7,10 @@ Create Date: 2026-06-15
 Phase 1 content store (DB target of the file sync). Lessons/vocab keep their
 authored shape in a JSON column so re-authoring doesn't require a migration.
 """
+
 from __future__ import annotations
 
 import sqlalchemy as sa
-
 from alembic import op
 
 revision = "0002_content"

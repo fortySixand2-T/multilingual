@@ -1,4 +1,5 @@
 """Phase 3 — writing assessment: schema, JSON parsing, grading, API, calibration."""
+
 import asyncio
 import json
 import tempfile
@@ -33,8 +34,12 @@ _GOOD = {
     "clb_estimate": 7,
     "criteria": [{"name": "grammar", "score": 7, "comment": "solid"}],
     "corrections": [
-        {"excerpt": "à le parc", "correction": "au parc",
-         "explanation": "à+le=au", "reference": "prepositions"}
+        {
+            "excerpt": "à le parc",
+            "correction": "au parc",
+            "explanation": "à+le=au",
+            "reference": "prepositions",
+        }
     ],
     "overall": "Clear and on-task.",
 }
@@ -71,16 +76,23 @@ class GoodRouter:
 
 class BadRouter:
     def run(self, profile, *, system, messages, **kw):
-        return LLMResult(text="Sorry, I cannot produce JSON here.", provider="x", model="y",
-                         usage=make_usage(input_tokens=10, output_tokens=5))
+        return LLMResult(
+            text="Sorry, I cannot produce JSON here.",
+            provider="x",
+            model="y",
+            usage=make_usage(input_tokens=10, output_tokens=5),
+        )
 
 
 # --- schema -------------------------------------------------------------------
 
+
 def test_clb_is_clamped():
     fb = WritingFeedback(clb_estimate=99, criteria=[], corrections=[], overall="x")
     assert fb.clb_estimate == 12
-    assert WritingFeedback(clb_estimate=-3, criteria=[], corrections=[], overall="x").clb_estimate == 1
+    assert (
+        WritingFeedback(clb_estimate=-3, criteria=[], corrections=[], overall="x").clb_estimate == 1
+    )
 
 
 def test_writing_task_requires_section():
@@ -90,9 +102,10 @@ def test_writing_task_requires_section():
 
 # --- JSON extraction / parsing ------------------------------------------------
 
+
 def test_extract_json_handles_fences_and_prose():
-    assert extract_json("```json\n{\"a\": 1}\n```") == {"a": 1}
-    assert extract_json("Here you go: {\"a\": 2} thanks") == {"a": 2}
+    assert extract_json('```json\n{"a": 1}\n```') == {"a": 1}
+    assert extract_json('Here you go: {"a": 2} thanks') == {"a": 2}
 
 
 def test_extract_json_raises_on_garbage():
@@ -107,6 +120,7 @@ def test_parse_feedback_valid():
 
 # --- grader -------------------------------------------------------------------
 
+
 def test_grade_routes_through_writing_feedback_profile():
     fake = GoodRouter()
 
@@ -120,7 +134,7 @@ def test_grade_routes_through_writing_feedback_profile():
 
     res = _run(go())
     assert fake.calls[0]["profile"] == "writing_feedback"
-    assert fake.calls[0]["kw"]["temperature"] == 0.1   # low temp for stability (R3)
+    assert fake.calls[0]["kw"]["temperature"] == 0.1  # low temp for stability (R3)
     assert res.over_budget is False and res.feedback.clb_estimate == 7
     assert res.word_count == 2
 
@@ -150,6 +164,7 @@ def test_grade_budget_blocks_second_call():
 
 # --- API ----------------------------------------------------------------------
 
+
 def _client(router):
     async def _override_session():
         async with _Session() as s:
@@ -176,7 +191,10 @@ def test_list_and_get_tasks():
 
 def test_submit_grades_stores_and_retrieves():
     client = _client(GoodRouter())
-    r = client.post("/assessment/tasks/write-a-invite/submit", json={"text": "Salut, merci pour ton invitation."})
+    r = client.post(
+        "/assessment/tasks/write-a-invite/submit",
+        json={"text": "Salut, merci pour ton invitation."},
+    )
     assert r.status_code == 200
     body = r.json()
     assert body["over_budget"] is False
@@ -197,10 +215,14 @@ def test_malformed_grade_is_502():
 
 def test_empty_submission_rejected():
     client = _client(GoodRouter())
-    assert client.post("/assessment/tasks/write-a-invite/submit", json={"text": "   "}).status_code == 422
+    assert (
+        client.post("/assessment/tasks/write-a-invite/submit", json={"text": "   "}).status_code
+        == 422
+    )
 
 
 # --- calibration (R3) ---------------------------------------------------------
+
 
 def test_agreement_within_tolerance():
     rep = agreement([(7, 7), (4, 5), (8, 6)], tolerance=1)

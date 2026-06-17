@@ -5,12 +5,23 @@ STT/TTS providers come from app.state (built from config). With speech disabled,
 endpoints return a clear 503. Raw audio is read into memory, transcribed, and
 discarded — never written to disk or DB (R10).
 """
+
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import anyio
-from fastapi import APIRouter, Depends, File, Form, HTTPException, Request, Response, UploadFile, status
+from fastapi import (
+    APIRouter,
+    Depends,
+    File,
+    Form,
+    HTTPException,
+    Request,
+    Response,
+    UploadFile,
+    status,
+)
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -33,13 +44,17 @@ async def _recent_history(session: AsyncSession, user_id: int):
     from app.ai.interfaces import Msg
 
     rows = (
-        await session.execute(
-            select(SpeechTurn)
-            .where(SpeechTurn.user_id == user_id)
-            .order_by(SpeechTurn.id.desc())
-            .limit(_HISTORY_TURNS)
+        (
+            await session.execute(
+                select(SpeechTurn)
+                .where(SpeechTurn.user_id == user_id)
+                .order_by(SpeechTurn.id.desc())
+                .limit(_HISTORY_TURNS)
+            )
         )
-    ).scalars().all()
+        .scalars()
+        .all()
+    )
     msgs: list[Msg] = []
     for turn in reversed(rows):  # oldest first
         msgs.append(Msg("user", turn.transcript))
@@ -77,7 +92,9 @@ async def speech_turn(
             voice=settings.piper_voice,
         )
     except SpeechNotConfigured:
-        raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "speech is not configured") from None
+        raise HTTPException(
+            status.HTTP_503_SERVICE_UNAVAILABLE, "speech is not configured"
+        ) from None
 
     if result.over_budget:
         return {"over_budget": True, "transcript": "", "reply_text": result.reply_text}
@@ -88,7 +105,7 @@ async def speech_turn(
         transcript=result.transcript,
         reply_text=result.reply_text,
         reply_audio_key=None,
-        created_at=datetime.now(timezone.utc).replace(tzinfo=None),
+        created_at=datetime.now(UTC).replace(tzinfo=None),
     )
     session.add(turn)
     await session.flush()
@@ -96,9 +113,7 @@ async def speech_turn(
     reply_audio_url = None
     if result.reply_audio:
         key = f"speech/{turn.id}.wav"
-        await anyio.to_thread.run_sync(
-            lambda: storage.put(key, result.reply_audio, "audio/wav")
-        )
+        await anyio.to_thread.run_sync(lambda: storage.put(key, result.reply_audio, "audio/wav"))
         turn.reply_audio_key = key
         reply_audio_url = f"/speech/audio/{turn.id}"
 
@@ -106,7 +121,7 @@ async def speech_turn(
     return {
         "turn_id": turn.id,
         "over_budget": False,
-        "transcript": result.transcript,   # R1: learner sees what was transcribed
+        "transcript": result.transcript,  # R1: learner sees what was transcribed
         "reply_text": result.reply_text,
         "reply_audio_url": reply_audio_url,
         "provider": result.provider,
@@ -137,10 +152,14 @@ async def speech_history(
     user: User = Depends(get_current_user),
 ) -> dict:
     rows = (
-        await session.execute(
-            select(SpeechTurn).where(SpeechTurn.user_id == user.id).order_by(SpeechTurn.id)
+        (
+            await session.execute(
+                select(SpeechTurn).where(SpeechTurn.user_id == user.id).order_by(SpeechTurn.id)
+            )
         )
-    ).scalars().all()
+        .scalars()
+        .all()
+    )
     return {
         "turns": [
             {

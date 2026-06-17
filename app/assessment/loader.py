@@ -1,4 +1,5 @@
 """Load + validate writing tasks (content/<level>/writing/*.yaml)."""
+
 from __future__ import annotations
 
 from pathlib import Path

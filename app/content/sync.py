@@ -7,6 +7,7 @@ Safe because learner state references content by string id, not FK (see
 
 Run it:  ./start.sh content-sync a1     (or  python -m app.content.sync a1)
 """
+
 from __future__ import annotations
 
 import asyncio

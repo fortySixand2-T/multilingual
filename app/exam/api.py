@@ -5,9 +5,10 @@ Composition only — section outcomes (comprehension correct/total, writing/spea
 CLB) are produced by the existing modules and reported here; the exam computes the
 CLB profile. The report is an estimate, never an official score.
 """
+
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
@@ -30,7 +31,7 @@ class StartBody(BaseModel):
 
 class SectionResultBody(BaseModel):
     skill: Skill
-    correct: int | None = None       # reading / listening
+    correct: int | None = None  # reading / listening
     total: int | None = None
     clb_estimate: int | None = None  # writing / speaking
 
@@ -49,10 +50,16 @@ async def list_blueprints(
     user: User = Depends(get_current_user),
 ) -> dict:
     rows = (
-        await session.execute(
-            select(ExamBlueprintRow).where(ExamBlueprintRow.level == level).order_by(ExamBlueprintRow.id)
+        (
+            await session.execute(
+                select(ExamBlueprintRow)
+                .where(ExamBlueprintRow.level == level)
+                .order_by(ExamBlueprintRow.id)
+            )
         )
-    ).scalars().all()
+        .scalars()
+        .all()
+    )
     return {
         "blueprints": [
             {"id": r.id, "title": r.data["title"], "sections": len(r.data["sections"])}
@@ -77,7 +84,7 @@ async def start(
         status="in_progress",
         sections={},
         clb_report=None,
-        started_at=datetime.now(timezone.utc).replace(tzinfo=None),
+        started_at=datetime.now(UTC).replace(tzinfo=None),
     )
     session.add(attempt)
     await session.flush()
@@ -126,7 +133,7 @@ async def finish(
     report = aggregate_report(per_skill)
     attempt.clb_report = report
     attempt.status = "finished"
-    attempt.finished_at = datetime.now(timezone.utc).replace(tzinfo=None)
+    attempt.finished_at = datetime.now(UTC).replace(tzinfo=None)
     await session.commit()
     return {"attempt_id": attempt.id, "report": report}
 
@@ -137,10 +144,16 @@ async def history(
     user: User = Depends(get_current_user),
 ) -> dict:
     rows = (
-        await session.execute(
-            select(ExamAttempt).where(ExamAttempt.user_id == user.id).order_by(ExamAttempt.id.desc())
+        (
+            await session.execute(
+                select(ExamAttempt)
+                .where(ExamAttempt.user_id == user.id)
+                .order_by(ExamAttempt.id.desc())
+            )
         )
-    ).scalars().all()
+        .scalars()
+        .all()
+    )
     return {
         "attempts": [
             {

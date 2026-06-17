@@ -3,6 +3,7 @@
 The AI router comes from app.state via a dependency so tests can inject a fake
 (no live LLM). Over-budget is a graceful 200, not an error (AC1.5).
 """
+
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status

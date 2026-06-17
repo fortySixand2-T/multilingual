@@ -1,4 +1,5 @@
 """Review-queue API: fetch due cards, submit a review."""
+
 from __future__ import annotations
 
 from typing import Literal
@@ -34,8 +35,10 @@ async def get_queue(
     keys = [c.card_key for c in cards]
     if keys:
         rows = (
-            await session.execute(select(ContentVocab).where(ContentVocab.id.in_(keys)))
-        ).scalars().all()
+            (await session.execute(select(ContentVocab).where(ContentVocab.id.in_(keys))))
+            .scalars()
+            .all()
+        )
         vocab = {r.id: r.data for r in rows}
     return {
         "due": [
