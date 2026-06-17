@@ -123,3 +123,4 @@
 - [2026-06-16] Created: .claude/settings.json — curated dev-loop permission allowlist (no arbitrary-exec)
 - [2026-06-16] Created: .claude/agents/{qa-tester,dev-fixer}.md — QA tester + developer subagents
 - [2026-06-16] Created: qa/ — QA loop README, issue action-item TEMPLATE, tester personas (beginner/returning/crammer/edge-case)
+- [2026-06-16] Created: qa/issues/001-005 — first QA round (auth/email, password min, lesson score range, exam finish-empty, exam correct>total)
