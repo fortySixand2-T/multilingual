@@ -118,3 +118,5 @@
 - [2026-06-16] Modified: app/assessment/calibration.py — run_calibration CLI (grades samples vs expected CLB; agreement within tolerance); dropped unused import
 - [2026-06-16] Modified: start.sh — added calibrate subcommand
 - [2026-06-16] Modified: README.md — rewrote top-level README to document the complete Phases 0-5 platform + run/dev/CI
+- [2026-06-16] Modified: README.md — added CI status badge
+- [2026-06-16] Created: uv.lock — pinned dependency lockfile (reproducible + cached CI installs)

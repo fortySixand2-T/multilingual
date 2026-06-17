@@ -1,5 +1,7 @@
 # TEF Canada Prep Platform
 
+[![CI](https://github.com/fortySixand2-T/multilingual/actions/workflows/ci.yml/badge.svg)](https://github.com/fortySixand2-T/multilingual/actions/workflows/ci.yml)
+
 A small, modular study app for a closed group of friends preparing for the TEF
 Canada exam (target CLB 7 ≈ CEFR B2). Python/FastAPI backend + a Duolingo-style
 React SPA. Built provider-agnostic so the AI vendors (and STT/TTS, storage, DB)
