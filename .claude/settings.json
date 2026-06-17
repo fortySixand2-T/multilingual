@@ -10,10 +10,8 @@
       "Bash(npm run dev *)",
       "Bash(./start.sh *)",
       "Bash(bash start.sh *)",
-      "Bash(curl -s http://127.0.0.1:*)",
-      "Bash(curl http://127.0.0.1:*)",
-      "Bash(curl -s http://localhost:*)",
-      "Bash(curl http://localhost:*)"
+      "Bash(curl:*)",
+      "Bash(curl *)"
     ]
   }
 }
