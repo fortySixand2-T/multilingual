@@ -4,7 +4,7 @@ title: Signup accepts a trivially weak password (no minimum length)
 severity: medium
 area: auth
 persona: edge-case-breaker
-status: open
+status: done
 found: 2026-06-16
 ---
 

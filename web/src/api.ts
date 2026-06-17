@@ -280,6 +280,15 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ blueprint_id }),
     }),
+  examAttempt: (attemptId: number) =>
+    req<{
+      attempt_id: number;
+      blueprint: ExamBlueprint;
+      status: string;
+      recorded: string[];
+      remaining: string[];
+      clb_report: ClbReport | null;
+    }>(`/exam/attempts/${attemptId}`),
   examSection: (attemptId: number, body: ExamSectionResult) =>
     req<{ skill: string; clb: number; recorded: string[] }>(`/exam/${attemptId}/section`, {
       method: "POST",

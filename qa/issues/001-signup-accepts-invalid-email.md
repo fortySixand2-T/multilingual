@@ -4,7 +4,7 @@ title: Signup accepts an invalid email format
 severity: medium
 area: auth
 persona: edge-case-breaker
-status: open
+status: deferred
 found: 2026-06-16
 ---
 

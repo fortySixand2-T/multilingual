@@ -4,7 +4,7 @@ title: A mock exam can be "finished" with zero sections, giving a meaningless CL
 severity: medium
 area: exam
 persona: exam-crammer
-status: open
+status: done
 found: 2026-06-16
 ---
 

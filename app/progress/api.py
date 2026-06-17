@@ -12,7 +12,7 @@ from __future__ import annotations
 from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -30,7 +30,7 @@ XP_PER_LESSON = 10
 
 
 class LessonResultBody(BaseModel):
-    score: float
+    score: float = Field(ge=0, le=10)  # 0–10 scale
 
 
 async def _already_completed(session: AsyncSession, user_id: int, lesson_id: str) -> bool:
@@ -54,7 +54,7 @@ async def submit_result(
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"lesson {lesson_id!r} not found")
 
     data = lesson.data
-    passed = body.score >= float(data.get("pass_threshold", 0.8))
+    passed = body.score >= float(data.get("pass_threshold", 8.0))  # 0–10 scale
 
     if not passed:
         prog = await get_or_create_progress(session, user.id, lesson.level)

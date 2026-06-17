@@ -73,7 +73,7 @@ def test_compute_streak():
 
 
 def test_failing_score_does_not_complete():
-    r = client.post("/progress/lessons/greetings-01/result", json={"score": 0.5})
+    r = client.post("/progress/lessons/greetings-01/result", json={"score": 3.0})
     assert r.status_code == 200
     body = r.json()
     assert body["passed"] is False and body["first_time"] is False
@@ -84,7 +84,7 @@ def test_failing_score_does_not_complete():
 
 
 def test_passing_completes_and_lights_up_gating_streak_and_srs():
-    r = client.post("/progress/lessons/greetings-01/result", json={"score": 0.95})
+    r = client.post("/progress/lessons/greetings-01/result", json={"score": 9.5})
     body = r.json()
     assert body["passed"] and body["first_time"]
     assert body["streak"] == 1 and body["xp"] == 10
@@ -107,10 +107,20 @@ def test_passing_completes_and_lights_up_gating_streak_and_srs():
 
 
 def test_recompletion_same_day_is_idempotent():
-    r = client.post("/progress/lessons/greetings-01/result", json={"score": 0.99})
+    r = client.post("/progress/lessons/greetings-01/result", json={"score": 9.9})
     body = r.json()
     assert body["first_time"] is False
     assert body["xp"] == 10 and body["streak"] == 1  # no double XP / streak bump
+
+
+def test_score_is_range_validated_0_to_10():
+    # 0–10 scale: out-of-range scores are rejected (qa issue 003)
+    assert (
+        client.post("/progress/lessons/greetings-01/result", json={"score": 50}).status_code == 422
+    )
+    assert (
+        client.post("/progress/lessons/greetings-01/result", json={"score": -1}).status_code == 422
+    )
 
 
 def test_review_endpoint_reschedules_a_card():

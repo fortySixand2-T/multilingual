@@ -119,20 +119,38 @@ def test_full_mock_start_sections_finish_history():
     assert hist[0]["clb_report"]["overall"] == 6
 
 
-def test_section_validation_and_finished_guard():
+def test_section_validation():
     aid = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
     # comprehension needs correct+total
     assert client.post(f"/exam/{aid}/section", json={"skill": "reading"}).status_code == 422
     # writing needs clb
     assert client.post(f"/exam/{aid}/section", json={"skill": "writing"}).status_code == 422
-    client.post(f"/exam/{aid}/finish")
+    # correct cannot exceed total (qa issue 005)
+    r = client.post(f"/exam/{aid}/section", json={"skill": "reading", "correct": 50, "total": 10})
+    assert r.status_code == 422
+
+
+def test_no_score_until_all_sections_complete():
+    # qa issue 004: finishing early must not produce a score
+    aid = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
+    early = client.post(f"/exam/{aid}/finish")
+    assert early.status_code == 409
+    # resume shows what's left
+    state = client.get(f"/exam/attempts/{aid}").json()
+    assert state["status"] == "in_progress"
+    assert set(state["remaining"]) == {"reading", "listening", "writing", "speaking"}
+
+    # complete every section, then finish works and is idempotent
+    client.post(f"/exam/{aid}/section", json={"skill": "reading", "correct": 8, "total": 10})
+    client.post(f"/exam/{aid}/section", json={"skill": "listening", "correct": 7, "total": 10})
+    client.post(f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 7})
+    client.post(f"/exam/{aid}/section", json={"skill": "speaking", "clb_estimate": 6})
+    assert client.post(f"/exam/{aid}/finish").json()["report"]["overall"] == 6
+    assert client.post(f"/exam/{aid}/finish").json()["report"]["overall"] == 6  # idempotent
+
     # can't record after finishing
-    assert (
-        client.post(
-            f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 7}
-        ).status_code
-        == 409
-    )
+    after = client.post(f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 9})
+    assert after.status_code == 409
 
 
 def test_start_unknown_blueprint_404():

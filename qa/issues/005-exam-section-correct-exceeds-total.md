@@ -4,7 +4,7 @@ title: Exam section accepts correct > total and silently reports CLB 9
 severity: low
 area: exam
 persona: edge-case-breaker
-status: open
+status: done
 found: 2026-06-16
 ---
 

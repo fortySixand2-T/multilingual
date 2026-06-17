@@ -52,7 +52,7 @@ export default function Lesson() {
       setChecked(null);
       return;
     }
-    const score = correct / total;
+    const score = (correct / total) * 10; // 0–10 scale
     try {
       setResult(await api.submitResult(lesson.id, score));
     } catch (e: any) {

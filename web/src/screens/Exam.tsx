@@ -35,12 +35,30 @@ export default function Exam() {
     }
   };
 
+  // Save/resume: reopen an in-progress attempt where it was left off.
+  const resume = async (attemptId: number) => {
+    setError("");
+    try {
+      const d = await api.examAttempt(attemptId);
+      setAttempt({ id: d.attempt_id, blueprint: d.blueprint });
+      setRecorded(Object.fromEntries(d.recorded.map((s) => [s, 1])));
+      setReport(null);
+    } catch (e: any) {
+      setError(e.message);
+    }
+  };
+
   const finish = async () => {
     if (!attempt) return;
-    const r = await api.examFinish(attempt.id);
-    setReport(r.report);
-    setAttempt(null);
-    loadLists();
+    setError("");
+    try {
+      const r = await api.examFinish(attempt.id);
+      setReport(r.report);
+      setAttempt(null);
+      loadLists();
+    } catch (e: any) {
+      setError(e.message); // e.g. 409 if a section is still missing
+    }
   };
 
   if (report) {
@@ -100,6 +118,21 @@ export default function Exam() {
         ))}
         {blueprints.length === 0 && <div className="card muted">No mocks available yet.</div>}
       </div>
+
+      {history.filter((a) => a.status === "in_progress").length > 0 && (
+        <div className="unit">
+          <div className="unit-head"><div className="unit-icon">⏸️</div><div className="unit-title">In progress</div></div>
+          {history.filter((a) => a.status === "in_progress").map((a) => (
+            <button key={a.attempt_id} className="lesson-node" onClick={() => resume(a.attempt_id)}>
+              <span className="node-dot available">↻</span>
+              <span className="grow">
+                <div className="node-title">Resume mock</div>
+                <div className="node-sub">started {new Date(a.started_at).toLocaleString()} · pick up where you left off</div>
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
 
       {history.filter((a) => a.clb_report).length > 0 && (
         <div className="unit">

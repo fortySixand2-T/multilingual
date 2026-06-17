@@ -48,6 +48,14 @@ app.dependency_overrides[get_settings] = lambda: _settings
 client = TestClient(app)
 
 
+def test_signup_rejects_short_password():
+    r = client.post(
+        "/auth/signup",
+        json={"email": "short@x.com", "password": "1", "invite_code": "good-code"},
+    )
+    assert r.status_code == 422  # min 8 chars (qa issue 002)
+
+
 def test_signup_requires_valid_invite_code():
     r = client.post(
         "/auth/signup",

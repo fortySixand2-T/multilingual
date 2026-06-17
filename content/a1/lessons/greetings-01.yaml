@@ -3,7 +3,7 @@ title: "Saying hello"
 grammar_point: "formal vs informal greeting"
 est_minutes: 4
 new_vocab: [bonjour, salut, bonsoir]
-pass_threshold: 0.8
+pass_threshold: 8.0
 exercises:
   - id: greetings-01.e1
     type: mcq

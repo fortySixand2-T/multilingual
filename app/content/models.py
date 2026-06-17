@@ -108,7 +108,7 @@ class Lesson(BaseModel):
     grammar_point: str = ""
     est_minutes: int = 5
     new_vocab: list[str] = []  # vocab ids seeded into SRS on completion
-    pass_threshold: float = 0.8
+    pass_threshold: float = 8.0  # 0–10 scale
     exercises: list[Exercise]
 
 

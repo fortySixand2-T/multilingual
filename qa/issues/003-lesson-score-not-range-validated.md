@@ -4,7 +4,7 @@ title: Lesson result accepts out-of-range scores (5.0 "passes", -1 accepted)
 severity: medium
 area: progress
 persona: edge-case-breaker
-status: open
+status: done
 found: 2026-06-16
 ---
 

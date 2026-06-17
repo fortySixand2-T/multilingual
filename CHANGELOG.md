@@ -124,3 +124,8 @@
 - [2026-06-16] Created: .claude/agents/{qa-tester,dev-fixer}.md — QA tester + developer subagents
 - [2026-06-16] Created: qa/ — QA loop README, issue action-item TEMPLATE, tester personas (beginner/returning/crammer/edge-case)
 - [2026-06-16] Created: qa/issues/001-005 — first QA round (auth/email, password min, lesson score range, exam finish-empty, exam correct>total)
+- [2026-06-17] Fixed (qa 002): signup password min 8 chars (Field min_length); test added
+- [2026-06-17] Fixed (qa 003): lesson scoring moved to 0–10 scale + range-validated; pass_threshold default 8.0; frontend sends 0–10
+- [2026-06-17] Fixed (qa 004): mock exam produces no score until all sections recorded (finish 409s otherwise) + GET /exam/attempts/{id} save/resume + frontend Resume
+- [2026-06-17] Fixed (qa 005): exam section validates 0<=correct<=total, total>0
+- [2026-06-17] Deferred (qa 001): email validation left out per decision (username swap noted for later)

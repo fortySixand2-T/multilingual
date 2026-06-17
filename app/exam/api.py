@@ -93,6 +93,27 @@ async def start(
     return {"attempt_id": aid, "blueprint": bp.data}
 
 
+@router.get("/attempts/{attempt_id}")
+async def get_attempt(
+    attempt_id: int,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Resume support: current state of an attempt — recorded vs remaining sections."""
+    attempt = await _owned_attempt(session, attempt_id, user.id)
+    bp = await session.get(ExamBlueprintRow, attempt.blueprint_id)
+    required = [s["skill"] for s in (bp.data["sections"] if bp else [])]
+    return {
+        "attempt_id": attempt.id,
+        "blueprint_id": attempt.blueprint_id,
+        "blueprint": bp.data if bp else None,
+        "status": attempt.status,
+        "recorded": sorted(attempt.sections),
+        "remaining": [s for s in required if s not in attempt.sections],
+        "clb_report": attempt.clb_report,
+    }
+
+
 @router.post("/{attempt_id}/section")
 async def record_section(
     attempt_id: int,
@@ -107,6 +128,10 @@ async def record_section(
     if body.skill in ("reading", "listening"):
         if body.correct is None or not body.total:
             raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "need correct + total")
+        if body.total <= 0 or body.correct < 0 or body.correct > body.total:
+            raise HTTPException(
+                status.HTTP_422_UNPROCESSABLE_ENTITY, "need 0 <= correct <= total and total > 0"
+            )
         clb = clb_from_fraction(body.correct / body.total)
         detail = {"correct": body.correct, "total": body.total}
     else:
@@ -122,6 +147,11 @@ async def record_section(
     return {"skill": body.skill, "clb": clb, "recorded": sorted(sections)}
 
 
+async def _required_skills(session: AsyncSession, blueprint_id: str) -> list[str]:
+    bp = await session.get(ExamBlueprintRow, blueprint_id)
+    return [s["skill"] for s in (bp.data["sections"] if bp else [])]
+
+
 @router.post("/{attempt_id}/finish")
 async def finish(
     attempt_id: int,
@@ -129,6 +159,18 @@ async def finish(
     user: User = Depends(get_current_user),
 ) -> dict:
     attempt = await _owned_attempt(session, attempt_id, user.id)
+    if attempt.status == "finished":  # idempotent
+        return {"attempt_id": attempt.id, "report": attempt.clb_report}
+
+    required = await _required_skills(session, attempt.blueprint_id)
+    missing = [s for s in required if s not in attempt.sections]
+    if missing:
+        # No score until the test is complete.
+        raise HTTPException(
+            status.HTTP_409_CONFLICT,
+            f"finish all sections first — missing: {', '.join(missing)}",
+        )
+
     per_skill = {skill: data["clb"] for skill, data in attempt.sections.items()}
     report = aggregate_report(per_skill)
     attempt.clb_report = report

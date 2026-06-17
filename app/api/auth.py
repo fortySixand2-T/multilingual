@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -24,7 +24,7 @@ _bearer = HTTPBearer(auto_error=False)
 
 class SignupRequest(BaseModel):
     email: str
-    password: str
+    password: str = Field(min_length=8)
     invite_code: str
     display_name: str = ""
 
