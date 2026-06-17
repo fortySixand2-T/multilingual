@@ -114,3 +114,6 @@
 - [2026-06-16] Created: .github/workflows/ci.yml — CI (ruff lint + format check + pytest; web tsc/vite build)
 - [2026-06-16] Modified: pyproject.toml — ruff ignore B008 (FastAPI Depends idiom)
 - [2026-06-16] Chore: ruff --fix + ruff format across the codebase; load_keyed_yaml uses PEP 695 generics. Lint clean, 91 tests pass.
+- [2026-06-16] Modified: app/assessment/grader.py — extracted sync grade_text() shared by async grade() and the calibration CLI
+- [2026-06-16] Modified: app/assessment/calibration.py — run_calibration CLI (grades samples vs expected CLB; agreement within tolerance); dropped unused import
+- [2026-06-16] Modified: start.sh — added calibrate subcommand

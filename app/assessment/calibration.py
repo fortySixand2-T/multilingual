@@ -12,8 +12,6 @@ from pathlib import Path
 
 import yaml
 
-from app.assessment.models import WritingTask  # noqa: F401  (re-exported context)
-
 
 @dataclass(frozen=True)
 class CalibrationSample:
@@ -58,3 +56,36 @@ def load_calibration(content_root: str | Path, level: str) -> list[CalibrationSa
                 )
             )
     return out
+
+
+def run_calibration(content_root: str | Path, level: str, tolerance: int = 1) -> AgreementReport:
+    """Grade each calibration sample with the live grader and report agreement.
+
+    Needs an LLM provider configured (it actually calls the model). Run via
+    ``python -m app.assessment.calibration [level]``.
+    """
+    from app.ai.registry import build_default_registry
+    from app.ai.router import AIRouter
+    from app.assessment.grader import WritingGrader
+    from app.config.settings import get_settings
+
+    settings = get_settings()
+    router = AIRouter.from_yaml(build_default_registry(settings), settings.ai_routing_path)
+    grader = WritingGrader(router)
+
+    pairs: list[tuple[int, int]] = []
+    for s in load_calibration(content_root, level):
+        feedback, _ = grader.grade_text(
+            task_prompt=s.task_prompt, section=s.section, submission=s.text
+        )
+        pairs.append((s.expected_clb, feedback.clb_estimate))
+        print(f"  {s.task_id}: expected CLB {s.expected_clb}, got {feedback.clb_estimate}")
+    return agreement(pairs, tolerance)
+
+
+if __name__ == "__main__":
+    import sys
+
+    _level = sys.argv[1] if len(sys.argv) > 1 else "a1"
+    report = run_calibration("content", _level)
+    print(f"agreement within +/-1: {report.within}/{report.total} ({report.ratio:.0%})")

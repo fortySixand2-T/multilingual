@@ -79,6 +79,18 @@ class WritingGrader:
         )
         return self._system, [Msg("user", user)]
 
+    def grade_text(self, *, task_prompt: str, section: str, submission: str):
+        """Build the prompt, call the router, parse the feedback. Sync — shared by
+        the async budgeted `grade()` and the calibration CLI. Returns
+        (WritingFeedback, LLMResult); raises GradingError on unparseable output."""
+        system, messages = self.build_messages(
+            task_prompt=task_prompt, section=section, submission=submission
+        )
+        result = self._router.run(
+            _PROFILE, system=system, messages=messages, temperature=0.1, max_tokens=1500
+        )
+        return parse_feedback(result.text), result
+
     async def grade(
         self,
         session: AsyncSession,
@@ -96,24 +108,15 @@ class WritingGrader:
         if used >= daily_budget:
             return GradeResult(True, None, "", "", used, daily_budget, word_count)
 
-        system, messages = self.build_messages(
-            task_prompt=task_prompt, section=section, submission=submission
-        )
-        result = await anyio.to_thread.run_sync(
+        feedback, result = await anyio.to_thread.run_sync(
             functools.partial(
-                self._router.run,
-                _PROFILE,
-                system=system,
-                messages=messages,
-                temperature=0.1,
-                max_tokens=1500,
+                self.grade_text, task_prompt=task_prompt, section=section, submission=submission
             )
         )
         spent = result.usage.input_tokens + result.usage.output_tokens
         await add_usage(
             session, user_id, _FEATURE, result.usage.input_tokens, result.usage.output_tokens, today
         )
-        feedback = parse_feedback(result.text)  # raises GradingError on bad output
         return GradeResult(
             False, feedback, result.provider, result.model, used + spent, daily_budget, word_count
         )
