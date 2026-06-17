@@ -120,3 +120,6 @@
 - [2026-06-16] Modified: README.md — rewrote top-level README to document the complete Phases 0-5 platform + run/dev/CI
 - [2026-06-16] Modified: README.md — added CI status badge
 - [2026-06-16] Created: uv.lock — pinned dependency lockfile (reproducible + cached CI installs)
+- [2026-06-16] Created: .claude/settings.json — curated dev-loop permission allowlist (no arbitrary-exec)
+- [2026-06-16] Created: .claude/agents/{qa-tester,dev-fixer}.md — QA tester + developer subagents
+- [2026-06-16] Created: qa/ — QA loop README, issue action-item TEMPLATE, tester personas (beginner/returning/crammer/edge-case)
