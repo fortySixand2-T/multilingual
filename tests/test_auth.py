@@ -51,15 +51,40 @@ client = TestClient(app)
 def test_signup_rejects_short_password():
     r = client.post(
         "/auth/signup",
-        json={"email": "short@x.com", "password": "1", "invite_code": "good-code"},
+        json={
+            "email": "short@x.com",
+            "password": "1",
+            "invite_code": "good-code",
+            "display_name": "Shorty",
+        },
     )
     assert r.status_code == 422  # min 8 chars (qa issue 002)
+
+
+def test_signup_rejects_blank_display_name():
+    # qa issue 010: a blank name fell back to email on the shared board — reject it
+    for name in ("", "   "):
+        r = client.post(
+            "/auth/signup",
+            json={
+                "email": f"blank{len(name)}@x.com",
+                "password": "pw123456",
+                "invite_code": "good-code",
+                "display_name": name,
+            },
+        )
+        assert r.status_code == 422
 
 
 def test_signup_requires_valid_invite_code():
     r = client.post(
         "/auth/signup",
-        json={"email": "a@x.com", "password": "pw123456", "invite_code": "nope"},
+        json={
+            "email": "a@x.com",
+            "password": "pw123456",
+            "invite_code": "nope",
+            "display_name": "Ann",
+        },
     )
     assert r.status_code == 403
 
@@ -98,13 +123,23 @@ def test_signup_login_and_protected_route():
 def test_login_rejects_bad_password():
     client.post(
         "/auth/signup",
-        json={"email": "c@x.com", "password": "rightpw12", "invite_code": "good-code"},
+        json={
+            "email": "c@x.com",
+            "password": "rightpw12",
+            "invite_code": "good-code",
+            "display_name": "Cee",
+        },
     )
     r = client.post("/auth/login", json={"email": "c@x.com", "password": "wrongpw12"})
     assert r.status_code == 401
 
 
 def test_duplicate_email_conflicts():
-    body = {"email": "dup@x.com", "password": "pw123456", "invite_code": "good-code"}
+    body = {
+        "email": "dup@x.com",
+        "password": "pw123456",
+        "invite_code": "good-code",
+        "display_name": "Dup",
+    }
     assert client.post("/auth/signup", json=body).status_code == 201
     assert client.post("/auth/signup", json=body).status_code == 409

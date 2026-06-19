@@ -129,3 +129,26 @@
 - [2026-06-17] Fixed (qa 004): mock exam produces no score until all sections recorded (finish 409s otherwise) + GET /exam/attempts/{id} save/resume + frontend Resume
 - [2026-06-17] Fixed (qa 005): exam section validates 0<=correct<=total, total>0
 - [2026-06-17] Deferred (qa 001): email validation left out per decision (username swap noted for later)
+- [2026-06-17] Created: .claude/agents/qa-pm.md — QA triage agent: investigates/explains each raised issue and judges validated|rejected|deferred|needs-info before any fix
+- [2026-06-17] Created: .claude/agents/qa-critic.md — Adversarial reviewer that challenges the pm verdict; only validated issues clear the gate to the dev-fixer
+- [2026-06-17] Modified: qa/issues/TEMPLATE.md — Added triage status flow and Triage/Critic blocks
+- [2026-06-17] Modified: .claude/agents/dev-fixer.md — Restricted to status:validated issues only (post-triage)
+- [2026-06-17] Modified: qa/README.md — Documented the triage gate (testers → qa-pm → qa-critic → validated → dev-fixer)
+- [2026-06-17] Created: qa/issues/006-lesson-gating-not-enforced-server-side.md — QA round 2 finding: locked lessons completable via API (validated by gate)
+- [2026-06-17] Created: qa/issues/007-comprehension-accepts-negative-elapsed.md — QA round 2 finding: negative elapsed_seconds (rejected by gate as no-impact/self-inflicted)
+- [2026-06-17] Modified: app/content/api.py — Added is_lesson_unlocked() reusing compute_unit_status (fix qa-006)
+- [2026-06-17] Modified: app/progress/api.py — submit_result rejects locked lessons with 409 (fix qa-006)
+- [2026-06-17] Modified: tests/test_progress.py — Added test_locked_lesson_result_is_rejected_server_side (qa-006)
+- [2026-06-19] Created: .claude/agents/qa-planner.md — Orchestrator agent that sequences the QA round (testers → qa-pm → qa-critic → dev-fixer); coordinates only, keeps the worker agents independent
+- [2026-06-19] Modified: qa/README.md — Documented the planner-driven round and the independence contract (agents share only the qa/issues/ backlog, keyed on status)
+- [2026-06-19] Modified: .claude/agents/qa-planner.md — Added ideation: planner now writes a risk-based test plan (ranked hypotheses + per-persona charters) before fanning out, and reports hypotheses as confirmed/refuted/untested
+- [2026-06-19] Created: qa/rounds/TEMPLATE.md — Round-plan template (change surface, ranked hypotheses, coverage gaps, charters, don't-re-file list)
+- [2026-06-19] Modified: qa/README.md — Documented the planner's plan artifact and hypothesis-driven round
+- [2026-06-19] Created: qa/rounds/003-plan.md — Sample planner-generated round plan (gating regression + input-bounds + board PII hypotheses)
+- [2026-06-19] Modified: app/api/auth.py — Require non-blank display_name (strip + min_length=1) to stop the board email leak (fix qa-010)
+- [2026-06-19] Modified: app/progress/api.py — Board falls back to "Learner", never email (fix qa-010)
+- [2026-06-19] Modified: tests/test_auth.py — Added test_signup_rejects_blank_display_name; pass display_name in signup bodies
+- [2026-06-19] Modified: tests/test_progress.py — Added test_board_never_exposes_email + a blank-name seed user (qa-010)
+- [2026-06-19] Created: qa/issues/010-board-leaks-email-for-blank-display-name.md — Round 3 H3: board PII leak (validated, fixed)
+- [2026-06-19] Created: qa/issues/030-exam-section-rerecord-overwrites.md — Round 3 H5: section overwrite (rejected by gate as intended redo)
+- [2026-06-19] Modified: qa/rounds/003-plan.md — Recorded hypothesis outcomes (2 confirmed, 3 refuted)

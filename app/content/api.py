@@ -49,6 +49,24 @@ def compute_unit_status(
     return out
 
 
+async def is_lesson_unlocked(session: AsyncSession, user_id: int, lesson: ContentLesson) -> bool:
+    """True unless the lesson sits in a unit the user hasn't unlocked yet.
+
+    Reuses the same `compute_unit_status` gating the path renders, so the write side
+    and the read side can never disagree. A lesson not owned by any unit is ungated.
+    """
+    units = (
+        (await session.execute(select(ContentUnit).where(ContentUnit.level == lesson.level)))
+        .scalars()
+        .all()
+    )
+    owning = next((u for u in units if lesson.id in (u.lessons or [])), None)
+    if owning is None:
+        return True
+    completed = await completed_lesson_ids(session, user_id)
+    return compute_unit_status(units, completed)[owning.id] != "locked"
+
+
 @router.get("/path")
 async def get_path(
     level: str,

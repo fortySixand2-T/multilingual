@@ -17,6 +17,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
+from app.content.api import is_lesson_unlocked
 from app.content.tables import ContentLesson
 from app.db.session import get_session
 from app.progress.models import LessonCompletion, UserProgress
@@ -52,6 +53,12 @@ async def submit_result(
     lesson = await session.get(ContentLesson, lesson_id)
     if lesson is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"lesson {lesson_id!r} not found")
+
+    if not await is_lesson_unlocked(session, user.id, lesson):
+        raise HTTPException(
+            status.HTTP_409_CONFLICT,
+            f"lesson {lesson_id!r} is locked — complete its prerequisites first",
+        )
 
     data = lesson.data
     passed = body.score >= float(data.get("pass_threshold", 8.0))  # 0–10 scale
@@ -125,7 +132,8 @@ async def get_board(
     members = [
         {
             "user_id": u.id,
-            "display_name": u.display_name or u.email,
+            # never fall back to email — the board is shared with the whole group (qa-010)
+            "display_name": u.display_name or "Learner",
             "level": p.level if p else "a1",
             "xp": p.xp if p else 0,
             "streak": p.streak if p else 0,

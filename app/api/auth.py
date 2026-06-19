@@ -6,9 +6,11 @@ Closes AC0.9. The JWT/password primitives live in `app/users/auth.py` (framework
 
 from __future__ import annotations
 
+from typing import Annotated
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, StringConstraints
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -26,7 +28,8 @@ class SignupRequest(BaseModel):
     email: str
     password: str = Field(min_length=8)
     invite_code: str
-    display_name: str = ""
+    # required and non-blank: a blank name falls back to email on the shared board (qa-010)
+    display_name: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
 
 
 class LoginRequest(BaseModel):

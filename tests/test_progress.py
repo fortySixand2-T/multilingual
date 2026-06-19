@@ -37,6 +37,8 @@ async def _setup():
     async with _Session() as s:
         await sync_bundle(s, load_content(CONTENT_ROOT, "a1"))
         s.add(User(id=1, email="me@x.com", display_name="Me", password_hash="x"))
+        # a legacy row with a blank name — the board must not expose its email (qa-010)
+        s.add(User(id=2, email="leak@secret.com", display_name="", password_hash="x"))
         await s.commit()
 
 
@@ -83,6 +85,20 @@ def test_failing_score_does_not_complete():
     assert statuses == {"a1.u1": "available", "a1.u2": "locked"}
 
 
+def test_locked_lesson_result_is_rejected_server_side():
+    # qa issue 006: u2 is still locked here (u1 not yet completed), so recording a
+    # result for cafe-01 (in u2) must be refused — gating is enforced on write, not
+    # just rendered in the path. Runs before the u1-completing test below.
+    path = client.get("/content/path", params={"level": "a1"}).json()
+    statuses = {u["id"]: u["status"] for u in path["units"]}
+    assert statuses["a1.u2"] == "locked"
+    r = client.post("/progress/lessons/cafe-01/result", json={"score": 9.0})
+    assert r.status_code == 409
+    # and nothing was recorded: u2 stays locked
+    path = client.get("/content/path", params={"level": "a1"}).json()
+    assert {u["id"]: u["status"] for u in path["units"]}["a1.u2"] == "locked"
+
+
 def test_passing_completes_and_lights_up_gating_streak_and_srs():
     r = client.post("/progress/lessons/greetings-01/result", json={"score": 9.5})
     body = r.json()
@@ -121,6 +137,14 @@ def test_score_is_range_validated_0_to_10():
     assert (
         client.post("/progress/lessons/greetings-01/result", json={"score": -1}).status_code == 422
     )
+
+
+def test_board_never_exposes_email():
+    # qa issue 010: the shared board fell back to email for a blank display_name
+    members = client.get("/progress/board").json()["members"]
+    assert all("@" not in m["display_name"] for m in members)
+    blank = next(m for m in members if m["user_id"] == 2)
+    assert blank["display_name"] == "Learner"
 
 
 def test_review_endpoint_reschedules_a_card():
