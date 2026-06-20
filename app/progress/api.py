@@ -14,6 +14,7 @@ from datetime import UTC, datetime
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 from sqlalchemy import select
+from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
@@ -32,15 +33,6 @@ XP_PER_LESSON = 10
 
 class LessonResultBody(BaseModel):
     score: float = Field(ge=0, le=10)  # 0–10 scale
-
-
-async def _already_completed(session: AsyncSession, user_id: int, lesson_id: str) -> bool:
-    row = await session.execute(
-        select(LessonCompletion.id).where(
-            LessonCompletion.user_id == user_id, LessonCompletion.lesson_id == lesson_id
-        )
-    )
-    return row.scalar_one_or_none() is not None
 
 
 @router.post("/lessons/{lesson_id}/result")
@@ -74,25 +66,32 @@ async def submit_result(
             "xp": prog.xp,
         }
 
-    first_time = not await _already_completed(session, user.id, lesson_id)
-    if first_time:
-        session.add(
-            LessonCompletion(
-                user_id=user.id,
-                lesson_id=lesson_id,
-                level=lesson.level,
-                score=body.score,
-                completed_at=datetime.now(UTC).replace(tzinfo=None),
-            )
+    # Atomic insert-or-ignore: the DB decides who's first via the unique (user, lesson)
+    # constraint, so concurrent double-submits can't double-award XP or 500 on a race
+    # (qa-070). rowcount is 1 only for the request that actually inserted.
+    completion = (
+        sqlite_insert(LessonCompletion)
+        .values(
+            user_id=user.id,
+            lesson_id=lesson_id,
+            level=lesson.level,
+            score=body.score,
+            completed_at=datetime.now(UTC).replace(tzinfo=None),
         )
+        .on_conflict_do_nothing(index_elements=["user_id", "lesson_id"])
+    )
+    first_time = (await session.execute(completion)).rowcount == 1
+
+    if first_time:
         await seed_cards(session, user.id, data.get("new_vocab", []))
 
     # Shared write path: streak counts daily activity; XP only on first pass.
     prog = await record_activity(
         session, user.id, xp_award=(XP_PER_LESSON if first_time else 0), level=lesson.level
     )
-
     await session.commit()
+    await session.refresh(prog)  # xp was an atomic increment expression — read it back
+
     return {
         "lesson_id": lesson_id,
         "passed": True,

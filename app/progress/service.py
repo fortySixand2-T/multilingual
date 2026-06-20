@@ -10,6 +10,7 @@ from __future__ import annotations
 from datetime import date
 
 from sqlalchemy import select
+from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.progress.models import LessonCompletion, UserProgress, compute_streak
@@ -27,9 +28,14 @@ async def get_or_create_progress(
 ) -> UserProgress:
     prog = await session.get(UserProgress, user_id)
     if prog is None:
-        prog = UserProgress(user_id=user_id, level=level, xp=0, streak=0, last_active=None)
-        session.add(prog)
-        await session.flush()
+        # insert-or-ignore so two concurrent first-activities don't collide on the PK,
+        # then read the row back (ours or the racer's) — see qa-070.
+        await session.execute(
+            sqlite_insert(UserProgress)
+            .values(user_id=user_id, level=level, xp=0, streak=0, last_active=None)
+            .on_conflict_do_nothing(index_elements=["user_id"])
+        )
+        prog = await session.get(UserProgress, user_id)
     return prog
 
 
@@ -45,7 +51,10 @@ async def record_activity(
     any learning activity that should count toward streak/XP."""
     today = today or date.today()
     prog = await get_or_create_progress(session, user_id, level)
+    # streak is idempotent within a day, so concurrent writers converge; xp uses an
+    # atomic SQL increment so a concurrent activity can't clobber the award (qa-070).
     prog.streak = compute_streak(prog.streak, prog.last_active, today)
     prog.last_active = today
-    prog.xp += xp_award
+    if xp_award:
+        prog.xp = UserProgress.xp + xp_award
     return prog

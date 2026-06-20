@@ -39,6 +39,7 @@ async def _setup():
         s.add(User(id=1, email="me@x.com", display_name="Me", password_hash="x"))
         # a legacy row with a blank name — the board must not expose its email (qa-010)
         s.add(User(id=2, email="leak@secret.com", display_name="", password_hash="x"))
+        s.add(User(id=3, email="race@x.com", display_name="Race", password_hash="x"))
         await s.commit()
 
 
@@ -145,6 +146,31 @@ def test_board_never_exposes_email():
     assert all("@" not in m["display_name"] for m in members)
     blank = next(m for m in members if m["user_id"] == 2)
     assert blank["display_name"] == "Learner"
+
+
+def test_concurrent_completions_count_once_no_500():
+    # qa-070: firing the same completion concurrently must not 500 or double XP — the
+    # atomic insert-or-ignore lets exactly one win, and XP is counted once.
+    from app.progress.api import LessonResultBody, submit_result
+    from app.progress.models import UserProgress
+
+    class _U:
+        id = 3
+
+    async def one():
+        async with _Session() as s:
+            return await submit_result("greetings-01", LessonResultBody(score=9.0), s, _U())
+
+    async def run():
+        # gather propagates any exception (the old code 500'd here)
+        results = await asyncio.gather(one(), one(), one(), one())
+        async with _Session() as s:
+            prog = await s.get(UserProgress, 3)
+        return results, prog.xp
+
+    results, final_xp = asyncio.run(run())
+    assert sum(r["first_time"] for r in results) == 1  # exactly one counted it
+    assert final_xp == 10  # XP awarded once, never doubled
 
 
 def test_review_endpoint_reschedules_a_card():

@@ -158,3 +158,9 @@
 - [2026-06-19] Created: qa/issues/040-comprehension-over-time-still-awards-xp.md — Round 4 H2 (validated, fixed)
 - [2026-06-19] Created: qa/issues/050-lesson-score-is-client-reported.md — Round 4 H5 (deferred: client-trust by design)
 - [2026-06-19] Modified: .claude/settings.json — Allowlisted scoped pytest/ruff (test venv) and pkill -f uvicorn to cut prompts
+- [2026-06-19] Created: qa/rounds/005-plan.md — Round 5 plan (CLB math, report integrity, concurrency, no-replay) with outcomes
+- [2026-06-19] Modified: app/progress/api.py — Atomic insert-or-ignore for lesson completion; fixes concurrent-duplicate 500 (qa-070)
+- [2026-06-19] Modified: app/progress/service.py — Conflict-safe progress creation + atomic XP increment (qa-070)
+- [2026-06-19] Modified: tests/test_progress.py — Replaced race test with concurrent-gather assertion (qa-070); seed user 3
+- [2026-06-19] Created: qa/issues/070-concurrent-lesson-completion-500.md — Round 5 H4 (validated, fixed)
+- [2026-06-19] Created: qa/issues/071-comprehension-no-replay-not-enforced.md — Round 5 H3 (rejected: client-enforced by design)
