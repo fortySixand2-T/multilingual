@@ -152,3 +152,9 @@
 - [2026-06-19] Created: qa/issues/010-board-leaks-email-for-blank-display-name.md — Round 3 H3: board PII leak (validated, fixed)
 - [2026-06-19] Created: qa/issues/030-exam-section-rerecord-overwrites.md — Round 3 H5: section overwrite (rejected by gate as intended redo)
 - [2026-06-19] Modified: qa/rounds/003-plan.md — Recorded hypothesis outcomes (2 confirmed, 3 refuted)
+- [2026-06-19] Created: qa/rounds/004-plan.md — Round 4 plan (authz/IDOR + scoring/scheduling correctness hypotheses) with outcomes
+- [2026-06-19] Modified: app/comprehension/api.py — Over-time submissions no longer award XP (fix qa-040)
+- [2026-06-19] Modified: tests/test_comprehension.py — Added test_over_time_pass_earns_no_xp (qa-040)
+- [2026-06-19] Created: qa/issues/040-comprehension-over-time-still-awards-xp.md — Round 4 H2 (validated, fixed)
+- [2026-06-19] Created: qa/issues/050-lesson-score-is-client-reported.md — Round 4 H5 (deferred: client-trust by design)
+- [2026-06-19] Modified: .claude/settings.json — Allowlisted scoped pytest/ruff (test venv) and pkill -f uvicorn to cut prompts

@@ -156,7 +156,9 @@ async def submit(
         )
     )
 
-    first_pass = passed and not prior_pass
+    # over-time runs still show their score, but don't earn XP — timed practice that
+    # ran past the limit wouldn't count under exam conditions (qa-040)
+    first_pass = passed and not prior_pass and not over_time
     if first_pass:
         await record_activity(session, user.id, xp_award=COMPREHENSION_XP, level=row.level)
     await session.commit()

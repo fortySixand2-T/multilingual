@@ -11,7 +11,10 @@
       "Bash(./start.sh *)",
       "Bash(bash start.sh *)",
       "Bash(curl:*)",
-      "Bash(curl *)"
+      "Bash(curl *)",
+      "Bash(/tmp/tef312/bin/python -m pytest *)",
+      "Bash(/tmp/tef312/bin/python -m ruff *)",
+      "Bash(pkill -f uvicorn*)"
     ]
   }
 }

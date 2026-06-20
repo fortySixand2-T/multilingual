@@ -184,6 +184,21 @@ def test_partial_and_over_time():
     assert body["over_time"] is True
 
 
+def test_over_time_pass_earns_no_xp():
+    # qa-040: a fully-correct but over-time run shows its score yet must not award XP
+    # (first_pass False), so the shared-board XP can't be gamed by ignoring the timer.
+    r = client.post(
+        "/comprehension/sets/listen-greet-01/submit",
+        json={
+            "answers": {"listen-greet-01.q1": "Bonjour", "listen-greet-01.q2": "Formal"},
+            "elapsed_seconds": 99999,
+        },
+    )
+    body = r.json()
+    assert body["passed"] is True and body["over_time"] is True
+    assert body["first_pass"] is False  # no XP for an over-time run
+
+
 # --- audio pipeline -----------------------------------------------------------
 
 
