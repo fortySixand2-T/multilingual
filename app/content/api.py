@@ -10,9 +10,11 @@ state, not a stub of the response.
 
 from __future__ import annotations
 
+import re
 from collections.abc import Iterable
 
-from fastapi import APIRouter, Depends, HTTPException, status
+import anyio
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -20,9 +22,19 @@ from app.api.auth import get_current_user
 from app.content.tables import ContentLesson, ContentUnit
 from app.db.session import get_session
 from app.progress.service import completed_lesson_ids
+from app.storage.interface import ObjectStorage
 from app.users.models import User
 
 router = APIRouter(prefix="/content", tags=["content"])
+
+# Audio storage keys are content-controlled (`<level>/audio/<file>.mp3`). Validate the
+# shape before hitting storage — LocalFileStorage joins the key onto a base path with no
+# traversal guard, so an unchecked key could escape the asset dir.
+_AUDIO_KEY = re.compile(r"^[a-z0-9]+/audio/[A-Za-z0-9._-]+\.mp3$")
+
+
+def get_storage(request: Request) -> ObjectStorage:
+    return request.app.state.storage
 
 
 def _unlock_ok(unit: ContentUnit, complete_units: set[str], completed_lessons: set[str]) -> bool:
@@ -108,3 +120,21 @@ async def get_lesson(
     if lesson is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"lesson {lesson_id!r} not found")
     return lesson.data
+
+
+@router.get("/audio/{key:path}")
+async def get_audio(
+    key: str,
+    storage: ObjectStorage = Depends(get_storage),
+    user: User = Depends(get_current_user),
+) -> Response:
+    """Serve an audio asset (vocab `audio` / lesson `listen_type` `audio_ref`) by its
+    storage key. Mirrors the comprehension audio route; auth-gated and shape-checked."""
+    if not _AUDIO_KEY.match(key):
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "no such audio asset")
+    try:
+        # storage is sync (local-FS / boto3) — keep it off the event loop
+        data = await anyio.to_thread.run_sync(lambda: storage.get(key))
+    except Exception:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "audio asset not found") from None
+    return Response(content=data, media_type="audio/mpeg")

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { api, DueCard } from "../api";
+import AudioButton from "../AudioButton";
 
 const RATINGS: { key: "again" | "hard" | "good" | "easy"; label: string }[] = [
   { key: "again", label: "Again" },
@@ -31,6 +32,8 @@ export default function Review() {
     );
 
   const card = cards[idx];
+  // vocab carries an optional `audio` storage key (most cards don't have one yet)
+  const vocabAudio = (card.vocab as { audio?: string } | null)?.audio;
   const rate = async (rating: "again" | "hard" | "good" | "easy") => {
     try {
       await api.review(card.card_key, rating);
@@ -47,6 +50,7 @@ export default function Review() {
       <div className="card center stack" style={{ minHeight: 240, justifyContent: "center" }}>
         <div className="muted">{idx + 1} / {cards.length}</div>
         <div style={{ fontSize: 34, fontWeight: 800 }}>{card.vocab?.fr ?? card.card_key}</div>
+        {vocabAudio && <AudioButton audioKey={vocabAudio} label="🔊" />}
         {revealed ? (
           <div style={{ fontSize: 20 }} className="muted">{card.vocab?.en ?? "—"}</div>
         ) : (

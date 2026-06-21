@@ -201,3 +201,8 @@
 - [2026-06-21] Created: content/a1/exam/mock-2.yaml — Second mock blueprint composed of the new sets
 - [2026-06-21] Created: content/a1/audio/*.mp3 (15) — Real TTS audio (replaces greet-qc.mp3 placeholder; adds bonjour, listen-*, listen_type clips)
 - [2026-06-21] Modified: tests/{test_content_loader,test_content_sync,test_comprehension,test_assessment,test_progress}.py — Relaxed exact-corpus assertions to tolerate a growing bank while preserving intent
+- [2026-06-21] Modified: app/content/api.py — Added GET /content/audio/{key} (auth-gated, shape-validated) to serve vocab/lesson audio from storage
+- [2026-06-21] Created: web/src/AudioButton.tsx — Reusable auth-fetch + play button for content audio keys
+- [2026-06-21] Modified: web/src/screens/Lesson.tsx — listen_type exercise now plays its clip (replaced the disabled "Phase 2" button)
+- [2026-06-21] Modified: web/src/screens/Review.tsx — SRS review plays the vocab clip when a card has audio
+- [2026-06-21] Modified: tests/test_content_sync.py — Tests for /content/audio: serves asset, 404 on missing, key-shape guard rejects traversal

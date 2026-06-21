@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api, Exercise, Lesson as LessonT, LessonResult } from "../api";
+import AudioButton from "../AudioButton";
 
 const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, " ");
 
@@ -170,8 +171,7 @@ function ListenType({ ex, disabled, onChecked }: SubProps) {
   return (
     <div className="exercise">
       <div className="prompt">Type what you hear</div>
-      <button className="btn secondary" disabled style={{ marginBottom: 12 }}>🔊 Play (audio in Phase 2)</button>
-      <div className="muted" style={{ fontSize: 13, marginBottom: 12 }}>clip: {ex.audio_ref}</div>
+      <AudioButton audioKey={ex.audio_ref} label="🔊 Play" style={{ marginBottom: 12 }} />
       <input className="text-input" value={val} disabled={disabled} onChange={(e) => setVal(e.target.value)} placeholder="écrivez ici…" />
       {!disabled && (
         <button className="btn wide" style={{ marginTop: 16 }} disabled={!val.trim()} onClick={() => onChecked(norm(val) === norm(ex.answer))}>Check</button>

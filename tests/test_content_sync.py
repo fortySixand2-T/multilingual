@@ -14,7 +14,7 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 import app.content.tables  # noqa: F401 - register tables on Base.metadata
 from app.api.auth import get_current_user
-from app.content.api import compute_unit_status
+from app.content.api import compute_unit_status, get_storage
 from app.content.loader import load_content
 from app.content.sync import sync_bundle
 from app.content.tables import ContentLesson, ContentUnit, ContentVocab
@@ -54,9 +54,17 @@ async def _override_session():
         yield session
 
 
+class _FakeStorage:
+    objects = {"a1/audio/bonjour.mp3": b"ID3fakeaudio"}
+
+    def get(self, key: str) -> bytes:
+        return self.objects[key]  # KeyError -> 404 in the route
+
+
 app = create_app()
 app.dependency_overrides[get_session] = _override_session
 app.dependency_overrides[get_current_user] = lambda: _FakeUser()
+app.dependency_overrides[get_storage] = lambda: _FakeStorage()
 client = TestClient(app)
 
 
@@ -130,3 +138,23 @@ def test_lesson_endpoint_returns_exercises():
 
 def test_lesson_endpoint_404():
     assert client.get("/content/lessons/nope").status_code == 404
+
+
+# --- content audio delivery ---------------------------------------------------
+
+
+def test_content_audio_serves_asset():
+    r = client.get("/content/audio/a1/audio/bonjour.mp3")
+    assert r.status_code == 200
+    assert r.headers["content-type"] == "audio/mpeg"
+    assert r.content == b"ID3fakeaudio"
+
+
+def test_content_audio_missing_is_404():
+    assert client.get("/content/audio/a1/audio/nope.mp3").status_code == 404
+
+
+def test_content_audio_rejects_bad_key_shape():
+    # no /audio/ segment, not an .mp3 -> fails the key guard before touching storage
+    assert client.get("/content/audio/a1/secret.txt").status_code == 404
+    assert client.get("/content/audio/etc/passwd").status_code == 404
