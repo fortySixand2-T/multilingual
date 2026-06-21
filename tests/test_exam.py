@@ -163,3 +163,31 @@ def test_start_resumes_in_progress_instead_of_duplicating():
     a = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
     b = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
     assert a == b
+
+
+def test_concurrent_sections_all_persist():
+    # qa-170: recording all four sections concurrently must keep all four — a
+    # read-modify-write on the JSON column silently dropped the racing ones.
+    from app.exam.api import SectionResultBody, record_section
+
+    aid = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
+    bodies = [
+        SectionResultBody(skill="reading", correct=20, total=40),
+        SectionResultBody(skill="listening", correct=20, total=40),
+        SectionResultBody(skill="writing", clb_estimate=7),
+        SectionResultBody(skill="speaking", clb_estimate=7),
+    ]
+
+    async def one(b):
+        async with _Session() as s:
+            return await record_section(aid, b, s, _U())
+
+    async def run():
+        await asyncio.gather(*(one(b) for b in bodies))
+        async with _Session() as s:
+            from app.exam.tables import ExamAttempt
+
+            return (await s.get(ExamAttempt, aid)).sections
+
+    sections = _run(run())
+    assert sorted(sections) == ["listening", "reading", "speaking", "writing"]

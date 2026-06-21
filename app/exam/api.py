@@ -8,11 +8,12 @@ CLB profile. The report is an estimate, never an official score.
 
 from __future__ import annotations
 
+import json
 from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
-from sqlalchemy import select
+from sqlalchemy import func, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
@@ -155,11 +156,23 @@ async def record_section(
         clb = max(1, min(12, body.clb_estimate))
         detail = {"clb_estimate": clb}
 
-    sections = dict(attempt.sections)
-    sections[body.skill] = {"clb": clb, "detail": detail}
-    attempt.sections = sections
+    # Patch just this skill's key with an atomic json_set instead of overwriting the whole
+    # JSON blob — a read-modify-write here loses concurrent sections for *other* skills
+    # (qa-170). body.skill is a fixed Literal, so the path is safe.
+    await session.execute(
+        update(ExamAttempt)
+        .where(ExamAttempt.id == attempt.id)
+        .values(
+            sections=func.json_set(
+                ExamAttempt.sections,
+                f"$.{body.skill}",
+                func.json(json.dumps({"clb": clb, "detail": detail})),
+            )
+        )
+    )
     await session.commit()
-    return {"skill": body.skill, "clb": clb, "recorded": sorted(sections)}
+    await session.refresh(attempt)
+    return {"skill": body.skill, "clb": clb, "recorded": sorted(attempt.sections)}
 
 
 async def _required_skills(session: AsyncSession, blueprint_id: str) -> list[str]:
