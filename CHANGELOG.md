@@ -172,3 +172,9 @@
 - [2026-06-20] Modified: tests/test_comprehension.py — Added test_concurrent_passes_award_xp_once (qa-100)
 - [2026-06-20] Modified: tests/test_auth.py — Added test_email_is_normalized_for_signup_and_login (qa-101)
 - [2026-06-20] Created: qa/issues/100,101 (fixed), 102 (rejected) — round 6 findings
+- [2026-06-20] Created: qa/rounds/007-plan.md — Round 7 plan (missing upper bounds / resource limits) + outcomes
+- [2026-06-20] Modified: app/api/auth.py — Cap display_name at max_length=80 (fix qa-130)
+- [2026-06-20] Modified: app/exam/api.py — start resumes the open in-progress attempt instead of duplicating (fix qa-150)
+- [2026-06-20] Modified: tests/test_auth.py — Added test_signup_rejects_oversized_display_name (qa-130)
+- [2026-06-20] Modified: tests/test_exam.py — Added test_start_resumes_in_progress_instead_of_duplicating (qa-150)
+- [2026-06-20] Created: qa/issues/130 (fixed), 131 (rejected), 150 (fixed) — round 7 findings

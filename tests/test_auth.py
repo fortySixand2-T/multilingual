@@ -76,6 +76,22 @@ def test_signup_rejects_blank_display_name():
         assert r.status_code == 422
 
 
+def test_signup_rejects_oversized_display_name():
+    # qa-130: an unbounded name floods the shared board / breaks the UI — cap it
+    assert (
+        client.post(
+            "/auth/signup",
+            json={
+                "email": "big@x.com",
+                "password": "pw123456",
+                "invite_code": "good-code",
+                "display_name": "X" * 81,
+            },
+        ).status_code
+        == 422
+    )
+
+
 def test_email_is_normalized_for_signup_and_login():
     # qa-101: casing/whitespace must not create a second account, and login must find it
     r = client.post(

@@ -77,6 +77,21 @@ async def start(
     bp = await session.get(ExamBlueprintRow, body.blueprint_id)
     if bp is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"blueprint {body.blueprint_id!r} not found")
+
+    # Resume an in-progress attempt for this blueprint instead of spawning duplicates,
+    # so "start" can't litter the resume list / history (qa-150).
+    existing = (
+        await session.execute(
+            select(ExamAttempt).where(
+                ExamAttempt.user_id == user.id,
+                ExamAttempt.blueprint_id == bp.id,
+                ExamAttempt.status == "in_progress",
+            )
+        )
+    ).scalar_one_or_none()
+    if existing is not None:
+        return {"attempt_id": existing.id, "blueprint": bp.data}
+
     attempt = ExamAttempt(
         user_id=user.id,
         blueprint_id=bp.id,

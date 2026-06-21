@@ -155,3 +155,11 @@ def test_no_score_until_all_sections_complete():
 
 def test_start_unknown_blueprint_404():
     assert client.post("/exam/start", json={"blueprint_id": "nope"}).status_code == 404
+
+
+def test_start_resumes_in_progress_instead_of_duplicating():
+    # qa-150: starting the same blueprint while one is in progress resumes it, so the
+    # resume list / history can't fill with duplicate in-progress attempts.
+    a = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
+    b = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
+    assert a == b

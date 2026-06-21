@@ -32,8 +32,11 @@ class SignupRequest(BaseModel):
     email: NormalizedEmail
     password: str = Field(min_length=8)
     invite_code: str
-    # required and non-blank: a blank name falls back to email on the shared board (qa-010)
-    display_name: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)]
+    # required, non-blank, and capped: a blank name falls back to email on the shared
+    # board (qa-010); an unbounded one floods every board response / breaks the UI (qa-130)
+    display_name: Annotated[
+        str, StringConstraints(strip_whitespace=True, min_length=1, max_length=80)
+    ]
 
 
 class LoginRequest(BaseModel):
