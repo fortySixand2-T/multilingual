@@ -186,3 +186,5 @@
 - [2026-06-20] Created: qa/rounds/010-plan.md — Round 10 data-exposure audit: surfaces sound, 2 by-design items logged
 - [2026-06-20] Created: qa/issues/180-comprehension-feedback-reveals-answers.md — Round 10 H4 (deferred: pedagogy vs anti-cheat tradeoff)
 - [2026-06-20] Created: qa/issues/181-locked-lesson-content-readable.md — Round 10 H3 (rejected: client-enforced presentation)
+- [2026-06-21] Created: qa/FRONTEND_TEST_GAP.md — Wrote up the untested-frontend gap (API-only QA rounds vs. the React SPA: flows, error states, resume UI)
+- [2026-06-21] Created: qa/rounds/011-plan.md — Round 11 (migration round-trip, sync idempotency, speech 503): clean round, 0 bugs, all 3 hypotheses refuted
