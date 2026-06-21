@@ -183,3 +183,6 @@
 - [2026-06-20] Modified: app/exam/api.py — record_section uses atomic json_set to patch one skill key, fixing the concurrent lost-update (qa-170)
 - [2026-06-20] Modified: tests/test_exam.py — Added test_concurrent_sections_all_persist (qa-170)
 - [2026-06-20] Created: qa/issues/170-exam-concurrent-sections-lost-update.md — Round 9 H1 (validated, fixed)
+- [2026-06-20] Created: qa/rounds/010-plan.md — Round 10 data-exposure audit: surfaces sound, 2 by-design items logged
+- [2026-06-20] Created: qa/issues/180-comprehension-feedback-reveals-answers.md — Round 10 H4 (deferred: pedagogy vs anti-cheat tradeoff)
+- [2026-06-20] Created: qa/issues/181-locked-lesson-content-readable.md — Round 10 H3 (rejected: client-enforced presentation)
