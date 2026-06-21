@@ -178,3 +178,4 @@
 - [2026-06-20] Modified: tests/test_auth.py — Added test_signup_rejects_oversized_display_name (qa-130)
 - [2026-06-20] Modified: tests/test_exam.py — Added test_start_resumes_in_progress_instead_of_duplicating (qa-150)
 - [2026-06-20] Created: qa/issues/130 (fixed), 131 (rejected), 150 (fixed) — round 7 findings
+- [2026-06-20] Created: qa/rounds/008-plan.md — Round 8 (resilience/concurrency/regression): clean round, 0 bugs, all 4 hypotheses refuted (AI-down→503, concurrent finish safe, no round-5 regression, state machine 409)
