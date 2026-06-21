@@ -1,0 +1,28 @@
+id: listen-weather
+level: a1
+skill: listening
+title: "La météo"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-weather.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Voici la météo pour demain. Le matin, il va faire froid avec du vent.
+  L'après-midi, le soleil revient et il fera plus chaud. Pas de pluie cette semaine.
+questions:
+  - id: listen-weather.q1
+    prompt: "Quel temps fait-il le matin ?"
+    options: ["Froid avec du vent", "Chaud et ensoleillé", "De la neige"]
+    answer: "Froid avec du vent"
+    explain: "« il va faire froid avec du vent »."
+  - id: listen-weather.q2
+    prompt: "Que se passe-t-il l'après-midi ?"
+    options: ["Le soleil revient", "Il pleut", "Il neige"]
+    answer: "Le soleil revient"
+    explain: "« le soleil revient et il fera plus chaud »."
+  - id: listen-weather.q3
+    prompt: "Va-t-il pleuvoir cette semaine ?"
+    options: [Non, Oui, "On ne sait pas"]
+    answer: Non
+    explain: "« Pas de pluie cette semaine. »"

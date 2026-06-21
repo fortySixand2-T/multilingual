@@ -1,0 +1,23 @@
+id: listen-cafe-order
+level: a1
+skill: listening
+title: "Au comptoir du café"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-cafe-order.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Bonjour ! Je voudrais un café et un croissant, s'il vous plaît.
+  Bien sûr. Vous payez par carte ou en argent comptant ? Par carte, merci.
+questions:
+  - id: listen-cafe-order.q1
+    prompt: "Qu'est-ce que la personne commande ?"
+    options: ["Un café et un croissant", "Un thé", "Une soupe"]
+    answer: "Un café et un croissant"
+    explain: "« Je voudrais un café et un croissant. »"
+  - id: listen-cafe-order.q2
+    prompt: "Comment paie-t-elle ?"
+    options: ["Par carte", "En argent comptant", "Elle ne paie pas"]
+    answer: "Par carte"
+    explain: "« Par carte, merci. »"

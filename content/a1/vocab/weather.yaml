@@ -1,0 +1,59 @@
+- id: soleil
+  fr: soleil
+  en: sun
+  pos: noun
+  tags: [weather]
+
+- id: pluie
+  fr: pluie
+  en: rain
+  pos: noun
+  tags: [weather]
+
+- id: neige
+  fr: neige
+  en: snow
+  pos: noun
+  tags: [weather]
+
+- id: vent
+  fr: vent
+  en: wind
+  pos: noun
+  tags: [weather]
+
+- id: chaud
+  fr: chaud
+  en: hot
+  pos: adjective
+  tags: [weather]
+
+- id: froid
+  fr: froid
+  en: cold
+  pos: adjective
+  tags: [weather]
+
+- id: nuage
+  fr: nuage
+  en: cloud
+  pos: noun
+  tags: [weather]
+
+- id: beau_temps
+  fr: beau temps
+  en: "nice weather"
+  pos: phrase
+  tags: [weather]
+
+- id: orage
+  fr: orage
+  en: storm
+  pos: noun
+  tags: [weather]
+
+- id: meteo
+  fr: météo
+  en: "weather forecast"
+  pos: noun
+  tags: [weather]

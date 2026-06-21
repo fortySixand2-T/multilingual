@@ -1,0 +1,26 @@
+id: time-01
+title: "Days and time"
+grammar_point: "days of the week (no capital in French)"
+est_minutes: 5
+new_vocab: [lundi, mardi, aujourdhui, demain, heure]
+pass_threshold: 8.0
+exercises:
+  - id: time-01.e1
+    type: mcq
+    prompt: "Which day comes right after « lundi »?"
+    options: [dimanche, mardi, samedi]
+    answer: mardi
+    explain: "lundi → mardi (Monday → Tuesday)."
+
+  - id: time-01.e2
+    type: translate
+    prompt: "Translate: “today”"
+    answer: "aujourd'hui"
+    accept: [aujourdhui, "aujourd’hui"]
+
+  - id: time-01.e3
+    type: match_pairs
+    pairs:
+      - [lundi, Monday]
+      - [samedi, Saturday]
+      - [demain, tomorrow]

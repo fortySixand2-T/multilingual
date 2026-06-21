@@ -1,0 +1,28 @@
+id: listen-directions
+level: a1
+skill: listening
+title: "Pour aller à la gare"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-directions.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Pour aller à la gare, continuez tout droit, puis tournez à gauche à la deuxième rue.
+  La gare est à droite, à côté de la banque. C'est à cinq minutes à pied.
+questions:
+  - id: listen-directions.q1
+    prompt: "Où faut-il tourner à gauche ?"
+    options: ["À la deuxième rue", "À la première rue", "Devant la banque"]
+    answer: "À la deuxième rue"
+    explain: "« tournez à gauche à la deuxième rue »."
+  - id: listen-directions.q2
+    prompt: "À côté de quoi se trouve la gare ?"
+    options: ["La banque", "Le café", "L'hôpital"]
+    answer: "La banque"
+    explain: "« à côté de la banque »."
+  - id: listen-directions.q3
+    prompt: "Combien de temps à pied ?"
+    options: ["Cinq minutes", "Quinze minutes", "Une heure"]
+    answer: "Cinq minutes"
+    explain: "« C'est à cinq minutes à pied. »"

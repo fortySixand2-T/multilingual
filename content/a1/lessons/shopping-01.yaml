@@ -1,0 +1,25 @@
+id: shopping-01
+title: "At the shop"
+grammar_point: "« combien ça coûte ? »"
+est_minutes: 5
+new_vocab: [magasin, prix, acheter, cher, carte]
+pass_threshold: 8.0
+exercises:
+  - id: shopping-01.e1
+    type: mcq
+    prompt: "« C'est trop ___ » (too expensive)"
+    options: [cher, beau, froid]
+    answer: cher
+    explain: "cher = expensive."
+
+  - id: shopping-01.e2
+    type: translate
+    prompt: "Translate: “to buy”"
+    answer: acheter
+
+  - id: shopping-01.e3
+    type: match_pairs
+    pairs:
+      - [magasin, shop]
+      - [prix, price]
+      - [argent, money]

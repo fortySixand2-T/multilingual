@@ -1,0 +1,28 @@
+id: read-sms
+level: a1
+skill: reading
+title: "Des messages entre amis"
+time_limit_seconds: 120
+pass_threshold: 0.6
+passage: |
+  Léa : Salut ! Tu es libre ce soir ?
+  Tom : Oui, après 18 h. Pourquoi ?
+  Léa : On va au cinéma avec Marie. Tu viens ?
+  Tom : D'accord ! On se retrouve où ?
+  Léa : Devant le cinéma à 20 h.
+questions:
+  - id: read-sms.q1
+    prompt: "Où vont-ils ?"
+    options: ["Au cinéma", "Au restaurant", "À la gare"]
+    answer: "Au cinéma"
+    explain: "« On va au cinéma avec Marie. »"
+  - id: read-sms.q2
+    prompt: "À quelle heure se retrouvent-ils ?"
+    options: ["20 h", "18 h", "After Marie"]
+    answer: "20 h"
+    explain: "« Devant le cinéma à 20 h. »"
+  - id: read-sms.q3
+    prompt: "Qui vient aussi ?"
+    options: [Marie, Léa, Personne]
+    answer: Marie
+    explain: "« On va au cinéma avec Marie. »"

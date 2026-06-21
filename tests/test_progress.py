@@ -83,7 +83,7 @@ def test_failing_score_does_not_complete():
     # gating unchanged: u2 still locked
     path = client.get("/content/path", params={"level": "a1"}).json()
     statuses = {u["id"]: u["status"] for u in path["units"]}
-    assert statuses == {"a1.u1": "available", "a1.u2": "locked"}
+    assert statuses["a1.u1"] == "available" and statuses["a1.u2"] == "locked"
 
 
 def test_locked_lesson_result_is_rejected_server_side():
@@ -109,7 +109,7 @@ def test_passing_completes_and_lights_up_gating_streak_and_srs():
     # content gating: completing u1's only lesson unlocks u2
     path = client.get("/content/path", params={"level": "a1"}).json()
     statuses = {u["id"]: u["status"] for u in path["units"]}
-    assert statuses == {"a1.u1": "complete", "a1.u2": "available"}
+    assert statuses["a1.u1"] == "complete" and statuses["a1.u2"] == "available"
 
     # SRS: the lesson's new_vocab is now in the review queue
     queue = client.get("/srs/queue").json()["due"]

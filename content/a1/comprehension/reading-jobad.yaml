@@ -1,0 +1,27 @@
+id: read-jobad
+level: a1
+skill: reading
+title: "Une petite annonce : emploi"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  OFFRE D'EMPLOI
+  Café « Le Petit Coin » cherche un serveur ou une serveuse.
+  Travail le week-end, de 9 h à 15 h. Expérience non obligatoire.
+  Contactez Madame Roy au 01 45 67 89 00 ou passez au café.
+questions:
+  - id: read-jobad.q1
+    prompt: "Quel poste est proposé ?"
+    options: ["Serveur / serveuse", "Cuisinier", "Vendeur"]
+    answer: "Serveur / serveuse"
+    explain: "« cherche un serveur ou une serveuse »."
+  - id: read-jobad.q2
+    prompt: "Quand faut-il travailler ?"
+    options: ["Le week-end", "Le lundi", "La nuit"]
+    answer: "Le week-end"
+    explain: "« Travail le week-end, de 9 h à 15 h. »"
+  - id: read-jobad.q3
+    prompt: "Faut-il de l'expérience ?"
+    options: ["Non, ce n'est pas obligatoire", "Oui, obligatoire", "Cinq ans"]
+    answer: "Non, ce n'est pas obligatoire"
+    explain: "« Expérience non obligatoire. »"

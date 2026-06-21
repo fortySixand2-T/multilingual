@@ -1,0 +1,59 @@
+- id: pain
+  fr: pain
+  en: bread
+  pos: noun
+  tags: [food]
+
+- id: fromage
+  fr: fromage
+  en: cheese
+  pos: noun
+  tags: [food]
+
+- id: pomme
+  fr: pomme
+  en: apple
+  pos: noun
+  tags: [food]
+
+- id: poulet
+  fr: poulet
+  en: chicken
+  pos: noun
+  tags: [food]
+
+- id: poisson
+  fr: poisson
+  en: fish
+  pos: noun
+  tags: [food]
+
+- id: legume
+  fr: légume
+  en: vegetable
+  pos: noun
+  tags: [food]
+
+- id: viande
+  fr: viande
+  en: meat
+  pos: noun
+  tags: [food]
+
+- id: oeuf
+  fr: œuf
+  en: egg
+  pos: noun
+  tags: [food]
+
+- id: riz
+  fr: riz
+  en: rice
+  pos: noun
+  tags: [food]
+
+- id: soupe
+  fr: soupe
+  en: soup
+  pos: noun
+  tags: [food]

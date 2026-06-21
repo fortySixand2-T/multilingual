@@ -36,6 +36,7 @@ class ComprehensionSet(BaseModel):
     time_limit_seconds: int | None = None  # timed sets (None = untimed)
     passage: str | None = None  # reading
     audio_ref: str | None = None  # listening — storage key
+    script: str | None = None  # listening transcript: TTS source + post-grading review
     accent: str | None = None  # e.g. "qc", "fr" — accent-tagged library
     allow_replay: bool = True  # False = no-replay (exam mode)
     pass_threshold: float = 0.6

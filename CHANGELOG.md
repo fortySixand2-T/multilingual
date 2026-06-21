@@ -188,3 +188,16 @@
 - [2026-06-20] Created: qa/issues/181-locked-lesson-content-readable.md — Round 10 H3 (rejected: client-enforced presentation)
 - [2026-06-21] Created: qa/FRONTEND_TEST_GAP.md — Wrote up the untested-frontend gap (API-only QA rounds vs. the React SPA: flows, error states, resume UI)
 - [2026-06-21] Created: qa/rounds/011-plan.md — Round 11 (migration round-trip, sync idempotency, speech 503): clean round, 0 bugs, all 3 hypotheses refuted
+- [2026-06-21] Modified: app/comprehension/models.py — Added optional `script` field to ComprehensionSet (listening transcript: TTS source + post-grading review; not exposed in _client_view)
+- [2026-06-21] Created: scripts/gen_audio.py — TTS audio generator (say fr_CA → afconvert → lame); synthesizes vocab/listening/listen_type clips from text
+- [2026-06-21] Modified: content/a1/path.yaml — Expanded to 10 single-lesson units with all_of gating (kept u1/u2 unchanged)
+- [2026-06-21] Modified: content/a1/vocab/greetings.yaml, cafe.yaml — Extended to ~9 cards each
+- [2026-06-21] Created: content/a1/vocab/{numbers,family,food,restaurant,time-days,directions,shopping,weather}.yaml — 8 themed vocab sets (~10 cards each; 98 cards total)
+- [2026-06-21] Created: content/a1/lessons/{greetings-02,numbers-01,family-01,restaurant-01,time-01,directions-01,shopping-01,weather-01}.yaml — 8 lessons mixing mcq/word_bank/translate/match_pairs/listen_type
+- [2026-06-21] Created: content/a1/comprehension/reading-*.yaml (8) — Everyday TEF-style reading sets (email, ad, notice, menu, schedule, sms, postcard, jobad)
+- [2026-06-21] Created: content/a1/comprehension/listening-*.yaml (9) — Listening sets with scripts (cafe, directions, phone-msg, intro, family, shopping, time, announcement, weather)
+- [2026-06-21] Modified: content/a1/comprehension/listening-greet.yaml — Added script for TTS regeneration
+- [2026-06-21] Created: content/a1/writing/{section-a-email-resa,section-a-note,section-b-city-country,section-b-technology}.yaml — 4 writing tasks (now 3 A + 3 B)
+- [2026-06-21] Created: content/a1/exam/mock-2.yaml — Second mock blueprint composed of the new sets
+- [2026-06-21] Created: content/a1/audio/*.mp3 (15) — Real TTS audio (replaces greet-qc.mp3 placeholder; adds bonjour, listen-*, listen_type clips)
+- [2026-06-21] Modified: tests/{test_content_loader,test_content_sync,test_comprehension,test_assessment,test_progress}.py — Relaxed exact-corpus assertions to tolerate a growing bank while preserving intent

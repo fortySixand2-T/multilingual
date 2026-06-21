@@ -9,3 +9,45 @@
   en: water
   pos: noun
   tags: [drink]
+
+- id: the
+  fr: thé
+  en: tea
+  pos: noun
+  tags: [drink]
+
+- id: lait
+  fr: lait
+  en: milk
+  pos: noun
+  tags: [drink]
+
+- id: sucre
+  fr: sucre
+  en: sugar
+  pos: noun
+  tags: [food]
+
+- id: jus
+  fr: jus
+  en: juice
+  pos: noun
+  tags: [drink]
+
+- id: biere
+  fr: bière
+  en: beer
+  pos: noun
+  tags: [drink]
+
+- id: vin
+  fr: vin
+  en: wine
+  pos: noun
+  tags: [drink]
+
+- id: addition
+  fr: addition
+  en: "bill / check"
+  pos: noun
+  tags: [cafe]

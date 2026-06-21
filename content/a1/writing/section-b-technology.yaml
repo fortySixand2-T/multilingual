@@ -1,0 +1,10 @@
+id: write-b-technology
+level: a1
+section: B
+title: "Le téléphone au quotidien"
+min_words: 150
+max_words: 250
+prompt: |
+  Aujourd'hui, beaucoup de gens utilisent leur téléphone toute la journée.
+  Pensez-vous que c'est une bonne chose ? Donnez votre opinion et justifiez-la
+  avec des exemples concrets de votre expérience.

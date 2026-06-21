@@ -1,0 +1,28 @@
+id: read-notice-library
+level: a1
+skill: reading
+title: "Un avis : la bibliothèque"
+time_limit_seconds: 120
+pass_threshold: 0.6
+passage: |
+  BIBLIOTHÈQUE MUNICIPALE
+  Horaires d'ouverture :
+  Du mardi au samedi, de 10 h à 18 h.
+  Fermée le dimanche et le lundi.
+  Le prêt est gratuit pour les habitants de la ville.
+questions:
+  - id: read-notice-library.q1
+    prompt: "Quels jours la bibliothèque est-elle fermée ?"
+    options: ["Dimanche et lundi", "Samedi et dimanche", "Mardi et mercredi"]
+    answer: "Dimanche et lundi"
+    explain: "« Fermée le dimanche et le lundi. »"
+  - id: read-notice-library.q2
+    prompt: "À quelle heure ferme-t-elle ?"
+    options: ["18 h", "10 h", "20 h"]
+    answer: "18 h"
+    explain: "« de 10 h à 18 h »."
+  - id: read-notice-library.q3
+    prompt: "Le prêt est-il payant ?"
+    options: ["Non, il est gratuit", "Oui, pour tous", "Seulement le samedi"]
+    answer: "Non, il est gratuit"
+    explain: "« Le prêt est gratuit pour les habitants. »"

@@ -1,0 +1,10 @@
+id: write-b-city-country
+level: a1
+section: B
+title: "Ville ou campagne ?"
+min_words: 150
+max_words: 250
+prompt: |
+  Certaines personnes préfèrent vivre en ville, d'autres à la campagne.
+  Et vous ? Où préférez-vous vivre ? Donnez votre opinion et justifiez-la avec
+  des exemples concrets de votre vie quotidienne.

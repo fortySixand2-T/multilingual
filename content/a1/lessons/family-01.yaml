@@ -1,0 +1,26 @@
+id: family-01
+title: "My family"
+grammar_point: "possessive « mon / ma »"
+est_minutes: 5
+new_vocab: [famille, mere, pere, frere, soeur]
+pass_threshold: 8.0
+exercises:
+  - id: family-01.e1
+    type: mcq
+    prompt: "“ma mère” = ?"
+    options: [my father, my mother, my sister]
+    answer: my mother
+    explain: "mère = mother."
+
+  - id: family-01.e2
+    type: match_pairs
+    pairs:
+      - [père, father]
+      - [frère, brother]
+      - [sœur, sister]
+
+  - id: family-01.e3
+    type: translate
+    prompt: "Translate: “the family”"
+    answer: "la famille"
+    accept: [famille]

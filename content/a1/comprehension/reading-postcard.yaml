@@ -1,0 +1,28 @@
+id: read-postcard
+level: a1
+skill: reading
+title: "Une carte postale"
+time_limit_seconds: 120
+pass_threshold: 0.6
+passage: |
+  Chère Maman,
+  Je suis à Nice depuis lundi. Il fait très beau et chaud. Je vais à la plage
+  tous les jours et je mange beaucoup de glaces ! Demain, je visite un musée.
+  Je rentre samedi. Bisous,
+  Camille
+questions:
+  - id: read-postcard.q1
+    prompt: "Où est Camille ?"
+    options: ["À Nice", "À Paris", "À la maison"]
+    answer: "À Nice"
+    explain: "« Je suis à Nice depuis lundi. »"
+  - id: read-postcard.q2
+    prompt: "Quel temps fait-il ?"
+    options: ["Beau et chaud", "Froid", "Il pleut"]
+    answer: "Beau et chaud"
+    explain: "« Il fait très beau et chaud. »"
+  - id: read-postcard.q3
+    prompt: "Quand rentre-t-elle ?"
+    options: [Samedi, Lundi, Demain]
+    answer: Samedi
+    explain: "« Je rentre samedi. »"

@@ -1,0 +1,59 @@
+- id: un
+  fr: un
+  en: one
+  pos: numeral
+  tags: [numbers]
+
+- id: deux
+  fr: deux
+  en: two
+  pos: numeral
+  tags: [numbers]
+
+- id: trois
+  fr: trois
+  en: three
+  pos: numeral
+  tags: [numbers]
+
+- id: quatre
+  fr: quatre
+  en: four
+  pos: numeral
+  tags: [numbers]
+
+- id: cinq
+  fr: cinq
+  en: five
+  pos: numeral
+  tags: [numbers]
+
+- id: six
+  fr: six
+  en: six
+  pos: numeral
+  tags: [numbers]
+
+- id: sept
+  fr: sept
+  en: seven
+  pos: numeral
+  tags: [numbers]
+
+- id: huit
+  fr: huit
+  en: eight
+  pos: numeral
+  tags: [numbers]
+
+- id: neuf
+  fr: neuf
+  en: nine
+  pos: numeral
+  tags: [numbers]
+
+- id: dix
+  fr: dix
+  en: ten
+  pos: numeral
+  tags: [numbers]

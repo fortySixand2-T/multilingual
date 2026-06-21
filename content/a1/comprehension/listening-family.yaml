@@ -1,0 +1,28 @@
+id: listen-family
+level: a1
+skill: listening
+title: "Ma famille"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-family.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Dans ma famille, nous sommes quatre. J'ai un frère et une sœur.
+  Mon père est cuisinier et ma mère est professeure. Nous habitons près de la mer.
+questions:
+  - id: listen-family.q1
+    prompt: "Combien sont-ils dans la famille ?"
+    options: [Quatre, Trois, Cinq]
+    answer: Quatre
+    explain: "« nous sommes quatre »."
+  - id: listen-family.q2
+    prompt: "Quel est le métier du père ?"
+    options: [Cuisinier, Professeur, Serveur]
+    answer: Cuisinier
+    explain: "« Mon père est cuisinier »."
+  - id: listen-family.q3
+    prompt: "Où habitent-ils ?"
+    options: ["Près de la mer", "En ville", "À la montagne"]
+    answer: "Près de la mer"
+    explain: "« Nous habitons près de la mer. »"

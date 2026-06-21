@@ -16,3 +16,39 @@
   en: "good evening"
   pos: interjection
   tags: [greeting]
+
+- id: au_revoir
+  fr: au revoir
+  en: "goodbye"
+  pos: interjection
+  tags: [greeting]
+
+- id: merci
+  fr: merci
+  en: "thank you"
+  pos: interjection
+  tags: [politeness]
+
+- id: svp
+  fr: s'il vous plaît
+  en: "please (formal)"
+  pos: phrase
+  tags: [politeness]
+
+- id: pardon
+  fr: pardon
+  en: "sorry / excuse me"
+  pos: interjection
+  tags: [politeness]
+
+- id: oui
+  fr: oui
+  en: "yes"
+  pos: adverb
+  tags: [basics]
+
+- id: non
+  fr: non
+  en: "no"
+  pos: adverb
+  tags: [basics]

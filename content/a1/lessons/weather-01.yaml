@@ -1,0 +1,25 @@
+id: weather-01
+title: "The weather"
+grammar_point: "« il fait… » for weather"
+est_minutes: 5
+new_vocab: [soleil, pluie, chaud, froid, meteo]
+pass_threshold: 8.0
+exercises:
+  - id: weather-01.e1
+    type: mcq
+    prompt: "« En été, il fait ___ » (in summer)"
+    options: [chaud, froid, neige]
+    answer: chaud
+    explain: "il fait chaud = it's hot."
+
+  - id: weather-01.e2
+    type: translate
+    prompt: "Translate: “the rain”"
+    answer: "la pluie"
+    accept: [pluie]
+
+  - id: weather-01.e3
+    type: word_bank
+    prompt: "Build: “It's nice out.”"
+    tokens: [Il, fait, beau, froid]
+    answer: [Il, fait, beau]

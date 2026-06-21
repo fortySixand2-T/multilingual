@@ -1,0 +1,30 @@
+id: restaurant-01
+title: "Ordering at a restaurant"
+grammar_point: "polite requests with « je voudrais »"
+est_minutes: 6
+new_vocab: [restaurant, menu, serveur, commander, addition]
+pass_threshold: 8.0
+exercises:
+  - id: restaurant-01.e1
+    type: mcq
+    prompt: "Who serves you at a restaurant?"
+    options: ["le serveur", "le menu", "la table"]
+    answer: "le serveur"
+    explain: "le serveur = the waiter."
+
+  - id: restaurant-01.e2
+    type: listen_type
+    audio_ref: a1/audio/addition-qc.mp3
+    answer: addition
+    prompt: "Type the word you hear (the bill)."
+
+  - id: restaurant-01.e3
+    type: word_bank
+    prompt: "Build: “The menu, please.”"
+    tokens: [Le, menu, "s'il", vous, plaît, La]
+    answer: [Le, menu, "s'il", vous, plaît]
+
+  - id: restaurant-01.e4
+    type: translate
+    prompt: "Translate: “to order”"
+    answer: commander

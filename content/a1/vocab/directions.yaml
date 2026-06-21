@@ -1,0 +1,59 @@
+- id: gauche
+  fr: gauche
+  en: left
+  pos: noun
+  tags: [directions]
+
+- id: droite
+  fr: droite
+  en: right
+  pos: noun
+  tags: [directions]
+
+- id: tout_droit
+  fr: tout droit
+  en: "straight ahead"
+  pos: phrase
+  tags: [directions]
+
+- id: rue
+  fr: rue
+  en: street
+  pos: noun
+  tags: [city]
+
+- id: gare
+  fr: gare
+  en: "train station"
+  pos: noun
+  tags: [city]
+
+- id: hopital
+  fr: hôpital
+  en: hospital
+  pos: noun
+  tags: [city]
+
+- id: banque
+  fr: banque
+  en: bank
+  pos: noun
+  tags: [city]
+
+- id: ici
+  fr: ici
+  en: here
+  pos: adverb
+  tags: [directions]
+
+- id: la_bas
+  fr: là-bas
+  en: "over there"
+  pos: adverb
+  tags: [directions]
+
+- id: loin
+  fr: loin
+  en: far
+  pos: adverb
+  tags: [directions]

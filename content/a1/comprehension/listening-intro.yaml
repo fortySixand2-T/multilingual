@@ -1,0 +1,28 @@
+id: listen-intro
+level: a1
+skill: listening
+title: "Je me présente"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-intro.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Bonjour, je m'appelle Émilie. J'ai vingt-cinq ans et j'habite à Montréal.
+  Je suis infirmière. J'aime la musique et le cinéma. J'apprends l'espagnol le soir.
+questions:
+  - id: listen-intro.q1
+    prompt: "Où habite Émilie ?"
+    options: ["À Montréal", "À Québec", "À Paris"]
+    answer: "À Montréal"
+    explain: "« j'habite à Montréal »."
+  - id: listen-intro.q2
+    prompt: "Quel est son métier ?"
+    options: [Infirmière, Professeure, Serveuse]
+    answer: Infirmière
+    explain: "« Je suis infirmière. »"
+  - id: listen-intro.q3
+    prompt: "Quelle langue apprend-elle ?"
+    options: ["L'espagnol", "L'anglais", "L'italien"]
+    answer: "L'espagnol"
+    explain: "« J'apprends l'espagnol le soir. »"

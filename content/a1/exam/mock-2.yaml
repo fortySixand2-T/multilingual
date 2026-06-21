@@ -1,0 +1,19 @@
+id: mock-2
+level: a1
+title: "TEF Canada mock — A1 practice (2)"
+# Second blueprint, composed of the newer everyday-life sets.
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-email-invite
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-announcement
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-a-email-resa, write-b-city-country]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Vous réservez une table au restaurant. Jouez la conversation avec le serveur."
+      - "Décrivez votre journée typique : le matin, l'après-midi et le soir."

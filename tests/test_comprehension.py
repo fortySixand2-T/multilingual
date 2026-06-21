@@ -84,7 +84,7 @@ client = TestClient(app)
 
 def test_loads_example_sets():
     sets = load_sets(CONTENT_ROOT, "a1")
-    assert set(sets) == {"read-cafe-01", "listen-greet-01"}
+    assert {"read-cafe-01", "listen-greet-01"} <= set(sets)
     assert sets["read-cafe-01"].skill == "reading" and sets["read-cafe-01"].passage
     assert sets["listen-greet-01"].skill == "listening" and sets["listen-greet-01"].audio_ref
     assert sets["listen-greet-01"].allow_replay is False
@@ -121,10 +121,13 @@ def test_list_sets_filters_by_skill():
     listening = client.get(
         "/comprehension/sets", params={"level": "a1", "skill": "listening"}
     ).json()["sets"]
-    assert [s["id"] for s in listening] == ["listen-greet-01"]
-    assert listening[0]["allow_replay"] is False
+    ids = [s["id"] for s in listening]
+    assert "listen-greet-01" in ids and "read-cafe-01" not in ids
+    greet = next(s for s in listening if s["id"] == "listen-greet-01")
+    assert greet["allow_replay"] is False
     all_sets = client.get("/comprehension/sets", params={"level": "a1"}).json()["sets"]
-    assert len(all_sets) == 2
+    assert {"read-cafe-01", "listen-greet-01"} <= {s["id"] for s in all_sets}
+    assert len(all_sets) >= len(ids)
 
 
 def test_get_set_does_not_leak_answers():
