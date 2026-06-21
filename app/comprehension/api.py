@@ -14,10 +14,11 @@ import anyio
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from pydantic import BaseModel
 from sqlalchemy import select
+from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
-from app.comprehension.tables import ComprehensionAttempt, ComprehensionSetRow
+from app.comprehension.tables import ComprehensionAttempt, ComprehensionPass, ComprehensionSetRow
 from app.db.session import get_session
 from app.progress.service import record_activity
 from app.storage.interface import ObjectStorage
@@ -136,16 +137,6 @@ async def submit(
         limit is not None and body.elapsed_seconds is not None and body.elapsed_seconds > limit
     )
 
-    prior_pass = (
-        await session.execute(
-            select(ComprehensionAttempt.id).where(
-                ComprehensionAttempt.user_id == user.id,
-                ComprehensionAttempt.set_id == set_id,
-                ComprehensionAttempt.score >= float(data.get("pass_threshold", 0.6)),
-            )
-        )
-    ).first() is not None
-
     session.add(
         ComprehensionAttempt(
             user_id=user.id,
@@ -156,11 +147,23 @@ async def submit(
         )
     )
 
-    # over-time runs still show their score, but don't earn XP — timed practice that
-    # ran past the limit wouldn't count under exam conditions (qa-040)
-    first_pass = passed and not prior_pass and not over_time
-    if first_pass:
-        await record_activity(session, user.id, xp_award=COMPREHENSION_XP, level=row.level)
+    # Award XP once per set, atomically: only an in-time pass tries to claim the unique
+    # (user, set) marker, and rowcount==1 means this request claimed it first — so
+    # concurrent submits can't double-pay (qa-100). Over-time runs never claim it (qa-040).
+    first_pass = False
+    if passed and not over_time:
+        claim = (
+            sqlite_insert(ComprehensionPass)
+            .values(
+                user_id=user.id,
+                set_id=set_id,
+                awarded_at=datetime.now(UTC).replace(tzinfo=None),
+            )
+            .on_conflict_do_nothing(index_elements=["user_id", "set_id"])
+        )
+        first_pass = (await session.execute(claim)).rowcount == 1
+        if first_pass:
+            await record_activity(session, user.id, xp_award=COMPREHENSION_XP, level=row.level)
     await session.commit()
 
     return {

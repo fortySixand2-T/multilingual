@@ -76,6 +76,40 @@ def test_signup_rejects_blank_display_name():
         assert r.status_code == 422
 
 
+def test_email_is_normalized_for_signup_and_login():
+    # qa-101: casing/whitespace must not create a second account, and login must find it
+    r = client.post(
+        "/auth/signup",
+        json={
+            "email": "  Mixed@Case.com ",
+            "password": "pw123456",
+            "invite_code": "good-code",
+            "display_name": "Mixed",
+        },
+    )
+    assert r.status_code == 201
+    # a differently-cased signup is the same account → conflict, not a duplicate
+    assert (
+        client.post(
+            "/auth/signup",
+            json={
+                "email": "mixed@case.com",
+                "password": "pw123456",
+                "invite_code": "good-code",
+                "display_name": "Mixed2",
+            },
+        ).status_code
+        == 409
+    )
+    # login with yet another casing works
+    assert (
+        client.post(
+            "/auth/login", json={"email": "MIXED@CASE.COM", "password": "pw123456"}
+        ).status_code
+        == 200
+    )
+
+
 def test_signup_requires_valid_invite_code():
     r = client.post(
         "/auth/signup",

@@ -10,7 +10,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-from pydantic import BaseModel, Field, StringConstraints
+from pydantic import AfterValidator, BaseModel, Field, StringConstraints
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -23,9 +23,13 @@ from app.users.models import User
 router = APIRouter(prefix="/auth", tags=["auth"])
 _bearer = HTTPBearer(auto_error=False)
 
+# Normalize once so signup and login key on the same value — otherwise `Bob@x.com` and
+# `bob@x.com` become two accounts and login can't find a differently-cased signup (qa-101).
+NormalizedEmail = Annotated[str, AfterValidator(lambda v: v.strip().lower())]
+
 
 class SignupRequest(BaseModel):
-    email: str
+    email: NormalizedEmail
     password: str = Field(min_length=8)
     invite_code: str
     # required and non-blank: a blank name falls back to email on the shared board (qa-010)
@@ -33,7 +37,7 @@ class SignupRequest(BaseModel):
 
 
 class LoginRequest(BaseModel):
-    email: str
+    email: NormalizedEmail
     password: str
 
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from sqlalchemy import JSON, DateTime, Float, Integer, String
+from sqlalchemy import JSON, DateTime, Float, Integer, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.users.models import Base
@@ -29,3 +29,17 @@ class ComprehensionAttempt(Base):
     score: Mapped[float] = mapped_column(Float)
     elapsed_seconds: Mapped[int | None] = mapped_column(Integer, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime)
+
+
+class ComprehensionPass(Base):
+    """One row per (user, set) the *first* time they pass in time — the unique key makes
+    the XP award atomic, so concurrent submits can't double-pay (qa-100)."""
+
+    __tablename__ = "comprehension_passes"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, index=True)
+    set_id: Mapped[str] = mapped_column(String(64), index=True)
+    awarded_at: Mapped[datetime] = mapped_column(DateTime)
+
+    __table_args__ = (UniqueConstraint("user_id", "set_id", name="uq_comprehension_pass"),)

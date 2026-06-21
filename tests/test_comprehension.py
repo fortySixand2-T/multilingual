@@ -184,6 +184,34 @@ def test_partial_and_over_time():
     assert body["over_time"] is True
 
 
+def test_concurrent_passes_award_xp_once():
+    # qa-100: firing the same passing submit concurrently must award COMPREHENSION_XP once,
+    # not once per request — the unique (user, set) pass marker makes the award atomic.
+    from app.comprehension.api import SubmitBody, submit
+    from app.progress.models import UserProgress
+
+    class _U:
+        id = 99
+
+    answers = {"listen-greet-01.q1": "Bonjour", "listen-greet-01.q2": "Formal"}
+
+    async def one():
+        async with _Session() as s:
+            return await submit(
+                "listen-greet-01", SubmitBody(answers=answers, elapsed_seconds=10), s, _U()
+            )
+
+    async def run():
+        results = await asyncio.gather(one(), one(), one(), one(), one())
+        async with _Session() as s:
+            prog = await s.get(UserProgress, 99)
+        return results, (prog.xp if prog else 0)
+
+    results, xp = _run(run())
+    assert sum(r["first_pass"] for r in results) == 1  # exactly one award
+    assert xp == 15  # COMPREHENSION_XP, not multiplied
+
+
 def test_over_time_pass_earns_no_xp():
     # qa-040: a fully-correct but over-time run shows its score yet must not award XP
     # (first_pass False), so the shared-board XP can't be gamed by ignoring the timer.

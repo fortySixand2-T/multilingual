@@ -164,3 +164,11 @@
 - [2026-06-19] Modified: tests/test_progress.py — Replaced race test with concurrent-gather assertion (qa-070); seed user 3
 - [2026-06-19] Created: qa/issues/070-concurrent-lesson-completion-500.md — Round 5 H4 (validated, fixed)
 - [2026-06-19] Created: qa/issues/071-comprehension-no-replay-not-enforced.md — Round 5 H3 (rejected: client-enforced by design)
+- [2026-06-20] Created: qa/rounds/006-plan.md — Round 6 plan (JWT security, comprehension XP concurrency, email normalization, clb bounds) + outcomes
+- [2026-06-20] Modified: app/comprehension/tables.py — Added ComprehensionPass marker (unique user_id+set_id) for atomic XP award (qa-100)
+- [2026-06-20] Created: migrations/versions/0009_comprehension_pass.py — comprehension_passes table (qa-100)
+- [2026-06-20] Modified: app/comprehension/api.py — Award XP via atomic insert-or-ignore on the pass marker; removed racy prior_pass query (qa-100)
+- [2026-06-20] Modified: app/api/auth.py — Normalize email (strip+lower) for signup and login (qa-101)
+- [2026-06-20] Modified: tests/test_comprehension.py — Added test_concurrent_passes_award_xp_once (qa-100)
+- [2026-06-20] Modified: tests/test_auth.py — Added test_email_is_normalized_for_signup_and_login (qa-101)
+- [2026-06-20] Created: qa/issues/100,101 (fixed), 102 (rejected) — round 6 findings
