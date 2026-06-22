@@ -1,0 +1,59 @@
+- id: se_lever
+  fr: se lever
+  en: "to get up"
+  pos: verb
+  tags: [routine]
+
+- id: se_laver
+  fr: se laver
+  en: "to wash (oneself)"
+  pos: verb
+  tags: [routine]
+
+- id: se_coucher
+  fr: se coucher
+  en: "to go to bed"
+  pos: verb
+  tags: [routine]
+
+- id: se_reveiller
+  fr: se réveiller
+  en: "to wake up"
+  pos: verb
+  tags: [routine]
+
+- id: shabiller
+  fr: s'habiller
+  en: "to get dressed"
+  pos: verb
+  tags: [routine]
+
+- id: dormir
+  fr: dormir
+  en: "to sleep"
+  pos: verb
+  tags: [routine]
+
+- id: matin
+  fr: matin
+  en: morning
+  pos: noun
+  tags: [routine]
+
+- id: apres_midi
+  fr: après-midi
+  en: afternoon
+  pos: noun
+  tags: [routine]
+
+- id: tot
+  fr: tôt
+  en: early
+  pos: adverb
+  tags: [routine]
+
+- id: tard
+  fr: tard
+  en: late
+  pos: adverb
+  tags: [routine]

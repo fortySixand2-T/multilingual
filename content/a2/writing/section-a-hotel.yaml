@@ -1,0 +1,10 @@
+id: write-a2-hotel
+level: a2
+section: A
+title: "Écrire à un hôtel"
+min_words: 60
+max_words: 120
+prompt: |
+  Vous voulez réserver une chambre d'hôtel pour vos vacances. Écrivez un courriel
+  à l'hôtel : indiquez les dates, le nombre de personnes, et posez deux questions
+  (par exemple sur le petit-déjeuner, le parking ou le prix).

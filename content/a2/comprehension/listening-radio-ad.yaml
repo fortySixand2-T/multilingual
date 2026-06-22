@@ -1,0 +1,29 @@
+id: listen-a2-radio-ad
+level: a2
+skill: listening
+title: "Une publicité à la radio"
+time_limit_seconds: 90
+audio_ref: a2/audio/listen-a2-radio-ad.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Ce week-end, c'est les soldes au magasin Mode Plus ! Tous les manteaux et les
+  chaussures sont à moins trente pour cent. Ouvert samedi et dimanche, de neuf
+  heures à dix-huit heures. Venez nombreux !
+questions:
+  - id: listen-a2-radio-ad.q1
+    prompt: "Qu'est-ce qui est en solde ?"
+    options: ["Les manteaux et les chaussures", "Les livres", "La nourriture"]
+    answer: "Les manteaux et les chaussures"
+    explain: "« Tous les manteaux et les chaussures sont à moins trente pour cent. »"
+  - id: listen-a2-radio-ad.q2
+    prompt: "Quelle est la réduction ?"
+    options: ["Moins 30 %", "Moins 13 %", "Moins 50 %"]
+    answer: "Moins 30 %"
+    explain: "« à moins trente pour cent »."
+  - id: listen-a2-radio-ad.q3
+    prompt: "Quels jours le magasin est-il ouvert ?"
+    options: ["Samedi et dimanche", "Du lundi au vendredi", "Seulement le dimanche"]
+    answer: "Samedi et dimanche"
+    explain: "« Ouvert samedi et dimanche »."

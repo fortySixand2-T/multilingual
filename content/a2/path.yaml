@@ -1,0 +1,62 @@
+level: a2
+title: "A2 — Elementary"
+units:
+  - id: a2.u1
+    title: "Daily routine"
+    icon: sun
+    lessons: [routine-a2-01]
+    unlock: { type: none }
+
+  - id: a2.u2
+    title: "At work"
+    icon: briefcase
+    lessons: [travail-a2-01]
+    unlock: { type: all_of, requires: [a2.u1] }
+
+  - id: a2.u3
+    title: "Health"
+    icon: heart
+    lessons: [sante-a2-01]
+    unlock: { type: all_of, requires: [a2.u2] }
+
+  - id: a2.u4
+    title: "Travel & past tense"
+    icon: plane
+    lessons: [voyage-a2-01]
+    unlock: { type: all_of, requires: [a2.u3] }
+
+  - id: a2.u5
+    title: "The home"
+    icon: house
+    lessons: [maison-a2-01]
+    unlock: { type: all_of, requires: [a2.u4] }
+
+  - id: a2.u6
+    title: "Cooking"
+    icon: plate
+    lessons: [cuisine-a2-01]
+    unlock: { type: all_of, requires: [a2.u5] }
+
+  - id: a2.u7
+    title: "Free time"
+    icon: ball
+    lessons: [loisirs-a2-01]
+    unlock: { type: all_of, requires: [a2.u6] }
+
+  - id: a2.u8
+    title: "Clothes"
+    icon: shirt
+    lessons: [vetements-a2-01]
+    unlock: { type: all_of, requires: [a2.u7] }
+
+  - id: a2.u9
+    title: "Getting around"
+    icon: bus
+    lessons: [transport-a2-01]
+    unlock: { type: all_of, requires: [a2.u8] }
+
+  - id: a2.u10
+    title: "Feelings & opinions"
+    icon: smile
+    lessons: [sentiments-a2-01]
+    unlock: { type: all_of, requires: [a2.u9] }

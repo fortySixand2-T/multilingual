@@ -1,0 +1,27 @@
+id: read-a2-forum
+level: a2
+skill: reading
+title: "Un message sur un forum"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Bonjour à tous ! Je vais déménager à Lyon le mois prochain pour un nouveau
+  travail. Je cherche un appartement pas trop cher, près du métro. Est-ce que
+  quelqu'un connaît un bon quartier pour les jeunes ? Et combien coûte un loyer
+  en moyenne ? Merci d'avance pour vos conseils !
+questions:
+  - id: read-a2-forum.q1
+    prompt: "Pourquoi cette personne déménage-t-elle ?"
+    options: ["Pour un nouveau travail", "Pour ses études", "Pour sa famille"]
+    answer: "Pour un nouveau travail"
+    explain: "« pour un nouveau travail »."
+  - id: read-a2-forum.q2
+    prompt: "Quel type d'appartement cherche-t-elle ?"
+    options: ["Pas trop cher, près du métro", "Grand avec jardin", "En centre-ville"]
+    answer: "Pas trop cher, près du métro"
+    explain: "« un appartement pas trop cher, près du métro »."
+  - id: read-a2-forum.q3
+    prompt: "Que demande-t-elle aussi ?"
+    options: ["Le prix moyen d'un loyer", "Le numéro d'un médecin", "Les horaires du métro"]
+    answer: "Le prix moyen d'un loyer"
+    explain: "« combien coûte un loyer en moyenne ? »"

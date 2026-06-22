@@ -1,0 +1,27 @@
+id: read-a2-review
+level: a2
+skill: reading
+title: "Un avis sur un restaurant"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Nous avons dîné au restaurant « Chez Marie » samedi soir. Le service était
+  rapide et le serveur était très gentil. Les plats étaient délicieux, surtout
+  le poisson. Le seul problème, c'était le bruit : il y avait beaucoup de monde.
+  Les prix sont raisonnables. Nous reviendrons avec plaisir.
+questions:
+  - id: read-a2-review.q1
+    prompt: "Qu'est-ce que les clients ont aimé le plus ?"
+    options: ["Le poisson", "Le dessert", "La musique"]
+    answer: "Le poisson"
+    explain: "« les plats étaient délicieux, surtout le poisson »."
+  - id: read-a2-review.q2
+    prompt: "Quel était le seul problème ?"
+    options: ["Le bruit", "Le service lent", "Les prix élevés"]
+    answer: "Le bruit"
+    explain: "« Le seul problème, c'était le bruit »."
+  - id: read-a2-review.q3
+    prompt: "Que pensent-ils des prix ?"
+    options: ["Ils sont raisonnables", "Ils sont trop chers", "Ils ne le disent pas"]
+    answer: "Ils sont raisonnables"
+    explain: "« Les prix sont raisonnables. »"

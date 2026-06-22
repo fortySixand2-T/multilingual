@@ -1,0 +1,59 @@
+- id: voyage
+  fr: voyage
+  en: trip
+  pos: noun
+  tags: [travel]
+
+- id: vacances
+  fr: vacances
+  en: holidays
+  pos: noun
+  tags: [travel]
+
+- id: valise
+  fr: valise
+  en: suitcase
+  pos: noun
+  tags: [travel]
+
+- id: hotel
+  fr: hôtel
+  en: hotel
+  pos: noun
+  tags: [travel]
+
+- id: aeroport
+  fr: aéroport
+  en: airport
+  pos: noun
+  tags: [travel]
+
+- id: passeport
+  fr: passeport
+  en: passport
+  pos: noun
+  tags: [travel]
+
+- id: plage
+  fr: plage
+  en: beach
+  pos: noun
+  tags: [travel]
+
+- id: visiter
+  fr: visiter
+  en: "to visit"
+  pos: verb
+  tags: [travel]
+
+- id: reserver
+  fr: réserver
+  en: "to book"
+  pos: verb
+  tags: [travel]
+
+- id: partir
+  fr: partir
+  en: "to leave"
+  pos: verb
+  tags: [travel]

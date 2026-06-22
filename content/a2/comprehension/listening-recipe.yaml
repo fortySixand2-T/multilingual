@@ -1,0 +1,29 @@
+id: listen-a2-recipe
+level: a2
+skill: listening
+title: "Une recette à la radio"
+time_limit_seconds: 100
+audio_ref: a2/audio/listen-a2-recipe.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Aujourd'hui, je vous explique une soupe facile. D'abord, coupez deux carottes
+  et une pomme de terre. Ajoutez de l'eau et un peu de sel. Faites cuire vingt
+  minutes. À la fin, mélangez bien. C'est prêt !
+questions:
+  - id: listen-a2-recipe.q1
+    prompt: "Quels légumes faut-il couper ?"
+    options: ["Des carottes et une pomme de terre", "Des tomates", "Des oignons"]
+    answer: "Des carottes et une pomme de terre"
+    explain: "« coupez deux carottes et une pomme de terre »."
+  - id: listen-a2-recipe.q2
+    prompt: "Combien de temps faut-il cuire ?"
+    options: ["Vingt minutes", "Dix minutes", "Une heure"]
+    answer: "Vingt minutes"
+    explain: "« Faites cuire vingt minutes. »"
+  - id: listen-a2-recipe.q3
+    prompt: "Que faut-il faire à la fin ?"
+    options: ["Mélanger", "Ajouter du fromage", "Servir froid"]
+    answer: "Mélanger"
+    explain: "« À la fin, mélangez bien. »"

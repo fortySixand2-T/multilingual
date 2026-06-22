@@ -1,0 +1,26 @@
+id: loisirs-a2-01
+title: "Free time"
+grammar_point: "« jouer à » vs « faire de »"
+est_minutes: 5
+new_vocab: [loisir, sport, jouer, nager, livre]
+pass_threshold: 8.0
+exercises:
+  - id: loisirs-a2-01.e1
+    type: mcq
+    prompt: "« Le week-end, je ___ au foot. »"
+    options: [joue, jouer, jeu]
+    answer: joue
+    explain: "je joue = I play."
+
+  - id: loisirs-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [nager, "to swim"]
+      - [chanter, "to sing"]
+      - [danser, "to dance"]
+
+  - id: loisirs-a2-01.e3
+    type: translate
+    prompt: "Translate: “a book”"
+    answer: "un livre"
+    accept: [livre]

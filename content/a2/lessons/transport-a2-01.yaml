@@ -1,0 +1,32 @@
+id: transport-a2-01
+title: "Getting around"
+grammar_point: "« prendre » + transport"
+est_minutes: 6
+new_vocab: [bus, metro, voiture, billet, conduire]
+pass_threshold: 8.0
+exercises:
+  - id: transport-a2-01.e1
+    type: mcq
+    prompt: "« Je prends le ___ pour aller au travail. »"
+    options: [métro, four, billet]
+    answer: métro
+    explain: "le métro = the subway."
+
+  - id: transport-a2-01.e2
+    type: listen_type
+    audio_ref: a2/audio/voiture-qc.mp3
+    answer: voiture
+    prompt: "Type the word you hear."
+
+  - id: transport-a2-01.e3
+    type: translate
+    prompt: "Translate: “a ticket”"
+    answer: "un billet"
+    accept: [billet]
+
+  - id: transport-a2-01.e4
+    type: match_pairs
+    pairs:
+      - [bus, bus]
+      - [vélo, bike]
+      - [avion, plane]

@@ -1,0 +1,29 @@
+id: listen-a2-interview
+level: a2
+skill: listening
+title: "Une petite interview"
+time_limit_seconds: 100
+audio_ref: a2/audio/listen-a2-interview.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Bonjour, pouvez-vous vous présenter ? Oui, je m'appelle Marc, j'ai trente ans
+  et je suis cuisinier dans un restaurant à Montréal. J'aime mon travail parce que
+  j'adore cuisiner. Pendant mon temps libre, je fais du vélo et je lis beaucoup.
+questions:
+  - id: listen-a2-interview.q1
+    prompt: "Quel est le métier de Marc ?"
+    options: [Cuisinier, Serveur, Médecin]
+    answer: Cuisinier
+    explain: "« je suis cuisinier dans un restaurant »."
+  - id: listen-a2-interview.q2
+    prompt: "Pourquoi aime-t-il son travail ?"
+    options: ["Il adore cuisiner", "Le salaire est bon", "C'est près de chez lui"]
+    answer: "Il adore cuisiner"
+    explain: "« j'aime mon travail parce que j'adore cuisiner »."
+  - id: listen-a2-interview.q3
+    prompt: "Que fait-il pendant son temps libre ?"
+    options: ["Du vélo et de la lecture", "Du tennis", "De la musique"]
+    answer: "Du vélo et de la lecture"
+    explain: "« je fais du vélo et je lis beaucoup »."

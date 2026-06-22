@@ -1,0 +1,29 @@
+id: listen-a2-directions-transport
+level: a2
+skill: listening
+title: "Comment venir chez moi"
+time_limit_seconds: 100
+audio_ref: a2/audio/listen-a2-directions-transport.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Pour venir chez moi, prends le métro ligne deux et descends à la station Berri.
+  Ensuite, prends le bus numéro quinze. C'est le troisième arrêt. Mon immeuble est
+  juste en face de l'arrêt. S'il y a un problème, appelle-moi.
+questions:
+  - id: listen-a2-directions-transport.q1
+    prompt: "À quelle station faut-il descendre du métro ?"
+    options: [Berri, Jean-Talon, "Centre-ville"]
+    answer: Berri
+    explain: "« descends à la station Berri »."
+  - id: listen-a2-directions-transport.q2
+    prompt: "Quel bus faut-il prendre ensuite ?"
+    options: ["Le numéro 15", "Le numéro 2", "Le numéro 50"]
+    answer: "Le numéro 15"
+    explain: "« prends le bus numéro quinze »."
+  - id: listen-a2-directions-transport.q3
+    prompt: "Où est l'immeuble ?"
+    options: ["En face de l'arrêt", "À côté du métro", "Près de la plage"]
+    answer: "En face de l'arrêt"
+    explain: "« Mon immeuble est juste en face de l'arrêt. »"

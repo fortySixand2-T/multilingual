@@ -1,0 +1,24 @@
+id: cuisine-a2-01
+title: "Following a recipe"
+grammar_point: "the present tense for instructions"
+est_minutes: 5
+new_vocab: [cuisiner, recette, four, ajouter, melanger]
+pass_threshold: 8.0
+exercises:
+  - id: cuisine-a2-01.e1
+    type: mcq
+    prompt: "Pour faire un gâteau, je suis une ___."
+    options: [recette, valise, réunion]
+    answer: recette
+    explain: "la recette = the recipe."
+
+  - id: cuisine-a2-01.e2
+    type: translate
+    prompt: "Translate: “to cook”"
+    answer: cuisiner
+
+  - id: cuisine-a2-01.e3
+    type: word_bank
+    prompt: "Build: “I mix the sugar.”"
+    tokens: [Je, mélange, le, sucre, ajoute]
+    answer: [Je, mélange, le, sucre]

@@ -1,0 +1,59 @@
+- id: travail
+  fr: travail
+  en: work
+  pos: noun
+  tags: [work]
+
+- id: bureau
+  fr: bureau
+  en: office
+  pos: noun
+  tags: [work]
+
+- id: collegue
+  fr: collègue
+  en: colleague
+  pos: noun
+  tags: [work]
+
+- id: reunion
+  fr: réunion
+  en: meeting
+  pos: noun
+  tags: [work]
+
+- id: patron
+  fr: patron
+  en: boss
+  pos: noun
+  tags: [work]
+
+- id: entreprise
+  fr: entreprise
+  en: company
+  pos: noun
+  tags: [work]
+
+- id: salaire
+  fr: salaire
+  en: salary
+  pos: noun
+  tags: [work]
+
+- id: emploi
+  fr: emploi
+  en: job
+  pos: noun
+  tags: [work]
+
+- id: chercher_travail
+  fr: chercher un travail
+  en: "to look for a job"
+  pos: phrase
+  tags: [work]
+
+- id: gagner
+  fr: gagner
+  en: "to earn"
+  pos: verb
+  tags: [work]
