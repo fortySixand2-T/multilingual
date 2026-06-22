@@ -1,0 +1,19 @@
+id: a2-mock-1
+level: a2
+title: "TEF Canada mock — A2 practice"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-a2-blog-weekend
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-a2-past-holiday
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-a2-weekend, write-a2-remote-work]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Racontez vos dernières vacances : où, avec qui, et ce que vous avez fait."
+      - "Décrivez votre journée typique, du matin au soir."

@@ -1,0 +1,29 @@
+id: listen-a2-traffic-weather
+level: a2
+skill: listening
+title: "Météo et circulation"
+time_limit_seconds: 100
+audio_ref: a2/audio/listen-a2-traffic-weather.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.5
+script: |
+  Voici les informations. Ce matin, il y a beaucoup de circulation sur l'autoroute
+  à cause d'un accident. Prenez le métro si possible. Côté météo, il va pleuvoir
+  toute la journée, alors prenez un parapluie. Bonne journée !
+questions:
+  - id: listen-a2-traffic-weather.q1
+    prompt: "Pourquoi y a-t-il beaucoup de circulation ?"
+    options: ["À cause d'un accident", "À cause de la neige", "À cause de travaux"]
+    answer: "À cause d'un accident"
+    explain: "« beaucoup de circulation sur l'autoroute à cause d'un accident »."
+  - id: listen-a2-traffic-weather.q2
+    prompt: "Que conseille-t-on de prendre ?"
+    options: ["Le métro", "La voiture", "Le vélo"]
+    answer: "Le métro"
+    explain: "« Prenez le métro si possible. »"
+  - id: listen-a2-traffic-weather.q3
+    prompt: "Quel temps va-t-il faire ?"
+    options: ["Il va pleuvoir", "Il va faire beau", "Il va neiger"]
+    answer: "Il va pleuvoir"
+    explain: "« il va pleuvoir toute la journée »."

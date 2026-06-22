@@ -228,3 +228,5 @@
 - [2026-06-21] Created: qa/issues/220-exam-history-missing-level-field.md — QA round 013: exam history omits level field
 - [2026-06-21] Created: qa/issues/221-comprehension-pass-threshold-not-shown.md — QA round 013: comprehension pass threshold hidden from user
 - [2026-06-21] Modified: scripts/gen_audio.py — Applied ruff format (CI format-check gate; no logic change)
+- [2026-06-21] Created: content/a2/ — Full A2 (Elementary) level: 10 vocab themes (100 cards), 10 lessons (passé composé/futur proche/reflexive), 19 comprehension sets (9 reading + 10 listening w/ scripts), 6 writing tasks, 2 exams, 13 TTS audio clips
+- [2026-06-21] Created: tests/test_all_levels.py — Level-agnostic validation: every level loads + cross-references, exam refs resolve, listening sets have scripts, vocab ids globally unique

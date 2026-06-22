@@ -1,0 +1,27 @@
+id: read-a2-blog-weekend
+level: a2
+skill: reading
+title: "Mon week-end (blog)"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Ce week-end, j'ai visité ma sœur à Québec. Samedi, nous avons fait une longue
+  promenade dans le Vieux-Québec et nous avons mangé dans un petit restaurant.
+  Dimanche, il a plu, alors nous sommes restés à la maison et nous avons regardé
+  un film. Je suis rentré dimanche soir, fatigué mais content.
+questions:
+  - id: read-a2-blog-weekend.q1
+    prompt: "Qui l'auteur a-t-il visité ?"
+    options: ["Sa sœur", "Son frère", "Un collègue"]
+    answer: "Sa sœur"
+    explain: "« j'ai visité ma sœur à Québec »."
+  - id: read-a2-blog-weekend.q2
+    prompt: "Pourquoi sont-ils restés à la maison dimanche ?"
+    options: ["Il a plu", "Ils étaient malades", "Il faisait trop chaud"]
+    answer: "Il a plu"
+    explain: "« Dimanche, il a plu, alors nous sommes restés à la maison »."
+  - id: read-a2-blog-weekend.q3
+    prompt: "Comment se sentait l'auteur en rentrant ?"
+    options: ["Fatigué mais content", "Triste", "En colère"]
+    answer: "Fatigué mais content"
+    explain: "« fatigué mais content »."

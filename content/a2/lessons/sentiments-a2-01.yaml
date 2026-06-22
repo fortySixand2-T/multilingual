@@ -1,0 +1,24 @@
+id: sentiments-a2-01
+title: "Feelings & opinions"
+grammar_point: "« je pense que… »"
+est_minutes: 5
+new_vocab: [content, triste, fatigue, aimer, penser]
+pass_threshold: 8.0
+exercises:
+  - id: sentiments-a2-01.e1
+    type: mcq
+    prompt: "« Je suis très ___ aujourd'hui ! » (happy)"
+    options: [content, malade, tard]
+    answer: content
+    explain: "content = happy."
+
+  - id: sentiments-a2-01.e2
+    type: translate
+    prompt: "Translate: “to think”"
+    answer: penser
+
+  - id: sentiments-a2-01.e3
+    type: word_bank
+    prompt: "Build: “We love music.”"
+    tokens: [Nous, aimons, la, musique, déteste]
+    answer: [Nous, aimons, la, musique]

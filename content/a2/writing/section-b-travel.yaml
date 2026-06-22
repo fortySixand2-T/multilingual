@@ -1,0 +1,10 @@
+id: write-a2-travel
+level: a2
+section: B
+title: "Voyager ou rester chez soi ?"
+min_words: 160
+max_words: 260
+prompt: |
+  Pendant les vacances, certaines personnes aiment voyager loin, d'autres préfèrent
+  rester chez elles. Et vous, que préférez-vous ? Donnez votre opinion et justifiez-la
+  avec des exemples concrets.

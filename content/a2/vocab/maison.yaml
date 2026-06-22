@@ -1,0 +1,59 @@
+- id: maison
+  fr: maison
+  en: house
+  pos: noun
+  tags: [home]
+
+- id: appartement
+  fr: appartement
+  en: flat
+  pos: noun
+  tags: [home]
+
+- id: chambre
+  fr: chambre
+  en: bedroom
+  pos: noun
+  tags: [home]
+
+- id: salon
+  fr: salon
+  en: "living room"
+  pos: noun
+  tags: [home]
+
+- id: salle_de_bain
+  fr: salle de bain
+  en: bathroom
+  pos: noun
+  tags: [home]
+
+- id: jardin
+  fr: jardin
+  en: garden
+  pos: noun
+  tags: [home]
+
+- id: porte
+  fr: porte
+  en: door
+  pos: noun
+  tags: [home]
+
+- id: fenetre
+  fr: fenêtre
+  en: window
+  pos: noun
+  tags: [home]
+
+- id: loyer
+  fr: loyer
+  en: rent
+  pos: noun
+  tags: [home]
+
+- id: meuble
+  fr: meuble
+  en: "piece of furniture"
+  pos: noun
+  tags: [home]

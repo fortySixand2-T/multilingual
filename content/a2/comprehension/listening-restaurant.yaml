@@ -1,0 +1,29 @@
+id: listen-a2-restaurant
+level: a2
+skill: listening
+title: "Au restaurant"
+time_limit_seconds: 100
+audio_ref: a2/audio/listen-a2-restaurant.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Bonsoir, vous avez choisi ? Oui, je vais prendre le poulet avec des légumes,
+  et comme boisson, un verre d'eau. Et en dessert ? Une tarte aux pommes, s'il
+  vous plaît. Très bien, j'apporte ça tout de suite.
+questions:
+  - id: listen-a2-restaurant.q1
+    prompt: "Quel plat principal le client choisit-il ?"
+    options: ["Le poulet avec des légumes", "Le poisson", "Une soupe"]
+    answer: "Le poulet avec des légumes"
+    explain: "« je vais prendre le poulet avec des légumes »."
+  - id: listen-a2-restaurant.q2
+    prompt: "Que prend-il comme boisson ?"
+    options: ["Un verre d'eau", "Un café", "Un jus"]
+    answer: "Un verre d'eau"
+    explain: "« comme boisson, un verre d'eau »."
+  - id: listen-a2-restaurant.q3
+    prompt: "Quel dessert commande-t-il ?"
+    options: ["Une tarte aux pommes", "Un fromage", "Une glace"]
+    answer: "Une tarte aux pommes"
+    explain: "« Une tarte aux pommes, s'il vous plaît. »"

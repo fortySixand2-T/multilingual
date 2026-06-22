@@ -1,0 +1,25 @@
+id: sante-a2-01
+title: "At the doctor"
+grammar_point: "« avoir mal à »"
+est_minutes: 6
+new_vocab: [sante, medecin, malade, medicament, avoir_mal]
+pass_threshold: 8.0
+exercises:
+  - id: sante-a2-01.e1
+    type: mcq
+    prompt: "« J'ai mal à la ___. » (head)"
+    options: [tête, main, jambe]
+    answer: tête
+    explain: "la tête = the head."
+
+  - id: sante-a2-01.e2
+    type: translate
+    prompt: "Translate: “the doctor”"
+    answer: "le médecin"
+    accept: [médecin, medecin]
+
+  - id: sante-a2-01.e3
+    type: word_bank
+    prompt: "Build: “I am sick today.”"
+    tokens: [Je, suis, malade, "aujourd'hui", content]
+    answer: [Je, suis, malade, "aujourd'hui"]

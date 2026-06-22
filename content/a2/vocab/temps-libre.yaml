@@ -1,0 +1,59 @@
+- id: loisir
+  fr: loisir
+  en: "leisure activity"
+  pos: noun
+  tags: [hobbies]
+
+- id: sport
+  fr: sport
+  en: sport
+  pos: noun
+  tags: [hobbies]
+
+- id: musique
+  fr: musique
+  en: music
+  pos: noun
+  tags: [hobbies]
+
+- id: film
+  fr: film
+  en: film
+  pos: noun
+  tags: [hobbies]
+
+- id: livre
+  fr: livre
+  en: book
+  pos: noun
+  tags: [hobbies]
+
+- id: jouer
+  fr: jouer
+  en: "to play"
+  pos: verb
+  tags: [hobbies]
+
+- id: nager
+  fr: nager
+  en: "to swim"
+  pos: verb
+  tags: [hobbies]
+
+- id: danser
+  fr: danser
+  en: "to dance"
+  pos: verb
+  tags: [hobbies]
+
+- id: chanter
+  fr: chanter
+  en: "to sing"
+  pos: verb
+  tags: [hobbies]
+
+- id: promenade
+  fr: promenade
+  en: walk
+  pos: noun
+  tags: [hobbies]

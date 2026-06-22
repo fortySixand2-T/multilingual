@@ -1,0 +1,26 @@
+id: maison-a2-01
+title: "Rooms in the house"
+grammar_point: "prepositions of place (dans la)"
+est_minutes: 5
+new_vocab: [maison, chambre, salon, jardin, loyer]
+pass_threshold: 8.0
+exercises:
+  - id: maison-a2-01.e1
+    type: mcq
+    prompt: "On dort dans la ___."
+    options: [chambre, cuisine, jardin]
+    answer: chambre
+    explain: "la chambre = the bedroom."
+
+  - id: maison-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [salon, "living room"]
+      - [jardin, garden]
+      - [loyer, rent]
+
+  - id: maison-a2-01.e3
+    type: translate
+    prompt: "Translate: “the house”"
+    answer: "la maison"
+    accept: [maison]

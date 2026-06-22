@@ -1,0 +1,27 @@
+id: read-a2-news
+level: a2
+skill: reading
+title: "Une brève dans le journal"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Hier, la ville a ouvert une nouvelle piste cyclable de dix kilomètres le long
+  de la rivière. Le maire espère que plus de gens vont utiliser le vélo pour aller
+  au travail. Le projet a coûté deux millions d'euros. Des arbres seront plantés
+  au printemps prochain.
+questions:
+  - id: read-a2-news.q1
+    prompt: "Qu'est-ce que la ville a ouvert ?"
+    options: ["Une piste cyclable", "Un parking", "Un musée"]
+    answer: "Une piste cyclable"
+    explain: "« a ouvert une nouvelle piste cyclable »."
+  - id: read-a2-news.q2
+    prompt: "Qu'espère le maire ?"
+    options: ["Que plus de gens utilisent le vélo", "Plus de voitures en ville", "Moins de touristes"]
+    answer: "Que plus de gens utilisent le vélo"
+    explain: "« plus de gens vont utiliser le vélo pour aller au travail »."
+  - id: read-a2-news.q3
+    prompt: "Que fera-t-on au printemps ?"
+    options: ["Planter des arbres", "Ouvrir une autre piste", "Construire un pont"]
+    answer: "Planter des arbres"
+    explain: "« Des arbres seront plantés au printemps prochain. »"

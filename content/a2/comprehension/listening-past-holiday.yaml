@@ -1,0 +1,29 @@
+id: listen-a2-past-holiday
+level: a2
+skill: listening
+title: "Mes dernières vacances"
+time_limit_seconds: 110
+audio_ref: a2/audio/listen-a2-past-holiday.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.5
+script: |
+  L'été dernier, je suis allée en Gaspésie avec des amis. Nous avons loué une
+  petite maison près de la plage. Il a fait très beau toute la semaine. Nous avons
+  nagé, mangé du poisson frais et visité plusieurs villages. C'était magnifique.
+questions:
+  - id: listen-a2-past-holiday.q1
+    prompt: "Où est-elle allée l'été dernier ?"
+    options: ["En Gaspésie", "À Montréal", "En France"]
+    answer: "En Gaspésie"
+    explain: "« je suis allée en Gaspésie avec des amis »."
+  - id: listen-a2-past-holiday.q2
+    prompt: "Où ont-ils logé ?"
+    options: ["Dans une maison près de la plage", "À l'hôtel", "Chez de la famille"]
+    answer: "Dans une maison près de la plage"
+    explain: "« Nous avons loué une petite maison près de la plage. »"
+  - id: listen-a2-past-holiday.q3
+    prompt: "Quel temps a-t-il fait ?"
+    options: ["Très beau", "Il a plu", "Il a fait froid"]
+    answer: "Très beau"
+    explain: "« Il a fait très beau toute la semaine. »"

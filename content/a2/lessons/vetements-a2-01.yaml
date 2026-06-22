@@ -1,0 +1,24 @@
+id: vetements-a2-01
+title: "Clothes"
+grammar_point: "adjective agreement (robe rouge)"
+est_minutes: 5
+new_vocab: [vetement, manteau, robe, chaussures, porter]
+pass_threshold: 8.0
+exercises:
+  - id: vetements-a2-01.e1
+    type: mcq
+    prompt: "Quand il fait froid, je porte un ___."
+    options: [manteau, robe, chapeau]
+    answer: manteau
+    explain: "un manteau = a coat."
+
+  - id: vetements-a2-01.e2
+    type: translate
+    prompt: "Translate: “to wear”"
+    answer: porter
+
+  - id: vetements-a2-01.e3
+    type: word_bank
+    prompt: "Build: “She wears a red dress.”"
+    tokens: [Elle, porte, une, robe, rouge, il]
+    answer: [Elle, porte, une, robe, rouge]

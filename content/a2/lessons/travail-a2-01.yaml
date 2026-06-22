@@ -1,0 +1,26 @@
+id: travail-a2-01
+title: "At work"
+grammar_point: "talking about your job"
+est_minutes: 5
+new_vocab: [travail, bureau, collegue, reunion, emploi]
+pass_threshold: 8.0
+exercises:
+  - id: travail-a2-01.e1
+    type: mcq
+    prompt: "« Je travaille au ___. » (office)"
+    options: [bureau, jardin, plage]
+    answer: bureau
+    explain: "le bureau = the office."
+
+  - id: travail-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [collègue, colleague]
+      - [patron, boss]
+      - [réunion, meeting]
+
+  - id: travail-a2-01.e3
+    type: translate
+    prompt: "Translate: “a job”"
+    answer: "un emploi"
+    accept: [emploi, "un travail"]

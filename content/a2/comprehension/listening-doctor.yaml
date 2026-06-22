@@ -1,0 +1,29 @@
+id: listen-a2-doctor
+level: a2
+skill: listening
+title: "Chez le médecin"
+time_limit_seconds: 100
+audio_ref: a2/audio/listen-a2-doctor.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Bonjour, qu'est-ce qui ne va pas ? J'ai mal à la tête depuis deux jours et je
+  suis très fatigué. Vous avez de la fièvre ? Un peu. Bon, reposez-vous et buvez
+  beaucoup d'eau. Voici une ordonnance pour des médicaments.
+questions:
+  - id: listen-a2-doctor.q1
+    prompt: "Quel est le problème du patient ?"
+    options: ["Mal à la tête et fatigue", "Mal au ventre", "Mal à la jambe"]
+    answer: "Mal à la tête et fatigue"
+    explain: "« J'ai mal à la tête depuis deux jours et je suis très fatigué. »"
+  - id: listen-a2-doctor.q2
+    prompt: "Depuis combien de temps ?"
+    options: ["Deux jours", "Deux semaines", "Deux heures"]
+    answer: "Deux jours"
+    explain: "« depuis deux jours »."
+  - id: listen-a2-doctor.q3
+    prompt: "Que conseille le médecin ?"
+    options: ["Se reposer et boire de l'eau", "Faire du sport", "Manger plus"]
+    answer: "Se reposer et boire de l'eau"
+    explain: "« reposez-vous et buvez beaucoup d'eau »."

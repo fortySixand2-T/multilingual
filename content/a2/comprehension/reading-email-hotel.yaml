@@ -1,0 +1,29 @@
+id: read-a2-email-hotel
+level: a2
+skill: reading
+title: "Courriel à un hôtel"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Madame, Monsieur,
+  Je voudrais réserver une chambre pour deux personnes du 12 au 15 août,
+  soit trois nuits. Nous arriverons vers 18 h. Est-ce que le petit-déjeuner
+  est compris dans le prix ? Avez-vous un parking pour les clients ?
+  Merci de me confirmer la réservation.
+  Cordialement, Julien Bernard
+questions:
+  - id: read-a2-email-hotel.q1
+    prompt: "Combien de nuits Julien veut-il réserver ?"
+    options: ["Trois nuits", "Deux nuits", "Quinze nuits"]
+    answer: "Trois nuits"
+    explain: "« du 12 au 15 août, soit trois nuits »."
+  - id: read-a2-email-hotel.q2
+    prompt: "Que demande-t-il à propos du petit-déjeuner ?"
+    options: ["S'il est compris dans le prix", "À quelle heure il est servi", "S'il y a un restaurant"]
+    answer: "S'il est compris dans le prix"
+    explain: "« Est-ce que le petit-déjeuner est compris dans le prix ? »"
+  - id: read-a2-email-hotel.q3
+    prompt: "Quelle autre question pose-t-il ?"
+    options: ["S'il y a un parking", "S'il y a une piscine", "Le prix d'une nuit"]
+    answer: "S'il y a un parking"
+    explain: "« Avez-vous un parking pour les clients ? »"

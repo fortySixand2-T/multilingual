@@ -1,0 +1,28 @@
+id: read-a2-itinerary
+level: a2
+skill: reading
+title: "Un programme de voyage"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Voyage à Montréal — programme
+  Jour 1 : arrivée à l'aéroport, installation à l'hôtel, dîner au centre-ville.
+  Jour 2 : visite du Vieux-Montréal le matin, musée l'après-midi.
+  Jour 3 : marché Jean-Talon, puis départ en fin de journée.
+  N'oubliez pas votre passeport et des vêtements chauds.
+questions:
+  - id: read-a2-itinerary.q1
+    prompt: "Que fait-on le matin du jour 2 ?"
+    options: ["On visite le Vieux-Montréal", "On va au musée", "On part"]
+    answer: "On visite le Vieux-Montréal"
+    explain: "« visite du Vieux-Montréal le matin »."
+  - id: read-a2-itinerary.q2
+    prompt: "Quand part-on ?"
+    options: ["En fin de journée le jour 3", "Le matin du jour 1", "Le jour 2"]
+    answer: "En fin de journée le jour 3"
+    explain: "« puis départ en fin de journée »."
+  - id: read-a2-itinerary.q3
+    prompt: "Que faut-il apporter ?"
+    options: ["Passeport et vêtements chauds", "Un maillot de bain", "Rien de spécial"]
+    answer: "Passeport et vêtements chauds"
+    explain: "« N'oubliez pas votre passeport et des vêtements chauds. »"

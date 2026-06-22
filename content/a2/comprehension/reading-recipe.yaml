@@ -1,0 +1,27 @@
+id: read-a2-recipe
+level: a2
+skill: reading
+title: "Une recette simple"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Omelette au fromage (pour 2 personnes)
+  Cassez quatre œufs dans un bol et mélangez. Ajoutez du sel et du fromage.
+  Faites chauffer une poêle avec un peu de beurre. Versez les œufs et faites
+  cuire cinq minutes. Servez chaud avec une salade.
+questions:
+  - id: read-a2-recipe.q1
+    prompt: "Combien d'œufs faut-il ?"
+    options: [Quatre, Deux, Cinq]
+    answer: Quatre
+    explain: "« Cassez quatre œufs »."
+  - id: read-a2-recipe.q2
+    prompt: "Qu'ajoute-t-on aux œufs ?"
+    options: ["Du sel et du fromage", "Du sucre", "Du lait"]
+    answer: "Du sel et du fromage"
+    explain: "« Ajoutez du sel et du fromage. »"
+  - id: read-a2-recipe.q3
+    prompt: "Combien de temps faut-il cuire ?"
+    options: ["Cinq minutes", "Deux minutes", "Quinze minutes"]
+    answer: "Cinq minutes"
+    explain: "« faites cuire cinq minutes »."

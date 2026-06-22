@@ -1,0 +1,59 @@
+- id: sante
+  fr: santé
+  en: health
+  pos: noun
+  tags: [health]
+
+- id: medecin
+  fr: médecin
+  en: doctor
+  pos: noun
+  tags: [health]
+
+- id: malade
+  fr: malade
+  en: sick
+  pos: adjective
+  tags: [health]
+
+- id: tete
+  fr: tête
+  en: head
+  pos: noun
+  tags: [body]
+
+- id: ventre
+  fr: ventre
+  en: stomach
+  pos: noun
+  tags: [body]
+
+- id: main
+  fr: main
+  en: hand
+  pos: noun
+  tags: [body]
+
+- id: jambe
+  fr: jambe
+  en: leg
+  pos: noun
+  tags: [body]
+
+- id: medicament
+  fr: médicament
+  en: medicine
+  pos: noun
+  tags: [health]
+
+- id: rendez_vous
+  fr: rendez-vous
+  en: appointment
+  pos: noun
+  tags: [health]
+
+- id: avoir_mal
+  fr: avoir mal
+  en: "to be in pain"
+  pos: phrase
+  tags: [health]

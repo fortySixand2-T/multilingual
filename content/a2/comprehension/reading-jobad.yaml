@@ -1,0 +1,27 @@
+id: read-a2-jobad
+level: a2
+skill: reading
+title: "Offre d'emploi : vendeur"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Notre magasin de vêtements cherche un vendeur ou une vendeuse à temps partiel.
+  Vous travaillerez du mardi au samedi, de 13 h à 19 h. Une première expérience
+  dans la vente est souhaitée. Vous devez aimer le contact avec les clients.
+  Salaire : 14 € de l'heure. Envoyez votre CV par courriel avant le 30 juin.
+questions:
+  - id: read-a2-jobad.q1
+    prompt: "Quels jours faut-il travailler ?"
+    options: ["Du mardi au samedi", "Du lundi au vendredi", "Le week-end seulement"]
+    answer: "Du mardi au samedi"
+    explain: "« du mardi au samedi, de 13 h à 19 h »."
+  - id: read-a2-jobad.q2
+    prompt: "Quel est le salaire ?"
+    options: ["14 € de l'heure", "30 € de l'heure", "13 € par jour"]
+    answer: "14 € de l'heure"
+    explain: "« Salaire : 14 € de l'heure »."
+  - id: read-a2-jobad.q3
+    prompt: "Comment postuler ?"
+    options: ["Envoyer son CV par courriel", "Téléphoner", "Passer au magasin"]
+    answer: "Envoyer son CV par courriel"
+    explain: "« Envoyez votre CV par courriel avant le 30 juin. »"
