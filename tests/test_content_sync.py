@@ -91,7 +91,8 @@ def test_resync_is_idempotent():
         async with _Session() as s:
             return len((await s.execute(select(ContentUnit))).scalars().all())
 
-    assert _run(go()) == len(load_content(CONTENT_ROOT, "a1").path.units)  # replaced, not duplicated
+    # replaced, not duplicated
+    assert _run(go()) == len(load_content(CONTENT_ROOT, "a1").path.units)
 
 
 def test_gating_function():

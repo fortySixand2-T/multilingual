@@ -12,3 +12,6 @@ data/*
 .claude/settings.local.json
 *.zip
 .DS_Store
+
+# pirated source PDFs — never commit (see memory)
+books/

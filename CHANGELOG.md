@@ -206,3 +206,8 @@
 - [2026-06-21] Modified: web/src/screens/Lesson.tsx — listen_type exercise now plays its clip (replaced the disabled "Phase 2" button)
 - [2026-06-21] Modified: web/src/screens/Review.tsx — SRS review plays the vocab clip when a card has audio
 - [2026-06-21] Modified: tests/test_content_sync.py — Tests for /content/audio: serves asset, 404 on missing, key-shape guard rejects traversal
+- [2026-06-21] Modified: .gitignore — ignore books/ (pirated source PDFs, never commit)
+- [2026-06-21] Modified: tests/test_content_sync.py — fix E501 lint from parallel content work
+- [2026-06-21] Modified: web/src/api.ts — render FastAPI 422 validation arrays as readable text (fix qa-200)
+- [2026-06-21] Modified: web/src/screens/Login.tsx — client-side required/min/max matching backend bounds (fix qa-200)
+- [2026-06-21] Created: qa/rounds/012-plan.md, qa/issues/200 — frontend QA round (1 fix)
