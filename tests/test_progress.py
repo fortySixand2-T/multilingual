@@ -194,7 +194,7 @@ def test_concurrent_completions_count_once_no_500():
 
 def test_level_updates_to_highest_active():
     """qa-260: record_activity must promote prog.level when a higher level is active."""
-    from app.progress.service import get_or_create_progress, record_activity
+    from app.progress.service import record_activity
 
     async def go():
         async with _Session() as s:

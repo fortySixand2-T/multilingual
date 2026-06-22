@@ -210,7 +210,10 @@ def test_submit_grades_stores_and_retrieves():
 
 def test_malformed_grade_is_502():
     client = _client(BadRouter())
-    r = client.post("/assessment/tasks/write-a-invite/submit", json={"text": " ".join(["du texte de test pour la soumission valide"] * 6)})
+    r = client.post(
+        "/assessment/tasks/write-a-invite/submit",
+        json={"text": " ".join(["du texte de test pour la soumission valide"] * 6)},
+    )
     assert r.status_code == 502
 
 

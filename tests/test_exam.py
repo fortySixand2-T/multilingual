@@ -165,6 +165,7 @@ def test_start_and_get_attempt_include_started_at():
     assert "started_at" in detail
     # both should be valid ISO timestamps
     from datetime import datetime
+
     datetime.fromisoformat(body["started_at"])
     datetime.fromisoformat(detail["started_at"])
 

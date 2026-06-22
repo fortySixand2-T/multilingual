@@ -94,7 +94,11 @@ async def start(
         )
     ).scalar_one_or_none()
     if existing is not None:
-        return {"attempt_id": existing.id, "blueprint": bp.data, "started_at": existing.started_at.isoformat()}
+        return {
+            "attempt_id": existing.id,
+            "blueprint": bp.data,
+            "started_at": existing.started_at.isoformat(),
+        }
 
     attempt = ExamAttempt(
         user_id=user.id,
