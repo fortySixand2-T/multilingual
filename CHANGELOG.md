@@ -1,5 +1,28 @@
 # Changelog
 
+- [2026-06-22] Modified: app/assessment/api.py — qa-240: validate min/max word count before calling LLM grader
+- [2026-06-22] Modified: tests/test_assessment.py — qa-240: add tests for word count validation, fix existing tests to use valid word counts
+- [2026-06-22] Modified: app/exam/api.py — qa-250: include started_at in start and get_attempt responses
+- [2026-06-22] Modified: app/exam/api.py — qa-252: call record_activity with EXAM_XP=25 on exam finish
+- [2026-06-22] Modified: tests/test_exam.py — qa-250/252: add tests for started_at and exam XP
+- [2026-06-22] Modified: app/progress/service.py — qa-260: promote prog.level in record_activity when incoming level is higher
+- [2026-06-22] Modified: tests/test_progress.py — qa-260: add test for level promotion
+- [2026-06-22] Modified: qa/issues/240-writing-no-word-count-validation-before-grading.md — status: done
+- [2026-06-22] Modified: qa/issues/250-exam-attempt-missing-started-at.md — status: done
+- [2026-06-22] Modified: qa/issues/252-exam-completion-awards-no-xp.md — status: done
+- [2026-06-22] Modified: qa/issues/260-profile-level-never-updates-to-highest-active.md — status: done
+
+- [2026-06-22] Modified: qa/issues/240-writing-no-word-count-validation-before-grading.md — Triage: validated (word count not checked before LLM grading)
+- [2026-06-22] Modified: qa/issues/250-exam-attempt-missing-started-at.md — Triage: validated (started_at missing from start/attempt responses)
+- [2026-06-22] Modified: qa/issues/251-exam-history-ignores-level-filter.md — Triage: rejected (feature request, not a bug)
+- [2026-06-22] Modified: qa/issues/252-exam-completion-awards-no-xp.md — Triage: validated (exam finish does not call record_activity)
+- [2026-06-22] Modified: qa/issues/260-profile-level-never-updates-to-highest-active.md — Triage: validated (level frozen at first activity)
+- [2026-06-22] Modified: qa/issues/240-writing-no-word-count-validation-before-grading.md — Critic review: validated (word count constraints advertised but never enforced)
+- [2026-06-22] Modified: qa/issues/250-exam-attempt-missing-started-at.md — Critic review: validated (resume path needs server timestamp for timers)
+- [2026-06-22] Modified: qa/issues/251-exam-history-ignores-level-filter.md — Critic review: rejected confirmed (feature request, standard HTTP behavior)
+- [2026-06-22] Modified: qa/issues/252-exam-completion-awards-no-xp.md — Critic review: validated (exam activity invisible to streak/XP system)
+- [2026-06-22] Modified: qa/issues/260-profile-level-never-updates-to-highest-active.md — Critic review: validated (level param passed but ignored on existing rows)
+
 - [2026-06-21] Modified: app/exam/api.py — Added level field to exam history serialization (fix qa-220)
 - [2026-06-21] Modified: content/a1/lessons/greetings-01.yaml — Added prompt to listen_type exercise greetings-01.e3 (fix qa-230)
 - [2026-06-21] Modified: app/progress/api.py — Read-time truncation of display_name to 80 chars on board endpoint (fix qa-231)
@@ -239,3 +262,8 @@
 - [2026-06-22] Created: content/a2/lessons/{theme}-a2-02.yaml, -a2-03.yaml (20 files) — Depth pass for A2: each unit now has 3 graded lessons (intro/practice/review), 5–6 exercises. A2: 10→30 lessons, 133 exercises. Reuses each theme's 5 unused vocab cards (no vocab/test changes)
 - [2026-06-22] Modified: content/a2/path.yaml — Each A2 unit lists its 3 lessons
 - [2026-06-22] Created: content/a2/audio/*.mp3 (10) — TTS for the new A2 listen_type exercises
+- [2026-06-22] Created: qa/issues/260-profile-level-never-updates-to-highest-active.md — QA round 014: profile level stuck at first-activity level, never updates when user advances to a higher level
+- [2026-06-22] Created: qa/issues/250-exam-attempt-missing-started-at.md — QA round 014: exam attempt response omits started_at, client cannot enforce timers on resume
+- [2026-06-22] Created: qa/issues/251-exam-history-ignores-level-filter.md — QA round 014: GET /exam/history silently ignores level query param
+- [2026-06-22] Created: qa/issues/252-exam-completion-awards-no-xp.md — QA round 014: completing a full mock exam awards zero XP
+- [2026-06-22] Created: qa/issues/240-writing-no-word-count-validation-before-grading.md — QA round 014: writing submit skips min/max word count validation, wasting LLM budget on non-conforming submissions

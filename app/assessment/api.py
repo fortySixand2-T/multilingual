@@ -83,6 +83,20 @@ async def submit(
     if not body.text.strip():
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "submission is empty")
 
+    word_count = len(body.text.split())
+    min_words = row.data.get("min_words", 0)
+    max_words = row.data.get("max_words")
+    if min_words and word_count < min_words:
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
+            f"submission has {word_count} words, minimum is {min_words}",
+        )
+    if max_words and word_count > max_words:
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
+            f"submission has {word_count} words, maximum is {max_words}",
+        )
+
     grader = WritingGrader(ai_router)
     try:
         result = await grader.grade(

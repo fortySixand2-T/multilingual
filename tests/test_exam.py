@@ -10,6 +10,7 @@ from pydantic import ValidationError
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 import app.exam.tables  # noqa: F401
+import app.progress.models  # noqa: F401
 from app.api.auth import get_current_user
 from app.db.session import get_session
 from app.exam.clb import aggregate_report, clb_from_fraction
@@ -154,6 +155,20 @@ def test_no_score_until_all_sections_complete():
     assert after.status_code == 409
 
 
+def test_start_and_get_attempt_include_started_at():
+    """qa-250: start and get_attempt must include started_at for client-side timers."""
+    r = client.post("/exam/start", json={"blueprint_id": "mock-1"})
+    body = r.json()
+    assert "started_at" in body
+    aid = body["attempt_id"]
+    detail = client.get(f"/exam/attempts/{aid}").json()
+    assert "started_at" in detail
+    # both should be valid ISO timestamps
+    from datetime import datetime
+    datetime.fromisoformat(body["started_at"])
+    datetime.fromisoformat(detail["started_at"])
+
+
 def test_start_unknown_blueprint_404():
     assert client.post("/exam/start", json={"blueprint_id": "nope"}).status_code == 404
 
@@ -164,6 +179,27 @@ def test_start_resumes_in_progress_instead_of_duplicating():
     a = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
     b = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
     assert a == b
+
+
+def test_finish_awards_xp():
+    """qa-252: completing a mock exam must award XP via record_activity."""
+    from app.progress.models import UserProgress
+
+    aid = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
+    client.post(f"/exam/{aid}/section", json={"skill": "reading", "correct": 8, "total": 10})
+    client.post(f"/exam/{aid}/section", json={"skill": "listening", "correct": 7, "total": 10})
+    client.post(f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 7})
+    client.post(f"/exam/{aid}/section", json={"skill": "speaking", "clb_estimate": 6})
+    r = client.post(f"/exam/{aid}/finish")
+    assert r.status_code == 200
+
+    async def check():
+        async with _Session() as s:
+            return await s.get(UserProgress, _U.id)
+
+    prog = _run(check())
+    assert prog is not None
+    assert prog.xp >= 25  # EXAM_XP = 25
 
 
 def test_concurrent_sections_all_persist():
