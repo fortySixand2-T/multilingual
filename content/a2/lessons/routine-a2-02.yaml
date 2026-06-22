@@ -1,0 +1,38 @@
+id: routine-a2-02
+title: "Morning to night"
+grammar_point: "time-of-day adverbs"
+est_minutes: 6
+new_vocab: [dormir, matin, apres_midi, tot, tard]
+pass_threshold: 8.0
+exercises:
+  - id: routine-a2-02.e1
+    type: mcq
+    prompt: "« Je me couche ___ le soir. » (late)"
+    options: [tard, tôt, matin]
+    answer: tard
+    explain: "tard = late."
+
+  - id: routine-a2-02.e2
+    type: translate
+    prompt: "Translate: “the morning”"
+    answer: "le matin"
+    accept: [matin]
+
+  - id: routine-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/dormir-qc.mp3
+    answer: dormir
+    prompt: "Type the verb you hear."
+
+  - id: routine-a2-02.e4
+    type: word_bank
+    prompt: "Build: “I sleep late in the morning.”"
+    tokens: [Je, dors, tard, le, matin, tôt]
+    answer: [Je, dors, tard, le, matin]
+
+  - id: routine-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [matin, morning]
+      - ["après-midi", afternoon]
+      - [tard, late]

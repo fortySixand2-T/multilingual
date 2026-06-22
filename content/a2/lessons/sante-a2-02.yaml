@@ -1,0 +1,38 @@
+id: sante-a2-02
+title: "Parts of the body"
+grammar_point: "« avoir mal au / à la »"
+est_minutes: 6
+new_vocab: [tete, ventre, main, jambe, rendez_vous]
+pass_threshold: 8.0
+exercises:
+  - id: sante-a2-02.e1
+    type: mcq
+    prompt: "« J'ai mal au ___. » (stomach)"
+    options: [ventre, tête, main]
+    answer: ventre
+    explain: "le ventre = the stomach."
+
+  - id: sante-a2-02.e2
+    type: translate
+    prompt: "Translate: “the hand”"
+    answer: "la main"
+    accept: [main]
+
+  - id: sante-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/jambe-qc.mp3
+    answer: jambe
+    prompt: "Type the word you hear."
+
+  - id: sante-a2-02.e4
+    type: word_bank
+    prompt: "Build: “I have an appointment.”"
+    tokens: ["J'ai", un, "rendez-vous", mal]
+    answer: ["J'ai", un, "rendez-vous"]
+
+  - id: sante-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [tête, head]
+      - [ventre, stomach]
+      - [jambe, leg]

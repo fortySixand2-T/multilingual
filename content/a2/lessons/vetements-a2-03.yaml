@@ -1,0 +1,38 @@
+id: vetements-a2-03
+title: "Clothes — review"
+grammar_point: "adjective agreement"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: vetements-a2-03.e1
+    type: mcq
+    prompt: "Quand il fait froid, je porte un ___."
+    options: [manteau, robe, chapeau]
+    answer: manteau
+    explain: "un manteau = a coat."
+
+  - id: vetements-a2-03.e2
+    type: translate
+    prompt: "Translate: “to wear”"
+    answer: porter
+
+  - id: vetements-a2-03.e3
+    type: word_bank
+    prompt: "Build: “a red dress”"
+    tokens: [une, robe, rouge, bleu]
+    answer: [une, robe, rouge]
+
+  - id: vetements-a2-03.e4
+    type: match_pairs
+    pairs:
+      - [manteau, coat]
+      - [robe, dress]
+      - [chaussures, shoes]
+
+  - id: vetements-a2-03.e5
+    type: mcq
+    prompt: "« les chaussures » are…"
+    options: [shoes, hat, skirt]
+    answer: shoes
+    explain: "les chaussures = shoes."

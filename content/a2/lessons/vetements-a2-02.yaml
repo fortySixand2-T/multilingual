@@ -1,0 +1,38 @@
+id: vetements-a2-02
+title: "More clothes"
+grammar_point: "« porter » + clothing"
+est_minutes: 6
+new_vocab: [chemise, pantalon, jupe, veste, chapeau]
+pass_threshold: 8.0
+exercises:
+  - id: vetements-a2-02.e1
+    type: mcq
+    prompt: "Sur la tête, je porte un ___."
+    options: [chapeau, pantalon, chemise]
+    answer: chapeau
+    explain: "le chapeau = the hat."
+
+  - id: vetements-a2-02.e2
+    type: translate
+    prompt: "Translate: “a shirt”"
+    answer: "une chemise"
+    accept: [chemise]
+
+  - id: vetements-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/pantalon-qc.mp3
+    answer: pantalon
+    prompt: "Type the word you hear."
+
+  - id: vetements-a2-02.e4
+    type: word_bank
+    prompt: "Build: “She wears a skirt.”"
+    tokens: [Elle, porte, une, jupe, veste]
+    answer: [Elle, porte, une, jupe]
+
+  - id: vetements-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [chemise, shirt]
+      - [pantalon, trousers]
+      - [veste, jacket]

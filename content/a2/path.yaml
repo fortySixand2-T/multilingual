@@ -4,59 +4,59 @@ units:
   - id: a2.u1
     title: "Daily routine"
     icon: sun
-    lessons: [routine-a2-01]
+    lessons: [routine-a2-01, routine-a2-02, routine-a2-03]
     unlock: { type: none }
 
   - id: a2.u2
     title: "At work"
     icon: briefcase
-    lessons: [travail-a2-01]
+    lessons: [travail-a2-01, travail-a2-02, travail-a2-03]
     unlock: { type: all_of, requires: [a2.u1] }
 
   - id: a2.u3
     title: "Health"
     icon: heart
-    lessons: [sante-a2-01]
+    lessons: [sante-a2-01, sante-a2-02, sante-a2-03]
     unlock: { type: all_of, requires: [a2.u2] }
 
   - id: a2.u4
     title: "Travel & past tense"
     icon: plane
-    lessons: [voyage-a2-01]
+    lessons: [voyage-a2-01, voyage-a2-02, voyage-a2-03]
     unlock: { type: all_of, requires: [a2.u3] }
 
   - id: a2.u5
     title: "The home"
     icon: house
-    lessons: [maison-a2-01]
+    lessons: [maison-a2-01, maison-a2-02, maison-a2-03]
     unlock: { type: all_of, requires: [a2.u4] }
 
   - id: a2.u6
     title: "Cooking"
     icon: plate
-    lessons: [cuisine-a2-01]
+    lessons: [cuisine-a2-01, cuisine-a2-02, cuisine-a2-03]
     unlock: { type: all_of, requires: [a2.u5] }
 
   - id: a2.u7
     title: "Free time"
     icon: ball
-    lessons: [loisirs-a2-01]
+    lessons: [loisirs-a2-01, loisirs-a2-02, loisirs-a2-03]
     unlock: { type: all_of, requires: [a2.u6] }
 
   - id: a2.u8
     title: "Clothes"
     icon: shirt
-    lessons: [vetements-a2-01]
+    lessons: [vetements-a2-01, vetements-a2-02, vetements-a2-03]
     unlock: { type: all_of, requires: [a2.u7] }
 
   - id: a2.u9
     title: "Getting around"
     icon: bus
-    lessons: [transport-a2-01]
+    lessons: [transport-a2-01, transport-a2-02, transport-a2-03]
     unlock: { type: all_of, requires: [a2.u8] }
 
   - id: a2.u10
     title: "Feelings & opinions"
     icon: smile
-    lessons: [sentiments-a2-01]
+    lessons: [sentiments-a2-01, sentiments-a2-02, sentiments-a2-03]
     unlock: { type: all_of, requires: [a2.u9] }

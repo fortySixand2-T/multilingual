@@ -1,0 +1,39 @@
+id: transport-a2-03
+title: "Getting around — review"
+grammar_point: "transport in context"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: transport-a2-03.e1
+    type: mcq
+    prompt: "Je prends le ___ pour aller au travail."
+    options: [métro, four, billet]
+    answer: métro
+    explain: "le métro = the subway."
+
+  - id: transport-a2-03.e2
+    type: translate
+    prompt: "Translate: “a ticket”"
+    answer: "un billet"
+    accept: [billet]
+
+  - id: transport-a2-03.e3
+    type: word_bank
+    prompt: "Build: “There is traffic.”"
+    tokens: [Il, y, a, de, la, circulation]
+    answer: [Il, y, a, de, la, circulation]
+
+  - id: transport-a2-03.e4
+    type: match_pairs
+    pairs:
+      - [bus, bus]
+      - [voiture, car]
+      - [conduire, "to drive"]
+
+  - id: transport-a2-03.e5
+    type: mcq
+    prompt: "« conduire » means…"
+    options: ["to drive", "to walk", "to fly"]
+    answer: "to drive"
+    explain: "conduire = to drive."

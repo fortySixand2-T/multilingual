@@ -1,0 +1,39 @@
+id: maison-a2-03
+title: "The home — review"
+grammar_point: "describing where you live"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: maison-a2-03.e1
+    type: mcq
+    prompt: "On dort dans la ___."
+    options: [chambre, cuisine, jardin]
+    answer: chambre
+    explain: "la chambre = the bedroom."
+
+  - id: maison-a2-03.e2
+    type: translate
+    prompt: "Translate: “the house”"
+    answer: "la maison"
+    accept: [maison]
+
+  - id: maison-a2-03.e3
+    type: word_bank
+    prompt: "Build: “I have a big living room.”"
+    tokens: ["J'ai", un, grand, salon, jardin]
+    answer: ["J'ai", un, grand, salon]
+
+  - id: maison-a2-03.e4
+    type: match_pairs
+    pairs:
+      - [salon, "living room"]
+      - [loyer, rent]
+      - [appartement, flat]
+
+  - id: maison-a2-03.e5
+    type: mcq
+    prompt: "« le loyer » is the…"
+    options: [rent, garden, door]
+    answer: rent
+    explain: "le loyer = the rent."

@@ -1,0 +1,38 @@
+id: routine-a2-03
+title: "Daily routine — review"
+grammar_point: "reflexive verbs in context"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: routine-a2-03.e1
+    type: mcq
+    prompt: "« Je ___ à six heures. » (get up)"
+    options: ["me lève", "lève", "lave"]
+    answer: "me lève"
+    explain: "Reflexive: je me lève."
+
+  - id: routine-a2-03.e2
+    type: translate
+    prompt: "Translate: “to sleep”"
+    answer: dormir
+
+  - id: routine-a2-03.e3
+    type: word_bank
+    prompt: "Build: “I wash in the morning.”"
+    tokens: [Je, me, lave, le, matin]
+    answer: [Je, me, lave, le, matin]
+
+  - id: routine-a2-03.e4
+    type: match_pairs
+    pairs:
+      - ["se lever", "to get up"]
+      - ["se coucher", "to go to bed"]
+      - [tôt, early]
+
+  - id: routine-a2-03.e5
+    type: mcq
+    prompt: "The opposite of « tôt » is…"
+    options: [tard, matin, dormir]
+    answer: tard
+    explain: "tôt = early, tard = late."

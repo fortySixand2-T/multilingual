@@ -1,0 +1,38 @@
+id: travail-a2-02
+title: "The workplace"
+grammar_point: "workplace vocabulary"
+est_minutes: 6
+new_vocab: [patron, entreprise, salaire, chercher_travail, gagner]
+pass_threshold: 8.0
+exercises:
+  - id: travail-a2-02.e1
+    type: mcq
+    prompt: "Mon ___ me donne du travail. (boss)"
+    options: [patron, collègue, salaire]
+    answer: patron
+    explain: "le patron = the boss."
+
+  - id: travail-a2-02.e2
+    type: translate
+    prompt: "Translate: “a company”"
+    answer: "une entreprise"
+    accept: [entreprise]
+
+  - id: travail-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/salaire-qc.mp3
+    answer: salaire
+    prompt: "Type the word you hear."
+
+  - id: travail-a2-02.e4
+    type: word_bank
+    prompt: "Build: “I'm looking for a job.”"
+    tokens: [Je, cherche, un, travail, gagne]
+    answer: [Je, cherche, un, travail]
+
+  - id: travail-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [patron, boss]
+      - [salaire, salary]
+      - [entreprise, company]

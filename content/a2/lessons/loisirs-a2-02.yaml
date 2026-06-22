@@ -1,0 +1,38 @@
+id: loisirs-a2-02
+title: "Music and films"
+grammar_point: "leisure activities"
+est_minutes: 6
+new_vocab: [musique, film, danser, chanter, promenade]
+pass_threshold: 8.0
+exercises:
+  - id: loisirs-a2-02.e1
+    type: mcq
+    prompt: "J'écoute de la ___."
+    options: [musique, promenade, film]
+    answer: musique
+    explain: "la musique = music."
+
+  - id: loisirs-a2-02.e2
+    type: translate
+    prompt: "Translate: “a film”"
+    answer: "un film"
+    accept: [film]
+
+  - id: loisirs-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/chanter-qc.mp3
+    answer: chanter
+    prompt: "Type the verb you hear."
+
+  - id: loisirs-a2-02.e4
+    type: word_bank
+    prompt: "Build: “I like to dance.”"
+    tokens: ["J'aime", danser, chanter]
+    answer: ["J'aime", danser]
+
+  - id: loisirs-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [musique, music]
+      - [danser, "to dance"]
+      - [chanter, "to sing"]
