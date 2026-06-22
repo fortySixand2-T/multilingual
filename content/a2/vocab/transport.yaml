@@ -1,0 +1,59 @@
+- id: bus
+  fr: bus
+  en: bus
+  pos: noun
+  tags: [transport]
+
+- id: metro
+  fr: métro
+  en: subway
+  pos: noun
+  tags: [transport]
+
+- id: voiture
+  fr: voiture
+  en: car
+  pos: noun
+  tags: [transport]
+
+- id: velo
+  fr: vélo
+  en: bike
+  pos: noun
+  tags: [transport]
+
+- id: avion
+  fr: avion
+  en: plane
+  pos: noun
+  tags: [transport]
+
+- id: billet
+  fr: billet
+  en: ticket
+  pos: noun
+  tags: [transport]
+
+- id: station
+  fr: station
+  en: station
+  pos: noun
+  tags: [transport]
+
+- id: arret
+  fr: arrêt
+  en: stop
+  pos: noun
+  tags: [transport]
+
+- id: conduire
+  fr: conduire
+  en: "to drive"
+  pos: verb
+  tags: [transport]
+
+- id: circulation
+  fr: circulation
+  en: traffic
+  pos: noun
+  tags: [transport]

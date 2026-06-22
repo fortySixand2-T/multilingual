@@ -1,0 +1,59 @@
+- id: cuisiner
+  fr: cuisiner
+  en: "to cook"
+  pos: verb
+  tags: [cooking]
+
+- id: recette
+  fr: recette
+  en: recipe
+  pos: noun
+  tags: [cooking]
+
+- id: casserole
+  fr: casserole
+  en: saucepan
+  pos: noun
+  tags: [cooking]
+
+- id: four
+  fr: four
+  en: oven
+  pos: noun
+  tags: [cooking]
+
+- id: couteau
+  fr: couteau
+  en: knife
+  pos: noun
+  tags: [cooking]
+
+- id: assiette
+  fr: assiette
+  en: plate
+  pos: noun
+  tags: [cooking]
+
+- id: verre
+  fr: verre
+  en: glass
+  pos: noun
+  tags: [cooking]
+
+- id: cuillere
+  fr: cuillère
+  en: spoon
+  pos: noun
+  tags: [cooking]
+
+- id: ajouter
+  fr: ajouter
+  en: "to add"
+  pos: verb
+  tags: [cooking]
+
+- id: melanger
+  fr: mélanger
+  en: "to mix"
+  pos: verb
+  tags: [cooking]

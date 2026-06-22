@@ -1,0 +1,31 @@
+id: voyage-a2-01
+title: "Talking about a trip"
+grammar_point: "passé composé with avoir (j'ai visité)"
+est_minutes: 7
+new_vocab: [voyage, vacances, hotel, reserver, partir]
+pass_threshold: 8.0
+exercises:
+  - id: voyage-a2-01.e1
+    type: mcq
+    prompt: "« J'ai ___ Paris. » (passé composé of « visiter »)"
+    options: [visité, visiter, visite]
+    answer: visité
+    explain: "passé composé: avoir + participle → j'ai visité."
+
+  - id: voyage-a2-01.e2
+    type: listen_type
+    audio_ref: a2/audio/vacances-qc.mp3
+    answer: vacances
+    prompt: "Type the word you hear."
+
+  - id: voyage-a2-01.e3
+    type: word_bank
+    prompt: "Build: “We booked a hotel.”"
+    tokens: [Nous, avons, réservé, un, hôtel, ai]
+    answer: [Nous, avons, réservé, un, hôtel]
+
+  - id: voyage-a2-01.e4
+    type: translate
+    prompt: "Translate: “to book”"
+    answer: réserver
+    accept: [reserver]

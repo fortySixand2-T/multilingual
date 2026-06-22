@@ -1,0 +1,29 @@
+id: listen-a2-weekend-plans
+level: a2
+skill: listening
+title: "Les projets du week-end"
+time_limit_seconds: 100
+audio_ref: a2/audio/listen-a2-weekend-plans.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Qu'est-ce que tu vas faire ce week-end ? Samedi, je vais jouer au tennis avec
+  mon frère, et le soir nous allons voir un film. Dimanche, je vais rester à la
+  maison parce que je dois travailler un peu. Et toi ?
+questions:
+  - id: listen-a2-weekend-plans.q1
+    prompt: "Que va faire la personne samedi matin ?"
+    options: ["Jouer au tennis", "Voir un film", "Travailler"]
+    answer: "Jouer au tennis"
+    explain: "« je vais jouer au tennis avec mon frère »."
+  - id: listen-a2-weekend-plans.q2
+    prompt: "Avec qui joue-t-elle ?"
+    options: ["Son frère", "Sa sœur", "Un collègue"]
+    answer: "Son frère"
+    explain: "« avec mon frère »."
+  - id: listen-a2-weekend-plans.q3
+    prompt: "Pourquoi reste-t-elle à la maison dimanche ?"
+    options: ["Elle doit travailler", "Il pleut", "Elle est malade"]
+    answer: "Elle doit travailler"
+    explain: "« je dois travailler un peu »."

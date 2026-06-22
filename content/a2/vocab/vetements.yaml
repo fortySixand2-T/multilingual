@@ -1,0 +1,59 @@
+- id: vetement
+  fr: vêtement
+  en: "piece of clothing"
+  pos: noun
+  tags: [clothes]
+
+- id: manteau
+  fr: manteau
+  en: coat
+  pos: noun
+  tags: [clothes]
+
+- id: chemise
+  fr: chemise
+  en: shirt
+  pos: noun
+  tags: [clothes]
+
+- id: pantalon
+  fr: pantalon
+  en: trousers
+  pos: noun
+  tags: [clothes]
+
+- id: robe
+  fr: robe
+  en: dress
+  pos: noun
+  tags: [clothes]
+
+- id: chaussures
+  fr: chaussures
+  en: shoes
+  pos: noun
+  tags: [clothes]
+
+- id: jupe
+  fr: jupe
+  en: skirt
+  pos: noun
+  tags: [clothes]
+
+- id: veste
+  fr: veste
+  en: jacket
+  pos: noun
+  tags: [clothes]
+
+- id: chapeau
+  fr: chapeau
+  en: hat
+  pos: noun
+  tags: [clothes]
+
+- id: porter
+  fr: porter
+  en: "to wear"
+  pos: verb
+  tags: [clothes]

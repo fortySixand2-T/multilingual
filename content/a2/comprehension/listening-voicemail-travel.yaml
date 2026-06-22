@@ -1,0 +1,29 @@
+id: listen-a2-voicemail-travel
+level: a2
+skill: listening
+title: "Message : changement de vol"
+time_limit_seconds: 100
+audio_ref: a2/audio/listen-a2-voicemail-travel.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.5
+script: |
+  Bonjour Madame Roy, c'est l'agence de voyage. Votre vol de mardi a été annulé
+  à cause de la météo. Nous vous avons réservé une place sur le vol de mercredi
+  matin, à neuf heures. Rappelez-nous pour confirmer. Merci !
+questions:
+  - id: listen-a2-voicemail-travel.q1
+    prompt: "Pourquoi le vol a-t-il été annulé ?"
+    options: ["À cause de la météo", "À cause d'une grève", "Il n'y avait pas de place"]
+    answer: "À cause de la météo"
+    explain: "« annulé à cause de la météo »."
+  - id: listen-a2-voicemail-travel.q2
+    prompt: "Quand est le nouveau vol ?"
+    options: ["Mercredi matin à 9 h", "Mardi soir", "Jeudi à 9 h"]
+    answer: "Mercredi matin à 9 h"
+    explain: "« le vol de mercredi matin, à neuf heures »."
+  - id: listen-a2-voicemail-travel.q3
+    prompt: "Que doit faire Madame Roy ?"
+    options: ["Rappeler pour confirmer", "Aller à l'aéroport tout de suite", "Payer un supplément"]
+    answer: "Rappeler pour confirmer"
+    explain: "« Rappelez-nous pour confirmer. »"

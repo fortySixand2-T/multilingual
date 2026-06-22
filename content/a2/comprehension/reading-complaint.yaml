@@ -1,0 +1,28 @@
+id: read-a2-complaint
+level: a2
+skill: reading
+title: "Une lettre de réclamation"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Madame, Monsieur,
+  J'ai acheté un manteau dans votre magasin la semaine dernière. De retour à la
+  maison, j'ai remarqué un trou sur la manche. Je voudrais échanger le manteau ou
+  être remboursé. Je joins le ticket de caisse. J'attends votre réponse.
+  Cordialement, Claire Dubois
+questions:
+  - id: read-a2-complaint.q1
+    prompt: "Quel est le problème avec le manteau ?"
+    options: ["Il y a un trou sur la manche", "Il est trop petit", "La couleur est fausse"]
+    answer: "Il y a un trou sur la manche"
+    explain: "« j'ai remarqué un trou sur la manche »."
+  - id: read-a2-complaint.q2
+    prompt: "Que demande la cliente ?"
+    options: ["Un échange ou un remboursement", "Un cadeau", "Des excuses seulement"]
+    answer: "Un échange ou un remboursement"
+    explain: "« échanger le manteau ou être remboursé »."
+  - id: read-a2-complaint.q3
+    prompt: "Qu'est-ce qu'elle joint à la lettre ?"
+    options: ["Le ticket de caisse", "Une photo", "Le manteau"]
+    answer: "Le ticket de caisse"
+    explain: "« Je joins le ticket de caisse. »"

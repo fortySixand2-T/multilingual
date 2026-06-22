@@ -1,0 +1,31 @@
+id: routine-a2-01
+title: "My morning routine"
+grammar_point: "reflexive verbs (je me lève)"
+est_minutes: 6
+new_vocab: [se_lever, se_laver, se_coucher, se_reveiller, shabiller]
+pass_threshold: 8.0
+exercises:
+  - id: routine-a2-01.e1
+    type: mcq
+    prompt: "« Je ___ à sept heures. » (I get up)"
+    options: ["me lève", "lève", "me lave"]
+    answer: "me lève"
+    explain: "Reflexive: je me lève."
+
+  - id: routine-a2-01.e2
+    type: listen_type
+    audio_ref: a2/audio/se-coucher-qc.mp3
+    answer: "se coucher"
+    prompt: "Type the verb you hear."
+
+  - id: routine-a2-01.e3
+    type: word_bank
+    prompt: "Build: “I wash in the morning.”"
+    tokens: [Je, me, lave, le, matin, te]
+    answer: [Je, me, lave, le, matin]
+
+  - id: routine-a2-01.e4
+    type: translate
+    prompt: "Translate: “to wake up”"
+    answer: "se réveiller"
+    accept: [se reveiller]

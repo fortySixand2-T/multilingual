@@ -1,0 +1,59 @@
+- id: content
+  fr: content
+  en: happy
+  pos: adjective
+  tags: [feelings]
+
+- id: triste
+  fr: triste
+  en: sad
+  pos: adjective
+  tags: [feelings]
+
+- id: fatigue
+  fr: fatigué
+  en: tired
+  pos: adjective
+  tags: [feelings]
+
+- id: heureux
+  fr: heureux
+  en: glad
+  pos: adjective
+  tags: [feelings]
+
+- id: en_colere
+  fr: en colère
+  en: angry
+  pos: phrase
+  tags: [feelings]
+
+- id: peur
+  fr: peur
+  en: fear
+  pos: noun
+  tags: [feelings]
+
+- id: aimer
+  fr: aimer
+  en: "to like / love"
+  pos: verb
+  tags: [feelings]
+
+- id: detester
+  fr: détester
+  en: "to hate"
+  pos: verb
+  tags: [feelings]
+
+- id: penser
+  fr: penser
+  en: "to think"
+  pos: verb
+  tags: [feelings]
+
+- id: esperer
+  fr: espérer
+  en: "to hope"
+  pos: verb
+  tags: [feelings]
