@@ -194,7 +194,7 @@ def test_submit_grades_stores_and_retrieves():
     client = _client(GoodRouter())
     r = client.post(
         "/assessment/tasks/write-a-invite/submit",
-        json={"text": "Salut, merci pour ton invitation."},
+        json={"text": " ".join(["Salut merci pour ton invitation et je vais bien"] * 6)},
     )
     assert r.status_code == 200
     body = r.json()
@@ -210,7 +210,10 @@ def test_submit_grades_stores_and_retrieves():
 
 def test_malformed_grade_is_502():
     client = _client(BadRouter())
-    r = client.post("/assessment/tasks/write-a-invite/submit", json={"text": "du texte"})
+    r = client.post(
+        "/assessment/tasks/write-a-invite/submit",
+        json={"text": " ".join(["du texte de test pour la soumission valide"] * 6)},
+    )
     assert r.status_code == 502
 
 
@@ -220,6 +223,27 @@ def test_empty_submission_rejected():
         client.post("/assessment/tasks/write-a-invite/submit", json={"text": "   "}).status_code
         == 422
     )
+
+
+def test_too_few_words_rejected_before_grading():
+    """qa-240: submissions below min_words must be rejected without calling the LLM."""
+    fake = GoodRouter()
+    c = _client(fake)
+    r = c.post("/assessment/tasks/write-a-invite/submit", json={"text": "Oui merci."})
+    assert r.status_code == 422
+    assert "minimum" in r.json()["detail"].lower()
+    assert len(fake.calls) == 0  # LLM never called
+
+
+def test_too_many_words_rejected_before_grading():
+    """qa-240: submissions above max_words must be rejected without calling the LLM."""
+    fake = GoodRouter()
+    c = _client(fake)
+    long_text = " ".join(["mot"] * 200)
+    r = c.post("/assessment/tasks/write-a-invite/submit", json={"text": long_text})
+    assert r.status_code == 422
+    assert "maximum" in r.json()["detail"].lower()
+    assert len(fake.calls) == 0
 
 
 # --- calibration (R3) ---------------------------------------------------------

@@ -15,6 +15,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.progress.models import LessonCompletion, UserProgress, compute_streak
 
+_LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
+
 
 async def completed_lesson_ids(session: AsyncSession, user_id: int) -> set[str]:
     rows = await session.execute(
@@ -53,6 +55,11 @@ async def record_activity(
     prog = await get_or_create_progress(session, user_id, level)
     # streak is idempotent within a day, so concurrent writers converge; xp uses an
     # atomic SQL increment so a concurrent activity can't clobber the award (qa-070).
+    # Promote level if the incoming activity is at a higher level (qa-260).
+    cur = _LEVEL_ORDER.index(prog.level) if prog.level in _LEVEL_ORDER else -1
+    new = _LEVEL_ORDER.index(level) if level in _LEVEL_ORDER else -1
+    if new > cur:
+        prog.level = level
     prog.streak = compute_streak(prog.streak, prog.last_active, today)
     prog.last_active = today
     if xp_award:

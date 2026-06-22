@@ -192,6 +192,28 @@ def test_concurrent_completions_count_once_no_500():
     assert final_xp == 10  # XP awarded once, never doubled
 
 
+def test_level_updates_to_highest_active():
+    """qa-260: record_activity must promote prog.level when a higher level is active."""
+    from app.progress.service import record_activity
+
+    async def go():
+        async with _Session() as s:
+            prog = await record_activity(s, 1, xp_award=0, level="a1")
+            assert prog.level == "a1"
+            await s.commit()
+        async with _Session() as s:
+            prog = await record_activity(s, 1, xp_award=0, level="a2")
+            assert prog.level == "a2"
+            await s.commit()
+        # a1 activity should NOT downgrade
+        async with _Session() as s:
+            prog = await record_activity(s, 1, xp_award=0, level="a1")
+            assert prog.level == "a2"
+            await s.commit()
+
+    _run(go())
+
+
 def test_review_endpoint_reschedules_a_card():
     r = client.post("/srs/review", json={"card_key": "bonjour", "rating": "good"})
     assert r.status_code == 200 and r.json()["card_key"] == "bonjour"

@@ -21,9 +21,12 @@ from app.db.session import get_session
 from app.exam.clb import aggregate_report, clb_from_fraction
 from app.exam.models import Skill
 from app.exam.tables import ExamAttempt, ExamBlueprintRow
+from app.progress.service import record_activity
 from app.users.models import User
 
 router = APIRouter(prefix="/exam", tags=["exam"])
+
+EXAM_XP = 25
 
 
 class StartBody(BaseModel):
@@ -91,7 +94,11 @@ async def start(
         )
     ).scalar_one_or_none()
     if existing is not None:
-        return {"attempt_id": existing.id, "blueprint": bp.data}
+        return {
+            "attempt_id": existing.id,
+            "blueprint": bp.data,
+            "started_at": existing.started_at.isoformat(),
+        }
 
     attempt = ExamAttempt(
         user_id=user.id,
@@ -106,7 +113,7 @@ async def start(
     await session.flush()
     aid = attempt.id
     await session.commit()
-    return {"attempt_id": aid, "blueprint": bp.data}
+    return {"attempt_id": aid, "blueprint": bp.data, "started_at": attempt.started_at.isoformat()}
 
 
 @router.get("/attempts/{attempt_id}")
@@ -124,6 +131,8 @@ async def get_attempt(
         "blueprint_id": attempt.blueprint_id,
         "blueprint": bp.data if bp else None,
         "status": attempt.status,
+        "started_at": attempt.started_at.isoformat(),
+        "finished_at": attempt.finished_at.isoformat() if attempt.finished_at else None,
         "recorded": sorted(attempt.sections),
         "remaining": [s for s in required if s not in attempt.sections],
         "clb_report": attempt.clb_report,
@@ -204,6 +213,7 @@ async def finish(
     attempt.clb_report = report
     attempt.status = "finished"
     attempt.finished_at = datetime.now(UTC).replace(tzinfo=None)
+    await record_activity(session, user.id, xp_award=EXAM_XP, level=attempt.level)
     await session.commit()
     return {"attempt_id": attempt.id, "report": report}
 
