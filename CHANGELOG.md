@@ -1,5 +1,17 @@
 # Changelog
 
+- [2026-06-21] Modified: app/exam/api.py — Added level field to exam history serialization (fix qa-220)
+- [2026-06-21] Modified: content/a1/lessons/greetings-01.yaml — Added prompt to listen_type exercise greetings-01.e3 (fix qa-230)
+- [2026-06-21] Modified: app/progress/api.py — Read-time truncation of display_name to 80 chars on board endpoint (fix qa-231)
+- [2026-06-21] Created: migrations/versions/0010_truncate_display_names.py — Data migration to truncate oversized display_name rows (fix qa-231)
+- [2026-06-21] Modified: qa/issues/220-exam-history-missing-level-field.md — Critic review: validated (serialization omits available level data)
+- [2026-06-21] Modified: qa/issues/221-comprehension-pass-threshold-not-shown.md — Critic review: deferred confirmed (UX enhancement, not a defect)
+- [2026-06-21] Modified: qa/issues/230-listen-type-exercise-empty-prompt.md — Critic review: validated (content gap in first lesson for beginners)
+- [2026-06-21] Modified: qa/issues/231-board-still-shows-pre-fix-oversized-display-name.md — Critic review: validated (read-time truncation needed for SQLite deployments)
+- [2026-06-21] Modified: qa/issues/220-exam-history-missing-level-field.md — Triaged as validated (level field missing from exam history serialization)
+- [2026-06-21] Modified: qa/issues/221-comprehension-pass-threshold-not-shown.md — Triaged as deferred (pass threshold not shown is a UX enhancement, not a bug)
+- [2026-06-21] Modified: qa/issues/230-listen-type-exercise-empty-prompt.md — Triaged as validated (greetings-01.e3 missing prompt field in content YAML)
+- [2026-06-21] Modified: qa/issues/231-board-still-shows-pre-fix-oversized-display-name.md — Triaged as validated (pre-fix oversized display_name not cleaned up by data migration)
 - [2026-06-15] Moved: extracted Phase 0 scaffold (tef-platform/*) into project root
 - [2026-06-15] Created: app/cache/interface.py — `Cache` protocol (application data-cache abstraction)
 - [2026-06-15] Created: app/cache/memory.py — in-process TTL + LRU cache backend
@@ -211,3 +223,7 @@
 - [2026-06-21] Modified: web/src/api.ts — render FastAPI 422 validation arrays as readable text (fix qa-200)
 - [2026-06-21] Modified: web/src/screens/Login.tsx — client-side required/min/max matching backend bounds (fix qa-200)
 - [2026-06-21] Created: qa/rounds/012-plan.md, qa/issues/200 — frontend QA round (1 fix)
+- [2026-06-21] Created: qa/issues/230-listen-type-exercise-empty-prompt.md — QA round 013: listen_type exercise missing prompt in greetings-01
+- [2026-06-21] Created: qa/issues/231-board-still-shows-pre-fix-oversized-display-name.md — QA round 013: board serves pre-fix 20K-char display_name
+- [2026-06-21] Created: qa/issues/220-exam-history-missing-level-field.md — QA round 013: exam history omits level field
+- [2026-06-21] Created: qa/issues/221-comprehension-pass-threshold-not-shown.md — QA round 013: comprehension pass threshold hidden from user

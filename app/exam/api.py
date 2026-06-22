@@ -229,6 +229,7 @@ async def history(
             {
                 "attempt_id": a.id,
                 "blueprint_id": a.blueprint_id,
+                "level": a.level,
                 "status": a.status,
                 "clb_report": a.clb_report,
                 "started_at": a.started_at.isoformat(),

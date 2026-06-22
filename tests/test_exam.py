@@ -117,6 +117,7 @@ def test_full_mock_start_sections_finish_history():
     hist = client.get("/exam/history").json()["attempts"]
     assert hist[0]["attempt_id"] == aid and hist[0]["status"] == "finished"
     assert hist[0]["clb_report"]["overall"] == 6
+    assert hist[0]["level"] == "a1"  # qa-220: level must be serialized
 
 
 def test_section_validation():

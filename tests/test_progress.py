@@ -40,6 +40,8 @@ async def _setup():
         # a legacy row with a blank name — the board must not expose its email (qa-010)
         s.add(User(id=2, email="leak@secret.com", display_name="", password_hash="x"))
         s.add(User(id=3, email="race@x.com", display_name="Race", password_hash="x"))
+        # qa-231: a pre-fix user with an oversized display_name (SQLite doesn't enforce length)
+        s.add(User(id=4, email="long@x.com", display_name="X" * 200, password_hash="x"))
         await s.commit()
 
 
@@ -146,6 +148,14 @@ def test_board_never_exposes_email():
     assert all("@" not in m["display_name"] for m in members)
     blank = next(m for m in members if m["user_id"] == 2)
     assert blank["display_name"] == "Learner"
+
+
+def test_board_truncates_oversized_display_name():
+    # qa-231: pre-fix rows with >80-char display_name must be truncated at read time
+    members = client.get("/progress/board").json()["members"]
+    long_user = next(m for m in members if m["user_id"] == 4)
+    assert len(long_user["display_name"]) == 80
+    assert long_user["display_name"] == "X" * 80
 
 
 def test_concurrent_completions_count_once_no_500():
