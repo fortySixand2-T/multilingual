@@ -1,0 +1,37 @@
+id: time-02
+title: "The rest of the week"
+grammar_point: "days of the week"
+est_minutes: 5
+new_vocab: [mercredi, jeudi, vendredi, samedi, dimanche]
+pass_threshold: 8.0
+exercises:
+  - id: time-02.e1
+    type: mcq
+    prompt: "Which is a weekend day?"
+    options: [dimanche, mardi, jeudi]
+    answer: dimanche
+    explain: "dimanche = Sunday."
+
+  - id: time-02.e2
+    type: translate
+    prompt: "Translate: “Friday”"
+    answer: vendredi
+
+  - id: time-02.e3
+    type: listen_type
+    audio_ref: a1/audio/samedi-qc.mp3
+    answer: samedi
+    prompt: "Type the day you hear."
+
+  - id: time-02.e4
+    type: word_bank
+    prompt: "Order: Thursday, Friday, Saturday."
+    tokens: [jeudi, vendredi, samedi, dimanche]
+    answer: [jeudi, vendredi, samedi]
+
+  - id: time-02.e5
+    type: match_pairs
+    pairs:
+      - [mercredi, Wednesday]
+      - [samedi, Saturday]
+      - [dimanche, Sunday]

@@ -1,0 +1,38 @@
+id: weather-02
+title: "Kinds of weather"
+grammar_point: "« il y a du / de la »"
+est_minutes: 5
+new_vocab: [neige, vent, nuage, beau_temps, orage]
+pass_threshold: 8.0
+exercises:
+  - id: weather-02.e1
+    type: mcq
+    prompt: "« Il y a du ___. » (wind)"
+    options: [vent, soleil, pluie]
+    answer: vent
+    explain: "le vent = the wind."
+
+  - id: weather-02.e2
+    type: translate
+    prompt: "Translate: “snow”"
+    answer: "la neige"
+    accept: [neige]
+
+  - id: weather-02.e3
+    type: listen_type
+    audio_ref: a1/audio/orage-qc.mp3
+    answer: orage
+    prompt: "Type the word you hear."
+
+  - id: weather-02.e4
+    type: word_bank
+    prompt: "Build: “The weather is nice.”"
+    tokens: [Il, fait, beau, temps, froid]
+    answer: [Il, fait, beau, temps]
+
+  - id: weather-02.e5
+    type: match_pairs
+    pairs:
+      - [neige, snow]
+      - [vent, wind]
+      - [nuage, cloud]

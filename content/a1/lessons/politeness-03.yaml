@@ -1,0 +1,38 @@
+id: politeness-03
+title: "Politeness — review"
+grammar_point: "polite formulas"
+est_minutes: 5
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: politeness-03.e1
+    type: mcq
+    prompt: "To apologize, you say…"
+    options: [Pardon, Salut, Oui]
+    answer: Pardon
+    explain: "Pardon = sorry / excuse me."
+
+  - id: politeness-03.e2
+    type: translate
+    prompt: "Translate: “thank you”"
+    answer: merci
+
+  - id: politeness-03.e3
+    type: word_bank
+    prompt: "Build: “please” (formal)"
+    tokens: ["S'il", vous, plaît, te]
+    answer: ["S'il", vous, plaît]
+
+  - id: politeness-03.e4
+    type: mcq
+    prompt: "How do you say goodbye?"
+    options: ["Au revoir", Bonjour, Merci]
+    answer: "Au revoir"
+    explain: "Au revoir = goodbye."
+
+  - id: politeness-03.e5
+    type: match_pairs
+    pairs:
+      - [merci, "thank you"]
+      - [pardon, sorry]
+      - ["de rien", "you're welcome"]

@@ -1,32 +1,45 @@
 id: greetings-02
-title: "Please and thank you"
-grammar_point: "politeness formulas"
-est_minutes: 4
-new_vocab: [merci, svp, pardon, au_revoir]
+title: "Casual greetings"
+grammar_point: "informal register"
+est_minutes: 5
+new_vocab: [oui, non, coucou, ca_va, enchante]
 pass_threshold: 8.0
 exercises:
   - id: greetings-02.e1
     type: mcq
-    prompt: "How do you say “thank you”?"
-    options: [merci, pardon, salut]
-    answer: merci
-    explain: "‘merci’ = thank you."
+    prompt: "« ___, ça va ? » (very casual hello)"
+    options: [Coucou, Bonjour, Bonsoir]
+    answer: Coucou
+    explain: "« Coucou » is very informal."
 
   - id: greetings-02.e2
     type: translate
-    prompt: "Translate: “please” (formal)"
-    answer: "s'il vous plaît"
-    accept: ["svp", "s’il vous plaît"]
+    prompt: "Translate: “pleased to meet you”"
+    answer: enchanté
+    accept: [enchante]
 
   - id: greetings-02.e3
-    type: word_bank
-    prompt: "Build: “Goodbye, madam.”"
-    tokens: ["Au revoir", madame, Bonjour, monsieur]
-    answer: ["Au revoir", madame]
+    type: listen_type
+    audio_ref: a1/audio/cava-qc.mp3
+    answer: "ça va"
+    prompt: "Type what you hear."
 
   - id: greetings-02.e4
+    type: word_bank
+    prompt: "Build: “Yes, I'm doing well.”"
+    tokens: [Oui, ça, va, bien, Non]
+    answer: [Oui, ça, va, bien]
+
+  - id: greetings-02.e5
+    type: mcq
+    prompt: "The opposite of « oui » is…"
+    options: [non, salut, merci]
+    answer: non
+    explain: "non = no."
+
+  - id: greetings-02.e6
     type: match_pairs
     pairs:
-      - [merci, "thank you"]
-      - [pardon, "excuse me"]
-      - ["au revoir", goodbye]
+      - [coucou, hey]
+      - [enchanté, "nice to meet you"]
+      - ["à bientôt", "see you soon"]

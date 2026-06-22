@@ -1,0 +1,37 @@
+id: cafe-02
+title: "More drinks"
+grammar_point: "« un / une » with drinks"
+est_minutes: 5
+new_vocab: [the, lait, sucre, jus]
+pass_threshold: 8.0
+exercises:
+  - id: cafe-02.e1
+    type: mcq
+    prompt: "« un ___ au lait » (tea)"
+    options: [thé, jus, vin]
+    answer: thé
+    explain: "le thé = tea."
+
+  - id: cafe-02.e2
+    type: translate
+    prompt: "Translate: “milk”"
+    answer: lait
+
+  - id: cafe-02.e3
+    type: listen_type
+    audio_ref: a1/audio/sucre-qc.mp3
+    answer: sucre
+    prompt: "Type the word you hear."
+
+  - id: cafe-02.e4
+    type: word_bank
+    prompt: "Build: “an orange juice”"
+    tokens: [un, jus, "d'orange", thé]
+    answer: [un, jus, "d'orange"]
+
+  - id: cafe-02.e5
+    type: match_pairs
+    pairs:
+      - [thé, tea]
+      - [lait, milk]
+      - [sucre, sugar]

@@ -106,8 +106,8 @@ def test_gating_function():
     # nothing completed -> first unit open, gated unit locked
     none_done = compute_unit_status(us, set())
     assert none_done["a1.u1"] == "available" and none_done["a1.u2"] == "locked"
-    # finishing u1's lesson completes u1 and unlocks u2
-    u1_done = compute_unit_status(us, {"greetings-01"})
+    # finishing ALL of u1's lessons completes u1 and unlocks u2
+    u1_done = compute_unit_status(us, {"greetings-01", "greetings-02", "greetings-03"})
     assert u1_done["a1.u1"] == "complete" and u1_done["a1.u2"] == "available"
 
 

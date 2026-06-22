@@ -1,0 +1,39 @@
+id: restaurant-03
+title: "At the restaurant — review"
+grammar_point: "ordering a full meal"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: restaurant-03.e1
+    type: mcq
+    prompt: "Who brings your food?"
+    options: ["le serveur", "le menu", "la table"]
+    answer: "le serveur"
+    explain: "le serveur = the waiter."
+
+  - id: restaurant-03.e2
+    type: translate
+    prompt: "Translate: “the bill”"
+    answer: "l'addition"
+    accept: [addition]
+
+  - id: restaurant-03.e3
+    type: word_bank
+    prompt: "Build: “The menu, please.”"
+    tokens: [Le, menu, "s'il", vous, plaît]
+    answer: [Le, menu, "s'il", vous, plaît]
+
+  - id: restaurant-03.e4
+    type: mcq
+    prompt: "« commander » means…"
+    options: ["to order", "to eat", "to pay"]
+    answer: "to order"
+    explain: "commander = to order."
+
+  - id: restaurant-03.e5
+    type: match_pairs
+    pairs:
+      - [restaurant, restaurant]
+      - [boisson, drink]
+      - [réservation, reservation]

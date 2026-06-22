@@ -1,0 +1,39 @@
+id: time-03
+title: "Days & time — review"
+grammar_point: "telling the day and time"
+est_minutes: 5
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: time-03.e1
+    type: mcq
+    prompt: "The day after « lundi » is…"
+    options: [mardi, dimanche, jeudi]
+    answer: mardi
+    explain: "lundi → mardi."
+
+  - id: time-03.e2
+    type: translate
+    prompt: "Translate: “today”"
+    answer: "aujourd'hui"
+    accept: [aujourdhui, "aujourd’hui"]
+
+  - id: time-03.e3
+    type: word_bank
+    prompt: "Build: “at three o'clock”"
+    tokens: [à, trois, heures, demain]
+    answer: [à, trois, heures]
+
+  - id: time-03.e4
+    type: match_pairs
+    pairs:
+      - [lundi, Monday]
+      - [demain, tomorrow]
+      - [heure, hour]
+
+  - id: time-03.e5
+    type: mcq
+    prompt: "« vendredi » is which day?"
+    options: [Friday, Monday, Sunday]
+    answer: Friday
+    explain: "vendredi = Friday."

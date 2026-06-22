@@ -52,3 +52,39 @@
   en: "no"
   pos: adverb
   tags: [basics]
+
+- id: coucou
+  fr: coucou
+  en: "hey (very casual)"
+  pos: interjection
+  tags: [greeting]
+
+- id: ca_va
+  fr: ça va
+  en: "how's it going / I'm ok"
+  pos: phrase
+  tags: [greeting]
+
+- id: enchante
+  fr: enchanté
+  en: "pleased to meet you"
+  pos: interjection
+  tags: [greeting]
+
+- id: a_bientot
+  fr: à bientôt
+  en: "see you soon"
+  pos: phrase
+  tags: [greeting]
+
+- id: de_rien
+  fr: de rien
+  en: "you're welcome"
+  pos: phrase
+  tags: [politeness]
+
+- id: excusez_moi
+  fr: excusez-moi
+  en: "excuse me"
+  pos: phrase
+  tags: [politeness]

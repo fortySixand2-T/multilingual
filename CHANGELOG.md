@@ -228,3 +228,9 @@
 - [2026-06-21] Created: qa/issues/220-exam-history-missing-level-field.md — QA round 013: exam history omits level field
 - [2026-06-21] Created: qa/issues/221-comprehension-pass-threshold-not-shown.md — QA round 013: comprehension pass threshold hidden from user
 - [2026-06-21] Modified: scripts/gen_audio.py — Applied ruff format (CI format-check gate; no logic change)
+- [2026-06-21] Renamed: content/a1/lessons/greetings-02.yaml → politeness-01.yaml — Freed greetings-NN namespace; politeness is its own theme (a1.u3)
+- [2026-06-21] Created: content/a1/lessons/{theme}-02.yaml, {theme}-03.yaml (20 files) — Depth pass: each A1 unit now has 3 graded lessons (intro/practice/review), 5–6 exercises each. A1: 10→30 lessons, 135 exercises
+- [2026-06-21] Modified: content/a1/vocab/greetings.yaml, numbers.yaml — +10 cards to feed practice lessons (108 total)
+- [2026-06-21] Modified: content/a1/path.yaml — Each unit lists its 3 lessons
+- [2026-06-21] Created: content/a1/audio/*.mp3 (10) — TTS for the new listen_type exercises
+- [2026-06-21] Modified: tests/test_progress.py, tests/test_content_sync.py — Gating tests now complete all of a unit's lessons (units need every lesson done)

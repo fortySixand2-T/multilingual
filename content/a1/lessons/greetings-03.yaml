@@ -1,0 +1,38 @@
+id: greetings-03
+title: "Greetings — review"
+grammar_point: "formal vs informal"
+est_minutes: 5
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: greetings-03.e1
+    type: mcq
+    prompt: "A formal greeting in the evening?"
+    options: [Bonsoir, Coucou, Salut]
+    answer: Bonsoir
+    explain: "Bonsoir = good evening (neutral/formal)."
+
+  - id: greetings-03.e2
+    type: translate
+    prompt: "Translate: “hello” (formal)"
+    answer: bonjour
+
+  - id: greetings-03.e3
+    type: word_bank
+    prompt: "Build: “Hi, how's it going?”"
+    tokens: [Salut, ça, va, Bonsoir]
+    answer: [Salut, ça, va]
+
+  - id: greetings-03.e4
+    type: match_pairs
+    pairs:
+      - [bonjour, hello]
+      - [salut, hi]
+      - ["au revoir", goodbye]
+
+  - id: greetings-03.e5
+    type: mcq
+    prompt: "« ___, je m'appelle Marie. » (meeting someone)"
+    options: [Enchanté, Merci, Non]
+    answer: Enchanté
+    explain: "Enchanté = pleased to meet you."

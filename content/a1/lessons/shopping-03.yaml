@@ -1,0 +1,38 @@
+id: shopping-03
+title: "Shopping — review"
+grammar_point: "asking the price"
+est_minutes: 5
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: shopping-03.e1
+    type: mcq
+    prompt: "« C'est trop ___. » (expensive)"
+    options: [cher, beau, froid]
+    answer: cher
+    explain: "cher = expensive."
+
+  - id: shopping-03.e2
+    type: translate
+    prompt: "Translate: “to buy”"
+    answer: acheter
+
+  - id: shopping-03.e3
+    type: word_bank
+    prompt: "Build: “How much does it cost?”"
+    tokens: [Combien, ça, coûte, prix]
+    answer: [Combien, ça, coûte]
+
+  - id: shopping-03.e4
+    type: match_pairs
+    pairs:
+      - [magasin, shop]
+      - [prix, price]
+      - [carte, card]
+
+  - id: shopping-03.e5
+    type: mcq
+    prompt: "« les soldes » means…"
+    options: [sales, prices, size]
+    answer: sales
+    explain: "les soldes = the sales."

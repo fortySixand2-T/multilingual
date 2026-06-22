@@ -108,28 +108,37 @@ def test_passing_completes_and_lights_up_gating_streak_and_srs():
     assert body["passed"] and body["first_time"]
     assert body["streak"] == 1 and body["xp"] == 10
 
-    # content gating: completing u1's only lesson unlocks u2
+    # u1 now has three lessons: one completion is not enough — u1 stays open, u2 locked
     path = client.get("/content/path", params={"level": "a1"}).json()
     statuses = {u["id"]: u["status"] for u in path["units"]}
-    assert statuses["a1.u1"] == "complete" and statuses["a1.u2"] == "available"
+    assert statuses["a1.u1"] == "available" and statuses["a1.u2"] == "locked"
 
     # SRS: the lesson's new_vocab is now in the review queue
     queue = client.get("/srs/queue").json()["due"]
     assert {"bonjour", "salut", "bonsoir"} <= {c["card_key"] for c in queue}
     assert any(c["vocab"] and c["vocab"]["fr"] == "bonjour" for c in queue)
 
-    # progress + board reflect it
+    # finishing the rest of u1 completes the unit and unlocks u2
+    for lid in ("greetings-02", "greetings-03"):
+        client.post(f"/progress/lessons/{lid}/result", json={"score": 9.0})
+    statuses = {
+        u["id"]: u["status"]
+        for u in client.get("/content/path", params={"level": "a1"}).json()["units"]
+    }
+    assert statuses["a1.u1"] == "complete" and statuses["a1.u2"] == "available"
+
+    # progress + board reflect the three completed lessons (10 XP each)
     me = client.get("/progress/me").json()
-    assert me["streak"] == 1 and me["xp"] == 10
+    assert me["streak"] == 1 and me["xp"] == 30
     board = client.get("/progress/board").json()["members"]
-    assert any(m["user_id"] == 1 and m["xp"] == 10 for m in board)
+    assert any(m["user_id"] == 1 and m["xp"] == 30 for m in board)
 
 
 def test_recompletion_same_day_is_idempotent():
     r = client.post("/progress/lessons/greetings-01/result", json={"score": 9.9})
     body = r.json()
     assert body["first_time"] is False
-    assert body["xp"] == 10 and body["streak"] == 1  # no double XP / streak bump
+    assert body["xp"] == 30 and body["streak"] == 1  # no double XP / streak bump (3 lessons done)
 
 
 def test_score_is_range_validated_0_to_10():
