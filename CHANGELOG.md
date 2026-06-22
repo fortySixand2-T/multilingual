@@ -227,3 +227,4 @@
 - [2026-06-21] Created: qa/issues/231-board-still-shows-pre-fix-oversized-display-name.md — QA round 013: board serves pre-fix 20K-char display_name
 - [2026-06-21] Created: qa/issues/220-exam-history-missing-level-field.md — QA round 013: exam history omits level field
 - [2026-06-21] Created: qa/issues/221-comprehension-pass-threshold-not-shown.md — QA round 013: comprehension pass threshold hidden from user
+- [2026-06-21] Modified: scripts/gen_audio.py — Applied ruff format (CI format-check gate; no logic change)

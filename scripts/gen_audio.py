@@ -14,6 +14,7 @@ Idempotent: existing files are skipped unless `--force`.
     python scripts/gen_audio.py a1            # generate missing clips for level a1
     python scripts/gen_audio.py a1 --force    # regenerate all
 """
+
 from __future__ import annotations
 
 import argparse
@@ -77,9 +78,7 @@ def synthesize(text: str, voice: str, out: Path) -> None:
         wav = Path(td) / "a.wav"
         txt.write_text(text)
         subprocess.run(["say", "-v", voice, "-f", str(txt), "-o", str(aiff)], check=True)
-        subprocess.run(
-            ["afconvert", str(aiff), str(wav), "-d", "LEI16", "-f", "WAVE"], check=True
-        )
+        subprocess.run(["afconvert", str(aiff), str(wav), "-d", "LEI16", "-f", "WAVE"], check=True)
         subprocess.run(["lame", "--quiet", "-V5", str(wav), str(out)], check=True)
 
 
