@@ -1,0 +1,39 @@
+id: voyage-a2-03
+title: "Talking about a trip — review"
+grammar_point: "passé composé"
+est_minutes: 7
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: voyage-a2-03.e1
+    type: mcq
+    prompt: "« J'ai ___ Paris. » (visited)"
+    options: [visité, visiter, visite]
+    answer: visité
+    explain: "passé composé: ai + visité."
+
+  - id: voyage-a2-03.e2
+    type: translate
+    prompt: "Translate: “to book”"
+    answer: réserver
+    accept: [reserver]
+
+  - id: voyage-a2-03.e3
+    type: word_bank
+    prompt: "Build: “We booked a hotel.”"
+    tokens: [Nous, avons, réservé, un, hôtel]
+    answer: [Nous, avons, réservé, un, hôtel]
+
+  - id: voyage-a2-03.e4
+    type: match_pairs
+    pairs:
+      - [voyage, trip]
+      - [vacances, holidays]
+      - [hôtel, hotel]
+
+  - id: voyage-a2-03.e5
+    type: mcq
+    prompt: "« partir » means…"
+    options: ["to leave", "to arrive", "to visit"]
+    answer: "to leave"
+    explain: "partir = to leave."

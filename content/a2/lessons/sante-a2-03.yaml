@@ -1,0 +1,38 @@
+id: sante-a2-03
+title: "At the doctor — review"
+grammar_point: "describing symptoms"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: sante-a2-03.e1
+    type: mcq
+    prompt: "When you're sick, you go « chez le ___ »."
+    options: [médecin, patron, serveur]
+    answer: médecin
+    explain: "le médecin = the doctor."
+
+  - id: sante-a2-03.e2
+    type: translate
+    prompt: "Translate: “sick”"
+    answer: malade
+
+  - id: sante-a2-03.e3
+    type: word_bank
+    prompt: "Build: “I am sick.”"
+    tokens: [Je, suis, malade, fatigué]
+    answer: [Je, suis, malade]
+
+  - id: sante-a2-03.e4
+    type: match_pairs
+    pairs:
+      - [médecin, doctor]
+      - [médicament, medicine]
+      - [santé, health]
+
+  - id: sante-a2-03.e5
+    type: mcq
+    prompt: "« avoir mal » means…"
+    options: ["to be in pain", "to be hungry", "to be late"]
+    answer: "to be in pain"
+    explain: "avoir mal = to be in pain / to hurt."

@@ -236,3 +236,6 @@
 - [2026-06-21] Modified: content/a1/path.yaml — Each unit lists its 3 lessons
 - [2026-06-21] Created: content/a1/audio/*.mp3 (10) — TTS for the new listen_type exercises
 - [2026-06-21] Modified: tests/test_progress.py, tests/test_content_sync.py — Gating tests now complete all of a unit's lessons (units need every lesson done)
+- [2026-06-22] Created: content/a2/lessons/{theme}-a2-02.yaml, -a2-03.yaml (20 files) — Depth pass for A2: each unit now has 3 graded lessons (intro/practice/review), 5–6 exercises. A2: 10→30 lessons, 133 exercises. Reuses each theme's 5 unused vocab cards (no vocab/test changes)
+- [2026-06-22] Modified: content/a2/path.yaml — Each A2 unit lists its 3 lessons
+- [2026-06-22] Created: content/a2/audio/*.mp3 (10) — TTS for the new A2 listen_type exercises

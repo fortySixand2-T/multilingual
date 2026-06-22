@@ -1,0 +1,38 @@
+id: sentiments-a2-03
+title: "Feelings & opinions — review"
+grammar_point: "« je pense que… »"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: sentiments-a2-03.e1
+    type: mcq
+    prompt: "« Je suis très ___ aujourd'hui ! » (happy)"
+    options: [content, malade, tard]
+    answer: content
+    explain: "content = happy."
+
+  - id: sentiments-a2-03.e2
+    type: translate
+    prompt: "Translate: “to think”"
+    answer: penser
+
+  - id: sentiments-a2-03.e3
+    type: word_bank
+    prompt: "Build: “We love music.”"
+    tokens: [Nous, aimons, la, musique, déteste]
+    answer: [Nous, aimons, la, musique]
+
+  - id: sentiments-a2-03.e4
+    type: match_pairs
+    pairs:
+      - [triste, sad]
+      - [aimer, "to like"]
+      - [espérer, "to hope"]
+
+  - id: sentiments-a2-03.e5
+    type: mcq
+    prompt: "« détester » means…"
+    options: ["to hate", "to love", "to hope"]
+    answer: "to hate"
+    explain: "détester = to hate."

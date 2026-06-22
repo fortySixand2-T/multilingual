@@ -1,0 +1,38 @@
+id: sentiments-a2-02
+title: "How do you feel?"
+grammar_point: "emotion adjectives"
+est_minutes: 6
+new_vocab: [heureux, en_colere, peur, detester, esperer]
+pass_threshold: 8.0
+exercises:
+  - id: sentiments-a2-02.e1
+    type: mcq
+    prompt: "Je suis ___ : je souris ! (happy)"
+    options: [heureux, triste, fatigué]
+    answer: heureux
+    explain: "heureux = happy / glad."
+
+  - id: sentiments-a2-02.e2
+    type: translate
+    prompt: "Translate: “to hate”"
+    answer: détester
+    accept: [detester]
+
+  - id: sentiments-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/peur-qc.mp3
+    answer: peur
+    prompt: "Type the word you hear."
+
+  - id: sentiments-a2-02.e4
+    type: word_bank
+    prompt: "Build: “I hope to come.”"
+    tokens: ["J'espère", venir, peur]
+    answer: ["J'espère", venir]
+
+  - id: sentiments-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [heureux, glad]
+      - [peur, fear]
+      - ["en colère", angry]

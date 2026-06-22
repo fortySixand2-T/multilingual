@@ -1,0 +1,39 @@
+id: loisirs-a2-03
+title: "Free time — review"
+grammar_point: "« jouer / faire »"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: loisirs-a2-03.e1
+    type: mcq
+    prompt: "« Le week-end, je ___ au foot. »"
+    options: [joue, jouer, jeu]
+    answer: joue
+    explain: "je joue = I play."
+
+  - id: loisirs-a2-03.e2
+    type: translate
+    prompt: "Translate: “a book”"
+    answer: "un livre"
+    accept: [livre]
+
+  - id: loisirs-a2-03.e3
+    type: word_bank
+    prompt: "Build: “I take a walk.”"
+    tokens: [Je, fais, une, promenade, sport]
+    answer: [Je, fais, une, promenade]
+
+  - id: loisirs-a2-03.e4
+    type: match_pairs
+    pairs:
+      - [sport, sport]
+      - [livre, book]
+      - [loisir, "leisure activity"]
+
+  - id: loisirs-a2-03.e5
+    type: mcq
+    prompt: "« nager » means…"
+    options: ["to swim", "to sing", "to play"]
+    answer: "to swim"
+    explain: "nager = to swim."

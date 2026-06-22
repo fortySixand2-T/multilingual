@@ -1,0 +1,38 @@
+id: transport-a2-02
+title: "Ways to travel"
+grammar_point: "« prendre » + transport"
+est_minutes: 6
+new_vocab: [velo, avion, station, arret, circulation]
+pass_threshold: 8.0
+exercises:
+  - id: transport-a2-02.e1
+    type: mcq
+    prompt: "Je prends l' ___ pour voyager loin."
+    options: [avion, vélo, arrêt]
+    answer: avion
+    explain: "l'avion = the plane."
+
+  - id: transport-a2-02.e2
+    type: translate
+    prompt: "Translate: “a bike”"
+    answer: "un vélo"
+    accept: [vélo, velo]
+
+  - id: transport-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/circulation-qc.mp3
+    answer: circulation
+    prompt: "Type the word you hear."
+
+  - id: transport-a2-02.e4
+    type: word_bank
+    prompt: "Build: “I wait at the stop.”"
+    tokens: ["J'attends", à, "l'arrêt", station]
+    answer: ["J'attends", à, "l'arrêt"]
+
+  - id: transport-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [vélo, bike]
+      - [avion, plane]
+      - [station, station]

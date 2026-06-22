@@ -1,0 +1,38 @@
+id: cuisine-a2-02
+title: "Kitchen tools"
+grammar_point: "kitchen vocabulary"
+est_minutes: 6
+new_vocab: [casserole, couteau, assiette, verre, cuillere]
+pass_threshold: 8.0
+exercises:
+  - id: cuisine-a2-02.e1
+    type: mcq
+    prompt: "Pour couper, j'utilise un ___."
+    options: [couteau, verre, four]
+    answer: couteau
+    explain: "le couteau = the knife."
+
+  - id: cuisine-a2-02.e2
+    type: translate
+    prompt: "Translate: “a plate”"
+    answer: "une assiette"
+    accept: [assiette]
+
+  - id: cuisine-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/verre-qc.mp3
+    answer: verre
+    prompt: "Type the word you hear."
+
+  - id: cuisine-a2-02.e4
+    type: word_bank
+    prompt: "Build: “a spoon and a knife”"
+    tokens: [une, cuillère, et, un, couteau, verre]
+    answer: [une, cuillère, et, un, couteau]
+
+  - id: cuisine-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [casserole, saucepan]
+      - [assiette, plate]
+      - [verre, glass]

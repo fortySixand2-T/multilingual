@@ -1,0 +1,38 @@
+id: maison-a2-02
+title: "Around the home"
+grammar_point: "rooms and objects"
+est_minutes: 6
+new_vocab: [appartement, salle_de_bain, porte, fenetre, meuble]
+pass_threshold: 8.0
+exercises:
+  - id: maison-a2-02.e1
+    type: mcq
+    prompt: "On se lave dans la ___."
+    options: ["salle de bain", chambre, jardin]
+    answer: "salle de bain"
+    explain: "la salle de bain = the bathroom."
+
+  - id: maison-a2-02.e2
+    type: translate
+    prompt: "Translate: “a flat”"
+    answer: "un appartement"
+    accept: [appartement]
+
+  - id: maison-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/fenetre-qc.mp3
+    answer: fenêtre
+    prompt: "Type the word you hear."
+
+  - id: maison-a2-02.e4
+    type: word_bank
+    prompt: "Build: “Open the door.”"
+    tokens: [Ouvre, la, porte, fenêtre]
+    answer: [Ouvre, la, porte]
+
+  - id: maison-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [porte, door]
+      - [fenêtre, window]
+      - [meuble, furniture]

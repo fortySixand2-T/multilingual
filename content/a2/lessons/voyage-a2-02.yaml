@@ -1,0 +1,38 @@
+id: voyage-a2-02
+title: "At the airport"
+grammar_point: "travel vocabulary"
+est_minutes: 6
+new_vocab: [valise, aeroport, passeport, plage, visiter]
+pass_threshold: 8.0
+exercises:
+  - id: voyage-a2-02.e1
+    type: mcq
+    prompt: "Pour prendre l'avion, je vais à l' ___."
+    options: [aéroport, hôtel, plage]
+    answer: aéroport
+    explain: "l'aéroport = the airport."
+
+  - id: voyage-a2-02.e2
+    type: translate
+    prompt: "Translate: “a suitcase”"
+    answer: "une valise"
+    accept: [valise]
+
+  - id: voyage-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/passeport-qc.mp3
+    answer: passeport
+    prompt: "Type the word you hear."
+
+  - id: voyage-a2-02.e4
+    type: word_bank
+    prompt: "Build: “I visit the beach.”"
+    tokens: [Je, visite, la, plage, valise]
+    answer: [Je, visite, la, plage]
+
+  - id: voyage-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [valise, suitcase]
+      - [passeport, passport]
+      - [plage, beach]

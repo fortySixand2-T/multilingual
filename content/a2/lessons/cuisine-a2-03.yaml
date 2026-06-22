@@ -1,0 +1,38 @@
+id: cuisine-a2-03
+title: "Cooking — review"
+grammar_point: "recipe instructions"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: cuisine-a2-03.e1
+    type: mcq
+    prompt: "Pour faire un gâteau, je suis une ___."
+    options: [recette, valise, réunion]
+    answer: recette
+    explain: "la recette = the recipe."
+
+  - id: cuisine-a2-03.e2
+    type: translate
+    prompt: "Translate: “to cook”"
+    answer: cuisiner
+
+  - id: cuisine-a2-03.e3
+    type: word_bank
+    prompt: "Build: “I mix well.”"
+    tokens: [Je, mélange, bien, ajoute]
+    answer: [Je, mélange, bien]
+
+  - id: cuisine-a2-03.e4
+    type: match_pairs
+    pairs:
+      - [four, oven]
+      - [ajouter, "to add"]
+      - [mélanger, "to mix"]
+
+  - id: cuisine-a2-03.e5
+    type: mcq
+    prompt: "« la recette » is a…"
+    options: [recipe, plate, knife]
+    answer: recipe
+    explain: "la recette = the recipe."

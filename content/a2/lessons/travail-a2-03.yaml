@@ -1,0 +1,39 @@
+id: travail-a2-03
+title: "At work — review"
+grammar_point: "talking about work"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: travail-a2-03.e1
+    type: mcq
+    prompt: "« gagner » means…"
+    options: ["to earn", "to lose", "to work"]
+    answer: "to earn"
+    explain: "gagner = to earn / to win."
+
+  - id: travail-a2-03.e2
+    type: translate
+    prompt: "Translate: “the office”"
+    answer: "le bureau"
+    accept: [bureau]
+
+  - id: travail-a2-03.e3
+    type: word_bank
+    prompt: "Build: “I have a meeting.”"
+    tokens: ["J'ai", une, réunion, bureau]
+    answer: ["J'ai", une, réunion]
+
+  - id: travail-a2-03.e4
+    type: match_pairs
+    pairs:
+      - [collègue, colleague]
+      - [réunion, meeting]
+      - [emploi, job]
+
+  - id: travail-a2-03.e5
+    type: mcq
+    prompt: "Où travaillez-vous ? Au ___."
+    options: [bureau, jardin, plage]
+    answer: bureau
+    explain: "le bureau = the office."
