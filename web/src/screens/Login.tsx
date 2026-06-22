@@ -36,7 +36,7 @@ export default function Login() {
         {mode === "signup" && (
           <div className="field">
             <label>Display name</label>
-            <input className="text-input" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
+            <input className="text-input" value={displayName} onChange={(e) => setDisplayName(e.target.value)} required maxLength={80} />
           </div>
         )}
         <div className="field">
@@ -45,7 +45,7 @@ export default function Login() {
         </div>
         <div className="field">
           <label>Password</label>
-          <input className="text-input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <input className="text-input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={mode === "signup" ? 8 : undefined} />
         </div>
         {mode === "signup" && (
           <div className="field">

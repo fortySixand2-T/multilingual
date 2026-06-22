@@ -10,21 +10,40 @@ export function setToken(t: string | null) {
   else localStorage.removeItem(TOKEN_KEY);
 }
 
+// FastAPI returns 422 validation errors as `detail: [{loc, msg, type}]`. Render those as
+// a readable sentence instead of dumping raw JSON at the user (the backend's min/max/range
+// checks all land here).
+function readableError(detail: unknown, fallback: string): string {
+  if (typeof detail === "string") return detail;
+  if (Array.isArray(detail)) {
+    const msgs = detail
+      .map((e: any) => {
+        if (!e?.msg) return null;
+        const field = Array.isArray(e.loc) ? e.loc[e.loc.length - 1] : undefined;
+        return field && field !== "body" ? `${field}: ${e.msg}` : e.msg;
+      })
+      .filter(Boolean);
+    if (msgs.length) return msgs.join("; ");
+  }
+  return fallback;
+}
+
+async function errorFrom(res: Response): Promise<ApiError> {
+  let detail: unknown = res.statusText;
+  try {
+    detail = (await res.json()).detail ?? detail;
+  } catch {
+    /* non-JSON error */
+  }
+  return new ApiError(res.status, readableError(detail, res.statusText));
+}
+
 async function req<T>(path: string, opts: RequestInit = {}): Promise<T> {
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   const token = getToken();
   if (token) headers["Authorization"] = `Bearer ${token}`;
   const res = await fetch(`${BASE}${path}`, { ...opts, headers: { ...headers, ...(opts.headers || {}) } });
-  if (!res.ok) {
-    let detail = res.statusText;
-    try {
-      const body = await res.json();
-      detail = body.detail ?? detail;
-    } catch {
-      /* non-JSON error */
-    }
-    throw new ApiError(res.status, typeof detail === "string" ? detail : JSON.stringify(detail));
-  }
+  if (!res.ok) throw await errorFrom(res);
   if (res.status === 204) return undefined as T;
   return (await res.json()) as T;
 }
@@ -74,15 +93,7 @@ export async function postSpeechTurn(audio: Blob, mode: string): Promise<SpeechT
     headers: token ? { Authorization: `Bearer ${token}` } : {},
     body: form,
   });
-  if (!res.ok) {
-    let detail = res.statusText;
-    try {
-      detail = (await res.json()).detail ?? detail;
-    } catch {
-      /* non-JSON */
-    }
-    throw new ApiError(res.status, typeof detail === "string" ? detail : "speech failed");
-  }
+  if (!res.ok) throw await errorFrom(res);
   return res.json();
 }
 

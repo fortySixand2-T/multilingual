@@ -12,3 +12,51 @@ units:
     icon: coffee
     lessons: [cafe-01]
     unlock: { type: all_of, requires: [a1.u1] }
+
+  - id: a1.u3
+    title: "Please & thank you"
+    icon: wave
+    lessons: [greetings-02]
+    unlock: { type: all_of, requires: [a1.u2] }
+
+  - id: a1.u4
+    title: "Numbers 1–10"
+    icon: hash
+    lessons: [numbers-01]
+    unlock: { type: all_of, requires: [a1.u3] }
+
+  - id: a1.u5
+    title: "Family & people"
+    icon: family
+    lessons: [family-01]
+    unlock: { type: all_of, requires: [a1.u4] }
+
+  - id: a1.u6
+    title: "Food & restaurant"
+    icon: plate
+    lessons: [restaurant-01]
+    unlock: { type: all_of, requires: [a1.u5] }
+
+  - id: a1.u7
+    title: "Days & time"
+    icon: clock
+    lessons: [time-01]
+    unlock: { type: all_of, requires: [a1.u6] }
+
+  - id: a1.u8
+    title: "City & directions"
+    icon: map
+    lessons: [directions-01]
+    unlock: { type: all_of, requires: [a1.u7] }
+
+  - id: a1.u9
+    title: "Shopping"
+    icon: bag
+    lessons: [shopping-01]
+    unlock: { type: all_of, requires: [a1.u8] }
+
+  - id: a1.u10
+    title: "Weather & small talk"
+    icon: sun
+    lessons: [weather-01]
+    unlock: { type: all_of, requires: [a1.u9] }

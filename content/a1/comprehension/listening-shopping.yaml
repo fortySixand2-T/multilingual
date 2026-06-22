@@ -1,0 +1,28 @@
+id: listen-shopping
+level: a1
+skill: listening
+title: "Au magasin de vêtements"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-shopping.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Bonjour, je cherche un manteau bleu, taille moyenne. Celui-ci coûte quarante euros.
+  Il est en solde aujourd'hui. Parfait, je le prends. Vous payez à la caisse, là-bas.
+questions:
+  - id: listen-shopping.q1
+    prompt: "Quel vêtement cherche le client ?"
+    options: ["Un manteau bleu", "Un pantalon noir", "des chaussures"]
+    answer: "Un manteau bleu"
+    explain: "« je cherche un manteau bleu »."
+  - id: listen-shopping.q2
+    prompt: "Combien coûte-t-il ?"
+    options: ["Quarante euros", "Quatorze euros", "Quatre euros"]
+    answer: "Quarante euros"
+    explain: "« Celui-ci coûte quarante euros. »"
+  - id: listen-shopping.q3
+    prompt: "Pourquoi le prix est-il intéressant ?"
+    options: ["Il est en solde", "C'est gratuit", "C'est cher"]
+    answer: "Il est en solde"
+    explain: "« Il est en solde aujourd'hui. »"

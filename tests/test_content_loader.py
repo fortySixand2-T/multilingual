@@ -14,8 +14,8 @@ CONTENT_ROOT = FsPath(__file__).resolve().parents[1] / "content"
 def test_loads_example_a1_content():
     bundle = load_content(CONTENT_ROOT, "a1")
     assert bundle.path.level == "a1"
-    assert [u.id for u in bundle.path.units] == ["a1.u1", "a1.u2"]
-    assert set(bundle.lessons) == {"greetings-01", "cafe-01"}
+    assert [u.id for u in bundle.path.units][:2] == ["a1.u1", "a1.u2"]
+    assert {"greetings-01", "cafe-01"} <= set(bundle.lessons)
     assert {"bonjour", "salut", "bonsoir", "cafe", "eau"} <= set(bundle.vocab)
 
     # discriminated union parses each exercise to its concrete type
@@ -25,7 +25,7 @@ def test_loads_example_a1_content():
 
 def test_unit_gating_is_declared_not_computed():
     bundle = load_content(CONTENT_ROOT, "a1")
-    u1, u2 = bundle.path.units
+    u1, u2 = bundle.path.units[:2]
     assert u1.unlock.type == "none"
     assert u2.unlock.type == "all_of" and u2.unlock.requires == ["a1.u1"]
 

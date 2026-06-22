@@ -1,0 +1,27 @@
+id: read-ad-apartment
+level: a1
+skill: reading
+title: "Une annonce : appartement à louer"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  À LOUER
+  Bel appartement, 2 pièces, centre-ville. 45 m². Cuisine équipée.
+  Proche de la gare et des magasins. 750 € par mois.
+  Disponible le 1er septembre. Téléphone : 06 12 34 56 78.
+questions:
+  - id: read-ad-apartment.q1
+    prompt: "Combien coûte l'appartement par mois ?"
+    options: ["450 €", "750 €", "1er septembre"]
+    answer: "750 €"
+    explain: "« 750 € par mois »."
+  - id: read-ad-apartment.q2
+    prompt: "Où se trouve l'appartement ?"
+    options: ["En centre-ville", "À la campagne", "Près de la mer"]
+    answer: "En centre-ville"
+    explain: "« 2 pièces, centre-ville »."
+  - id: read-ad-apartment.q3
+    prompt: "Quand est-il disponible ?"
+    options: ["Le 1er septembre", "Le 1er août", "Tout de suite"]
+    answer: "Le 1er septembre"
+    explain: "« Disponible le 1er septembre. »"

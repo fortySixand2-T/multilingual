@@ -1,0 +1,30 @@
+id: numbers-01
+title: "Numbers 1–10"
+grammar_point: "cardinal numbers"
+est_minutes: 5
+new_vocab: [un, deux, trois, quatre, cinq]
+pass_threshold: 8.0
+exercises:
+  - id: numbers-01.e1
+    type: mcq
+    prompt: "“trois” = ?"
+    options: [two, three, four]
+    answer: three
+    explain: "trois = three."
+
+  - id: numbers-01.e2
+    type: listen_type
+    audio_ref: a1/audio/num-cinq-qc.mp3
+    answer: cinq
+    prompt: "Type the number you hear."
+
+  - id: numbers-01.e3
+    type: word_bank
+    prompt: "Order: one, two, three."
+    tokens: [un, deux, trois, quatre]
+    answer: [un, deux, trois]
+
+  - id: numbers-01.e4
+    type: translate
+    prompt: "Translate: “four”"
+    answer: quatre

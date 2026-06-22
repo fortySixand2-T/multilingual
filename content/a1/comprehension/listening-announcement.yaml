@@ -1,0 +1,29 @@
+id: listen-announcement
+level: a1
+skill: listening
+title: "Une annonce à la gare"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-announcement.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.5
+script: |
+  Mesdames et messieurs, votre attention s'il vous plaît. Le train pour Québec
+  part à quinze heures, voie numéro trois. Le train a dix minutes de retard.
+  Merci de votre patience.
+questions:
+  - id: listen-announcement.q1
+    prompt: "Pour quelle ville est le train ?"
+    options: [Québec, Montréal, Paris]
+    answer: Québec
+    explain: "« Le train pour Québec »."
+  - id: listen-announcement.q2
+    prompt: "De quelle voie part-il ?"
+    options: ["Voie trois", "Voie quinze", "Voie dix"]
+    answer: "Voie trois"
+    explain: "« voie numéro trois »."
+  - id: listen-announcement.q3
+    prompt: "Quel est le problème ?"
+    options: ["Dix minutes de retard", "Le train est annulé", "Il n'y a pas de problème"]
+    answer: "Dix minutes de retard"
+    explain: "« Le train a dix minutes de retard. »"

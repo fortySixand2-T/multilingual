@@ -183,9 +183,10 @@ def _client(router):
 def test_list_and_get_tasks():
     client = _client(GoodRouter())
     tasks = client.get("/assessment/tasks", params={"level": "a1"}).json()["tasks"]
-    assert {t["id"] for t in tasks} == {"write-a-invite", "write-b-opinion"}
+    assert {"write-a-invite", "write-b-opinion"} <= {t["id"] for t in tasks}
     b = client.get("/assessment/tasks", params={"level": "a1", "section": "B"}).json()["tasks"]
-    assert [t["id"] for t in b] == ["write-b-opinion"]
+    b_ids = [t["id"] for t in b]
+    assert "write-b-opinion" in b_ids and "write-a-invite" not in b_ids
     assert client.get("/assessment/tasks/write-a-invite").json()["section"] == "A"
 
 

@@ -1,0 +1,28 @@
+id: listen-time
+level: a1
+skill: listening
+title: "On prend rendez-vous"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-time.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.5
+script: |
+  Salut ! On se voit demain ? D'accord. On peut se retrouver à dix heures et demie
+  au café près de la gare. Apporte ton livre, s'il te plaît. À demain !
+questions:
+  - id: listen-time.q1
+    prompt: "Quand se voient-ils ?"
+    options: [Demain, Aujourd'hui, Lundi]
+    answer: Demain
+    explain: "« On se voit demain ? »"
+  - id: listen-time.q2
+    prompt: "À quelle heure ?"
+    options: ["Dix heures et demie", "Dix heures", "Deux heures"]
+    answer: "Dix heures et demie"
+    explain: "« à dix heures et demie »."
+  - id: listen-time.q3
+    prompt: "Que doit-elle apporter ?"
+    options: ["Son livre", "Un café", "De l'argent"]
+    answer: "Son livre"
+    explain: "« Apporte ton livre, s'il te plaît. »"

@@ -1,0 +1,59 @@
+- id: lundi
+  fr: lundi
+  en: Monday
+  pos: noun
+  tags: [time]
+
+- id: mardi
+  fr: mardi
+  en: Tuesday
+  pos: noun
+  tags: [time]
+
+- id: mercredi
+  fr: mercredi
+  en: Wednesday
+  pos: noun
+  tags: [time]
+
+- id: jeudi
+  fr: jeudi
+  en: Thursday
+  pos: noun
+  tags: [time]
+
+- id: vendredi
+  fr: vendredi
+  en: Friday
+  pos: noun
+  tags: [time]
+
+- id: samedi
+  fr: samedi
+  en: Saturday
+  pos: noun
+  tags: [time]
+
+- id: dimanche
+  fr: dimanche
+  en: Sunday
+  pos: noun
+  tags: [time]
+
+- id: aujourdhui
+  fr: aujourd'hui
+  en: today
+  pos: adverb
+  tags: [time]
+
+- id: demain
+  fr: demain
+  en: tomorrow
+  pos: adverb
+  tags: [time]
+
+- id: heure
+  fr: heure
+  en: "hour / time"
+  pos: noun
+  tags: [time]

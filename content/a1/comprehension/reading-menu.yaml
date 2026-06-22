@@ -1,0 +1,28 @@
+id: read-menu
+level: a1
+skill: reading
+title: "Le menu du jour"
+time_limit_seconds: 120
+pass_threshold: 0.6
+passage: |
+  MENU DU JOUR — 15 €
+  Entrée : soupe de légumes ou salade verte
+  Plat : poulet et riz, ou poisson et pommes de terre
+  Dessert : fromage ou tarte aux pommes
+  Boisson comprise : eau ou café.
+questions:
+  - id: read-menu.q1
+    prompt: "Combien coûte le menu du jour ?"
+    options: ["15 €", "5 €", "50 €"]
+    answer: "15 €"
+    explain: "« MENU DU JOUR — 15 € »."
+  - id: read-menu.q2
+    prompt: "Quel plat peut-on choisir ?"
+    options: ["Poulet et riz", "Soupe de légumes", "Tarte aux pommes"]
+    answer: "Poulet et riz"
+    explain: "Le poulet et riz est un plat ; la soupe est une entrée."
+  - id: read-menu.q3
+    prompt: "Quelle boisson est comprise ?"
+    options: ["Eau ou café", "Vin", "Jus d'orange"]
+    answer: "Eau ou café"
+    explain: "« Boisson comprise : eau ou café. »"

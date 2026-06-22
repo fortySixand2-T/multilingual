@@ -1,0 +1,59 @@
+- id: restaurant
+  fr: restaurant
+  en: restaurant
+  pos: noun
+  tags: [restaurant]
+
+- id: menu
+  fr: menu
+  en: menu
+  pos: noun
+  tags: [restaurant]
+
+- id: table
+  fr: table
+  en: table
+  pos: noun
+  tags: [restaurant]
+
+- id: serveur
+  fr: serveur
+  en: waiter
+  pos: noun
+  tags: [restaurant]
+
+- id: plat
+  fr: plat
+  en: dish
+  pos: noun
+  tags: [restaurant]
+
+- id: entree
+  fr: entrée
+  en: starter
+  pos: noun
+  tags: [restaurant]
+
+- id: dessert
+  fr: dessert
+  en: dessert
+  pos: noun
+  tags: [restaurant]
+
+- id: boisson
+  fr: boisson
+  en: drink
+  pos: noun
+  tags: [restaurant]
+
+- id: reservation
+  fr: réservation
+  en: reservation
+  pos: noun
+  tags: [restaurant]
+
+- id: commander
+  fr: commander
+  en: "to order"
+  pos: verb
+  tags: [restaurant]

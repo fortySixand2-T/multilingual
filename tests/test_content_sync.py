@@ -14,7 +14,7 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 import app.content.tables  # noqa: F401 - register tables on Base.metadata
 from app.api.auth import get_current_user
-from app.content.api import compute_unit_status
+from app.content.api import compute_unit_status, get_storage
 from app.content.loader import load_content
 from app.content.sync import sync_bundle
 from app.content.tables import ContentLesson, ContentUnit, ContentVocab
@@ -54,9 +54,17 @@ async def _override_session():
         yield session
 
 
+class _FakeStorage:
+    objects = {"a1/audio/bonjour.mp3": b"ID3fakeaudio"}
+
+    def get(self, key: str) -> bytes:
+        return self.objects[key]  # KeyError -> 404 in the route
+
+
 app = create_app()
 app.dependency_overrides[get_session] = _override_session
 app.dependency_overrides[get_current_user] = lambda: _FakeUser()
+app.dependency_overrides[get_storage] = lambda: _FakeStorage()
 client = TestClient(app)
 
 
@@ -71,8 +79,8 @@ def test_sync_wrote_expected_rows():
             return [u.id for u in units], {lz.id for lz in lessons}, {v.id for v in vocab}
 
     unit_ids, lesson_ids, vocab_ids = _run(go())
-    assert unit_ids == ["a1.u1", "a1.u2"]  # ordinal-ordered
-    assert lesson_ids == {"greetings-01", "cafe-01"}
+    assert unit_ids[:2] == ["a1.u1", "a1.u2"]  # ordinal-ordered
+    assert {"greetings-01", "cafe-01"} <= lesson_ids
     assert {"bonjour", "salut", "bonsoir", "cafe", "eau"} <= vocab_ids
 
 
@@ -83,7 +91,8 @@ def test_resync_is_idempotent():
         async with _Session() as s:
             return len((await s.execute(select(ContentUnit))).scalars().all())
 
-    assert _run(go()) == 2  # delete-and-replace, not duplicated
+    # replaced, not duplicated
+    assert _run(go()) == len(load_content(CONTENT_ROOT, "a1").path.units)
 
 
 def test_gating_function():
@@ -95,9 +104,11 @@ def test_gating_function():
 
     us = _run(units())
     # nothing completed -> first unit open, gated unit locked
-    assert compute_unit_status(us, set()) == {"a1.u1": "available", "a1.u2": "locked"}
+    none_done = compute_unit_status(us, set())
+    assert none_done["a1.u1"] == "available" and none_done["a1.u2"] == "locked"
     # finishing u1's lesson completes u1 and unlocks u2
-    assert compute_unit_status(us, {"greetings-01"}) == {"a1.u1": "complete", "a1.u2": "available"}
+    u1_done = compute_unit_status(us, {"greetings-01"})
+    assert u1_done["a1.u1"] == "complete" and u1_done["a1.u2"] == "available"
 
 
 def test_path_endpoint_reports_gating():
@@ -105,7 +116,7 @@ def test_path_endpoint_reports_gating():
     assert r.status_code == 200
     body = r.json()
     statuses = {u["id"]: u["status"] for u in body["units"]}
-    assert statuses == {"a1.u1": "available", "a1.u2": "locked"}
+    assert statuses["a1.u1"] == "available" and statuses["a1.u2"] == "locked"
     assert body["units"][0]["unlock"] == {"type": "none", "requires": []}
 
 
@@ -128,3 +139,23 @@ def test_lesson_endpoint_returns_exercises():
 
 def test_lesson_endpoint_404():
     assert client.get("/content/lessons/nope").status_code == 404
+
+
+# --- content audio delivery ---------------------------------------------------
+
+
+def test_content_audio_serves_asset():
+    r = client.get("/content/audio/a1/audio/bonjour.mp3")
+    assert r.status_code == 200
+    assert r.headers["content-type"] == "audio/mpeg"
+    assert r.content == b"ID3fakeaudio"
+
+
+def test_content_audio_missing_is_404():
+    assert client.get("/content/audio/a1/audio/nope.mp3").status_code == 404
+
+
+def test_content_audio_rejects_bad_key_shape():
+    # no /audio/ segment, not an .mp3 -> fails the key guard before touching storage
+    assert client.get("/content/audio/a1/secret.txt").status_code == 404
+    assert client.get("/content/audio/etc/passwd").status_code == 404

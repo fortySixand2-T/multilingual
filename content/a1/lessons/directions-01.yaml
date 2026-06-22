@@ -1,0 +1,31 @@
+id: directions-01
+title: "Asking for directions"
+grammar_point: "imperative « allez / tournez »"
+est_minutes: 6
+new_vocab: [gauche, droite, tout_droit, rue, gare]
+pass_threshold: 8.0
+exercises:
+  - id: directions-01.e1
+    type: mcq
+    prompt: "« Tournez à ___ » — the opposite of « gauche »?"
+    options: [droite, "tout droit", loin]
+    answer: droite
+    explain: "gauche = left, droite = right."
+
+  - id: directions-01.e2
+    type: listen_type
+    audio_ref: a1/audio/gauche-qc.mp3
+    answer: gauche
+    prompt: "Type the direction you hear."
+
+  - id: directions-01.e3
+    type: word_bank
+    prompt: "Build: “Go straight ahead.”"
+    tokens: [Allez, tout, droit, gauche]
+    answer: [Allez, tout, droit]
+
+  - id: directions-01.e4
+    type: translate
+    prompt: "Translate: “the train station”"
+    answer: "la gare"
+    accept: [gare]

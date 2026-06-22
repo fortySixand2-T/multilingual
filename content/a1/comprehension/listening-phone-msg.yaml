@@ -1,0 +1,24 @@
+id: listen-phone-msg
+level: a1
+skill: listening
+title: "Un message sur le répondeur"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-phone-msg.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.5
+script: |
+  Bonjour, c'est le docteur Tremblay. J'appelle pour confirmer votre rendez-vous
+  de mercredi à quatorze heures. Si vous ne pouvez pas venir, rappelez-moi avant mardi.
+  Merci, bonne journée.
+questions:
+  - id: listen-phone-msg.q1
+    prompt: "Qui laisse le message ?"
+    options: ["Le docteur Tremblay", "Un ami", "La banque"]
+    answer: "Le docteur Tremblay"
+    explain: "« c'est le docteur Tremblay »."
+  - id: listen-phone-msg.q2
+    prompt: "Quand est le rendez-vous ?"
+    options: ["Mercredi à 14 h", "Mardi à 14 h", "Mercredi à 4 h"]
+    answer: "Mercredi à 14 h"
+    explain: "« votre rendez-vous de mercredi à quatorze heures »."

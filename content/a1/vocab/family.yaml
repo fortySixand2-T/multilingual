@@ -1,0 +1,59 @@
+- id: famille
+  fr: famille
+  en: family
+  pos: noun
+  tags: [family]
+
+- id: mere
+  fr: mère
+  en: mother
+  pos: noun
+  tags: [family]
+
+- id: pere
+  fr: père
+  en: father
+  pos: noun
+  tags: [family]
+
+- id: frere
+  fr: frère
+  en: brother
+  pos: noun
+  tags: [family]
+
+- id: soeur
+  fr: sœur
+  en: sister
+  pos: noun
+  tags: [family]
+
+- id: fils
+  fr: fils
+  en: son
+  pos: noun
+  tags: [family]
+
+- id: fille
+  fr: fille
+  en: "daughter / girl"
+  pos: noun
+  tags: [family]
+
+- id: enfant
+  fr: enfant
+  en: child
+  pos: noun
+  tags: [family]
+
+- id: mari
+  fr: mari
+  en: husband
+  pos: noun
+  tags: [family]
+
+- id: epouse
+  fr: épouse
+  en: wife
+  pos: noun
+  tags: [family]

@@ -6,6 +6,8 @@ time_limit_seconds: 90
 allow_replay: false          # no-replay: exam-style listening
 accent: qc                   # Québécois accent (R6 — real recording)
 audio_ref: a1/audio/greet-qc.mp3
+script: |
+  Bonjour, madame. Comment allez-vous aujourd'hui ?
 pass_threshold: 0.5
 questions:
   - id: listen-greet-01.q1

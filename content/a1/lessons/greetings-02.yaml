@@ -1,0 +1,32 @@
+id: greetings-02
+title: "Please and thank you"
+grammar_point: "politeness formulas"
+est_minutes: 4
+new_vocab: [merci, svp, pardon, au_revoir]
+pass_threshold: 8.0
+exercises:
+  - id: greetings-02.e1
+    type: mcq
+    prompt: "How do you say “thank you”?"
+    options: [merci, pardon, salut]
+    answer: merci
+    explain: "‘merci’ = thank you."
+
+  - id: greetings-02.e2
+    type: translate
+    prompt: "Translate: “please” (formal)"
+    answer: "s'il vous plaît"
+    accept: ["svp", "s’il vous plaît"]
+
+  - id: greetings-02.e3
+    type: word_bank
+    prompt: "Build: “Goodbye, madam.”"
+    tokens: ["Au revoir", madame, Bonjour, monsieur]
+    answer: ["Au revoir", madame]
+
+  - id: greetings-02.e4
+    type: match_pairs
+    pairs:
+      - [merci, "thank you"]
+      - [pardon, "excuse me"]
+      - ["au revoir", goodbye]

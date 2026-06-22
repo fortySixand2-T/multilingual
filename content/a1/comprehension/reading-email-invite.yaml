@@ -1,0 +1,32 @@
+id: read-email-invite
+level: a1
+skill: reading
+title: "Une invitation par courriel"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  De : Lucas
+  À : Sophie
+  Objet : Dîner samedi
+
+  Salut Sophie,
+  J'organise un dîner chez moi samedi à 19 h. Tu veux venir ? Apporte un dessert
+  si tu peux. Réponds-moi avant vendredi.
+  À bientôt,
+  Lucas
+questions:
+  - id: read-email-invite.q1
+    prompt: "Quel jour est le dîner ?"
+    options: [Vendredi, Samedi, Dimanche]
+    answer: Samedi
+    explain: "« un dîner chez moi samedi à 19 h »."
+  - id: read-email-invite.q2
+    prompt: "Qu'est-ce que Lucas demande d'apporter ?"
+    options: ["Un dessert", "Une boisson", "Rien"]
+    answer: "Un dessert"
+    explain: "« Apporte un dessert si tu peux. »"
+  - id: read-email-invite.q3
+    prompt: "Avant quel jour faut-il répondre ?"
+    options: [Jeudi, Vendredi, Samedi]
+    answer: Vendredi
+    explain: "« Réponds-moi avant vendredi. »"

@@ -1,0 +1,9 @@
+id: write-a-note
+level: a1
+section: A
+title: "Laisser un mot à un collègue"
+min_words: 40
+max_words: 100
+prompt: |
+  Vous quittez le bureau plus tôt aujourd'hui. Laissez un mot à un collègue :
+  expliquez pourquoi vous partez, ce qu'il doit faire à votre place, et remerciez-le.

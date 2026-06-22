@@ -1,0 +1,59 @@
+- id: magasin
+  fr: magasin
+  en: shop
+  pos: noun
+  tags: [shopping]
+
+- id: prix
+  fr: prix
+  en: price
+  pos: noun
+  tags: [shopping]
+
+- id: argent
+  fr: argent
+  en: money
+  pos: noun
+  tags: [shopping]
+
+- id: carte
+  fr: carte
+  en: "card (payment)"
+  pos: noun
+  tags: [shopping]
+
+- id: acheter
+  fr: acheter
+  en: "to buy"
+  pos: verb
+  tags: [shopping]
+
+- id: cher
+  fr: cher
+  en: expensive
+  pos: adjective
+  tags: [shopping]
+
+- id: soldes
+  fr: soldes
+  en: sales
+  pos: noun
+  tags: [shopping]
+
+- id: taille
+  fr: taille
+  en: size
+  pos: noun
+  tags: [shopping]
+
+- id: caisse
+  fr: caisse
+  en: "checkout / till"
+  pos: noun
+  tags: [shopping]
+
+- id: euro
+  fr: euro
+  en: euro
+  pos: noun
+  tags: [shopping]

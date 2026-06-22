@@ -1,5 +1,17 @@
 # Changelog
 
+- [2026-06-21] Modified: app/exam/api.py — Added level field to exam history serialization (fix qa-220)
+- [2026-06-21] Modified: content/a1/lessons/greetings-01.yaml — Added prompt to listen_type exercise greetings-01.e3 (fix qa-230)
+- [2026-06-21] Modified: app/progress/api.py — Read-time truncation of display_name to 80 chars on board endpoint (fix qa-231)
+- [2026-06-21] Created: migrations/versions/0010_truncate_display_names.py — Data migration to truncate oversized display_name rows (fix qa-231)
+- [2026-06-21] Modified: qa/issues/220-exam-history-missing-level-field.md — Critic review: validated (serialization omits available level data)
+- [2026-06-21] Modified: qa/issues/221-comprehension-pass-threshold-not-shown.md — Critic review: deferred confirmed (UX enhancement, not a defect)
+- [2026-06-21] Modified: qa/issues/230-listen-type-exercise-empty-prompt.md — Critic review: validated (content gap in first lesson for beginners)
+- [2026-06-21] Modified: qa/issues/231-board-still-shows-pre-fix-oversized-display-name.md — Critic review: validated (read-time truncation needed for SQLite deployments)
+- [2026-06-21] Modified: qa/issues/220-exam-history-missing-level-field.md — Triaged as validated (level field missing from exam history serialization)
+- [2026-06-21] Modified: qa/issues/221-comprehension-pass-threshold-not-shown.md — Triaged as deferred (pass threshold not shown is a UX enhancement, not a bug)
+- [2026-06-21] Modified: qa/issues/230-listen-type-exercise-empty-prompt.md — Triaged as validated (greetings-01.e3 missing prompt field in content YAML)
+- [2026-06-21] Modified: qa/issues/231-board-still-shows-pre-fix-oversized-display-name.md — Triaged as validated (pre-fix oversized display_name not cleaned up by data migration)
 - [2026-06-15] Moved: extracted Phase 0 scaffold (tef-platform/*) into project root
 - [2026-06-15] Created: app/cache/interface.py — `Cache` protocol (application data-cache abstraction)
 - [2026-06-15] Created: app/cache/memory.py — in-process TTL + LRU cache backend
@@ -188,3 +200,31 @@
 - [2026-06-20] Created: qa/issues/181-locked-lesson-content-readable.md — Round 10 H3 (rejected: client-enforced presentation)
 - [2026-06-21] Created: qa/FRONTEND_TEST_GAP.md — Wrote up the untested-frontend gap (API-only QA rounds vs. the React SPA: flows, error states, resume UI)
 - [2026-06-21] Created: qa/rounds/011-plan.md — Round 11 (migration round-trip, sync idempotency, speech 503): clean round, 0 bugs, all 3 hypotheses refuted
+- [2026-06-21] Modified: app/comprehension/models.py — Added optional `script` field to ComprehensionSet (listening transcript: TTS source + post-grading review; not exposed in _client_view)
+- [2026-06-21] Created: scripts/gen_audio.py — TTS audio generator (say fr_CA → afconvert → lame); synthesizes vocab/listening/listen_type clips from text
+- [2026-06-21] Modified: content/a1/path.yaml — Expanded to 10 single-lesson units with all_of gating (kept u1/u2 unchanged)
+- [2026-06-21] Modified: content/a1/vocab/greetings.yaml, cafe.yaml — Extended to ~9 cards each
+- [2026-06-21] Created: content/a1/vocab/{numbers,family,food,restaurant,time-days,directions,shopping,weather}.yaml — 8 themed vocab sets (~10 cards each; 98 cards total)
+- [2026-06-21] Created: content/a1/lessons/{greetings-02,numbers-01,family-01,restaurant-01,time-01,directions-01,shopping-01,weather-01}.yaml — 8 lessons mixing mcq/word_bank/translate/match_pairs/listen_type
+- [2026-06-21] Created: content/a1/comprehension/reading-*.yaml (8) — Everyday TEF-style reading sets (email, ad, notice, menu, schedule, sms, postcard, jobad)
+- [2026-06-21] Created: content/a1/comprehension/listening-*.yaml (9) — Listening sets with scripts (cafe, directions, phone-msg, intro, family, shopping, time, announcement, weather)
+- [2026-06-21] Modified: content/a1/comprehension/listening-greet.yaml — Added script for TTS regeneration
+- [2026-06-21] Created: content/a1/writing/{section-a-email-resa,section-a-note,section-b-city-country,section-b-technology}.yaml — 4 writing tasks (now 3 A + 3 B)
+- [2026-06-21] Created: content/a1/exam/mock-2.yaml — Second mock blueprint composed of the new sets
+- [2026-06-21] Created: content/a1/audio/*.mp3 (15) — Real TTS audio (replaces greet-qc.mp3 placeholder; adds bonjour, listen-*, listen_type clips)
+- [2026-06-21] Modified: tests/{test_content_loader,test_content_sync,test_comprehension,test_assessment,test_progress}.py — Relaxed exact-corpus assertions to tolerate a growing bank while preserving intent
+- [2026-06-21] Modified: app/content/api.py — Added GET /content/audio/{key} (auth-gated, shape-validated) to serve vocab/lesson audio from storage
+- [2026-06-21] Created: web/src/AudioButton.tsx — Reusable auth-fetch + play button for content audio keys
+- [2026-06-21] Modified: web/src/screens/Lesson.tsx — listen_type exercise now plays its clip (replaced the disabled "Phase 2" button)
+- [2026-06-21] Modified: web/src/screens/Review.tsx — SRS review plays the vocab clip when a card has audio
+- [2026-06-21] Modified: tests/test_content_sync.py — Tests for /content/audio: serves asset, 404 on missing, key-shape guard rejects traversal
+- [2026-06-21] Modified: .gitignore — ignore books/ (pirated source PDFs, never commit)
+- [2026-06-21] Modified: tests/test_content_sync.py — fix E501 lint from parallel content work
+- [2026-06-21] Modified: web/src/api.ts — render FastAPI 422 validation arrays as readable text (fix qa-200)
+- [2026-06-21] Modified: web/src/screens/Login.tsx — client-side required/min/max matching backend bounds (fix qa-200)
+- [2026-06-21] Created: qa/rounds/012-plan.md, qa/issues/200 — frontend QA round (1 fix)
+- [2026-06-21] Created: qa/issues/230-listen-type-exercise-empty-prompt.md — QA round 013: listen_type exercise missing prompt in greetings-01
+- [2026-06-21] Created: qa/issues/231-board-still-shows-pre-fix-oversized-display-name.md — QA round 013: board serves pre-fix 20K-char display_name
+- [2026-06-21] Created: qa/issues/220-exam-history-missing-level-field.md — QA round 013: exam history omits level field
+- [2026-06-21] Created: qa/issues/221-comprehension-pass-threshold-not-shown.md — QA round 013: comprehension pass threshold hidden from user
+- [2026-06-21] Modified: scripts/gen_audio.py — Applied ruff format (CI format-check gate; no logic change)

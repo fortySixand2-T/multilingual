@@ -132,7 +132,7 @@ async def get_board(
         {
             "user_id": u.id,
             # never fall back to email — the board is shared with the whole group (qa-010)
-            "display_name": u.display_name or "Learner",
+            "display_name": (u.display_name or "Learner")[:80],
             "level": p.level if p else "a1",
             "xp": p.xp if p else 0,
             "streak": p.streak if p else 0,
