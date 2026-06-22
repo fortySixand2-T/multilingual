@@ -229,3 +229,32 @@ def test_concurrent_sections_all_persist():
 
     sections = _run(run())
     assert sorted(sections) == ["listening", "reading", "speaking", "writing"]
+
+
+def test_get_attempt_includes_finished_at():
+    """qa-280: detail endpoint must include finished_at for completed attempts."""
+    from datetime import datetime
+
+    aid = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
+
+    # In-progress attempt: finished_at should be None
+    detail = client.get(f"/exam/attempts/{aid}").json()
+    assert "finished_at" in detail
+    assert detail["finished_at"] is None
+
+    # Complete all sections and finish
+    client.post(f"/exam/{aid}/section", json={"skill": "reading", "correct": 8, "total": 10})
+    client.post(f"/exam/{aid}/section", json={"skill": "listening", "correct": 7, "total": 10})
+    client.post(f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 7})
+    client.post(f"/exam/{aid}/section", json={"skill": "speaking", "clb_estimate": 6})
+    client.post(f"/exam/{aid}/finish")
+
+    # Finished attempt: finished_at should be a valid ISO timestamp
+    detail = client.get(f"/exam/attempts/{aid}").json()
+    assert detail["finished_at"] is not None
+    datetime.fromisoformat(detail["finished_at"])
+
+    # Consistency: history endpoint should return the same value
+    hist = client.get("/exam/history").json()["attempts"]
+    match = [a for a in hist if a["attempt_id"] == aid][0]
+    assert match["finished_at"] == detail["finished_at"]

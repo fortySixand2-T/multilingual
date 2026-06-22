@@ -132,6 +132,7 @@ async def get_attempt(
         "blueprint": bp.data if bp else None,
         "status": attempt.status,
         "started_at": attempt.started_at.isoformat(),
+        "finished_at": attempt.finished_at.isoformat() if attempt.finished_at else None,
         "recorded": sorted(attempt.sections),
         "remaining": [s for s in required if s not in attempt.sections],
         "clb_report": attempt.clb_report,

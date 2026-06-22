@@ -1,5 +1,10 @@
 # Changelog
 
+- [2026-06-22] Modified: app/exam/api.py — qa-280: add finished_at to get_attempt response dict
+- [2026-06-22] Modified: tests/test_exam.py — qa-280: add test_get_attempt_includes_finished_at
+- [2026-06-22] Modified: qa/issues/280-exam-attempt-detail-missing-finished-at.md — qa-280: mark done
+- [2026-06-22] Modified: qa/issues/280-exam-attempt-detail-missing-finished-at.md — Triage: validated, get_attempt omits finished_at (inconsistent with history endpoint)
+- [2026-06-22] Modified: qa/issues/290-srs-queue-negative-limit-bypasses-pagination.md — Triage: validated, SRS queue accepts negative limit bypassing pagination
 - [2026-06-22] Modified: app/assessment/api.py — qa-240: validate min/max word count before calling LLM grader
 - [2026-06-22] Modified: tests/test_assessment.py — qa-240: add tests for word count validation, fix existing tests to use valid word counts
 - [2026-06-22] Modified: app/exam/api.py — qa-250: include started_at in start and get_attempt responses
@@ -267,3 +272,7 @@
 - [2026-06-22] Created: qa/issues/251-exam-history-ignores-level-filter.md — QA round 014: GET /exam/history silently ignores level query param
 - [2026-06-22] Created: qa/issues/252-exam-completion-awards-no-xp.md — QA round 014: completing a full mock exam awards zero XP
 - [2026-06-22] Created: qa/issues/240-writing-no-word-count-validation-before-grading.md — QA round 014: writing submit skips min/max word count validation, wasting LLM budget on non-conforming submissions
+- [2026-06-22] Created: qa/issues/280-exam-attempt-detail-missing-finished-at.md — QA round 015: GET /exam/attempts/{id} omits finished_at for completed attempts
+- [2026-06-22] Created: qa/issues/290-srs-queue-negative-limit-bypasses-pagination.md — QA round 015: SRS queue accepts negative limit bypassing pagination
+- [2026-06-22] Modified: qa/issues/280-exam-attempt-detail-missing-finished-at.md — Critic review: validated, finished_at omission is a real inconsistency
+- [2026-06-22] Modified: qa/issues/290-srs-queue-negative-limit-bypasses-pagination.md — Critic review: rejected, negative limit is harmless hardening request not a defect
