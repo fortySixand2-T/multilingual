@@ -1,0 +1,38 @@
+id: shopping-02
+title: "Paying and prices"
+grammar_point: "« combien ça coûte ? »"
+est_minutes: 5
+new_vocab: [argent, soldes, taille, caisse, euro]
+pass_threshold: 8.0
+exercises:
+  - id: shopping-02.e1
+    type: mcq
+    prompt: "Where do you pay? « à la ___ »"
+    options: [caisse, taille, soldes]
+    answer: caisse
+    explain: "la caisse = the checkout."
+
+  - id: shopping-02.e2
+    type: translate
+    prompt: "Translate: “money”"
+    answer: "l'argent"
+    accept: [argent]
+
+  - id: shopping-02.e3
+    type: listen_type
+    audio_ref: a1/audio/soldes-qc.mp3
+    answer: soldes
+    prompt: "Type the word you hear."
+
+  - id: shopping-02.e4
+    type: word_bank
+    prompt: "Build: “It's ten euros.”"
+    tokens: ["C'est", dix, euros, cher]
+    answer: ["C'est", dix, euros]
+
+  - id: shopping-02.e5
+    type: match_pairs
+    pairs:
+      - [argent, money]
+      - [soldes, sales]
+      - [taille, size]

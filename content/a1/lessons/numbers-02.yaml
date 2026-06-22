@@ -1,0 +1,37 @@
+id: numbers-02
+title: "Numbers 6–10"
+grammar_point: "cardinal numbers"
+est_minutes: 5
+new_vocab: [six, sept, huit, neuf, dix]
+pass_threshold: 8.0
+exercises:
+  - id: numbers-02.e1
+    type: mcq
+    prompt: "« sept » = ?"
+    options: [six, seven, eight]
+    answer: seven
+    explain: "sept = seven."
+
+  - id: numbers-02.e2
+    type: translate
+    prompt: "Translate: “ten”"
+    answer: dix
+
+  - id: numbers-02.e3
+    type: listen_type
+    audio_ref: a1/audio/huit-qc.mp3
+    answer: huit
+    prompt: "Type the number you hear."
+
+  - id: numbers-02.e4
+    type: word_bank
+    prompt: "Order: six, seven, eight."
+    tokens: [six, sept, huit, neuf]
+    answer: [six, sept, huit]
+
+  - id: numbers-02.e5
+    type: match_pairs
+    pairs:
+      - [six, "6"]
+      - [neuf, "9"]
+      - [dix, "10"]

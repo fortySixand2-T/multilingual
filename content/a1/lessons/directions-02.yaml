@@ -1,0 +1,37 @@
+id: directions-02
+title: "Places in town"
+grammar_point: "« il y a » + place"
+est_minutes: 6
+new_vocab: [hopital, banque, ici, la_bas, loin]
+pass_threshold: 8.0
+exercises:
+  - id: directions-02.e1
+    type: mcq
+    prompt: "Where do you go when you are sick? « l' ___ »"
+    options: [hôpital, banque, gare]
+    answer: hôpital
+    explain: "l'hôpital = the hospital."
+
+  - id: directions-02.e2
+    type: translate
+    prompt: "Translate: “here”"
+    answer: ici
+
+  - id: directions-02.e3
+    type: listen_type
+    audio_ref: a1/audio/banque-qc.mp3
+    answer: banque
+    prompt: "Type the word you hear."
+
+  - id: directions-02.e4
+    type: word_bank
+    prompt: "Build: “It's far from here.”"
+    tokens: ["C'est", loin, "d'ici", ici]
+    answer: ["C'est", loin, "d'ici"]
+
+  - id: directions-02.e5
+    type: match_pairs
+    pairs:
+      - [ici, here]
+      - ["là-bas", "over there"]
+      - [loin, far]

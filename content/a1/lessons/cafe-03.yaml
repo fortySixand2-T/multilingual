@@ -1,0 +1,39 @@
+id: cafe-03
+title: "At the café — review"
+grammar_point: "ordering politely"
+est_minutes: 5
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: cafe-03.e1
+    type: mcq
+    prompt: "What do you ask for to pay? « l' ___ »"
+    options: [addition, eau, sucre]
+    answer: addition
+    explain: "l'addition = the bill."
+
+  - id: cafe-03.e2
+    type: translate
+    prompt: "Translate: “a coffee”"
+    answer: "un café"
+    accept: [café, cafe]
+
+  - id: cafe-03.e3
+    type: word_bank
+    prompt: "Build: “a coffee, please.”"
+    tokens: [un, café, "s'il", vous, plaît]
+    answer: [un, café, "s'il", vous, plaît]
+
+  - id: cafe-03.e4
+    type: mcq
+    prompt: "Which is a hot drink?"
+    options: [thé, eau, jus]
+    answer: thé
+    explain: "le thé is served hot."
+
+  - id: cafe-03.e5
+    type: match_pairs
+    pairs:
+      - [eau, water]
+      - [bière, beer]
+      - [vin, wine]

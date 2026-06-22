@@ -1,0 +1,39 @@
+id: weather-03
+title: "Weather — review"
+grammar_point: "« il fait… » for weather"
+est_minutes: 5
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: weather-03.e1
+    type: mcq
+    prompt: "« En été, il fait ___. »"
+    options: [chaud, froid, neige]
+    answer: chaud
+    explain: "il fait chaud = it's hot."
+
+  - id: weather-03.e2
+    type: translate
+    prompt: "Translate: “the rain”"
+    answer: "la pluie"
+    accept: [pluie]
+
+  - id: weather-03.e3
+    type: word_bank
+    prompt: "Build: “It's cold today.”"
+    tokens: [Il, fait, froid, "aujourd'hui", chaud]
+    answer: [Il, fait, froid, "aujourd'hui"]
+
+  - id: weather-03.e4
+    type: match_pairs
+    pairs:
+      - [soleil, sun]
+      - [pluie, rain]
+      - [météo, forecast]
+
+  - id: weather-03.e5
+    type: mcq
+    prompt: "« la météo » is the…"
+    options: [forecast, storm, cloud]
+    answer: forecast
+    explain: "la météo = the weather forecast."

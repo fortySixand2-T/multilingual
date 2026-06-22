@@ -1,0 +1,38 @@
+id: politeness-02
+title: "Being polite"
+grammar_point: "responses and apologies"
+est_minutes: 5
+new_vocab: [de_rien, excusez_moi, a_bientot]
+pass_threshold: 8.0
+exercises:
+  - id: politeness-02.e1
+    type: mcq
+    prompt: "Someone says « merci ». You reply…"
+    options: ["De rien", Pardon, Bonjour]
+    answer: "De rien"
+    explain: "« De rien » = you're welcome."
+
+  - id: politeness-02.e2
+    type: translate
+    prompt: "Translate: “excuse me”"
+    answer: "excusez-moi"
+    accept: ["excusez moi"]
+
+  - id: politeness-02.e3
+    type: listen_type
+    audio_ref: a1/audio/de-rien-qc.mp3
+    answer: "de rien"
+    prompt: "Type what you hear."
+
+  - id: politeness-02.e4
+    type: word_bank
+    prompt: "Build: “Thank you very much!”"
+    tokens: [Merci, beaucoup, Pardon]
+    answer: [Merci, beaucoup]
+
+  - id: politeness-02.e5
+    type: match_pairs
+    pairs:
+      - ["de rien", "you're welcome"]
+      - ["excusez-moi", "excuse me"]
+      - ["à bientôt", "see you soon"]

@@ -1,0 +1,38 @@
+id: restaurant-02
+title: "The courses of a meal"
+grammar_point: "« je voudrais » + noun"
+est_minutes: 6
+new_vocab: [table, plat, entree, dessert, boisson]
+pass_threshold: 8.0
+exercises:
+  - id: restaurant-02.e1
+    type: mcq
+    prompt: "The first course of a meal is…"
+    options: ["l'entrée", "le dessert", "la boisson"]
+    answer: "l'entrée"
+    explain: "l'entrée = the starter."
+
+  - id: restaurant-02.e2
+    type: translate
+    prompt: "Translate: “a table for two”"
+    answer: "une table pour deux"
+    accept: ["table pour deux"]
+
+  - id: restaurant-02.e3
+    type: listen_type
+    audio_ref: a1/audio/dessert-qc.mp3
+    answer: dessert
+    prompt: "Type the word you hear."
+
+  - id: restaurant-02.e4
+    type: word_bank
+    prompt: "Build: “I would like a drink.”"
+    tokens: [Je, voudrais, une, boisson, plat]
+    answer: [Je, voudrais, une, boisson]
+
+  - id: restaurant-02.e5
+    type: match_pairs
+    pairs:
+      - [entrée, starter]
+      - [plat, "main dish"]
+      - [dessert, dessert]

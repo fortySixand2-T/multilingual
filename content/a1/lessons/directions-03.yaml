@@ -1,0 +1,39 @@
+id: directions-03
+title: "Directions — review"
+grammar_point: "giving directions"
+est_minutes: 6
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: directions-03.e1
+    type: mcq
+    prompt: "The opposite of « gauche » is…"
+    options: [droite, "tout droit", loin]
+    answer: droite
+    explain: "gauche = left, droite = right."
+
+  - id: directions-03.e2
+    type: translate
+    prompt: "Translate: “the street”"
+    answer: "la rue"
+    accept: [rue]
+
+  - id: directions-03.e3
+    type: word_bank
+    prompt: "Build: “Go straight ahead.”"
+    tokens: [Allez, tout, droit, gauche]
+    answer: [Allez, tout, droit]
+
+  - id: directions-03.e4
+    type: match_pairs
+    pairs:
+      - [gauche, left]
+      - [droite, right]
+      - [gare, station]
+
+  - id: directions-03.e5
+    type: mcq
+    prompt: "At « la banque » you can…"
+    options: ["keep money", "buy bread", "catch a train"]
+    answer: "keep money"
+    explain: "la banque = the bank."

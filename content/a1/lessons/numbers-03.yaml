@@ -1,0 +1,38 @@
+id: numbers-03
+title: "Up to one hundred"
+grammar_point: "bigger numbers"
+est_minutes: 5
+new_vocab: [onze, douze, vingt]
+pass_threshold: 8.0
+exercises:
+  - id: numbers-03.e1
+    type: mcq
+    prompt: "« vingt » = ?"
+    options: ["20", "12", "100"]
+    answer: "20"
+    explain: "vingt = twenty."
+
+  - id: numbers-03.e2
+    type: translate
+    prompt: "Translate: “eleven”"
+    answer: onze
+
+  - id: numbers-03.e3
+    type: mcq
+    prompt: "What comes right after « onze »?"
+    options: [douze, dix, vingt]
+    answer: douze
+    explain: "onze → douze (11 → 12)."
+
+  - id: numbers-03.e4
+    type: word_bank
+    prompt: "Order: ten, eleven, twelve."
+    tokens: [dix, onze, douze, vingt]
+    answer: [dix, onze, douze]
+
+  - id: numbers-03.e5
+    type: match_pairs
+    pairs:
+      - [douze, "12"]
+      - [vingt, "20"]
+      - [cent, "100"]

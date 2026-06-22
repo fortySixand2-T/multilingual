@@ -1,0 +1,38 @@
+id: family-02
+title: "More family members"
+grammar_point: "possessives « mon / ma / mes »"
+est_minutes: 5
+new_vocab: [fils, fille, enfant, mari, epouse]
+pass_threshold: 8.0
+exercises:
+  - id: family-02.e1
+    type: mcq
+    prompt: "« ma fille » = ?"
+    options: ["my son", "my daughter", "my sister"]
+    answer: "my daughter"
+    explain: "la fille = daughter."
+
+  - id: family-02.e2
+    type: translate
+    prompt: "Translate: “the child”"
+    answer: "l'enfant"
+    accept: [enfant]
+
+  - id: family-02.e3
+    type: listen_type
+    audio_ref: a1/audio/fils-qc.mp3
+    answer: fils
+    prompt: "Type the word you hear."
+
+  - id: family-02.e4
+    type: word_bank
+    prompt: "Build: “My husband and my daughter.”"
+    tokens: [Mon, mari, et, ma, fille, mère]
+    answer: [Mon, mari, et, ma, fille]
+
+  - id: family-02.e5
+    type: match_pairs
+    pairs:
+      - [fils, son]
+      - [fille, daughter]
+      - [mari, husband]

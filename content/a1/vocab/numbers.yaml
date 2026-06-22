@@ -57,3 +57,27 @@
   en: ten
   pos: numeral
   tags: [numbers]
+
+- id: onze
+  fr: onze
+  en: eleven
+  pos: numeral
+  tags: [numbers]
+
+- id: douze
+  fr: douze
+  en: twelve
+  pos: numeral
+  tags: [numbers]
+
+- id: vingt
+  fr: vingt
+  en: twenty
+  pos: numeral
+  tags: [numbers]
+
+- id: cent
+  fr: cent
+  en: "a hundred"
+  pos: numeral
+  tags: [numbers]

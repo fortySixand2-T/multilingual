@@ -1,0 +1,39 @@
+id: family-03
+title: "Family — review"
+grammar_point: "talking about your family"
+est_minutes: 5
+new_vocab: []
+pass_threshold: 8.0
+exercises:
+  - id: family-03.e1
+    type: mcq
+    prompt: "« ma mère » = ?"
+    options: ["my mother", "my father", "my wife"]
+    answer: "my mother"
+    explain: "la mère = mother."
+
+  - id: family-03.e2
+    type: translate
+    prompt: "Translate: “my family”"
+    answer: "ma famille"
+    accept: [famille]
+
+  - id: family-03.e3
+    type: word_bank
+    prompt: "Build: “I have a brother.”"
+    tokens: ["J'ai", un, frère, sœur]
+    answer: ["J'ai", un, frère]
+
+  - id: family-03.e4
+    type: match_pairs
+    pairs:
+      - [père, father]
+      - [sœur, sister]
+      - [enfant, child]
+
+  - id: family-03.e5
+    type: mcq
+    prompt: "« épouse » means…"
+    options: [wife, daughter, mother]
+    answer: wife
+    explain: "l'épouse = wife."
