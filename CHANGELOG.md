@@ -276,3 +276,8 @@
 - [2026-06-22] Created: qa/issues/290-srs-queue-negative-limit-bypasses-pagination.md — QA round 015: SRS queue accepts negative limit bypassing pagination
 - [2026-06-22] Modified: qa/issues/280-exam-attempt-detail-missing-finished-at.md — Critic review: validated, finished_at omission is a real inconsistency
 - [2026-06-22] Modified: qa/issues/290-srs-queue-negative-limit-bypasses-pagination.md — Critic review: rejected, negative limit is harmless hardening request not a defect
+- [2026-06-22] Created: web/src/shuffle.ts — Pure, value-safe shuffle utilities (Fisher–Yates + per-exercise/per-lesson) for lesson variety
+- [2026-06-22] Modified: web/src/screens/Lesson.tsx — Shuffle exercise order + MCQ options + word_bank tiles each time a lesson loads (grading is by value, never affected)
+- [2026-06-22] Created: web/src/shuffle.test.ts, web/src/screens/Lesson.test.tsx — Vitest unit + component tests (shuffled MCQ still grades correctly)
+- [2026-06-22] Modified: web/{package.json,vite.config.ts,tsconfig.json}, web/src/test-setup.ts — Vitest + Testing Library (jsdom) test harness; `npm test`
+- [2026-06-22] Modified: .github/workflows/ci.yml — web CI now runs the component/unit tests (npm test)

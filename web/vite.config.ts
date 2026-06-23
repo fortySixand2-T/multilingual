@@ -1,4 +1,5 @@
-import { defineConfig } from "vite";
+/// <reference types="vitest/config" />
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
 // SPA dev server. `/api/*` is proxied to the FastAPI backend so there's no CORS
@@ -15,5 +16,11 @@ export default defineConfig({
         rewrite: (p) => p.replace(/^\/api/, ""),
       },
     },
+  },
+  // Component + unit tests (Vitest). jsdom gives the exercise components a DOM.
+  test: {
+    environment: "jsdom",
+    setupFiles: ["./src/test-setup.ts"],
+    include: ["src/**/*.test.{ts,tsx}"],
   },
 });

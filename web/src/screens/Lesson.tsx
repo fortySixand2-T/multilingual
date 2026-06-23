@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api, Exercise, Lesson as LessonT, LessonResult } from "../api";
 import AudioButton from "../AudioButton";
+import { shuffleLesson } from "../shuffle";
 
 const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, " ");
 
@@ -18,10 +19,14 @@ export default function Lesson() {
     api.lesson(id).then(setLesson).catch((e) => setError(e.message));
   }, [id]);
 
+  // Vary exercise + option order each time the lesson loads (kept stable for the
+  // duration of this attempt). Grading is by value, so order never affects correctness.
+  const exercises = useMemo(() => (lesson ? shuffleLesson(lesson.exercises) : []), [lesson]);
+
   if (error) return <div className="card center">Couldn't load lesson: {error}</div>;
   if (!lesson) return <div className="muted">Loading…</div>;
 
-  const total = lesson.exercises.length;
+  const total = exercises.length;
 
   if (result) {
     return (
@@ -41,7 +46,7 @@ export default function Lesson() {
     );
   }
 
-  const ex = lesson.exercises[idx];
+  const ex = exercises[idx];
   const onChecked = (ok: boolean) => {
     setChecked(ok);
     if (ok) setCorrect((c) => c + 1);
