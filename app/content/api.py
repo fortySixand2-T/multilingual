@@ -19,7 +19,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
-from app.content.tables import ContentLesson, ContentUnit
+from app.content.tables import ContentLesson, ContentUnit, ContentVocab
 from app.db.session import get_session
 from app.progress.service import completed_lesson_ids
 from app.storage.interface import ObjectStorage
@@ -138,3 +138,29 @@ async def get_audio(
     except Exception:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "audio asset not found") from None
     return Response(content=data, media_type="audio/mpeg")
+
+
+@router.get("/vocab")
+async def get_vocab(
+    level: str,
+    tag: str | None = None,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """A level's vocabulary as a browsable deck (id/fr/en/audio/pos/tags). Optional
+    `tag` narrows to one theme. Free-study companion to the scheduled SRS review."""
+    rows = (
+        (
+            await session.execute(
+                select(ContentVocab).where(ContentVocab.level == level).order_by(ContentVocab.id)
+            )
+        )
+        .scalars()
+        .all()
+    )
+    if not rows:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"no vocab for level {level!r}")
+    cards = [r.data for r in rows]
+    if tag:
+        cards = [c for c in cards if tag in (c.get("tags") or [])]
+    return {"level": level, "cards": cards}

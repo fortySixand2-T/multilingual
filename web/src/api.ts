@@ -234,6 +234,15 @@ export type ExamAttemptSummary = {
   finished_at: string | null;
 };
 
+export type VocabCard = {
+  id: string;
+  fr: string;
+  en: string;
+  audio?: string;
+  pos?: string;
+  tags?: string[];
+};
+
 export const api = {
   signup: (b: { email: string; password: string; invite_code: string; display_name: string }) =>
     req<TokenResponse>("/auth/signup", { method: "POST", body: JSON.stringify(b) }),
@@ -242,6 +251,10 @@ export const api = {
 
   path: (level = "a1") => req<PathView>(`/content/path?level=${encodeURIComponent(level)}`),
   lesson: (id: string) => req<Lesson>(`/content/lessons/${encodeURIComponent(id)}`),
+  vocab: (level = "a1", tag?: string) =>
+    req<{ level: string; cards: VocabCard[] }>(
+      `/content/vocab?level=${encodeURIComponent(level)}${tag ? `&tag=${encodeURIComponent(tag)}` : ""}`,
+    ),
   submitResult: (id: string, score: number) =>
     req<LessonResult>(`/progress/lessons/${encodeURIComponent(id)}/result`, {
       method: "POST",

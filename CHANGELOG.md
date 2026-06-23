@@ -281,3 +281,8 @@
 - [2026-06-22] Created: web/src/shuffle.test.ts, web/src/screens/Lesson.test.tsx — Vitest unit + component tests (shuffled MCQ still grades correctly)
 - [2026-06-22] Modified: web/{package.json,vite.config.ts,tsconfig.json}, web/src/test-setup.ts — Vitest + Testing Library (jsdom) test harness; `npm test`
 - [2026-06-22] Modified: .github/workflows/ci.yml — web CI now runs the component/unit tests (npm test)
+- [2026-06-22] Modified: app/content/api.py — Added GET /content/vocab?level=&tag= (a level's vocabulary as a browsable deck; auth-gated; 404 unknown level)
+- [2026-06-22] Modified: tests/test_content_sync.py — Tests for /content/vocab (cards/fields, tag filter, 404)
+- [2026-06-22] Created: web/src/screens/Decks.tsx, Deck.tsx — Vocabulary decks: themed list + flashcard study (flip, audio, knew/still-learning, shuffled order)
+- [2026-06-22] Created: web/src/screens/Deck.test.tsx — Component test (flip reveals meaning, advance to summary)
+- [2026-06-22] Modified: web/src/api.ts, web/src/App.tsx — vocab() API + VocabCard type; "Vocab" nav + /vocab routes
