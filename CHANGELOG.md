@@ -303,3 +303,10 @@
 - [2026-06-23] Modified: app/content/api.py — GET /content/vocab returns `in_review` per card (joins srs_cards)
 - [2026-06-23] Modified: web/src/screens/Deck.tsx, api.ts — "＋ Add to review" button on deck cards → seeds an SRS card; shows "✓ In review" when already added
 - [2026-06-23] Modified: web/src/screens/Deck.test.tsx, tests/test_content_sync.py — Tests for add-to-review + in_review flag
+- [2026-06-23] Created: qa/issues/310-srs-add-accepts-empty-card-key.md — QA round 017: filed empty-string card_key accepted by /srs/add
+- [2026-06-23] Created: qa/issues/311-srs-add-accepts-nonexistent-card-key.md — QA round 017: filed non-existent card_key accepted by /srs/add with no existence check
+- [2026-06-23] Modified: qa/issues/310-srs-add-accepts-empty-card-key.md — Triage: validated, empty card_key creates ghost SRS entry
+- [2026-06-23] Modified: qa/issues/311-srs-add-accepts-nonexistent-card-key.md — Triage: validated, nonexistent card_key creates phantom SRS entry
+- [2026-06-23] Modified: app/srs/api.py — Fix #310/#311: /srs/add validates card_key (min_length=1 → 422; existence check vs content_vocab → 404) so phantom/ghost cards can't enter the SRS queue
+- [2026-06-23] Modified: tests/test_content_sync.py — Regression tests for /srs/add rejecting empty and non-existent card_key
+- [2026-06-23] Modified: qa/issues/310-srs-add-accepts-empty-card-key.md, qa/issues/311-srs-add-accepts-nonexistent-card-key.md — Marked done; fix notes appended

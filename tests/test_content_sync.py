@@ -226,3 +226,18 @@ def test_vocab_add_to_review_sets_in_review_flag():
     # reflected in the vocab deck
     cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
     assert next(c for c in cards if c["id"] == "salut")["in_review"] is True
+
+
+def test_srs_add_rejects_empty_card_key():
+    # empty string is not a valid id — 422, same as null/missing (qa issue 310)
+    assert client.post("/srs/add", json={"card_key": ""}).status_code == 422
+    assert client.post("/srs/add", json={}).status_code == 422
+
+
+def test_srs_add_rejects_nonexistent_card_key():
+    # an arbitrary key that names no vocab card must not seed a phantom (qa issue 311)
+    r = client.post("/srs/add", json={"card_key": "zzz_fake_not_real"})
+    assert r.status_code == 404
+    # and it never reached the queue
+    due = client.get("/srs/queue").json()["due"]
+    assert all(c["card_key"] != "zzz_fake_not_real" for c in due)
