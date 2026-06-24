@@ -15,6 +15,7 @@ export default function Deck() {
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [knownIds, setKnownIds] = useState<Set<string>>(new Set());
+  const [reviewIds, setReviewIds] = useState<Set<string>>(new Set());
   const [done, setDone] = useState(false);
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function Deck() {
       .then((r) => {
         setCards(r.cards);
         setKnownIds(new Set(r.cards.filter((c) => c.known).map((c) => c.id)));
+        setReviewIds(new Set(r.cards.filter((c) => c.in_review).map((c) => c.id)));
       })
       .catch((e) => setError(e.message));
   }, [level, tag]);
@@ -52,6 +54,12 @@ export default function Deck() {
 
   const card = deck[idx];
   const isKnown = knownIds.has(card.id);
+  const inReview = reviewIds.has(card.id);
+
+  const addToReview = () => {
+    setReviewIds((prev) => new Set(prev).add(card.id));
+    api.addToReview(card.id).catch(() => {}); // best-effort; seeds a scheduled SRS card
+  };
 
   const advance = (knew: boolean) => {
     setKnownIds((prev) => {
@@ -85,6 +93,12 @@ export default function Deck() {
         ) : (
           <button className="btn secondary" onClick={() => setFlipped(true)}>Show meaning</button>
         )}
+      </div>
+
+      <div className="btn-row" style={{ justifyContent: "center", marginTop: 12 }}>
+        <button className="link-btn" disabled={inReview} onClick={addToReview}>
+          {inReview ? "✓ In review" : "＋ Add to review"}
+        </button>
       </div>
 
       {flipped && (

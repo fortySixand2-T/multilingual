@@ -23,6 +23,7 @@ from app.api.auth import get_current_user
 from app.content.tables import ContentLesson, ContentUnit, ContentVocab, KnownVocab
 from app.db.session import get_session
 from app.progress.service import completed_lesson_ids
+from app.srs.models import ReviewCard
 from app.storage.interface import ObjectStorage
 from app.users.models import User
 
@@ -162,6 +163,11 @@ async def get_vocab(
         .scalars()
         .all()
     )
+    in_review = set(
+        (await session.execute(select(ReviewCard.card_key).where(ReviewCard.user_id == user.id)))
+        .scalars()
+        .all()
+    )
     cards = []
     for r in rows:
         card = {**r.data, "level": r.level}
@@ -170,6 +176,7 @@ async def get_vocab(
         if not card.get("audio"):
             card["audio"] = f"{r.level}/audio/{card['id']}.mp3"
         card["known"] = card["id"] in known
+        card["in_review"] = card["id"] in in_review
         cards.append(card)
     if tag:
         cards = [c for c in cards if tag in (c.get("tags") or [])]

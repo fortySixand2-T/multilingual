@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Literal
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -13,7 +13,7 @@ from app.api.auth import get_current_user
 from app.content.tables import ContentVocab
 from app.db.session import get_session
 from app.srs.fsrs import RATINGS
-from app.srs.service import due_cards, review_card
+from app.srs.service import due_cards, review_card, seed_cards
 from app.users.models import User
 
 router = APIRouter(prefix="/srs", tags=["srs"])
@@ -22,6 +22,10 @@ router = APIRouter(prefix="/srs", tags=["srs"])
 class ReviewBody(BaseModel):
     card_key: str
     rating: Literal["again", "hard", "good", "easy"]
+
+
+class AddBody(BaseModel):
+    card_key: str = Field(min_length=1)
 
 
 @router.get("/queue")
@@ -46,6 +50,28 @@ async def get_queue(
             for c in cards
         ]
     }
+
+
+@router.post("/add")
+async def add_card(
+    body: AddBody,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Add a vocab card to the user's review queue (e.g. from a study deck).
+    Idempotent — `added` is False if the card was already in review.
+
+    The key must name a real vocab card. Unlike the internal lesson-completion
+    seeding path (which only ever passes known ids), this endpoint is user-driven,
+    so we validate against the content catalog to keep phantom cards — entries with
+    no word/translation/audio — out of the queue. The srs↔content decoupling stays
+    at the DB level (still no FK); the check lives here, at the user-facing edge."""
+    exists = await session.scalar(select(ContentVocab.id).where(ContentVocab.id == body.card_key))
+    if exists is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"no vocab card {body.card_key!r}")
+    created = await seed_cards(session, user.id, [body.card_key])
+    await session.commit()
+    return {"card_key": body.card_key, "added": created > 0}
 
 
 @router.post("/review")
