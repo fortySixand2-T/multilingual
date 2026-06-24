@@ -10,7 +10,7 @@ learner data (plan §6).
 
 from __future__ import annotations
 
-from sqlalchemy import JSON, Integer, String
+from sqlalchemy import JSON, Integer, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.users.models import Base
@@ -44,3 +44,17 @@ class ContentVocab(Base):
     id: Mapped[str] = mapped_column(String(64), primary_key=True)
     level: Mapped[str] = mapped_column(String(16), index=True)
     data: Mapped[dict] = mapped_column(JSON)  # full Vocab dump
+
+
+class KnownVocab(Base):
+    """A learner's self-marked 'known' vocabulary (free-study deck state). One row per
+    (user, vocab id); marking known inserts, resetting deletes. References the vocab id
+    as a plain string, not an FK — a content re-sync never touches it."""
+
+    __tablename__ = "vocab_known"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, index=True)
+    card_key: Mapped[str] = mapped_column(String(64))
+
+    __table_args__ = (UniqueConstraint("user_id", "card_key", name="uq_known_user_card"),)

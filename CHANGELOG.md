@@ -289,3 +289,9 @@
 - [2026-06-22] Modified: app/content/api.py — GET /content/vocab `level` now optional; returns every level at once with each card's `level` attached (so the deck tab shows all levels, future levels included automatically)
 - [2026-06-22] Modified: web/src/screens/Decks.tsx, Deck.tsx, App.tsx, api.ts — Vocab tab now lists decks per level (A1 + A2 = 208 words) with an "All words" deck per level; study route is /vocab/:level/:tag
 - [2026-06-22] Modified: web/src/screens/Deck.test.tsx, tests/test_content_sync.py — Tests for the level route, all-words deck, and the all-levels endpoint
+- [2026-06-22] Modified: scripts/gen_audio.py, app/content/api.py — Every vocab word now gets a pronunciation clip by convention (<level>/audio/<id>.mp3); get_vocab attaches the audio key to every card
+- [2026-06-22] Created: content/a1/audio/*.mp3, content/a2/audio/*.mp3 (207) — TTS pronunciation for all A1+A2 vocab
+- [2026-06-22] Created: app/content/tables.py (KnownVocab), migrations/versions/0011_vocab_known.py — Per-user "known" vocab state
+- [2026-06-22] Modified: app/content/api.py — POST /content/vocab/known (mark/reset); GET /content/vocab returns `known` per card
+- [2026-06-22] Modified: web/src/screens/Deck.tsx, api.ts — Deck persists known-marks, "Still learning" resets, live "✓ X / N known" counter
+- [2026-06-22] Modified: web/src/screens/Deck.test.tsx, tests/test_content_sync.py — Tests for pronunciation key, known mark/reset, counter

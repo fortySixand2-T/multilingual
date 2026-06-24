@@ -242,6 +242,7 @@ export type VocabCard = {
   audio?: string;
   pos?: string;
   tags?: string[];
+  known?: boolean;
 };
 
 export const api = {
@@ -260,6 +261,11 @@ export const api = {
     const qs = q.toString();
     return req<{ cards: VocabCard[] }>(`/content/vocab${qs ? `?${qs}` : ""}`);
   },
+  setKnown: (card_key: string, known: boolean) =>
+    req<{ card_key: string; known: boolean }>("/content/vocab/known", {
+      method: "POST",
+      body: JSON.stringify({ card_key, known }),
+    }),
   submitResult: (id: string, score: number) =>
     req<LessonResult>(`/progress/lessons/${encodeURIComponent(id)}/result`, {
       method: "POST",

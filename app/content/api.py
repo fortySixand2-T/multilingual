@@ -15,11 +15,12 @@ from collections.abc import Iterable
 
 import anyio
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
+from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
-from app.content.tables import ContentLesson, ContentUnit, ContentVocab
+from app.content.tables import ContentLesson, ContentUnit, ContentVocab, KnownVocab
 from app.db.session import get_session
 from app.progress.service import completed_lesson_ids
 from app.storage.interface import ObjectStorage
@@ -156,7 +157,47 @@ async def get_vocab(
     rows = (await session.execute(query)).scalars().all()
     if level and not rows:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"no vocab for level {level!r}")
-    cards = [{**r.data, "level": r.level} for r in rows]
+    known = set(
+        (await session.execute(select(KnownVocab.card_key).where(KnownVocab.user_id == user.id)))
+        .scalars()
+        .all()
+    )
+    cards = []
+    for r in rows:
+        card = {**r.data, "level": r.level}
+        # every word has a pronunciation clip, keyed by convention `<level>/audio/<id>.mp3`
+        # (matches scripts/gen_audio.py); served by the /content/audio route.
+        if not card.get("audio"):
+            card["audio"] = f"{r.level}/audio/{card['id']}.mp3"
+        card["known"] = card["id"] in known
+        cards.append(card)
     if tag:
         cards = [c for c in cards if tag in (c.get("tags") or [])]
     return {"cards": cards}
+
+
+class KnownBody(BaseModel):
+    card_key: str
+    known: bool
+
+
+@router.post("/vocab/known")
+async def set_known(
+    body: KnownBody,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Mark a vocab card known (insert) or reset it (delete). Idempotent."""
+    existing = (
+        await session.execute(
+            select(KnownVocab).where(
+                KnownVocab.user_id == user.id, KnownVocab.card_key == body.card_key
+            )
+        )
+    ).scalar_one_or_none()
+    if body.known and existing is None:
+        session.add(KnownVocab(user_id=user.id, card_key=body.card_key))
+    elif not body.known and existing is not None:
+        await session.delete(existing)
+    await session.commit()
+    return {"card_key": body.card_key, "known": body.known}

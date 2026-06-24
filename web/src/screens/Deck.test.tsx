@@ -5,9 +5,9 @@ import { MemoryRouter, Route, Routes } from "react-router-dom";
 import Deck from "./Deck";
 import { api } from "../api";
 
-// Deck uses api.vocab; AudioButton (rendered for cards with audio) uses fetchAudioUrl.
+// Deck uses api.vocab / api.setKnown; AudioButton (for cards with audio) uses fetchAudioUrl.
 vi.mock("../api", () => ({
-  api: { vocab: vi.fn() },
+  api: { vocab: vi.fn(), setKnown: vi.fn(() => Promise.resolve({})) },
   fetchAudioUrl: vi.fn(),
 }));
 
@@ -53,12 +53,36 @@ describe("Deck flashcards", () => {
     }
 
     expect(await screen.findByText("Deck complete")).toBeInTheDocument();
-    expect(screen.getByText(/You knew 2 \/ 2/)).toBeInTheDocument();
+    expect(screen.getByText(/You know 2 \/ 2/)).toBeInTheDocument();
   });
 
   it("the All-words deck fetches the whole level (no tag filter)", async () => {
     renderDeck("/vocab/a1/all");
     await screen.findByText(/^(bonjour|salut)$/);
     expect(vi.mocked(api.vocab)).toHaveBeenCalledWith("a1", undefined);
+  });
+
+  it("marks known, bumps the counter, and persists", async () => {
+    const user = userEvent.setup();
+    renderDeck();
+    await screen.findByText(/^(bonjour|salut)$/);
+    expect(screen.getByText("✓ 0 / 2 known")).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Show meaning" }));
+    await user.click(screen.getByRole("button", { name: "Knew it" }));
+
+    expect(screen.getByText("✓ 1 / 2 known")).toBeInTheDocument();
+    expect(vi.mocked(api.setKnown)).toHaveBeenCalledWith(expect.any(String), true);
+  });
+
+  it("resets a word with 'Still learning' (persists known=false)", async () => {
+    const user = userEvent.setup();
+    renderDeck();
+    await screen.findByText(/^(bonjour|salut)$/);
+
+    await user.click(screen.getByRole("button", { name: "Show meaning" }));
+    await user.click(screen.getByRole("button", { name: "Still learning" }));
+
+    expect(vi.mocked(api.setKnown)).toHaveBeenCalledWith(expect.any(String), false);
   });
 });
