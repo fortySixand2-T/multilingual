@@ -1,4 +1,7 @@
 # Changelog
+- [2026-06-24] Created: qa/rounds/018-plan.md — QA round 018 plan for PR #9 Playwright E2E harness
+- [2026-06-24] Created: qa/issues/320-e2e-reuse-server-bypasses-db-isolation.md — Filed reuseExistingServer DB isolation concern (rejected by critic)
+
 - [2026-06-23] Modified: qa/issues/300-vocab-known-accepts-string-bool.md — Triage: rejected as working-as-designed (standard Pydantic v2 bool coercion)
 - [2026-06-23] Created: qa/issues/300-vocab-known-accepts-string-bool.md — QA round 016: filed lax bool validation on vocab known endpoint
 
