@@ -46,7 +46,7 @@ export default function App() {
           <Route path="/lesson/:id" element={<Lesson />} />
           <Route path="/review" element={<Review />} />
           <Route path="/vocab" element={<Decks />} />
-          <Route path="/vocab/:tag" element={<Deck />} />
+          <Route path="/vocab/:level/:tag" element={<Deck />} />
           <Route path="/comprehension" element={<Comprehension />} />
           <Route path="/comprehension/:id" element={<ComprehensionSet />} />
           <Route path="/writing" element={<Writing />} />

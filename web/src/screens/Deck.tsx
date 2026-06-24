@@ -7,7 +7,8 @@ import { shuffled } from "../shuffle";
 // Flashcard study for one themed deck: show French (+ audio), flip to the meaning,
 // self-rate, advance. Free study — independent of the scheduled SRS review.
 export default function Deck() {
-  const { tag = "" } = useParams();
+  const { level = "", tag = "" } = useParams();
+  const label = tag === "all" ? "all words" : tag;
   const [cards, setCards] = useState<VocabCard[] | null>(null);
   const [error, setError] = useState("");
   const [idx, setIdx] = useState(0);
@@ -16,8 +17,11 @@ export default function Deck() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    api.vocab("a1", tag).then((r) => setCards(r.cards)).catch((e) => setError(e.message));
-  }, [tag]);
+    api
+      .vocab(level, tag === "all" ? undefined : tag)
+      .then((r) => setCards(r.cards))
+      .catch((e) => setError(e.message));
+  }, [level, tag]);
 
   // shuffle once per load so the deck isn't always in the same order
   const deck = useMemo(() => (cards ? shuffled(cards) : []), [cards]);
@@ -27,7 +31,7 @@ export default function Deck() {
   if (deck.length === 0)
     return (
       <div className="card center stack">
-        <p>No cards in “{tag}”.</p>
+        <p>No cards in “{label}”.</p>
         <Link className="btn" to="/vocab">Back to decks</Link>
       </div>
     );
@@ -55,7 +59,7 @@ export default function Deck() {
       <div className="progress-bar"><div style={{ width: `${(idx / deck.length) * 100}%` }} /></div>
       <div className="card center stack" style={{ minHeight: 240, justifyContent: "center" }}>
         <div className="muted" style={{ textTransform: "capitalize" }}>
-          {idx + 1} / {deck.length} · {tag}
+          {idx + 1} / {deck.length} · {label}
         </div>
         <div style={{ fontSize: 34, fontWeight: 800 }}>{card.fr}</div>
         {card.audio && <AudioButton audioKey={card.audio} label="🔊" />}

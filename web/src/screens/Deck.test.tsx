@@ -16,11 +16,11 @@ const cards = [
   { id: "salut", fr: "salut", en: "hi", tags: ["greeting"] },
 ];
 
-const renderDeck = () =>
+const renderDeck = (path = "/vocab/a1/greeting") =>
   render(
-    <MemoryRouter initialEntries={["/vocab/greeting"]}>
+    <MemoryRouter initialEntries={[path]}>
       <Routes>
-        <Route path="/vocab/:tag" element={<Deck />} />
+        <Route path="/vocab/:level/:tag" element={<Deck />} />
       </Routes>
     </MemoryRouter>,
   );
@@ -54,5 +54,11 @@ describe("Deck flashcards", () => {
 
     expect(await screen.findByText("Deck complete")).toBeInTheDocument();
     expect(screen.getByText(/You knew 2 \/ 2/)).toBeInTheDocument();
+  });
+
+  it("the All-words deck fetches the whole level (no tag filter)", async () => {
+    renderDeck("/vocab/a1/all");
+    await screen.findByText(/^(bonjour|salut)$/);
+    expect(vi.mocked(api.vocab)).toHaveBeenCalledWith("a1", undefined);
   });
 });

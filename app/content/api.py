@@ -142,25 +142,21 @@ async def get_audio(
 
 @router.get("/vocab")
 async def get_vocab(
-    level: str,
+    level: str | None = None,
     tag: str | None = None,
     session: AsyncSession = Depends(get_session),
     user: User = Depends(get_current_user),
 ) -> dict:
-    """A level's vocabulary as a browsable deck (id/fr/en/audio/pos/tags). Optional
-    `tag` narrows to one theme. Free-study companion to the scheduled SRS review."""
-    rows = (
-        (
-            await session.execute(
-                select(ContentVocab).where(ContentVocab.level == level).order_by(ContentVocab.id)
-            )
-        )
-        .scalars()
-        .all()
-    )
-    if not rows:
+    """Vocabulary as browsable decks (id/fr/en/audio/pos/tags, each tagged with its
+    `level`). Omit `level` to get every level at once; `tag` narrows to one theme.
+    Free-study companion to the scheduled SRS review."""
+    query = select(ContentVocab).order_by(ContentVocab.level, ContentVocab.id)
+    if level:
+        query = query.where(ContentVocab.level == level)
+    rows = (await session.execute(query)).scalars().all()
+    if level and not rows:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"no vocab for level {level!r}")
-    cards = [r.data for r in rows]
+    cards = [{**r.data, "level": r.level} for r in rows]
     if tag:
         cards = [c for c in cards if tag in (c.get("tags") or [])]
-    return {"level": level, "cards": cards}
+    return {"cards": cards}

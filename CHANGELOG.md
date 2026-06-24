@@ -286,3 +286,6 @@
 - [2026-06-22] Created: web/src/screens/Decks.tsx, Deck.tsx — Vocabulary decks: themed list + flashcard study (flip, audio, knew/still-learning, shuffled order)
 - [2026-06-22] Created: web/src/screens/Deck.test.tsx — Component test (flip reveals meaning, advance to summary)
 - [2026-06-22] Modified: web/src/api.ts, web/src/App.tsx — vocab() API + VocabCard type; "Vocab" nav + /vocab routes
+- [2026-06-22] Modified: app/content/api.py — GET /content/vocab `level` now optional; returns every level at once with each card's `level` attached (so the deck tab shows all levels, future levels included automatically)
+- [2026-06-22] Modified: web/src/screens/Decks.tsx, Deck.tsx, App.tsx, api.ts — Vocab tab now lists decks per level (A1 + A2 = 208 words) with an "All words" deck per level; study route is /vocab/:level/:tag
+- [2026-06-22] Modified: web/src/screens/Deck.test.tsx, tests/test_content_sync.py — Tests for the level route, all-words deck, and the all-levels endpoint

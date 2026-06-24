@@ -238,6 +238,7 @@ export type VocabCard = {
   id: string;
   fr: string;
   en: string;
+  level?: string;
   audio?: string;
   pos?: string;
   tags?: string[];
@@ -251,10 +252,14 @@ export const api = {
 
   path: (level = "a1") => req<PathView>(`/content/path?level=${encodeURIComponent(level)}`),
   lesson: (id: string) => req<Lesson>(`/content/lessons/${encodeURIComponent(id)}`),
-  vocab: (level = "a1", tag?: string) =>
-    req<{ level: string; cards: VocabCard[] }>(
-      `/content/vocab?level=${encodeURIComponent(level)}${tag ? `&tag=${encodeURIComponent(tag)}` : ""}`,
-    ),
+  // Omit `level` to fetch every level's vocab at once (each card carries its level).
+  vocab: (level?: string, tag?: string) => {
+    const q = new URLSearchParams();
+    if (level) q.set("level", level);
+    if (tag) q.set("tag", tag);
+    const qs = q.toString();
+    return req<{ cards: VocabCard[] }>(`/content/vocab${qs ? `?${qs}` : ""}`);
+  },
   submitResult: (id: string, score: number) =>
     req<LessonResult>(`/progress/lessons/${encodeURIComponent(id)}/result`, {
       method: "POST",

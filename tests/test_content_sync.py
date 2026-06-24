@@ -181,3 +181,10 @@ def test_vocab_filters_by_tag():
 
 def test_vocab_unknown_level_404():
     assert client.get("/content/vocab", params={"level": "zz"}).status_code == 404
+
+
+def test_vocab_all_levels_attaches_level():
+    # no level param → every level; each card carries its level (only a1 in this fixture)
+    cards = client.get("/content/vocab").json()["cards"]
+    assert cards and all(c["level"] == "a1" for c in cards)
+    assert any(c["id"] == "bonjour" for c in cards)
