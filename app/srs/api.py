@@ -13,7 +13,7 @@ from app.api.auth import get_current_user
 from app.content.tables import ContentVocab
 from app.db.session import get_session
 from app.srs.fsrs import RATINGS
-from app.srs.service import due_cards, review_card
+from app.srs.service import due_cards, review_card, seed_cards
 from app.users.models import User
 
 router = APIRouter(prefix="/srs", tags=["srs"])
@@ -22,6 +22,10 @@ router = APIRouter(prefix="/srs", tags=["srs"])
 class ReviewBody(BaseModel):
     card_key: str
     rating: Literal["again", "hard", "good", "easy"]
+
+
+class AddBody(BaseModel):
+    card_key: str
 
 
 @router.get("/queue")
@@ -46,6 +50,19 @@ async def get_queue(
             for c in cards
         ]
     }
+
+
+@router.post("/add")
+async def add_card(
+    body: AddBody,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Add a vocab card to the user's review queue (e.g. from a study deck).
+    Idempotent — `added` is False if the card was already in review."""
+    created = await seed_cards(session, user.id, [body.card_key])
+    await session.commit()
+    return {"card_key": body.card_key, "added": created > 0}
 
 
 @router.post("/review")

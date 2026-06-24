@@ -243,6 +243,7 @@ export type VocabCard = {
   pos?: string;
   tags?: string[];
   known?: boolean;
+  in_review?: boolean;
 };
 
 export const api = {
@@ -265,6 +266,11 @@ export const api = {
     req<{ card_key: string; known: boolean }>("/content/vocab/known", {
       method: "POST",
       body: JSON.stringify({ card_key, known }),
+    }),
+  addToReview: (card_key: string) =>
+    req<{ card_key: string; added: boolean }>("/srs/add", {
+      method: "POST",
+      body: JSON.stringify({ card_key }),
     }),
   submitResult: (id: string, score: number) =>
     req<LessonResult>(`/progress/lessons/${encodeURIComponent(id)}/result`, {

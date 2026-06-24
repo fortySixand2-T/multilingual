@@ -7,7 +7,11 @@ import { api } from "../api";
 
 // Deck uses api.vocab / api.setKnown; AudioButton (for cards with audio) uses fetchAudioUrl.
 vi.mock("../api", () => ({
-  api: { vocab: vi.fn(), setKnown: vi.fn(() => Promise.resolve({})) },
+  api: {
+    vocab: vi.fn(),
+    setKnown: vi.fn(() => Promise.resolve({})),
+    addToReview: vi.fn(() => Promise.resolve({ added: true })),
+  },
   fetchAudioUrl: vi.fn(),
 }));
 
@@ -84,5 +88,16 @@ describe("Deck flashcards", () => {
     await user.click(screen.getByRole("button", { name: "Still learning" }));
 
     expect(vi.mocked(api.setKnown)).toHaveBeenCalledWith(expect.any(String), false);
+  });
+
+  it("adds a card to review and reflects it on the button", async () => {
+    const user = userEvent.setup();
+    renderDeck();
+    await screen.findByText(/^(bonjour|salut)$/);
+
+    await user.click(screen.getByRole("button", { name: /Add to review/ }));
+
+    expect(vi.mocked(api.addToReview)).toHaveBeenCalledWith(expect.any(String));
+    expect(screen.getByRole("button", { name: /In review/ })).toBeInTheDocument();
   });
 });

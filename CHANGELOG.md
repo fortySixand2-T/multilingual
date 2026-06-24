@@ -299,3 +299,7 @@
 - [2026-06-22] Modified: web/src/screens/Deck.test.tsx, tests/test_content_sync.py — Tests for pronunciation key, known mark/reset, counter
 - [2026-06-23] Created: qa/rounds/016-plan.md — QA round 016 plan for vocab-deck feature (PR #7)
 - [2026-06-23] Created: qa/issues/300-vocab-known-accepts-string-bool.md — Edge-case: bool coercion on known field (rejected)
+- [2026-06-23] Modified: app/srs/api.py — Added POST /srs/add (seed a vocab card into the user's review queue; idempotent, reuses seed_cards)
+- [2026-06-23] Modified: app/content/api.py — GET /content/vocab returns `in_review` per card (joins srs_cards)
+- [2026-06-23] Modified: web/src/screens/Deck.tsx, api.ts — "＋ Add to review" button on deck cards → seeds an SRS card; shows "✓ In review" when already added
+- [2026-06-23] Modified: web/src/screens/Deck.test.tsx, tests/test_content_sync.py — Tests for add-to-review + in_review flag

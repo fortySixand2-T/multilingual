@@ -13,6 +13,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 import app.content.tables  # noqa: F401 - register tables on Base.metadata
+import app.srs.models  # noqa: F401 - register srs_cards (vocab in_review join)
 from app.api.auth import get_current_user
 from app.content.api import compute_unit_status, get_storage
 from app.content.loader import load_content
@@ -211,3 +212,17 @@ def test_vocab_known_mark_and_reset():
     client.post("/content/vocab/known", json={"card_key": "cafe", "known": False})
     cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
     assert next(c for c in cards if c["id"] == "cafe")["known"] is False
+
+
+def test_vocab_add_to_review_sets_in_review_flag():
+    # not in review yet
+    cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    assert next(c for c in cards if c["id"] == "salut")["in_review"] is False
+    # add to review (seeds an SRS card)
+    r = client.post("/srs/add", json={"card_key": "salut"})
+    assert r.status_code == 200 and r.json() == {"card_key": "salut", "added": True}
+    # idempotent — already there
+    assert client.post("/srs/add", json={"card_key": "salut"}).json()["added"] is False
+    # reflected in the vocab deck
+    cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    assert next(c for c in cards if c["id"] == "salut")["in_review"] is True
