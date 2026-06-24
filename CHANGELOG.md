@@ -323,3 +323,10 @@
 - [2026-06-24] Modified: web/package.json — Added @playwright/test devDep + e2e / e2e:ui scripts
 - [2026-06-24] Modified: web/.gitignore — Ignore Playwright .auth/report/results artifacts
 - [2026-06-24] Modified: .github/workflows/ci.yml — New e2e job (uv+node, installs chromium, runs npm run e2e, uploads report on failure)
+- [2026-06-24] Modified: web/e2e/global-setup.ts — Seed comprehension + writing + exam content too (E2E_PYTHON prefix); needed by the new screen specs
+- [2026-06-24] Modified: web/playwright.config.ts — Doc: E2E_SYNC_CMD → E2E_PYTHON override
+- [2026-06-24] Created: web/e2e/specs/path.spec.ts — Path renders units/lessons/XP
+- [2026-06-24] Created: web/e2e/specs/comprehension.spec.ts — Open a reading set → answer all → graded result
+- [2026-06-24] Created: web/e2e/specs/exam.spec.ts — Start a mock → record every section → CLB report
+- [2026-06-24] Created: web/e2e/specs/review.spec.ts — Reveal and rate a due SRS card
+- [2026-06-24] Created: web/e2e/specs/screens-smoke.spec.ts — Writing/Drill/Speaking/GroupBoard render (AI/mic-gated flows smoke-only)

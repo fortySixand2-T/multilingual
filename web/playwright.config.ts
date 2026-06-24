@@ -13,7 +13,7 @@ import { defineConfig, devices } from "@playwright/test";
 // PATH) and locally against a prebuilt venv — e.g.
 //   E2E_BACKEND_CMD="/tmp/tef312/bin/uvicorn app.main:app --port 9100"
 //   E2E_MIGRATE_CMD="/tmp/tef312/bin/alembic upgrade head"
-//   E2E_SYNC_CMD="/tmp/tef312/bin/python -m app.content.sync a1"
+//   E2E_PYTHON="/tmp/tef312/bin/python"   (prefix for the global-setup content syncs)
 
 const BACKEND_PORT = 9100;
 const WEB_PORT = 5180;
