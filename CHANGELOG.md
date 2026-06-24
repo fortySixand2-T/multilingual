@@ -310,3 +310,13 @@
 - [2026-06-23] Modified: app/srs/api.py — Fix #310/#311: /srs/add validates card_key (min_length=1 → 422; existence check vs content_vocab → 404) so phantom/ghost cards can't enter the SRS queue
 - [2026-06-23] Modified: tests/test_content_sync.py — Regression tests for /srs/add rejecting empty and non-existent card_key
 - [2026-06-23] Modified: qa/issues/310-srs-add-accepts-empty-card-key.md, qa/issues/311-srs-add-accepts-nonexistent-card-key.md — Marked done; fix notes appended
+- [2026-06-24] Created: web/playwright.config.ts — Playwright E2E config (chromium; webServer boots backend :9100 on a throwaway DB + Vite :5180; setup→chromium projects; globalSetup)
+- [2026-06-24] Created: web/e2e/global-setup.ts — Wipes + migrates + content-syncs data/e2e.db before the E2E servers start
+- [2026-06-24] Created: web/e2e/helpers.ts — Shared Login-form drivers (signup/login/auth assertions)
+- [2026-06-24] Created: web/e2e/auth.setup.ts — Signs up once, saves storageState for feature specs
+- [2026-06-24] Created: web/e2e/specs/auth.spec.ts — Signup → logout → login round-trip
+- [2026-06-24] Created: web/e2e/specs/vocab-deck.spec.ts — Known-counter persists across reload; add-to-review surfaces a due Review card; pronunciation button present
+- [2026-06-24] Created: web/e2e/specs/lesson.spec.ts — Drives a lesson to a graded result (brute-forces match_pairs)
+- [2026-06-24] Modified: web/package.json — Added @playwright/test devDep + e2e / e2e:ui scripts
+- [2026-06-24] Modified: web/.gitignore — Ignore Playwright .auth/report/results artifacts
+- [2026-06-24] Modified: .github/workflows/ci.yml — New e2e job (uv+node, installs chromium, runs npm run e2e, uploads report on failure)
