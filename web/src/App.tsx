@@ -4,6 +4,8 @@ import Login from "./screens/Login";
 import Path from "./screens/Path";
 import Lesson from "./screens/Lesson";
 import Review from "./screens/Review";
+import Decks from "./screens/Decks";
+import Deck from "./screens/Deck";
 import Drill from "./screens/Drill";
 import GroupBoard from "./screens/GroupBoard";
 import Comprehension from "./screens/Comprehension";
@@ -26,6 +28,7 @@ export default function App() {
         </div>
         <nav className="nav">
           <NavLink to="/" end>Learn</NavLink>
+          <NavLink to="/vocab">Vocab</NavLink>
           <NavLink to="/review">Review</NavLink>
           <NavLink to="/comprehension">Read &amp; Listen</NavLink>
           <NavLink to="/writing">Write</NavLink>
@@ -42,6 +45,8 @@ export default function App() {
           <Route path="/" element={<Path />} />
           <Route path="/lesson/:id" element={<Lesson />} />
           <Route path="/review" element={<Review />} />
+          <Route path="/vocab" element={<Decks />} />
+          <Route path="/vocab/:level/:tag" element={<Deck />} />
           <Route path="/comprehension" element={<Comprehension />} />
           <Route path="/comprehension/:id" element={<ComprehensionSet />} />
           <Route path="/writing" element={<Writing />} />

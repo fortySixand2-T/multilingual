@@ -234,6 +234,17 @@ export type ExamAttemptSummary = {
   finished_at: string | null;
 };
 
+export type VocabCard = {
+  id: string;
+  fr: string;
+  en: string;
+  level?: string;
+  audio?: string;
+  pos?: string;
+  tags?: string[];
+  known?: boolean;
+};
+
 export const api = {
   signup: (b: { email: string; password: string; invite_code: string; display_name: string }) =>
     req<TokenResponse>("/auth/signup", { method: "POST", body: JSON.stringify(b) }),
@@ -242,6 +253,19 @@ export const api = {
 
   path: (level = "a1") => req<PathView>(`/content/path?level=${encodeURIComponent(level)}`),
   lesson: (id: string) => req<Lesson>(`/content/lessons/${encodeURIComponent(id)}`),
+  // Omit `level` to fetch every level's vocab at once (each card carries its level).
+  vocab: (level?: string, tag?: string) => {
+    const q = new URLSearchParams();
+    if (level) q.set("level", level);
+    if (tag) q.set("tag", tag);
+    const qs = q.toString();
+    return req<{ cards: VocabCard[] }>(`/content/vocab${qs ? `?${qs}` : ""}`);
+  },
+  setKnown: (card_key: string, known: boolean) =>
+    req<{ card_key: string; known: boolean }>("/content/vocab/known", {
+      method: "POST",
+      body: JSON.stringify({ card_key, known }),
+    }),
   submitResult: (id: string, score: number) =>
     req<LessonResult>(`/progress/lessons/${encodeURIComponent(id)}/result`, {
       method: "POST",

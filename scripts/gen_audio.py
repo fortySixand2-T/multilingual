@@ -51,8 +51,10 @@ def collect(level: str) -> list[tuple[str, str, str]]:
     if vdir.is_dir():
         for data in _iter_yaml(vdir):
             for card in data or []:
-                if card.get("audio"):
-                    jobs.append((Path(card["audio"]).name, card["fr"], DEFAULT_VOICE))
+                # every vocab word gets a pronunciation clip, keyed by convention
+                # `<level>/audio/<id>.mp3` (matches get_vocab in app/content/api.py)
+                ref = card.get("audio") or f"{level}/audio/{card['id']}.mp3"
+                jobs.append((Path(ref).name, card["fr"], DEFAULT_VOICE))
 
     cdir = root / "comprehension"
     if cdir.is_dir():

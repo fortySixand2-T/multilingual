@@ -159,3 +159,55 @@ def test_content_audio_rejects_bad_key_shape():
     # no /audio/ segment, not an .mp3 -> fails the key guard before touching storage
     assert client.get("/content/audio/a1/secret.txt").status_code == 404
     assert client.get("/content/audio/etc/passwd").status_code == 404
+
+
+# --- vocabulary deck ----------------------------------------------------------
+
+
+def test_vocab_returns_deck_for_level():
+    cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    ids = {c["id"] for c in cards}
+    assert {"bonjour", "cafe"} <= ids
+    bonjour = next(c for c in cards if c["id"] == "bonjour")
+    assert bonjour["fr"] == "bonjour" and bonjour["en"] and "greeting" in bonjour["tags"]
+
+
+def test_vocab_filters_by_tag():
+    cards = client.get("/content/vocab", params={"level": "a1", "tag": "greeting"}).json()["cards"]
+    ids = {c["id"] for c in cards}
+    assert "bonjour" in ids and "cafe" not in ids
+    assert all("greeting" in c["tags"] for c in cards)
+
+
+def test_vocab_unknown_level_404():
+    assert client.get("/content/vocab", params={"level": "zz"}).status_code == 404
+
+
+def test_vocab_all_levels_attaches_level():
+    # no level param → every level; each card carries its level (only a1 in this fixture)
+    cards = client.get("/content/vocab").json()["cards"]
+    assert cards and all(c["level"] == "a1" for c in cards)
+    assert any(c["id"] == "bonjour" for c in cards)
+
+
+def test_vocab_cards_carry_audio_key():
+    cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    bonjour = next(c for c in cards if c["id"] == "bonjour")
+    assert bonjour["audio"] == "a1/audio/bonjour.mp3"
+    cafe = next(c for c in cards if c["id"] == "cafe")
+    assert cafe["audio"] == "a1/audio/cafe.mp3"  # convention fills it in
+
+
+def test_vocab_known_mark_and_reset():
+    # default: nothing known
+    cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    assert next(c for c in cards if c["id"] == "cafe")["known"] is False
+    # mark known
+    r = client.post("/content/vocab/known", json={"card_key": "cafe", "known": True})
+    assert r.status_code == 200 and r.json() == {"card_key": "cafe", "known": True}
+    cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    assert next(c for c in cards if c["id"] == "cafe")["known"] is True
+    # reset (press "don't know" again)
+    client.post("/content/vocab/known", json={"card_key": "cafe", "known": False})
+    cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    assert next(c for c in cards if c["id"] == "cafe")["known"] is False

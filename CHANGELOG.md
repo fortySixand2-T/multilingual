@@ -1,4 +1,6 @@
 # Changelog
+- [2026-06-23] Modified: qa/issues/300-vocab-known-accepts-string-bool.md — Triage: rejected as working-as-designed (standard Pydantic v2 bool coercion)
+- [2026-06-23] Created: qa/issues/300-vocab-known-accepts-string-bool.md — QA round 016: filed lax bool validation on vocab known endpoint
 
 - [2026-06-22] Modified: app/exam/api.py — qa-280: add finished_at to get_attempt response dict
 - [2026-06-22] Modified: tests/test_exam.py — qa-280: add test_get_attempt_includes_finished_at
@@ -281,3 +283,19 @@
 - [2026-06-22] Created: web/src/shuffle.test.ts, web/src/screens/Lesson.test.tsx — Vitest unit + component tests (shuffled MCQ still grades correctly)
 - [2026-06-22] Modified: web/{package.json,vite.config.ts,tsconfig.json}, web/src/test-setup.ts — Vitest + Testing Library (jsdom) test harness; `npm test`
 - [2026-06-22] Modified: .github/workflows/ci.yml — web CI now runs the component/unit tests (npm test)
+- [2026-06-22] Modified: app/content/api.py — Added GET /content/vocab?level=&tag= (a level's vocabulary as a browsable deck; auth-gated; 404 unknown level)
+- [2026-06-22] Modified: tests/test_content_sync.py — Tests for /content/vocab (cards/fields, tag filter, 404)
+- [2026-06-22] Created: web/src/screens/Decks.tsx, Deck.tsx — Vocabulary decks: themed list + flashcard study (flip, audio, knew/still-learning, shuffled order)
+- [2026-06-22] Created: web/src/screens/Deck.test.tsx — Component test (flip reveals meaning, advance to summary)
+- [2026-06-22] Modified: web/src/api.ts, web/src/App.tsx — vocab() API + VocabCard type; "Vocab" nav + /vocab routes
+- [2026-06-22] Modified: app/content/api.py — GET /content/vocab `level` now optional; returns every level at once with each card's `level` attached (so the deck tab shows all levels, future levels included automatically)
+- [2026-06-22] Modified: web/src/screens/Decks.tsx, Deck.tsx, App.tsx, api.ts — Vocab tab now lists decks per level (A1 + A2 = 208 words) with an "All words" deck per level; study route is /vocab/:level/:tag
+- [2026-06-22] Modified: web/src/screens/Deck.test.tsx, tests/test_content_sync.py — Tests for the level route, all-words deck, and the all-levels endpoint
+- [2026-06-22] Modified: scripts/gen_audio.py, app/content/api.py — Every vocab word now gets a pronunciation clip by convention (<level>/audio/<id>.mp3); get_vocab attaches the audio key to every card
+- [2026-06-22] Created: content/a1/audio/*.mp3, content/a2/audio/*.mp3 (207) — TTS pronunciation for all A1+A2 vocab
+- [2026-06-22] Created: app/content/tables.py (KnownVocab), migrations/versions/0011_vocab_known.py — Per-user "known" vocab state
+- [2026-06-22] Modified: app/content/api.py — POST /content/vocab/known (mark/reset); GET /content/vocab returns `known` per card
+- [2026-06-22] Modified: web/src/screens/Deck.tsx, api.ts — Deck persists known-marks, "Still learning" resets, live "✓ X / N known" counter
+- [2026-06-22] Modified: web/src/screens/Deck.test.tsx, tests/test_content_sync.py — Tests for pronunciation key, known mark/reset, counter
+- [2026-06-23] Created: qa/rounds/016-plan.md — QA round 016 plan for vocab-deck feature (PR #7)
+- [2026-06-23] Created: qa/issues/300-vocab-known-accepts-string-bool.md — Edge-case: bool coercion on known field (rejected)
