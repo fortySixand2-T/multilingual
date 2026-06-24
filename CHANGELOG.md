@@ -1,4 +1,6 @@
 # Changelog
+- [2026-06-23] Modified: qa/issues/300-vocab-known-accepts-string-bool.md — Triage: rejected as working-as-designed (standard Pydantic v2 bool coercion)
+- [2026-06-23] Created: qa/issues/300-vocab-known-accepts-string-bool.md — QA round 016: filed lax bool validation on vocab known endpoint
 
 - [2026-06-22] Modified: app/exam/api.py — qa-280: add finished_at to get_attempt response dict
 - [2026-06-22] Modified: tests/test_exam.py — qa-280: add test_get_attempt_includes_finished_at
@@ -295,3 +297,5 @@
 - [2026-06-22] Modified: app/content/api.py — POST /content/vocab/known (mark/reset); GET /content/vocab returns `known` per card
 - [2026-06-22] Modified: web/src/screens/Deck.tsx, api.ts — Deck persists known-marks, "Still learning" resets, live "✓ X / N known" counter
 - [2026-06-22] Modified: web/src/screens/Deck.test.tsx, tests/test_content_sync.py — Tests for pronunciation key, known mark/reset, counter
+- [2026-06-23] Created: qa/rounds/016-plan.md — QA round 016 plan for vocab-deck feature (PR #7)
+- [2026-06-23] Created: qa/issues/300-vocab-known-accepts-string-bool.md — Edge-case: bool coercion on known field (rejected)
