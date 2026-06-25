@@ -55,9 +55,9 @@ jobs:
       - name: Install web deps
         working-directory: web
         run: npm install
-      - name: Install Playwright (chromium)
+      - name: Install Playwright (chromium, firefox, webkit)
         working-directory: web
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium firefox webkit
       - name: E2E tests
         working-directory: web
         run: npm run e2e

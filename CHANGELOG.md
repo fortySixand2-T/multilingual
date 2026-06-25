@@ -332,3 +332,7 @@
 - [2026-06-24] Created: web/e2e/specs/exam.spec.ts — Start a mock → record every section → CLB report
 - [2026-06-24] Created: web/e2e/specs/review.spec.ts — Reveal and rate a due SRS card
 - [2026-06-24] Created: web/e2e/specs/screens-smoke.spec.ts — Writing/Drill/Speaking/GroupBoard render (AI/mic-gated flows smoke-only)
+- [2026-06-25] Modified: web/playwright.config.ts — Added firefox + webkit browser projects (each with its own user storageState)
+- [2026-06-25] Modified: web/e2e/auth.setup.ts — Seed a separate signed-in user per browser (isolates shared-backend state across projects)
+- [2026-06-25] Modified: web/e2e/specs/auth.spec.ts — Per-project unique signup email (runs in all 3 browsers against one backend)
+- [2026-06-25] Modified: .github/workflows/ci.yml — Install chromium + firefox + webkit for the e2e job
