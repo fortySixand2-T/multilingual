@@ -5,14 +5,15 @@ import { signup, login, expectAuthed, expectLoggedOut } from "../helpers";
 // the project's shared storageState with a clean one.
 test.use({ storageState: { cookies: [], origins: [] } });
 
-const creds = {
-  email: "auth-flow@test.com",
-  password: "auth-flow-pw",
-  displayName: "Auth Flow",
-  invite: "e2e-invite",
-};
-
-test("signup → logout → login round-trip", async ({ page }) => {
+test("signup → logout → login round-trip", async ({ page }, testInfo) => {
+  // Unique email per browser project — this spec runs in all of them against one
+  // shared backend, so a fixed email would collide on the second browser's signup.
+  const creds = {
+    email: `auth-flow-${testInfo.project.name}@test.com`,
+    password: "auth-flow-pw",
+    displayName: "Auth Flow",
+    invite: "e2e-invite",
+  };
   await signup(page, creds);
   await expectAuthed(page);
 

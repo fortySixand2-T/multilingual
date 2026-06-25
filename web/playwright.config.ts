@@ -45,11 +45,23 @@ export default defineConfig({
   },
 
   projects: [
-    // Signs up once and saves the auth storageState the feature specs reuse.
+    // Signs up one user per browser and saves each as its own storageState.
     { name: "setup", testMatch: /auth\.setup\.ts/ },
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"], storageState: "e2e/.auth/user.json" },
+      use: { ...devices["Desktop Chrome"], storageState: "e2e/.auth/chromium.json" },
+      dependencies: ["setup"],
+      testMatch: /specs\/.*\.spec\.ts/,
+    },
+    {
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"], storageState: "e2e/.auth/firefox.json" },
+      dependencies: ["setup"],
+      testMatch: /specs\/.*\.spec\.ts/,
+    },
+    {
+      name: "webkit",
+      use: { ...devices["Desktop Safari"], storageState: "e2e/.auth/webkit.json" },
       dependencies: ["setup"],
       testMatch: /specs\/.*\.spec\.ts/,
     },
