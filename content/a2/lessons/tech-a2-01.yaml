@@ -1,0 +1,38 @@
+id: tech-a2-01
+title: "Devices & the internet"
+grammar_point: "everyday tech nouns"
+est_minutes: 5
+new_vocab: [ordinateur, telephone, internet, courriel, ecran]
+pass_threshold: 8.0
+exercises:
+  - id: tech-a2-01.e1
+    type: mcq
+    prompt: "« J'envoie un ___ » (I send an email)"
+    options: [courriel, écran, ordinateur]
+    answer: courriel
+    explain: "un courriel = an email (Québec usage)."
+
+  - id: tech-a2-01.e2
+    type: translate
+    prompt: "Translate: “the computer”"
+    answer: ordinateur
+    accept: ["l'ordinateur", "un ordinateur"]
+
+  - id: tech-a2-01.e3
+    type: listen_type
+    audio_ref: a2/audio/telephone.mp3
+    answer: téléphone
+    prompt: "Type the word you hear."
+
+  - id: tech-a2-01.e4
+    type: word_bank
+    prompt: "Build: “on the internet”"
+    tokens: [sur, internet, écran]
+    answer: [sur, internet]
+
+  - id: tech-a2-01.e5
+    type: match_pairs
+    pairs:
+      - [ordinateur, computer]
+      - [courriel, email]
+      - [écran, screen]

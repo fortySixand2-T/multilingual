@@ -1,0 +1,77 @@
+- id: ordinateur
+  fr: ordinateur
+  en: computer
+  pos: noun
+  tags: [tech]
+
+- id: telephone
+  fr: téléphone
+  en: phone
+  pos: noun
+  tags: [tech]
+
+- id: internet
+  fr: internet
+  en: internet
+  pos: noun
+  tags: [tech]
+
+- id: courriel
+  fr: courriel
+  en: email
+  pos: noun
+  tags: [tech]
+
+- id: site_web
+  fr: site web
+  en: website
+  pos: noun
+  tags: [tech]
+
+- id: mot_de_passe
+  fr: mot de passe
+  en: password
+  pos: noun
+  tags: [tech]
+
+- id: ecran
+  fr: écran
+  en: screen
+  pos: noun
+  tags: [tech]
+
+- id: clavier
+  fr: clavier
+  en: keyboard
+  pos: noun
+  tags: [tech]
+
+- id: souris
+  fr: souris
+  en: mouse
+  pos: noun
+  tags: [tech]
+
+- id: fichier
+  fr: fichier
+  en: file
+  pos: noun
+  tags: [tech]
+
+- id: reseau
+  fr: réseau
+  en: network
+  pos: noun
+  tags: [tech]
+
+- id: application
+  fr: application
+  en: app
+  pos: noun
+  tags: [tech]
+
+- id: telecharger
+  fr: télécharger
+  en: "to download"
+  pos: verb
+  tags: [tech]

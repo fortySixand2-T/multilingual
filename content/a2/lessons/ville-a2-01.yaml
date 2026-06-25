@@ -1,0 +1,38 @@
+id: ville-a2-01
+title: "Around town"
+grammar_point: "places in the city"
+est_minutes: 5
+new_vocab: [poste, mairie, marche, ecole, parc]
+pass_threshold: 8.0
+exercises:
+  - id: ville-a2-01.e1
+    type: mcq
+    prompt: "« Les enfants vont à l'___ » (children go to school)"
+    options: [école, poste, parc]
+    answer: école
+    explain: "l'école = the school."
+
+  - id: ville-a2-01.e2
+    type: translate
+    prompt: "Translate: “the market”"
+    answer: marché
+    accept: ["le marché"]
+
+  - id: ville-a2-01.e3
+    type: listen_type
+    audio_ref: a2/audio/parc.mp3
+    answer: parc
+    prompt: "Type the place you hear."
+
+  - id: ville-a2-01.e4
+    type: word_bank
+    prompt: "Build: “to the post office”"
+    tokens: [à, la, poste, mairie]
+    answer: [à, la, poste]
+
+  - id: ville-a2-01.e5
+    type: match_pairs
+    pairs:
+      - [mairie, "town hall"]
+      - [parc, park]
+      - [école, school]

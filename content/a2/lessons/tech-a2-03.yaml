@@ -1,0 +1,38 @@
+id: tech-a2-03
+title: "Accounts & review"
+grammar_point: "consolidating tech vocabulary"
+est_minutes: 5
+new_vocab: [mot_de_passe, reseau, telecharger]
+pass_threshold: 8.0
+exercises:
+  - id: tech-a2-03.e1
+    type: mcq
+    prompt: "« J'oublie mon ___ » (I forget my password)"
+    options: ["mot de passe", réseau, clavier]
+    answer: "mot de passe"
+    explain: "un mot de passe = a password."
+
+  - id: tech-a2-03.e2
+    type: translate
+    prompt: "Translate: “the network”"
+    answer: réseau
+    accept: ["le réseau"]
+
+  - id: tech-a2-03.e3
+    type: listen_type
+    audio_ref: a2/audio/telecharger.mp3
+    answer: télécharger
+    prompt: "Type the word you hear."
+
+  - id: tech-a2-03.e4
+    type: word_bank
+    prompt: "Build: “download the file”"
+    tokens: [télécharger, le, fichier, réseau]
+    answer: [télécharger, le, fichier]
+
+  - id: tech-a2-03.e5
+    type: match_pairs
+    pairs:
+      - ["mot de passe", password]
+      - [réseau, network]
+      - [télécharger, "to download"]

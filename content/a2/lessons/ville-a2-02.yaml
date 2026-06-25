@@ -1,0 +1,38 @@
+id: ville-a2-02
+title: "Services & culture"
+grammar_point: "more places & services"
+est_minutes: 5
+new_vocab: [bibliotheque, commissariat, eglise, musee, supermarche]
+pass_threshold: 8.0
+exercises:
+  - id: ville-a2-02.e1
+    type: mcq
+    prompt: "« Je lis à la ___ » (I read at the library)"
+    options: [bibliothèque, église, musée]
+    answer: bibliothèque
+    explain: "la bibliothèque = the library."
+
+  - id: ville-a2-02.e2
+    type: translate
+    prompt: "Translate: “the museum”"
+    answer: musée
+    accept: ["le musée"]
+
+  - id: ville-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/eglise.mp3
+    answer: église
+    prompt: "Type the place you hear."
+
+  - id: ville-a2-02.e4
+    type: word_bank
+    prompt: "Build: “at the supermarket”"
+    tokens: [au, supermarché, musée]
+    answer: [au, supermarché]
+
+  - id: ville-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [commissariat, "police station"]
+      - [musée, museum]
+      - [supermarché, supermarket]
