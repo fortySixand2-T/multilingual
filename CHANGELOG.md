@@ -353,3 +353,7 @@
 - [2026-06-25] Modified: app/content/sync.py — Fix #340: content-sync uploads its level's audio (self-sufficient; no longer relies on comprehension-sync)
 - [2026-06-25] Modified: tests/test_content_sync.py — Regression test for /srs/queue audio key (#350)
 - [2026-06-25] Modified: qa/issues/340,350 — Marked done with fix notes
+- [2026-06-25] Created: content/a2/vocab/tech.yaml, content/a2/vocab/ville.yaml — New A2 themes: Technology (13) + Town & services (13), 26 globally-unique cards
+- [2026-06-25] Created: content/a2/lessons/tech-a2-0{1,2,3}.yaml, ville-a2-0{1,2,3}.yaml — 6 lessons (5 exercises each, all 5 types), new_vocab wired to seed SRS
+- [2026-06-25] Modified: content/a2/path.yaml — Appended units a2.u11 (Technology) + a2.u12 (Town & services), gated after a2.u10
+- [2026-06-25] Created: content/a2/audio/*.mp3 — 26 new TTS clips for the Technology + Town vocab (gen_audio.py)

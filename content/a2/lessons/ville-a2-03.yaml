@@ -1,0 +1,38 @@
+id: ville-a2-03
+title: "My neighbourhood & review"
+grammar_point: "consolidating city vocabulary"
+est_minutes: 5
+new_vocab: [centre_ville, quartier, boulangerie]
+pass_threshold: 8.0
+exercises:
+  - id: ville-a2-03.e1
+    type: mcq
+    prompt: "« J'achète du pain à la ___ » (I buy bread at the…)"
+    options: [boulangerie, mairie, poste]
+    answer: boulangerie
+    explain: "la boulangerie = the bakery."
+
+  - id: ville-a2-03.e2
+    type: translate
+    prompt: "Translate: “the neighbourhood”"
+    answer: quartier
+    accept: ["le quartier"]
+
+  - id: ville-a2-03.e3
+    type: listen_type
+    audio_ref: a2/audio/boulangerie.mp3
+    answer: boulangerie
+    prompt: "Type the place you hear."
+
+  - id: ville-a2-03.e4
+    type: word_bank
+    prompt: "Build: “the city centre”"
+    tokens: [le, centre-ville, quartier]
+    answer: [le, centre-ville]
+
+  - id: ville-a2-03.e5
+    type: match_pairs
+    pairs:
+      - [centre-ville, "city centre"]
+      - [quartier, neighbourhood]
+      - [boulangerie, bakery]

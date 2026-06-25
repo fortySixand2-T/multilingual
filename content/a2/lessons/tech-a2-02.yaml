@@ -1,0 +1,38 @@
+id: tech-a2-02
+title: "Using a computer"
+grammar_point: "parts & actions"
+est_minutes: 5
+new_vocab: [clavier, souris, fichier, site_web, application]
+pass_threshold: 8.0
+exercises:
+  - id: tech-a2-02.e1
+    type: mcq
+    prompt: "« Je tape sur le ___ » (I type on the keyboard)"
+    options: [clavier, souris, fichier]
+    answer: clavier
+    explain: "le clavier = the keyboard."
+
+  - id: tech-a2-02.e2
+    type: translate
+    prompt: "Translate: “the mouse”"
+    answer: souris
+    accept: ["la souris"]
+
+  - id: tech-a2-02.e3
+    type: listen_type
+    audio_ref: a2/audio/fichier.mp3
+    answer: fichier
+    prompt: "Type the word you hear."
+
+  - id: tech-a2-02.e4
+    type: word_bank
+    prompt: "Build: “a website”"
+    tokens: [un, site, web, fichier]
+    answer: [un, site, web]
+
+  - id: tech-a2-02.e5
+    type: match_pairs
+    pairs:
+      - [souris, mouse]
+      - [fichier, file]
+      - [application, app]

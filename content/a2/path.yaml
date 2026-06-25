@@ -60,3 +60,15 @@ units:
     icon: smile
     lessons: [sentiments-a2-01, sentiments-a2-02, sentiments-a2-03]
     unlock: { type: all_of, requires: [a2.u9] }
+
+  - id: a2.u11
+    title: "Technology"
+    icon: laptop
+    lessons: [tech-a2-01, tech-a2-02, tech-a2-03]
+    unlock: { type: all_of, requires: [a2.u10] }
+
+  - id: a2.u12
+    title: "Town & services"
+    icon: map
+    lessons: [ville-a2-01, ville-a2-02, ville-a2-03]
+    unlock: { type: all_of, requires: [a2.u11] }
