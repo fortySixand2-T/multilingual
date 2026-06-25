@@ -1,0 +1,77 @@
+- id: rouge
+  fr: rouge
+  en: red
+  pos: adjective
+  tags: [colours]
+
+- id: bleu
+  fr: bleu
+  en: blue
+  pos: adjective
+  tags: [colours]
+
+- id: vert
+  fr: vert
+  en: green
+  pos: adjective
+  tags: [colours]
+
+- id: jaune
+  fr: jaune
+  en: yellow
+  pos: adjective
+  tags: [colours]
+
+- id: noir
+  fr: noir
+  en: black
+  pos: adjective
+  tags: [colours]
+
+- id: blanc
+  fr: blanc
+  en: white
+  pos: adjective
+  tags: [colours]
+
+- id: gris
+  fr: gris
+  en: grey
+  pos: adjective
+  tags: [colours]
+
+- id: rose
+  fr: rose
+  en: pink
+  pos: adjective
+  tags: [colours]
+
+- id: orange
+  fr: orange
+  en: orange
+  pos: adjective
+  tags: [colours]
+
+- id: marron
+  fr: marron
+  en: brown
+  pos: adjective
+  tags: [colours]
+
+- id: violet
+  fr: violet
+  en: purple
+  pos: adjective
+  tags: [colours]
+
+- id: clair
+  fr: clair
+  en: light
+  pos: adjective
+  tags: [colours]
+
+- id: fonce
+  fr: foncé
+  en: dark
+  pos: adjective
+  tags: [colours]

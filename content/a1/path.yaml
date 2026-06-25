@@ -60,3 +60,15 @@ units:
     icon: sun
     lessons: [weather-01, weather-02, weather-03]
     unlock: { type: all_of, requires: [a1.u9] }
+
+  - id: a1.u11
+    title: "Colours"
+    icon: palette
+    lessons: [couleurs-01, couleurs-02, couleurs-03]
+    unlock: { type: all_of, requires: [a1.u10] }
+
+  - id: a1.u12
+    title: "The body"
+    icon: body
+    lessons: [corps-01, corps-02, corps-03]
+    unlock: { type: all_of, requires: [a1.u11] }

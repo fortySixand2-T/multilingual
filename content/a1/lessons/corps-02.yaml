@@ -1,0 +1,38 @@
+id: corps-02
+title: "Head & hands"
+grammar_point: "more body parts"
+est_minutes: 5
+new_vocab: [oreille, dent, cou, epaule, doigt]
+pass_threshold: 8.0
+exercises:
+  - id: corps-02.e1
+    type: mcq
+    prompt: "« J'entends avec l'___ » (I hear with the…)"
+    options: [oreille, dent, cou]
+    answer: oreille
+    explain: "l'oreille = the ear."
+
+  - id: corps-02.e2
+    type: translate
+    prompt: "Translate: “a tooth”"
+    answer: dent
+    accept: ["une dent"]
+
+  - id: corps-02.e3
+    type: listen_type
+    audio_ref: a1/audio/doigt.mp3
+    answer: doigt
+    prompt: "Type the body part you hear."
+
+  - id: corps-02.e4
+    type: word_bank
+    prompt: "Build: “the neck”"
+    tokens: [le, cou, doigt]
+    answer: [le, cou]
+
+  - id: corps-02.e5
+    type: match_pairs
+    pairs:
+      - [oreille, ear]
+      - [épaule, shoulder]
+      - [doigt, finger]

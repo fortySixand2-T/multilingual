@@ -1,0 +1,77 @@
+- id: visage
+  fr: visage
+  en: face
+  pos: noun
+  tags: [body]
+
+- id: cheveux
+  fr: cheveux
+  en: hair
+  pos: noun
+  tags: [body]
+
+- id: yeux
+  fr: yeux
+  en: eyes
+  pos: noun
+  tags: [body]
+
+- id: bouche
+  fr: bouche
+  en: mouth
+  pos: noun
+  tags: [body]
+
+- id: nez
+  fr: nez
+  en: nose
+  pos: noun
+  tags: [body]
+
+- id: oreille
+  fr: oreille
+  en: ear
+  pos: noun
+  tags: [body]
+
+- id: dent
+  fr: dent
+  en: tooth
+  pos: noun
+  tags: [body]
+
+- id: cou
+  fr: cou
+  en: neck
+  pos: noun
+  tags: [body]
+
+- id: epaule
+  fr: épaule
+  en: shoulder
+  pos: noun
+  tags: [body]
+
+- id: doigt
+  fr: doigt
+  en: finger
+  pos: noun
+  tags: [body]
+
+- id: genou
+  fr: genou
+  en: knee
+  pos: noun
+  tags: [body]
+
+- id: coeur
+  fr: cœur
+  en: heart
+  pos: noun
+  tags: [body]
+
+- id: peau
+  fr: peau
+  en: skin
+  pos: noun
+  tags: [body]

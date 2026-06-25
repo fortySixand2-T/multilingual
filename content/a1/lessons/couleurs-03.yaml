@@ -1,0 +1,36 @@
+id: couleurs-03
+title: "Shades & review"
+grammar_point: "light / dark shades"
+est_minutes: 5
+new_vocab: [violet, clair, fonce]
+pass_threshold: 8.0
+exercises:
+  - id: couleurs-03.e1
+    type: mcq
+    prompt: "« bleu ___ » (dark blue)"
+    options: [foncé, clair, rose]
+    answer: foncé
+    explain: "foncé = dark; clair = light."
+
+  - id: couleurs-03.e2
+    type: translate
+    prompt: "Translate: “purple”"
+    answer: violet
+
+  - id: couleurs-03.e3
+    type: translate
+    prompt: "Translate: “light (colour)”"
+    answer: clair
+
+  - id: couleurs-03.e4
+    type: word_bank
+    prompt: "Build: “light green”"
+    tokens: [vert, clair, foncé]
+    answer: [vert, clair]
+
+  - id: couleurs-03.e5
+    type: match_pairs
+    pairs:
+      - [violet, purple]
+      - [clair, light]
+      - [foncé, dark]

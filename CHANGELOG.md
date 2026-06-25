@@ -345,3 +345,7 @@
 - [2026-06-24] Created: qa/issues/340-a2-audio-not-synced-to-assets.md — QA round 021: 80 new A2 audio files not synced to data/assets, all return 404
 - [2026-06-24] Created: qa/issues/350-srs-queue-vocab-missing-audio-key.md — QA round 021: SRS queue returns empty audio field for all vocab cards (audio patching only in vocab API, not SRS API)
 - [2026-06-25] Created: qa/rounds/021-plan.md, qa/issues/340-a2-audio-not-synced-to-assets.md — QA round 021 (cut short by session limit); issue 340 triaged deferred (pre-existing audio-upload coupling, content correct, serves after the standard comprehension-sync; follow-up: make content-sync upload audio)
+- [2026-06-25] Created: content/a1/vocab/couleurs.yaml, content/a1/vocab/corps.yaml — New A1 themes: Colours (13) + The body (13), 26 globally-unique cards
+- [2026-06-25] Created: content/a1/lessons/couleurs-0{1,2,3}.yaml, corps-0{1,2,3}.yaml — 6 lessons (5 exercises each, all 5 types), new_vocab wired to seed SRS
+- [2026-06-25] Modified: content/a1/path.yaml — Appended units a1.u11 (Colours) + a1.u12 (The body), gated after a1.u10
+- [2026-06-25] Created: content/a1/audio/*.mp3 — 26 new TTS clips for the Colours + body vocab (gen_audio.py)

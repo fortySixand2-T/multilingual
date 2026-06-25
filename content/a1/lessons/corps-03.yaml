@@ -1,0 +1,38 @@
+id: corps-03
+title: "Body & review"
+grammar_point: "consolidating body vocabulary"
+est_minutes: 5
+new_vocab: [genou, coeur, peau]
+pass_threshold: 8.0
+exercises:
+  - id: corps-03.e1
+    type: mcq
+    prompt: "« Le ___ bat » (the … beats)"
+    options: [cœur, genou, peau]
+    answer: cœur
+    explain: "le cœur = the heart."
+
+  - id: corps-03.e2
+    type: translate
+    prompt: "Translate: “the knee”"
+    answer: genou
+    accept: ["le genou"]
+
+  - id: corps-03.e3
+    type: listen_type
+    audio_ref: a1/audio/peau.mp3
+    answer: peau
+    prompt: "Type the body part you hear."
+
+  - id: corps-03.e4
+    type: word_bank
+    prompt: "Build: “my heart”"
+    tokens: [mon, cœur, genou]
+    answer: [mon, cœur]
+
+  - id: corps-03.e5
+    type: match_pairs
+    pairs:
+      - [genou, knee]
+      - [cœur, heart]
+      - [peau, skin]

@@ -1,0 +1,38 @@
+id: corps-01
+title: "The face"
+grammar_point: "parts of the face"
+est_minutes: 5
+new_vocab: [visage, cheveux, yeux, bouche, nez]
+pass_threshold: 8.0
+exercises:
+  - id: corps-01.e1
+    type: mcq
+    prompt: "« Je vois avec les ___ » (I see with the…)"
+    options: [yeux, nez, bouche]
+    answer: yeux
+    explain: "les yeux = the eyes."
+
+  - id: corps-01.e2
+    type: translate
+    prompt: "Translate: “the face”"
+    answer: visage
+    accept: ["le visage"]
+
+  - id: corps-01.e3
+    type: listen_type
+    audio_ref: a1/audio/nez.mp3
+    answer: nez
+    prompt: "Type the body part you hear."
+
+  - id: corps-01.e4
+    type: word_bank
+    prompt: "Build: “I have brown hair”"
+    tokens: ["j'ai", les, cheveux, marron, yeux]
+    answer: ["j'ai", les, cheveux, marron]
+
+  - id: corps-01.e5
+    type: match_pairs
+    pairs:
+      - [visage, face]
+      - [bouche, mouth]
+      - [nez, nose]
