@@ -241,3 +241,13 @@ def test_srs_add_rejects_nonexistent_card_key():
     # and it never reached the queue
     due = client.get("/srs/queue").json()["due"]
     assert all(c["card_key"] != "zzz_fake_not_real" for c in due)
+
+
+def test_srs_queue_attaches_audio_key():
+    # The review queue must apply the same <level>/audio/<id>.mp3 convention as the
+    # vocab endpoint, so the Review screen can play pronunciation (qa issue 350).
+    # "bonsoir" has no explicit `audio:` field — exercises the fallback.
+    client.post("/srs/add", json={"card_key": "bonsoir"})
+    due = client.get("/srs/queue", params={"limit": 100}).json()["due"]
+    card = next(c for c in due if c["card_key"] == "bonsoir")
+    assert card["vocab"]["audio"] == "a1/audio/bonsoir.mp3"

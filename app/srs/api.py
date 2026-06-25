@@ -43,7 +43,14 @@ async def get_queue(
             .scalars()
             .all()
         )
-        vocab = {r.id: r.data for r in rows}
+        # Attach the pronunciation key by the same convention the vocab endpoint uses
+        # (app/content/api.py get_vocab) so review cards can play audio too — otherwise
+        # the Review screen never shows the play button for cards without an explicit
+        # `audio:` field (i.e. almost all of them).
+        vocab = {
+            r.id: {**r.data, "audio": r.data.get("audio") or f"{r.level}/audio/{r.id}.mp3"}
+            for r in rows
+        }
     return {
         "due": [
             {"card_key": c.card_key, "due": c.due.isoformat(), "vocab": vocab.get(c.card_key)}

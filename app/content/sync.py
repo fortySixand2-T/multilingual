@@ -66,14 +66,21 @@ async def sync_content(
 
 
 async def _main(level: str, content_root: str) -> None:
+    from app.comprehension.sync import upload_audio
+    from app.config.settings import get_settings
     from app.db.session import SessionLocal
+    from app.storage.factory import build_storage
 
     async with SessionLocal() as session:
         bundle = await sync_content(session, content_root, level)
+    # Upload this level's audio (vocab pronunciation + lesson listen_type clips) to
+    # object storage so the served keys resolve. Vocab audio previously rode only on
+    # `comprehension-sync`; uploading here makes `content-sync` self-sufficient.
+    n_audio = upload_audio(build_storage(get_settings()), content_root, level)
     print(
         f"synced level {level!r}: "
         f"{len(bundle.path.units)} units, {len(bundle.lessons)} lessons, "
-        f"{len(bundle.vocab)} vocab"
+        f"{len(bundle.vocab)} vocab, {n_audio} audio files"
     )
 
 
