@@ -1,4 +1,5 @@
 # Changelog
+- [2026-06-25] Created: qa/rounds/022-plan.md — QA round 022: content validation for PR #17 (A2 Technology + Town themes), clean round — all 10 hypotheses refuted
 - [2026-06-24] Created: qa/rounds/019-plan.md — QA round 019: E2E suite widening validation (PR #10, clean round)
 
 - [2026-06-24] Created: qa/rounds/018-plan.md — QA round 018 plan for PR #9 Playwright E2E harness
