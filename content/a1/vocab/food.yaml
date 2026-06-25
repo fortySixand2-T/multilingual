@@ -57,3 +57,51 @@
   en: soup
   pos: noun
   tags: [food]
+
+- id: beurre
+  fr: beurre
+  en: butter
+  pos: noun
+  tags: [food]
+
+- id: sel
+  fr: sel
+  en: salt
+  pos: noun
+  tags: [food]
+
+- id: poivre
+  fr: poivre
+  en: pepper
+  pos: noun
+  tags: [food]
+
+- id: salade
+  fr: salade
+  en: salad
+  pos: noun
+  tags: [food]
+
+- id: fruit
+  fr: fruit
+  en: fruit
+  pos: noun
+  tags: [food]
+
+- id: banane
+  fr: banane
+  en: banana
+  pos: noun
+  tags: [food]
+
+- id: tomate
+  fr: tomate
+  en: tomato
+  pos: noun
+  tags: [food]
+
+- id: gateau
+  fr: gâteau
+  en: cake
+  pos: noun
+  tags: [food]

@@ -57,3 +57,51 @@
   en: late
   pos: adverb
   tags: [routine]
+
+- id: se_brosser
+  fr: se brosser
+  en: "to brush"
+  pos: verb
+  tags: [routine]
+
+- id: se_doucher
+  fr: se doucher
+  en: "to shower"
+  pos: verb
+  tags: [routine]
+
+- id: petit_dejeuner
+  fr: petit-déjeuner
+  en: breakfast
+  pos: noun
+  tags: [routine]
+
+- id: dejeuner
+  fr: déjeuner
+  en: lunch
+  pos: noun
+  tags: [routine]
+
+- id: diner
+  fr: dîner
+  en: dinner
+  pos: noun
+  tags: [routine]
+
+- id: se_reposer
+  fr: se reposer
+  en: "to rest"
+  pos: verb
+  tags: [routine]
+
+- id: se_depecher
+  fr: se dépêcher
+  en: "to hurry"
+  pos: verb
+  tags: [routine]
+
+- id: habitude
+  fr: habitude
+  en: habit
+  pos: noun
+  tags: [routine]

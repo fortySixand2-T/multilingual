@@ -2,7 +2,7 @@ id: weather-03
 title: "Weather — review"
 grammar_point: "« il fait… » for weather"
 est_minutes: 5
-new_vocab: []
+new_vocab: [mauvais_temps, temperature, degre, humide, brouillard, ciel, saison, parapluie]
 pass_threshold: 8.0
 exercises:
   - id: weather-03.e1

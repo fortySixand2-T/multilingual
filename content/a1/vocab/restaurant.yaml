@@ -57,3 +57,51 @@
   en: "to order"
   pos: verb
   tags: [restaurant]
+
+- id: fourchette
+  fr: fourchette
+  en: fork
+  pos: noun
+  tags: [restaurant]
+
+- id: serviette
+  fr: serviette
+  en: napkin
+  pos: noun
+  tags: [restaurant]
+
+- id: plat_du_jour
+  fr: plat du jour
+  en: "dish of the day"
+  pos: phrase
+  tags: [restaurant]
+
+- id: nappe
+  fr: nappe
+  en: tablecloth
+  pos: noun
+  tags: [restaurant]
+
+- id: chef
+  fr: chef
+  en: chef
+  pos: noun
+  tags: [restaurant]
+
+- id: bon_appetit
+  fr: bon appétit
+  en: "enjoy your meal"
+  pos: phrase
+  tags: [restaurant]
+
+- id: delicieux
+  fr: délicieux
+  en: delicious
+  pos: adjective
+  tags: [restaurant]
+
+- id: vegetarien
+  fr: végétarien
+  en: vegetarian
+  pos: adjective
+  tags: [restaurant]

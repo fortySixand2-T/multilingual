@@ -57,3 +57,51 @@
   en: walk
   pos: noun
   tags: [hobbies]
+
+- id: peindre
+  fr: peindre
+  en: "to paint"
+  pos: verb
+  tags: [hobbies]
+
+- id: dessiner
+  fr: dessiner
+  en: "to draw"
+  pos: verb
+  tags: [hobbies]
+
+- id: voyager
+  fr: voyager
+  en: "to travel"
+  pos: verb
+  tags: [hobbies]
+
+- id: jardiner
+  fr: jardiner
+  en: "to garden"
+  pos: verb
+  tags: [hobbies]
+
+- id: photographie
+  fr: photographie
+  en: photography
+  pos: noun
+  tags: [hobbies]
+
+- id: jeu
+  fr: jeu
+  en: game
+  pos: noun
+  tags: [hobbies]
+
+- id: equipe
+  fr: équipe
+  en: team
+  pos: noun
+  tags: [hobbies]
+
+- id: concert
+  fr: concert
+  en: concert
+  pos: noun
+  tags: [hobbies]

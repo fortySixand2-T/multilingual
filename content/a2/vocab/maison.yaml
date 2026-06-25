@@ -57,3 +57,51 @@
   en: "piece of furniture"
   pos: noun
   tags: [home]
+
+- id: cuisine
+  fr: cuisine
+  en: kitchen
+  pos: noun
+  tags: [home]
+
+- id: escalier
+  fr: escalier
+  en: stairs
+  pos: noun
+  tags: [home]
+
+- id: toit
+  fr: toit
+  en: roof
+  pos: noun
+  tags: [home]
+
+- id: mur
+  fr: mur
+  en: wall
+  pos: noun
+  tags: [home]
+
+- id: cle
+  fr: clé
+  en: key
+  pos: noun
+  tags: [home]
+
+- id: lit
+  fr: lit
+  en: bed
+  pos: noun
+  tags: [home]
+
+- id: canape
+  fr: canapé
+  en: sofa
+  pos: noun
+  tags: [home]
+
+- id: etage
+  fr: étage
+  en: "floor / storey"
+  pos: noun
+  tags: [home]

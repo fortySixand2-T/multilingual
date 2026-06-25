@@ -57,3 +57,51 @@
   en: wife
   pos: noun
   tags: [family]
+
+- id: grand_mere
+  fr: grand-mère
+  en: grandmother
+  pos: noun
+  tags: [family]
+
+- id: grand_pere
+  fr: grand-père
+  en: grandfather
+  pos: noun
+  tags: [family]
+
+- id: oncle
+  fr: oncle
+  en: uncle
+  pos: noun
+  tags: [family]
+
+- id: tante
+  fr: tante
+  en: aunt
+  pos: noun
+  tags: [family]
+
+- id: cousin
+  fr: cousin
+  en: "cousin (m)"
+  pos: noun
+  tags: [family]
+
+- id: cousine
+  fr: cousine
+  en: "cousin (f)"
+  pos: noun
+  tags: [family]
+
+- id: bebe
+  fr: bébé
+  en: baby
+  pos: noun
+  tags: [family]
+
+- id: parents
+  fr: parents
+  en: parents
+  pos: noun
+  tags: [family]

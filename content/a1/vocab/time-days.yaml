@@ -57,3 +57,51 @@
   en: "hour / time"
   pos: noun
   tags: [time]
+
+- id: hier
+  fr: hier
+  en: yesterday
+  pos: adverb
+  tags: [time]
+
+- id: semaine
+  fr: semaine
+  en: week
+  pos: noun
+  tags: [time]
+
+- id: mois
+  fr: mois
+  en: month
+  pos: noun
+  tags: [time]
+
+- id: annee
+  fr: année
+  en: year
+  pos: noun
+  tags: [time]
+
+- id: jour
+  fr: jour
+  en: day
+  pos: noun
+  tags: [time]
+
+- id: minute
+  fr: minute
+  en: minute
+  pos: noun
+  tags: [time]
+
+- id: soir
+  fr: soir
+  en: evening
+  pos: noun
+  tags: [time]
+
+- id: maintenant
+  fr: maintenant
+  en: now
+  pos: adverb
+  tags: [time]
