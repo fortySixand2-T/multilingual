@@ -342,3 +342,7 @@
 - [2026-06-25] Modified: content/a1/vocab/*.yaml, content/a2/vocab/*.yaml — Deepened all 20 themed decks (+80 cards/level, ~10→18; A1 188, A2 180 vocab)
 - [2026-06-25] Modified: content/a1/lessons/*-03.yaml (+restaurant-02), content/a2/lessons/*-a2-03.yaml — Wired the new words into each theme's review lesson new_vocab (seeds SRS on completion)
 - [2026-06-25] Created: content/a1/audio/*.mp3, content/a2/audio/*.mp3 — 160 new TTS pronunciation clips (gen_audio.py)
+- [2026-06-25] Created: content/a1/vocab/couleurs.yaml, content/a1/vocab/corps.yaml — New A1 themes: Colours (13) + The body (13), 26 globally-unique cards
+- [2026-06-25] Created: content/a1/lessons/couleurs-0{1,2,3}.yaml, corps-0{1,2,3}.yaml — 6 lessons (5 exercises each, all 5 types), new_vocab wired to seed SRS
+- [2026-06-25] Modified: content/a1/path.yaml — Appended units a1.u11 (Colours) + a1.u12 (The body), gated after a1.u10
+- [2026-06-25] Created: content/a1/audio/*.mp3 — 26 new TTS clips for the Colours + body vocab (gen_audio.py)

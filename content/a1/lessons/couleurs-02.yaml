@@ -1,0 +1,37 @@
+id: couleurs-02
+title: "More colours"
+grammar_point: "describing things with colours"
+est_minutes: 5
+new_vocab: [blanc, gris, rose, orange, marron]
+pass_threshold: 8.0
+exercises:
+  - id: couleurs-02.e1
+    type: mcq
+    prompt: "« La neige est ___ » (snow is…)"
+    options: [blanche, rose, marron]
+    answer: blanche
+    explain: "blanc → blanche (feminine). Snow (la neige) is white."
+
+  - id: couleurs-02.e2
+    type: translate
+    prompt: "Translate: “grey”"
+    answer: gris
+
+  - id: couleurs-02.e3
+    type: listen_type
+    audio_ref: a1/audio/rose.mp3
+    answer: rose
+    prompt: "Type the colour you hear."
+
+  - id: couleurs-02.e4
+    type: word_bank
+    prompt: "Build: “an orange fruit”"
+    tokens: [un, fruit, orange, marron]
+    answer: [un, fruit, orange]
+
+  - id: couleurs-02.e5
+    type: match_pairs
+    pairs:
+      - [blanc, white]
+      - [gris, grey]
+      - [marron, brown]

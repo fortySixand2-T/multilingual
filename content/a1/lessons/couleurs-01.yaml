@@ -1,0 +1,37 @@
+id: couleurs-01
+title: "Basic colours"
+grammar_point: "colours as adjectives"
+est_minutes: 5
+new_vocab: [rouge, bleu, vert, jaune, noir]
+pass_threshold: 8.0
+exercises:
+  - id: couleurs-01.e1
+    type: mcq
+    prompt: "« Le sang est ___ » (blood is…)"
+    options: [rouge, bleu, vert]
+    answer: rouge
+    explain: "rouge = red."
+
+  - id: couleurs-01.e2
+    type: translate
+    prompt: "Translate: “blue”"
+    answer: bleu
+
+  - id: couleurs-01.e3
+    type: listen_type
+    audio_ref: a1/audio/vert.mp3
+    answer: vert
+    prompt: "Type the colour you hear."
+
+  - id: couleurs-01.e4
+    type: word_bank
+    prompt: "Build: “the sun is yellow”"
+    tokens: [le, soleil, est, jaune, vert]
+    answer: [le, soleil, est, jaune]
+
+  - id: couleurs-01.e5
+    type: match_pairs
+    pairs:
+      - [rouge, red]
+      - [bleu, blue]
+      - [noir, black]
