@@ -338,3 +338,4 @@
 - [2026-06-25] Modified: .github/workflows/ci.yml — Install chromium + firefox + webkit for the e2e job
 - [2026-06-24] Created: qa/rounds/020-plan.md — QA round 020 plan for cross-browser E2E PR #11
 - [2026-06-24] Modified: qa/issues/330-vocab-deck-stale-comment.md — Triaged as validated (stale comment, low severity)
+- [2026-06-25] Modified: web/e2e/specs/vocab-deck.spec.ts — Fix stale comment (per-browser e2e-<browser>@test.com user, not e2e@test.com) [qa #330]
