@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
 
-// Authed via the project storageState (e2e@test.com). These hit the real backend, so
-// they prove the persistence round-trips the mocked component tests can't see.
+// Authed via the project's per-browser storageState (e2e-<browser>@test.com). These hit
+// the real backend, so they prove the persistence round-trips the mocked component tests
+// can't see.
 
 test("known counter persists across a reload", async ({ page }) => {
   await page.goto("/vocab/a1/all");
