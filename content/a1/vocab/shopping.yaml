@@ -57,3 +57,51 @@
   en: euro
   pos: noun
   tags: [shopping]
+
+- id: vendeur
+  fr: vendeur
+  en: salesperson
+  pos: noun
+  tags: [shopping]
+
+- id: client
+  fr: client
+  en: customer
+  pos: noun
+  tags: [shopping]
+
+- id: payer
+  fr: payer
+  en: "to pay"
+  pos: verb
+  tags: [shopping]
+
+- id: gratuit
+  fr: gratuit
+  en: free
+  pos: adjective
+  tags: [shopping]
+
+- id: monnaie
+  fr: monnaie
+  en: "change (coins)"
+  pos: noun
+  tags: [shopping]
+
+- id: recu
+  fr: reçu
+  en: receipt
+  pos: noun
+  tags: [shopping]
+
+- id: panier
+  fr: panier
+  en: basket
+  pos: noun
+  tags: [shopping]
+
+- id: essayer
+  fr: essayer
+  en: "to try on"
+  pos: verb
+  tags: [shopping]

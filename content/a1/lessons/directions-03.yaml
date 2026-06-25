@@ -2,7 +2,7 @@ id: directions-03
 title: "Directions — review"
 grammar_point: "giving directions"
 est_minutes: 6
-new_vocab: []
+new_vocab: [pres, coin, feu, pont, place, carrefour, nord, sud]
 pass_threshold: 8.0
 exercises:
   - id: directions-03.e1

@@ -339,3 +339,6 @@
 - [2026-06-24] Created: qa/rounds/020-plan.md — QA round 020 plan for cross-browser E2E PR #11
 - [2026-06-24] Modified: qa/issues/330-vocab-deck-stale-comment.md — Triaged as validated (stale comment, low severity)
 - [2026-06-25] Modified: web/e2e/specs/vocab-deck.spec.ts — Fix stale comment (per-browser e2e-<browser>@test.com user, not e2e@test.com) [qa #330]
+- [2026-06-25] Modified: content/a1/vocab/*.yaml, content/a2/vocab/*.yaml — Deepened all 20 themed decks (+80 cards/level, ~10→18; A1 188, A2 180 vocab)
+- [2026-06-25] Modified: content/a1/lessons/*-03.yaml (+restaurant-02), content/a2/lessons/*-a2-03.yaml — Wired the new words into each theme's review lesson new_vocab (seeds SRS on completion)
+- [2026-06-25] Created: content/a1/audio/*.mp3, content/a2/audio/*.mp3 — 160 new TTS pronunciation clips (gen_audio.py)

@@ -57,3 +57,51 @@
   en: "to wear"
   pos: verb
   tags: [clothes]
+
+- id: pull
+  fr: pull
+  en: sweater
+  pos: noun
+  tags: [clothes]
+
+- id: short
+  fr: short
+  en: shorts
+  pos: noun
+  tags: [clothes]
+
+- id: chaussette
+  fr: chaussette
+  en: sock
+  pos: noun
+  tags: [clothes]
+
+- id: gant
+  fr: gant
+  en: glove
+  pos: noun
+  tags: [clothes]
+
+- id: echarpe
+  fr: écharpe
+  en: scarf
+  pos: noun
+  tags: [clothes]
+
+- id: ceinture
+  fr: ceinture
+  en: belt
+  pos: noun
+  tags: [clothes]
+
+- id: cravate
+  fr: cravate
+  en: tie
+  pos: noun
+  tags: [clothes]
+
+- id: couleur
+  fr: couleur
+  en: colour
+  pos: noun
+  tags: [clothes]

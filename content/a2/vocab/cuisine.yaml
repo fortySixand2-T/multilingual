@@ -57,3 +57,51 @@
   en: "to mix"
   pos: verb
   tags: [cooking]
+
+- id: couper
+  fr: couper
+  en: "to cut"
+  pos: verb
+  tags: [cooking]
+
+- id: eplucher
+  fr: éplucher
+  en: "to peel"
+  pos: verb
+  tags: [cooking]
+
+- id: cuire
+  fr: cuire
+  en: "to cook / bake"
+  pos: verb
+  tags: [cooking]
+
+- id: bouillir
+  fr: bouillir
+  en: "to boil"
+  pos: verb
+  tags: [cooking]
+
+- id: poele
+  fr: poêle
+  en: "frying pan"
+  pos: noun
+  tags: [cooking]
+
+- id: ingredient
+  fr: ingrédient
+  en: ingredient
+  pos: noun
+  tags: [cooking]
+
+- id: saler
+  fr: saler
+  en: "to add salt"
+  pos: verb
+  tags: [cooking]
+
+- id: gouter
+  fr: goûter
+  en: "to taste"
+  pos: verb
+  tags: [cooking]

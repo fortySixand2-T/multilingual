@@ -57,3 +57,51 @@
   en: far
   pos: adverb
   tags: [directions]
+
+- id: pres
+  fr: près
+  en: near
+  pos: adverb
+  tags: [directions]
+
+- id: coin
+  fr: coin
+  en: corner
+  pos: noun
+  tags: [directions]
+
+- id: feu
+  fr: feu
+  en: "traffic light"
+  pos: noun
+  tags: [city]
+
+- id: pont
+  fr: pont
+  en: bridge
+  pos: noun
+  tags: [city]
+
+- id: place
+  fr: place
+  en: square
+  pos: noun
+  tags: [city]
+
+- id: carrefour
+  fr: carrefour
+  en: crossroads
+  pos: noun
+  tags: [directions]
+
+- id: nord
+  fr: nord
+  en: north
+  pos: noun
+  tags: [directions]
+
+- id: sud
+  fr: sud
+  en: south
+  pos: noun
+  tags: [directions]

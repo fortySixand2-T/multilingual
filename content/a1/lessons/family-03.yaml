@@ -2,7 +2,7 @@ id: family-03
 title: "Family — review"
 grammar_point: "talking about your family"
 est_minutes: 5
-new_vocab: []
+new_vocab: [grand_mere, grand_pere, oncle, tante, cousin, cousine, bebe, parents]
 pass_threshold: 8.0
 exercises:
   - id: family-03.e1

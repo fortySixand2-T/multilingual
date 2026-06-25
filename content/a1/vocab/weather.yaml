@@ -57,3 +57,51 @@
   en: "weather forecast"
   pos: noun
   tags: [weather]
+
+- id: mauvais_temps
+  fr: mauvais temps
+  en: "bad weather"
+  pos: phrase
+  tags: [weather]
+
+- id: temperature
+  fr: température
+  en: temperature
+  pos: noun
+  tags: [weather]
+
+- id: degre
+  fr: degré
+  en: degree
+  pos: noun
+  tags: [weather]
+
+- id: humide
+  fr: humide
+  en: humid
+  pos: adjective
+  tags: [weather]
+
+- id: brouillard
+  fr: brouillard
+  en: fog
+  pos: noun
+  tags: [weather]
+
+- id: ciel
+  fr: ciel
+  en: sky
+  pos: noun
+  tags: [weather]
+
+- id: saison
+  fr: saison
+  en: season
+  pos: noun
+  tags: [weather]
+
+- id: parapluie
+  fr: parapluie
+  en: umbrella
+  pos: noun
+  tags: [weather]

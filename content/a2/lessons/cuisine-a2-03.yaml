@@ -2,7 +2,7 @@ id: cuisine-a2-03
 title: "Cooking — review"
 grammar_point: "recipe instructions"
 est_minutes: 6
-new_vocab: []
+new_vocab: [couper, eplucher, cuire, bouillir, poele, ingredient, saler, gouter]
 pass_threshold: 8.0
 exercises:
   - id: cuisine-a2-03.e1

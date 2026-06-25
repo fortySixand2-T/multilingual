@@ -2,7 +2,7 @@ id: shopping-03
 title: "Shopping — review"
 grammar_point: "asking the price"
 est_minutes: 5
-new_vocab: []
+new_vocab: [vendeur, client, payer, gratuit, monnaie, recu, panier, essayer]
 pass_threshold: 8.0
 exercises:
   - id: shopping-03.e1

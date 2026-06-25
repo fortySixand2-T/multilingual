@@ -57,3 +57,51 @@
   en: "to hope"
   pos: verb
   tags: [feelings]
+
+- id: inquiet
+  fr: inquiet
+  en: worried
+  pos: adjective
+  tags: [feelings]
+
+- id: surpris
+  fr: surpris
+  en: surprised
+  pos: adjective
+  tags: [feelings]
+
+- id: ennuye
+  fr: ennuyé
+  en: bored
+  pos: adjective
+  tags: [feelings]
+
+- id: fier
+  fr: fier
+  en: proud
+  pos: adjective
+  tags: [feelings]
+
+- id: jaloux
+  fr: jaloux
+  en: jealous
+  pos: adjective
+  tags: [feelings]
+
+- id: rire
+  fr: rire
+  en: "to laugh"
+  pos: verb
+  tags: [feelings]
+
+- id: pleurer
+  fr: pleurer
+  en: "to cry"
+  pos: verb
+  tags: [feelings]
+
+- id: sourire
+  fr: sourire
+  en: "to smile"
+  pos: verb
+  tags: [feelings]

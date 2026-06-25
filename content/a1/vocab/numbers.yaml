@@ -81,3 +81,51 @@
   en: "a hundred"
   pos: numeral
   tags: [numbers]
+
+- id: treize
+  fr: treize
+  en: thirteen
+  pos: numeral
+  tags: [numbers]
+
+- id: quatorze
+  fr: quatorze
+  en: fourteen
+  pos: numeral
+  tags: [numbers]
+
+- id: quinze
+  fr: quinze
+  en: fifteen
+  pos: numeral
+  tags: [numbers]
+
+- id: seize
+  fr: seize
+  en: sixteen
+  pos: numeral
+  tags: [numbers]
+
+- id: trente
+  fr: trente
+  en: thirty
+  pos: numeral
+  tags: [numbers]
+
+- id: quarante
+  fr: quarante
+  en: forty
+  pos: numeral
+  tags: [numbers]
+
+- id: cinquante
+  fr: cinquante
+  en: fifty
+  pos: numeral
+  tags: [numbers]
+
+- id: mille
+  fr: mille
+  en: "a thousand"
+  pos: numeral
+  tags: [numbers]

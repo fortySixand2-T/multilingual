@@ -88,3 +88,51 @@
   en: "excuse me"
   pos: phrase
   tags: [politeness]
+
+- id: bienvenue
+  fr: bienvenue
+  en: welcome
+  pos: interjection
+  tags: [greeting]
+
+- id: bonne_nuit
+  fr: bonne nuit
+  en: "good night"
+  pos: phrase
+  tags: [greeting]
+
+- id: a_demain
+  fr: à demain
+  en: "see you tomorrow"
+  pos: phrase
+  tags: [greeting]
+
+- id: desole
+  fr: désolé
+  en: sorry
+  pos: adjective
+  tags: [politeness]
+
+- id: stp
+  fr: s'il te plaît
+  en: "please (casual)"
+  pos: phrase
+  tags: [politeness]
+
+- id: monsieur
+  fr: monsieur
+  en: "sir / Mr"
+  pos: noun
+  tags: [politeness]
+
+- id: madame
+  fr: madame
+  en: "ma'am / Mrs"
+  pos: noun
+  tags: [politeness]
+
+- id: mademoiselle
+  fr: mademoiselle
+  en: miss
+  pos: noun
+  tags: [politeness]

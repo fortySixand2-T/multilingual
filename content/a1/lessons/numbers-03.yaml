@@ -2,7 +2,7 @@ id: numbers-03
 title: "Up to one hundred"
 grammar_point: "bigger numbers"
 est_minutes: 5
-new_vocab: [onze, douze, vingt]
+new_vocab: [onze, douze, vingt, treize, quatorze, quinze, seize, trente, quarante, cinquante, mille]
 pass_threshold: 8.0
 exercises:
   - id: numbers-03.e1

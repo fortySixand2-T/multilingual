@@ -57,3 +57,51 @@
   en: "to earn"
   pos: verb
   tags: [work]
+
+- id: entretien
+  fr: entretien
+  en: "job interview"
+  pos: noun
+  tags: [work]
+
+- id: contrat
+  fr: contrat
+  en: contract
+  pos: noun
+  tags: [work]
+
+- id: experience
+  fr: expérience
+  en: experience
+  pos: noun
+  tags: [work]
+
+- id: competence
+  fr: compétence
+  en: skill
+  pos: noun
+  tags: [work]
+
+- id: carriere
+  fr: carrière
+  en: career
+  pos: noun
+  tags: [work]
+
+- id: diplome
+  fr: diplôme
+  en: "degree / diploma"
+  pos: noun
+  tags: [work]
+
+- id: stage
+  fr: stage
+  en: internship
+  pos: noun
+  tags: [work]
+
+- id: chomage
+  fr: chômage
+  en: unemployment
+  pos: noun
+  tags: [work]

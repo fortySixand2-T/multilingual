@@ -57,3 +57,51 @@
   en: traffic
   pos: noun
   tags: [transport]
+
+- id: train
+  fr: train
+  en: train
+  pos: noun
+  tags: [transport]
+
+- id: taxi
+  fr: taxi
+  en: taxi
+  pos: noun
+  tags: [transport]
+
+- id: bateau
+  fr: bateau
+  en: boat
+  pos: noun
+  tags: [transport]
+
+- id: quai
+  fr: quai
+  en: platform
+  pos: noun
+  tags: [transport]
+
+- id: horaire
+  fr: horaire
+  en: timetable
+  pos: noun
+  tags: [transport]
+
+- id: retard
+  fr: retard
+  en: delay
+  pos: noun
+  tags: [transport]
+
+- id: essence
+  fr: essence
+  en: fuel
+  pos: noun
+  tags: [transport]
+
+- id: permis
+  fr: permis
+  en: "driving licence"
+  pos: noun
+  tags: [transport]

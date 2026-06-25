@@ -57,3 +57,51 @@
   en: "to leave"
   pos: verb
   tags: [travel]
+
+- id: frontiere
+  fr: frontière
+  en: border
+  pos: noun
+  tags: [travel]
+
+- id: douane
+  fr: douane
+  en: customs
+  pos: noun
+  tags: [travel]
+
+- id: souvenir
+  fr: souvenir
+  en: souvenir
+  pos: noun
+  tags: [travel]
+
+- id: guide
+  fr: guide
+  en: guide
+  pos: noun
+  tags: [travel]
+
+- id: itineraire
+  fr: itinéraire
+  en: itinerary
+  pos: noun
+  tags: [travel]
+
+- id: sejour
+  fr: séjour
+  en: stay
+  pos: noun
+  tags: [travel]
+
+- id: depart
+  fr: départ
+  en: departure
+  pos: noun
+  tags: [travel]
+
+- id: arrivee
+  fr: arrivée
+  en: arrival
+  pos: noun
+  tags: [travel]
