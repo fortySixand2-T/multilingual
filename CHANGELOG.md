@@ -349,3 +349,7 @@
 - [2026-06-25] Created: content/a1/lessons/couleurs-0{1,2,3}.yaml, corps-0{1,2,3}.yaml — 6 lessons (5 exercises each, all 5 types), new_vocab wired to seed SRS
 - [2026-06-25] Modified: content/a1/path.yaml — Appended units a1.u11 (Colours) + a1.u12 (The body), gated after a1.u10
 - [2026-06-25] Created: content/a1/audio/*.mp3 — 26 new TTS clips for the Colours + body vocab (gen_audio.py)
+- [2026-06-25] Modified: app/srs/api.py — Fix #350: /srs/queue attaches the <level>/audio/<id>.mp3 key (Review-screen pronunciation now works)
+- [2026-06-25] Modified: app/content/sync.py — Fix #340: content-sync uploads its level's audio (self-sufficient; no longer relies on comprehension-sync)
+- [2026-06-25] Modified: tests/test_content_sync.py — Regression test for /srs/queue audio key (#350)
+- [2026-06-25] Modified: qa/issues/340,350 — Marked done with fix notes

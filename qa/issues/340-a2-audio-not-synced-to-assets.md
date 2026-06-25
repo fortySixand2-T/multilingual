@@ -1,7 +1,7 @@
 ---
 id: 340
 title: "All 80 new A2 audio files return 404 -- not synced to data/assets"
-status: deferred
+status: done
 severity: high
 area: content
 persona: edge-case-breaker
@@ -49,3 +49,6 @@ The content-sync script defaults to `a1` (`./start.sh content-sync` without a le
 - **Content is correct:** the committed MP3s are valid and the `audio` keys resolve once the standard audio sync runs.
 - **Verdict: deferred (not a PR #13 blocker).** Tracked as a follow-up code change: make `content-sync` upload its level's audio too (reuse `upload_audio`), so the natural command for vocab content is self-sufficient and this footgun can't recur. Severity downgraded from the tester's "high" — no production exposure given the standard sync flow.
 - **Dev box remediated:** ran `comprehension-sync a1/a2`; audio now serves.
+
+## Fix
+`app/content/sync.py::_main` now uploads the level's audio via `upload_audio` + `build_storage` after the DB sync, so `content-sync <level>` is self-sufficient (no longer depends on `comprehension-sync` to publish vocab pronunciation). Verified: `content-sync a1` into a clean assets dir → "238 audio files" uploaded.

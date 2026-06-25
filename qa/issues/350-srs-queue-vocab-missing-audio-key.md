@@ -4,7 +4,7 @@ title: SRS queue returns empty audio field for all vocab cards
 severity: high
 area: srs
 persona: returning-learner
-status: validated
+status: done
 found: 2026-06-24
 ---
 
@@ -47,3 +47,6 @@ The fix should either: (a) store the audio key in the vocab YAML so it persists 
 - **Verdict: validated — real bug, but pre-existing and out of scope for the content PR #13.** `GET /srs/queue` (`app/srs/api.py` get_queue) builds `vocab = {r.id: r.data for r in rows}` and returns `r.data` raw, so it lacks the `<level>/audio/<id>.mp3` fallback that `GET /content/vocab` applies (`app/content/api.py:176-177`). Result: the Review (SRS) screen's `AudioButton` never renders for cards without an explicit `audio:` field — i.e. almost all of them. This is independent of PR #13 (the +160 cards just make it more visible); it predates this PR and is a code bug, not a content defect.
 - **Fix (option b, in a follow-up code PR):** in `get_queue`, build each card as `{**r.data, "audio": r.data.get("audio") or f"{r.level}/audio/{r.id}.mp3"}` (mirrors the vocab endpoint), with a regression test. Folding it here would add unreviewed code to a content PR; doing it as a focused follow-up keeps #13 clean.
 - Bundled with the [[340-a2-audio-not-synced-to-assets]] follow-up (both are audio-pipeline code fixes surfaced by this round).
+
+## Fix
+`app/srs/api.py::get_queue` now applies the same `<level>/audio/<id>.mp3` fallback the vocab endpoint uses, so review cards carry an `audio` key and the Review screen can play pronunciation. Regression: `tests/test_content_sync.py::test_srs_queue_attaches_audio_key`.
