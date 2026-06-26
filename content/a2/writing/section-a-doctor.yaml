@@ -1,0 +1,11 @@
+id: write-a2-doctor
+level: a2
+section: A
+title: "Prendre rendez-vous chez le médecin"
+min_words: 60
+max_words: 120
+prompt: |
+  Vous ne vous sentez pas bien. Écrivez un courriel au cabinet médical : demandez un
+  rendez-vous, décrivez vos symptômes, dites depuis quand vous êtes malade, et
+  indiquez vos disponibilités cette semaine.
+target_vocab: [medecin, rendez_vous, malade, fievre, ordonnance]

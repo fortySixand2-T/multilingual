@@ -9,6 +9,10 @@ markdown fences, nothing before or after the JSON.
 - `vocabulary` — Range and accuracy of word choice.
 - `grammar` — Syntax, agreement, tense, spelling.
 
+If the task lists **target vocabulary**, treat appropriate use of those in-level
+words as a plus under `vocabulary` and mention coverage in `overall`. Never lower a
+score merely because a target word is absent — they are a nudge, not a requirement.
+
 ## CLB estimate
 
 Give a single `clb_estimate` integer from 1 to 12 (Canadian Language Benchmark).

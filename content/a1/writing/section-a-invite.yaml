@@ -8,3 +8,4 @@ prompt: |
   Votre ami(e) vous envoie ce message : « Salut ! J'organise une fête samedi soir
   chez moi. Tu peux venir ? Apporte quelque chose à boire ! »
   Répondez au message : acceptez ou refusez, et posez une question.
+target_vocab: [samedi, soir, merci, heure, jus]

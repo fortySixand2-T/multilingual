@@ -20,6 +20,7 @@ from app.api.deps import get_ai_router
 from app.assessment.grader import GradingError, WritingGrader
 from app.assessment.tables import WritingSubmission, WritingTaskRow
 from app.config.settings import Settings, get_settings
+from app.content.tables import ContentVocab
 from app.db.session import get_session
 from app.users.models import User
 
@@ -28,6 +29,20 @@ router = APIRouter(prefix="/assessment", tags=["assessment"])
 
 class SubmitBody(BaseModel):
     text: str
+
+
+async def _resolve_vocab_fr(session: AsyncSession, ids: list[str]) -> list[str]:
+    """Map target_vocab ids to their French surface forms, preserving order and
+    dropping any that no longer resolve (a re-sync may have dropped a word)."""
+    if not ids:
+        return []
+    rows = (
+        (await session.execute(select(ContentVocab).where(ContentVocab.id.in_(ids))))
+        .scalars()
+        .all()
+    )
+    fr = {r.id: r.data.get("fr", r.id) for r in rows}
+    return [fr[i] for i in ids if i in fr]
 
 
 @router.get("/tasks")
@@ -65,7 +80,9 @@ async def get_task(
     row = await session.get(WritingTaskRow, task_id)
     if row is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"task {task_id!r} not found")
-    return row.data
+    data = dict(row.data)
+    data["target_vocab_fr"] = await _resolve_vocab_fr(session, data.get("target_vocab", []))
+    return data
 
 
 @router.post("/tasks/{task_id}/submit")
@@ -97,6 +114,7 @@ async def submit(
             f"submission has {word_count} words, maximum is {max_words}",
         )
 
+    target_vocab_fr = await _resolve_vocab_fr(session, row.data.get("target_vocab", []))
     grader = WritingGrader(ai_router)
     try:
         result = await grader.grade(
@@ -106,6 +124,7 @@ async def submit(
             section=row.data["section"],
             submission=body.text,
             daily_budget=settings.writing_daily_token_budget,
+            target_vocab_fr=target_vocab_fr,
         )
     except GradingError as e:
         raise HTTPException(status.HTTP_502_BAD_GATEWAY, f"could not grade: {e}") from None

@@ -8,3 +8,4 @@ prompt: |
   Aujourd'hui, beaucoup de gens utilisent leur téléphone toute la journée.
   Pensez-vous que c'est une bonne chose ? Donnez votre opinion et justifiez-la
   avec des exemples concrets de votre expérience.
+target_vocab: [heure, jour, maintenant, soir]

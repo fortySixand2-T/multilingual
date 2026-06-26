@@ -1,0 +1,11 @@
+id: write-a2-public-transport
+level: a2
+section: B
+title: "Les transports en commun"
+min_words: 160
+max_words: 260
+prompt: |
+  Dans certaines villes, on encourage les gens à prendre les transports en commun
+  plutôt que la voiture. Pensez-vous que c'est une bonne idée ? Donnez votre opinion
+  et justifiez-la avec des exemples concrets de votre expérience ou de votre ville.
+target_vocab: [bus, metro, voiture, train, circulation]

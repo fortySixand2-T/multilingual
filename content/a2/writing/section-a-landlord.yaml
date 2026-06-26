@@ -8,3 +8,4 @@ prompt: |
   Il y a un problème dans votre appartement (par exemple, le chauffage ne marche
   pas). Écrivez un mot à votre propriétaire : décrivez le problème, dites depuis
   quand, et demandez une réparation rapide.
+target_vocab: [appartement, loyer, chambre, fenetre, cle]

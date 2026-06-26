@@ -184,6 +184,7 @@ export type WritingTaskSummary = {
   prompt: string;
   min_words: number;
   max_words: number | null;
+  target_vocab_fr?: string[];
 };
 export type CriterionScore = { name: string; score: number; comment: string };
 export type InlineCorrection = { excerpt: string; correction: string; explanation: string; reference: string };

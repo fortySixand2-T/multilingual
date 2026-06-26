@@ -1,4 +1,16 @@
 # Changelog
+- [2026-06-25] Modified: app/content/loader.py — Extracted load_level_vocab helper (reused to validate writing target_vocab within a level)
+- [2026-06-25] Modified: app/assessment/models.py — Added WritingTask.target_vocab field (in-level vocab nudge)
+- [2026-06-25] Modified: app/assessment/loader.py — Within-level guard: target_vocab ids must resolve in the same level's vocab
+- [2026-06-25] Modified: app/assessment/grader.py — Thread target_vocab_fr into the grader prompt (reward use, never penalise omission)
+- [2026-06-25] Modified: app/assessment/api.py — Resolve target_vocab ids → French forms for the grader and the task payload
+- [2026-06-25] Modified: app/assessment/prompts/writing_grader.md — Note that target vocabulary is a nudge, not a requirement
+- [2026-06-25] Modified: content/a1/writing/*.yaml, content/a2/writing/*.yaml — Backfilled target_vocab on the 12 existing tasks
+- [2026-06-25] Created: content/a1/writing/section-a-shopping.yaml, section-b-seasons.yaml — New A1 writing tasks (shopping, seasons)
+- [2026-06-25] Created: content/a2/writing/section-a-doctor.yaml, section-b-public-transport.yaml — New A2 writing tasks (doctor, public transport)
+- [2026-06-25] Modified: web/src/api.ts — Added target_vocab_fr to WritingTaskSummary
+- [2026-06-25] Modified: web/src/screens/WritingTask.tsx — Render a "Try to use:" vocab hint chip row
+- [2026-06-25] Modified: tests/test_assessment.py — Tests for the within-level guard + grader target-word threading
 - [2026-06-25] Created: qa/rounds/022-plan.md — QA round 022: content validation for PR #17 (A2 Technology + Town themes), clean round — all 10 hypotheses refuted
 - [2026-06-24] Created: qa/rounds/019-plan.md — QA round 019: E2E suite widening validation (PR #10, clean round)
 
@@ -358,3 +370,9 @@
 - [2026-06-25] Created: content/a2/lessons/tech-a2-0{1,2,3}.yaml, ville-a2-0{1,2,3}.yaml — 6 lessons (5 exercises each, all 5 types), new_vocab wired to seed SRS
 - [2026-06-25] Modified: content/a2/path.yaml — Appended units a2.u11 (Technology) + a2.u12 (Town & services), gated after a2.u10
 - [2026-06-25] Created: content/a2/audio/*.mp3 — 26 new TTS clips for the Technology + Town vocab (gen_audio.py)
+- [2026-06-25] Created: qa/issues/370-new-writing-tasks-not-synced-to-db.md — QA round 023: four new writing tasks return 404 because content sync was not re-run
+- [2026-06-25] Created: qa/issues/371-writing-target-vocab-off-theme-for-two-tasks.md — QA round 023: two Section B tasks have generic time vocab instead of on-theme words
+- [2026-06-25] Modified: qa/issues/370-new-writing-tasks-not-synced-to-db.md — Triage: rejected (not a bug, sync already run, tasks present in DB)
+- [2026-06-25] Modified: qa/issues/371-writing-target-vocab-off-theme-for-two-tasks.md — Triage: validated (generic time vocab on opinion/technology tasks is a content defect)
+- [2026-06-25] Modified: qa/issues/370-new-writing-tasks-not-synced-to-db.md — Critic: upheld rejection (transient operational state, not a code defect)
+- [2026-06-25] Modified: qa/issues/371-writing-target-vocab-off-theme-for-two-tasks.md — Critic: overturned validation to rejected (A1 vocab bank lacks thematic matches; swapping generic words adds churn with no real improvement)

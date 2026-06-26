@@ -8,3 +8,4 @@ prompt: |
   Vous voulez réserver une chambre d'hôtel pour vos vacances. Écrivez un courriel
   à l'hôtel : indiquez les dates, le nombre de personnes, et posez deux questions
   (par exemple sur le petit-déjeuner, le parking ou le prix).
+target_vocab: [hotel, reserver, vacances, chambre, sejour]

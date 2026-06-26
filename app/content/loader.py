@@ -26,6 +26,21 @@ def _read_yaml(path: FsPath):
     return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
+def load_level_vocab(content_root: str | FsPath, level: str) -> dict[str, Vocab]:
+    """Load just a level's vocab decks (id → card). Used by load_content and by
+    other modules (e.g. writing tasks) that need to validate refs against the
+    words available *in that level* — the within-level constraint."""
+    vocab: dict[str, Vocab] = {}
+    for f in sorted((FsPath(content_root) / level / "vocab").glob("*.yaml")):
+        rows = _read_yaml(f) or []
+        for row in rows:
+            v = Vocab.model_validate(row)
+            if v.id in vocab:
+                raise ContentError(f"duplicate vocab id {v.id!r} ({f.name})")
+            vocab[v.id] = v
+    return vocab
+
+
 def load_content(content_root: str | FsPath, level: str) -> ContentBundle:
     root = FsPath(content_root) / level
     if not root.is_dir():
@@ -43,14 +58,7 @@ def load_content(content_root: str | FsPath, level: str) -> ContentBundle:
             raise ContentError(f"duplicate lesson id {lesson.id!r} ({f.name})")
         lessons[lesson.id] = lesson
 
-    vocab: dict[str, Vocab] = {}
-    for f in sorted((root / "vocab").glob("*.yaml")):
-        rows = _read_yaml(f) or []
-        for row in rows:
-            v = Vocab.model_validate(row)
-            if v.id in vocab:
-                raise ContentError(f"duplicate vocab id {v.id!r} ({f.name})")
-            vocab[v.id] = v
+    vocab = load_level_vocab(content_root, level)
 
     _check_references(path, lessons, vocab)
     return ContentBundle(path=path, lessons=lessons, vocab=vocab)

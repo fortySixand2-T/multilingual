@@ -8,3 +8,4 @@ prompt: |
   Certaines personnes préfèrent vivre en ville, d'autres à la campagne.
   Et vous ? Où préférez-vous vivre ? Donnez votre opinion et justifiez-la avec
   des exemples concrets de votre vie quotidienne.
+target_vocab: [rue, gare, banque, loin, pres]
