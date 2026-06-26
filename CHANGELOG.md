@@ -1,4 +1,7 @@
 # Changelog
+- [2026-06-25] Modified: app/srs/api.py — qa-400: added level field to SRS queue vocab dict
+- [2026-06-25] Modified: qa/issues/400-srs-queue-vocab-missing-level-field.md — set status to done
+- [2026-06-25] Modified: qa/issues/391,392,393 — PM triage: validated all three issues, appended triage blocks, set status to validated
 - [2026-06-25] Modified: web/src/screens/Exam.tsx — qa-391: reset attempt/recorded/report/error on level switch; qa-393: show level on resume + score-history entries
 - [2026-06-25] Modified: web/src/api.ts — qa-393: add level to ExamAttemptSummary
 - [2026-06-25] Modified: web/src/screens/Drill.tsx — qa-392: show explicit "A1-only" note when off-level (drill backend is a1-only)
@@ -403,3 +406,12 @@
 - [2026-06-25] Created: qa/issues/391-exam-screen-stale-state-on-level-switch.md — QA round 025: Exam screen does not clear attempt/report state on level switch
 - [2026-06-25] Created: qa/issues/392-drill-screen-hardcodes-a1-ignores-level-switcher.md — QA round 025: Drill screen hardcodes A1 level, ignores level switcher
 - [2026-06-25] Created: qa/issues/393-exam-history-in-progress-missing-level-label.md — QA round 025: Exam history entries missing level label
+- [2026-06-25] Created: qa/issues/400-srs-queue-vocab-missing-level-field.md — QA round 025b: SRS queue vocab entries missing level field
+- [2026-06-25] Created: qa/issues/394-level-filtered-endpoints-accept-empty-string-level.md — Filed: level-filtered endpoints silently accept empty-string level
+- [2026-06-25] Modified: qa/issues/394-level-filtered-endpoints-accept-empty-string-level.md — Triage: rejected (by-design, empty array for empty filter is standard REST)
+- [2026-06-25] Modified: qa/issues/400-srs-queue-vocab-missing-level-field.md — Triage: validated (SRS queue vocab dict missing level field)
+- [2026-06-25] Modified: qa/issues/391-exam-screen-stale-state-on-level-switch.md — Critic: done (fix verified, state reset on level change matches sibling screens)
+- [2026-06-25] Modified: qa/issues/392-drill-screen-hardcodes-a1-ignores-level-switcher.md — Critic: done (A1-only banner is correct partial fix)
+- [2026-06-25] Modified: qa/issues/393-exam-history-in-progress-missing-level-label.md — Critic: done (level label added to history entries)
+- [2026-06-25] Modified: qa/issues/394-level-filtered-endpoints-accept-empty-string-level.md — Critic: rejected (correct REST semantics, not a bug)
+- [2026-06-25] Modified: qa/issues/400-srs-queue-vocab-missing-level-field.md — Critic: validated (real data omission, one-line fix needed)
