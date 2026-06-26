@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { api, Drill as DrillT, PathView } from "../api";
+import { useLevel } from "../level";
 
 export default function Drill() {
+  const { level } = useLevel();
   const [lessons, setLessons] = useState<string[]>([]);
   const [lessonId, setLessonId] = useState<string>("");
   const [result, setResult] = useState<DrillT | null>(null);
@@ -35,6 +37,12 @@ export default function Drill() {
       <p className="muted" style={{ marginTop: -10 }}>
         A short scaffolded drill — one model sentence, one small change.
       </p>
+
+      {level !== "a1" && (
+        <div className="feedback" style={{ marginTop: 0, marginBottom: 12 }}>
+          Practice drills currently cover <strong>A1</strong> lessons only — more levels coming soon.
+        </div>
+      )}
 
       <div className="card stack">
         <div className="field">

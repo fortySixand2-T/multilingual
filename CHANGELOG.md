@@ -1,4 +1,8 @@
 # Changelog
+- [2026-06-25] Modified: web/src/screens/Exam.tsx — qa-391: reset attempt/recorded/report/error on level switch; qa-393: show level on resume + score-history entries
+- [2026-06-25] Modified: web/src/api.ts — qa-393: add level to ExamAttemptSummary
+- [2026-06-25] Modified: web/src/screens/Drill.tsx — qa-392: show explicit "A1-only" note when off-level (drill backend is a1-only)
+- [2026-06-25] Modified: qa/issues/391,392,393 — Self-triaged + fixed (QA round 025 testers; PM/critic gates pre-empted by session limit)
 - [2026-06-25] Modified: app/content/api.py — Added GET /content/levels (distinct levels with content, ordered) to drive the UI switcher
 - [2026-06-25] Modified: tests/test_content_sync.py — Test for /content/levels endpoint
 - [2026-06-25] Created: web/src/level.tsx — LevelProvider + LevelSwitcher (level state seeded from me.level, persisted)
@@ -396,3 +400,6 @@
 - [2026-06-25] Modified: qa/issues/371-writing-target-vocab-off-theme-for-two-tasks.md — Critic: overturned validation to rejected (A1 vocab bank lacks thematic matches; swapping generic words adds churn with no real improvement)
 - [2026-06-25] Modified: qa/issues/390-exam-finish-concurrent-xp-multiplication.md — Triaged as validated: concurrent exam finish XP multiplication bug
 - [2026-06-25] Modified: qa/issues/390-exam-finish-concurrent-xp-multiplication.md — Critic: upheld validation (TOCTOU race confirmed, same pattern as fixed issue 100, fix is trivial)
+- [2026-06-25] Created: qa/issues/391-exam-screen-stale-state-on-level-switch.md — QA round 025: Exam screen does not clear attempt/report state on level switch
+- [2026-06-25] Created: qa/issues/392-drill-screen-hardcodes-a1-ignores-level-switcher.md — QA round 025: Drill screen hardcodes A1 level, ignores level switcher
+- [2026-06-25] Created: qa/issues/393-exam-history-in-progress-missing-level-label.md — QA round 025: Exam history entries missing level label

@@ -229,6 +229,7 @@ export type ExamSectionResult = {
 export type ExamAttemptSummary = {
   attempt_id: number;
   blueprint_id: string;
+  level: string;
   status: string;
   clb_report: ClbReport | null;
   started_at: string;
