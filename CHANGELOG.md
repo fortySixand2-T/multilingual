@@ -1,4 +1,5 @@
 # Changelog
+- [2026-06-25] Modified: content/b1/lessons/environnement-b1-01.yaml — Fix e4 word_bank prompt: "global warming" -> "warming" to match French answer (qa-402)
 - [2026-06-25] Created: content/b1/path.yaml — B1 learn path: 6 chained units (work, media, future, advice, lifestyle, environment)
 - [2026-06-25] Created: content/b1/vocab/*.yaml — 6 B1 vocab decks, 72 cards (globally-unique ids, B1 themes)
 - [2026-06-25] Created: content/b1/lessons/*.yaml — 18 B1 lessons (3/unit) weaving futur/conditionnel/subjonctif/relatives/comparatives
@@ -422,3 +423,9 @@
 - [2026-06-25] Modified: qa/issues/394-level-filtered-endpoints-accept-empty-string-level.md — Critic: rejected (correct REST semantics, not a bug)
 - [2026-06-25] Modified: qa/issues/400-srs-queue-vocab-missing-level-field.md — Critic: validated (real data omission, one-line fix needed)
 - [2026-06-25] Created: qa/rounds/026-plan.md — QA round 026 plan+outcome for B1 vertical slice (clean round, zero issues)
+- [2026-06-25] Created: qa/issues/401-match-pairs-en-truncated-vs-vocab-deck.md — match_pairs English side drops secondary translations from vocab deck
+- [2026-06-25] Created: qa/issues/402-word-bank-global-warming-missing-climatique.md — word_bank prompt says global warming but answer omits climatique
+- [2026-06-25] Modified: qa/issues/401-match-pairs-en-truncated-vs-vocab-deck.md — Triage: rejected (by-design, match_pairs uses primary meaning for UI brevity)
+- [2026-06-25] Modified: qa/issues/402-word-bank-global-warming-missing-climatique.md — Triage: validated (prompt/answer mismatch teaches incorrect translation)
+- [2026-06-25] Modified: qa/issues/401-match-pairs-en-truncated-vs-vocab-deck.md — Appended critic block, upheld PM rejection (by-design brevity)
+- [2026-06-25] Modified: qa/issues/402-word-bank-global-warming-missing-climatique.md — Appended critic block, upheld PM validation (real content error)

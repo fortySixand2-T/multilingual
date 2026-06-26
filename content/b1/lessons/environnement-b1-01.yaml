@@ -26,7 +26,7 @@ exercises:
 
   - id: environnement-b1-01.e4
     type: word_bank
-    prompt: "Build: “global warming is faster”"
+    prompt: "Build: “warming is faster”"
     tokens: [le, réchauffement, est, plus, rapide, climat]
     answer: [le, réchauffement, est, plus, rapide]
 
