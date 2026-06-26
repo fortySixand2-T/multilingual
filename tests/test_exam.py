@@ -13,6 +13,7 @@ import app.exam.tables  # noqa: F401
 import app.progress.models  # noqa: F401
 from app.api.auth import get_current_user
 from app.db.session import get_session
+from app.exam.api import EXAM_XP
 from app.exam.clb import aggregate_report, clb_from_fraction
 from app.exam.loader import ExamError, _check_references, load_blueprints
 from app.exam.models import ExamBlueprint, ExamSection
@@ -270,6 +271,42 @@ def test_concurrent_sections_all_persist():
 
     sections = _run(run())
     assert sorted(sections) == ["listening", "reading", "speaking", "writing"]
+
+
+def test_concurrent_finish_xp_not_multiplied():
+    """qa-390: concurrent finish requests must not multiply XP — only one wins."""
+    from app.exam.api import finish
+    from app.progress.models import UserProgress
+
+    aid = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
+    client.post(f"/exam/{aid}/section", json={"skill": "reading", "correct": 8, "total": 10})
+    client.post(f"/exam/{aid}/section", json={"skill": "listening", "correct": 7, "total": 10})
+    client.post(f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 7})
+    client.post(f"/exam/{aid}/section", json={"skill": "speaking", "clb_estimate": 6})
+
+    # Snapshot XP before finishing
+    async def get_xp():
+        async with _Session() as s:
+            p = await s.get(UserProgress, _U.id)
+            return p.xp if p else 0
+
+    xp_before = _run(get_xp())
+
+    # Fire 10 concurrent finish requests
+    async def one():
+        async with _Session() as s:
+            return await finish(aid, s, _U())
+
+    async def run_all():
+        return await asyncio.gather(*(one() for _ in range(10)), return_exceptions=True)
+
+    results = _run(run_all())
+    # All should succeed (idempotent), none should raise
+    for r in results:
+        assert not isinstance(r, Exception), f"unexpected error: {r}"
+
+    xp_after = _run(get_xp())
+    assert xp_after - xp_before == EXAM_XP  # exactly 25, not 250
 
 
 def test_get_attempt_includes_finished_at():

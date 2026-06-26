@@ -1,4 +1,8 @@
 # Changelog
+- [2026-06-25] Modified: app/exam/api.py -- Atomic status transition guard on finish endpoint to prevent concurrent XP multiplication (qa-390)
+- [2026-06-25] Modified: tests/test_exam.py -- Added test_concurrent_finish_xp_not_multiplied for qa-390
+- [2026-06-25] Modified: qa/issues/390-exam-finish-concurrent-xp-multiplication.md -- Marked done with fix line
+- [2026-06-25] Created: qa/issues/390-exam-finish-concurrent-xp-multiplication.md — Filed concurrent exam finish XP multiplication bug (10 parallel finish requests award 10x XP)
 - [2026-06-25] Modified: app/exam/loader.py — Validate blueprint references (comprehension set + writing task ids resolve in-level; skill matches), else ExamError
 - [2026-06-25] Created: content/a1/exam/mock-3.yaml — New A1 mock (errands & seasons) using the new vocab-blended writing tasks
 - [2026-06-25] Created: content/a2/exam/mock-3.yaml — New A2 mock (health & getting around) using the new vocab-blended writing tasks
@@ -380,3 +384,5 @@
 - [2026-06-25] Modified: qa/issues/371-writing-target-vocab-off-theme-for-two-tasks.md — Triage: validated (generic time vocab on opinion/technology tasks is a content defect)
 - [2026-06-25] Modified: qa/issues/370-new-writing-tasks-not-synced-to-db.md — Critic: upheld rejection (transient operational state, not a code defect)
 - [2026-06-25] Modified: qa/issues/371-writing-target-vocab-off-theme-for-two-tasks.md — Critic: overturned validation to rejected (A1 vocab bank lacks thematic matches; swapping generic words adds churn with no real improvement)
+- [2026-06-25] Modified: qa/issues/390-exam-finish-concurrent-xp-multiplication.md — Triaged as validated: concurrent exam finish XP multiplication bug
+- [2026-06-25] Modified: qa/issues/390-exam-finish-concurrent-xp-multiplication.md — Critic: upheld validation (TOCTOU race confirmed, same pattern as fixed issue 100, fix is trivial)

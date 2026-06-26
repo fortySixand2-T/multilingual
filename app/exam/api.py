@@ -210,10 +210,17 @@ async def finish(
 
     per_skill = {skill: data["clb"] for skill, data in attempt.sections.items()}
     report = aggregate_report(per_skill)
-    attempt.clb_report = report
-    attempt.status = "finished"
-    attempt.finished_at = datetime.now(UTC).replace(tzinfo=None)
-    await record_activity(session, user.id, xp_award=EXAM_XP, level=attempt.level)
+    now = datetime.now(UTC).replace(tzinfo=None)
+
+    # Atomic status transition: only the first concurrent request that flips
+    # "in_progress" -> "finished" wins the race and awards XP (qa-390).
+    result = await session.execute(
+        update(ExamAttempt)
+        .where(ExamAttempt.id == attempt.id, ExamAttempt.status == "in_progress")
+        .values(status="finished", finished_at=now, clb_report=report)
+    )
+    if result.rowcount == 1:
+        await record_activity(session, user.id, xp_award=EXAM_XP, level=attempt.level)
     await session.commit()
     return {"attempt_id": attempt.id, "report": report}
 
