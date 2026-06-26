@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api, WritingTaskSummary } from "../api";
+import { useLevel } from "../level";
 
 const SECTION_LABEL: Record<string, string> = {
   A: "Section A · short response",
@@ -9,12 +10,15 @@ const SECTION_LABEL: Record<string, string> = {
 
 export default function Writing() {
   const nav = useNavigate();
+  const { level } = useLevel();
   const [tasks, setTasks] = useState<WritingTaskSummary[] | null>(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    api.writingTasks("a1").then((r) => setTasks(r.tasks)).catch((e) => setError(e.message));
-  }, []);
+    setTasks(null);
+    setError("");
+    api.writingTasks(level).then((r) => setTasks(r.tasks)).catch((e) => setError(e.message));
+  }, [level]);
 
   if (error) return <div className="card center">Couldn't load writing tasks: {error}</div>;
   if (!tasks) return <div className="muted">Loading…</div>;

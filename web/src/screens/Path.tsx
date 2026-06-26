@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api, Me, PathView } from "../api";
+import { useLevel } from "../level";
 
 export default function Path() {
   const nav = useNavigate();
+  const { level } = useLevel();
   const [path, setPath] = useState<PathView | null>(null);
   const [me, setMe] = useState<Me | null>(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    api.path("a1").then(setPath).catch((e) => setError(e.message));
+    setPath(null);
+    setError("");
+    api.path(level).then(setPath).catch((e) => setError(e.message));
     api.me().then(setMe).catch(() => {});
-  }, []);
+  }, [level]);
 
   if (error) return <div className="card center">Couldn't load your path: {error}</div>;
   if (!path) return <div className="muted">Loading…</div>;

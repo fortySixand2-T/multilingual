@@ -1,4 +1,14 @@
 # Changelog
+- [2026-06-25] Modified: app/content/api.py — Added GET /content/levels (distinct levels with content, ordered) to drive the UI switcher
+- [2026-06-25] Modified: tests/test_content_sync.py — Test for /content/levels endpoint
+- [2026-06-25] Created: web/src/level.tsx — LevelProvider + LevelSwitcher (level state seeded from me.level, persisted)
+- [2026-06-25] Created: web/src/level.test.tsx — Tests for level switcher seeding/persistence/visibility
+- [2026-06-25] Modified: web/src/api.ts — Added api.levels()
+- [2026-06-25] Modified: web/src/App.tsx — Wrap app in LevelProvider, add switcher to topbar
+- [2026-06-25] Modified: web/src/styles.css — Topbar-right + level-switch styles
+- [2026-06-25] Modified: web/src/screens/Path.tsx, Comprehension.tsx, Writing.tsx, Exam.tsx — Read level from context (was hardcoded a1)
+- [2026-06-25] Modified: web/e2e/global-setup.ts — Seed a1 + a2 so the switcher is exercised
+- [2026-06-25] Created: web/e2e/specs/level-switch.spec.ts — E2E: switching to A2 repoints the learn path
 - [2026-06-25] Modified: app/exam/api.py -- Atomic status transition guard on finish endpoint to prevent concurrent XP multiplication (qa-390)
 - [2026-06-25] Modified: tests/test_exam.py -- Added test_concurrent_finish_xp_not_multiplied for qa-390
 - [2026-06-25] Modified: qa/issues/390-exam-finish-concurrent-xp-multiplication.md -- Marked done with fix line

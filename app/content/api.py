@@ -81,6 +81,19 @@ async def is_lesson_unlocked(session: AsyncSession, user_id: int, lesson: Conten
     return compute_unit_status(units, completed)[owning.id] != "locked"
 
 
+@router.get("/levels")
+async def get_levels(
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Levels that actually have a learning path, ordered low→high. Drives the UI
+    level switcher so it only offers shipped levels (b1 appears once synced)."""
+    rows = (await session.execute(select(ContentUnit.level).distinct())).scalars().all()
+    order = {lvl: i for i, lvl in enumerate(["a1", "a2", "b1", "b2", "c1", "c2"])}
+    levels = sorted(rows, key=lambda lvl: order.get(lvl, len(order)))
+    return {"levels": levels}
+
+
 @router.get("/path")
 async def get_path(
     level: str,

@@ -31,7 +31,13 @@ a { color: inherit; text-decoration: none; }
   padding: 8px 14px; border-radius: 999px; font-weight: 600; color: var(--muted);
 }
 .nav a.active { color: var(--green-dk); background: #eaf6ee; }
-.link-btn { margin-left: auto; background: none; border: none; color: var(--muted); cursor: pointer; font-weight: 600; }
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+.level-switch { display: flex; align-items: center; gap: 6px; }
+.level-switch select {
+  padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--card); font-weight: 700; color: var(--green-dk); cursor: pointer;
+}
+.link-btn { background: none; border: none; color: var(--muted); cursor: pointer; font-weight: 600; }
 
 .content { max-width: 720px; margin: 0 auto; padding: 28px 20px 80px; }
 

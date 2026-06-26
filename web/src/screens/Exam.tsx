@@ -8,8 +8,10 @@ import {
   ExamBlueprintSummary,
   ExamSection,
 } from "../api";
+import { useLevel } from "../level";
 
 export default function Exam() {
+  const { level } = useLevel();
   const [blueprints, setBlueprints] = useState<ExamBlueprintSummary[]>([]);
   const [history, setHistory] = useState<ExamAttemptSummary[]>([]);
   const [attempt, setAttempt] = useState<{ id: number; blueprint: ExamBlueprint } | null>(null);
@@ -18,10 +20,10 @@ export default function Exam() {
   const [error, setError] = useState("");
 
   const loadLists = () => {
-    api.examBlueprints("a1").then((r) => setBlueprints(r.blueprints)).catch((e) => setError(e.message));
+    api.examBlueprints(level).then((r) => setBlueprints(r.blueprints)).catch((e) => setError(e.message));
     api.examHistory().then((r) => setHistory(r.attempts)).catch(() => {});
   };
-  useEffect(loadLists, []);
+  useEffect(loadLists, [level]);
 
   const start = async (id: string) => {
     setError("");
