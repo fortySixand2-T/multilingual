@@ -1,0 +1,38 @@
+id: mode-de-vie-b1-02
+title: "Managing stress"
+grammar_point: "subjonctif and advice for well-being"
+est_minutes: 6
+new_vocab: [stress, detente, energie, repos]
+pass_threshold: 8.0
+exercises:
+  - id: mode-de-vie-b1-02.e1
+    type: mcq
+    prompt: "« Il faut que tu ___ du repos. » (You need to get some rest.)"
+    options: [prennes, prends, prendre]
+    answer: prennes
+    explain: "subjunctive of prendre after « il faut que »: que tu prennes."
+
+  - id: mode-de-vie-b1-02.e2
+    type: translate
+    prompt: "Translate: “relaxation”"
+    answer: détente
+    accept: ["la détente"]
+
+  - id: mode-de-vie-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/energie.mp3
+    answer: énergie
+    prompt: "Type the word you hear."
+
+  - id: mode-de-vie-b1-02.e4
+    type: word_bank
+    prompt: "Build: “rest gives me energy”"
+    tokens: [le, repos, me, donne, de, l, énergie, stress]
+    answer: [le, repos, me, donne, de, l, énergie]
+
+  - id: mode-de-vie-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [stress, stress]
+      - [détente, relaxation]
+      - [repos, rest]

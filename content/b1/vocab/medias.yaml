@@ -1,0 +1,71 @@
+- id: actualite
+  fr: actualité
+  en: "current events, news"
+  pos: noun
+  tags: [media]
+
+- id: journal
+  fr: journal
+  en: newspaper
+  pos: noun
+  tags: [media]
+
+- id: chaine
+  fr: chaîne
+  en: "TV channel"
+  pos: noun
+  tags: [media]
+
+- id: emission
+  fr: émission
+  en: "programme, broadcast"
+  pos: noun
+  tags: [media]
+
+- id: publicite
+  fr: publicité
+  en: advertising
+  pos: noun
+  tags: [media]
+
+- id: reseau_social
+  fr: réseau social
+  en: "social network"
+  pos: noun
+  tags: [media]
+
+- id: abonnement
+  fr: abonnement
+  en: subscription
+  pos: noun
+  tags: [media]
+
+- id: information
+  fr: information
+  en: "(piece of) information"
+  pos: noun
+  tags: [media]
+
+- id: journaliste
+  fr: journaliste
+  en: journalist
+  pos: noun
+  tags: [media]
+
+- id: rumeur
+  fr: rumeur
+  en: rumour
+  pos: noun
+  tags: [media]
+
+- id: debat
+  fr: débat
+  en: debate
+  pos: noun
+  tags: [media]
+
+- id: influence
+  fr: influence
+  en: influence
+  pos: noun
+  tags: [media]

@@ -1,0 +1,71 @@
+- id: environnement
+  fr: environnement
+  en: environment
+  pos: noun
+  tags: [environment]
+
+- id: pollution
+  fr: pollution
+  en: pollution
+  pos: noun
+  tags: [environment]
+
+- id: climat
+  fr: climat
+  en: climate
+  pos: noun
+  tags: [environment]
+
+- id: rechauffement
+  fr: réchauffement
+  en: "warming (climate)"
+  pos: noun
+  tags: [environment]
+
+- id: recyclage
+  fr: recyclage
+  en: recycling
+  pos: noun
+  tags: [environment]
+
+- id: dechet
+  fr: déchet
+  en: "waste, rubbish"
+  pos: noun
+  tags: [environment]
+
+- id: planete
+  fr: planète
+  en: planet
+  pos: noun
+  tags: [environment]
+
+- id: nature
+  fr: nature
+  en: nature
+  pos: noun
+  tags: [environment]
+
+- id: consommation
+  fr: consommation
+  en: consumption
+  pos: noun
+  tags: [environment]
+
+- id: gaspillage
+  fr: gaspillage
+  en: "waste, squandering"
+  pos: noun
+  tags: [environment]
+
+- id: citoyen
+  fr: citoyen
+  en: citizen
+  pos: noun
+  tags: [environment]
+
+- id: solidarite
+  fr: solidarité
+  en: solidarity
+  pos: noun
+  tags: [environment]

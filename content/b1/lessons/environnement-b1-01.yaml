@@ -1,0 +1,38 @@
+id: environnement-b1-01
+title: "Climate change"
+grammar_point: "comparatives (plus / moins … que)"
+est_minutes: 6
+new_vocab: [environnement, pollution, climat, rechauffement]
+pass_threshold: 8.0
+exercises:
+  - id: environnement-b1-01.e1
+    type: mcq
+    prompt: "« La pollution est ___ grave qu'avant. » (Pollution is more serious than before.)"
+    options: [plus, très, beaucoup]
+    answer: plus
+    explain: "comparative of superiority: plus + adjective + que."
+
+  - id: environnement-b1-01.e2
+    type: translate
+    prompt: "Translate: “the environment”"
+    answer: environnement
+    accept: ["l'environnement"]
+
+  - id: environnement-b1-01.e3
+    type: listen_type
+    audio_ref: b1/audio/climat.mp3
+    answer: climat
+    prompt: "Type the word you hear."
+
+  - id: environnement-b1-01.e4
+    type: word_bank
+    prompt: "Build: “warming is faster”"
+    tokens: [le, réchauffement, est, plus, rapide, climat]
+    answer: [le, réchauffement, est, plus, rapide]
+
+  - id: environnement-b1-01.e5
+    type: match_pairs
+    pairs:
+      - [environnement, environment]
+      - [pollution, pollution]
+      - [climat, climate]

@@ -1,0 +1,71 @@
+- id: candidature
+  fr: candidature
+  en: "job application"
+  pos: noun
+  tags: [work]
+
+- id: recruteur
+  fr: recruteur
+  en: recruiter
+  pos: noun
+  tags: [work]
+
+- id: embauche
+  fr: embauche
+  en: hiring
+  pos: noun
+  tags: [work]
+
+- id: licenciement
+  fr: licenciement
+  en: "dismissal, layoff"
+  pos: noun
+  tags: [work]
+
+- id: promotion
+  fr: promotion
+  en: promotion
+  pos: noun
+  tags: [work]
+
+- id: responsabilite
+  fr: responsabilité
+  en: responsibility
+  pos: noun
+  tags: [work]
+
+- id: teletravail
+  fr: télétravail
+  en: "remote work"
+  pos: noun
+  tags: [work]
+
+- id: productivite
+  fr: productivité
+  en: productivity
+  pos: noun
+  tags: [work]
+
+- id: freelance
+  fr: freelance
+  en: freelance
+  pos: noun
+  tags: [work]
+
+- id: syndicat
+  fr: syndicat
+  en: "trade union"
+  pos: noun
+  tags: [work]
+
+- id: remuneration
+  fr: rémunération
+  en: pay
+  pos: noun
+  tags: [work]
+
+- id: objectif
+  fr: objectif
+  en: "goal, target"
+  pos: noun
+  tags: [work]

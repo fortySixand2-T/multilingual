@@ -1,4 +1,10 @@
 # Changelog
+- [2026-06-25] Modified: content/b1/lessons/environnement-b1-01.yaml — Fix e4 word_bank prompt: "global warming" -> "warming" to match French answer (qa-402)
+- [2026-06-25] Created: content/b1/path.yaml — B1 learn path: 6 chained units (work, media, future, advice, lifestyle, environment)
+- [2026-06-25] Created: content/b1/vocab/*.yaml — 6 B1 vocab decks, 72 cards (globally-unique ids, B1 themes)
+- [2026-06-25] Created: content/b1/lessons/*.yaml — 18 B1 lessons (3/unit) weaving futur/conditionnel/subjonctif/relatives/comparatives
+- [2026-06-25] Created: content/b1/audio/*.mp3 — 72 TTS clips for B1 vocab + listen_type refs (gen_audio.py b1)
+- [2026-06-25] Modified: tests/test_all_levels.py — Allow incrementally-built levels (skill content validated if present); assert completeness only for a1/a2
 - [2026-06-25] Modified: app/srs/api.py — Reflow qa-400 vocab dict to satisfy ruff E501 (line length)
 - [2026-06-25] Modified: app/srs/api.py — qa-400: added level field to SRS queue vocab dict
 - [2026-06-25] Modified: qa/issues/400-srs-queue-vocab-missing-level-field.md — set status to done
@@ -416,3 +422,10 @@
 - [2026-06-25] Modified: qa/issues/393-exam-history-in-progress-missing-level-label.md — Critic: done (level label added to history entries)
 - [2026-06-25] Modified: qa/issues/394-level-filtered-endpoints-accept-empty-string-level.md — Critic: rejected (correct REST semantics, not a bug)
 - [2026-06-25] Modified: qa/issues/400-srs-queue-vocab-missing-level-field.md — Critic: validated (real data omission, one-line fix needed)
+- [2026-06-25] Created: qa/rounds/026-plan.md — QA round 026 plan+outcome for B1 vertical slice (clean round, zero issues)
+- [2026-06-25] Created: qa/issues/401-match-pairs-en-truncated-vs-vocab-deck.md — match_pairs English side drops secondary translations from vocab deck
+- [2026-06-25] Created: qa/issues/402-word-bank-global-warming-missing-climatique.md — word_bank prompt says global warming but answer omits climatique
+- [2026-06-25] Modified: qa/issues/401-match-pairs-en-truncated-vs-vocab-deck.md — Triage: rejected (by-design, match_pairs uses primary meaning for UI brevity)
+- [2026-06-25] Modified: qa/issues/402-word-bank-global-warming-missing-climatique.md — Triage: validated (prompt/answer mismatch teaches incorrect translation)
+- [2026-06-25] Modified: qa/issues/401-match-pairs-en-truncated-vs-vocab-deck.md — Appended critic block, upheld PM rejection (by-design brevity)
+- [2026-06-25] Modified: qa/issues/402-word-bank-global-warming-missing-climatique.md — Appended critic block, upheld PM validation (real content error)

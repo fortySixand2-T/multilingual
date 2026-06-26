@@ -1,0 +1,38 @@
+id: mode-de-vie-b1-03
+title: "Staying in shape — review"
+grammar_point: "consolidating lifestyle vocabulary"
+est_minutes: 6
+new_vocab: [effort, volonte, forme, prevention]
+pass_threshold: 8.0
+exercises:
+  - id: mode-de-vie-b1-03.e1
+    type: mcq
+    prompt: "« Avec de la ___, on peut changer ses habitudes. » (With willpower, you can change your habits.)"
+    options: [volonté, forme, détente]
+    answer: volonté
+    explain: "la volonté = willpower, determination."
+
+  - id: mode-de-vie-b1-03.e2
+    type: translate
+    prompt: "Translate: “prevention”"
+    answer: prévention
+    accept: ["la prévention"]
+
+  - id: mode-de-vie-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/effort.mp3
+    answer: effort
+    prompt: "Type the word you hear."
+
+  - id: mode-de-vie-b1-03.e4
+    type: word_bank
+    prompt: "Build: “I make an effort to stay in shape”"
+    tokens: [je, fais, un, effort, pour, rester, en, forme]
+    answer: [je, fais, un, effort, pour, rester, en, forme]
+
+  - id: mode-de-vie-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [effort, effort]
+      - [volonté, willpower]
+      - [prévention, prevention]

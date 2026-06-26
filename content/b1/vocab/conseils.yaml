@@ -1,0 +1,71 @@
+- id: conseil
+  fr: conseil
+  en: "advice, tip"
+  pos: noun
+  tags: [advice]
+
+- id: solution
+  fr: solution
+  en: solution
+  pos: noun
+  tags: [advice]
+
+- id: probleme
+  fr: problème
+  en: problem
+  pos: noun
+  tags: [advice]
+
+- id: choix
+  fr: choix
+  en: choice
+  pos: noun
+  tags: [advice]
+
+- id: consequence
+  fr: conséquence
+  en: consequence
+  pos: noun
+  tags: [advice]
+
+- id: risque
+  fr: risque
+  en: risk
+  pos: noun
+  tags: [advice]
+
+- id: avantage
+  fr: avantage
+  en: advantage
+  pos: noun
+  tags: [advice]
+
+- id: inconvenient
+  fr: inconvénient
+  en: drawback
+  pos: noun
+  tags: [advice]
+
+- id: hypothese
+  fr: hypothèse
+  en: hypothesis
+  pos: noun
+  tags: [advice]
+
+- id: suggestion
+  fr: suggestion
+  en: suggestion
+  pos: noun
+  tags: [advice]
+
+- id: erreur
+  fr: erreur
+  en: mistake
+  pos: noun
+  tags: [advice]
+
+- id: prudence
+  fr: prudence
+  en: caution
+  pos: noun
+  tags: [advice]

@@ -1,0 +1,38 @@
+id: medias-b1-03
+title: "Social media & opinions — review"
+grammar_point: "consolidating media vocabulary"
+est_minutes: 6
+new_vocab: [reseau_social, rumeur, debat, influence]
+pass_threshold: 8.0
+exercises:
+  - id: medias-b1-03.e1
+    type: mcq
+    prompt: "« Cette ___ est fausse, ne la partage pas. » (This rumour is false, don't share it.)"
+    options: [rumeur, émission, chaîne]
+    answer: rumeur
+    explain: "une rumeur = a rumour."
+
+  - id: medias-b1-03.e2
+    type: translate
+    prompt: "Translate: “the debate”"
+    answer: débat
+    accept: ["le débat"]
+
+  - id: medias-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/influence.mp3
+    answer: influence
+    prompt: "Type the word you hear."
+
+  - id: medias-b1-03.e4
+    type: word_bank
+    prompt: "Build: “social networks have a lot of influence”"
+    tokens: [les, réseaux, sociaux, ont, beaucoup, d, influence]
+    answer: [les, réseaux, sociaux, ont, beaucoup, d, influence]
+
+  - id: medias-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [rumeur, rumour]
+      - [débat, debate]
+      - [influence, influence]

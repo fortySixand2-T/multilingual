@@ -1,0 +1,38 @@
+id: medias-b1-02
+title: "Television & subscriptions"
+grammar_point: "media formats and what they show"
+est_minutes: 6
+new_vocab: [chaine, emission, publicite, abonnement]
+pass_threshold: 8.0
+exercises:
+  - id: medias-b1-02.e1
+    type: mcq
+    prompt: "« Mon ___ me permet de regarder cette chaîne. » (My subscription lets me watch this channel.)"
+    options: [abonnement, débat, journal]
+    answer: abonnement
+    explain: "un abonnement = a subscription."
+
+  - id: medias-b1-02.e2
+    type: translate
+    prompt: "Translate: “the advertising”"
+    answer: publicité
+    accept: ["la publicité"]
+
+  - id: medias-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/emission.mp3
+    answer: émission
+    prompt: "Type the word you hear."
+
+  - id: medias-b1-02.e4
+    type: word_bank
+    prompt: "Build: “the programme that I watch”"
+    tokens: [l, émission, que, je, regarde, chaîne]
+    answer: [l, émission, que, je, regarde]
+
+  - id: medias-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [chaîne, "TV channel"]
+      - [émission, programme]
+      - [publicité, advertising]

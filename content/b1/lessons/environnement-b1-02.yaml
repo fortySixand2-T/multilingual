@@ -1,0 +1,38 @@
+id: environnement-b1-02
+title: "Reduce & recycle"
+grammar_point: "comparatives with everyday eco-actions"
+est_minutes: 6
+new_vocab: [recyclage, dechet, consommation, gaspillage]
+pass_threshold: 8.0
+exercises:
+  - id: environnement-b1-02.e1
+    type: mcq
+    prompt: "« Le ___ permet de réutiliser les déchets. » (Recycling lets us reuse waste.)"
+    options: [recyclage, gaspillage, climat]
+    answer: recyclage
+    explain: "le recyclage = recycling."
+
+  - id: environnement-b1-02.e2
+    type: translate
+    prompt: "Translate: “the waste” (rubbish)"
+    answer: déchet
+    accept: ["le déchet", "les déchets", "déchets"]
+
+  - id: environnement-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/consommation.mp3
+    answer: consommation
+    prompt: "Type the word you hear."
+
+  - id: environnement-b1-02.e4
+    type: word_bank
+    prompt: "Build: “we must waste less”"
+    tokens: [il, faut, gaspiller, moins, plus]
+    answer: [il, faut, gaspiller, moins]
+
+  - id: environnement-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [recyclage, recycling]
+      - [déchet, waste]
+      - [consommation, consumption]
