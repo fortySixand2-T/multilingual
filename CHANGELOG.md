@@ -421,3 +421,4 @@
 - [2026-06-25] Modified: qa/issues/393-exam-history-in-progress-missing-level-label.md — Critic: done (level label added to history entries)
 - [2026-06-25] Modified: qa/issues/394-level-filtered-endpoints-accept-empty-string-level.md — Critic: rejected (correct REST semantics, not a bug)
 - [2026-06-25] Modified: qa/issues/400-srs-queue-vocab-missing-level-field.md — Critic: validated (real data omission, one-line fix needed)
+- [2026-06-25] Created: qa/rounds/026-plan.md — QA round 026 plan+outcome for B1 vertical slice (clean round, zero issues)
