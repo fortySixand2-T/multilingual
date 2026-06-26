@@ -1,0 +1,19 @@
+id: mock-3
+level: a1
+title: "TEF Canada mock — A1 practice (3)"
+# Third blueprint — everyday errands & seasons, exercising the newer writing tasks.
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-schedule
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-shopping
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-a-shopping, write-b-seasons]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Vous faites les courses au marché. Demandez les prix et les quantités au vendeur."
+      - "Quelle est votre saison préférée ? Décrivez le temps qu'il fait et ce que vous aimez y faire."

@@ -14,8 +14,8 @@ import app.progress.models  # noqa: F401
 from app.api.auth import get_current_user
 from app.db.session import get_session
 from app.exam.clb import aggregate_report, clb_from_fraction
-from app.exam.loader import load_blueprints
-from app.exam.models import ExamSection
+from app.exam.loader import ExamError, _check_references, load_blueprints
+from app.exam.models import ExamBlueprint, ExamSection
 from app.exam.sync import sync_blueprints
 from app.main import create_app
 from app.users.models import Base
@@ -89,6 +89,47 @@ def test_section_requires_matching_refs():
         ExamSection(skill="reading", time_limit_seconds=60)  # missing comprehension_set_id
     with pytest.raises(ValidationError):
         ExamSection(skill="writing", time_limit_seconds=60)  # missing writing_task_ids
+
+
+# --- blueprint reference validation (composed of other modules' content) ------
+
+
+def _bp(section: ExamSection) -> dict[str, ExamBlueprint]:
+    return {"x": ExamBlueprint(id="x", level="a1", title="t", sections=[section])}
+
+
+def test_loads_three_blueprints_per_level():
+    for lvl, last in (("a1", "mock-3"), ("a2", "a2-mock-3")):
+        bps = load_blueprints(CONTENT_ROOT, lvl)
+        assert len(bps) == 3 and last in bps
+
+
+def test_dangling_comprehension_ref_fails():
+    sec = ExamSection(skill="reading", time_limit_seconds=60, comprehension_set_id="nope-xyz")
+    with pytest.raises(ExamError, match="nope-xyz"):
+        _check_references(_bp(sec), CONTENT_ROOT, "a1")
+
+
+def test_comprehension_skill_mismatch_fails():
+    # listen-greet-01 is a listening set; using it in a reading section must fail
+    sec = ExamSection(
+        skill="reading", time_limit_seconds=60, comprehension_set_id="listen-greet-01"
+    )
+    with pytest.raises(ExamError, match="listening set"):
+        _check_references(_bp(sec), CONTENT_ROOT, "a1")
+
+
+def test_dangling_writing_ref_fails():
+    sec = ExamSection(skill="writing", time_limit_seconds=60, writing_task_ids=["write-nope"])
+    with pytest.raises(ExamError, match="write-nope"):
+        _check_references(_bp(sec), CONTENT_ROOT, "a1")
+
+
+def test_cross_level_writing_ref_fails():
+    # an A2 writing task referenced from an A1 blueprint isn't in A1's task set
+    sec = ExamSection(skill="writing", time_limit_seconds=60, writing_task_ids=["write-a2-hotel"])
+    with pytest.raises(ExamError, match="write-a2-hotel"):
+        _check_references(_bp(sec), CONTENT_ROOT, "a1")
 
 
 # --- full mock flow over HTTP -------------------------------------------------

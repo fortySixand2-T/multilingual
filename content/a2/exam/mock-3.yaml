@@ -1,0 +1,19 @@
+id: a2-mock-3
+level: a2
+title: "TEF Canada mock — A2 practice (3)"
+# Third blueprint — health & getting around, exercising the newer writing tasks.
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-a2-itinerary
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-a2-directions-transport
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-a2-doctor, write-a2-public-transport]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Vous prenez rendez-vous chez le médecin. Décrivez vos symptômes et posez vos questions."
+      - "Préférez-vous les transports en commun ou la voiture ? Justifiez votre choix avec des exemples."

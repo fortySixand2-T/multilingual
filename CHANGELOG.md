@@ -1,4 +1,8 @@
 # Changelog
+- [2026-06-25] Modified: app/exam/loader.py — Validate blueprint references (comprehension set + writing task ids resolve in-level; skill matches), else ExamError
+- [2026-06-25] Created: content/a1/exam/mock-3.yaml — New A1 mock (errands & seasons) using the new vocab-blended writing tasks
+- [2026-06-25] Created: content/a2/exam/mock-3.yaml — New A2 mock (health & getting around) using the new vocab-blended writing tasks
+- [2026-06-25] Modified: tests/test_exam.py — Tests for blueprint reference validation (dangling/cross-level/skill-mismatch) + 3-mocks-per-level
 - [2026-06-25] Modified: app/content/loader.py — Extracted load_level_vocab helper (reused to validate writing target_vocab within a level)
 - [2026-06-25] Modified: app/assessment/models.py — Added WritingTask.target_vocab field (in-level vocab nudge)
 - [2026-06-25] Modified: app/assessment/loader.py — Within-level guard: target_vocab ids must resolve in the same level's vocab
