@@ -1,0 +1,11 @@
+id: write-a-shopping
+level: a1
+section: A
+title: "Une liste pour les courses"
+min_words: 40
+max_words: 100
+prompt: |
+  Vous ne pouvez pas aller au magasin aujourd'hui. Laissez un message à votre
+  colocataire : demandez-lui d'acheter trois ou quatre choses, indiquez combien
+  d'argent vous laissez, et remerciez-le.
+target_vocab: [magasin, acheter, pain, fromage, prix, argent]

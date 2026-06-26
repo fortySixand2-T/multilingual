@@ -8,3 +8,4 @@ prompt: |
   Un ami vous demande comment s'est passé votre week-end. Répondez par un message :
   racontez ce que vous avez fait (utilisez le passé composé), avec qui, et dites si
   vous avez aimé.
+target_vocab: [sport, film, promenade, se_reposer, dejeuner]

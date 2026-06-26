@@ -56,6 +56,15 @@ export default function WritingTask() {
 
       <div className="card" style={{ whiteSpace: "pre-wrap", marginTop: 12 }}>{task.prompt}</div>
 
+      {task.target_vocab_fr && task.target_vocab_fr.length > 0 && (
+        <div className="btn-row" style={{ flexWrap: "wrap", gap: 6, marginTop: 10, alignItems: "center" }}>
+          <span className="muted" style={{ fontSize: 13 }}>Try to use:</span>
+          {task.target_vocab_fr.map((w) => (
+            <span key={w} className="pill">{w}</span>
+          ))}
+        </div>
+      )}
+
       <textarea
         className="text-input"
         style={{ marginTop: 14, minHeight: 200, resize: "vertical", fontFamily: "inherit" }}

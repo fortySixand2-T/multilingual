@@ -8,3 +8,4 @@ prompt: |
   Vous voulez réserver une table au restaurant pour samedi soir. Écrivez un court
   courriel au restaurant : indiquez le jour, l'heure, le nombre de personnes, et
   posez une question (par exemple sur le menu ou le prix).
+target_vocab: [reservation, table, menu, samedi, soir, prix]

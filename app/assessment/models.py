@@ -21,6 +21,10 @@ class WritingTask(BaseModel):
     prompt: str
     min_words: int
     max_words: int | None = None
+    # In-level vocab ids the task nudges the learner to use (blended into the
+    # grader prompt + shown as a hint). Validated against this level's vocab by
+    # the loader, which enforces the within-level constraint.
+    target_vocab: list[str] = []
 
 
 class InlineCorrection(BaseModel):

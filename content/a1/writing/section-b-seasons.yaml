@@ -1,0 +1,11 @@
+id: write-b-seasons
+level: a1
+section: B
+title: "Votre saison préférée"
+min_words: 150
+max_words: 250
+prompt: |
+  Quelle est votre saison préférée ? Expliquez pourquoi vous l'aimez et justifiez
+  votre choix avec des exemples concrets : le temps qu'il fait, ce que vous faites,
+  et ce que vous ressentez à cette période de l'année.
+target_vocab: [soleil, pluie, neige, chaud, froid, saison]

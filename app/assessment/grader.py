@@ -69,22 +69,47 @@ class WritingGrader:
         self._system = _PROMPT
 
     def build_messages(
-        self, *, task_prompt: str, section: str, submission: str
+        self,
+        *,
+        task_prompt: str,
+        section: str,
+        submission: str,
+        target_vocab_fr: list[str] | None = None,
     ) -> tuple[str, list[Msg]]:
+        target_line = ""
+        if target_vocab_fr:
+            words = ", ".join(target_vocab_fr)
+            target_line = (
+                f"Target vocabulary (in-level words the task nudges the learner to use): "
+                f"{words}\n"
+                "Reward appropriate use of these under `vocabulary`, and note in `overall` "
+                "which were used well or missed — but do not penalise omissions.\n"
+            )
         user = (
             f"Section: {section}\n"
-            f"Task: {task_prompt}\n\n"
+            f"Task: {task_prompt}\n"
+            f"{target_line}\n"
             f'Learner\'s submission:\n"""\n{submission}\n"""\n\n'
             "Grade it and return only the JSON object."
         )
         return self._system, [Msg("user", user)]
 
-    def grade_text(self, *, task_prompt: str, section: str, submission: str):
+    def grade_text(
+        self,
+        *,
+        task_prompt: str,
+        section: str,
+        submission: str,
+        target_vocab_fr: list[str] | None = None,
+    ):
         """Build the prompt, call the router, parse the feedback. Sync — shared by
         the async budgeted `grade()` and the calibration CLI. Returns
         (WritingFeedback, LLMResult); raises GradingError on unparseable output."""
         system, messages = self.build_messages(
-            task_prompt=task_prompt, section=section, submission=submission
+            task_prompt=task_prompt,
+            section=section,
+            submission=submission,
+            target_vocab_fr=target_vocab_fr,
         )
         result = self._router.run(
             _PROFILE, system=system, messages=messages, temperature=0.1, max_tokens=1500
@@ -100,6 +125,7 @@ class WritingGrader:
         section: str,
         submission: str,
         daily_budget: int,
+        target_vocab_fr: list[str] | None = None,
         today: date | None = None,
     ) -> GradeResult:
         today = today or date.today()
@@ -110,7 +136,11 @@ class WritingGrader:
 
         feedback, result = await anyio.to_thread.run_sync(
             functools.partial(
-                self.grade_text, task_prompt=task_prompt, section=section, submission=submission
+                self.grade_text,
+                task_prompt=task_prompt,
+                section=section,
+                submission=submission,
+                target_vocab_fr=target_vocab_fr,
             )
         )
         spent = result.usage.input_tokens + result.usage.output_tokens

@@ -1,4 +1,16 @@
 # Changelog
+- [2026-06-25] Modified: app/content/loader.py — Extracted load_level_vocab helper (reused to validate writing target_vocab within a level)
+- [2026-06-25] Modified: app/assessment/models.py — Added WritingTask.target_vocab field (in-level vocab nudge)
+- [2026-06-25] Modified: app/assessment/loader.py — Within-level guard: target_vocab ids must resolve in the same level's vocab
+- [2026-06-25] Modified: app/assessment/grader.py — Thread target_vocab_fr into the grader prompt (reward use, never penalise omission)
+- [2026-06-25] Modified: app/assessment/api.py — Resolve target_vocab ids → French forms for the grader and the task payload
+- [2026-06-25] Modified: app/assessment/prompts/writing_grader.md — Note that target vocabulary is a nudge, not a requirement
+- [2026-06-25] Modified: content/a1/writing/*.yaml, content/a2/writing/*.yaml — Backfilled target_vocab on the 12 existing tasks
+- [2026-06-25] Created: content/a1/writing/section-a-shopping.yaml, section-b-seasons.yaml — New A1 writing tasks (shopping, seasons)
+- [2026-06-25] Created: content/a2/writing/section-a-doctor.yaml, section-b-public-transport.yaml — New A2 writing tasks (doctor, public transport)
+- [2026-06-25] Modified: web/src/api.ts — Added target_vocab_fr to WritingTaskSummary
+- [2026-06-25] Modified: web/src/screens/WritingTask.tsx — Render a "Try to use:" vocab hint chip row
+- [2026-06-25] Modified: tests/test_assessment.py — Tests for the within-level guard + grader target-word threading
 - [2026-06-25] Created: qa/rounds/022-plan.md — QA round 022: content validation for PR #17 (A2 Technology + Town themes), clean round — all 10 hypotheses refuted
 - [2026-06-24] Created: qa/rounds/019-plan.md — QA round 019: E2E suite widening validation (PR #10, clean round)
 

@@ -8,3 +8,4 @@ prompt: |
   Pendant les vacances, certaines personnes aiment voyager loin, d'autres préfèrent
   rester chez elles. Et vous, que préférez-vous ? Donnez votre opinion et justifiez-la
   avec des exemples concrets.
+target_vocab: [voyage, vacances, avion, visiter, sejour]

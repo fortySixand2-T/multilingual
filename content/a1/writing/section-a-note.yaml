@@ -7,3 +7,4 @@ max_words: 100
 prompt: |
   Vous quittez le bureau plus tôt aujourd'hui. Laissez un mot à un collègue :
   expliquez pourquoi vous partez, ce qu'il doit faire à votre place, et remerciez-le.
+target_vocab: [merci, aujourdhui, demain, heure]

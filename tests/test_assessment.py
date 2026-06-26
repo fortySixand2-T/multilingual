@@ -19,6 +19,7 @@ from app.api.auth import get_current_user
 from app.api.deps import get_ai_router
 from app.assessment.calibration import agreement, load_calibration
 from app.assessment.grader import GradingError, WritingGrader, extract_json, parse_feedback
+from app.assessment.loader import WritingError, load_tasks
 from app.assessment.models import WritingFeedback, WritingTask
 from app.assessment.sync import sync_tasks
 from app.db.session import get_session
@@ -260,3 +261,66 @@ def test_load_calibration_reads_samples():
     assert len(samples) == 2
     assert {s.expected_clb for s in samples} == {4, 7}
     assert all(s.text and s.task_id for s in samples)
+
+
+# --- target_vocab blend (within-level constraint) -----------------------------
+
+
+def _write_level(root: Path, level: str, *, vocab_ids: list[str], target_vocab: list[str]) -> None:
+    (root / level / "vocab").mkdir(parents=True)
+    (root / level / "writing").mkdir(parents=True)
+    cards = "\n".join(
+        f"- id: {v}\n  fr: {v}\n  en: {v}\n  pos: noun\n  tags: [t]" for v in vocab_ids
+    )
+    (root / level / "vocab" / "deck.yaml").write_text(cards, encoding="utf-8")
+    targets = ", ".join(target_vocab)
+    (root / level / "writing" / "t.yaml").write_text(
+        f"id: write-x\nlevel: {level}\nsection: A\ntitle: T\nprompt: p\nmin_words: 10\n"
+        f"target_vocab: [{targets}]\n",
+        encoding="utf-8",
+    )
+
+
+def test_target_vocab_in_level_loads():
+    with tempfile.TemporaryDirectory() as d:
+        root = Path(d)
+        _write_level(root, "a1", vocab_ids=["bonjour", "merci"], target_vocab=["bonjour"])
+        tasks = load_tasks(root, "a1")
+        assert tasks["write-x"].target_vocab == ["bonjour"]
+
+
+def test_target_vocab_out_of_level_rejected():
+    """A target_vocab id absent from *this* level's vocab fails the load — this is
+    what enforces the within-level constraint (a word from another level isn't here)."""
+    with tempfile.TemporaryDirectory() as d:
+        root = Path(d)
+        _write_level(root, "a1", vocab_ids=["bonjour"], target_vocab=["ordinateur"])
+        with pytest.raises(WritingError, match="ordinateur"):
+            load_tasks(root, "a1")
+
+
+def test_real_writing_tasks_target_vocab_within_level():
+    """Authoring guard: every shipped task's target_vocab resolves in its own level."""
+    for level in ("a1", "a2"):
+        tasks = load_tasks(CONTENT_ROOT, level)
+        assert tasks  # non-empty
+        # load_tasks would have raised on any out-of-level id; assert the blend exists.
+        assert any(t.target_vocab for t in tasks.values())
+
+
+def test_grader_includes_target_words_when_present():
+    system, msgs = WritingGrader(GoodRouter()).build_messages(
+        task_prompt="p", section="A", submission="s", target_vocab_fr=["soleil", "pluie"]
+    )
+    assert "soleil, pluie" in msgs[0].content
+    assert "Target vocabulary" in msgs[0].content
+
+
+def test_grader_prompt_unchanged_without_target_words():
+    grader = WritingGrader(GoodRouter())
+    _, with_empty = grader.build_messages(task_prompt="p", section="A", submission="s")
+    _, with_none = grader.build_messages(
+        task_prompt="p", section="A", submission="s", target_vocab_fr=[]
+    )
+    assert with_empty[0].content == with_none[0].content
+    assert "Target vocabulary" not in with_empty[0].content
