@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api, CompSetSummary } from "../api";
+import { useLevel } from "../level";
 
 export default function Comprehension() {
   const nav = useNavigate();
+  const { level } = useLevel();
   const [sets, setSets] = useState<CompSetSummary[] | null>(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    api.comprehensionSets("a1").then((r) => setSets(r.sets)).catch((e) => setError(e.message));
-  }, []);
+    setSets(null);
+    setError("");
+    api.comprehensionSets(level).then((r) => setSets(r.sets)).catch((e) => setError(e.message));
+  }, [level]);
 
   if (error) return <div className="card center">Couldn't load comprehension: {error}</div>;
   if (!sets) return <div className="muted">Loading…</div>;

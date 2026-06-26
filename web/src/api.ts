@@ -229,6 +229,7 @@ export type ExamSectionResult = {
 export type ExamAttemptSummary = {
   attempt_id: number;
   blueprint_id: string;
+  level: string;
   status: string;
   clb_report: ClbReport | null;
   started_at: string;
@@ -253,6 +254,7 @@ export const api = {
   login: (b: { email: string; password: string }) =>
     req<TokenResponse>("/auth/login", { method: "POST", body: JSON.stringify(b) }),
 
+  levels: () => req<{ levels: string[] }>("/content/levels"),
   path: (level = "a1") => req<PathView>(`/content/path?level=${encodeURIComponent(level)}`),
   lesson: (id: string) => req<Lesson>(`/content/lessons/${encodeURIComponent(id)}`),
   // Omit `level` to fetch every level's vocab at once (each card carries its level).

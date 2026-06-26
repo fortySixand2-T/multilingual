@@ -125,6 +125,12 @@ def test_path_endpoint_unknown_level_404():
     assert client.get("/content/path", params={"level": "zz"}).status_code == 404
 
 
+def test_levels_endpoint_lists_synced_levels():
+    body = client.get("/content/levels").json()
+    # fixture syncs only a1; the endpoint reflects what's actually in the DB
+    assert body["levels"] == ["a1"]
+
+
 def test_lesson_endpoint_returns_exercises():
     r = client.get("/content/lessons/greetings-01")
     assert r.status_code == 200

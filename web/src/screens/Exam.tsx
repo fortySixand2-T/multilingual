@@ -8,8 +8,10 @@ import {
   ExamBlueprintSummary,
   ExamSection,
 } from "../api";
+import { useLevel } from "../level";
 
 export default function Exam() {
+  const { level } = useLevel();
   const [blueprints, setBlueprints] = useState<ExamBlueprintSummary[]>([]);
   const [history, setHistory] = useState<ExamAttemptSummary[]>([]);
   const [attempt, setAttempt] = useState<{ id: number; blueprint: ExamBlueprint } | null>(null);
@@ -18,10 +20,19 @@ export default function Exam() {
   const [error, setError] = useState("");
 
   const loadLists = () => {
-    api.examBlueprints("a1").then((r) => setBlueprints(r.blueprints)).catch((e) => setError(e.message));
+    api.examBlueprints(level).then((r) => setBlueprints(r.blueprints)).catch((e) => setError(e.message));
     api.examHistory().then((r) => setHistory(r.attempts)).catch(() => {});
   };
-  useEffect(loadLists, []);
+  useEffect(() => {
+    // A level switch must drop any in-progress attempt / report view from the
+    // previous level, then reload that level's blueprints + history (qa-391).
+    setAttempt(null);
+    setRecorded({});
+    setReport(null);
+    setError("");
+    loadLists();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [level]);
 
   const start = async (id: string) => {
     setError("");
@@ -126,7 +137,7 @@ export default function Exam() {
             <button key={a.attempt_id} className="lesson-node" onClick={() => resume(a.attempt_id)}>
               <span className="node-dot available">↻</span>
               <span className="grow">
-                <div className="node-title">Resume mock</div>
+                <div className="node-title">Resume mock · {a.level.toUpperCase()}</div>
                 <div className="node-sub">started {new Date(a.started_at).toLocaleString()} · pick up where you left off</div>
               </span>
             </button>
@@ -140,7 +151,7 @@ export default function Exam() {
           <div className="stack">
             {history.filter((a) => a.clb_report).map((a) => (
               <div className="card" key={a.attempt_id}>
-                <div className="muted" style={{ fontSize: 13 }}>{new Date(a.started_at).toLocaleString()}</div>
+                <div className="muted" style={{ fontSize: 13 }}>{a.level.toUpperCase()} · {new Date(a.started_at).toLocaleString()}</div>
                 <ClbReportCard report={a.clb_report!} compact />
               </div>
             ))}

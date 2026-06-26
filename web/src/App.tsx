@@ -1,5 +1,6 @@
 import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./auth";
+import { LevelProvider, LevelSwitcher } from "./level";
 import Login from "./screens/Login";
 import Path from "./screens/Path";
 import Lesson from "./screens/Lesson";
@@ -21,6 +22,7 @@ export default function App() {
   if (!authed) return <Login />;
 
   return (
+    <LevelProvider>
     <div className="app">
       <header className="topbar">
         <div className="brand">
@@ -37,7 +39,10 @@ export default function App() {
           <NavLink to="/exam">Mock</NavLink>
           <NavLink to="/board">Group</NavLink>
         </nav>
-        <button className="link-btn" onClick={logout}>Log out</button>
+        <div className="topbar-right">
+          <LevelSwitcher />
+          <button className="link-btn" onClick={logout}>Log out</button>
+        </div>
       </header>
 
       <main className="content">
@@ -59,5 +64,6 @@ export default function App() {
         </Routes>
       </main>
     </div>
+    </LevelProvider>
   );
 }
