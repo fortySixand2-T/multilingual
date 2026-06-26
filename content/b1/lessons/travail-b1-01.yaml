@@ -1,0 +1,38 @@
+id: travail-b1-01
+title: "Applying for a job"
+grammar_point: "talking about job hunting (present tense + work vocabulary)"
+est_minutes: 6
+new_vocab: [candidature, recruteur, embauche, objectif]
+pass_threshold: 8.0
+exercises:
+  - id: travail-b1-01.e1
+    type: mcq
+    prompt: "« J'ai envoyé ma ___ pour le poste. » (I sent my application for the job.)"
+    options: [candidature, embauche, promotion]
+    answer: candidature
+    explain: "une candidature = a job application."
+
+  - id: travail-b1-01.e2
+    type: translate
+    prompt: "Translate: “the recruiter”"
+    answer: recruteur
+    accept: ["le recruteur"]
+
+  - id: travail-b1-01.e3
+    type: listen_type
+    audio_ref: b1/audio/embauche.mp3
+    answer: embauche
+    prompt: "Type the word you hear."
+
+  - id: travail-b1-01.e4
+    type: word_bank
+    prompt: "Build: “my main goal”"
+    tokens: [mon, objectif, principal, candidature]
+    answer: [mon, objectif, principal]
+
+  - id: travail-b1-01.e5
+    type: match_pairs
+    pairs:
+      - [candidature, "job application"]
+      - [recruteur, recruiter]
+      - [objectif, goal]

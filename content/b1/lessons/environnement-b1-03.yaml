@@ -1,0 +1,38 @@
+id: environnement-b1-03
+title: "Citizens & society — review"
+grammar_point: "consolidating environment vocabulary"
+est_minutes: 6
+new_vocab: [planete, nature, citoyen, solidarite]
+pass_threshold: 8.0
+exercises:
+  - id: environnement-b1-03.e1
+    type: mcq
+    prompt: "« Chaque ___ peut agir pour la planète. » (Every citizen can act for the planet.)"
+    options: [citoyen, déchet, climat]
+    answer: citoyen
+    explain: "un citoyen = a citizen."
+
+  - id: environnement-b1-03.e2
+    type: translate
+    prompt: "Translate: “nature”"
+    answer: nature
+    accept: ["la nature"]
+
+  - id: environnement-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/planete.mp3
+    answer: planète
+    prompt: "Type the word you hear."
+
+  - id: environnement-b1-03.e4
+    type: word_bank
+    prompt: "Build: “solidarity protects the planet”"
+    tokens: [la, solidarité, protège, la, planète, nature]
+    answer: [la, solidarité, protège, la, planète]
+
+  - id: environnement-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [planète, planet]
+      - [citoyen, citizen]
+      - [solidarité, solidarity]

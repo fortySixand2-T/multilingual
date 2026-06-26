@@ -1,0 +1,38 @@
+id: travail-b1-02
+title: "At the office"
+grammar_point: "responsibilities and ways of working"
+est_minutes: 6
+new_vocab: [promotion, responsabilite, teletravail, productivite]
+pass_threshold: 8.0
+exercises:
+  - id: travail-b1-02.e1
+    type: mcq
+    prompt: "« Depuis ma ___, je dirige une équipe. » (Since my promotion, I lead a team.)"
+    options: [promotion, embauche, candidature]
+    answer: promotion
+    explain: "une promotion = a promotion (a step up)."
+
+  - id: travail-b1-02.e2
+    type: translate
+    prompt: "Translate: “remote work”"
+    answer: télétravail
+    accept: ["le télétravail"]
+
+  - id: travail-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/responsabilite.mp3
+    answer: responsabilité
+    prompt: "Type the word you hear."
+
+  - id: travail-b1-02.e4
+    type: word_bank
+    prompt: "Build: “remote work improves productivity”"
+    tokens: [le, télétravail, améliore, la, productivité, responsabilité]
+    answer: [le, télétravail, améliore, la, productivité]
+
+  - id: travail-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [promotion, promotion]
+      - [responsabilité, responsibility]
+      - [productivité, productivity]

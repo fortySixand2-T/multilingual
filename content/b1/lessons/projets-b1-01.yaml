@@ -1,0 +1,38 @@
+id: projets-b1-01
+title: "Talking about the future"
+grammar_point: "futur simple (je réaliserai, l'avenir sera…)"
+est_minutes: 6
+new_vocab: [projet, avenir, but, realiser]
+pass_threshold: 8.0
+exercises:
+  - id: projets-b1-01.e1
+    type: mcq
+    prompt: "« L'année prochaine, je ___ mon projet. » (Next year I will carry out my project.)"
+    options: [réaliserai, réalise, réaliser]
+    answer: réaliserai
+    explain: "futur simple of réaliser, 1st person: je réaliserai."
+
+  - id: projets-b1-01.e2
+    type: translate
+    prompt: "Translate: “the future”"
+    answer: avenir
+    accept: ["l'avenir"]
+
+  - id: projets-b1-01.e3
+    type: listen_type
+    audio_ref: b1/audio/projet.mp3
+    answer: projet
+    prompt: "Type the word you hear."
+
+  - id: projets-b1-01.e4
+    type: word_bank
+    prompt: "Build: “I will reach my goal”"
+    tokens: [j, atteindrai, mon, but, projet]
+    answer: [j, atteindrai, mon, but]
+
+  - id: projets-b1-01.e5
+    type: match_pairs
+    pairs:
+      - [projet, "project, plan"]
+      - [avenir, future]
+      - [but, goal]

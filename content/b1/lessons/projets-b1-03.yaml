@@ -1,0 +1,38 @@
+id: projets-b1-03
+title: "Making decisions — review"
+grammar_point: "consolidating future-plans vocabulary"
+est_minutes: 6
+new_vocab: [etape, decision, changement, opportunite]
+pass_threshold: 8.0
+exercises:
+  - id: projets-b1-03.e1
+    type: mcq
+    prompt: "« C'est une belle ___ à ne pas manquer. » (It's a great opportunity not to miss.)"
+    options: [opportunité, étape, erreur]
+    answer: opportunité
+    explain: "une opportunité = an opportunity."
+
+  - id: projets-b1-03.e2
+    type: translate
+    prompt: "Translate: “the decision”"
+    answer: décision
+    accept: ["la décision"]
+
+  - id: projets-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/changement.mp3
+    answer: changement
+    prompt: "Type the word you hear."
+
+  - id: projets-b1-03.e4
+    type: word_bank
+    prompt: "Build: “the first step of the project”"
+    tokens: [la, première, étape, du, projet, décision]
+    answer: [la, première, étape, du, projet]
+
+  - id: projets-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [étape, "step, stage"]
+      - [décision, decision]
+      - [changement, change]

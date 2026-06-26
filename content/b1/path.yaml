@@ -1,0 +1,38 @@
+level: b1
+title: "B1 — Intermediate"
+units:
+  - id: b1.u1
+    title: "The world of work"
+    icon: briefcase
+    lessons: [travail-b1-01, travail-b1-02, travail-b1-03]
+    unlock: { type: none }
+
+  - id: b1.u2
+    title: "Media & news"
+    icon: news
+    lessons: [medias-b1-01, medias-b1-02, medias-b1-03]
+    unlock: { type: all_of, requires: [b1.u1] }
+
+  - id: b1.u3
+    title: "Plans & the future"
+    icon: target
+    lessons: [projets-b1-01, projets-b1-02, projets-b1-03]
+    unlock: { type: all_of, requires: [b1.u2] }
+
+  - id: b1.u4
+    title: "Advice & hypotheticals"
+    icon: bulb
+    lessons: [conseils-b1-01, conseils-b1-02, conseils-b1-03]
+    unlock: { type: all_of, requires: [b1.u3] }
+
+  - id: b1.u5
+    title: "Health & lifestyle"
+    icon: heart
+    lessons: [mode-de-vie-b1-01, mode-de-vie-b1-02, mode-de-vie-b1-03]
+    unlock: { type: all_of, requires: [b1.u4] }
+
+  - id: b1.u6
+    title: "Environment & society"
+    icon: leaf
+    lessons: [environnement-b1-01, environnement-b1-02, environnement-b1-03]
+    unlock: { type: all_of, requires: [b1.u5] }

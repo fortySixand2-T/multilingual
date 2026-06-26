@@ -1,0 +1,38 @@
+id: projets-b1-02
+title: "Ambitions & challenges"
+grammar_point: "futur simple with success and setbacks"
+est_minutes: 6
+new_vocab: [ambition, reussite, echec, defi]
+pass_threshold: 8.0
+exercises:
+  - id: projets-b1-02.e1
+    type: mcq
+    prompt: "« Ce ___ sera difficile, mais je vais essayer. » (This challenge will be hard, but I'll try.)"
+    options: [défi, échec, avenir]
+    answer: défi
+    explain: "un défi = a challenge."
+
+  - id: projets-b1-02.e2
+    type: translate
+    prompt: "Translate: “the success”"
+    answer: réussite
+    accept: ["la réussite"]
+
+  - id: projets-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/echec.mp3
+    answer: échec
+    prompt: "Type the word you hear."
+
+  - id: projets-b1-02.e4
+    type: word_bank
+    prompt: "Build: “my ambition will become a success”"
+    tokens: [mon, ambition, deviendra, une, réussite, échec]
+    answer: [mon, ambition, deviendra, une, réussite]
+
+  - id: projets-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [ambition, ambition]
+      - [réussite, success]
+      - [défi, challenge]

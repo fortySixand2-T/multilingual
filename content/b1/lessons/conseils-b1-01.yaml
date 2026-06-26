@@ -1,0 +1,38 @@
+id: conseils-b1-01
+title: "Giving advice"
+grammar_point: "conditionnel présent (tu devrais, je voudrais)"
+est_minutes: 6
+new_vocab: [conseil, solution, probleme, suggestion]
+pass_threshold: 8.0
+exercises:
+  - id: conseils-b1-01.e1
+    type: mcq
+    prompt: "« Tu ___ demander un conseil à ton patron. » (You should ask your boss for advice.)"
+    options: [devrais, dois, devras]
+    answer: devrais
+    explain: "conditionnel présent of devoir: tu devrais = you should."
+
+  - id: conseils-b1-01.e2
+    type: translate
+    prompt: "Translate: “the solution”"
+    answer: solution
+    accept: ["la solution"]
+
+  - id: conseils-b1-01.e3
+    type: listen_type
+    audio_ref: b1/audio/conseil.mp3
+    answer: conseil
+    prompt: "Type the word you hear."
+
+  - id: conseils-b1-01.e4
+    type: word_bank
+    prompt: "Build: “I would like a suggestion”"
+    tokens: [je, voudrais, une, suggestion, problème]
+    answer: [je, voudrais, une, suggestion]
+
+  - id: conseils-b1-01.e5
+    type: match_pairs
+    pairs:
+      - [conseil, advice]
+      - [solution, solution]
+      - [problème, problem]

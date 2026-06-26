@@ -1,0 +1,38 @@
+id: medias-b1-01
+title: "Following the news"
+grammar_point: "relative pronouns qui / que with media vocabulary"
+est_minutes: 6
+new_vocab: [actualite, journal, journaliste, information]
+pass_threshold: 8.0
+exercises:
+  - id: medias-b1-01.e1
+    type: mcq
+    prompt: "« Le journaliste ___ écrit cet article est connu. » (The journalist who writes this article is well known.)"
+    options: [qui, que, dont]
+    answer: qui
+    explain: "qui is the subject of the verb that follows (écrit)."
+
+  - id: medias-b1-01.e2
+    type: translate
+    prompt: "Translate: “the news” (current events)"
+    answer: actualité
+    accept: ["l'actualité", "les actualités"]
+
+  - id: medias-b1-01.e3
+    type: listen_type
+    audio_ref: b1/audio/journal.mp3
+    answer: journal
+    prompt: "Type the word you hear."
+
+  - id: medias-b1-01.e4
+    type: word_bank
+    prompt: "Build: “an information that I read”"
+    tokens: [une, information, que, je, lis, qui]
+    answer: [une, information, que, je, lis]
+
+  - id: medias-b1-01.e5
+    type: match_pairs
+    pairs:
+      - [actualité, "current events"]
+      - [journaliste, journalist]
+      - [information, information]

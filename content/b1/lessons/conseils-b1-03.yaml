@@ -1,0 +1,38 @@
+id: conseils-b1-03
+title: "Pros & cons — review"
+grammar_point: "consolidating advice vocabulary"
+est_minutes: 6
+new_vocab: [avantage, inconvenient, hypothese, erreur]
+pass_threshold: 8.0
+exercises:
+  - id: conseils-b1-03.e1
+    type: mcq
+    prompt: "« Chaque solution a un avantage et un ___. » (Every solution has an advantage and a drawback.)"
+    options: [inconvénient, conseil, choix]
+    answer: inconvénient
+    explain: "un inconvénient = a drawback, downside."
+
+  - id: conseils-b1-03.e2
+    type: translate
+    prompt: "Translate: “the mistake”"
+    answer: erreur
+    accept: ["l'erreur", "une erreur"]
+
+  - id: conseils-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/avantage.mp3
+    answer: avantage
+    prompt: "Type the word you hear."
+
+  - id: conseils-b1-03.e4
+    type: word_bank
+    prompt: "Build: “it's only a hypothesis”"
+    tokens: [c, est, seulement, une, hypothèse, erreur]
+    answer: [c, est, seulement, une, hypothèse]
+
+  - id: conseils-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [avantage, advantage]
+      - [inconvénient, drawback]
+      - [erreur, mistake]

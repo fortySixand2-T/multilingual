@@ -1,0 +1,38 @@
+id: travail-b1-03
+title: "Work & rights — review"
+grammar_point: "consolidating work vocabulary"
+est_minutes: 6
+new_vocab: [licenciement, freelance, syndicat, remuneration]
+pass_threshold: 8.0
+exercises:
+  - id: travail-b1-03.e1
+    type: mcq
+    prompt: "« Le ___ défend les droits des salariés. » (The union defends employees' rights.)"
+    options: [syndicat, licenciement, freelance]
+    answer: syndicat
+    explain: "un syndicat = a trade union."
+
+  - id: travail-b1-03.e2
+    type: translate
+    prompt: "Translate: “the pay”"
+    answer: rémunération
+    accept: ["la rémunération"]
+
+  - id: travail-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/licenciement.mp3
+    answer: licenciement
+    prompt: "Type the word you hear."
+
+  - id: travail-b1-03.e4
+    type: word_bank
+    prompt: "Build: “I work as a freelance”"
+    tokens: [je, travaille, comme, freelance, syndicat]
+    answer: [je, travaille, comme, freelance]
+
+  - id: travail-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [licenciement, dismissal]
+      - [freelance, freelance]
+      - [rémunération, pay]

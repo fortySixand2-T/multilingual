@@ -1,4 +1,9 @@
 # Changelog
+- [2026-06-25] Created: content/b1/path.yaml — B1 learn path: 6 chained units (work, media, future, advice, lifestyle, environment)
+- [2026-06-25] Created: content/b1/vocab/*.yaml — 6 B1 vocab decks, 72 cards (globally-unique ids, B1 themes)
+- [2026-06-25] Created: content/b1/lessons/*.yaml — 18 B1 lessons (3/unit) weaving futur/conditionnel/subjonctif/relatives/comparatives
+- [2026-06-25] Created: content/b1/audio/*.mp3 — 72 TTS clips for B1 vocab + listen_type refs (gen_audio.py b1)
+- [2026-06-25] Modified: tests/test_all_levels.py — Allow incrementally-built levels (skill content validated if present); assert completeness only for a1/a2
 - [2026-06-25] Modified: app/srs/api.py — Reflow qa-400 vocab dict to satisfy ruff E501 (line length)
 - [2026-06-25] Modified: app/srs/api.py — qa-400: added level field to SRS queue vocab dict
 - [2026-06-25] Modified: qa/issues/400-srs-queue-vocab-missing-level-field.md — set status to done

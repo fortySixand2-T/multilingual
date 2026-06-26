@@ -1,0 +1,38 @@
+id: conseils-b1-02
+title: "Weighing the risks"
+grammar_point: "conditionnel for hypothetical consequences"
+est_minutes: 6
+new_vocab: [choix, consequence, risque, prudence]
+pass_threshold: 8.0
+exercises:
+  - id: conseils-b1-02.e1
+    type: mcq
+    prompt: "« Sans ___, tu pourrais te blesser. » (Without caution, you could hurt yourself.)"
+    options: [prudence, choix, solution]
+    answer: prudence
+    explain: "la prudence = caution, care."
+
+  - id: conseils-b1-02.e2
+    type: translate
+    prompt: "Translate: “the risk”"
+    answer: risque
+    accept: ["le risque"]
+
+  - id: conseils-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/consequence.mp3
+    answer: conséquence
+    prompt: "Type the word you hear."
+
+  - id: conseils-b1-02.e4
+    type: word_bank
+    prompt: "Build: “every choice has a consequence”"
+    tokens: [chaque, choix, a, une, conséquence, risque]
+    answer: [chaque, choix, a, une, conséquence]
+
+  - id: conseils-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [choix, choice]
+      - [risque, risk]
+      - [prudence, caution]

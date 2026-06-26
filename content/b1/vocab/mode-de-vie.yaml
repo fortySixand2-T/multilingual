@@ -1,0 +1,71 @@
+- id: bien_etre
+  fr: bien-être
+  en: well-being
+  pos: noun
+  tags: [lifestyle]
+
+- id: equilibre
+  fr: équilibre
+  en: balance
+  pos: noun
+  tags: [lifestyle]
+
+- id: alimentation
+  fr: alimentation
+  en: "diet, nutrition"
+  pos: noun
+  tags: [lifestyle]
+
+- id: sommeil
+  fr: sommeil
+  en: sleep
+  pos: noun
+  tags: [lifestyle]
+
+- id: stress
+  fr: stress
+  en: stress
+  pos: noun
+  tags: [lifestyle]
+
+- id: detente
+  fr: détente
+  en: relaxation
+  pos: noun
+  tags: [lifestyle]
+
+- id: energie
+  fr: énergie
+  en: energy
+  pos: noun
+  tags: [lifestyle]
+
+- id: effort
+  fr: effort
+  en: effort
+  pos: noun
+  tags: [lifestyle]
+
+- id: volonte
+  fr: volonté
+  en: willpower
+  pos: noun
+  tags: [lifestyle]
+
+- id: forme
+  fr: forme
+  en: "fitness, shape"
+  pos: noun
+  tags: [lifestyle]
+
+- id: prevention
+  fr: prévention
+  en: prevention
+  pos: noun
+  tags: [lifestyle]
+
+- id: repos
+  fr: repos
+  en: rest
+  pos: noun
+  tags: [lifestyle]
