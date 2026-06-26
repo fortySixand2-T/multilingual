@@ -1,4 +1,5 @@
 # Changelog
+- [2026-06-25] Modified: app/srs/api.py — Reflow qa-400 vocab dict to satisfy ruff E501 (line length)
 - [2026-06-25] Modified: app/srs/api.py — qa-400: added level field to SRS queue vocab dict
 - [2026-06-25] Modified: qa/issues/400-srs-queue-vocab-missing-level-field.md — set status to done
 - [2026-06-25] Modified: qa/issues/391,392,393 — PM triage: validated all three issues, appended triage blocks, set status to validated

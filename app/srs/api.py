@@ -48,7 +48,11 @@ async def get_queue(
         # the Review screen never shows the play button for cards without an explicit
         # `audio:` field (i.e. almost all of them).
         vocab = {
-            r.id: {**r.data, "level": r.level, "audio": r.data.get("audio") or f"{r.level}/audio/{r.id}.mp3"}
+            r.id: {
+                **r.data,
+                "level": r.level,
+                "audio": r.data.get("audio") or f"{r.level}/audio/{r.id}.mp3",
+            }
             for r in rows
         }
     return {
