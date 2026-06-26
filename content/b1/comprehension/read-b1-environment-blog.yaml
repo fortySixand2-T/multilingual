@@ -1,0 +1,33 @@
+id: read-b1-environment-blog
+level: b1
+skill: reading
+title: "Mes gestes pour la planète"
+time_limit_seconds: 220
+pass_threshold: 0.6
+passage: |
+  Depuis un an, j'essaie de réduire mon impact sur l'environnement. J'ai d'abord
+  commencé par le recyclage, puis j'ai diminué ma consommation d'eau et
+  d'électricité. J'évite aussi le gaspillage alimentaire : je cuisine seulement ce
+  que je vais manger. Bien sûr, un seul citoyen ne peut pas tout changer, mais si
+  chacun fait un petit effort, l'effet sera plus grand. La solidarité entre
+  voisins aide beaucoup : nous partageons désormais une voiture pour aller
+  travailler.
+questions:
+  - id: read-b1-environment-blog.q1
+    prompt: "Par quoi l'auteur a-t-il commencé ?"
+    options: ["Le recyclage", "Le covoiturage", "Le jardinage"]
+    answer: "Le recyclage"
+    explain: "« J'ai d'abord commencé par le recyclage »."
+  - id: read-b1-environment-blog.q2
+    prompt: "Comment l'auteur évite-t-il le gaspillage alimentaire ?"
+    options:
+      - "Il cuisine seulement ce qu'il va manger"
+      - "Il mange au restaurant"
+      - "Il achète plus de nourriture"
+    answer: "Il cuisine seulement ce qu'il va manger"
+    explain: "« je cuisine seulement ce que je vais manger »."
+  - id: read-b1-environment-blog.q3
+    prompt: "Qu'est-ce que les voisins partagent maintenant ?"
+    options: ["Une voiture", "Un jardin", "Un appartement"]
+    answer: "Une voiture"
+    explain: "« nous partageons désormais une voiture pour aller travailler »."

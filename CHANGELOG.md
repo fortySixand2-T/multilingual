@@ -1,4 +1,8 @@
 # Changelog
+- [2026-06-26] Created: qa/rounds/027-plan.md — QA round 027: clean round, B1 comprehension + writing content verified sound
+- [2026-06-26] Created: content/b1/comprehension/*.yaml — 8 B1 comprehension sets (4 reading + 4 listening) themed to the 6 units
+- [2026-06-26] Created: content/b1/writing/*.yaml — 4 B1 writing tasks (2 Section A + 2 Section B) with in-level target_vocab
+- [2026-06-26] Created: content/b1/audio/listen-b1-*.mp3 — 4 TTS clips for B1 listening scripts (gen_audio.py b1)
 - [2026-06-25] Modified: content/b1/lessons/environnement-b1-01.yaml — Fix e4 word_bank prompt: "global warming" -> "warming" to match French answer (qa-402)
 - [2026-06-25] Created: content/b1/path.yaml — B1 learn path: 6 chained units (work, media, future, advice, lifestyle, environment)
 - [2026-06-25] Created: content/b1/vocab/*.yaml — 6 B1 vocab decks, 72 cards (globally-unique ids, B1 themes)

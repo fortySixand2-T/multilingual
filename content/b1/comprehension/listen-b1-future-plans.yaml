@@ -1,0 +1,37 @@
+id: listen-b1-future-plans
+level: b1
+skill: listening
+title: "Mes projets pour l'année"
+time_limit_seconds: 120
+audio_ref: b1/audio/listen-b1-future-plans.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  L'année prochaine, je réaliserai enfin un vieux projet : je suivrai une formation
+  pour changer de carrière. Ce sera un vrai défi, mais c'est une belle opportunité.
+  Au début, je garderai mon emploi actuel et j'étudierai le soir. Mon objectif,
+  c'est de réussir cette étape sans trop de stress. Si tout va bien, je trouverai un
+  nouveau travail dans deux ans.
+questions:
+  - id: listen-b1-future-plans.q1
+    prompt: "Quel est le projet de la personne ?"
+    options:
+      - "Suivre une formation pour changer de carrière"
+      - "Acheter une maison"
+      - "Partir en vacances"
+    answer: "Suivre une formation pour changer de carrière"
+    explain: "« je suivrai une formation pour changer de carrière »."
+  - id: listen-b1-future-plans.q2
+    prompt: "Que fera-t-elle au début ?"
+    options:
+      - "Garder son emploi et étudier le soir"
+      - "Arrêter de travailler"
+      - "Voyager à l'étranger"
+    answer: "Garder son emploi et étudier le soir"
+    explain: "« je garderai mon emploi actuel et j'étudierai le soir »."
+  - id: listen-b1-future-plans.q3
+    prompt: "Quand espère-t-elle trouver un nouveau travail ?"
+    options: ["Dans deux ans", "Le mois prochain", "Dans dix ans"]
+    answer: "Dans deux ans"
+    explain: "« je trouverai un nouveau travail dans deux ans »."

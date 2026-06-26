@@ -1,0 +1,32 @@
+id: read-b1-job-offer
+level: b1
+skill: reading
+title: "Une offre d'emploi"
+time_limit_seconds: 220
+pass_threshold: 0.6
+passage: |
+  Notre entreprise recherche un assistant administratif pour un poste à temps
+  plein. Le candidat idéal aura déjà une première expérience et le sens des
+  responsabilités. Nous offrons une rémunération intéressante, deux jours de
+  télétravail par semaine et de réelles possibilités de promotion. Pour postuler,
+  envoyez votre candidature avant le 30 mars. Le recruteur contactera ensuite les
+  personnes sélectionnées pour un entretien.
+questions:
+  - id: read-b1-job-offer.q1
+    prompt: "Combien de jours de télétravail sont proposés ?"
+    options: ["Deux jours par semaine", "Tous les jours", "Aucun"]
+    answer: "Deux jours par semaine"
+    explain: "« deux jours de télétravail par semaine »."
+  - id: read-b1-job-offer.q2
+    prompt: "Que doit-on faire avant le 30 mars ?"
+    options: ["Envoyer sa candidature", "Commencer le travail", "Appeler le recruteur"]
+    answer: "Envoyer sa candidature"
+    explain: "« envoyez votre candidature avant le 30 mars »."
+  - id: read-b1-job-offer.q3
+    prompt: "Que fera le recruteur ensuite ?"
+    options:
+      - "Il contactera les personnes sélectionnées"
+      - "Il publiera une autre offre"
+      - "Il augmentera la rémunération"
+    answer: "Il contactera les personnes sélectionnées"
+    explain: "« Le recruteur contactera ensuite les personnes sélectionnées »."
