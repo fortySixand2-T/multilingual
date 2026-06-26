@@ -1,0 +1,34 @@
+id: listen-b1-health-tips
+level: b1
+skill: listening
+title: "Conseils bien-être"
+time_limit_seconds: 120
+audio_ref: b1/audio/listen-b1-health-tips.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Pour rester en forme, il faut que vous trouviez un bon équilibre. D'abord, il est
+  important que vous dormiez assez : le sommeil réduit le stress. Ensuite, essayez
+  de faire un peu de sport chaque semaine ; même une promenade donne de l'énergie.
+  Enfin, prenez de vrais moments de détente. Avec un peu de volonté, ces petites
+  habitudes amélioreront votre bien-être.
+questions:
+  - id: listen-b1-health-tips.q1
+    prompt: "Que réduit le sommeil, selon le message ?"
+    options: ["Le stress", "L'énergie", "La forme"]
+    answer: "Le stress"
+    explain: "« le sommeil réduit le stress »."
+  - id: listen-b1-health-tips.q2
+    prompt: "Qu'est-ce qui donne de l'énergie ?"
+    options:
+      - "Une promenade"
+      - "Un café"
+      - "La télévision"
+    answer: "Une promenade"
+    explain: "« même une promenade donne de l'énergie »."
+  - id: listen-b1-health-tips.q3
+    prompt: "De quoi a-t-on besoin pour changer ses habitudes ?"
+    options: ["D'un peu de volonté", "De beaucoup d'argent", "D'un médecin"]
+    answer: "D'un peu de volonté"
+    explain: "« Avec un peu de volonté, ces petites habitudes amélioreront votre bien-être »."

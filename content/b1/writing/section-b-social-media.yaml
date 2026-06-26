@@ -1,0 +1,12 @@
+id: write-b1-social-media
+level: b1
+section: B
+title: "S'informer sur les réseaux sociaux"
+min_words: 180
+max_words: 300
+prompt: |
+  De plus en plus de personnes s'informent uniquement sur les réseaux sociaux.
+  Pensez-vous que c'est une bonne façon de suivre l'actualité ? Donnez votre
+  opinion dans un texte argumenté : présentez les avantages et les inconvénients,
+  et justifiez votre position avec des exemples concrets.
+target_vocab: [reseau_social, information, rumeur, influence, debat]

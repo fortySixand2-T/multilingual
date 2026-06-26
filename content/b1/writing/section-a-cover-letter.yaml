@@ -1,0 +1,11 @@
+id: write-b1-cover-letter
+level: b1
+section: A
+title: "Lettre de motivation"
+min_words: 80
+max_words: 150
+prompt: |
+  Vous avez vu une offre d'emploi qui vous intéresse. Écrivez un court courriel de
+  motivation au recruteur : présentez-vous, expliquez pourquoi ce poste vous
+  intéresse, parlez d'une expérience utile, et demandez un entretien.
+target_vocab: [candidature, objectif, responsabilite, embauche]

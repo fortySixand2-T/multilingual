@@ -1,0 +1,12 @@
+id: write-b1-environment
+level: b1
+section: B
+title: "Les gestes individuels et la planète"
+min_words: 180
+max_words: 300
+prompt: |
+  Certaines personnes pensent que les gestes individuels (recyclage, moins de
+  gaspillage) ne changent rien face aux grands problèmes écologiques. Êtes-vous
+  d'accord ? Donnez votre opinion dans un texte argumenté et justifiez-la avec des
+  exemples concrets de votre vie quotidienne.
+target_vocab: [environnement, pollution, recyclage, gaspillage, citoyen]

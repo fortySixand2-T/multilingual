@@ -1,0 +1,38 @@
+id: listen-b1-radio-news
+level: b1
+skill: listening
+title: "Le journal de la radio"
+time_limit_seconds: 120
+audio_ref: b1/audio/listen-b1-radio-news.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Voici les actualités de ce matin. En raison du réchauffement climatique, la ville
+  lance un nouveau programme de recyclage dès le mois prochain. Les habitants
+  pourront trier leurs déchets plus facilement grâce à de nouveaux bacs gratuits.
+  La mairie espère réduire le gaspillage et encourager les citoyens à mieux
+  consommer. Après la publicité, nous parlerons du débat sur les transports en
+  commun.
+questions:
+  - id: listen-b1-radio-news.q1
+    prompt: "Que lance la ville le mois prochain ?"
+    options:
+      - "Un programme de recyclage"
+      - "Une nouvelle chaîne de télévision"
+      - "Un journal gratuit"
+    answer: "Un programme de recyclage"
+    explain: "« la ville lance un nouveau programme de recyclage »."
+  - id: listen-b1-radio-news.q2
+    prompt: "Que reçoivent les habitants ?"
+    options: ["De nouveaux bacs gratuits", "De l'argent", "Une voiture"]
+    answer: "De nouveaux bacs gratuits"
+    explain: "« de nouveaux bacs gratuits »."
+  - id: listen-b1-radio-news.q3
+    prompt: "De quoi parlera-t-on après la publicité ?"
+    options:
+      - "Des transports en commun"
+      - "Du sport"
+      - "De la météo"
+    answer: "Des transports en commun"
+    explain: "« nous parlerons du débat sur les transports en commun »."

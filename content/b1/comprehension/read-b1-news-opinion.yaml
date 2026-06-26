@@ -1,0 +1,32 @@
+id: read-b1-news-opinion
+level: b1
+skill: reading
+title: "Les réseaux sociaux et l'information"
+time_limit_seconds: 240
+pass_threshold: 0.6
+passage: |
+  Aujourd'hui, beaucoup de gens s'informent uniquement sur les réseaux sociaux.
+  C'est rapide et gratuit, mais ce n'est pas toujours fiable. Une rumeur peut se
+  partager des milliers de fois en quelques heures, alors qu'une information
+  vérifiée par un journaliste demande plus de temps. Selon moi, il faut comparer
+  plusieurs sources avant de croire une nouvelle. La publicité et l'influence de
+  certains comptes rendent l'esprit critique encore plus nécessaire qu'avant.
+questions:
+  - id: read-b1-news-opinion.q1
+    prompt: "Pourquoi les gens utilisent-ils les réseaux sociaux pour s'informer ?"
+    options: ["C'est rapide et gratuit", "C'est toujours fiable", "C'est obligatoire"]
+    answer: "C'est rapide et gratuit"
+    explain: "« C'est rapide et gratuit, mais ce n'est pas toujours fiable »."
+  - id: read-b1-news-opinion.q2
+    prompt: "Que conseille l'auteur avant de croire une nouvelle ?"
+    options:
+      - "Comparer plusieurs sources"
+      - "Partager la nouvelle vite"
+      - "Suivre un seul compte"
+    answer: "Comparer plusieurs sources"
+    explain: "« il faut comparer plusieurs sources avant de croire une nouvelle »."
+  - id: read-b1-news-opinion.q3
+    prompt: "Selon le texte, qu'est-ce qui se partage très vite ?"
+    options: ["Une rumeur", "Une information vérifiée", "Un journal papier"]
+    answer: "Une rumeur"
+    explain: "« Une rumeur peut se partager des milliers de fois en quelques heures »."

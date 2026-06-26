@@ -1,0 +1,34 @@
+id: listen-b1-job-voicemail
+level: b1
+skill: listening
+title: "Message : un entretien"
+time_limit_seconds: 120
+audio_ref: b1/audio/listen-b1-job-voicemail.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Bonjour, c'est Madame Tremblay, du service de recrutement. J'ai bien reçu votre
+  candidature et votre profil nous intéresse beaucoup. Je vous propose un entretien
+  jeudi prochain à quatorze heures, dans nos bureaux du centre-ville. Apportez une
+  copie de votre CV. Si cette date ne vous convient pas, rappelez-moi avant
+  mercredi. Merci et à bientôt.
+questions:
+  - id: listen-b1-job-voicemail.q1
+    prompt: "Qui laisse ce message ?"
+    options:
+      - "Une recruteuse"
+      - "Une collègue"
+      - "Une cliente"
+    answer: "Une recruteuse"
+    explain: "« Madame Tremblay, du service de recrutement »."
+  - id: listen-b1-job-voicemail.q2
+    prompt: "Quand a lieu l'entretien ?"
+    options: ["Jeudi à 14 h", "Mercredi matin", "Vendredi à 16 h"]
+    answer: "Jeudi à 14 h"
+    explain: "« un entretien jeudi prochain à quatorze heures »."
+  - id: listen-b1-job-voicemail.q3
+    prompt: "Que faut-il apporter ?"
+    options: ["Une copie de son CV", "Une lettre de ses parents", "Un ordinateur"]
+    answer: "Une copie de son CV"
+    explain: "« Apportez une copie de votre CV »."

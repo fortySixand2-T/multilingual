@@ -1,0 +1,40 @@
+id: read-b1-advice-forum
+level: b1
+skill: reading
+title: "Forum : changer de carrière ?"
+time_limit_seconds: 240
+pass_threshold: 0.6
+passage: |
+  « Bonjour à tous. J'ai un bon poste, mais je rêve de changer de métier. Le
+  problème, c'est que ce changement représente un vrai risque financier. Que
+  feriez-vous à ma place ? »
+
+  Réponse de Marc : « Si j'étais toi, je ne prendrais pas de décision trop vite.
+  Tu devrais d'abord te former le soir et garder ton emploi actuel. Chaque choix a
+  des avantages et des inconvénients ; le plus important, c'est de préparer ton
+  projet avec prudence. »
+questions:
+  - id: read-b1-advice-forum.q1
+    prompt: "Quel est le problème de la première personne ?"
+    options:
+      - "Le changement représente un risque financier"
+      - "Elle a perdu son emploi"
+      - "Elle déteste ses collègues"
+    answer: "Le changement représente un risque financier"
+    explain: "« ce changement représente un vrai risque financier »."
+  - id: read-b1-advice-forum.q2
+    prompt: "Que conseille Marc de faire d'abord ?"
+    options:
+      - "Se former le soir et garder son emploi"
+      - "Démissionner immédiatement"
+      - "Oublier ce projet"
+    answer: "Se former le soir et garder son emploi"
+    explain: "« Tu devrais d'abord te former le soir et garder ton emploi actuel »."
+  - id: read-b1-advice-forum.q3
+    prompt: "Selon Marc, qu'est-ce qui est le plus important ?"
+    options:
+      - "Préparer son projet avec prudence"
+      - "Décider très vite"
+      - "Gagner plus d'argent"
+    answer: "Préparer son projet avec prudence"
+    explain: "« le plus important, c'est de préparer ton projet avec prudence »."

@@ -1,0 +1,12 @@
+id: write-b1-remote-request
+level: b1
+section: A
+title: "Demande de télétravail"
+min_words: 80
+max_words: 150
+prompt: |
+  Vous souhaitez travailler davantage à la maison. Écrivez un courriel à votre
+  responsable : expliquez votre demande, donnez deux arguments (par exemple sur la
+  productivité ou l'équilibre de vie), et proposez une organisation concrète pour
+  vos journées de télétravail.
+target_vocab: [teletravail, productivite, responsabilite, equilibre]
