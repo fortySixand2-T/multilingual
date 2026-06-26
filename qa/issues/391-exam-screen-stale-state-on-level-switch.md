@@ -32,3 +32,14 @@ The `useEffect` on `[level]` in `Exam.tsx` only calls `loadLists()` (lines 22-26
 
 ## Notes
 Compare with `Writing.tsx` lines 17-20 which resets `tasks` and `error` on level change, and `Comprehension.tsx` line 14 which resets `error`. The Exam screen is the only skill screen that omits this cleanup. The fix would be adding `setAttempt(null); setRecorded({}); setReport(null); setError("");` at the top of the `useEffect` body.
+
+## Triage
+- Explanation: The useEffect on [level] in Exam.tsx only called loadLists() without resetting attempt/recorded/report/error state. When the user switched levels, the previous level's in-progress attempt or finished report remained visible while blueprints silently reloaded in the background. The fix adds setAttempt(null), setRecorded({}), setReport(null), setError("") at the top of the [level] effect, matching the pattern used by Writing.tsx and Comprehension.tsx.
+- Against spec: Yes -- every skill screen should reset its view state on level change; the Exam screen was the sole exception, inconsistent with the rest of the app.
+- Verdict: validated
+- Rationale: A user switching levels would see stale A1 exam content under an A2 heading, creating confusion and potential data-integrity issues if they continued interacting with the wrong-level attempt.
+
+## Critic
+- Challenge: Could this be considered cosmetic or unlikely? The level switcher is a dropdown -- would a user really switch levels mid-exam? Verified the fix in Exam.tsx lines 26-35: the useEffect on [level] now resets attempt/recorded/report/error before calling loadLists(). This matches the pattern in Writing.tsx and Comprehension.tsx. Without the fix, the stale attempt view was genuinely reachable by any user who switches levels, and the old attempt remained fully interactive (a user could record sections from the wrong level's exam). That is a real functional bug, not cosmetic.
+- Holds up? Yes -- the fix is minimal (four setState calls), consistent with sibling screens, and addresses a real user-facing issue.
+- Final verdict: done
