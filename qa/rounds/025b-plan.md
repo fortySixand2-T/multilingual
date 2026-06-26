@@ -39,9 +39,9 @@ Round 025 filed three issues (391, 392, 393) and hit a session limit before PM/c
 
 ## Charters (per tester, with id blocks)
 
-- `edge-case-breaker` (ids 394–399): Chase H1 (provider failure/fallback), H2 (stale localStorage clamping), H3 (/content/levels validation), H5 (deep links), H8 (exam history labels). Also verify fixes 391/392/393 hold by exercising the exact repro steps from those issues. **Do not re-file 391/392/393** — they are fixed.
+- `edge-case-breaker` (ids 394-399): Chase H1 (provider failure/fallback), H2 (stale localStorage clamping), H3 (/content/levels validation), H5 (deep links), H8 (exam history labels). Also verify fixes 391/392/393 hold by exercising the exact repro steps from those issues. **Do not re-file 391/392/393** — they are fixed.
 
-- `returning-learner` (ids 400–409): Chase H4 (A2 content actually loads), H6 (A1 regression), H7 (vocab unaffected by level switch). Happy-path the level switcher: switch to A2, see A2 path/comp/writing, switch back to A1, verify everything still works. Check persistence across page reload.
+- `returning-learner` (ids 400-409): Chase H4 (A2 content actually loads), H6 (A1 regression), H7 (vocab unaffected by level switch). Happy-path the level switcher: switch to A2, see A2 path/comp/writing, switch back to A1, verify everything still works. Check persistence across page reload.
 
 ## Don't re-file (already settled)
 - 391 exam stale state on level switch — done (fixed)
@@ -61,4 +61,27 @@ Round 025 filed three issues (391, 392, 393) and hit a session limit before PM/c
 - Drill / Writing / Speaking 503 with no LLM provider — expected (needs Ollama)
 - Drill backend is a1-only (drill_a1 profile) — by design, full multi-level drill is a logged follow-up
 
-<!-- After the round, the planner notes each hypothesis: confirmed / refuted / untested. -->
+## Outcome
+
+| # | hypothesis | result | notes |
+|---|-----------|--------|-------|
+| H1 | Provider crash on /content/levels or /progress/me failure | REFUTED | Backend returns clean 401; frontend catches + falls back to a1 |
+| H2 | Stale localStorage level not clamped | REFUTED | level.tsx line 39 clamps correctly when stored level not in available set |
+| H3 | /content/levels duplicates/ordering/unauth | REFUTED | Returns ["a1","a2"], no duplicates, correct CEFR order, 401 when unauthed |
+| H4 | A2 content not actually different from A1 | REFUTED | All four screens (Path/Comp/Writing/Exam) return distinct A2 content |
+| H5 | Deep-linked sub-routes fail across levels | REFUTED | Individual lessons/comp sets resolve regardless of context level |
+| H6 | A1 regression with LevelProvider wrapping | REFUTED | Full A1 happy path works: path, lesson, comprehension, writing, exam, vocab |
+| H7 | Vocab decks affected by level switch | REFUTED | /content/vocab (no level param) returns 394 cards from both a1+a2 |
+| H8 | Exam history level labels (393 fix) | REFUTED | level field present on all attempts, correctly distinguishes a1/a2 |
+
+New finding (not hypothesized): issue 400 -- SRS queue vocab missing level field. Fixed.
+
+## Issues filed
+
+| id | title | final status | notes |
+|----|-------|-------------|-------|
+| 391 | Exam stale state on level switch | done | pre-existing fix confirmed by PM+critic |
+| 392 | Drill hardcodes A1, ignores switcher | done | pre-existing fix confirmed by PM+critic |
+| 393 | Exam history missing level label | done | pre-existing fix confirmed by PM+critic |
+| 394 | Level-filtered endpoints accept empty-string level | rejected | by-design REST semantics; collection=200+empty, singular=404 |
+| 400 | SRS queue vocab missing level field | done | one-line fix in app/srs/api.py; add "level": r.level |
