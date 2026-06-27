@@ -69,3 +69,39 @@
   en: influence
   pos: noun
   tags: [media]
+
+- id: presse
+  fr: presse
+  en: "the press"
+  pos: noun
+  tags: [media]
+
+- id: reportage
+  fr: reportage
+  en: "report, news story"
+  pos: noun
+  tags: [media]
+
+- id: censure
+  fr: censure
+  en: censorship
+  pos: noun
+  tags: [media]
+
+- id: desinformation
+  fr: désinformation
+  en: disinformation
+  pos: noun
+  tags: [media]
+
+- id: audience
+  fr: audience
+  en: "audience, viewership"
+  pos: noun
+  tags: [media]
+
+- id: source
+  fr: source
+  en: source
+  pos: noun
+  tags: [media]

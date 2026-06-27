@@ -69,3 +69,39 @@
   en: caution
   pos: noun
   tags: [advice]
+
+- id: recommandation
+  fr: recommandation
+  en: recommendation
+  pos: noun
+  tags: [advice]
+
+- id: alternative
+  fr: alternative
+  en: alternative
+  pos: noun
+  tags: [advice]
+
+- id: precaution
+  fr: précaution
+  en: precaution
+  pos: noun
+  tags: [advice]
+
+- id: doute
+  fr: doute
+  en: doubt
+  pos: noun
+  tags: [advice]
+
+- id: compromis
+  fr: compromis
+  en: compromise
+  pos: noun
+  tags: [advice]
+
+- id: bilan
+  fr: bilan
+  en: "assessment, review"
+  pos: noun
+  tags: [advice]

@@ -69,3 +69,39 @@
   en: "to achieve, carry out"
   pos: verb
   tags: [future]
+
+- id: planification
+  fr: planification
+  en: planning
+  pos: noun
+  tags: [plans]
+
+- id: motivation
+  fr: motivation
+  en: motivation
+  pos: noun
+  tags: [plans]
+
+- id: perseverance
+  fr: persévérance
+  en: perseverance
+  pos: noun
+  tags: [plans]
+
+- id: obstacle
+  fr: obstacle
+  en: obstacle
+  pos: noun
+  tags: [plans]
+
+- id: progres
+  fr: progrès
+  en: progress
+  pos: noun
+  tags: [plans]
+
+- id: priorite
+  fr: priorité
+  en: priority
+  pos: noun
+  tags: [plans]

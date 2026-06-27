@@ -452,3 +452,6 @@
 - [2026-06-26] Modified: qa/issues/403-exam-section-overwrite-allows-score-gaming.md — Critic: rejected (duplicate of 030, no new angle)
 - [2026-06-26] Modified: qa/issues/404-b1-listening-sets-all-allow-replay.md — Critic: deferred (client-only flag, content-depth work for later phase)
 - [2026-06-26] Modified: qa/issues/405-mock3-writing-tasks-all-duplicated.md — Critic: rejected (proposed fix does not reduce overlap, pure churn)
+- [2026-06-26] Modified: content/b1/vocab/*.yaml — Deepened all 6 B1 decks 12→18 cards (+36 B1 words)
+- [2026-06-26] Modified: content/b1/lessons/*-b1-03.yaml — Wired the 36 new cards into each theme's review lesson new_vocab
+- [2026-06-26] Created: content/b1/audio/*.mp3 — 36 new TTS pronunciation clips for the deepened B1 vocab

@@ -69,3 +69,39 @@
   en: rest
   pos: noun
   tags: [lifestyle]
+
+- id: epanouissement
+  fr: épanouissement
+  en: "fulfilment, flourishing"
+  pos: noun
+  tags: [lifestyle]
+
+- id: exercice
+  fr: exercice
+  en: exercise
+  pos: noun
+  tags: [lifestyle]
+
+- id: surmenage
+  fr: surmenage
+  en: "burnout, overwork"
+  pos: noun
+  tags: [lifestyle]
+
+- id: hygiene
+  fr: hygiène
+  en: hygiene
+  pos: noun
+  tags: [lifestyle]
+
+- id: vitalite
+  fr: vitalité
+  en: vitality
+  pos: noun
+  tags: [lifestyle]
+
+- id: sedentarite
+  fr: sédentarité
+  en: "sedentary lifestyle"
+  pos: noun
+  tags: [lifestyle]
