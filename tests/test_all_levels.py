@@ -25,7 +25,7 @@ def test_at_least_a1_and_a2_present():
 # Levels expected to be content-complete (every skill authored). A level can exist
 # with only its learn path while the other skills are still being authored (a B1 is
 # built up across several PRs), so completeness is asserted only for these.
-COMPLETE_LEVELS = ["a1", "a2"]
+COMPLETE_LEVELS = ["a1", "a2", "b1"]
 
 
 @pytest.mark.parametrize("level", LEVELS)

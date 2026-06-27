@@ -1,0 +1,19 @@
+id: b1-mock-3
+level: b1
+title: "TEF Canada mock — B1 practice (conseils, santé & avenir)"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-b1-advice-forum
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-b1-health-tips
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b1-remote-request, write-b1-social-media]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Un ami veut changer de mode de vie pour être en meilleure santé. Quels conseils lui donneriez-vous ?"
+      - "Comment imaginez-vous votre vie dans dix ans ? Parlez de vos projets personnels et professionnels."

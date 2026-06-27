@@ -45,8 +45,8 @@ export default function globalSetup() {
   }
   console.log("[e2e] migrating fresh test DB →", DB_FILE);
   run(MIGRATE_CMD);
-  // Seed a1 + a2 so the level switcher has something to switch between.
-  for (const level of ["a1", "a2"]) {
+  // Seed a1 + a2 + b1 so the level switcher has the full set to switch between.
+  for (const level of ["a1", "a2", "b1"]) {
     for (const m of SYNC_MODULES) {
       console.log("[e2e] syncing", m, level);
       run(`${PYTHON} -m ${m} ${level}`);

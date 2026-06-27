@@ -433,3 +433,8 @@
 - [2026-06-25] Modified: qa/issues/402-word-bank-global-warming-missing-climatique.md — Triage: validated (prompt/answer mismatch teaches incorrect translation)
 - [2026-06-25] Modified: qa/issues/401-match-pairs-en-truncated-vs-vocab-deck.md — Appended critic block, upheld PM rejection (by-design brevity)
 - [2026-06-25] Modified: qa/issues/402-word-bank-global-warming-missing-climatique.md — Appended critic block, upheld PM validation (real content error)
+- [2026-06-26] Created: content/b1/exam/mock-1.yaml — B1 mock (travail): job-offer reading, job-voicemail listening, cover-letter+social-media writing, 2 speaking prompts
+- [2026-06-26] Created: content/b1/exam/mock-2.yaml — B1 mock (environnement & médias): environment-blog reading, radio-news listening, remote-request+environment writing, speaking
+- [2026-06-26] Created: content/b1/exam/mock-3.yaml — B1 mock (conseils, santé & avenir): advice-forum reading, health-tips listening, remote-request+social-media writing, speaking
+- [2026-06-26] Modified: tests/test_all_levels.py — promote b1 into COMPLETE_LEVELS (now has every skill + blueprints)
+- [2026-06-26] Modified: web/e2e/global-setup.ts — seed b1 alongside a1/a2 so the switcher exposes B1 end-to-end
