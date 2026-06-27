@@ -1,0 +1,19 @@
+id: b1-mock-2
+level: b1
+title: "TEF Canada mock — B1 practice (environnement & médias)"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-b1-environment-blog
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-b1-radio-news
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b1-remote-request, write-b1-environment]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Quels gestes faites-vous au quotidien pour protéger l'environnement ? Expliquez s'ils sont utiles."
+      - "Pensez-vous que les médias d'aujourd'hui informent bien le public ? Donnez votre avis et des exemples."

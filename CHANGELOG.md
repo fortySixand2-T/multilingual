@@ -1,4 +1,7 @@
 # Changelog
+- [2026-06-26] Created: qa/rounds/028-plan.md — QA round 028: clean round, B1 mock go-live verified sound (all 7 hypotheses refuted)
+- [2026-06-26] Deleted: qa/issues/413-b1-exam-blueprints-not-synced.md — removed (not a code bug, sync not run)
+- [2026-06-26] Deleted: qa/issues/414-exam-section-double-submit-overwrites-score.md — removed (duplicate of 030)
 - [2026-06-26] Created: qa/rounds/027-plan.md — QA round 027: clean round, B1 comprehension + writing content verified sound
 - [2026-06-26] Created: content/b1/comprehension/*.yaml — 8 B1 comprehension sets (4 reading + 4 listening) themed to the 6 units
 - [2026-06-26] Created: content/b1/writing/*.yaml — 4 B1 writing tasks (2 Section A + 2 Section B) with in-level target_vocab
@@ -433,3 +436,19 @@
 - [2026-06-25] Modified: qa/issues/402-word-bank-global-warming-missing-climatique.md — Triage: validated (prompt/answer mismatch teaches incorrect translation)
 - [2026-06-25] Modified: qa/issues/401-match-pairs-en-truncated-vs-vocab-deck.md — Appended critic block, upheld PM rejection (by-design brevity)
 - [2026-06-25] Modified: qa/issues/402-word-bank-global-warming-missing-climatique.md — Appended critic block, upheld PM validation (real content error)
+- [2026-06-26] Created: content/b1/exam/mock-1.yaml — B1 mock (travail): job-offer reading, job-voicemail listening, cover-letter+social-media writing, 2 speaking prompts
+- [2026-06-26] Created: content/b1/exam/mock-2.yaml — B1 mock (environnement & médias): environment-blog reading, radio-news listening, remote-request+environment writing, speaking
+- [2026-06-26] Created: content/b1/exam/mock-3.yaml — B1 mock (conseils, santé & avenir): advice-forum reading, health-tips listening, remote-request+social-media writing, speaking
+- [2026-06-26] Modified: tests/test_all_levels.py — promote b1 into COMPLETE_LEVELS (now has every skill + blueprints)
+- [2026-06-26] Modified: web/e2e/global-setup.ts — seed b1 alongside a1/a2 so the switcher exposes B1 end-to-end
+- [2026-06-26] Created: qa/issues/413-b1-exam-blueprints-not-synced.md — QA round 028: B1 exam blueprints not synced to DB (blocker)
+- [2026-06-26] Created: qa/issues/414-exam-section-double-submit-overwrites-score.md — QA round 028: section double-submit silently overwrites score
+- [2026-06-26] Created: qa/issues/403-exam-section-overwrite-allows-score-gaming.md — QA issue: exam section can be re-submitted to game scores
+- [2026-06-26] Created: qa/issues/404-b1-listening-sets-all-allow-replay.md — QA issue: all B1 listening sets allow replay, no exam-realistic no-replay
+- [2026-06-26] Created: qa/issues/405-mock3-writing-tasks-all-duplicated.md — QA issue: mock-3 writing tasks entirely duplicated from mock-1 and mock-2
+- [2026-06-26] Modified: qa/issues/403-exam-section-overwrite-allows-score-gaming.md — Triage: rejected (duplicate of issue 030)
+- [2026-06-26] Modified: qa/issues/404-b1-listening-sets-all-allow-replay.md — Triage: validated (B1 content gap, no no-replay listening sets)
+- [2026-06-26] Modified: qa/issues/405-mock3-writing-tasks-all-duplicated.md — Triage: validated (low, mock-3 writing task pairing suboptimal)
+- [2026-06-26] Modified: qa/issues/403-exam-section-overwrite-allows-score-gaming.md — Critic: rejected (duplicate of 030, no new angle)
+- [2026-06-26] Modified: qa/issues/404-b1-listening-sets-all-allow-replay.md — Critic: deferred (client-only flag, content-depth work for later phase)
+- [2026-06-26] Modified: qa/issues/405-mock3-writing-tasks-all-duplicated.md — Critic: rejected (proposed fix does not reduce overlap, pure churn)

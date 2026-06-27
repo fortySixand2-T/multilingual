@@ -1,0 +1,19 @@
+id: b1-mock-1
+level: b1
+title: "TEF Canada mock — B1 practice (travail)"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-b1-job-offer
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-b1-job-voicemail
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b1-cover-letter, write-b1-social-media]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Présentez un emploi que vous aimeriez occuper : quelles sont les tâches, et pourquoi ce poste vous intéresse-t-il ?"
+      - "Selon vous, vaut-il mieux travailler dans une grande entreprise ou dans une petite ? Justifiez votre point de vue."
