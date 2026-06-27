@@ -1,0 +1,107 @@
+- id: formation
+  fr: formation
+  en: "training, education"
+  pos: noun
+  tags: [education]
+
+- id: cursus
+  fr: cursus
+  en: "course of study"
+  pos: noun
+  tags: [education]
+
+- id: matiere
+  fr: matière
+  en: "school subject"
+  pos: noun
+  tags: [education]
+
+- id: apprentissage
+  fr: apprentissage
+  en: "learning, apprenticeship"
+  pos: noun
+  tags: [education]
+
+- id: connaissance
+  fr: connaissance
+  en: knowledge
+  pos: noun
+  tags: [education]
+
+- id: examen
+  fr: examen
+  en: exam
+  pos: noun
+  tags: [education]
+
+- id: bourse
+  fr: bourse
+  en: "scholarship, grant"
+  pos: noun
+  tags: [education]
+
+- id: faculte
+  fr: faculté
+  en: "faculty (university)"
+  pos: noun
+  tags: [education]
+
+- id: memoire
+  fr: mémoire
+  en: "thesis, dissertation"
+  pos: noun
+  tags: [education]
+
+- id: recherche
+  fr: recherche
+  en: research
+  pos: noun
+  tags: [education]
+
+- id: enseignement
+  fr: enseignement
+  en: teaching
+  pos: noun
+  tags: [education]
+
+- id: enseignant
+  fr: enseignant
+  en: teacher
+  pos: noun
+  tags: [education]
+
+- id: inscription
+  fr: inscription
+  en: "enrolment, registration"
+  pos: noun
+  tags: [education]
+
+- id: niveau
+  fr: niveau
+  en: level
+  pos: noun
+  tags: [education]
+
+- id: autonomie
+  fr: autonomie
+  en: autonomy
+  pos: noun
+  tags: [education]
+
+- id: pedagogie
+  fr: pédagogie
+  en: pedagogy
+  pos: noun
+  tags: [education]
+
+- id: savoir
+  fr: savoir
+  en: "knowledge, know-how"
+  pos: noun
+  tags: [education]
+
+- id: etudes
+  fr: études
+  en: studies
+  pos: noun
+  tags: [education]

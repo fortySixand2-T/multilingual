@@ -1,0 +1,107 @@
+- id: logement
+  fr: logement
+  en: "housing, accommodation"
+  pos: noun
+  tags: [housing]
+
+- id: caution
+  fr: caution
+  en: "security deposit"
+  pos: noun
+  tags: [housing]
+
+- id: locataire
+  fr: locataire
+  en: tenant
+  pos: noun
+  tags: [housing]
+
+- id: proprietaire
+  fr: propriétaire
+  en: "owner, landlord"
+  pos: noun
+  tags: [housing]
+
+- id: bail
+  fr: bail
+  en: lease
+  pos: noun
+  tags: [housing]
+
+- id: immeuble
+  fr: immeuble
+  en: "apartment building"
+  pos: noun
+  tags: [housing]
+
+- id: voisinage
+  fr: voisinage
+  en: "vicinity, neighbours"
+  pos: noun
+  tags: [housing]
+
+- id: colocation
+  fr: colocation
+  en: "flatshare, shared housing"
+  pos: noun
+  tags: [housing]
+
+- id: demenagement
+  fr: déménagement
+  en: "moving house"
+  pos: noun
+  tags: [housing]
+
+- id: charges
+  fr: charges
+  en: "service charges, utilities"
+  pos: noun
+  tags: [housing]
+
+- id: agence_immobiliere
+  fr: agence immobilière
+  en: "real estate agency"
+  pos: noun
+  tags: [housing]
+
+- id: surface
+  fr: surface
+  en: "floor area"
+  pos: noun
+  tags: [housing]
+
+- id: chauffage
+  fr: chauffage
+  en: heating
+  pos: noun
+  tags: [housing]
+
+- id: ameublement
+  fr: ameublement
+  en: furnishings
+  pos: noun
+  tags: [housing]
+
+- id: emmenager
+  fr: emménager
+  en: "to move in"
+  pos: verb
+  tags: [housing]
+
+- id: hypotheque
+  fr: hypothèque
+  en: mortgage
+  pos: noun
+  tags: [housing]
+
+- id: banlieue
+  fr: banlieue
+  en: suburb
+  pos: noun
+  tags: [housing]
+
+- id: copropriete
+  fr: copropriété
+  en: "co-ownership, condo"
+  pos: noun
+  tags: [housing]

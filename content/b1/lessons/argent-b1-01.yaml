@@ -1,0 +1,38 @@
+id: argent-b1-01
+title: "Managing a budget"
+grammar_point: "le comparatif (moins cher, plus économique)"
+est_minutes: 6
+new_vocab: [budget, depense, epargne, credit]
+pass_threshold: 8.0
+exercises:
+  - id: argent-b1-01.e1
+    type: mcq
+    prompt: "« Ce modèle est ___ cher que l'autre. » (less expensive than the other)"
+    options: [moins, plus, très]
+    answer: moins
+    explain: "comparatif d'infériorité: moins … que = less … than."
+
+  - id: argent-b1-01.e2
+    type: translate
+    prompt: "Translate: “savings”"
+    answer: épargne
+    accept: ["l'épargne", "epargne"]
+
+  - id: argent-b1-01.e3
+    type: listen_type
+    audio_ref: b1/audio/depense.mp3
+    answer: dépense
+    prompt: "Type the word you hear."
+
+  - id: argent-b1-01.e4
+    type: word_bank
+    prompt: "Build: “I follow my budget”"
+    tokens: [je, suis, mon, budget, crédit]
+    answer: [je, suis, mon, budget]
+
+  - id: argent-b1-01.e5
+    type: match_pairs
+    pairs:
+      - [budget, budget]
+      - [dépense, expense]
+      - [épargne, savings]

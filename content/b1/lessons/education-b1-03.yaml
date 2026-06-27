@@ -1,0 +1,38 @@
+id: education-b1-03
+title: "Research and learning (review)"
+grammar_point: "révision : le monde des études"
+est_minutes: 7
+new_vocab: [memoire, recherche, enseignement, enseignant, inscription, niveau, autonomie, pedagogie, savoir, etudes]
+pass_threshold: 8.0
+exercises:
+  - id: education-b1-03.e1
+    type: mcq
+    prompt: "« Mon ___ porte sur l'environnement. » (My thesis is about the environment.)"
+    options: [mémoire, examen, niveau]
+    answer: mémoire
+    explain: "un mémoire = a thesis / dissertation."
+
+  - id: education-b1-03.e2
+    type: translate
+    prompt: "Translate: “the studies”"
+    answer: études
+    accept: ["les études"]
+
+  - id: education-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/recherche.mp3
+    answer: recherche
+    prompt: "Type the word you hear."
+
+  - id: education-b1-03.e4
+    type: word_bank
+    prompt: "Build: “I work independently”"
+    tokens: [je, travaille, en, autonomie, niveau]
+    answer: [je, travaille, en, autonomie]
+
+  - id: education-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [enseignant, teacher]
+      - [recherche, research]
+      - [niveau, level]

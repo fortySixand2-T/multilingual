@@ -455,3 +455,7 @@
 - [2026-06-26] Modified: content/b1/vocab/*.yaml — Deepened all 6 B1 decks 12→18 cards (+36 B1 words)
 - [2026-06-26] Modified: content/b1/lessons/*-b1-03.yaml — Wired the 36 new cards into each theme's review lesson new_vocab
 - [2026-06-26] Created: content/b1/audio/*.mp3 — 36 new TTS pronunciation clips for the deepened B1 vocab
+- [2026-06-26] Created: content/b1/vocab/{education,logement,argent,immigration}.yaml — 4 new B1 themes (72 cards)
+- [2026-06-26] Created: content/b1/lessons/{education,logement,argent,immigration}-b1-0{1,2,3}.yaml — 12 lessons for the new B1 units
+- [2026-06-26] Modified: content/b1/path.yaml — Added B1 units u7–u10 (Education, Housing, Money, Immigration)
+- [2026-06-26] Created: content/b1/audio/*.mp3 — 72 TTS clips for the new B1 theme vocab

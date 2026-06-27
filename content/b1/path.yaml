@@ -36,3 +36,27 @@ units:
     icon: leaf
     lessons: [environnement-b1-01, environnement-b1-02, environnement-b1-03]
     unlock: { type: all_of, requires: [b1.u5] }
+
+  - id: b1.u7
+    title: "Education & training"
+    icon: book
+    lessons: [education-b1-01, education-b1-02, education-b1-03]
+    unlock: { type: all_of, requires: [b1.u6] }
+
+  - id: b1.u8
+    title: "Housing"
+    icon: home
+    lessons: [logement-b1-01, logement-b1-02, logement-b1-03]
+    unlock: { type: all_of, requires: [b1.u7] }
+
+  - id: b1.u9
+    title: "Money & consumption"
+    icon: wallet
+    lessons: [argent-b1-01, argent-b1-02, argent-b1-03]
+    unlock: { type: all_of, requires: [b1.u8] }
+
+  - id: b1.u10
+    title: "Immigration & citizenship"
+    icon: globe
+    lessons: [immigration-b1-01, immigration-b1-02, immigration-b1-03]
+    unlock: { type: all_of, requires: [b1.u9] }

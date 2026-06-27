@@ -1,0 +1,38 @@
+id: immigration-b1-02
+title: "Permits and integration"
+grammar_point: "le pronom relatif où (le pays où je vis)"
+est_minutes: 6
+new_vocab: [nationalite, visa, permis_travail, integration]
+pass_threshold: 8.0
+exercises:
+  - id: immigration-b1-02.e1
+    type: mcq
+    prompt: "« C'est le pays ___ je veux vivre. » (the country where I want to live)"
+    options: [où, que, qui]
+    answer: où
+    explain: "« où » is the relative pronoun for place: le pays où je vis."
+
+  - id: immigration-b1-02.e2
+    type: translate
+    prompt: "Translate: “nationality”"
+    answer: nationalité
+    accept: ["la nationalité", "nationalite"]
+
+  - id: immigration-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/visa.mp3
+    answer: visa
+    prompt: "Type the word you hear."
+
+  - id: immigration-b1-02.e4
+    type: word_bank
+    prompt: "Build: “I have a work permit”"
+    tokens: [j, ai, un, permis, de, travail]
+    answer: [j, ai, un, permis, de, travail]
+
+  - id: immigration-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [nationalité, nationality]
+      - [visa, visa]
+      - [intégration, integration]

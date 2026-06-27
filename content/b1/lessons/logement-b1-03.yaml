@@ -1,0 +1,38 @@
+id: logement-b1-03
+title: "Moving and ownership (review)"
+grammar_point: "révision : le logement"
+est_minutes: 7
+new_vocab: [demenagement, charges, agence_immobiliere, surface, chauffage, ameublement, emmenager, hypotheque, banlieue, copropriete]
+pass_threshold: 8.0
+exercises:
+  - id: logement-b1-03.e1
+    type: mcq
+    prompt: "« Le ___ est compris dans le loyer. » (Heating is included in the rent.)"
+    options: [chauffage, déménagement, bail]
+    answer: chauffage
+    explain: "le chauffage = heating."
+
+  - id: logement-b1-03.e2
+    type: translate
+    prompt: "Translate: “to move in”"
+    answer: emménager
+    accept: ["emmenager"]
+
+  - id: logement-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/banlieue.mp3
+    answer: banlieue
+    prompt: "Type the word you hear."
+
+  - id: logement-b1-03.e4
+    type: word_bank
+    prompt: "Build: “the floor area of the flat”"
+    tokens: [la, surface, de, l, appartement, charges]
+    answer: [la, surface, de, l, appartement]
+
+  - id: logement-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [déménagement, "moving house"]
+      - [chauffage, heating]
+      - [banlieue, suburb]

@@ -1,0 +1,38 @@
+id: education-b1-01
+title: "Studying and training"
+grammar_point: "le subjonctif présent (il faut que je réussisse)"
+est_minutes: 6
+new_vocab: [formation, cursus, matiere, apprentissage]
+pass_threshold: 8.0
+exercises:
+  - id: education-b1-01.e1
+    type: mcq
+    prompt: "« Il faut que je ___ une formation. » (I must do a training course.)"
+    options: [fasse, fais, faire]
+    answer: fasse
+    explain: "After « il faut que » the verb is in the subjonctif: que je fasse."
+
+  - id: education-b1-01.e2
+    type: translate
+    prompt: "Translate: “a course of study”"
+    answer: cursus
+    accept: ["un cursus", "le cursus"]
+
+  - id: education-b1-01.e3
+    type: listen_type
+    audio_ref: b1/audio/matiere.mp3
+    answer: matière
+    prompt: "Type the word you hear."
+
+  - id: education-b1-01.e4
+    type: word_bank
+    prompt: "Build: “I like this subject”"
+    tokens: [j, aime, cette, matière, matières]
+    answer: [j, aime, cette, matière]
+
+  - id: education-b1-01.e5
+    type: match_pairs
+    pairs:
+      - [formation, "training, education"]
+      - [cursus, "course of study"]
+      - [apprentissage, "learning, apprenticeship"]

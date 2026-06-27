@@ -1,0 +1,38 @@
+id: immigration-b1-03
+title: "Administrative steps (review)"
+grammar_point: "révision : l'immigration et la citoyenneté"
+est_minutes: 7
+new_vocab: [demarche, formulaire, administration, naturalisation, refugie, accueil, installation, demande, parrainage, statut]
+pass_threshold: 8.0
+exercises:
+  - id: immigration-b1-03.e1
+    type: mcq
+    prompt: "« J'ai rempli le ___ de demande. » (the application form)"
+    options: [formulaire, statut, accueil]
+    answer: formulaire
+    explain: "un formulaire = a form."
+
+  - id: immigration-b1-03.e2
+    type: translate
+    prompt: "Translate: “sponsorship”"
+    answer: parrainage
+    accept: ["le parrainage"]
+
+  - id: immigration-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/demarche.mp3
+    answer: démarche
+    prompt: "Type the word you hear."
+
+  - id: immigration-b1-03.e4
+    type: word_bank
+    prompt: "Build: “I made my application”"
+    tokens: [j, ai, fait, ma, demande, statut]
+    answer: [j, ai, fait, ma, demande]
+
+  - id: immigration-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [formulaire, form]
+      - [réfugié, refugee]
+      - [statut, status]

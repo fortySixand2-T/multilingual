@@ -1,0 +1,38 @@
+id: immigration-b1-01
+title: "Arriving in the country"
+grammar_point: "le passé composé (j'ai immigré l'an dernier)"
+est_minutes: 6
+new_vocab: [immigration, immigrant, residence, citoyennete]
+pass_threshold: 8.0
+exercises:
+  - id: immigration-b1-01.e1
+    type: mcq
+    prompt: "« L'an dernier, j'___ immigré au Canada. » (Last year, I immigrated to Canada.)"
+    options: [ai, suis, avais]
+    answer: ai
+    explain: "immigrer takes avoir in the passé composé: j'ai immigré."
+
+  - id: immigration-b1-01.e2
+    type: translate
+    prompt: "Translate: “citizenship”"
+    answer: citoyenneté
+    accept: ["la citoyenneté", "citoyennete"]
+
+  - id: immigration-b1-01.e3
+    type: listen_type
+    audio_ref: b1/audio/residence.mp3
+    answer: résidence
+    prompt: "Type the word you hear."
+
+  - id: immigration-b1-01.e4
+    type: word_bank
+    prompt: "Build: “I am an immigrant”"
+    tokens: [je, suis, un, immigrant, immigration]
+    answer: [je, suis, un, immigrant]
+
+  - id: immigration-b1-01.e5
+    type: match_pairs
+    pairs:
+      - [immigration, immigration]
+      - [résidence, residence]
+      - [citoyenneté, citizenship]

@@ -1,0 +1,107 @@
+- id: budget
+  fr: budget
+  en: budget
+  pos: noun
+  tags: [money]
+
+- id: depense
+  fr: dépense
+  en: expense
+  pos: noun
+  tags: [money]
+
+- id: epargne
+  fr: épargne
+  en: savings
+  pos: noun
+  tags: [money]
+
+- id: credit
+  fr: crédit
+  en: "credit, loan"
+  pos: noun
+  tags: [money]
+
+- id: dette
+  fr: dette
+  en: debt
+  pos: noun
+  tags: [money]
+
+- id: facture
+  fr: facture
+  en: "bill, invoice"
+  pos: noun
+  tags: [money]
+
+- id: impot
+  fr: impôt
+  en: tax
+  pos: noun
+  tags: [money]
+
+- id: revenu
+  fr: revenu
+  en: income
+  pos: noun
+  tags: [money]
+
+- id: achat
+  fr: achat
+  en: purchase
+  pos: noun
+  tags: [money]
+
+- id: rabais
+  fr: rabais
+  en: "discount, rebate"
+  pos: noun
+  tags: [money]
+
+- id: remboursement
+  fr: remboursement
+  en: "refund, repayment"
+  pos: noun
+  tags: [money]
+
+- id: especes
+  fr: espèces
+  en: cash
+  pos: noun
+  tags: [money]
+
+- id: pouvoir_achat
+  fr: pouvoir d'achat
+  en: "purchasing power"
+  pos: noun
+  tags: [money]
+
+- id: consommateur
+  fr: consommateur
+  en: consumer
+  pos: noun
+  tags: [money]
+
+- id: prelevement
+  fr: prélèvement
+  en: "direct debit"
+  pos: noun
+  tags: [money]
+
+- id: virement
+  fr: virement
+  en: "bank transfer"
+  pos: noun
+  tags: [money]
+
+- id: decouvert
+  fr: découvert
+  en: overdraft
+  pos: noun
+  tags: [money]
+
+- id: emprunt
+  fr: emprunt
+  en: "loan, borrowing"
+  pos: noun
+  tags: [money]
