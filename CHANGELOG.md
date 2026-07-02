@@ -463,3 +463,4 @@
 - [2026-06-27] Modified: web/dist — Rebuilt SPA with VITE_API_BASE="" so it calls backend routes directly (no /api proxy)
 - [2026-07-01] Created: content/b1/comprehension/{read,listen}-b1-*.yaml — 8 B1 comprehension sets (4 reading + 4 listening) for the 4 newest themes (education, housing, money, immigration), recycling each theme's deck vocab
 - [2026-07-01] Created: content/b1/audio/listen-b1-{student-orientation,landlord-message,bank-advisor,citizenship-info}.mp3 — TTS clips (Amélie/qc) for the new listening sets
+- [2026-07-01] Created: content/b1/writing/{section-b-education,section-a-rental-issue,section-a-bank-error,section-b-immigration}.yaml — 4 B1 writing tasks (2 Section A + 2 Section B) for the 4 newest themes, each target_vocab drawn from that theme's deck

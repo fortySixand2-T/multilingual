@@ -1,0 +1,13 @@
+id: write-b1-immigration
+level: b1
+section: B
+title: "Réussir son intégration"
+min_words: 180
+max_words: 300
+prompt: |
+  Pour bien s'intégrer dans un nouveau pays, certains pensent qu'il faut avant
+  tout apprendre la langue, d'autres qu'il faut surtout trouver un travail
+  rapidement. Qu'en pensez-vous ? Donnez votre opinion dans un texte argumenté sur
+  ce qui aide le plus un immigrant à réussir son intégration, avec des exemples
+  concrets.
+target_vocab: [integration, immigrant, accueil, demarche, statut]
