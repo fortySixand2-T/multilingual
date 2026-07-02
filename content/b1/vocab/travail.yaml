@@ -69,3 +69,39 @@
   en: "goal, target"
   pos: noun
   tags: [work]
+
+- id: mutation
+  fr: mutation
+  en: "job transfer, relocation"
+  pos: noun
+  tags: [work]
+
+- id: hierarchie
+  fr: hiérarchie
+  en: hierarchy
+  pos: noun
+  tags: [work]
+
+- id: reconversion
+  fr: reconversion
+  en: "career change, retraining"
+  pos: noun
+  tags: [work]
+
+- id: negociation
+  fr: négociation
+  en: negotiation
+  pos: noun
+  tags: [work]
+
+- id: avancement
+  fr: avancement
+  en: "advancement, progress"
+  pos: noun
+  tags: [work]
+
+- id: demission
+  fr: démission
+  en: resignation
+  pos: noun
+  tags: [work]

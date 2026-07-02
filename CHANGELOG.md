@@ -1,4 +1,7 @@
 # Changelog
+- [2026-07-01] Modified: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — appended Critic block; confirmed PM rejection; final verdict: rejected
+- [2026-07-01] Created: qa/rounds/029-plan.md — QA round 029: clean round, B1 new-themes slice verified sound (10 hypotheses, 0 validated issues)
+- [2026-07-01] Created: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — blueprint detail route not registered; filed, triaged, critiqued, final verdict rejected
 - [2026-06-26] Created: qa/rounds/028-plan.md — QA round 028: clean round, B1 mock go-live verified sound (all 7 hypotheses refuted)
 - [2026-06-26] Deleted: qa/issues/413-b1-exam-blueprints-not-synced.md — removed (not a code bug, sync not run)
 - [2026-06-26] Deleted: qa/issues/414-exam-section-double-submit-overwrites-score.md — removed (duplicate of 030)
@@ -452,3 +455,21 @@
 - [2026-06-26] Modified: qa/issues/403-exam-section-overwrite-allows-score-gaming.md — Critic: rejected (duplicate of 030, no new angle)
 - [2026-06-26] Modified: qa/issues/404-b1-listening-sets-all-allow-replay.md — Critic: deferred (client-only flag, content-depth work for later phase)
 - [2026-06-26] Modified: qa/issues/405-mock3-writing-tasks-all-duplicated.md — Critic: rejected (proposed fix does not reduce overlap, pure churn)
+- [2026-06-26] Modified: content/b1/vocab/*.yaml — Deepened all 6 B1 decks 12→18 cards (+36 B1 words)
+- [2026-06-26] Modified: content/b1/lessons/*-b1-03.yaml — Wired the 36 new cards into each theme's review lesson new_vocab
+- [2026-06-26] Created: content/b1/audio/*.mp3 — 36 new TTS pronunciation clips for the deepened B1 vocab
+- [2026-06-26] Created: content/b1/vocab/{education,logement,argent,immigration}.yaml — 4 new B1 themes (72 cards)
+- [2026-06-26] Created: content/b1/lessons/{education,logement,argent,immigration}-b1-0{1,2,3}.yaml — 12 lessons for the new B1 units
+- [2026-06-26] Modified: content/b1/path.yaml — Added B1 units u7–u10 (Education, Housing, Money, Immigration)
+- [2026-06-26] Created: content/b1/audio/*.mp3 — 72 TTS clips for the new B1 theme vocab
+- [2026-06-27] Modified: app/main.py — Serve built SPA from web/dist for single-port LAN hosting (API routers first, index.html fallback)
+- [2026-06-27] Modified: web/dist — Rebuilt SPA with VITE_API_BASE="" so it calls backend routes directly (no /api proxy)
+- [2026-07-01] Created: content/b1/comprehension/{read,listen}-b1-*.yaml — 8 B1 comprehension sets (4 reading + 4 listening) for the 4 newest themes (education, housing, money, immigration), recycling each theme's deck vocab
+- [2026-07-01] Created: content/b1/audio/listen-b1-{student-orientation,landlord-message,bank-advisor,citizenship-info}.mp3 — TTS clips (Amélie/qc) for the new listening sets
+- [2026-07-01] Created: content/b1/writing/{section-b-education,section-a-rental-issue,section-a-bank-error,section-b-immigration}.yaml — 4 B1 writing tasks (2 Section A + 2 Section B) for the 4 newest themes, each target_vocab drawn from that theme's deck
+- [2026-07-01] Created: content/b1/exam/mock-4.yaml — B1 mock (éducation & logement) wiring new comprehension (read-b1-university-enrolment, listen-b1-landlord-message) + writing (write-b1-rental-issue, write-b1-education)
+- [2026-07-01] Created: content/b1/exam/mock-5.yaml — B1 mock (argent & immigration) wiring new comprehension (read-b1-household-budget, listen-b1-citizenship-info) + writing (write-b1-bank-error, write-b1-immigration)
+- [2026-07-01] Created: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — QA round 029: GET /exam/blueprints/{id} not registered; SPA catch-all returns HTTP 200 HTML instead of blueprint JSON or 404
+- [2026-07-02] Modified: app/main.py — Fix issue 416: scope the SPA catch-all so unmatched paths under a real API prefix return JSON 404 (not index.html); extract _mount_spa helper + web_dist override for testing
+- [2026-07-02] Created: tests/test_spa_serving.py — Regression tests for SPA serving: API 404s stay JSON, client-side routes fall back to index.html
+- [2026-07-02] Created: content/b1/comprehension/read-b1-{continuing-education,lease-signing,smart-spending,settling-in,community-library,work-life-balance}.yaml — 6 richer B1 reading sets (~10-sentence passages, 4 questions each) to flesh out reading practice; B1 reading 8->14 sets, recycling deck vocab across varied TEF text types

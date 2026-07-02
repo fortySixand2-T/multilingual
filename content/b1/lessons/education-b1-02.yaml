@@ -1,0 +1,38 @@
+id: education-b1-02
+title: "Exams and university"
+grammar_point: "les pronoms relatifs (qui, que, dont)"
+est_minutes: 6
+new_vocab: [connaissance, examen, bourse, faculte]
+pass_threshold: 8.0
+exercises:
+  - id: education-b1-02.e1
+    type: mcq
+    prompt: "« L'examen ___ j'ai passé était difficile. » (the exam that I took)"
+    options: [que, qui, dont]
+    answer: que
+    explain: "« que » is the relative pronoun for a direct object: l'examen que j'ai passé."
+
+  - id: education-b1-02.e2
+    type: translate
+    prompt: "Translate: “a scholarship”"
+    answer: bourse
+    accept: ["une bourse", "la bourse"]
+
+  - id: education-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/faculte.mp3
+    answer: faculté
+    prompt: "Type the word you hear."
+
+  - id: education-b1-02.e4
+    type: word_bank
+    prompt: "Build: “the knowledge that I have”"
+    tokens: [la, connaissance, que, j, ai, qui]
+    answer: [la, connaissance, que, j, ai]
+
+  - id: education-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [connaissance, knowledge]
+      - [examen, exam]
+      - [bourse, "scholarship, grant"]

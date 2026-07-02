@@ -1,0 +1,12 @@
+id: write-b1-rental-issue
+level: b1
+section: A
+title: "Un problème dans le logement"
+min_words: 80
+max_words: 150
+prompt: |
+  Depuis votre emménagement, le chauffage de votre appartement ne fonctionne pas
+  correctement. Écrivez un courriel à votre propriétaire : décrivez le problème,
+  rappelez que le chauffage est compris dans les charges prévues au bail, et
+  demandez une solution rapide.
+target_vocab: [logement, chauffage, proprietaire, bail, charges]

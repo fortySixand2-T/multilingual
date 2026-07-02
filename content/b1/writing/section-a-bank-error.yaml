@@ -1,0 +1,11 @@
+id: write-b1-bank-error
+level: b1
+section: A
+title: "Une erreur sur votre compte"
+min_words: 80
+max_words: 150
+prompt: |
+  En consultant votre relevé, vous remarquez un prélèvement que vous n'avez pas
+  autorisé. Écrivez un courriel à votre banque : expliquez le problème, précisez
+  le montant et la date de la dépense, et demandez un remboursement rapide.
+target_vocab: [prelevement, remboursement, facture, virement, depense]

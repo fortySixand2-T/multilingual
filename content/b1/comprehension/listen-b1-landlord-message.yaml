@@ -1,0 +1,41 @@
+id: listen-b1-landlord-message
+level: b1
+skill: listening
+title: "Un message du propriétaire"
+time_limit_seconds: 120
+audio_ref: b1/audio/listen-b1-landlord-message.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Bonjour, c'est monsieur Tremblay, votre propriétaire. Je vous appelle au sujet
+  de votre demande de déménagement. L'appartement sera libre à la fin du mois,
+  donc vous pourrez emménager le premier. Pensez à prévoir la caution et le
+  premier loyer avant de recevoir les clés. Le chauffage et l'eau sont compris
+  dans les charges, mais l'électricité reste à votre nom. N'hésitez pas à me
+  rappeler si vous avez des questions.
+questions:
+  - id: listen-b1-landlord-message.q1
+    prompt: "Quand le locataire pourra-t-il emménager ?"
+    options:
+      - "Le premier du mois"
+      - "À la fin de l'année"
+      - "Immédiatement"
+    answer: "Le premier du mois"
+    explain: "« vous pourrez emménager le premier »."
+  - id: listen-b1-landlord-message.q2
+    prompt: "Que faut-il prévoir avant de recevoir les clés ?"
+    options:
+      - "La caution et le premier loyer"
+      - "Une lettre de recommandation"
+      - "Un garant"
+    answer: "La caution et le premier loyer"
+    explain: "« prévoir la caution et le premier loyer avant de recevoir les clés »."
+  - id: listen-b1-landlord-message.q3
+    prompt: "Qu'est-ce qui reste au nom du locataire ?"
+    options:
+      - "L'électricité"
+      - "Le chauffage"
+      - "L'eau"
+    answer: "L'électricité"
+    explain: "« l'électricité reste à votre nom »."

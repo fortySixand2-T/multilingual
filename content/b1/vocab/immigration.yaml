@@ -1,0 +1,107 @@
+- id: immigration
+  fr: immigration
+  en: immigration
+  pos: noun
+  tags: [immigration]
+
+- id: immigrant
+  fr: immigrant
+  en: immigrant
+  pos: noun
+  tags: [immigration]
+
+- id: residence
+  fr: résidence
+  en: residence
+  pos: noun
+  tags: [immigration]
+
+- id: citoyennete
+  fr: citoyenneté
+  en: citizenship
+  pos: noun
+  tags: [immigration]
+
+- id: nationalite
+  fr: nationalité
+  en: nationality
+  pos: noun
+  tags: [immigration]
+
+- id: visa
+  fr: visa
+  en: visa
+  pos: noun
+  tags: [immigration]
+
+- id: permis_travail
+  fr: permis de travail
+  en: "work permit"
+  pos: noun
+  tags: [immigration]
+
+- id: integration
+  fr: intégration
+  en: integration
+  pos: noun
+  tags: [immigration]
+
+- id: demarche
+  fr: démarche
+  en: "procedure, step"
+  pos: noun
+  tags: [immigration]
+
+- id: formulaire
+  fr: formulaire
+  en: form
+  pos: noun
+  tags: [immigration]
+
+- id: administration
+  fr: administration
+  en: administration
+  pos: noun
+  tags: [immigration]
+
+- id: naturalisation
+  fr: naturalisation
+  en: naturalisation
+  pos: noun
+  tags: [immigration]
+
+- id: refugie
+  fr: réfugié
+  en: refugee
+  pos: noun
+  tags: [immigration]
+
+- id: accueil
+  fr: accueil
+  en: "welcome, reception"
+  pos: noun
+  tags: [immigration]
+
+- id: installation
+  fr: installation
+  en: "settling in"
+  pos: noun
+  tags: [immigration]
+
+- id: demande
+  fr: demande
+  en: "application, request"
+  pos: noun
+  tags: [immigration]
+
+- id: parrainage
+  fr: parrainage
+  en: sponsorship
+  pos: noun
+  tags: [immigration]
+
+- id: statut
+  fr: statut
+  en: status
+  pos: noun
+  tags: [immigration]

@@ -1,0 +1,38 @@
+id: argent-b1-02
+title: "Bills and taxes"
+grammar_point: "l'expression de la quantité (assez de, trop de)"
+est_minutes: 6
+new_vocab: [dette, facture, impot, revenu]
+pass_threshold: 8.0
+exercises:
+  - id: argent-b1-02.e1
+    type: mcq
+    prompt: "« J'ai ___ de dettes ce mois-ci. » (too many debts this month)"
+    options: [trop, très, assez]
+    answer: trop
+    explain: "« trop de » = too much / too many (+ noun)."
+
+  - id: argent-b1-02.e2
+    type: translate
+    prompt: "Translate: “a tax”"
+    answer: impôt
+    accept: ["un impôt", "impot"]
+
+  - id: argent-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/facture.mp3
+    answer: facture
+    prompt: "Type the word you hear."
+
+  - id: argent-b1-02.e4
+    type: word_bank
+    prompt: "Build: “I pay my bills”"
+    tokens: [je, paie, mes, factures, facture]
+    answer: [je, paie, mes, factures]
+
+  - id: argent-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [dette, debt]
+      - [facture, "bill, invoice"]
+      - [revenu, income]

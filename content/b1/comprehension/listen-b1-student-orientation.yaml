@@ -1,0 +1,41 @@
+id: listen-b1-student-orientation
+level: b1
+skill: listening
+title: "La réunion de rentrée"
+time_limit_seconds: 120
+audio_ref: b1/audio/listen-b1-student-orientation.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Bonjour à tous et bienvenue à cette réunion de rentrée. Cette année,
+  l'inscription aux cours se fera entièrement en ligne, avant le quinze
+  septembre. Chaque étudiant devra choisir ses matières selon son niveau et son
+  cursus. Nous encourageons aussi l'autonomie : la bibliothèque restera ouverte le
+  soir pour vos travaux de recherche. Enfin, les enseignants sont disponibles
+  chaque semaine pour répondre à vos questions.
+questions:
+  - id: listen-b1-student-orientation.q1
+    prompt: "Comment se fera l'inscription cette année ?"
+    options:
+      - "Entièrement en ligne"
+      - "Par courrier"
+      - "Au secrétariat"
+    answer: "Entièrement en ligne"
+    explain: "« l'inscription aux cours se fera entièrement en ligne »."
+  - id: listen-b1-student-orientation.q2
+    prompt: "Selon quoi l'étudiant choisit-il ses matières ?"
+    options:
+      - "Selon son niveau et son cursus"
+      - "Selon ses amis"
+      - "Selon le prix des cours"
+    answer: "Selon son niveau et son cursus"
+    explain: "« choisir ses matières selon son niveau et son cursus »."
+  - id: listen-b1-student-orientation.q3
+    prompt: "Pourquoi la bibliothèque reste-t-elle ouverte le soir ?"
+    options:
+      - "Pour les travaux de recherche"
+      - "Pour les repas des étudiants"
+      - "Pour les activités sportives"
+    answer: "Pour les travaux de recherche"
+    explain: "« la bibliothèque restera ouverte le soir pour vos travaux de recherche »."

@@ -1,0 +1,38 @@
+id: logement-b1-01
+title: "Renting a place"
+grammar_point: "le pronom y (j'y habite)"
+est_minutes: 6
+new_vocab: [logement, caution, locataire, proprietaire]
+pass_threshold: 8.0
+exercises:
+  - id: logement-b1-01.e1
+    type: mcq
+    prompt: "« Ce quartier est calme ; j'___ habite. » (I live there.)"
+    options: [y, en, le]
+    answer: y
+    explain: "« y » replaces a place already mentioned: j'y habite."
+
+  - id: logement-b1-01.e2
+    type: translate
+    prompt: "Translate: “the security deposit”"
+    answer: caution
+    accept: ["la caution"]
+
+  - id: logement-b1-01.e3
+    type: listen_type
+    audio_ref: b1/audio/locataire.mp3
+    answer: locataire
+    prompt: "Type the word you hear."
+
+  - id: logement-b1-01.e4
+    type: word_bank
+    prompt: "Build: “I am looking for accommodation”"
+    tokens: [je, cherche, un, logement, loyer]
+    answer: [je, cherche, un, logement]
+
+  - id: logement-b1-01.e5
+    type: match_pairs
+    pairs:
+      - [caution, "security deposit"]
+      - [locataire, tenant]
+      - [propriétaire, "owner, landlord"]

@@ -1,0 +1,38 @@
+id: read-b1-rental-listing
+level: b1
+skill: reading
+title: "Une annonce de location"
+time_limit_seconds: 220
+pass_threshold: 0.6
+passage: |
+  À louer : bel appartement de trois pièces dans un immeuble calme, proche du
+  centre. La surface est de soixante-cinq mètres carrés, avec le chauffage inclus
+  dans les charges. Le loyer est de neuf cents dollars par mois ; une caution d'un
+  mois est demandée à la signature du bail. L'appartement est libre dès le premier
+  juin, idéal pour un locataire seul ou une colocation. Pour visiter, contactez
+  l'agence immobilière du quartier.
+questions:
+  - id: read-b1-rental-listing.q1
+    prompt: "Qu'est-ce qui est inclus dans les charges ?"
+    options:
+      - "Le chauffage"
+      - "L'électricité"
+      - "L'accès à Internet"
+    answer: "Le chauffage"
+    explain: "« le chauffage inclus dans les charges »."
+  - id: read-b1-rental-listing.q2
+    prompt: "Que demande-t-on à la signature du bail ?"
+    options:
+      - "Une caution d'un mois"
+      - "Deux mois de loyer d'avance"
+      - "Une assurance habitation"
+    answer: "Une caution d'un mois"
+    explain: "« une caution d'un mois est demandée à la signature du bail »."
+  - id: read-b1-rental-listing.q3
+    prompt: "À qui l'appartement convient-il ?"
+    options:
+      - "À un locataire seul ou une colocation"
+      - "À une grande famille"
+      - "À une entreprise"
+    answer: "À un locataire seul ou une colocation"
+    explain: "« idéal pour un locataire seul ou une colocation »."

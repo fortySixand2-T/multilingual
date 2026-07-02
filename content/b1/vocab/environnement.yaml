@@ -69,3 +69,39 @@
   en: solidarity
   pos: noun
   tags: [environment]
+
+- id: biodiversite
+  fr: biodiversité
+  en: biodiversity
+  pos: noun
+  tags: [environment]
+
+- id: developpement_durable
+  fr: développement durable
+  en: "sustainable development"
+  pos: noun
+  tags: [environment]
+
+- id: ressource
+  fr: ressource
+  en: resource
+  pos: noun
+  tags: [environment]
+
+- id: espece
+  fr: espèce
+  en: "species"
+  pos: noun
+  tags: [environment]
+
+- id: transition
+  fr: transition
+  en: transition
+  pos: noun
+  tags: [environment]
+
+- id: empreinte
+  fr: empreinte
+  en: "footprint (carbon)"
+  pos: noun
+  tags: [environment]

@@ -1,0 +1,38 @@
+id: read-b1-household-budget
+level: b1
+skill: reading
+title: "Bien gérer son budget"
+time_limit_seconds: 220
+pass_threshold: 0.6
+passage: |
+  Pour éviter les dettes, il est important de bien gérer son budget chaque mois.
+  On conseille de noter toutes ses dépenses et de mettre un peu d'argent de côté
+  grâce à l'épargne. Beaucoup de gens paient leurs factures par prélèvement
+  automatique afin de ne rien oublier. Attention cependant au crédit : emprunter
+  est parfois utile, mais un découvert coûte cher. En comparant les prix et en
+  profitant des rabais, on protège son pouvoir d'achat.
+questions:
+  - id: read-b1-household-budget.q1
+    prompt: "Que conseille-t-on de faire chaque mois ?"
+    options:
+      - "Noter toutes ses dépenses"
+      - "Fermer son compte bancaire"
+      - "Emprunter davantage"
+    answer: "Noter toutes ses dépenses"
+    explain: "« noter toutes ses dépenses »."
+  - id: read-b1-household-budget.q2
+    prompt: "Pourquoi payer ses factures par prélèvement automatique ?"
+    options:
+      - "Pour ne rien oublier"
+      - "Pour payer moins d'impôts"
+      - "Pour gagner des points de fidélité"
+    answer: "Pour ne rien oublier"
+    explain: "« par prélèvement automatique afin de ne rien oublier »."
+  - id: read-b1-household-budget.q3
+    prompt: "Comment protéger son pouvoir d'achat ?"
+    options:
+      - "En comparant les prix et en profitant des rabais"
+      - "En achetant tout à crédit"
+      - "En ignorant ses factures"
+    answer: "En comparant les prix et en profitant des rabais"
+    explain: "« En comparant les prix et en profitant des rabais, on protège son pouvoir d'achat »."

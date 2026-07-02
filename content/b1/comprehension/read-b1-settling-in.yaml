@@ -1,0 +1,53 @@
+id: read-b1-settling-in
+level: b1
+skill: reading
+title: "Bien s'installer dans son nouveau pays"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Arriver dans un nouveau pays est une aventure passionnante, mais les premières
+  semaines demandent de l'organisation. Dès votre arrivée, plusieurs démarches
+  administratives sont nécessaires : obtenir un numéro d'assurance sociale, ouvrir
+  un compte bancaire et trouver un logement. De nombreux organismes d'accueil
+  aident gratuitement les nouveaux arrivants à remplir leurs formulaires et à
+  comprendre leurs droits. Apprendre ou améliorer la langue est souvent la clé
+  d'une bonne intégration, car cela facilite la recherche d'un emploi et les
+  relations avec le voisinage. Participer à des activités locales, comme des cours
+  ou des événements de quartier, aide aussi à se faire des amis. Il est normal de
+  se sentir un peu perdu au début : chaque personne avance à son rythme. Après
+  quelques mois, la plupart des immigrants connaissent mieux leur ville et se
+  sentent plus à l'aise. Certains décident plus tard de demander la citoyenneté du
+  pays. L'important est de ne pas hésiter à demander de l'aide autour de soi.
+questions:
+  - id: read-b1-settling-in.q1
+    prompt: "Quelles démarches sont nécessaires dès l'arrivée ?"
+    options:
+      - "Obtenir un numéro d'assurance sociale, ouvrir un compte et trouver un logement"
+      - "Acheter une voiture et un terrain"
+      - "Passer un examen universitaire"
+    answer: "Obtenir un numéro d'assurance sociale, ouvrir un compte et trouver un logement"
+    explain: "« obtenir un numéro d'assurance sociale, ouvrir un compte bancaire et trouver un logement »."
+  - id: read-b1-settling-in.q2
+    prompt: "Comment les organismes d'accueil aident-ils les nouveaux arrivants ?"
+    options:
+      - "En aidant gratuitement à remplir les formulaires et à comprendre ses droits"
+      - "En prêtant de l'argent"
+      - "En offrant un emploi garanti"
+    answer: "En aidant gratuitement à remplir les formulaires et à comprendre ses droits"
+    explain: "« aident gratuitement les nouveaux arrivants à remplir leurs formulaires et à comprendre leurs droits »."
+  - id: read-b1-settling-in.q3
+    prompt: "Pourquoi la langue est-elle importante ?"
+    options:
+      - "Elle facilite la recherche d'emploi et les relations avec le voisinage"
+      - "Elle est obligatoire pour voter"
+      - "Elle remplace les démarches administratives"
+    answer: "Elle facilite la recherche d'emploi et les relations avec le voisinage"
+    explain: "« cela facilite la recherche d'un emploi et les relations avec le voisinage »."
+  - id: read-b1-settling-in.q4
+    prompt: "Comment se sentent la plupart des immigrants après quelques mois ?"
+    options:
+      - "Plus à l'aise et connaissant mieux leur ville"
+      - "Toujours aussi perdus"
+      - "Prêts à repartir"
+    answer: "Plus à l'aise et connaissant mieux leur ville"
+    explain: "« la plupart des immigrants connaissent mieux leur ville et se sentent plus à l'aise »."

@@ -1,0 +1,39 @@
+id: read-b1-residency-steps
+level: b1
+skill: reading
+title: "Les démarches d'installation"
+time_limit_seconds: 220
+pass_threshold: 0.6
+passage: |
+  Quand on arrive dans un nouveau pays, les démarches administratives peuvent
+  sembler compliquées. La première étape consiste souvent à obtenir un permis de
+  travail ou un visa selon son statut. Ensuite, il faut remplir plusieurs
+  formulaires et déposer une demande de résidence auprès de l'administration.
+  Après quelques années, certains immigrants font une demande de citoyenneté par
+  naturalisation. Des services d'accueil aident les nouveaux arrivants dans leur
+  intégration et leur installation.
+questions:
+  - id: read-b1-residency-steps.q1
+    prompt: "Quelle est souvent la première étape ?"
+    options:
+      - "Obtenir un permis de travail ou un visa"
+      - "Acheter une maison"
+      - "Passer un examen de langue"
+    answer: "Obtenir un permis de travail ou un visa"
+    explain: "« obtenir un permis de travail ou un visa selon son statut »."
+  - id: read-b1-residency-steps.q2
+    prompt: "Auprès de qui dépose-t-on la demande de résidence ?"
+    options:
+      - "Auprès de l'administration"
+      - "Auprès d'un employeur"
+      - "Auprès d'une banque"
+    answer: "Auprès de l'administration"
+    explain: "« déposer une demande de résidence auprès de l'administration »."
+  - id: read-b1-residency-steps.q3
+    prompt: "Qui aide les nouveaux arrivants ?"
+    options:
+      - "Des services d'accueil"
+      - "Les voisins du quartier"
+      - "Les agences immobilières"
+    answer: "Des services d'accueil"
+    explain: "« Des services d'accueil aident les nouveaux arrivants »."

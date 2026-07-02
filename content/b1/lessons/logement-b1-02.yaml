@@ -1,0 +1,38 @@
+id: logement-b1-02
+title: "The lease and the neighbourhood"
+grammar_point: "le conditionnel présent (je voudrais louer)"
+est_minutes: 6
+new_vocab: [bail, immeuble, voisinage, colocation]
+pass_threshold: 8.0
+exercises:
+  - id: logement-b1-02.e1
+    type: mcq
+    prompt: "« Je ___ louer cet appartement. » (I would like to rent this flat.)"
+    options: [voudrais, veux, voulais]
+    answer: voudrais
+    explain: "conditionnel présent of vouloir: je voudrais = I would like."
+
+  - id: logement-b1-02.e2
+    type: translate
+    prompt: "Translate: “the lease”"
+    answer: bail
+    accept: ["le bail"]
+
+  - id: logement-b1-02.e3
+    type: listen_type
+    audio_ref: b1/audio/immeuble.mp3
+    answer: immeuble
+    prompt: "Type the word you hear."
+
+  - id: logement-b1-02.e4
+    type: word_bank
+    prompt: "Build: “I live in a flatshare”"
+    tokens: [je, vis, en, colocation, voisinage]
+    answer: [je, vis, en, colocation]
+
+  - id: logement-b1-02.e5
+    type: match_pairs
+    pairs:
+      - [bail, lease]
+      - [immeuble, "apartment building"]
+      - [colocation, "flatshare, shared housing"]

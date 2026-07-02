@@ -1,0 +1,38 @@
+id: argent-b1-03
+title: "Spending and saving (review)"
+grammar_point: "révision : l'argent et la consommation"
+est_minutes: 7
+new_vocab: [achat, rabais, remboursement, especes, pouvoir_achat, consommateur, prelevement, virement, decouvert, emprunt]
+pass_threshold: 8.0
+exercises:
+  - id: argent-b1-03.e1
+    type: mcq
+    prompt: "« J'ai payé en ___, pas par carte. » (in cash, not by card)"
+    options: [espèces, crédit, virement]
+    answer: espèces
+    explain: "payer en espèces = to pay in cash."
+
+  - id: argent-b1-03.e2
+    type: translate
+    prompt: "Translate: “a bank transfer”"
+    answer: virement
+    accept: ["un virement", "le virement"]
+
+  - id: argent-b1-03.e3
+    type: listen_type
+    audio_ref: b1/audio/achat.mp3
+    answer: achat
+    prompt: "Type the word you hear."
+
+  - id: argent-b1-03.e4
+    type: word_bank
+    prompt: "Build: “I took out a loan”"
+    tokens: [j, ai, fait, un, emprunt, achat]
+    answer: [j, ai, fait, un, emprunt]
+
+  - id: argent-b1-03.e5
+    type: match_pairs
+    pairs:
+      - [rabais, "discount, rebate"]
+      - [remboursement, "refund, repayment"]
+      - [consommateur, consumer]

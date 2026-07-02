@@ -1,0 +1,52 @@
+id: read-b1-lease-signing
+level: b1
+skill: reading
+title: "Avant de signer le bail"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Louer un appartement pour la première fois peut sembler compliqué. Avant de
+  signer le bail, il est important de bien lire chaque clause du contrat. Vérifiez
+  d'abord le montant du loyer et celui des charges, car certaines dépenses comme
+  le chauffage ou l'eau ne sont pas toujours comprises. Le propriétaire demande
+  généralement une caution, qui correspond souvent à un mois de loyer et qui est
+  rendue à la fin du bail si le logement est en bon état. Pensez aussi à noter
+  l'état de l'appartement le jour de votre arrivée, afin d'éviter tout conflit au
+  moment du départ. Si vous choisissez une colocation, chaque locataire doit
+  connaître ses responsabilités et sa part des charges. En cas de problème, comme
+  une panne de chauffage, prévenez rapidement le propriétaire par écrit. Enfin,
+  gardez une copie de tous vos documents importants : ces précautions simples vous
+  éviteront bien des soucis pendant votre séjour.
+questions:
+  - id: read-b1-lease-signing.q1
+    prompt: "Que faut-il faire avant de signer le bail ?"
+    options:
+      - "Bien lire chaque clause du contrat"
+      - "Payer une année de loyer d'avance"
+      - "Changer tous les meubles"
+    answer: "Bien lire chaque clause du contrat"
+    explain: "« Avant de signer le bail, il est important de bien lire chaque clause du contrat »."
+  - id: read-b1-lease-signing.q2
+    prompt: "Pourquoi faut-il vérifier les charges ?"
+    options:
+      - "Parce que certaines dépenses ne sont pas toujours comprises"
+      - "Parce qu'elles sont interdites par la loi"
+      - "Parce qu'elles remplacent le loyer"
+    answer: "Parce que certaines dépenses ne sont pas toujours comprises"
+    explain: "« certaines dépenses comme le chauffage ou l'eau ne sont pas toujours comprises »."
+  - id: read-b1-lease-signing.q3
+    prompt: "Quand la caution est-elle rendue ?"
+    options:
+      - "À la fin du bail si le logement est en bon état"
+      - "Chaque mois avec le loyer"
+      - "Jamais"
+    answer: "À la fin du bail si le logement est en bon état"
+    explain: "« rendue à la fin du bail si le logement est en bon état »."
+  - id: read-b1-lease-signing.q4
+    prompt: "Que faire en cas de panne de chauffage ?"
+    options:
+      - "Prévenir rapidement le propriétaire par écrit"
+      - "Réparer soi-même sans prévenir"
+      - "Quitter aussitôt l'appartement"
+    answer: "Prévenir rapidement le propriétaire par écrit"
+    explain: "« prévenez rapidement le propriétaire par écrit »."

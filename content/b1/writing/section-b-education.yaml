@@ -1,0 +1,13 @@
+id: write-b1-education
+level: b1
+section: B
+title: "Études longues ou formation professionnelle ?"
+min_words: 180
+max_words: 300
+prompt: |
+  Après le lycée, certains choisissent de longues études universitaires, tandis
+  que d'autres préfèrent une formation professionnelle plus courte. Selon vous,
+  quelle est la meilleure option pour réussir sa vie professionnelle ? Donnez
+  votre opinion dans un texte argumenté et justifiez-la avec des exemples
+  concrets.
+target_vocab: [formation, etudes, cursus, apprentissage, savoir]

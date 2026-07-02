@@ -1,0 +1,19 @@
+id: b1-mock-4
+level: b1
+title: "TEF Canada mock — B1 practice (éducation & logement)"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-b1-university-enrolment
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-b1-landlord-message
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b1-rental-issue, write-b1-education]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Racontez votre parcours d'études : quelles matières avez-vous préférées, et pourquoi ?"
+      - "Vaut-il mieux vivre en colocation ou seul dans son propre logement ? Justifiez votre point de vue."
