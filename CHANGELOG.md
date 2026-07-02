@@ -470,3 +470,5 @@
 - [2026-07-01] Created: content/b1/exam/mock-4.yaml — B1 mock (éducation & logement) wiring new comprehension (read-b1-university-enrolment, listen-b1-landlord-message) + writing (write-b1-rental-issue, write-b1-education)
 - [2026-07-01] Created: content/b1/exam/mock-5.yaml — B1 mock (argent & immigration) wiring new comprehension (read-b1-household-budget, listen-b1-citizenship-info) + writing (write-b1-bank-error, write-b1-immigration)
 - [2026-07-01] Created: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — QA round 029: GET /exam/blueprints/{id} not registered; SPA catch-all returns HTTP 200 HTML instead of blueprint JSON or 404
+- [2026-07-02] Modified: app/main.py — Fix issue 416: scope the SPA catch-all so unmatched paths under a real API prefix return JSON 404 (not index.html); extract _mount_spa helper + web_dist override for testing
+- [2026-07-02] Created: tests/test_spa_serving.py — Regression tests for SPA serving: API 404s stay JSON, client-side routes fall back to index.html
