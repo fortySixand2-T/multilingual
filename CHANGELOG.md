@@ -464,3 +464,5 @@
 - [2026-07-01] Created: content/b1/comprehension/{read,listen}-b1-*.yaml — 8 B1 comprehension sets (4 reading + 4 listening) for the 4 newest themes (education, housing, money, immigration), recycling each theme's deck vocab
 - [2026-07-01] Created: content/b1/audio/listen-b1-{student-orientation,landlord-message,bank-advisor,citizenship-info}.mp3 — TTS clips (Amélie/qc) for the new listening sets
 - [2026-07-01] Created: content/b1/writing/{section-b-education,section-a-rental-issue,section-a-bank-error,section-b-immigration}.yaml — 4 B1 writing tasks (2 Section A + 2 Section B) for the 4 newest themes, each target_vocab drawn from that theme's deck
+- [2026-07-01] Created: content/b1/exam/mock-4.yaml — B1 mock (éducation & logement) wiring new comprehension (read-b1-university-enrolment, listen-b1-landlord-message) + writing (write-b1-rental-issue, write-b1-education)
+- [2026-07-01] Created: content/b1/exam/mock-5.yaml — B1 mock (argent & immigration) wiring new comprehension (read-b1-household-budget, listen-b1-citizenship-info) + writing (write-b1-bank-error, write-b1-immigration)

@@ -1,0 +1,19 @@
+id: b1-mock-5
+level: b1
+title: "TEF Canada mock — B1 practice (argent & immigration)"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-b1-household-budget
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-b1-citizenship-info
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b1-bank-error, write-b1-immigration]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Comment gérez-vous votre budget au quotidien ? Donnez des exemples de vos dépenses et de votre épargne."
+      - "Selon vous, qu'est-ce qui aide le plus une personne à s'intégrer dans un nouveau pays ? Justifiez votre avis."
