@@ -1,0 +1,54 @@
+id: read-b1-continuing-education
+level: b1
+skill: reading
+title: "Reprendre ses études à l'âge adulte"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  De plus en plus d'adultes décident de reprendre leurs études, parfois plusieurs
+  années après avoir quitté l'école. Certains veulent changer de métier, d'autres
+  souhaitent obtenir une promotion ou simplement acquérir de nouvelles
+  connaissances. Aujourd'hui, de nombreuses formations sont disponibles le soir ou
+  en ligne, ce qui permet de continuer à travailler en même temps. Cette
+  organisation demande cependant beaucoup d'autonomie et une bonne gestion du
+  temps. Les cours en ligne offrent une grande liberté, mais il faut savoir rester
+  motivé sans la présence d'un enseignant. Heureusement, la plupart des
+  établissements proposent un accompagnement personnalisé et des forums
+  d'entraide. Certains adultes peuvent aussi recevoir une aide financière ou une
+  bourse pour couvrir les frais d'inscription. Reprendre un cursus n'est pas
+  toujours facile, surtout quand on a une famille et un emploi. Mais la majorité
+  des personnes interrogées affirment que l'effort en vaut la peine : pour elles,
+  apprendre tout au long de la vie est devenu une véritable source de confiance.
+questions:
+  - id: read-b1-continuing-education.q1
+    prompt: "Pourquoi certains adultes reprennent-ils leurs études ?"
+    options:
+      - "Pour changer de métier ou obtenir une promotion"
+      - "Pour voyager à l'étranger"
+      - "Pour arrêter de travailler"
+    answer: "Pour changer de métier ou obtenir une promotion"
+    explain: "« Certains veulent changer de métier, d'autres souhaitent obtenir une promotion »."
+  - id: read-b1-continuing-education.q2
+    prompt: "Quel est l'avantage des cours du soir ou en ligne ?"
+    options:
+      - "Ils permettent de continuer à travailler en même temps"
+      - "Ils sont toujours gratuits"
+      - "Ils suppriment les examens"
+    answer: "Ils permettent de continuer à travailler en même temps"
+    explain: "« disponibles le soir ou en ligne, ce qui permet de continuer à travailler en même temps »."
+  - id: read-b1-continuing-education.q3
+    prompt: "Que demande l'apprentissage en ligne ?"
+    options:
+      - "Beaucoup d'autonomie et une bonne gestion du temps"
+      - "La présence quotidienne d'un enseignant"
+      - "Un diplôme obtenu à l'avance"
+    answer: "Beaucoup d'autonomie et une bonne gestion du temps"
+    explain: "« Cette organisation demande cependant beaucoup d'autonomie et une bonne gestion du temps »."
+  - id: read-b1-continuing-education.q4
+    prompt: "Que pensent la plupart des personnes interrogées ?"
+    options:
+      - "Que l'effort en vaut la peine"
+      - "Que c'est une perte de temps"
+      - "Que c'est trop cher pour tout le monde"
+    answer: "Que l'effort en vaut la peine"
+    explain: "« la majorité des personnes interrogées affirment que l'effort en vaut la peine »."

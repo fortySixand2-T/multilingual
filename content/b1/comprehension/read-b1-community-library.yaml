@@ -1,0 +1,52 @@
+id: read-b1-community-library
+level: b1
+skill: reading
+title: "La médiathèque du quartier"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  La médiathèque municipale ouvre ses portes tous les jours, sauf le lundi. Elle
+  propose des livres, des journaux, des films et un accès gratuit à Internet.
+  L'inscription est gratuite pour tous les habitants de la ville ; il suffit de
+  présenter une pièce d'identité et un justificatif de domicile. Chaque abonné
+  peut emprunter jusqu'à cinq documents pour une durée de trois semaines. La
+  médiathèque organise aussi des activités : des ateliers de lecture pour les
+  enfants, des conférences sur l'actualité et des cours d'informatique pour les
+  débutants. Un espace calme est réservé aux étudiants qui souhaitent travailler
+  ou faire des recherches. Depuis cette année, il est possible de réserver un
+  document en ligne et de le récupérer sur place. Le personnel reste disponible
+  pour conseiller les visiteurs et les aider à trouver ce qu'ils cherchent. La
+  médiathèque est un lieu de rencontre ouvert à tous, gratuit et accueillant.
+questions:
+  - id: read-b1-community-library.q1
+    prompt: "Quel jour la médiathèque est-elle fermée ?"
+    options:
+      - "Le lundi"
+      - "Le dimanche"
+      - "Le samedi"
+    answer: "Le lundi"
+    explain: "« ouvre ses portes tous les jours, sauf le lundi »."
+  - id: read-b1-community-library.q2
+    prompt: "Que faut-il pour s'inscrire ?"
+    options:
+      - "Une pièce d'identité et un justificatif de domicile"
+      - "Payer un abonnement annuel"
+      - "Habiter une autre ville"
+    answer: "Une pièce d'identité et un justificatif de domicile"
+    explain: "« il suffit de présenter une pièce d'identité et un justificatif de domicile »."
+  - id: read-b1-community-library.q3
+    prompt: "Combien de documents peut-on emprunter, et pour combien de temps ?"
+    options:
+      - "Jusqu'à cinq documents, pour trois semaines"
+      - "Un seul document, pour un mois"
+      - "Autant qu'on veut, sans limite"
+    answer: "Jusqu'à cinq documents, pour trois semaines"
+    explain: "« emprunter jusqu'à cinq documents pour une durée de trois semaines »."
+  - id: read-b1-community-library.q4
+    prompt: "Qu'est-il possible de faire depuis cette année ?"
+    options:
+      - "Réserver un document en ligne et le récupérer sur place"
+      - "Emprunter sans inscription"
+      - "Garder les livres définitivement"
+    answer: "Réserver un document en ligne et le récupérer sur place"
+    explain: "« Depuis cette année, il est possible de réserver un document en ligne et de le récupérer sur place »."

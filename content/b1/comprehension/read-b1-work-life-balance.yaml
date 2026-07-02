@@ -1,0 +1,53 @@
+id: read-b1-work-life-balance
+level: b1
+skill: reading
+title: "Trouver l'équilibre entre travail et vie personnelle"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Aujourd'hui, de nombreux salariés cherchent un meilleur équilibre entre leur
+  travail et leur vie personnelle. Avec le télétravail, il est parfois difficile
+  de séparer les heures de bureau et le temps libre. Certains commencent à
+  répondre à leurs courriels très tôt le matin et s'arrêtent tard le soir. Les
+  spécialistes conseillent de fixer des horaires clairs et de faire de vraies
+  pauses pendant la journée. Passer du temps avec sa famille, faire du sport ou
+  voir ses amis aide à réduire le stress et à rester en bonne santé. Plusieurs
+  entreprises ont compris que des employés reposés sont souvent plus motivés et
+  plus productifs. Elles proposent donc des horaires plus souples ou la
+  possibilité de travailler à la maison quelques jours par semaine. Cependant, cet
+  équilibre dépend aussi de chaque personne et de ses responsabilités. Apprendre à
+  dire non et à mieux organiser son temps reste essentiel. Au fond, bien vivre, ce
+  n'est pas seulement bien travailler.
+questions:
+  - id: read-b1-work-life-balance.q1
+    prompt: "Quel problème pose parfois le télétravail ?"
+    options:
+      - "Il est difficile de séparer travail et temps libre"
+      - "Il oblige à changer de ville"
+      - "Il supprime le salaire"
+    answer: "Il est difficile de séparer travail et temps libre"
+    explain: "« il est parfois difficile de séparer les heures de bureau et le temps libre »."
+  - id: read-b1-work-life-balance.q2
+    prompt: "Que conseillent les spécialistes ?"
+    options:
+      - "Fixer des horaires clairs et faire de vraies pauses"
+      - "Travailler tous les week-ends"
+      - "Répondre aux courriels la nuit"
+    answer: "Fixer des horaires clairs et faire de vraies pauses"
+    explain: "« conseillent de fixer des horaires clairs et de faire de vraies pauses »."
+  - id: read-b1-work-life-balance.q3
+    prompt: "Pourquoi certaines entreprises offrent-elles des horaires souples ?"
+    options:
+      - "Parce que des employés reposés sont plus motivés et productifs"
+      - "Pour payer moins d'impôts"
+      - "Pour embaucher moins de personnes"
+    answer: "Parce que des employés reposés sont plus motivés et productifs"
+    explain: "« des employés reposés sont souvent plus motivés et plus productifs »."
+  - id: read-b1-work-life-balance.q4
+    prompt: "Quelle est l'idée principale du texte ?"
+    options:
+      - "Bien vivre ne se limite pas à bien travailler"
+      - "Le travail est plus important que tout"
+      - "Le télétravail doit être interdit"
+    answer: "Bien vivre ne se limite pas à bien travailler"
+    explain: "« Au fond, bien vivre, ce n'est pas seulement bien travailler »."

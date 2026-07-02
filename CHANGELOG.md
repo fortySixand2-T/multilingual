@@ -472,3 +472,4 @@
 - [2026-07-01] Created: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — QA round 029: GET /exam/blueprints/{id} not registered; SPA catch-all returns HTTP 200 HTML instead of blueprint JSON or 404
 - [2026-07-02] Modified: app/main.py — Fix issue 416: scope the SPA catch-all so unmatched paths under a real API prefix return JSON 404 (not index.html); extract _mount_spa helper + web_dist override for testing
 - [2026-07-02] Created: tests/test_spa_serving.py — Regression tests for SPA serving: API 404s stay JSON, client-side routes fall back to index.html
+- [2026-07-02] Created: content/b1/comprehension/read-b1-{continuing-education,lease-signing,smart-spending,settling-in,community-library,work-life-balance}.yaml — 6 richer B1 reading sets (~10-sentence passages, 4 questions each) to flesh out reading practice; B1 reading 8->14 sets, recycling deck vocab across varied TEF text types

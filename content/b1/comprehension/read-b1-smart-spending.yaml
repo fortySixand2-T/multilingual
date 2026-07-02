@@ -1,0 +1,53 @@
+id: read-b1-smart-spending
+level: b1
+skill: reading
+title: "Consommer sans se ruiner"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Face à la hausse des prix, beaucoup de consommateurs cherchent des moyens de
+  mieux gérer leur argent. La première règle consiste à distinguer les dépenses
+  vraiment nécessaires de celles qui ne le sont pas. Avant un achat important, il
+  est conseillé de comparer les prix dans plusieurs magasins ou sur Internet.
+  Profiter des rabais et des périodes de soldes permet aussi de réaliser de bonnes
+  économies. Certaines personnes préfèrent payer en espèces pour mieux contrôler
+  leur budget et éviter le découvert. D'autres utilisent une application qui
+  enregistre chaque dépense et envoie une alerte quand la limite est atteinte.
+  Attention toutefois au crédit : emprunter pour acheter tout de suite peut coûter
+  cher à cause des intérêts. Mettre un peu d'argent de côté chaque mois, même une
+  petite somme, reste la meilleure façon de préparer l'avenir. Avec un peu
+  d'organisation, il est possible de protéger son pouvoir d'achat sans se priver
+  de tout.
+questions:
+  - id: read-b1-smart-spending.q1
+    prompt: "Quelle est la première règle pour mieux gérer son argent ?"
+    options:
+      - "Distinguer les dépenses nécessaires des autres"
+      - "Ne plus jamais rien acheter"
+      - "Emprunter davantage"
+    answer: "Distinguer les dépenses nécessaires des autres"
+    explain: "« distinguer les dépenses vraiment nécessaires de celles qui ne le sont pas »."
+  - id: read-b1-smart-spending.q2
+    prompt: "Pourquoi certaines personnes paient-elles en espèces ?"
+    options:
+      - "Pour mieux contrôler leur budget et éviter le découvert"
+      - "Pour gagner des points de fidélité"
+      - "Parce que les cartes sont interdites"
+    answer: "Pour mieux contrôler leur budget et éviter le découvert"
+    explain: "« payer en espèces pour mieux contrôler leur budget et éviter le découvert »."
+  - id: read-b1-smart-spending.q3
+    prompt: "Quel est le risque du crédit ?"
+    options:
+      - "Il peut coûter cher à cause des intérêts"
+      - "Il fait baisser les prix"
+      - "Il supprime les factures"
+    answer: "Il peut coûter cher à cause des intérêts"
+    explain: "« emprunter pour acheter tout de suite peut coûter cher à cause des intérêts »."
+  - id: read-b1-smart-spending.q4
+    prompt: "Quelle est la meilleure façon de préparer l'avenir selon le texte ?"
+    options:
+      - "Mettre un peu d'argent de côté chaque mois"
+      - "Dépenser tout son revenu"
+      - "Fermer son compte bancaire"
+    answer: "Mettre un peu d'argent de côté chaque mois"
+    explain: "« Mettre un peu d'argent de côté chaque mois … reste la meilleure façon de préparer l'avenir »."
