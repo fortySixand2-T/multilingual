@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.ai.errors import AllProvidersFailedError
 from app.ai.registry import build_default_registry
@@ -56,6 +59,20 @@ def create_app() -> FastAPI:
     app.include_router(assessment_router)
     app.include_router(speech_router)
     app.include_router(exam_router)
+
+    # Serve the built SPA when present (single-port prod). The API routers above
+    # are registered first, so explicit API routes win; everything else falls
+    # back to index.html for client-side routing. Build the SPA with
+    # VITE_API_BASE="" so it calls these routes directly (no /api proxy).
+    web_dist = Path(__file__).resolve().parent.parent / "web" / "dist"
+    if web_dist.is_dir():
+        app.mount("/assets", StaticFiles(directory=web_dist / "assets"), name="assets")
+        index_html = web_dist / "index.html"
+
+        @app.get("/{full_path:path}", include_in_schema=False)
+        async def _spa(full_path: str) -> FileResponse:
+            return FileResponse(index_html)
+
     return app
 
 
