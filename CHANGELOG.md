@@ -1,4 +1,7 @@
 # Changelog
+- [2026-07-01] Modified: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — appended Critic block; confirmed PM rejection; final verdict: rejected
+- [2026-07-01] Created: qa/rounds/029-plan.md — QA round 029: clean round, B1 new-themes slice verified sound (10 hypotheses, 0 validated issues)
+- [2026-07-01] Created: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — blueprint detail route not registered; filed, triaged, critiqued, final verdict rejected
 - [2026-06-26] Created: qa/rounds/028-plan.md — QA round 028: clean round, B1 mock go-live verified sound (all 7 hypotheses refuted)
 - [2026-06-26] Deleted: qa/issues/413-b1-exam-blueprints-not-synced.md — removed (not a code bug, sync not run)
 - [2026-06-26] Deleted: qa/issues/414-exam-section-double-submit-overwrites-score.md — removed (duplicate of 030)
@@ -466,3 +469,4 @@
 - [2026-07-01] Created: content/b1/writing/{section-b-education,section-a-rental-issue,section-a-bank-error,section-b-immigration}.yaml — 4 B1 writing tasks (2 Section A + 2 Section B) for the 4 newest themes, each target_vocab drawn from that theme's deck
 - [2026-07-01] Created: content/b1/exam/mock-4.yaml — B1 mock (éducation & logement) wiring new comprehension (read-b1-university-enrolment, listen-b1-landlord-message) + writing (write-b1-rental-issue, write-b1-education)
 - [2026-07-01] Created: content/b1/exam/mock-5.yaml — B1 mock (argent & immigration) wiring new comprehension (read-b1-household-budget, listen-b1-citizenship-info) + writing (write-b1-bank-error, write-b1-immigration)
+- [2026-07-01] Created: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — QA round 029: GET /exam/blueprints/{id} not registered; SPA catch-all returns HTTP 200 HTML instead of blueprint JSON or 404
