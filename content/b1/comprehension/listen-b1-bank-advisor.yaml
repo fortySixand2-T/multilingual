@@ -1,0 +1,41 @@
+id: listen-b1-bank-advisor
+level: b1
+skill: listening
+title: "Un rendez-vous à la banque"
+time_limit_seconds: 120
+audio_ref: b1/audio/listen-b1-bank-advisor.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Bonjour, merci d'être venu à la banque aujourd'hui. D'après votre relevé, vos
+  revenus sont réguliers, mais vos dépenses augmentent un peu chaque mois. Je vous
+  conseille d'ouvrir un compte d'épargne pour éviter le découvert. Si vous
+  souhaitez acheter une voiture, un petit emprunt est possible, avec un
+  remboursement sur trois ans. Réfléchissez bien, et rappelez-moi avant de prendre
+  votre décision.
+questions:
+  - id: listen-b1-bank-advisor.q1
+    prompt: "Que montre le relevé du client ?"
+    options:
+      - "Ses dépenses augmentent chaque mois"
+      - "Ses revenus baissent chaque mois"
+      - "Il n'a plus d'argent"
+    answer: "Ses dépenses augmentent chaque mois"
+    explain: "« vos dépenses augmentent un peu chaque mois »."
+  - id: listen-b1-bank-advisor.q2
+    prompt: "Que conseille le conseiller pour éviter le découvert ?"
+    options:
+      - "Ouvrir un compte d'épargne"
+      - "Fermer son compte"
+      - "Dépenser plus d'argent"
+    answer: "Ouvrir un compte d'épargne"
+    explain: "« ouvrir un compte d'épargne pour éviter le découvert »."
+  - id: listen-b1-bank-advisor.q3
+    prompt: "Sur combien de temps se ferait le remboursement ?"
+    options:
+      - "Sur trois ans"
+      - "Sur six mois"
+      - "Sur dix ans"
+    answer: "Sur trois ans"
+    explain: "« un remboursement sur trois ans »."

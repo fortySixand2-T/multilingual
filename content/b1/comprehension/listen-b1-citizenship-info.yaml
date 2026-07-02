@@ -1,0 +1,41 @@
+id: listen-b1-citizenship-info
+level: b1
+skill: listening
+title: "Devenir citoyen"
+time_limit_seconds: 120
+audio_ref: b1/audio/listen-b1-citizenship-info.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Vous écoutez les informations pour les nouveaux arrivants. Pour devenir citoyen,
+  il faut d'abord résider dans le pays pendant plusieurs années avec un statut
+  régulier. Vous devrez ensuite remplir un formulaire de demande et prouver votre
+  intégration, par exemple votre connaissance de la langue. Un centre d'accueil
+  peut vous accompagner dans toutes vos démarches. La naturalisation se termine
+  par une cérémonie officielle où vous obtenez la nationalité.
+questions:
+  - id: listen-b1-citizenship-info.q1
+    prompt: "Que faut-il faire d'abord pour devenir citoyen ?"
+    options:
+      - "Résider dans le pays plusieurs années"
+      - "Acheter un logement"
+      - "Payer une taxe spéciale"
+    answer: "Résider dans le pays plusieurs années"
+    explain: "« résider dans le pays pendant plusieurs années avec un statut régulier »."
+  - id: listen-b1-citizenship-info.q2
+    prompt: "Que doit-on prouver ?"
+    options:
+      - "Son intégration, par exemple la connaissance de la langue"
+      - "Ses revenus élevés"
+      - "Son diplôme universitaire"
+    answer: "Son intégration, par exemple la connaissance de la langue"
+    explain: "« prouver votre intégration, par exemple votre connaissance de la langue »."
+  - id: listen-b1-citizenship-info.q3
+    prompt: "Comment se termine la naturalisation ?"
+    options:
+      - "Par une cérémonie officielle"
+      - "Par un entretien d'embauche"
+      - "Par un simple courriel"
+    answer: "Par une cérémonie officielle"
+    explain: "« se termine par une cérémonie officielle où vous obtenez la nationalité »."

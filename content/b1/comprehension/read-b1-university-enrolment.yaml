@@ -1,0 +1,38 @@
+id: read-b1-university-enrolment
+level: b1
+skill: reading
+title: "S'inscrire à l'université"
+time_limit_seconds: 220
+pass_threshold: 0.6
+passage: |
+  Après le lycée, Léa a décidé de poursuivre des études universitaires. Elle a
+  d'abord choisi un cursus en sciences, puis elle a rempli son dossier
+  d'inscription en ligne. Comme ses parents ne pouvaient pas payer tous les
+  frais, elle a demandé une bourse. La formation dure trois ans et se termine par
+  la rédaction d'un mémoire. Léa apprécie surtout l'autonomie que lui offre la vie
+  étudiante, même si les examens de fin d'année restent stressants.
+questions:
+  - id: read-b1-university-enrolment.q1
+    prompt: "Qu'a fait Léa après le lycée ?"
+    options:
+      - "Elle a poursuivi des études universitaires"
+      - "Elle a cherché un emploi"
+      - "Elle a voyagé pendant un an"
+    answer: "Elle a poursuivi des études universitaires"
+    explain: "« Léa a décidé de poursuivre des études universitaires »."
+  - id: read-b1-university-enrolment.q2
+    prompt: "Pourquoi a-t-elle demandé une bourse ?"
+    options:
+      - "Parce que ses parents ne pouvaient pas payer tous les frais"
+      - "Parce qu'elle avait de mauvaises notes"
+      - "Parce qu'elle voulait changer de cursus"
+    answer: "Parce que ses parents ne pouvaient pas payer tous les frais"
+    explain: "« ses parents ne pouvaient pas payer tous les frais »."
+  - id: read-b1-university-enrolment.q3
+    prompt: "Comment se termine la formation ?"
+    options:
+      - "Par la rédaction d'un mémoire"
+      - "Par un stage obligatoire"
+      - "Par un simple examen oral"
+    answer: "Par la rédaction d'un mémoire"
+    explain: "« se termine par la rédaction d'un mémoire »."

@@ -461,3 +461,5 @@
 - [2026-06-26] Created: content/b1/audio/*.mp3 — 72 TTS clips for the new B1 theme vocab
 - [2026-06-27] Modified: app/main.py — Serve built SPA from web/dist for single-port LAN hosting (API routers first, index.html fallback)
 - [2026-06-27] Modified: web/dist — Rebuilt SPA with VITE_API_BASE="" so it calls backend routes directly (no /api proxy)
+- [2026-07-01] Created: content/b1/comprehension/{read,listen}-b1-*.yaml — 8 B1 comprehension sets (4 reading + 4 listening) for the 4 newest themes (education, housing, money, immigration), recycling each theme's deck vocab
+- [2026-07-01] Created: content/b1/audio/listen-b1-{student-orientation,landlord-message,bank-advisor,citizenship-info}.mp3 — TTS clips (Amélie/qc) for the new listening sets
