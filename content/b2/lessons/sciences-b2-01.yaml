@@ -1,0 +1,34 @@
+id: sciences-b2-01
+title: "Artificial intelligence & doubt"
+grammar_point: "le subjonctif présent après les expressions d'opinion et de doute"
+est_minutes: 7
+new_vocab: [intelligence_artificielle, numerique, donnee, algorithme, innovation, objet_connecte]
+pass_threshold: 8.0
+exercises:
+  - id: sciences-b2-01.e1
+    type: mcq
+    prompt: "« Je doute que cette technologie ___ vraiment fiable. » (I doubt this technology is truly reliable.)"
+    options: [soit, est, sera]
+    answer: soit
+    explain: "Après « douter que », le doute entraîne le subjonctif : « soit »."
+  - id: sciences-b2-01.e2
+    type: translate
+    prompt: "Translate: “artificial intelligence”"
+    answer: "intelligence artificielle"
+    accept: ["l'intelligence artificielle"]
+  - id: sciences-b2-01.e3
+    type: listen_type
+    audio_ref: b2/audio/innovation.mp3
+    answer: innovation
+    prompt: "Type the word you hear."
+  - id: sciences-b2-01.e4
+    type: word_bank
+    prompt: "Build: “I don't think that this algorithm is neutral.”"
+    tokens: [je, ne, pense, pas, que, cet, algorithme, soit, neutre, est]
+    answer: [je, ne, pense, pas, que, cet, algorithme, soit, neutre]
+  - id: sciences-b2-01.e5
+    type: match_pairs
+    pairs:
+      - ["donnée", "data"]
+      - ["numérique", "digital"]
+      - ["objet connecté", "connected device"]

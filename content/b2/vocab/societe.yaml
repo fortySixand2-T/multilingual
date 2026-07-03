@@ -1,0 +1,107 @@
+- id: engagement
+  fr: engagement
+  en: "commitment, involvement"
+  pos: noun
+  tags: [societe]
+
+- id: manipulation
+  fr: manipulation
+  en: manipulation
+  pos: noun
+  tags: [societe]
+
+- id: diversite
+  fr: diversité
+  en: diversity
+  pos: noun
+  tags: [societe]
+
+- id: polemique
+  fr: polémique
+  en: "controversy"
+  pos: noun
+  tags: [societe]
+
+- id: liberte_expression
+  fr: liberté d'expression
+  en: "freedom of expression"
+  pos: noun
+  tags: [societe]
+
+- id: civisme
+  fr: civisme
+  en: "civic-mindedness"
+  pos: noun
+  tags: [societe]
+
+- id: militant
+  fr: militant
+  en: activist
+  pos: noun
+  tags: [societe]
+
+- id: manifestation
+  fr: manifestation
+  en: "demonstration, protest"
+  pos: noun
+  tags: [societe]
+
+- id: opinion_publique
+  fr: opinion publique
+  en: "public opinion"
+  pos: noun
+  tags: [societe]
+
+- id: media
+  fr: média
+  en: "media outlet"
+  pos: noun
+  tags: [societe]
+
+- id: influenceur
+  fr: influenceur
+  en: influencer
+  pos: noun
+  tags: [societe]
+
+- id: tolerance
+  fr: tolérance
+  en: tolerance
+  pos: noun
+  tags: [societe]
+
+- id: discrimination
+  fr: discrimination
+  en: discrimination
+  pos: noun
+  tags: [societe]
+
+- id: entraide
+  fr: entraide
+  en: "mutual aid"
+  pos: noun
+  tags: [societe]
+
+- id: fracture_sociale
+  fr: fracture sociale
+  en: "social divide"
+  pos: noun
+  tags: [societe]
+
+- id: mobilisation
+  fr: mobilisation
+  en: mobilization
+  pos: noun
+  tags: [societe]
+
+- id: revendication
+  fr: revendication
+  en: "demand, claim"
+  pos: noun
+  tags: [societe]
+
+- id: temoignage
+  fr: témoignage
+  en: "testimony, account"
+  pos: noun
+  tags: [societe]

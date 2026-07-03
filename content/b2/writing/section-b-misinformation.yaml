@@ -1,0 +1,13 @@
+id: write-b2-misinformation
+level: b2
+section: B
+title: "Réseaux sociaux et information"
+min_words: 250
+max_words: 350
+prompt: |
+  « Les réseaux sociaux font plus de mal que de bien à l'information des
+  citoyens. » Dans un texte argumenté et structuré, discutez cette affirmation :
+  présentez des arguments pour et contre, illustrez-les d'exemples précis, puis
+  donnez votre position personnelle en conclusion. Soignez les connecteurs
+  logiques et la progression de votre raisonnement.
+target_vocab: [manipulation, opinion_publique, liberte_expression, media]

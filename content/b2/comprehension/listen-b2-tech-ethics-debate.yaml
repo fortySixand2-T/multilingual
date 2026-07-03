@@ -1,0 +1,55 @@
+id: listen-b2-tech-ethics-debate
+level: b2
+skill: listening
+title: "Faut-il encadrer l'intelligence artificielle ?"
+time_limit_seconds: 180
+audio_ref: b2/audio/listen-b2-tech-ethics-debate.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Bonjour à toutes et à tous. Notre question du jour : faut-il davantage encadrer
+  l'intelligence artificielle ? Camille, vous êtes chercheuse en éthique. Pour moi,
+  c'est une évidence. Ces systèmes prennent des décisions qui touchent nos vies,
+  mais leur fonctionnement reste souvent opaque, même pour leurs concepteurs. Sans
+  règles claires, on laisse des entreprises privées décider seules de ce qui est
+  acceptable. Thomas, vous dirigez une start-up. Je comprends l'inquiétude, mais
+  attention à ne pas tout bloquer. Trop de règles trop tôt, et l'innovation ira se
+  développer ailleurs, dans des pays moins regardants. Le vrai risque, c'est de
+  perdre notre indépendance technologique. Donc vous êtes contre toute régulation ?
+  Non, je dis simplement qu'il faut des règles intelligentes, construites avec les
+  chercheurs et les entreprises, pas contre eux. Sur ce point au moins, Camille et
+  moi sommes d'accord.
+questions:
+  - id: listen-b2-tech-ethics-debate.q1
+    prompt: "Selon Camille, pourquoi faut-il encadrer l'intelligence artificielle ?"
+    options:
+      - "Son fonctionnement est opaque alors qu'elle touche nos vies"
+      - "Elle ne sert à rien d'utile"
+      - "Elle coûte beaucoup trop cher"
+    answer: "Son fonctionnement est opaque alors qu'elle touche nos vies"
+    explain: "Camille : « leur fonctionnement reste souvent opaque… touchent nos vies »."
+  - id: listen-b2-tech-ethics-debate.q2
+    prompt: "Quelle est la crainte principale de Thomas ?"
+    options:
+      - "Que trop de règles poussent l'innovation à se développer ailleurs"
+      - "Que l'intelligence artificielle devienne gratuite"
+      - "Que les chercheurs disparaissent"
+    answer: "Que trop de règles poussent l'innovation à se développer ailleurs"
+    explain: "Thomas : « Trop de règles trop tôt, et l'innovation ira se développer ailleurs »."
+  - id: listen-b2-tech-ethics-debate.q3
+    prompt: "Thomas est-il opposé à toute régulation ?"
+    options:
+      - "Non, il veut des règles intelligentes construites avec tous"
+      - "Oui, il refuse toute forme de règle"
+      - "Il ne donne pas son avis"
+    answer: "Non, il veut des règles intelligentes construites avec tous"
+    explain: "« il faut des règles intelligentes, construites avec les chercheurs et les entreprises »."
+  - id: listen-b2-tech-ethics-debate.q4
+    prompt: "Sur quoi les deux invités s'accordent-ils finalement ?"
+    options:
+      - "Sur la nécessité de règles élaborées ensemble"
+      - "Sur l'inutilité de toute règle"
+      - "Sur l'arrêt total de la recherche"
+    answer: "Sur la nécessité de règles élaborées ensemble"
+    explain: "« Sur ce point au moins, Camille et moi sommes d'accord »."

@@ -1,0 +1,34 @@
+id: economie-b2-02
+title: "Investment & the unreal past"
+grammar_point: "l'hypothèse irréelle du passé : si + plus-que-parfait → conditionnel passé"
+est_minutes: 7
+new_vocab: [investissement, richesse, pauvrete, multinationale, delocalisation, inflation]
+pass_threshold: 8.0
+exercises:
+  - id: economie-b2-02.e1
+    type: mcq
+    prompt: "« Si l'entreprise avait investi, elle ___ la crise. » (…it would have avoided the crisis.)"
+    options: ["aurait évité", "avait évité", "éviterait"]
+    answer: "aurait évité"
+    explain: "Irréel du passé : si + plus-que-parfait → conditionnel passé « aurait évité »."
+  - id: economie-b2-02.e2
+    type: translate
+    prompt: "Translate: “poverty”"
+    answer: "la pauvreté"
+    accept: ["pauvreté", "la pauvrete", "pauvrete"]
+  - id: economie-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/investissement.mp3
+    answer: investissement
+    prompt: "Type the word you hear."
+  - id: economie-b2-02.e4
+    type: word_bank
+    prompt: "Build: “If we had reduced inflation, wealth would have grown.”"
+    tokens: [si, "on", avait, réduit, l, inflation, la, richesse, aurait, augmenté, augmentait]
+    answer: [si, "on", avait, réduit, l, inflation, la, richesse, aurait, augmenté]
+  - id: economie-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["multinationale", "multinational"]
+      - ["délocalisation", "offshoring"]
+      - ["richesse", "wealth"]

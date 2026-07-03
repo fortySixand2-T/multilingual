@@ -1,0 +1,34 @@
+id: sciences-b2-03
+title: "Discovery & the past subjunctive"
+grammar_point: "le subjonctif passé (action antérieure et incertaine)"
+est_minutes: 7
+new_vocab: [decouverte, experimentation, fiabilite, dependance, robotique, surveillance]
+pass_threshold: 8.0
+exercises:
+  - id: sciences-b2-03.e1
+    type: mcq
+    prompt: "« Je suis surpris que cette découverte ___ si vite. » (I'm surprised this discovery happened so fast.)"
+    options: ["se soit produite", "s'est produite", "se produira"]
+    answer: "se soit produite"
+    explain: "Une émotion sur une action déjà passée → subjonctif passé : « se soit produite »."
+  - id: sciences-b2-03.e2
+    type: translate
+    prompt: "Translate: “reliability”"
+    answer: "la fiabilité"
+    accept: ["fiabilité", "la fiabilite", "fiabilite"]
+  - id: sciences-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/surveillance.mp3
+    answer: surveillance
+    prompt: "Type the word you hear."
+  - id: sciences-b2-03.e4
+    type: word_bank
+    prompt: "Build: “I doubt that the experiment (has) succeeded.”"
+    tokens: [je, doute, que, l, expérimentation, ait, réussi, a, réussie]
+    answer: [je, doute, que, l, expérimentation, ait, réussi]
+  - id: sciences-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["dépendance", "dependence"]
+      - ["robotique", "robotics"]
+      - ["surveillance", "surveillance"]

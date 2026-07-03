@@ -1,0 +1,34 @@
+id: societe-b2-02
+title: "Protest & the passive voice"
+grammar_point: "la voix passive (être + participe passé, complément d'agent)"
+est_minutes: 7
+new_vocab: [militant, manifestation, opinion_publique, media, influenceur, tolerance]
+pass_threshold: 8.0
+exercises:
+  - id: societe-b2-02.e1
+    type: mcq
+    prompt: "« La manifestation ___ organisée par les militants. » (…was organized by the activists.)"
+    options: ["a été", "a", "est de"]
+    answer: "a été"
+    explain: "Voix passive au passé composé : « a été organisée » + complément d'agent « par »."
+  - id: societe-b2-02.e2
+    type: translate
+    prompt: "Translate: “public opinion”"
+    answer: "l'opinion publique"
+    accept: ["opinion publique", "l'opinion publique", "l opinion publique"]
+  - id: societe-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/militant.mp3
+    answer: militant
+    prompt: "Type the word you hear."
+  - id: societe-b2-02.e4
+    type: word_bank
+    prompt: "Build: “The law was voted (in) by the citizens.”"
+    tokens: [la, loi, a, été, votée, par, les, citoyens, ont]
+    answer: [la, loi, a, été, votée, par, les, citoyens]
+  - id: societe-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["média", "media outlet"]
+      - ["influenceur", "influencer"]
+      - ["tolérance", "tolerance"]
