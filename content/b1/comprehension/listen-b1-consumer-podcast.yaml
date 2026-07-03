@@ -1,0 +1,54 @@
+id: listen-b1-consumer-podcast
+level: b1
+skill: listening
+title: "Chronique : consommer autrement"
+time_limit_seconds: 150
+audio_ref: b1/audio/listen-b1-consumer-podcast.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Bonjour et bienvenue dans votre chronique du matin. Aujourd'hui, parlons d'une
+  tendance qui prend de l'ampleur : consommer moins, mais consommer mieux. De plus
+  en plus de gens réparent leurs objets au lieu de les jeter, achètent d'occasion
+  ou empruntent ce dont ils n'ont besoin qu'une seule fois. Ce changement n'est
+  pas seulement une question d'argent : c'est aussi une manière de réduire le
+  gaspillage et de protéger l'environnement. Les commerçants l'ont bien compris et
+  proposent désormais des ateliers de réparation ou des produits de seconde main.
+  Bien sûr, cette habitude demande un peu plus de temps et d'organisation. Mais
+  selon une récente étude, les personnes qui consomment ainsi se disent souvent
+  plus satisfaites de leurs achats, car elles réfléchissent davantage avant de
+  dépenser. Comme quoi, en acheter moins peut parfois vouloir dire vivre mieux.
+questions:
+  - id: listen-b1-consumer-podcast.q1
+    prompt: "Quel est le thème de la chronique ?"
+    options:
+      - "Consommer moins, mais consommer mieux"
+      - "Ouvrir un nouveau grand magasin"
+      - "Économiser l'électricité à la maison"
+    answer: "Consommer moins, mais consommer mieux"
+    explain: "« une tendance qui prend de l'ampleur : consommer moins, mais consommer mieux »."
+  - id: listen-b1-consumer-podcast.q2
+    prompt: "Que font de plus en plus de gens, selon la chronique ?"
+    options:
+      - "Ils réparent, achètent d'occasion ou empruntent"
+      - "Ils achètent toujours des objets neufs"
+      - "Ils jettent leurs objets dès qu'ils sont usés"
+    answer: "Ils réparent, achètent d'occasion ou empruntent"
+    explain: "« réparent leurs objets au lieu de les jeter, achètent d'occasion ou empruntent »."
+  - id: listen-b1-consumer-podcast.q3
+    prompt: "Pourquoi ce changement n'est-il pas seulement une question d'argent ?"
+    options:
+      - "Parce qu'il réduit le gaspillage et protège l'environnement"
+      - "Parce qu'il coûte finalement plus cher"
+      - "Parce qu'il est imposé par une nouvelle loi"
+    answer: "Parce qu'il réduit le gaspillage et protège l'environnement"
+    explain: "« c'est aussi une manière de réduire le gaspillage et de protéger l'environnement »."
+  - id: listen-b1-consumer-podcast.q4
+    prompt: "Quelle idée conclut la chronique ?"
+    options:
+      - "Acheter moins peut vouloir dire vivre mieux"
+      - "Il faut acheter le plus possible"
+      - "La réparation est une perte de temps"
+    answer: "Acheter moins peut vouloir dire vivre mieux"
+    explain: "« en acheter moins peut parfois vouloir dire vivre mieux »."

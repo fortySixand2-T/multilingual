@@ -1,0 +1,62 @@
+id: read-b1-gig-economy
+level: b1
+skill: reading
+title: "Les petits boulots du numérique"
+time_limit_seconds: 330
+pass_threshold: 0.6
+passage: |
+  Depuis quelques années, de plus en plus de personnes gagnent leur vie grâce à
+  des applications : livrer des repas, transporter des passagers ou faire de
+  petites tâches à la demande. Ces emplois attirent surtout les jeunes, car ils
+  offrent une grande liberté : on choisit ses horaires et on travaille quand on
+  veut. Pour certains, c'est une solution idéale pour arrondir leurs fins de mois
+  ou financer leurs études. Pourtant, cette liberté a un prix. Ces travailleurs ne
+  bénéficient pas toujours des mêmes protections que les salariés classiques : ni
+  congés payés, ni sécurité en cas de maladie. Leurs revenus peuvent aussi varier
+  fortement d'un mois à l'autre, ce qui rend difficile la gestion d'un budget.
+  Beaucoup se plaignent également de la pression des plateformes, qui fixent les
+  prix et notent chaque prestation. Les défenseurs de ce modèle rappellent qu'il
+  crée des emplois et répond à une vraie demande. Ses critiques, eux, réclament de
+  meilleures garanties et un statut plus clair. Le débat reste ouvert, et
+  plusieurs pays réfléchissent déjà à de nouvelles règles.
+questions:
+  - id: read-b1-gig-economy.q1
+    prompt: "Quel titre résume le mieux ce texte ?"
+    options:
+      - "Travailler librement, mais sans filet"
+      - "La fin des applications mobiles"
+      - "Comment devenir livreur en une semaine"
+    answer: "Travailler librement, mais sans filet"
+    explain: "Le texte oppose la liberté de ces emplois à l'absence de protections — c'est son idée centrale."
+  - id: read-b1-gig-economy.q2
+    prompt: "Qu'est-ce que le texte suggère à propos des revenus de ces travailleurs ?"
+    options:
+      - "Ils sont irréguliers et compliquent la gestion d'un budget"
+      - "Ils augmentent régulièrement chaque mois"
+      - "Ils sont fixés et garantis par l'État"
+    answer: "Ils sont irréguliers et compliquent la gestion d'un budget"
+    explain: "« Leurs revenus peuvent aussi varier fortement d'un mois à l'autre, ce qui rend difficile la gestion d'un budget »."
+  - id: read-b1-gig-economy.q3
+    prompt: "Pourquoi certains travailleurs se plaignent-ils des plateformes ?"
+    options:
+      - "Parce qu'elles fixent les prix et notent chaque prestation"
+      - "Parce qu'elles offrent trop de congés"
+      - "Parce qu'elles interdisent de choisir ses horaires"
+    answer: "Parce qu'elles fixent les prix et notent chaque prestation"
+    explain: "« la pression des plateformes, qui fixent les prix et notent chaque prestation »."
+  - id: read-b1-gig-economy.q4
+    prompt: "Que réclament les critiques de ce modèle ?"
+    options:
+      - "De meilleures garanties et un statut plus clair"
+      - "La suppression totale de ces emplois"
+      - "Des horaires encore plus libres"
+    answer: "De meilleures garanties et un statut plus clair"
+    explain: "« Ses critiques, eux, réclament de meilleures garanties et un statut plus clair »."
+  - id: read-b1-gig-economy.q5
+    prompt: "Quelle est la position générale de l'auteur ?"
+    options:
+      - "Il présente les avantages et les limites sans trancher"
+      - "Il condamne fermement ces emplois"
+      - "Il affirme que ce modèle est parfait"
+    answer: "Il présente les avantages et les limites sans trancher"
+    explain: "L'auteur donne les deux points de vue et conclut que « le débat reste ouvert »."

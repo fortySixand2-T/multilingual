@@ -1,0 +1,60 @@
+id: read-b1-city-or-country
+level: b1
+skill: reading
+title: "Partir vivre à la campagne ?"
+time_limit_seconds: 330
+pass_threshold: 0.6
+passage: |
+  Chaque année, des milliers de citadins quittent la ville pour s'installer à la
+  campagne. Fatigués du bruit, de la pollution et du prix des logements, ils
+  rêvent d'espace, de calme et d'une vie plus proche de la nature. Le télétravail
+  a rendu ce choix possible pour beaucoup : on peut désormais habiter loin de son
+  bureau. À la campagne, les maisons sont souvent plus grandes et moins chères, et
+  le voisinage plus chaleureux. Cependant, tout n'est pas si simple. Les
+  commerces, les écoles et les hôpitaux sont parfois éloignés, et les transports
+  en commun rares. Sans voiture, la vie peut vite devenir compliquée. Certains
+  regrettent aussi l'animation de la ville et ses nombreuses activités. Après
+  quelques mois, une partie de ces nouveaux habitants finissent par repartir. Pour
+  les autres, en revanche, ce changement de vie tient toutes ses promesses. Tout
+  dépend donc de ce que chacun recherche vraiment.
+questions:
+  - id: read-b1-city-or-country.q1
+    prompt: "De quoi parle principalement ce texte ?"
+    options:
+      - "Des avantages et des inconvénients de s'installer à la campagne"
+      - "De la construction de nouvelles villes"
+      - "Du prix de l'essence à la campagne"
+    answer: "Des avantages et des inconvénients de s'installer à la campagne"
+    explain: "Le texte pèse le pour (calme, espace) et le contre (services éloignés) d'un tel déménagement."
+  - id: read-b1-city-or-country.q2
+    prompt: "Pourquoi le télétravail a-t-il facilité ce choix ?"
+    options:
+      - "Parce qu'on peut désormais habiter loin de son bureau"
+      - "Parce qu'il augmente les salaires"
+      - "Parce qu'il supprime les impôts locaux"
+    answer: "Parce qu'on peut désormais habiter loin de son bureau"
+    explain: "« Le télétravail a rendu ce choix possible … on peut désormais habiter loin de son bureau »."
+  - id: read-b1-city-or-country.q3
+    prompt: "Pourquoi une voiture est-elle souvent nécessaire à la campagne ?"
+    options:
+      - "Parce que commerces, écoles et transports sont éloignés ou rares"
+      - "Parce que c'est obligatoire par la loi"
+      - "Parce que les maisons y sont trop petites"
+    answer: "Parce que commerces, écoles et transports sont éloignés ou rares"
+    explain: "« les commerces, les écoles et les hôpitaux sont parfois éloignés, et les transports en commun rares »."
+  - id: read-b1-city-or-country.q4
+    prompt: "Que sous-entend le fait qu'une partie des habitants « finissent par repartir » ?"
+    options:
+      - "La vie à la campagne ne convient pas à tout le monde"
+      - "Personne n'aime réellement la campagne"
+      - "La ville est interdite aux familles"
+    answer: "La vie à la campagne ne convient pas à tout le monde"
+    explain: "Le retour de certains montre que ce mode de vie ne convient pas à tous — d'où la conclusion nuancée."
+  - id: read-b1-city-or-country.q5
+    prompt: "Quelle conclusion le texte propose-t-il ?"
+    options:
+      - "Le bon choix dépend de ce que chacun recherche"
+      - "Il faut toujours préférer la ville"
+      - "La campagne est meilleure pour tout le monde"
+    answer: "Le bon choix dépend de ce que chacun recherche"
+    explain: "« Tout dépend donc de ce que chacun recherche vraiment »."

@@ -1,0 +1,53 @@
+id: listen-b1-newcomer-interview
+level: b1
+skill: listening
+title: "Entretien : une nouvelle vie au Québec"
+time_limit_seconds: 150
+audio_ref: b1/audio/listen-b1-newcomer-interview.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Amina, vous êtes arrivée au Québec il y a trois ans. Comment s'est passée votre
+  installation ? Franchement, les premiers mois ont été difficiles. Je parlais
+  français, mais l'accent et certaines expressions me surprenaient. Et puis,
+  l'hiver… je n'imaginais pas qu'il ferait si froid ! Qu'est-ce qui vous a le plus
+  aidée ? Sans hésiter, les gens. Mes voisins m'ont expliqué comment tout
+  fonctionnait, et un organisme d'accueil m'a aidée pour les démarches. J'y ai
+  aussi rencontré d'autres nouveaux arrivants, ce qui m'a beaucoup rassurée. Et
+  aujourd'hui, vous sentez-vous chez vous ? Oui, de plus en plus. J'ai un emploi,
+  des amis, et l'année prochaine, je compte demander la citoyenneté. Ce n'est pas
+  toujours facile, mais je ne regrette pas mon choix.
+questions:
+  - id: listen-b1-newcomer-interview.q1
+    prompt: "Pourquoi les premiers mois ont-ils été difficiles pour Amina ?"
+    options:
+      - "L'accent, certaines expressions et le froid la surprenaient"
+      - "Elle ne parlait pas du tout le français"
+      - "Elle n'arrivait pas à trouver un logement"
+    answer: "L'accent, certaines expressions et le froid la surprenaient"
+    explain: "« l'accent et certaines expressions me surprenaient. Et puis, l'hiver… si froid »."
+  - id: listen-b1-newcomer-interview.q2
+    prompt: "Qu'est-ce qui l'a le plus aidée à s'installer ?"
+    options:
+      - "Les gens : ses voisins, un organisme d'accueil, d'autres arrivants"
+      - "Une aide financière du gouvernement"
+      - "Des cours suivis à l'université"
+    answer: "Les gens : ses voisins, un organisme d'accueil, d'autres arrivants"
+    explain: "« Sans hésiter, les gens » — voisins, organisme d'accueil et autres nouveaux arrivants."
+  - id: listen-b1-newcomer-interview.q3
+    prompt: "Comment Amina se sent-elle aujourd'hui ?"
+    options:
+      - "De plus en plus chez elle"
+      - "Toujours étrangère et isolée"
+      - "Prête à quitter le pays"
+    answer: "De plus en plus chez elle"
+    explain: "« Oui, de plus en plus. J'ai un emploi, des amis »."
+  - id: listen-b1-newcomer-interview.q4
+    prompt: "Que compte-t-elle faire l'année prochaine ?"
+    options:
+      - "Demander la citoyenneté"
+      - "Déménager dans un autre pays"
+      - "Arrêter de travailler"
+    answer: "Demander la citoyenneté"
+    explain: "« l'année prochaine, je compte demander la citoyenneté »."

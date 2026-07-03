@@ -1,0 +1,61 @@
+id: read-b1-screens-and-youth
+level: b1
+skill: reading
+title: "Les écrans, un faux ami des adolescents ?"
+time_limit_seconds: 330
+pass_threshold: 0.6
+passage: |
+  Les adolescents d'aujourd'hui ont grandi avec un téléphone à la main. Ils
+  l'utilisent pour discuter avec leurs amis, s'informer, se divertir et même
+  travailler. Les réseaux sociaux leur permettent de rester en contact et de
+  partager leurs passions. Mais derrière cette apparente liberté se cache une
+  réalité plus inquiétante. Passer des heures devant un écran réduit le temps de
+  sommeil, la concentration et parfois l'envie de sortir. Certains jeunes
+  comparent sans cesse leur vie à celle, souvent idéalisée, qu'ils voient en
+  ligne, ce qui peut nuire à leur confiance. Les spécialistes ne demandent pas
+  d'interdire les écrans, mais d'apprendre à mieux les utiliser. Fixer des limites
+  de temps, éviter le téléphone avant de dormir et privilégier les vraies
+  rencontres sont quelques conseils simples. Les parents ont aussi un rôle à
+  jouer, à condition de montrer l'exemple. Car les adultes, eux non plus, ne sont
+  pas toujours raisonnables avec leurs propres écrans.
+questions:
+  - id: read-b1-screens-and-youth.q1
+    prompt: "Quelle est l'idée principale du texte ?"
+    options:
+      - "Les écrans ont des avantages mais aussi des risques à surveiller"
+      - "Les écrans doivent être interdits à tous les adolescents"
+      - "Les adolescents n'utilisent leur téléphone que pour travailler"
+    answer: "Les écrans ont des avantages mais aussi des risques à surveiller"
+    explain: "Le texte reconnaît d'abord les usages positifs, puis met en garde contre les dangers."
+  - id: read-b1-screens-and-youth.q2
+    prompt: "Que signifie l'expression « faux ami » dans le titre ?"
+    options:
+      - "Quelque chose qui semble utile mais peut causer du tort"
+      - "Un ami qui ne dit pas la vérité"
+      - "Un ami rencontré uniquement en ligne"
+    answer: "Quelque chose qui semble utile mais peut causer du tort"
+    explain: "Le texte montre que les écrans paraissent utiles (« apparente liberté ») mais présentent des risques."
+  - id: read-b1-screens-and-youth.q3
+    prompt: "Pourquoi comparer sa vie à celle vue en ligne peut-il poser problème ?"
+    options:
+      - "Cette vie est souvent idéalisée, ce qui nuit à la confiance"
+      - "Cela fait gagner du temps"
+      - "Cela améliore le sommeil"
+    answer: "Cette vie est souvent idéalisée, ce qui nuit à la confiance"
+    explain: "« comparent sans cesse leur vie à celle, souvent idéalisée … ce qui peut nuire à leur confiance »."
+  - id: read-b1-screens-and-youth.q4
+    prompt: "Que conseillent les spécialistes ?"
+    options:
+      - "Mieux utiliser les écrans plutôt que les interdire"
+      - "Supprimer tous les réseaux sociaux"
+      - "Laisser les jeunes totalement libres"
+    answer: "Mieux utiliser les écrans plutôt que les interdire"
+    explain: "« ne demandent pas d'interdire les écrans, mais d'apprendre à mieux les utiliser »."
+  - id: read-b1-screens-and-youth.q5
+    prompt: "Que sous-entend la dernière phrase du texte ?"
+    options:
+      - "Les adultes devraient aussi surveiller leur propre usage des écrans"
+      - "Les adultes n'utilisent jamais d'écran"
+      - "Seuls les enfants sont concernés par le problème"
+    answer: "Les adultes devraient aussi surveiller leur propre usage des écrans"
+    explain: "« les adultes, eux non plus, ne sont pas toujours raisonnables » implique qu'ils doivent montrer l'exemple."

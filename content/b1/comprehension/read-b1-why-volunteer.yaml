@@ -1,0 +1,61 @@
+id: read-b1-why-volunteer
+level: b1
+skill: reading
+title: "Donner de son temps"
+time_limit_seconds: 330
+pass_threshold: 0.6
+passage: |
+  Partout dans le monde, des millions de personnes consacrent une partie de leur
+  temps libre à aider les autres, sans être payées. Elles distribuent des repas,
+  accompagnent des personnes âgées, protègent la nature ou enseignent le français
+  aux nouveaux arrivants. On pourrait croire que ces bénévoles sont simplement
+  généreux. La réalité est plus riche. Beaucoup expliquent qu'ils reçoivent autant
+  qu'ils donnent : de nouvelles rencontres, un sentiment d'utilité, parfois même
+  des compétences utiles pour trouver un emploi. Pour les jeunes, le bénévolat est
+  aussi une façon de découvrir un métier ou d'enrichir leur curriculum. Pour les
+  personnes à la retraite, il permet de rester actif et de garder un lien avec la
+  société. Les associations, de leur côté, ne pourraient pas fonctionner sans
+  cette aide gratuite. Pourtant, elles ont de plus en plus de mal à trouver des
+  volontaires réguliers, car le temps libre est devenu précieux. Encourager le
+  bénévolat est donc un enjeu important pour l'avenir de nombreux services.
+questions:
+  - id: read-b1-why-volunteer.q1
+    prompt: "Quel est le sujet principal du texte ?"
+    options:
+      - "Les raisons pour lesquelles les gens font du bénévolat"
+      - "L'histoire des associations françaises"
+      - "Le salaire versé aux bénévoles"
+    answer: "Les raisons pour lesquelles les gens font du bénévolat"
+    explain: "Le texte explore ce qui motive les bénévoles, au-delà de la simple générosité."
+  - id: read-b1-why-volunteer.q2
+    prompt: "Que veut dire l'auteur quand il écrit que les bénévoles « reçoivent autant qu'ils donnent » ?"
+    options:
+      - "Le bénévolat leur apporte aussi des bénéfices personnels"
+      - "Les bénévoles sont finalement payés en secret"
+      - "Ils donnent trop de leur propre argent"
+    answer: "Le bénévolat leur apporte aussi des bénéfices personnels"
+    explain: "Rencontres, sentiment d'utilité, compétences : des bénéfices personnels, pas seulement du don."
+  - id: read-b1-why-volunteer.q3
+    prompt: "Pourquoi le bénévolat intéresse-t-il les jeunes ?"
+    options:
+      - "Il aide à découvrir un métier et à enrichir leur curriculum"
+      - "Il remplace complètement leurs études"
+      - "Il est obligatoire avant de travailler"
+    answer: "Il aide à découvrir un métier et à enrichir leur curriculum"
+    explain: "« une façon de découvrir un métier ou d'enrichir leur curriculum »."
+  - id: read-b1-why-volunteer.q4
+    prompt: "Quel problème les associations rencontrent-elles ?"
+    options:
+      - "Elles peinent à trouver des volontaires réguliers"
+      - "Elles ont beaucoup trop de bénévoles"
+      - "Elles refusent l'aide gratuite"
+    answer: "Elles peinent à trouver des volontaires réguliers"
+    explain: "« elles ont de plus en plus de mal à trouver des volontaires réguliers »."
+  - id: read-b1-why-volunteer.q5
+    prompt: "Quelle est l'intention de l'auteur ?"
+    options:
+      - "Montrer que le bénévolat est utile et mérite d'être encouragé"
+      - "Décourager les gens de faire du bénévolat"
+      - "Critiquer le fonctionnement des associations"
+    answer: "Montrer que le bénévolat est utile et mérite d'être encouragé"
+    explain: "La conclusion : « Encourager le bénévolat est donc un enjeu important pour l'avenir de nombreux services »."
