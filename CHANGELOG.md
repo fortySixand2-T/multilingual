@@ -1,4 +1,5 @@
 # Changelog
+- [2026-07-03] Modified: qa/issues/417-charter-submit-payload-format-wrong.md — appended Critic block; overturned PM validation; final verdict: rejected
 - [2026-07-01] Modified: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — appended Critic block; confirmed PM rejection; final verdict: rejected
 - [2026-07-01] Created: qa/rounds/029-plan.md — QA round 029: clean round, B1 new-themes slice verified sound (10 hypotheses, 0 validated issues)
 - [2026-07-01] Created: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — blueprint detail route not registered; filed, triaged, critiqued, final verdict rejected
@@ -473,3 +474,9 @@
 - [2026-07-02] Modified: app/main.py — Fix issue 416: scope the SPA catch-all so unmatched paths under a real API prefix return JSON 404 (not index.html); extract _mount_spa helper + web_dist override for testing
 - [2026-07-02] Created: tests/test_spa_serving.py — Regression tests for SPA serving: API 404s stay JSON, client-side routes fall back to index.html
 - [2026-07-02] Created: content/b1/comprehension/read-b1-{continuing-education,lease-signing,smart-spending,settling-in,community-library,work-life-balance}.yaml — 6 richer B1 reading sets (~10-sentence passages, 4 questions each) to flesh out reading practice; B1 reading 8->14 sets, recycling deck vocab across varied TEF text types
+- [2026-07-03] Created: content/b1/comprehension/read-b1-{gig-economy,screens-and-youth,city-or-country,why-volunteer}.yaml — 4 harder B1 reading sets (longer passages, 5 inference/attitude/implication questions each, trickier distractors)
+- [2026-07-03] Created: content/b1/comprehension/listen-b1-{consumer-podcast,remote-work-debate,newcomer-interview}.yaml — 3 harder B1 listening sets (denser scripts, no-replay exam mode, incl. a two-speaker debate) + 3 Amélie/qc TTS clips
+- [2026-07-03] Created: qa/issues/417-charter-submit-payload-format-wrong.md — QA issue: charter documents wrong array format for /comprehension/sets/{id}/submit; actual API expects dict
+- [2026-07-03] QA round 030 (edge-case-breaker): H3/H7/H8/H10 all passed — 7 new B1 comprehension sets verified (audio served, 29 total sets, grading correct, over-time/auth guards working); issue 417 (pre-existing duplicate) noted; 0 new issues filed
+- [2026-07-03] Modified: qa/issues/417-charter-submit-payload-format-wrong.md — QA PM triage round 030: status open→validated; appended Triage block confirming API schema mismatch and recommending canonical payload example in TEMPLATE
+- [2026-07-03] Modified: qa/rounds/030-plan.md — Round 030 plan and outcome table for B1 comprehension-challenge tier QA

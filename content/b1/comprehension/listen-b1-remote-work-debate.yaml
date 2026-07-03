@@ -1,0 +1,53 @@
+id: listen-b1-remote-work-debate
+level: b1
+skill: listening
+title: "Débat : le télétravail a-t-il tout changé ?"
+time_limit_seconds: 150
+audio_ref: b1/audio/listen-b1-remote-work-debate.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Alors, Sophie, diriez-vous que le télétravail a amélioré la vie des salariés ?
+  En partie, oui. Les gens perdent moins de temps dans les transports et peuvent
+  mieux organiser leurs journées. Mais attention, tout le monde n'a pas un
+  logement adapté pour travailler au calme. Marc, vous n'avez pas l'air convaincu.
+  Disons que je vois surtout les limites. À la maison, on ne sépare plus le
+  travail et la vie privée, et certains finissent par travailler davantage. Sans
+  compter qu'on perd le contact avec ses collègues. Donc, pour vous, il faudrait
+  revenir au bureau ? Non, pas complètement. Je pense qu'un modèle mixte, quelques
+  jours à la maison et quelques jours au bureau, serait le meilleur compromis. Sur
+  ce point, Sophie et moi sommes enfin d'accord.
+questions:
+  - id: listen-b1-remote-work-debate.q1
+    prompt: "Selon Sophie, quel est un avantage du télétravail ?"
+    options:
+      - "On perd moins de temps dans les transports"
+      - "On gagne toujours plus d'argent"
+      - "On ne travaille plus jamais le soir"
+    answer: "On perd moins de temps dans les transports"
+    explain: "Sophie : « Les gens perdent moins de temps dans les transports »."
+  - id: listen-b1-remote-work-debate.q2
+    prompt: "Quelle limite Marc souligne-t-il surtout ?"
+    options:
+      - "On ne sépare plus le travail et la vie privée"
+      - "Les transports coûtent trop cher"
+      - "Les logements sont devenus trop grands"
+    answer: "On ne sépare plus le travail et la vie privée"
+    explain: "Marc : « À la maison, on ne sépare plus le travail et la vie privée »."
+  - id: listen-b1-remote-work-debate.q3
+    prompt: "Que propose finalement Marc ?"
+    options:
+      - "Un modèle mixte, entre la maison et le bureau"
+      - "Un retour complet au bureau"
+      - "La fin définitive du télétravail"
+    answer: "Un modèle mixte, entre la maison et le bureau"
+    explain: "« un modèle mixte … serait le meilleur compromis »."
+  - id: listen-b1-remote-work-debate.q4
+    prompt: "Comment se termine l'échange entre Sophie et Marc ?"
+    options:
+      - "Ils finissent par être d'accord sur le modèle mixte"
+      - "Ils se disputent et arrêtent le débat"
+      - "Sophie change complètement d'avis"
+    answer: "Ils finissent par être d'accord sur le modèle mixte"
+    explain: "« Sur ce point, Sophie et moi sommes enfin d'accord »."
