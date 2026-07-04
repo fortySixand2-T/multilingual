@@ -1,0 +1,34 @@
+id: societe-b2-03
+title: "Solidarity & argumentation"
+grammar_point: "les connecteurs logiques argumentatifs et la mise en relief (« c'est … qui »)"
+est_minutes: 7
+new_vocab: [discrimination, entraide, fracture_sociale, mobilisation, revendication, temoignage]
+pass_threshold: 8.0
+exercises:
+  - id: societe-b2-03.e1
+    type: mcq
+    prompt: "« Le chômage augmente ; ___, les inégalités se creusent. » (…consequently, inequalities widen.)"
+    options: ["par conséquent", "bien que", "pour que"]
+    answer: "par conséquent"
+    explain: "« Par conséquent » introduit une conséquence logique dans un texte argumenté."
+  - id: societe-b2-03.e2
+    type: translate
+    prompt: "Translate: “social divide”"
+    answer: "la fracture sociale"
+    accept: ["fracture sociale", "la fracture sociale"]
+  - id: societe-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/mobilisation.mp3
+    answer: mobilisation
+    prompt: "Type the word you hear."
+  - id: societe-b2-03.e4
+    type: word_bank
+    prompt: "Build: “It is mutual aid that changes society.” (emphasis)"
+    tokens: ["c'est", "l'entraide", qui, change, la, société, que]
+    answer: ["c'est", "l'entraide", qui, change, la, société]
+  - id: societe-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["revendication", "demand"]
+      - ["discrimination", "discrimination"]
+      - ["témoignage", "testimony"]

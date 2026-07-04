@@ -1,0 +1,20 @@
+level: b2
+title: "B2 — Upper Intermediate"
+units:
+  - id: b2.u1
+    title: "Science, technology & the digital world"
+    icon: cpu
+    lessons: [sciences-b2-01, sciences-b2-02, sciences-b2-03]
+    unlock: { type: none }
+
+  - id: b2.u2
+    title: "Economy & globalization"
+    icon: chart
+    lessons: [economie-b2-01, economie-b2-02, economie-b2-03]
+    unlock: { type: all_of, requires: [b2.u1] }
+
+  - id: b2.u3
+    title: "Society, media & citizenship"
+    icon: people
+    lessons: [societe-b2-01, societe-b2-02, societe-b2-03]
+    unlock: { type: all_of, requires: [b2.u2] }

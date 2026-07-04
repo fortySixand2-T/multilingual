@@ -1,0 +1,34 @@
+id: economie-b2-01
+title: "Globalization & the conditional"
+grammar_point: "l'hypothèse possible : si + imparfait → conditionnel présent"
+est_minutes: 7
+new_vocab: [mondialisation, croissance, inegalite, concurrence, precarite, commerce]
+pass_threshold: 8.0
+exercises:
+  - id: economie-b2-01.e1
+    type: mcq
+    prompt: "« Si les inégalités diminuaient, la société ___ plus stable. » (…society would be more stable.)"
+    options: [serait, serais, sera]
+    answer: serait
+    explain: "Hypothèse : si + imparfait entraîne le conditionnel présent → « serait »."
+  - id: economie-b2-01.e2
+    type: translate
+    prompt: "Translate: “globalization”"
+    answer: "la mondialisation"
+    accept: ["mondialisation"]
+  - id: economie-b2-01.e3
+    type: listen_type
+    audio_ref: b2/audio/concurrence.mp3
+    answer: concurrence
+    prompt: "Type the word you hear."
+  - id: economie-b2-01.e4
+    type: word_bank
+    prompt: "Build: “If competition increased, prices would fall.”"
+    tokens: [si, la, concurrence, augmentait, les, prix, baisseraient, baisser]
+    answer: [si, la, concurrence, augmentait, les, prix, baisseraient]
+  - id: economie-b2-01.e5
+    type: match_pairs
+    pairs:
+      - ["croissance", "growth"]
+      - ["précarité", "job insecurity"]
+      - ["commerce", "trade"]

@@ -1,0 +1,34 @@
+id: economie-b2-03
+title: "Debt, regret & reproach"
+grammar_point: "le regret et le reproche : conditionnel passé (« j'aurais dû… »)"
+est_minutes: 7
+new_vocab: [endettement, rentabilite, main_doeuvre, exportation, importation, profit]
+pass_threshold: 8.0
+exercises:
+  - id: economie-b2-03.e1
+    type: mcq
+    prompt: "« L'État ___ soutenir la main-d'œuvre locale. » (…should have supported the local workforce.)"
+    options: ["aurait dû", "a dû", "devrait"]
+    answer: "aurait dû"
+    explain: "Le reproche sur une action passée s'exprime au conditionnel passé : « aurait dû »."
+  - id: economie-b2-03.e2
+    type: translate
+    prompt: "Translate: “profit”"
+    answer: "le profit"
+    accept: ["profit"]
+  - id: economie-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/exportation.mp3
+    answer: exportation
+    prompt: "Type the word you hear."
+  - id: economie-b2-03.e4
+    type: word_bank
+    prompt: "Build: “We should have reduced our debt.”"
+    tokens: [nous, aurions, dû, réduire, notre, endettement, devons]
+    answer: [nous, aurions, dû, réduire, notre, endettement]
+  - id: economie-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["rentabilité", "profitability"]
+      - ["importation", "import"]
+      - ["main-d'œuvre", "workforce"]

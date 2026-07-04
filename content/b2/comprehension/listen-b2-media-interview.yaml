@@ -1,0 +1,54 @@
+id: listen-b2-media-interview
+level: b2
+skill: listening
+title: "S'informer à l'ère des réseaux sociaux"
+time_limit_seconds: 180
+audio_ref: b2/audio/listen-b2-media-interview.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Aujourd'hui, nous recevons Léa Fontaine, spécialiste des médias. Léa, on dit que
+  la désinformation n'a jamais été aussi présente. Est-ce vrai ? En réalité, les
+  fausses informations ont toujours existé. Ce qui a changé, c'est la vitesse : une
+  rumeur peut désormais faire le tour du monde en quelques minutes. Et les réseaux
+  sociaux favorisent les contenus qui provoquent une émotion forte, qu'ils soient
+  vrais ou faux. Comment le public peut-il se protéger ? La première règle, c'est
+  de se méfier de ce qui nous fait réagir trop vite. Ensuite, il faut vérifier la
+  source : qui parle, et dans quel intérêt ? Je conseille aussi de croiser
+  plusieurs médias avant de partager quoi que ce soit. Mais au fond, la
+  responsabilité n'est pas seulement individuelle : les plateformes et l'école ont
+  aussi un rôle essentiel à jouer.
+questions:
+  - id: listen-b2-media-interview.q1
+    prompt: "Selon Léa, qu'est-ce qui a vraiment changé avec la désinformation ?"
+    options:
+      - "La vitesse à laquelle elle se propage"
+      - "Le fait qu'elle vienne tout juste d'apparaître"
+      - "Le fait qu'elle ait complètement disparu"
+    answer: "La vitesse à laquelle elle se propage"
+    explain: "« les fausses informations ont toujours existé. Ce qui a changé, c'est la vitesse »."
+  - id: listen-b2-media-interview.q2
+    prompt: "Pourquoi les réseaux sociaux favorisent-ils la désinformation ?"
+    options:
+      - "Ils privilégient les contenus qui provoquent une émotion forte"
+      - "Ils vérifient automatiquement chaque information"
+      - "Ils suppriment systématiquement les rumeurs"
+    answer: "Ils privilégient les contenus qui provoquent une émotion forte"
+    explain: "« les réseaux sociaux favorisent les contenus qui provoquent une émotion forte »."
+  - id: listen-b2-media-interview.q3
+    prompt: "Quel conseil Léa donne-t-elle pour se protéger ?"
+    options:
+      - "Vérifier la source et croiser plusieurs médias avant de partager"
+      - "Partager l'information le plus vite possible"
+      - "Ne plus jamais lire les actualités"
+    answer: "Vérifier la source et croiser plusieurs médias avant de partager"
+    explain: "« vérifier la source… croiser plusieurs médias avant de partager quoi que ce soit »."
+  - id: listen-b2-media-interview.q4
+    prompt: "Selon Léa, à qui revient la responsabilité de lutter contre la désinformation ?"
+    options:
+      - "Pas seulement aux individus, mais aussi aux plateformes et à l'école"
+      - "Uniquement aux journalistes professionnels"
+      - "À personne en particulier"
+    answer: "Pas seulement aux individus, mais aussi aux plateformes et à l'école"
+    explain: "« la responsabilité n'est pas seulement individuelle : les plateformes et l'école ont aussi un rôle »."

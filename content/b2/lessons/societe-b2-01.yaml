@@ -1,0 +1,34 @@
+id: societe-b2-01
+title: "Media & reported speech"
+grammar_point: "le discours rapporté indirect et la concordance des temps"
+est_minutes: 7
+new_vocab: [engagement, manipulation, diversite, polemique, liberte_expression, civisme]
+pass_threshold: 8.0
+exercises:
+  - id: societe-b2-01.e1
+    type: mcq
+    prompt: "« Le journaliste a dit qu'il ___ vérifié l'information. » (…that he had checked the information.)"
+    options: [avait, a, aurait]
+    answer: avait
+    explain: "Discours rapporté au passé : le passé composé devient plus-que-parfait → « avait vérifié »."
+  - id: societe-b2-01.e2
+    type: translate
+    prompt: "Translate: “freedom of expression”"
+    answer: "la liberté d'expression"
+    accept: ["liberté d'expression", "la liberte d'expression", "liberte d'expression"]
+  - id: societe-b2-01.e3
+    type: listen_type
+    audio_ref: b2/audio/engagement.mp3
+    answer: engagement
+    prompt: "Type the word you hear."
+  - id: societe-b2-01.e4
+    type: word_bank
+    prompt: "Build: “She says that diversity is a strength.”"
+    tokens: [elle, dit, que, la, diversité, est, une, force, sont]
+    answer: [elle, dit, que, la, diversité, est, une, force]
+  - id: societe-b2-01.e5
+    type: match_pairs
+    pairs:
+      - ["polémique", "controversy"]
+      - ["civisme", "civic sense"]
+      - ["manipulation", "manipulation"]

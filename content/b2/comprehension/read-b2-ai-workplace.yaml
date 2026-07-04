@@ -1,0 +1,68 @@
+id: read-b2-ai-workplace
+level: b2
+skill: reading
+title: "L'intelligence artificielle va-t-elle remplacer nos emplois ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Depuis quelques années, l'intelligence artificielle s'installe progressivement
+  dans le monde du travail. Des logiciels analysent des données, rédigent des
+  rapports et prennent même certaines décisions autrefois réservées aux humains.
+  Beaucoup redoutent une vague de suppressions d'emplois, en particulier dans les
+  tâches répétitives. Pourtant, l'histoire des révolutions technologiques invite à
+  la prudence : chaque grande innovation a détruit des métiers, mais en a créé
+  d'autres, souvent imprévus. Le véritable enjeu ne serait donc pas la disparition
+  du travail, mais sa transformation. De nombreux experts estiment que les
+  compétences les plus recherchées seront bientôt celles que les machines
+  maîtrisent mal : la créativité, l'esprit critique et la relation humaine. Encore
+  faut-il que les travailleurs aient accès à une formation continue de qualité.
+  Sans cet effort, la technologie risque d'accroître les inégalités entre ceux qui
+  savent s'adapter et les autres. Certaines entreprises l'ont compris et
+  investissent dans la reconversion de leurs salariés ; d'autres se contentent
+  d'automatiser pour réduire leurs coûts à court terme. La question éthique n'est
+  jamais loin : jusqu'où déléguer nos décisions à un algorithme dont on ignore
+  parfois le fonctionnement ? Pour beaucoup de chercheurs, l'avenir ne dépendra pas
+  de la machine elle-même, mais des choix politiques et sociaux que nous ferons. En
+  somme, l'intelligence artificielle n'est ni une menace ni une promesse : elle est
+  ce que nous déciderons d'en faire.
+questions:
+  - id: read-b2-ai-workplace.q1
+    prompt: "Quelle est l'idée centrale du texte ?"
+    options:
+      - "L'IA transformera le travail plus qu'elle ne le supprimera"
+      - "L'IA va faire disparaître tous les emplois"
+      - "L'IA n'aura aucun effet sur le travail"
+    answer: "L'IA transformera le travail plus qu'elle ne le supprimera"
+    explain: "« Le véritable enjeu ne serait donc pas la disparition du travail, mais sa transformation »."
+  - id: read-b2-ai-workplace.q2
+    prompt: "Pourquoi l'histoire des révolutions technologiques « invite à la prudence » ?"
+    options:
+      - "Chaque innovation a détruit des métiers mais en a créé d'autres"
+      - "Les machines n'ont jamais rien changé au travail"
+      - "Les révolutions ont toujours supprimé le travail définitivement"
+    answer: "Chaque innovation a détruit des métiers mais en a créé d'autres"
+    explain: "« chaque grande innovation a détruit des métiers, mais en a créé d'autres, souvent imprévus »."
+  - id: read-b2-ai-workplace.q3
+    prompt: "D'après le texte, qu'est-ce qui pourrait accroître les inégalités ?"
+    options:
+      - "L'absence de formation continue de qualité"
+      - "La créativité des travailleurs"
+      - "La disparition des algorithmes"
+    answer: "L'absence de formation continue de qualité"
+    explain: "« Sans cet effort [de formation], la technologie risque d'accroître les inégalités »."
+  - id: read-b2-ai-workplace.q4
+    prompt: "Comment le texte oppose-t-il les entreprises entre elles ?"
+    options:
+      - "Certaines forment leurs salariés, d'autres automatisent pour réduire les coûts"
+      - "Toutes refusent d'utiliser l'IA"
+      - "Toutes licencient l'ensemble de leurs salariés"
+    answer: "Certaines forment leurs salariés, d'autres automatisent pour réduire les coûts"
+    explain: "Opposition entre « investissent dans la reconversion » et « se contentent d'automatiser pour réduire leurs coûts »."
+  - id: read-b2-ai-workplace.q5
+    prompt: "Quelle est la position finale de l'auteur sur l'IA ?"
+    options:
+      - "Son effet dépendra des choix humains, sociaux et politiques"
+      - "Elle est une menace certaine pour l'humanité"
+      - "Elle est une promesse de progrès garantie"
+    answer: "Son effet dépendra des choix humains, sociaux et politiques"
+    explain: "« elle est ce que nous déciderons d'en faire » ; « l'avenir… dépendra des choix politiques et sociaux »."

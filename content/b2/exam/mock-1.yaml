@@ -1,0 +1,19 @@
+id: b2-mock-1
+level: b2
+title: "TEF Canada mock — B2 practice (technologie & société)"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-b2-ai-workplace
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-b2-tech-ethics-debate
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b2-open-letter, write-b2-misinformation]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Selon vous, faut-il se réjouir ou s'inquiéter de la place croissante de l'intelligence artificielle dans nos vies ? Développez un point de vue nuancé."
+      - "Certains estiment qu'on ne peut plus faire confiance à l'information en ligne. Qu'en pensez-vous ? Justifiez votre position avec des exemples concrets."

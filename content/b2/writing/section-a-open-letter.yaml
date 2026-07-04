@@ -1,0 +1,13 @@
+id: write-b2-open-letter
+level: b2
+section: A
+title: "Courrier au journal"
+min_words: 120
+max_words: 200
+prompt: |
+  Un grand quotidien publie un dossier sur la place de l'intelligence artificielle
+  au travail. Réagissez par un courrier adressé à la rédaction : exposez votre
+  point de vue de façon nuancée, appuyez-le sur un exemple concret, et proposez une
+  mesure pour accompagner les travailleurs face à ces changements. Adoptez un ton
+  posé et structuré.
+target_vocab: [innovation, automatisation, ethique, numerique]

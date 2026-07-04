@@ -1,0 +1,107 @@
+- id: intelligence_artificielle
+  fr: intelligence artificielle
+  en: "artificial intelligence"
+  pos: noun
+  tags: [sciences]
+
+- id: numerique
+  fr: numérique
+  en: "digital"
+  pos: adj
+  tags: [sciences]
+
+- id: donnee
+  fr: donnée
+  en: "(piece of) data"
+  pos: noun
+  tags: [sciences]
+
+- id: algorithme
+  fr: algorithme
+  en: algorithm
+  pos: noun
+  tags: [sciences]
+
+- id: innovation
+  fr: innovation
+  en: innovation
+  pos: noun
+  tags: [sciences]
+
+- id: objet_connecte
+  fr: objet connecté
+  en: "connected device"
+  pos: noun
+  tags: [sciences]
+
+- id: cybersecurite
+  fr: cybersécurité
+  en: cybersecurity
+  pos: noun
+  tags: [sciences]
+
+- id: vie_privee
+  fr: vie privée
+  en: privacy
+  pos: noun
+  tags: [sciences]
+
+- id: ethique
+  fr: éthique
+  en: ethics
+  pos: noun
+  tags: [sciences]
+
+- id: automatisation
+  fr: automatisation
+  en: automation
+  pos: noun
+  tags: [sciences]
+
+- id: logiciel
+  fr: logiciel
+  en: software
+  pos: noun
+  tags: [sciences]
+
+- id: utilisateur
+  fr: utilisateur
+  en: user
+  pos: noun
+  tags: [sciences]
+
+- id: decouverte
+  fr: découverte
+  en: discovery
+  pos: noun
+  tags: [sciences]
+
+- id: experimentation
+  fr: expérimentation
+  en: experimentation
+  pos: noun
+  tags: [sciences]
+
+- id: fiabilite
+  fr: fiabilité
+  en: reliability
+  pos: noun
+  tags: [sciences]
+
+- id: dependance
+  fr: dépendance
+  en: "dependence, addiction"
+  pos: noun
+  tags: [sciences]
+
+- id: robotique
+  fr: robotique
+  en: robotics
+  pos: noun
+  tags: [sciences]
+
+- id: surveillance
+  fr: surveillance
+  en: surveillance
+  pos: noun
+  tags: [sciences]

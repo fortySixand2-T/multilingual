@@ -1,0 +1,65 @@
+id: read-b2-globalization
+level: b2
+skill: reading
+title: "La mondialisation : gagnants et perdants"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  La mondialisation a profondément transformé nos économies. En quelques
+  décennies, les échanges de marchandises, de capitaux et d'informations se sont
+  multipliés à une vitesse inédite. Pour ses défenseurs, elle a permis de sortir
+  des millions de personnes de la pauvreté, notamment en Asie, et de faire baisser
+  le prix de nombreux produits. Pour ses détracteurs, elle a surtout profité aux
+  grandes multinationales, tout en fragilisant les travailleurs des pays riches.
+  La délocalisation des usines vers des régions à faible coût de main-d'œuvre a en
+  effet supprimé de nombreux emplois industriels. Dans le même temps, la
+  concurrence internationale a poussé certaines entreprises à innover, mais en a
+  condamné d'autres. La réalité est donc plus nuancée qu'un simple affrontement
+  entre partisans et opposants. Car si la mondialisation a créé de la richesse,
+  celle-ci a rarement été partagée de façon équitable. Les inégalités, loin de
+  disparaître, se sont parfois creusées à l'intérieur même des pays. Face à ces
+  tensions, certains réclament un retour au protectionnisme, quand d'autres
+  plaident pour une mondialisation mieux régulée. Une chose semble acquise :
+  revenir en arrière paraît aujourd'hui impossible. Le défi n'est plus d'être pour
+  ou contre, mais de décider quelles règles doivent l'encadrer.
+questions:
+  - id: read-b2-globalization.q1
+    prompt: "Quel est le propos principal du texte ?"
+    options:
+      - "La mondialisation a des effets contrastés, positifs et négatifs"
+      - "La mondialisation n'a apporté que des bienfaits"
+      - "La mondialisation doit être purement et simplement supprimée"
+    answer: "La mondialisation a des effets contrastés, positifs et négatifs"
+    explain: "Le texte présente gagnants et perdants : « La réalité est donc plus nuancée »."
+  - id: read-b2-globalization.q2
+    prompt: "Quel argument avancent les défenseurs de la mondialisation ?"
+    options:
+      - "Elle a sorti des millions de personnes de la pauvreté"
+      - "Elle a supprimé toutes les inégalités"
+      - "Elle a affaibli les grandes multinationales"
+    answer: "Elle a sorti des millions de personnes de la pauvreté"
+    explain: "« elle a permis de sortir des millions de personnes de la pauvreté, notamment en Asie »."
+  - id: read-b2-globalization.q3
+    prompt: "Quelle conséquence la délocalisation a-t-elle eue dans les pays riches ?"
+    options:
+      - "La suppression de nombreux emplois industriels"
+      - "Une forte hausse des salaires industriels"
+      - "La fin de toute concurrence"
+    answer: "La suppression de nombreux emplois industriels"
+    explain: "« la délocalisation des usines… a supprimé de nombreux emplois industriels »."
+  - id: read-b2-globalization.q4
+    prompt: "Que dit le texte à propos de la richesse créée ?"
+    options:
+      - "Elle a rarement été partagée de façon équitable"
+      - "Elle a été partagée également partout"
+      - "Elle n'a jamais réellement existé"
+    answer: "Elle a rarement été partagée de façon équitable"
+    explain: "« si la mondialisation a créé de la richesse, celle-ci a rarement été partagée de façon équitable »."
+  - id: read-b2-globalization.q5
+    prompt: "Quelle conclusion l'auteur propose-t-il ?"
+    options:
+      - "Le débat porte désormais sur les règles à imposer, non sur le pour ou le contre"
+      - "Il faut revenir en arrière et tout arrêter"
+      - "La mondialisation doit rester sans aucune règle"
+    answer: "Le débat porte désormais sur les règles à imposer, non sur le pour ou le contre"
+    explain: "« Le défi n'est plus d'être pour ou contre, mais de décider quelles règles doivent l'encadrer »."

@@ -1,0 +1,107 @@
+- id: mondialisation
+  fr: mondialisation
+  en: globalization
+  pos: noun
+  tags: [economie]
+
+- id: croissance
+  fr: croissance
+  en: "(economic) growth"
+  pos: noun
+  tags: [economie]
+
+- id: inegalite
+  fr: inégalité
+  en: inequality
+  pos: noun
+  tags: [economie]
+
+- id: concurrence
+  fr: concurrence
+  en: competition
+  pos: noun
+  tags: [economie]
+
+- id: precarite
+  fr: précarité
+  en: "job insecurity, precariousness"
+  pos: noun
+  tags: [economie]
+
+- id: commerce
+  fr: commerce
+  en: "trade, business"
+  pos: noun
+  tags: [economie]
+
+- id: investissement
+  fr: investissement
+  en: investment
+  pos: noun
+  tags: [economie]
+
+- id: richesse
+  fr: richesse
+  en: wealth
+  pos: noun
+  tags: [economie]
+
+- id: pauvrete
+  fr: pauvreté
+  en: poverty
+  pos: noun
+  tags: [economie]
+
+- id: multinationale
+  fr: multinationale
+  en: "multinational (company)"
+  pos: noun
+  tags: [economie]
+
+- id: delocalisation
+  fr: délocalisation
+  en: offshoring
+  pos: noun
+  tags: [economie]
+
+- id: inflation
+  fr: inflation
+  en: inflation
+  pos: noun
+  tags: [economie]
+
+- id: endettement
+  fr: endettement
+  en: indebtedness
+  pos: noun
+  tags: [economie]
+
+- id: rentabilite
+  fr: rentabilité
+  en: profitability
+  pos: noun
+  tags: [economie]
+
+- id: main_doeuvre
+  fr: main-d'œuvre
+  en: "workforce, labour"
+  pos: noun
+  tags: [economie]
+
+- id: exportation
+  fr: exportation
+  en: export
+  pos: noun
+  tags: [economie]
+
+- id: importation
+  fr: importation
+  en: import
+  pos: noun
+  tags: [economie]
+
+- id: profit
+  fr: profit
+  en: profit
+  pos: noun
+  tags: [economie]

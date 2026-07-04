@@ -1,0 +1,34 @@
+id: sciences-b2-02
+title: "Privacy & concession"
+grammar_point: "le subjonctif après « bien que / quoique » (la concession)"
+est_minutes: 7
+new_vocab: [cybersecurite, vie_privee, ethique, automatisation, logiciel, utilisateur]
+pass_threshold: 8.0
+exercises:
+  - id: sciences-b2-02.e1
+    type: mcq
+    prompt: "« Bien que ce logiciel ___ pratique, il collecte trop de données. » (Although this software is handy…)"
+    options: [soit, est, était]
+    answer: soit
+    explain: "« Bien que » exprime la concession et demande le subjonctif : « soit »."
+  - id: sciences-b2-02.e2
+    type: translate
+    prompt: "Translate: “privacy”"
+    answer: "la vie privée"
+    accept: ["vie privée", "la vie privee", "vie privee"]
+  - id: sciences-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/logiciel.mp3
+    answer: logiciel
+    prompt: "Type the word you hear."
+  - id: sciences-b2-02.e4
+    type: word_bank
+    prompt: "Build: “Even though the user is careful, cybersecurity remains fragile.”"
+    tokens: [quoique, "l'utilisateur", soit, prudent, la, cybersécurité, reste, fragile, est]
+    answer: [quoique, "l'utilisateur", soit, prudent, la, cybersécurité, reste, fragile]
+  - id: sciences-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["éthique", "ethics"]
+      - ["automatisation", "automation"]
+      - ["utilisateur", "user"]

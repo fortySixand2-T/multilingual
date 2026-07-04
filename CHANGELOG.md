@@ -1,4 +1,5 @@
 # Changelog
+- [2026-07-03] Created: qa/issues/428-lesson-fail-first-time-always-false.md — QA round 031 (edge-case-breaker): failed lesson result unconditionally returns first_time=false even on genuine first attempt
 - [2026-07-03] Modified: qa/issues/417-charter-submit-payload-format-wrong.md — appended Critic block; overturned PM validation; final verdict: rejected
 - [2026-07-01] Modified: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — appended Critic block; confirmed PM rejection; final verdict: rejected
 - [2026-07-01] Created: qa/rounds/029-plan.md — QA round 029: clean round, B1 new-themes slice verified sound (10 hypotheses, 0 validated issues)
@@ -480,3 +481,8 @@
 - [2026-07-03] QA round 030 (edge-case-breaker): H3/H7/H8/H10 all passed — 7 new B1 comprehension sets verified (audio served, 29 total sets, grading correct, over-time/auth guards working); issue 417 (pre-existing duplicate) noted; 0 new issues filed
 - [2026-07-03] Modified: qa/issues/417-charter-submit-payload-format-wrong.md — QA PM triage round 030: status open→validated; appended Triage block confirming API schema mismatch and recommending canonical payload example in TEMPLATE
 - [2026-07-03] Modified: qa/rounds/030-plan.md — Round 030 plan and outcome table for B1 comprehension-challenge tier QA
+- [2026-07-03] Created: content/b2/ — B2 (Upper Intermediate) level MVP: path.yaml (3 units, unlock chain), 3 vocab decks (54 advanced cards, globally-unique ids), 9 lessons (B2 grammar arc: subjonctif présent/passé, hypothèse/concordance des temps, discours rapporté/voix passive/connecteurs), 4 comprehension sets (2 reading + 2 no-replay listening, inference-based), 2 writing tasks (Section A courrier + Section B essai), 1 mock exam (b2-mock-1), 56 TTS clips (Amélie/qc)
+- [2026-07-03] Created: qa/issues/418-mock-exam-stuck-when-llm-unavailable.md — QA issue 418: mock exam permanently stuck in_progress when LLM unavailable; writing/speaking sections reject null clb_estimate
+- [2026-07-03] Created: qa/issues/419-word-bank-elision-token-missing-apostrophe.md — QA issue 419: word_bank exercises split l'+noun elision as bare 'l' token; 4 affected exercises in B2 content
+- [2026-07-03] Modified: content/b2/lessons/{sciences-b2-02,sciences-b2-03,economie-b2-02,societe-b2-03}.yaml — fix issue 419: word_bank elisions use single elided tiles (l'utilisateur, l'inflation, l'expérimentation, c'est/l'entraide) instead of a bare "l" token
+- [2026-07-03] Created: qa/rounds/031-plan.md, qa/issues/{418,419,428}-*.md — QA round 031 on B2 MVP: 419 fixed, 418 rejected, 428 deferred
