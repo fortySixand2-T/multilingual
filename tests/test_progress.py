@@ -81,7 +81,11 @@ def test_failing_score_does_not_complete():
     r = client.post("/progress/lessons/greetings-01/result", json={"score": 3.0})
     assert r.status_code == 200
     body = r.json()
-    assert body["passed"] is False and body["first_time"] is False
+    # first_pass is about passing (it gates XP/SRS), so a failing score is never a
+    # first pass — even on a genuine first attempt (issue 428: field renamed from
+    # the misleading `first_time` to match the comprehension endpoint).
+    assert body["passed"] is False and body["first_pass"] is False
+    assert "first_time" not in body  # old, misleading key is gone
     # gating unchanged: u2 still locked
     path = client.get("/content/path", params={"level": "a1"}).json()
     statuses = {u["id"]: u["status"] for u in path["units"]}
@@ -105,7 +109,7 @@ def test_locked_lesson_result_is_rejected_server_side():
 def test_passing_completes_and_lights_up_gating_streak_and_srs():
     r = client.post("/progress/lessons/greetings-01/result", json={"score": 9.5})
     body = r.json()
-    assert body["passed"] and body["first_time"]
+    assert body["passed"] and body["first_pass"]
     assert body["streak"] == 1 and body["xp"] == 10
 
     # u1 now has three lessons: one completion is not enough — u1 stays open, u2 locked
@@ -137,7 +141,7 @@ def test_passing_completes_and_lights_up_gating_streak_and_srs():
 def test_recompletion_same_day_is_idempotent():
     r = client.post("/progress/lessons/greetings-01/result", json={"score": 9.9})
     body = r.json()
-    assert body["first_time"] is False
+    assert body["first_pass"] is False
     assert body["xp"] == 30 and body["streak"] == 1  # no double XP / streak bump (3 lessons done)
 
 
@@ -188,7 +192,7 @@ def test_concurrent_completions_count_once_no_500():
         return results, prog.xp
 
     results, final_xp = asyncio.run(run())
-    assert sum(r["first_time"] for r in results) == 1  # exactly one counted it
+    assert sum(r["first_pass"] for r in results) == 1  # exactly one counted it
     assert final_xp == 10  # XP awarded once, never doubled
 
 

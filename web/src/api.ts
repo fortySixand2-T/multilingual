@@ -120,7 +120,7 @@ export type Lesson = {
 export type LessonResult = {
   lesson_id: string;
   passed: boolean;
-  first_time: boolean;
+  first_pass: boolean;
   streak: number;
   xp: number;
 };

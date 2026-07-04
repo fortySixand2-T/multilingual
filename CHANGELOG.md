@@ -514,3 +514,4 @@
 - [2026-07-04] Created: qa/issues/442-assessment-tasks-list-missing-target-vocab.md — QA round 034: filed defect for target_vocab missing from GET /assessment/tasks list endpoint
 - [2026-07-04] Modified: qa/rounds/034-plan.md — QA round 034 plan and outcome for B2 final slice (alimentation u10)
 - [2026-07-04] Modified: tests/test_assessment.py — regression assertion for issue 442: /assessment/tasks list includes target_vocab
+- [2026-07-04] Modified: app/progress/api.py, web/src/api.ts, web/src/screens/Lesson.tsx, tests/test_progress.py — fix issue 428: rename lesson-result `first_time` → `first_pass` (matches the comprehension endpoint; the field gates first-pass XP/SRS, so false-on-fail is correct, and the name no longer implies "first attempt")

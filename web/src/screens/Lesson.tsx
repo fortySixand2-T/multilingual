@@ -38,7 +38,7 @@ export default function Lesson() {
           <div className="btn-row center" style={{ justifyContent: "center" }}>
             <span className="pill">🔥 {result.streak}</span>
             <span className="pill">⭐ {result.xp} XP</span>
-            {result.first_time && <span className="pill">🆕 new words added to Review</span>}
+            {result.first_pass && <span className="pill">🆕 new words added to Review</span>}
           </div>
         )}
         <Link className="btn" to="/">Back to path</Link>

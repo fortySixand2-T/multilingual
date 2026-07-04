@@ -4,7 +4,7 @@ title: Failed lesson result always returns first_time=false even on genuine firs
 severity: medium
 area: progress
 persona: edge-case-breaker
-status: deferred
+status: fixed
 found: 2026-07-03
 ---
 
