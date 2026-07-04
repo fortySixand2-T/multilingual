@@ -1,0 +1,53 @@
+id: listen-b2-food-market
+level: b2
+skill: listening
+title: "Au marché : rencontre avec un producteur"
+time_limit_seconds: 180
+audio_ref: b2/audio/listen-b2-food-market.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Nous sommes ce matin sur le marché, à la rencontre de Julien, maraîcher. Julien,
+  vous vendez en circuit court : qu'est-ce que cela change pour vous ? Énormément.
+  En vendant directement, je fixe un prix juste et je garde le contact avec ceux
+  qui mangent mes légumes. Sans intermédiaire, l'agriculteur gagne mieux sa vie et
+  le client paie souvent moins cher. Vos produits sont-ils bio ? Oui, mais je
+  préfère parler de bon sens. J'utilise très peu de traitements, à condition que la
+  météo le permette. Le vrai problème, aujourd'hui, c'est le gaspillage : on jette
+  encore beaucoup trop de nourriture. Un conseil pour nos auditeurs ? Achetez de
+  saison, et n'hésitez pas à cuisiner les légumes un peu abîmés. Ce qui compte, ce
+  n'est pas l'apparence, c'est le goût et le respect du travail.
+questions:
+  - id: listen-b2-food-market.q1
+    prompt: "Que change la vente en circuit court pour Julien ?"
+    options:
+      - "Il fixe un prix juste et garde le contact avec ses clients"
+      - "Il vend beaucoup moins cher à des intermédiaires"
+      - "Il ne rencontre jamais ses clients"
+    answer: "Il fixe un prix juste et garde le contact avec ses clients"
+    explain: "« je fixe un prix juste et je garde le contact avec ceux qui mangent mes légumes »."
+  - id: listen-b2-food-market.q2
+    prompt: "Selon lui, quel est l'avantage de vendre sans intermédiaire ?"
+    options:
+      - "L'agriculteur gagne mieux sa vie et le client paie moins cher"
+      - "Seul l'intermédiaire y gagne"
+      - "Personne n'y trouve d'avantage"
+    answer: "L'agriculteur gagne mieux sa vie et le client paie moins cher"
+    explain: "« l'agriculteur gagne mieux sa vie et le client paie souvent moins cher »."
+  - id: listen-b2-food-market.q3
+    prompt: "Quel est, pour Julien, le vrai problème aujourd'hui ?"
+    options:
+      - "Le gaspillage : on jette trop de nourriture"
+      - "Le manque de clients au marché"
+      - "Le prix des semences"
+    answer: "Le gaspillage : on jette trop de nourriture"
+    explain: "« Le vrai problème, aujourd'hui, c'est le gaspillage »."
+  - id: listen-b2-food-market.q4
+    prompt: "Quel conseil final donne-t-il aux auditeurs ?"
+    options:
+      - "Acheter de saison et cuisiner les légumes un peu abîmés"
+      - "N'acheter que des produits parfaits"
+      - "Ne plus acheter de légumes du tout"
+    answer: "Acheter de saison et cuisiner les légumes un peu abîmés"
+    explain: "« Achetez de saison, et n'hésitez pas à cuisiner les légumes un peu abîmés »."

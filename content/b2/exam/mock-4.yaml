@@ -1,0 +1,19 @@
+id: b2-mock-4
+level: b2
+title: "TEF Canada mock — B2 practice (alimentation & agriculture)"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-b2-food-system
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-b2-food-market
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b2-food-letter, write-b2-food-essay]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Selon vous, faut-il changer notre façon de produire et de consommer la nourriture pour protéger la planète ? Développez un point de vue argumenté."
+      - "Pensez-vous que manger local et de saison devrait devenir une priorité ? Justifiez votre position avec des exemples concrets."
