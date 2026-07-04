@@ -1,0 +1,34 @@
+id: ville-b2-02
+title: "Mobility & proportion"
+grammar_point: "la proportion : « plus … plus », « moins … moins »"
+est_minutes: 7
+new_vocab: [pieton, infrastructure, gentrification, logement_social, transport_commun, voirie]
+pass_threshold: 8.0
+exercises:
+  - id: ville-b2-02.e1
+    type: mcq
+    prompt: "« ___ la ville s'étend, plus les trajets s'allongent. » (The more the city spreads…)"
+    options: ["Plus", "Aussi", "Autant"]
+    answer: "Plus"
+    explain: "« Plus … plus » exprime une variation proportionnelle entre deux faits."
+  - id: ville-b2-02.e2
+    type: translate
+    prompt: "Translate: “a pedestrian”"
+    answer: "un piéton"
+    accept: ["piéton", "le piéton", "un pieton", "pieton"]
+  - id: ville-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/infrastructure.mp3
+    answer: infrastructure
+    prompt: "Type the word you hear."
+  - id: ville-b2-02.e4
+    type: word_bank
+    prompt: "Build: “The more we build, the less green space there is.”"
+    tokens: [plus, "on", construit, moins, il, y, a, "d'espaces", verts, et]
+    answer: [plus, "on", construit, moins, il, y, a, "d'espaces", verts]
+  - id: ville-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["gentrification", "gentrification"]
+      - ["voirie", "roads"]
+      - ["logement social", "social housing"]

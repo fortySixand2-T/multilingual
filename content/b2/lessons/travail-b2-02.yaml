@@ -1,0 +1,34 @@
+id: travail-b2-02
+title: "Recognition at work & intended results"
+grammar_point: "le but visé : « de sorte que », « de manière à »"
+est_minutes: 7
+new_vocab: [reconnaissance, flexibilite, competitivite, prime, conge, penurie]
+pass_threshold: 8.0
+exercises:
+  - id: travail-b2-02.e1
+    type: mcq
+    prompt: "« Il faut reconnaître le travail ___ que les employés restent motivés. » (…so that employees stay motivated.)"
+    options: ["de sorte", "de façon de", "afin de"]
+    answer: "de sorte"
+    explain: "« De sorte que » + subjonctif exprime le résultat que l'on cherche à obtenir."
+  - id: travail-b2-02.e2
+    type: translate
+    prompt: "Translate: “a bonus”"
+    answer: "une prime"
+    accept: ["prime", "la prime"]
+  - id: travail-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/reconnaissance.mp3
+    answer: reconnaissance
+    prompt: "Type the word you hear."
+  - id: travail-b2-02.e4
+    type: word_bank
+    prompt: "Build: “The firm offers leave so as to reduce absenteeism.”"
+    tokens: ["l'entreprise", offre, des, congés, de, manière, à, réduire, "l'absentéisme", pour]
+    answer: ["l'entreprise", offre, des, congés, de, manière, à, réduire, "l'absentéisme"]
+  - id: travail-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["flexibilité", "flexibility"]
+      - ["compétitivité", "competitiveness"]
+      - ["pénurie", "shortage"]

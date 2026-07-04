@@ -1,0 +1,13 @@
+id: write-b2-work-essay
+level: b2
+section: B
+title: "La flexibilité au travail"
+min_words: 250
+max_words: 350
+prompt: |
+  « La flexibilité du travail est avant tout un progrès pour les salariés. »
+  Partagez-vous cet avis ? Dans un texte argumenté et structuré, présentez les
+  avantages et les limites de la flexibilité au travail, illustrez-les d'exemples
+  précis, puis donnez votre position personnelle en conclusion. Soignez les
+  connecteurs logiques.
+target_vocab: [flexibilite, reconnaissance, competitivite, penibilite]

@@ -36,3 +36,21 @@ units:
     icon: palette
     lessons: [culture-b2-01, culture-b2-02, culture-b2-03]
     unlock: { type: all_of, requires: [b2.u5] }
+
+  - id: b2.u7
+    title: "Justice, rights & political life"
+    icon: scale
+    lessons: [politique-b2-01, politique-b2-02, politique-b2-03]
+    unlock: { type: all_of, requires: [b2.u6] }
+
+  - id: b2.u8
+    title: "City, mobility & urban life"
+    icon: city
+    lessons: [ville-b2-01, ville-b2-02, ville-b2-03]
+    unlock: { type: all_of, requires: [b2.u7] }
+
+  - id: b2.u9
+    title: "Work & employment"
+    icon: briefcase
+    lessons: [travail-b2-01, travail-b2-02, travail-b2-03]
+    unlock: { type: all_of, requires: [b2.u8] }

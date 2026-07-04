@@ -1,0 +1,34 @@
+id: travail-b2-03
+title: "Careers & the future perfect"
+grammar_point: "le futur antérieur (action achevée avant une autre action future)"
+est_minutes: 7
+new_vocab: [requalification, absenteisme, rendement, cadre, mobilite_professionnelle, syndicalisme]
+pass_threshold: 8.0
+exercises:
+  - id: travail-b2-03.e1
+    type: mcq
+    prompt: "« Quand ils ___ terminé la requalification, ils changeront de poste. » (When they have finished…)"
+    options: [auront, ont, avaient]
+    answer: auront
+    explain: "Le futur antérieur « auront terminé » marque une action achevée avant une autre action future."
+  - id: travail-b2-03.e2
+    type: translate
+    prompt: "Translate: “an executive / manager”"
+    answer: "un cadre"
+    accept: ["cadre", "le cadre"]
+  - id: travail-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/rendement.mp3
+    answer: rendement
+    prompt: "Type the word you hear."
+  - id: travail-b2-03.e4
+    type: word_bank
+    prompt: "Build: “As soon as she has signed, she will start.”"
+    tokens: [dès, "qu'elle", aura, signé, elle, commencera, a]
+    answer: [dès, "qu'elle", aura, signé, elle, commencera]
+  - id: travail-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["absentéisme", "absenteeism"]
+      - ["cadre", "executive"]
+      - ["syndicalisme", "trade unionism"]

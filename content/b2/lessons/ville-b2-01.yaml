@@ -1,0 +1,34 @@
+id: ville-b2-01
+title: "Urban planning & intensity"
+grammar_point: "l'intensité liée à une cause : « d'autant plus … que »"
+est_minutes: 7
+new_vocab: [urbanisme, mobilite, embouteillage, peripherie, amenagement, densite]
+pass_threshold: 8.0
+exercises:
+  - id: ville-b2-01.e1
+    type: mcq
+    prompt: "« Les embouteillages sont ___ plus fréquents que la ville est dense. » (…all the more frequent as…)"
+    options: ["d'autant", "autant", "aussi"]
+    answer: "d'autant"
+    explain: "« D'autant plus … que » relie l'intensité (plus fréquents) à sa cause (la ville est dense)."
+  - id: ville-b2-01.e2
+    type: translate
+    prompt: "Translate: “urban planning”"
+    answer: "l'urbanisme"
+    accept: ["urbanisme", "l urbanisme"]
+  - id: ville-b2-01.e3
+    type: listen_type
+    audio_ref: b2/audio/embouteillage.mp3
+    answer: embouteillage
+    prompt: "Type the word you hear."
+  - id: ville-b2-01.e4
+    type: word_bank
+    prompt: "Build: “Housing is expensive, all the more so in the city centre.”"
+    tokens: [le, logement, est, cher, "d'autant", plus, au, centre-ville, aussi]
+    answer: [le, logement, est, cher, "d'autant", plus, au, centre-ville]
+  - id: ville-b2-01.e5
+    type: match_pairs
+    pairs:
+      - ["mobilité", "mobility"]
+      - ["périphérie", "outskirts"]
+      - ["densité", "density"]

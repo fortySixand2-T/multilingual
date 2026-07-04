@@ -1,0 +1,55 @@
+id: listen-b2-work-future
+level: b2
+skill: listening
+title: "Le travail de demain : faut-il en avoir peur ?"
+time_limit_seconds: 180
+audio_ref: b2/audio/listen-b2-work-future.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Bienvenue dans notre émission. Aujourd'hui, une question qui inquiète : à quoi
+  ressemblera le travail de demain ? Nadia Berger, économiste, est avec nous.
+  Nadia, l'automatisation va-t-elle détruire nos emplois ? Je comprends
+  l'inquiétude, mais je reste optimiste. Certains métiers vont disparaître, c'est
+  vrai, mais d'autres apparaîtront, souvent plus qualifiés. Le vrai défi, c'est la
+  formation : il faudra sans cesse se requalifier tout au long de sa carrière. Et
+  la précarité, dont on parle tant ? C'est le point noir. La flexibilité peut être
+  une chance, mais quand elle est subie, elle devient une source de stress et
+  d'inégalités. Que faudrait-il faire, selon vous ? Il faut accompagner les
+  transitions : investir dans la formation, mais aussi mieux protéger les
+  travailleurs, quel que soit leur statut. Le progrès technique n'est pas une
+  fatalité : tout dépend des règles que nous choisissons.
+questions:
+  - id: listen-b2-work-future.q1
+    prompt: "Selon Nadia, quel sera l'effet de l'automatisation sur l'emploi ?"
+    options:
+      - "Certains métiers disparaîtront, mais d'autres, plus qualifiés, apparaîtront"
+      - "Absolument tous les emplois vont disparaître"
+      - "Rien ne changera dans le monde du travail"
+    answer: "Certains métiers disparaîtront, mais d'autres, plus qualifiés, apparaîtront"
+    explain: "« Certains métiers vont disparaître… mais d'autres apparaîtront, souvent plus qualifiés »."
+  - id: listen-b2-work-future.q2
+    prompt: "Quel est, pour elle, le vrai défi ?"
+    options:
+      - "La formation et la requalification tout au long de la carrière"
+      - "La baisse générale des salaires"
+      - "La disparition des entreprises"
+    answer: "La formation et la requalification tout au long de la carrière"
+    explain: "« Le vrai défi, c'est la formation : il faudra sans cesse se requalifier »."
+  - id: listen-b2-work-future.q3
+    prompt: "Que dit Nadia à propos de la flexibilité ?"
+    options:
+      - "Subie, elle devient une source de stress et d'inégalités"
+      - "Elle est toujours une bonne chose"
+      - "Elle n'existe pas vraiment"
+    answer: "Subie, elle devient une source de stress et d'inégalités"
+    explain: "« quand elle est subie, elle devient une source de stress et d'inégalités »."
+  - id: listen-b2-work-future.q4
+    prompt: "Quelle est la position finale de Nadia ?"
+    options:
+      - "Le progrès dépend des règles que nous choisissons"
+      - "Le progrès technique est une fatalité inévitable"
+      - "Il faut arrêter tout progrès technique"
+    answer: "Le progrès dépend des règles que nous choisissons"
+    explain: "« Le progrès technique n'est pas une fatalité : tout dépend des règles que nous choisissons »."

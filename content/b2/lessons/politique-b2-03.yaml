@@ -1,0 +1,34 @@
+id: politique-b2-03
+title: "Power — strong concession"
+grammar_point: "la concession forte : « quand bien même » + conditionnel"
+est_minutes: 7
+new_vocab: [reforme, pouvoir, gouvernement, constitution, abstention, souverainete]
+pass_threshold: 8.0
+exercises:
+  - id: politique-b2-03.e1
+    type: mcq
+    prompt: "« ___ le pouvoir changerait, la constitution resterait. » (Even if power were to change…)"
+    options: ["Quand bien même", "Malgré", "Grâce à"]
+    answer: "Quand bien même"
+    explain: "« Quand bien même » + conditionnel exprime une concession hypothétique forte."
+  - id: politique-b2-03.e2
+    type: translate
+    prompt: "Translate: “the government”"
+    answer: "le gouvernement"
+    accept: ["gouvernement"]
+  - id: politique-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/pouvoir.mp3
+    answer: pouvoir
+    prompt: "Type the word you hear."
+  - id: politique-b2-03.e4
+    type: word_bank
+    prompt: "Build: “Despite the abstention, the vote is valid.”"
+    tokens: [malgré, "l'abstention", le, scrutin, est, valable, bien]
+    answer: [malgré, "l'abstention", le, scrutin, est, valable]
+  - id: politique-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["réforme", "reform"]
+      - ["souveraineté", "sovereignty"]
+      - ["constitution", "constitution"]
