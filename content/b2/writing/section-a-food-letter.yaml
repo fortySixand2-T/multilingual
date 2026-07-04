@@ -1,0 +1,13 @@
+id: write-b2-food-letter
+level: b2
+section: A
+title: "Lettre à la cantine"
+min_words: 120
+max_words: 200
+prompt: |
+  La cantine de votre lieu de travail (ou d'études) propose une nourriture de
+  mauvaise qualité et gaspille beaucoup. Écrivez une lettre au responsable :
+  décrivez les problèmes constatés, expliquez leurs conséquences, et proposez des
+  améliorations concrètes (produits locaux, lutte contre le gaspillage). Adoptez un
+  ton formel et argumenté.
+target_vocab: [malbouffe, gaspillage_alimentaire, circuit_court, producteur]

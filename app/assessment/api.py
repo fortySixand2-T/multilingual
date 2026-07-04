@@ -65,6 +65,7 @@ async def list_tasks(
                 "prompt": r.data["prompt"],
                 "min_words": r.data["min_words"],
                 "max_words": r.data.get("max_words"),
+                "target_vocab": r.data.get("target_vocab", []),
             }
             for r in rows
         ]

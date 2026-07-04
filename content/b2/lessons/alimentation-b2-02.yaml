@@ -1,0 +1,34 @@
+id: alimentation-b2-02
+title: "Local food & restriction"
+grammar_point: "la restriction : « à moins que » + subjonctif (ne explétif), « sauf si »"
+est_minutes: 7
+new_vocab: [circuit_court, gaspillage_alimentaire, malbouffe, souverainete_alimentaire, terroir, filiere]
+pass_threshold: 8.0
+exercises:
+  - id: alimentation-b2-02.e1
+    type: mcq
+    prompt: "« Les prix vont monter, à moins que l'État ___. » (…unless the state acts.)"
+    options: ["n'agisse", "agit", "agira"]
+    answer: "n'agisse"
+    explain: "« À moins que » + subjonctif, souvent avec le « ne » explétif → « n'agisse »."
+  - id: alimentation-b2-02.e2
+    type: translate
+    prompt: "Translate: “food waste”"
+    answer: "le gaspillage alimentaire"
+    accept: ["gaspillage alimentaire"]
+  - id: alimentation-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/terroir.mp3
+    answer: terroir
+    prompt: "Type the word you hear."
+  - id: alimentation-b2-02.e4
+    type: word_bank
+    prompt: "Build: “We'll eat local, unless it is too expensive.”"
+    tokens: ["on", mangera, local, sauf, si, "c'est", trop, cher, à]
+    answer: ["on", mangera, local, sauf, si, "c'est", trop, cher]
+  - id: alimentation-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["malbouffe", "junk food"]
+      - ["circuit court", "local sourcing"]
+      - ["filière", "supply chain"]

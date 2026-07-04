@@ -1,0 +1,66 @@
+id: read-b2-food-system
+level: b2
+skill: reading
+title: "Nourrir le monde sans détruire la planète"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Comment nourrir près de dix milliards d'êtres humains sans épuiser la planète ?
+  C'est l'un des grands défis du siècle. L'agriculture intensive, née après-guerre,
+  a permis de produire beaucoup et à bas prix. Mais elle a un coût : usage massif
+  d'engrais et de pesticides, épuisement des sols, pollution de l'eau et déclin de
+  la biodiversité. Face à ces limites, de nouvelles pratiques se développent.
+  L'agriculture biologique, les circuits courts et la réduction du gaspillage
+  alimentaire séduisent une part croissante de consommateurs. Pourtant, ces
+  solutions ne font pas l'unanimité. Certains estiment que le bio, moins productif,
+  ne pourrait pas nourrir toute la population mondiale. D'autres répondent qu'une
+  grande partie de la nourriture produite est aujourd'hui gaspillée, ou sert à
+  nourrir du bétail plutôt que des humains. Le débat dépasse donc la seule
+  technique agricole : il touche à nos habitudes alimentaires. Manger moins de
+  viande, privilégier les produits de saison et locaux, accepter de payer le juste
+  prix aux producteurs : autant de changements qui supposent une prise de
+  conscience collective. Car la question n'est peut-être pas seulement de produire
+  plus, mais de produire et de consommer autrement. Nourrir le monde durablement ne
+  dépendra pas d'une seule solution miracle, mais d'un ensemble de choix, du champ
+  jusqu'à l'assiette.
+questions:
+  - id: read-b2-food-system.q1
+    prompt: "Quel grand défi le texte présente-t-il ?"
+    options:
+      - "Nourrir l'humanité sans épuiser la planète"
+      - "Construire de nouvelles usines agricoles"
+      - "Exporter toujours plus de viande"
+    answer: "Nourrir l'humanité sans épuiser la planète"
+    explain: "« Comment nourrir près de dix milliards d'êtres humains sans épuiser la planète ? »."
+  - id: read-b2-food-system.q2
+    prompt: "Quel est le « coût » de l'agriculture intensive, selon le texte ?"
+    options:
+      - "Épuisement des sols, pollution de l'eau et déclin de la biodiversité"
+      - "Une production beaucoup trop faible"
+      - "Des prix devenus trop élevés"
+    answer: "Épuisement des sols, pollution de l'eau et déclin de la biodiversité"
+    explain: "« usage massif d'engrais et de pesticides, épuisement des sols, pollution de l'eau et déclin de la biodiversité »."
+  - id: read-b2-food-system.q3
+    prompt: "Que répondent les défenseurs du bio à ses critiques ?"
+    options:
+      - "Une grande partie de la nourriture est gaspillée ou sert à nourrir le bétail"
+      - "Le bio est plus productif que l'agriculture intensive"
+      - "Il faudrait manger beaucoup plus de viande"
+    answer: "Une grande partie de la nourriture est gaspillée ou sert à nourrir le bétail"
+    explain: "« une grande partie de la nourriture produite est aujourd'hui gaspillée, ou sert à nourrir du bétail »."
+  - id: read-b2-food-system.q4
+    prompt: "Pourquoi le débat « dépasse la seule technique agricole » ?"
+    options:
+      - "Parce qu'il concerne aussi nos habitudes alimentaires"
+      - "Parce que la technique n'a aucune importance"
+      - "Parce que les agriculteurs refusent tout changement"
+    answer: "Parce qu'il concerne aussi nos habitudes alimentaires"
+    explain: "« il touche à nos habitudes alimentaires »."
+  - id: read-b2-food-system.q5
+    prompt: "Quelle est la conclusion de l'auteur ?"
+    options:
+      - "Il n'y a pas de solution unique ; il faut produire et consommer autrement"
+      - "Il suffit de produire toujours plus"
+      - "Le bio résoudra tout à lui seul"
+    answer: "Il n'y a pas de solution unique ; il faut produire et consommer autrement"
+    explain: "« ne dépendra pas d'une seule solution miracle, mais d'un ensemble de choix, du champ jusqu'à l'assiette »."

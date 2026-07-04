@@ -1,0 +1,34 @@
+id: alimentation-b2-01
+title: "Farming & condition"
+grammar_point: "l'expression de la condition : « à condition que / pourvu que » + subjonctif"
+est_minutes: 7
+new_vocab: [agriculture, agriculteur, elevage, recolte, engrais, bio]
+pass_threshold: 8.0
+exercises:
+  - id: alimentation-b2-01.e1
+    type: mcq
+    prompt: "« On peut nourrir la planète, à condition que l'agriculture ___ plus durable. » (…provided that agriculture becomes more sustainable.)"
+    options: [devienne, devient, deviendra]
+    answer: devienne
+    explain: "« À condition que » + subjonctif → « qu'elle devienne »."
+  - id: alimentation-b2-01.e2
+    type: translate
+    prompt: "Translate: “a farmer”"
+    answer: "un agriculteur"
+    accept: ["agriculteur", "l'agriculteur"]
+  - id: alimentation-b2-01.e3
+    type: listen_type
+    audio_ref: b2/audio/agriculture.mp3
+    answer: agriculture
+    prompt: "Type the word you hear."
+  - id: alimentation-b2-01.e4
+    type: word_bank
+    prompt: "Build: “I'll buy organic provided that it stays affordable.”"
+    tokens: ["j'achèterai", bio, pourvu, que, ça, reste, abordable, restera]
+    answer: ["j'achèterai", bio, pourvu, que, ça, reste, abordable]
+  - id: alimentation-b2-01.e5
+    type: match_pairs
+    pairs:
+      - ["élevage", "livestock farming"]
+      - ["récolte", "harvest"]
+      - ["engrais", "fertilizer"]

@@ -1,0 +1,34 @@
+id: alimentation-b2-03
+title: "Responsible consumption & emphasis"
+grammar_point: "la mise en relief : « ce qui / ce que … c'est »"
+est_minutes: 7
+new_vocab: [cheptel, semence, autosuffisance, etiquetage, producteur, denree]
+pass_threshold: 8.0
+exercises:
+  - id: alimentation-b2-03.e1
+    type: mcq
+    prompt: "« ___ compte, c'est la qualité des denrées. » (What matters is the quality of the food.)"
+    options: ["Ce qui", "Ce que", "Qu'est-ce qui"]
+    answer: "Ce qui"
+    explain: "Sujet mis en relief : « ce qui compte, c'est… » (« ce qui » = sujet du verbe)."
+  - id: alimentation-b2-03.e2
+    type: translate
+    prompt: "Translate: “a producer”"
+    answer: "un producteur"
+    accept: ["producteur", "le producteur"]
+  - id: alimentation-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/semence.mp3
+    answer: semence
+    prompt: "Type the word you hear."
+  - id: alimentation-b2-03.e4
+    type: word_bank
+    prompt: "Build: “What consumers want is transparency.”"
+    tokens: [ce, que, les, consommateurs, veulent, "c'est", la, transparence, qui]
+    answer: [ce, que, les, consommateurs, veulent, "c'est", la, transparence]
+  - id: alimentation-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["semence", "seed"]
+      - ["étiquetage", "labelling"]
+      - ["autosuffisance", "self-sufficiency"]

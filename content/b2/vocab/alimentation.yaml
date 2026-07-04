@@ -1,0 +1,107 @@
+- id: agriculture
+  fr: agriculture
+  en: agriculture
+  pos: noun
+  tags: [alimentation]
+
+- id: agriculteur
+  fr: agriculteur
+  en: farmer
+  pos: noun
+  tags: [alimentation]
+
+- id: elevage
+  fr: élevage
+  en: "livestock farming"
+  pos: noun
+  tags: [alimentation]
+
+- id: recolte
+  fr: récolte
+  en: harvest
+  pos: noun
+  tags: [alimentation]
+
+- id: engrais
+  fr: engrais
+  en: fertilizer
+  pos: noun
+  tags: [alimentation]
+
+- id: bio
+  fr: bio
+  en: "organic"
+  pos: adj
+  tags: [alimentation]
+
+- id: circuit_court
+  fr: circuit court
+  en: "short supply chain, local sourcing"
+  pos: noun
+  tags: [alimentation]
+
+- id: gaspillage_alimentaire
+  fr: gaspillage alimentaire
+  en: "food waste"
+  pos: noun
+  tags: [alimentation]
+
+- id: malbouffe
+  fr: malbouffe
+  en: "junk food"
+  pos: noun
+  tags: [alimentation]
+
+- id: souverainete_alimentaire
+  fr: souveraineté alimentaire
+  en: "food sovereignty"
+  pos: noun
+  tags: [alimentation]
+
+- id: terroir
+  fr: terroir
+  en: "local region, local produce"
+  pos: noun
+  tags: [alimentation]
+
+- id: filiere
+  fr: filière
+  en: "sector, supply chain"
+  pos: noun
+  tags: [alimentation]
+
+- id: cheptel
+  fr: cheptel
+  en: "livestock, herd"
+  pos: noun
+  tags: [alimentation]
+
+- id: semence
+  fr: semence
+  en: seed
+  pos: noun
+  tags: [alimentation]
+
+- id: autosuffisance
+  fr: autosuffisance
+  en: "self-sufficiency"
+  pos: noun
+  tags: [alimentation]
+
+- id: etiquetage
+  fr: étiquetage
+  en: labelling
+  pos: noun
+  tags: [alimentation]
+
+- id: producteur
+  fr: producteur
+  en: producer
+  pos: noun
+  tags: [alimentation]
+
+- id: denree
+  fr: denrée
+  en: "commodity, foodstuff"
+  pos: noun
+  tags: [alimentation]

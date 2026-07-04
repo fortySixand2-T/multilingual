@@ -1,4 +1,7 @@
 # Changelog
+- [2026-07-04] Modified: app/assessment/api.py — add target_vocab to list_tasks response (fix issue 442)
+- [2026-07-04] Modified: qa/issues/442-assessment-tasks-list-missing-target-vocab.md — Critic block appended: validated — asymmetry confirmed as plain omission; target_vocab IDs already in r.data, no extra query needed; medium severity correct
+- [2026-07-04] Modified: qa/issues/442-assessment-tasks-list-missing-target-vocab.md — Triage block appended: validated — list_tasks() omits target_vocab from the response dict while get_task() returns it wholesale; plain omission, not a design choice
 - [2026-07-03] Modified: qa/issues/430-ville-b2-01-e4-word-bank-missing-que-clause.md — Critic block appended: deferred (content author decision required on which form e4 should teach; status updated to deferred)
 - [2026-07-03] Modified: qa/issues/431-travail-b2-02-e1-distractor-de-facon-de-ungrammatical.md — Critic block appended: validated, clear for dev-fixer (one-token YAML change, parallel to issue-429 fix)
 - [2026-07-03] Created: qa/issues/430-ville-b2-01-e4-word-bank-missing-que-clause.md — QA round 033 (exam-crammer): ville-b2-01.e4 word_bank produces "d'autant plus" without mandatory "que" clause, contradicting the lesson grammar point
@@ -507,3 +510,7 @@
 - [2026-07-03] Modified: qa/issues/431-travail-b2-02-e1-distractor-de-facon-de-ungrammatical.md — Triaged open issue: status updated to validated, Triage block appended
 - [2026-07-04] Modified: content/b2/lessons/{ville-b2-01,travail-b2-02}.yaml — fix issues 430/431: ville-b2-01.e4 now models the full « d'autant plus … que » structure; travail-b2-02.e1 distractors replaced with « bien »/« parce » (valid-but-wrong connectors) instead of the ungrammatical « de façon de »
 - [2026-07-04] Created: qa/rounds/033-plan.md, qa/issues/{430,431}-*.md — QA round 033 on B2 Slice 3: 2 content issues found and fixed
+- [2026-07-04] Created/Modified: content/b2/ — B2 final slice: +u10 (Alimentation, agriculture & consommation) = 1 deck (18 advanced cards), 3 lessons (grammar: condition à condition que/pourvu que, restriction à moins que/sauf si, mise en relief ce qui/ce que…c'est), +2 comprehension sets, +2 writing tasks, +b2-mock-4, +19 TTS clips; path.yaml completes B2 at 10 units (30 lessons, 180 vocab)
+- [2026-07-04] Created: qa/issues/442-assessment-tasks-list-missing-target-vocab.md — QA round 034: filed defect for target_vocab missing from GET /assessment/tasks list endpoint
+- [2026-07-04] Modified: qa/rounds/034-plan.md — QA round 034 plan and outcome for B2 final slice (alimentation u10)
+- [2026-07-04] Modified: tests/test_assessment.py — regression assertion for issue 442: /assessment/tasks list includes target_vocab

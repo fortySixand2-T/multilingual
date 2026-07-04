@@ -1,0 +1,13 @@
+id: write-b2-food-essay
+level: b2
+section: B
+title: "Réduire la viande ?"
+min_words: 250
+max_words: 350
+prompt: |
+  « Pour préserver la planète, chacun devrait réduire fortement sa consommation de
+  viande. » Partagez-vous cet avis ? Dans un texte argumenté et structuré,
+  présentez les arguments pour et contre, illustrez-les d'exemples précis, puis
+  donnez votre position personnelle en conclusion. Soignez les connecteurs
+  logiques.
+target_vocab: [elevage, agriculture, souverainete_alimentaire, autosuffisance]

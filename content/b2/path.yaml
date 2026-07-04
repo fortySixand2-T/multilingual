@@ -54,3 +54,9 @@ units:
     icon: briefcase
     lessons: [travail-b2-01, travail-b2-02, travail-b2-03]
     unlock: { type: all_of, requires: [b2.u8] }
+
+  - id: b2.u10
+    title: "Food, farming & responsible consumption"
+    icon: harvest
+    lessons: [alimentation-b2-01, alimentation-b2-02, alimentation-b2-03]
+    unlock: { type: all_of, requires: [b2.u9] }
