@@ -8,9 +8,9 @@ exercises:
   - id: travail-b2-02.e1
     type: mcq
     prompt: "« Il faut reconnaître le travail ___ que les employés restent motivés. » (…so that employees stay motivated.)"
-    options: ["de sorte", "de façon de", "afin de"]
+    options: ["de sorte", "bien", "parce"]
     answer: "de sorte"
-    explain: "« De sorte que » + subjonctif exprime le résultat que l'on cherche à obtenir."
+    explain: "« De sorte que » + subjonctif exprime le but recherché ; « bien que » marque la concession et « parce que » la cause."
   - id: travail-b2-02.e2
     type: translate
     prompt: "Translate: “a bonus”"

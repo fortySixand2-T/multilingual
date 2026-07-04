@@ -23,9 +23,9 @@ exercises:
     prompt: "Type the word you hear."
   - id: ville-b2-01.e4
     type: word_bank
-    prompt: "Build: “Housing is expensive, all the more so in the city centre.”"
-    tokens: [le, logement, est, cher, "d'autant", plus, au, centre-ville, aussi]
-    answer: [le, logement, est, cher, "d'autant", plus, au, centre-ville]
+    prompt: "Build: “This district is all the more sought-after as it attracts families.”"
+    tokens: [ce, quartier, est, "d'autant", plus, recherché, "qu'il", attire, les, familles, aussi]
+    answer: [ce, quartier, est, "d'autant", plus, recherché, "qu'il", attire, les, familles]
   - id: ville-b2-01.e5
     type: match_pairs
     pairs:
