@@ -1,0 +1,107 @@
+- id: epidemie
+  fr: épidémie
+  en: epidemic
+  pos: noun
+  tags: [sante]
+
+- id: vaccin
+  fr: vaccin
+  en: vaccine
+  pos: noun
+  tags: [sante]
+
+- id: systeme_de_sante
+  fr: système de santé
+  en: "health(care) system"
+  pos: noun
+  tags: [sante]
+
+- id: obesite
+  fr: obésité
+  en: obesity
+  pos: noun
+  tags: [sante]
+
+- id: esperance_de_vie
+  fr: espérance de vie
+  en: "life expectancy"
+  pos: noun
+  tags: [sante]
+
+- id: depistage
+  fr: dépistage
+  en: screening
+  pos: noun
+  tags: [sante]
+
+- id: soignant
+  fr: soignant
+  en: "caregiver, health worker"
+  pos: noun
+  tags: [sante]
+
+- id: remede
+  fr: remède
+  en: remedy
+  pos: noun
+  tags: [sante]
+
+- id: guerison
+  fr: guérison
+  en: "recovery, cure"
+  pos: noun
+  tags: [sante]
+
+- id: symptome
+  fr: symptôme
+  en: symptom
+  pos: noun
+  tags: [sante]
+
+- id: contagion
+  fr: contagion
+  en: contagion
+  pos: noun
+  tags: [sante]
+
+- id: nutrition
+  fr: nutrition
+  en: nutrition
+  pos: noun
+  tags: [sante]
+
+- id: activite_physique
+  fr: activité physique
+  en: "physical activity"
+  pos: noun
+  tags: [sante]
+
+- id: vieillissement
+  fr: vieillissement
+  en: ageing
+  pos: noun
+  tags: [sante]
+
+- id: handicap
+  fr: handicap
+  en: disability
+  pos: noun
+  tags: [sante]
+
+- id: mutuelle
+  fr: mutuelle
+  en: "(complementary) health insurance"
+  pos: noun
+  tags: [sante]
+
+- id: addiction
+  fr: addiction
+  en: addiction
+  pos: noun
+  tags: [sante]
+
+- id: urgences
+  fr: urgences
+  en: "emergency room"
+  pos: noun
+  tags: [sante]

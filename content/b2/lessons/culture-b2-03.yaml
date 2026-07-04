@@ -1,0 +1,34 @@
+id: culture-b2-03
+title: "Cultural life — consequence & synthesis"
+grammar_point: "l'expression de la conséquence (si bien que, par conséquent)"
+est_minutes: 7
+new_vocab: [peinture, festival, representation, mecenat, conservation, diffusion]
+pass_threshold: 8.0
+exercises:
+  - id: culture-b2-03.e1
+    type: mcq
+    prompt: "« L'entrée est gratuite, ___ le musée attire un large public. » (…so that the museum draws a wide audience.)"
+    options: ["si bien que", "bien que", "à moins que"]
+    answer: "si bien que"
+    explain: "« Si bien que » introduit la conséquence d'un fait."
+  - id: culture-b2-03.e2
+    type: translate
+    prompt: "Translate: “a painting”"
+    answer: "une peinture"
+    accept: ["peinture", "la peinture"]
+  - id: culture-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/festival.mp3
+    answer: festival
+    prompt: "Type the word you hear."
+  - id: culture-b2-03.e4
+    type: word_bank
+    prompt: "Build: “Thanks to broadcasting, art reaches everyone.”"
+    tokens: [grâce, à, la, diffusion, "l'art", touche, tout, le, monde, pour]
+    answer: [grâce, à, la, diffusion, "l'art", touche, tout, le, monde]
+  - id: culture-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["représentation", "performance"]
+      - ["mécénat", "patronage"]
+      - ["diffusion", "broadcasting"]

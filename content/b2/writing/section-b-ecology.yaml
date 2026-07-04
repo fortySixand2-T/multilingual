@@ -1,0 +1,13 @@
+id: write-b2-ecology
+level: b2
+section: B
+title: "Gestes individuels ou lois ?"
+min_words: 250
+max_words: 350
+prompt: |
+  « Face au réchauffement climatique, les changements de comportement individuels
+  sont dérisoires : seules des lois strictes peuvent avoir un effet. » Discutez
+  cette affirmation dans un texte argumenté et structuré : présentez des arguments
+  pour et contre, illustrez-les d'exemples précis, puis donnez votre position
+  personnelle en conclusion. Soignez les connecteurs logiques.
+target_vocab: [rechauffement_climatique, empreinte_carbone, transition_energetique, durabilite]

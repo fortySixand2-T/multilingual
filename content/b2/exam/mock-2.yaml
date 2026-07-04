@@ -1,0 +1,19 @@
+id: b2-mock-2
+level: b2
+title: "TEF Canada mock — B2 practice (santé, environnement & culture)"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-b2-healthcare
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-b2-culture-radio
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b2-health-letter, write-b2-ecology]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Selon vous, la responsabilité de lutter contre le changement climatique est-elle d'abord individuelle ou collective ? Développez un point de vue nuancé."
+      - "Pensez-vous que l'accès à la culture devrait être gratuit pour tous ? Justifiez votre position avec des exemples concrets."

@@ -1,0 +1,12 @@
+id: write-b2-health-letter
+level: b2
+section: A
+title: "Lettre à l'hôpital"
+min_words: 120
+max_words: 200
+prompt: |
+  Les délais d'attente aux urgences de votre ville ne cessent d'augmenter. Écrivez
+  une lettre à la direction de l'hôpital : décrivez le problème de façon précise,
+  expliquez ses conséquences pour les patients, et proposez au moins une solution
+  concrète. Adoptez un ton formel et argumenté.
+target_vocab: [urgences, soignant, systeme_de_sante, depistage]

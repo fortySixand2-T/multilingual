@@ -1,0 +1,65 @@
+id: read-b2-climate-policy
+level: b2
+skill: reading
+title: "Sauver la planète : à qui la responsabilité ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Face au réchauffement climatique, une question revient sans cesse : qui doit agir
+  en premier ? Pour certains, la responsabilité est avant tout individuelle. Chacun
+  pourrait réduire son empreinte carbone en mangeant moins de viande, en
+  privilégiant le covoiturage ou en limitant sa surconsommation. Ces gestes, mis
+  bout à bout, auraient un effet réel. Pour d'autres, cette vision est un piège :
+  elle ferait porter le poids du problème sur les citoyens, alors que quelques
+  grandes entreprises sont à l'origine de la majorité des émissions. Selon eux,
+  sans lois contraignantes ni transition énergétique ambitieuse, les efforts
+  personnels resteront insuffisants. La vérité se situe sans doute entre les deux.
+  Les changements de comportement créent une demande nouvelle, à laquelle les
+  entreprises et les gouvernements finissent par répondre. Inversement, aucune
+  habitude ne peut se généraliser si les infrastructures ne suivent pas : on ne
+  peut pas demander aux gens de moins prendre la voiture s'il n'existe aucune
+  alternative. Le débat oppose donc souvent deux camps, alors qu'ils sont en
+  réalité complémentaires. Ce qui manque le plus, ce n'est pas la bonne volonté,
+  mais la coordination entre les citoyens, les entreprises et l'État. Car la
+  durabilité ne se décrète pas : elle se construit à tous les niveaux à la fois.
+questions:
+  - id: read-b2-climate-policy.q1
+    prompt: "Quelle question est au cœur du texte ?"
+    options:
+      - "À qui revient la responsabilité d'agir contre le réchauffement"
+      - "Comment fabriquer des voitures électriques"
+      - "Pourquoi la viande coûte de plus en plus cher"
+    answer: "À qui revient la responsabilité d'agir contre le réchauffement"
+    explain: "« une question revient sans cesse : qui doit agir en premier ? »."
+  - id: read-b2-climate-policy.q2
+    prompt: "Selon les partisans de la responsabilité individuelle, comment agir ?"
+    options:
+      - "Réduire son empreinte carbone par des gestes quotidiens"
+      - "Attendre uniquement les décisions de l'État"
+      - "Ne rien changer à ses habitudes"
+    answer: "Réduire son empreinte carbone par des gestes quotidiens"
+    explain: "« réduire son empreinte carbone en mangeant moins de viande… en limitant sa surconsommation »."
+  - id: read-b2-climate-policy.q3
+    prompt: "Pourquoi d'autres critiquent-ils cette vision individuelle ?"
+    options:
+      - "Elle fait porter le poids sur les citoyens alors que de grandes entreprises émettent le plus"
+      - "Elle coûte trop cher aux entreprises"
+      - "Elle interdit totalement le covoiturage"
+    answer: "Elle fait porter le poids sur les citoyens alors que de grandes entreprises émettent le plus"
+    explain: "« elle ferait porter le poids du problème sur les citoyens, alors que quelques grandes entreprises sont à l'origine de la majorité des émissions »."
+  - id: read-b2-climate-policy.q4
+    prompt: "Pourquoi les infrastructures sont-elles importantes, selon le texte ?"
+    options:
+      - "Sans alternative, on ne peut pas demander aux gens de changer leurs habitudes"
+      - "Parce qu'elles remplacent les lois"
+      - "Parce qu'elles augmentent les émissions"
+    answer: "Sans alternative, on ne peut pas demander aux gens de changer leurs habitudes"
+    explain: "« on ne peut pas demander aux gens de moins prendre la voiture s'il n'existe aucune alternative »."
+  - id: read-b2-climate-policy.q5
+    prompt: "Quelle est la position finale de l'auteur ?"
+    options:
+      - "Les deux approches sont complémentaires ; il faut de la coordination"
+      - "Seuls les citoyens doivent agir"
+      - "Seul l'État peut faire quelque chose"
+    answer: "Les deux approches sont complémentaires ; il faut de la coordination"
+    explain: "« ils sont en réalité complémentaires… ce qui manque le plus… c'est la coordination »."
