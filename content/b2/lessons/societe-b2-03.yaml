@@ -24,8 +24,8 @@ exercises:
   - id: societe-b2-03.e4
     type: word_bank
     prompt: "Build: “It is mutual aid that changes society.” (emphasis)"
-    tokens: [c, est, l, entraide, qui, change, la, société, que]
-    answer: [c, est, l, entraide, qui, change, la, société]
+    tokens: ["c'est", "l'entraide", qui, change, la, société, que]
+    answer: ["c'est", "l'entraide", qui, change, la, société]
   - id: societe-b2-03.e5
     type: match_pairs
     pairs:

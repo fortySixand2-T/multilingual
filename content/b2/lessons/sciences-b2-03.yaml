@@ -24,8 +24,8 @@ exercises:
   - id: sciences-b2-03.e4
     type: word_bank
     prompt: "Build: “I doubt that the experiment (has) succeeded.”"
-    tokens: [je, doute, que, l, expérimentation, ait, réussi, a, réussie]
-    answer: [je, doute, que, l, expérimentation, ait, réussi]
+    tokens: [je, doute, que, "l'expérimentation", ait, réussi, a, réussie]
+    answer: [je, doute, que, "l'expérimentation", ait, réussi]
   - id: sciences-b2-03.e5
     type: match_pairs
     pairs:

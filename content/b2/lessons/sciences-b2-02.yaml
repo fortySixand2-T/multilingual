@@ -24,8 +24,8 @@ exercises:
   - id: sciences-b2-02.e4
     type: word_bank
     prompt: "Build: “Even though the user is careful, cybersecurity remains fragile.”"
-    tokens: [quoique, l, utilisateur, soit, prudent, la, cybersécurité, reste, fragile, est]
-    answer: [quoique, l, utilisateur, soit, prudent, la, cybersécurité, reste, fragile]
+    tokens: [quoique, "l'utilisateur", soit, prudent, la, cybersécurité, reste, fragile, est]
+    answer: [quoique, "l'utilisateur", soit, prudent, la, cybersécurité, reste, fragile]
   - id: sciences-b2-02.e5
     type: match_pairs
     pairs:

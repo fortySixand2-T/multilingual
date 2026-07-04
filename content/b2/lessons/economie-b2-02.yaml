@@ -24,8 +24,8 @@ exercises:
   - id: economie-b2-02.e4
     type: word_bank
     prompt: "Build: “If we had reduced inflation, wealth would have grown.”"
-    tokens: [si, "on", avait, réduit, l, inflation, la, richesse, aurait, augmenté, augmentait]
-    answer: [si, "on", avait, réduit, l, inflation, la, richesse, aurait, augmenté]
+    tokens: [si, "on", avait, réduit, "l'inflation", la, richesse, aurait, augmenté, augmentait]
+    answer: [si, "on", avait, réduit, "l'inflation", la, richesse, aurait, augmenté]
   - id: economie-b2-02.e5
     type: match_pairs
     pairs:
