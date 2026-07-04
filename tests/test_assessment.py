@@ -185,6 +185,8 @@ def test_list_and_get_tasks():
     client = _client(GoodRouter())
     tasks = client.get("/assessment/tasks", params={"level": "a1"}).json()["tasks"]
     assert {"write-a-invite", "write-b-opinion"} <= {t["id"] for t in tasks}
+    # the list response carries target_vocab so the UI can show it (issue 442)
+    assert all("target_vocab" in t for t in tasks)
     b = client.get("/assessment/tasks", params={"level": "a1", "section": "B"}).json()["tasks"]
     b_ids = [t["id"] for t in b]
     assert "write-b-opinion" in b_ids and "write-a-invite" not in b_ids
