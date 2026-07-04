@@ -8,7 +8,7 @@ exercises:
   - id: culture-b2-02.e1
     type: mcq
     prompt: "« ___ au mécénat, le festival a pu avoir lieu. » (Thanks to sponsorship…)"
-    options: ["Grâce", "À cause", "En raison"]
+    options: ["Grâce", "Suite", "Contrairement"]
     answer: "Grâce"
     explain: "« Grâce à » introduit une cause positive (un résultat favorable)."
   - id: culture-b2-02.e2

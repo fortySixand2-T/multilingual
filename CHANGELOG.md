@@ -1,4 +1,11 @@
 # Changelog
+- [2026-07-03] Modified: content/b2/lessons/culture-b2-02.yaml — fix ungrammatical MCQ distractors in culture-b2-02.e1 (issue 429)
+- [2026-07-03] Modified: qa/issues/310-srs-add-accepts-empty-card-key.md — Critic block appended (round 032): validated, agree with PM, severity appropriate
+- [2026-07-03] Modified: qa/issues/311-srs-add-accepts-nonexistent-card-key.md — Critic block appended (round 032): validated, agree with PM, severity appropriate
+- [2026-07-03] Modified: qa/issues/340-a2-audio-not-synced-to-assets.md — Critic block appended (round 032): validated, agree with PM, severity too_low (structural footgun)
+- [2026-07-03] Modified: qa/issues/350-srs-queue-vocab-missing-audio-key.md — Critic block appended (round 032): validated, agree with PM, severity appropriate
+- [2026-07-03] Modified: qa/issues/429-mcq-distractor-ungrammatical-cause-preposition.md — Critic block appended (round 032): validated, agree with PM, severity appropriate
+- [2026-07-03] Created: qa/issues/429-mcq-distractor-ungrammatical-cause-preposition.md — QA round 032 (exam-crammer): culture-b2-02.e1 MCQ distractors "À cause" and "En raison" make ungrammatical French with the fixed "au" stem
 - [2026-07-03] Created: qa/issues/428-lesson-fail-first-time-always-false.md — QA round 031 (edge-case-breaker): failed lesson result unconditionally returns first_time=false even on genuine first attempt
 - [2026-07-03] Modified: qa/issues/417-charter-submit-payload-format-wrong.md — appended Critic block; overturned PM validation; final verdict: rejected
 - [2026-07-01] Modified: qa/issues/416-exam-blueprints-id-route-missing-returns-html.md — appended Critic block; confirmed PM rejection; final verdict: rejected
@@ -487,3 +494,7 @@
 - [2026-07-03] Modified: content/b2/lessons/{sciences-b2-02,sciences-b2-03,economie-b2-02,societe-b2-03}.yaml — fix issue 419: word_bank elisions use single elided tiles (l'utilisateur, l'inflation, l'expérimentation, c'est/l'entraide) instead of a bare "l" token
 - [2026-07-03] Created: qa/rounds/031-plan.md, qa/issues/{418,419,428}-*.md — QA round 031 on B2 MVP: 419 fixed, 418 rejected, 428 deferred
 - [2026-07-03] Created/Modified: content/b2/ — B2 expansion Slice 2: +3 units (u4 Environnement/transition, u5 Santé/société, u6 Culture/patrimoine) = 3 decks (54 advanced cards), 9 lessons (grammar arc: gérondif/participe présent, relatifs composés, nominalisation & cause/conséquence), +3 comprehension sets, +2 writing tasks, +b2-mock-2, +55 TTS clips; path.yaml extended to 6 units
+- [2026-07-03] Modified: qa/issues/429-mcq-distractor-ungrammatical-cause-preposition.md — Triaged open issue: status updated to validated, Triage block appended
+- [2026-07-03] Created: qa/rounds/032-plan.md — QA round 032 plan for B2 Slice 2 expansion
+- [2026-07-03] Modified: content/b2/lessons/culture-b2-02.yaml — fix issue 429: culture-b2-02.e1 distractors ("À cause"/"En raison" need "de") were ungrammatical with the fixed "au" stem; replaced with "Suite"/"Contrairement" (both contract à→au)
+- [2026-07-03] Created: qa/rounds/032-plan.md, qa/issues/429-*.md — QA round 032 on B2 Slice 2: clean, 1 issue (429) found and fixed

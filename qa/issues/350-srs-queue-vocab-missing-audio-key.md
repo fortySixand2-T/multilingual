@@ -50,3 +50,9 @@ The fix should either: (a) store the audio key in the vocab YAML so it persists 
 
 ## Fix
 `app/srs/api.py::get_queue` now applies the same `<level>/audio/<id>.mp3` fallback the vocab endpoint uses, so review cards carry an `audio` key and the Review screen can play pronunciation. Regression: `tests/test_content_sync.py::test_srs_queue_attaches_audio_key`.
+
+## Critic
+- final_status: validated
+- agree_with_pm: yes
+- rationale: This is a straightforward serialization inconsistency between two endpoints that describe the same underlying resource (`ContentVocab`). The vocab endpoint applies a `<level>/audio/<id>.mp3` fallback at `content/api.py:176-177` but the SRS queue endpoint serves raw `r.data` without it, so every card's audio field is silently empty. Pronunciation playback is a core feature of vocabulary review flashcards, not a nice-to-have. The fix mirrors an already-established pattern in one place, adding zero new complexity. The PM correctly notes this predates the triggering PR — that makes it more important to fix, not less.
+- severity_check: appropriate

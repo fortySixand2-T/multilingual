@@ -52,3 +52,9 @@ The content-sync script defaults to `a1` (`./start.sh content-sync` without a le
 
 ## Fix
 `app/content/sync.py::_main` now uploads the level's audio via `upload_audio` + `build_storage` after the DB sync, so `content-sync <level>` is self-sufficient (no longer depends on `comprehension-sync` to publish vocab pronunciation). Verified: `content-sync a1` into a clean assets dir → "238 audio files" uploaded.
+
+## Critic
+- final_status: validated
+- agree_with_pm: yes
+- rationale: The PM's downgrade from "high" to "deferred/not-a-blocker" was correct at triage time given the standard sync flow covers it, but the underlying footgun — that `content-sync` silently omits audio and requires a separate `comprehension-sync` to actually serve vocab pronunciation — is a real structural defect, not mere documentation debt. Any developer or deployer running only `content-sync` after adding vocab YAML would ship silently broken audio for every new card. The fix (making `content-sync` self-sufficient) closes the footgun permanently and is the right scope. The fix has since been applied, confirming validated status. Status frontmatter already shows done.
+- severity_check: too_low
