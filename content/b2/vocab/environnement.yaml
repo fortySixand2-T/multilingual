@@ -1,0 +1,107 @@
+- id: transition_energetique
+  fr: transition énergétique
+  en: "energy transition"
+  pos: noun
+  tags: [environnement]
+
+- id: rechauffement_climatique
+  fr: réchauffement climatique
+  en: "global warming"
+  pos: noun
+  tags: [environnement]
+
+- id: empreinte_carbone
+  fr: empreinte carbone
+  en: "carbon footprint"
+  pos: noun
+  tags: [environnement]
+
+- id: renouvelable
+  fr: renouvelable
+  en: renewable
+  pos: adj
+  tags: [environnement]
+
+- id: durabilite
+  fr: durabilité
+  en: sustainability
+  pos: noun
+  tags: [environnement]
+
+- id: deforestation
+  fr: déforestation
+  en: deforestation
+  pos: noun
+  tags: [environnement]
+
+- id: pesticide
+  fr: pesticide
+  en: pesticide
+  pos: noun
+  tags: [environnement]
+
+- id: surconsommation
+  fr: surconsommation
+  en: overconsumption
+  pos: noun
+  tags: [environnement]
+
+- id: sobriete
+  fr: sobriété
+  en: "restraint, frugality"
+  pos: noun
+  tags: [environnement]
+
+- id: extinction
+  fr: extinction
+  en: extinction
+  pos: noun
+  tags: [environnement]
+
+- id: pollueur
+  fr: pollueur
+  en: polluter
+  pos: noun
+  tags: [environnement]
+
+- id: militantisme
+  fr: militantisme
+  en: activism
+  pos: noun
+  tags: [environnement]
+
+- id: catastrophe
+  fr: catastrophe
+  en: "disaster, catastrophe"
+  pos: noun
+  tags: [environnement]
+
+- id: secheresse
+  fr: sécheresse
+  en: drought
+  pos: noun
+  tags: [environnement]
+
+- id: inondation
+  fr: inondation
+  en: flood
+  pos: noun
+  tags: [environnement]
+
+- id: covoiturage
+  fr: covoiturage
+  en: carpooling
+  pos: noun
+  tags: [environnement]
+
+- id: compostage
+  fr: compostage
+  en: composting
+  pos: noun
+  tags: [environnement]
+
+- id: energie_verte
+  fr: énergie verte
+  en: "green energy"
+  pos: noun
+  tags: [environnement]

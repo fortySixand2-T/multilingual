@@ -1,0 +1,107 @@
+- id: patrimoine
+  fr: patrimoine
+  en: heritage
+  pos: noun
+  tags: [culture]
+
+- id: oeuvre
+  fr: œuvre
+  en: "work (of art)"
+  pos: noun
+  tags: [culture]
+
+- id: artiste
+  fr: artiste
+  en: artist
+  pos: noun
+  tags: [culture]
+
+- id: spectacle
+  fr: spectacle
+  en: "show, performance"
+  pos: noun
+  tags: [culture]
+
+- id: exposition
+  fr: exposition
+  en: exhibition
+  pos: noun
+  tags: [culture]
+
+- id: creation
+  fr: création
+  en: creation
+  pos: noun
+  tags: [culture]
+
+- id: tradition
+  fr: tradition
+  en: tradition
+  pos: noun
+  tags: [culture]
+
+- id: identite_culturelle
+  fr: identité culturelle
+  en: "cultural identity"
+  pos: noun
+  tags: [culture]
+
+- id: heritage
+  fr: héritage
+  en: "legacy, inheritance"
+  pos: noun
+  tags: [culture]
+
+- id: chef_doeuvre
+  fr: chef-d'œuvre
+  en: masterpiece
+  pos: noun
+  tags: [culture]
+
+- id: sculpture
+  fr: sculpture
+  en: sculpture
+  pos: noun
+  tags: [culture]
+
+- id: litterature
+  fr: littérature
+  en: literature
+  pos: noun
+  tags: [culture]
+
+- id: peinture
+  fr: peinture
+  en: painting
+  pos: noun
+  tags: [culture]
+
+- id: festival
+  fr: festival
+  en: festival
+  pos: noun
+  tags: [culture]
+
+- id: representation
+  fr: représentation
+  en: "performance, representation"
+  pos: noun
+  tags: [culture]
+
+- id: mecenat
+  fr: mécénat
+  en: "patronage, sponsorship"
+  pos: noun
+  tags: [culture]
+
+- id: conservation
+  fr: conservation
+  en: "conservation, preservation"
+  pos: noun
+  tags: [culture]
+
+- id: diffusion
+  fr: diffusion
+  en: "broadcasting, dissemination"
+  pos: noun
+  tags: [culture]

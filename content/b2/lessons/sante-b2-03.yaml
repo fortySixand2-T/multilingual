@@ -1,0 +1,34 @@
+id: sante-b2-03
+title: "The health system — relatives review"
+grammar_point: "relatifs composés : synthèse (« à laquelle », « pour laquelle », « dans lequel »)"
+est_minutes: 7
+new_vocab: [activite_physique, vieillissement, handicap, mutuelle, addiction, urgences]
+pass_threshold: 8.0
+exercises:
+  - id: sante-b2-03.e1
+    type: mcq
+    prompt: "« Voici la mutuelle ___ je suis affilié. » (…to which I am affiliated.)"
+    options: ["à laquelle", "duquel", "dont"]
+    answer: "à laquelle"
+    explain: "« Être affilié à quelque chose » (fém.) → le relatif devient « à laquelle »."
+  - id: sante-b2-03.e2
+    type: translate
+    prompt: "Translate: “ageing”"
+    answer: "le vieillissement"
+    accept: ["vieillissement"]
+  - id: sante-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/handicap.mp3
+    answer: handicap
+    prompt: "Type the word you hear."
+  - id: sante-b2-03.e4
+    type: word_bank
+    prompt: "Build: “the association for which she works”"
+    tokens: ["l'association", pour, laquelle, elle, travaille, lequel]
+    answer: ["l'association", pour, laquelle, elle, travaille]
+  - id: sante-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["mutuelle", "health insurance"]
+      - ["addiction", "addiction"]
+      - ["urgences", "emergency room"]

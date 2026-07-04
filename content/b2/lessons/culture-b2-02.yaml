@@ -1,0 +1,34 @@
+id: culture-b2-02
+title: "The arts, cause & consequence"
+grammar_point: "l'expression de la cause (grâce à, en raison de)"
+est_minutes: 7
+new_vocab: [tradition, identite_culturelle, heritage, chef_doeuvre, sculpture, litterature]
+pass_threshold: 8.0
+exercises:
+  - id: culture-b2-02.e1
+    type: mcq
+    prompt: "« ___ au mécénat, le festival a pu avoir lieu. » (Thanks to sponsorship…)"
+    options: ["Grâce", "Suite", "Contrairement"]
+    answer: "Grâce"
+    explain: "« Grâce à » introduit une cause positive (un résultat favorable)."
+  - id: culture-b2-02.e2
+    type: translate
+    prompt: "Translate: “a masterpiece”"
+    answer: "un chef-d'œuvre"
+    accept: ["chef-d'œuvre", "le chef-d'œuvre", "un chef-d'oeuvre", "chef-d'oeuvre"]
+  - id: culture-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/tradition.mp3
+    answer: tradition
+    prompt: "Type the word you hear."
+  - id: culture-b2-02.e4
+    type: word_bank
+    prompt: "Build: “The museum was closed because of the works.”"
+    tokens: [le, musée, était, fermé, en, raison, des, travaux, parce]
+    answer: [le, musée, était, fermé, en, raison, des, travaux]
+  - id: culture-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["identité culturelle", "cultural identity"]
+      - ["sculpture", "sculpture"]
+      - ["littérature", "literature"]

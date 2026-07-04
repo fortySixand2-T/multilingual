@@ -31,3 +31,9 @@ There is no FK constraint or application-level existence check. A user (or buggy
 
 ## Fix
 The `/srs/add` handler now checks the key against `content_vocab` and returns 404 (`no vocab card ...`) if it doesn't exist, before seeding. The srs↔content DB decoupling (no FK) is preserved — internal lesson-completion seeding via `seed_cards` is unchanged; only the user-facing endpoint validates. Regression: `tests/test_content_sync.py::test_srs_add_rejects_nonexistent_card_key`.
+
+## Critic
+- final_status: validated
+- agree_with_pm: yes
+- rationale: The distinction between the internal lesson-completion seeding path (which always passes known keys) and the user-facing `/srs/add` endpoint (which accepts arbitrary input) is exactly right. An existence check at the API boundary preserves the intentional DB decoupling while preventing phantom queue entries. The severity label "high" is defensible: unlike empty-key ghost cards (issue 310), a non-existent key cannot be caught by a simple string constraint — it requires a DB lookup — and a sufficiently motivated user could flood their queue with many such entries, making it permanently broken without admin intervention.
+- severity_check: appropriate

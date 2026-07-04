@@ -1,0 +1,63 @@
+id: read-b2-healthcare
+level: b2
+skill: reading
+title: "Un système de santé sous pression"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Partout, les systèmes de santé font face à de nouveaux défis. Le vieillissement
+  de la population entraîne une hausse des maladies chroniques, tandis que le
+  nombre de soignants, lui, ne suit pas. Les urgences sont souvent saturées, et il
+  faut parfois attendre des semaines pour un simple rendez-vous. Dans ce contexte,
+  la prévention apparaît comme une solution essentielle. Dépister tôt, encourager
+  l'activité physique et une meilleure nutrition coûte bien moins cher que de
+  soigner des maladies déjà installées. Pourtant, la prévention reste le parent
+  pauvre des politiques de santé, car ses effets ne se voient qu'à long terme. Les
+  nouvelles technologies suscitent aussi de grands espoirs : consultations à
+  distance, ou intelligence artificielle capable de repérer certains symptômes plus
+  vite qu'un médecin. Mais elles posent de sérieuses questions, notamment sur la
+  protection des données personnelles. Enfin, un système efficace ne suffit pas
+  s'il n'est pas équitable : l'accès aux soins ne devrait pas dépendre du revenu ni
+  du lieu où l'on habite. Réformer la santé, c'est donc chercher un équilibre
+  délicat entre coût, qualité et justice sociale.
+questions:
+  - id: read-b2-healthcare.q1
+    prompt: "Quel défi principal le texte décrit-il ?"
+    options:
+      - "Des systèmes de santé sous pression : plus de malades, moins de soignants"
+      - "La fermeture de toutes les pharmacies"
+      - "La disparition complète des maladies"
+    answer: "Des systèmes de santé sous pression : plus de malades, moins de soignants"
+    explain: "« le vieillissement… entraîne une hausse des maladies chroniques, tandis que le nombre de soignants ne suit pas »."
+  - id: read-b2-healthcare.q2
+    prompt: "Pourquoi la prévention est-elle présentée comme essentielle ?"
+    options:
+      - "Elle coûte bien moins cher que de soigner des maladies installées"
+      - "Elle remplace complètement les soignants"
+      - "Elle supprime les données personnelles"
+    answer: "Elle coûte bien moins cher que de soigner des maladies installées"
+    explain: "« Dépister tôt… coûte bien moins cher que de soigner des maladies déjà installées »."
+  - id: read-b2-healthcare.q3
+    prompt: "Pourquoi la prévention reste-t-elle négligée ?"
+    options:
+      - "Ses effets ne se voient qu'à long terme"
+      - "Elle est interdite par la loi"
+      - "Elle n'intéresse aucun médecin"
+    answer: "Ses effets ne se voient qu'à long terme"
+    explain: "« la prévention reste le parent pauvre des politiques de santé, car ses effets ne se voient qu'à long terme »."
+  - id: read-b2-healthcare.q4
+    prompt: "Quel problème posent les nouvelles technologies de santé ?"
+    options:
+      - "La protection des données personnelles"
+      - "Elles guérissent les patients trop vite"
+      - "Elles suppriment tous les rendez-vous"
+    answer: "La protection des données personnelles"
+    explain: "« elles posent de sérieuses questions, notamment sur la protection des données personnelles »."
+  - id: read-b2-healthcare.q5
+    prompt: "Quel équilibre l'auteur juge-t-il nécessaire ?"
+    options:
+      - "Un équilibre entre coût, qualité et justice sociale"
+      - "Un choix définitif entre santé et économie"
+      - "Le remplacement des médecins par des machines"
+    answer: "Un équilibre entre coût, qualité et justice sociale"
+    explain: "« chercher un équilibre délicat entre coût, qualité et justice sociale »."

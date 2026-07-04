@@ -1,0 +1,34 @@
+id: environnement-b2-02
+title: "Pollution & the present participle"
+grammar_point: "le participe présent (caractériser un nom, exprimer la cause)"
+est_minutes: 7
+new_vocab: [pesticide, surconsommation, sobriete, extinction, pollueur, militantisme]
+pass_threshold: 8.0
+exercises:
+  - id: environnement-b2-02.e1
+    type: mcq
+    prompt: "« Les usines ___ trop de CO2 devront changer. » (…factories emitting too much CO2…)"
+    options: ["émettant", "émettent", "à émettre"]
+    answer: "émettant"
+    explain: "Le participe présent « émettant » caractérise le nom (= les usines qui émettent)."
+  - id: environnement-b2-02.e2
+    type: translate
+    prompt: "Translate: “overconsumption”"
+    answer: "la surconsommation"
+    accept: ["surconsommation"]
+  - id: environnement-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/pesticide.mp3
+    answer: pesticide
+    prompt: "Type the word you hear."
+  - id: environnement-b2-02.e4
+    type: word_bank
+    prompt: "Build: “Being aware of the danger, they act.”"
+    tokens: [étant, conscients, du, danger, ils, agissent, sont]
+    answer: [étant, conscients, du, danger, ils, agissent]
+  - id: environnement-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["extinction", "extinction"]
+      - ["pollueur", "polluter"]
+      - ["militantisme", "activism"]

@@ -1,0 +1,34 @@
+id: environnement-b2-03
+title: "Climate risks — gerund & participle review"
+grammar_point: "gérondif et participe présent : synthèse (« tout en… », cause, moyen)"
+est_minutes: 7
+new_vocab: [catastrophe, secheresse, inondation, covoiturage, compostage, energie_verte]
+pass_threshold: 8.0
+exercises:
+  - id: environnement-b2-03.e1
+    type: mcq
+    prompt: "« Tout ___ l'urgence climatique, certains refusent d'agir. » (While acknowledging the climate emergency…)"
+    options: ["en reconnaissant", "reconnaissant", "reconnu"]
+    answer: "en reconnaissant"
+    explain: "« Tout en + gérondif » exprime la simultanéité avec une nuance de concession."
+  - id: environnement-b2-03.e2
+    type: translate
+    prompt: "Translate: “drought”"
+    answer: "la sécheresse"
+    accept: ["sécheresse", "la secheresse", "secheresse"]
+  - id: environnement-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/inondation.mp3
+    answer: inondation
+    prompt: "Type the word you hear."
+  - id: environnement-b2-03.e4
+    type: word_bank
+    prompt: "Build: “By composting, we reduce our waste.”"
+    tokens: [en, compostant, nous, réduisons, nos, déchets, réduire]
+    answer: [en, compostant, nous, réduisons, nos, déchets]
+  - id: environnement-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["covoiturage", "carpooling"]
+      - ["catastrophe", "disaster"]
+      - ["énergie verte", "green energy"]

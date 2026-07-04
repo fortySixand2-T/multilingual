@@ -31,3 +31,9 @@ The card_key field validates null and missing inputs but does not enforce a mini
 
 ## Fix
 `AddBody.card_key` now uses `Field(min_length=1)`, so an empty string is rejected with 422 — the same as null/missing. (A non-existent key is separately handled by the existence check added for #311.) Regression: `tests/test_content_sync.py::test_srs_add_rejects_empty_card_key`.
+
+## Critic
+- final_status: validated
+- agree_with_pm: yes
+- rationale: An empty-string card_key is self-evidently not a valid vocab identifier and creates an unactionable `vocab: null` ghost card that permanently pollutes the user's review queue with no way to study or dismiss it. Unlike issue 290 (negative limit — self-inflicted, easily remedied by using the default), an empty-key ghost card has no natural recovery path for the user. The one-line `min_length=1` fix is the correct, proportionate response and mirrors how null/missing keys are already rejected.
+- severity_check: appropriate

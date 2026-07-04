@@ -18,3 +18,21 @@ units:
     icon: people
     lessons: [societe-b2-01, societe-b2-02, societe-b2-03]
     unlock: { type: all_of, requires: [b2.u2] }
+
+  - id: b2.u4
+    title: "Environment & the ecological transition"
+    icon: leaf
+    lessons: [environnement-b2-01, environnement-b2-02, environnement-b2-03]
+    unlock: { type: all_of, requires: [b2.u3] }
+
+  - id: b2.u5
+    title: "Health & society"
+    icon: health
+    lessons: [sante-b2-01, sante-b2-02, sante-b2-03]
+    unlock: { type: all_of, requires: [b2.u4] }
+
+  - id: b2.u6
+    title: "Culture, arts & heritage"
+    icon: palette
+    lessons: [culture-b2-01, culture-b2-02, culture-b2-03]
+    unlock: { type: all_of, requires: [b2.u5] }

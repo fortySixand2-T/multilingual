@@ -1,0 +1,34 @@
+id: environnement-b2-01
+title: "The ecological transition & the gerund"
+grammar_point: "le gérondif (en + participe présent) : moyen et simultanéité"
+est_minutes: 7
+new_vocab: [transition_energetique, rechauffement_climatique, empreinte_carbone, renouvelable, durabilite, deforestation]
+pass_threshold: 8.0
+exercises:
+  - id: environnement-b2-01.e1
+    type: mcq
+    prompt: "« ___ les transports en commun, on réduit son empreinte carbone. » (By taking public transport…)"
+    options: ["En prenant", "Prenant", "Pour prendre"]
+    answer: "En prenant"
+    explain: "Le gérondif « en prenant » exprime le moyen : comment on réduit son empreinte."
+  - id: environnement-b2-01.e2
+    type: translate
+    prompt: "Translate: “global warming”"
+    answer: "le réchauffement climatique"
+    accept: ["réchauffement climatique", "le rechauffement climatique", "rechauffement climatique"]
+  - id: environnement-b2-01.e3
+    type: listen_type
+    audio_ref: b2/audio/renouvelable.mp3
+    answer: renouvelable
+    prompt: "Type the word you hear."
+  - id: environnement-b2-01.e4
+    type: word_bank
+    prompt: "Build: “We protect the planet by consuming less.”"
+    tokens: ["on", protège, la, planète, en, consommant, moins, consomme]
+    answer: ["on", protège, la, planète, en, consommant, moins]
+  - id: environnement-b2-01.e5
+    type: match_pairs
+    pairs:
+      - ["transition énergétique", "energy transition"]
+      - ["durabilité", "sustainability"]
+      - ["déforestation", "deforestation"]

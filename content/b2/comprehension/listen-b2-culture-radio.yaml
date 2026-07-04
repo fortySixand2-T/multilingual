@@ -1,0 +1,57 @@
+id: listen-b2-culture-radio
+level: b2
+skill: listening
+title: "Chronique : faut-il rendre la culture gratuite ?"
+time_limit_seconds: 180
+audio_ref: b2/audio/listen-b2-culture-radio.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Bonjour et bienvenue dans votre chronique culturelle. Aujourd'hui, une question
+  qui fait débat : faut-il rendre l'accès à la culture entièrement gratuit ? Les
+  partisans de la gratuité avancent un argument fort : les musées, les spectacles
+  et la littérature font partie de notre patrimoine commun, et personne ne devrait
+  en être exclu faute d'argent. Plusieurs villes ont d'ailleurs rendu leurs musées
+  gratuits, et la fréquentation a nettement augmenté, surtout chez les jeunes. Mais
+  leurs opposants rappellent que la culture a un coût. Sans billetterie, il faut
+  bien que quelqu'un paie les artistes, la conservation des œuvres et l'entretien
+  des lieux. La gratuité totale reposerait alors sur l'impôt ou sur le mécénat
+  privé, ce qui n'est pas sans risque pour l'indépendance de la création. Une
+  solution intermédiaire séduit de plus en plus : la gratuité pour certains
+  publics, des tarifs réduits pour d'autres. Au fond, la vraie question n'est
+  peut-être pas le prix, mais la manière de donner à chacun l'envie de pousser la
+  porte d'un musée.
+questions:
+  - id: listen-b2-culture-radio.q1
+    prompt: "Quel est le sujet de la chronique ?"
+    options:
+      - "Faut-il rendre l'accès à la culture gratuit ?"
+      - "Comment peindre un tableau soi-même"
+      - "L'histoire des grands festivals"
+    answer: "Faut-il rendre l'accès à la culture gratuit ?"
+    explain: "« faut-il rendre l'accès à la culture entièrement gratuit ? »."
+  - id: listen-b2-culture-radio.q2
+    prompt: "Quel argument avancent les partisans de la gratuité ?"
+    options:
+      - "La culture est un patrimoine commun dont personne ne devrait être exclu"
+      - "La culture ne coûte rien à personne"
+      - "Il y a beaucoup trop de musées"
+    answer: "La culture est un patrimoine commun dont personne ne devrait être exclu"
+    explain: "« font partie de notre patrimoine commun, et personne ne devrait en être exclu faute d'argent »."
+  - id: listen-b2-culture-radio.q3
+    prompt: "Que rappellent les opposants à la gratuité totale ?"
+    options:
+      - "La culture a un coût : artistes, conservation, entretien"
+      - "La gratuité plaît à tout le monde"
+      - "Les jeunes ne vont jamais au musée"
+    answer: "La culture a un coût : artistes, conservation, entretien"
+    explain: "« la culture a un coût… payer les artistes, la conservation des œuvres et l'entretien des lieux »."
+  - id: listen-b2-culture-radio.q4
+    prompt: "Quelle est l'idée finale de la chronique ?"
+    options:
+      - "L'essentiel est de donner à chacun l'envie d'aller au musée"
+      - "Il faut fermer tous les musées payants"
+      - "La gratuité totale est la seule solution acceptable"
+    answer: "L'essentiel est de donner à chacun l'envie d'aller au musée"
+    explain: "« la vraie question n'est peut-être pas le prix, mais la manière de donner à chacun l'envie de pousser la porte d'un musée »."

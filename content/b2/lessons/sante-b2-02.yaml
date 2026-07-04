@@ -1,0 +1,34 @@
+id: sante-b2-02
+title: "Care & the pronoun « dont »"
+grammar_point: "« dont » et « ce dont » (verbes construits avec « de »)"
+est_minutes: 7
+new_vocab: [soignant, remede, guerison, symptome, contagion, nutrition]
+pass_threshold: 8.0
+exercises:
+  - id: sante-b2-02.e1
+    type: mcq
+    prompt: "« Voici le traitement ___ les patients ont besoin. » (…that patients need.)"
+    options: [dont, que, auquel]
+    answer: dont
+    explain: "« Avoir besoin de quelque chose » → le relatif devient « dont »."
+  - id: sante-b2-02.e2
+    type: translate
+    prompt: "Translate: “a caregiver / health worker”"
+    answer: "un soignant"
+    accept: ["soignant", "le soignant"]
+  - id: sante-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/contagion.mp3
+    answer: contagion
+    prompt: "Type the word you hear."
+  - id: sante-b2-02.e4
+    type: word_bank
+    prompt: "Build: “This is exactly what I was talking about.”"
+    tokens: ["c'est", exactement, ce, dont, je, parlais, que]
+    answer: ["c'est", exactement, ce, dont, je, parlais]
+  - id: sante-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["guérison", "recovery"]
+      - ["symptôme", "symptom"]
+      - ["nutrition", "nutrition"]

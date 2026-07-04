@@ -1,0 +1,34 @@
+id: culture-b2-01
+title: "Heritage & nominalization"
+grammar_point: "la nominalisation (transformer un verbe en nom)"
+est_minutes: 7
+new_vocab: [patrimoine, oeuvre, artiste, spectacle, exposition, creation]
+pass_threshold: 8.0
+exercises:
+  - id: culture-b2-01.e1
+    type: mcq
+    prompt: "« La ___ de ce patrimoine coûte cher. » (The preservation of this heritage…)"
+    options: [conservation, conserver, conservé]
+    answer: conservation
+    explain: "Nominalisation du verbe « conserver » → le nom « conservation »."
+  - id: culture-b2-01.e2
+    type: translate
+    prompt: "Translate: “heritage (cultural patrimony)”"
+    answer: "le patrimoine"
+    accept: ["patrimoine"]
+  - id: culture-b2-01.e3
+    type: listen_type
+    audio_ref: b2/audio/artiste.mp3
+    answer: artiste
+    prompt: "Type the word you hear."
+  - id: culture-b2-01.e4
+    type: word_bank
+    prompt: "Build: “The creation of the work took ten years.”"
+    tokens: [la, création, de, "l'œuvre", a, pris, dix, ans, créer]
+    answer: [la, création, de, "l'œuvre", a, pris, dix, ans]
+  - id: culture-b2-01.e5
+    type: match_pairs
+    pairs:
+      - ["spectacle", "show"]
+      - ["exposition", "exhibition"]
+      - ["artiste", "artist"]
