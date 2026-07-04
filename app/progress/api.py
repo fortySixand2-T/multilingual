@@ -58,10 +58,13 @@ async def submit_result(
     if not passed:
         prog = await get_or_create_progress(session, user.id, lesson.level)
         await session.commit()
+        # `first_pass` = "this submission was the first successful pass" (it gates
+        # first-pass XP + SRS seeding). A failing score never passes, so it's
+        # False here by definition — not a claim about whether it's a first attempt.
         return {
             "lesson_id": lesson_id,
             "passed": False,
-            "first_time": False,
+            "first_pass": False,
             "streak": prog.streak,
             "xp": prog.xp,
         }
@@ -80,14 +83,14 @@ async def submit_result(
         )
         .on_conflict_do_nothing(index_elements=["user_id", "lesson_id"])
     )
-    first_time = (await session.execute(completion)).rowcount == 1
+    first_pass = (await session.execute(completion)).rowcount == 1
 
-    if first_time:
+    if first_pass:
         await seed_cards(session, user.id, data.get("new_vocab", []))
 
     # Shared write path: streak counts daily activity; XP only on first pass.
     prog = await record_activity(
-        session, user.id, xp_award=(XP_PER_LESSON if first_time else 0), level=lesson.level
+        session, user.id, xp_award=(XP_PER_LESSON if first_pass else 0), level=lesson.level
     )
     await session.commit()
     await session.refresh(prog)  # xp was an atomic increment expression — read it back
@@ -95,7 +98,7 @@ async def submit_result(
     return {
         "lesson_id": lesson_id,
         "passed": True,
-        "first_time": first_time,
+        "first_pass": first_pass,
         "streak": prog.streak,
         "xp": prog.xp,
     }
