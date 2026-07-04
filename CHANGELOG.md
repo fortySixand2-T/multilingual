@@ -1,4 +1,8 @@
 # Changelog
+- [2026-07-03] Modified: qa/issues/430-ville-b2-01-e4-word-bank-missing-que-clause.md — Critic block appended: deferred (content author decision required on which form e4 should teach; status updated to deferred)
+- [2026-07-03] Modified: qa/issues/431-travail-b2-02-e1-distractor-de-facon-de-ungrammatical.md — Critic block appended: validated, clear for dev-fixer (one-token YAML change, parallel to issue-429 fix)
+- [2026-07-03] Created: qa/issues/430-ville-b2-01-e4-word-bank-missing-que-clause.md — QA round 033 (exam-crammer): ville-b2-01.e4 word_bank produces "d'autant plus" without mandatory "que" clause, contradicting the lesson grammar point
+- [2026-07-03] Created: qa/issues/431-travail-b2-02-e1-distractor-de-facon-de-ungrammatical.md — QA round 033 (exam-crammer): travail-b2-02.e1 MCQ distractor "de façon de" is non-existent in French grammar, trivially eliminable without rule application
 - [2026-07-03] Modified: content/b2/lessons/culture-b2-02.yaml — fix ungrammatical MCQ distractors in culture-b2-02.e1 (issue 429)
 - [2026-07-03] Modified: qa/issues/310-srs-add-accepts-empty-card-key.md — Critic block appended (round 032): validated, agree with PM, severity appropriate
 - [2026-07-03] Modified: qa/issues/311-srs-add-accepts-nonexistent-card-key.md — Critic block appended (round 032): validated, agree with PM, severity appropriate
@@ -498,3 +502,8 @@
 - [2026-07-03] Created: qa/rounds/032-plan.md — QA round 032 plan for B2 Slice 2 expansion
 - [2026-07-03] Modified: content/b2/lessons/culture-b2-02.yaml — fix issue 429: culture-b2-02.e1 distractors ("À cause"/"En raison" need "de") were ungrammatical with the fixed "au" stem; replaced with "Suite"/"Contrairement" (both contract à→au)
 - [2026-07-03] Created: qa/rounds/032-plan.md, qa/issues/429-*.md — QA round 032 on B2 Slice 2: clean, 1 issue (429) found and fixed
+- [2026-07-03] Created/Modified: content/b2/ — B2 expansion Slice 3: +3 units (u7 Justice/politique, u8 Ville/mobilité, u9 Travail/emploi) = 3 decks (54 advanced cards), 9 lessons (grammar arc: opposition/concession, comparaison/proportion, but + futur antérieur), +3 comprehension sets, +2 writing tasks, +b2-mock-3, +55 TTS clips; path.yaml extended to 9 units
+- [2026-07-03] Modified: qa/issues/430-ville-b2-01-e4-word-bank-missing-que-clause.md — Triaged open issue: status updated to validated, Triage block appended
+- [2026-07-03] Modified: qa/issues/431-travail-b2-02-e1-distractor-de-facon-de-ungrammatical.md — Triaged open issue: status updated to validated, Triage block appended
+- [2026-07-04] Modified: content/b2/lessons/{ville-b2-01,travail-b2-02}.yaml — fix issues 430/431: ville-b2-01.e4 now models the full « d'autant plus … que » structure; travail-b2-02.e1 distractors replaced with « bien »/« parce » (valid-but-wrong connectors) instead of the ungrammatical « de façon de »
+- [2026-07-04] Created: qa/rounds/033-plan.md, qa/issues/{430,431}-*.md — QA round 033 on B2 Slice 3: 2 content issues found and fixed

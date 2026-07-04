@@ -1,0 +1,19 @@
+id: b2-mock-3
+level: b2
+title: "TEF Canada mock — B2 practice (démocratie, ville & travail)"
+# Timing approximates the real exam structure (scaled for practice).
+sections:
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_id: read-b2-democracy
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_id: listen-b2-work-future
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b2-city-letter, write-b2-work-essay]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Selon vous, comment redonner aux citoyens l'envie de participer à la vie démocratique ? Développez un point de vue argumenté."
+      - "Pensez-vous que la flexibilité au travail soit surtout une chance ou une menace ? Justifiez votre position avec des exemples."

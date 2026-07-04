@@ -1,0 +1,34 @@
+id: ville-b2-03
+title: "The metropolis — gradual progression"
+grammar_point: "la progression parallèle : « au fur et à mesure que »"
+est_minutes: 7
+new_vocab: [metropole, etalement_urbain, rehabilitation, cyclable, congestion, espace_vert]
+pass_threshold: 8.0
+exercises:
+  - id: ville-b2-03.e1
+    type: mcq
+    prompt: "« ___ que la métropole grandit, la congestion augmente. » (As the metropolis grows…)"
+    options: ["Au fur et à mesure", "Plus", "Malgré"]
+    answer: "Au fur et à mesure"
+    explain: "« Au fur et à mesure que » exprime une progression parallèle dans le temps."
+  - id: ville-b2-03.e2
+    type: translate
+    prompt: "Translate: “congestion”"
+    answer: "la congestion"
+    accept: ["congestion"]
+  - id: ville-b2-03.e3
+    type: listen_type
+    audio_ref: b2/audio/voirie.mp3
+    answer: voirie
+    prompt: "Type the word you hear."
+  - id: ville-b2-03.e4
+    type: word_bank
+    prompt: "Build: “The city develops its cycle paths.”"
+    tokens: [la, ville, aménage, ses, pistes, cyclables, cyclable]
+    answer: [la, ville, aménage, ses, pistes, cyclables]
+  - id: ville-b2-03.e5
+    type: match_pairs
+    pairs:
+      - ["métropole", "metropolis"]
+      - ["réhabilitation", "renovation"]
+      - ["espace vert", "green space"]

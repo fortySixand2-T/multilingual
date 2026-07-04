@@ -1,0 +1,34 @@
+id: politique-b2-02
+title: "Elections & « avoir beau »"
+grammar_point: "la concession : « avoir beau » + infinitif"
+est_minutes: 7
+new_vocab: [liberte, election, scrutin, depute, mandat, corruption]
+pass_threshold: 8.0
+exercises:
+  - id: politique-b2-02.e1
+    type: mcq
+    prompt: "« Les députés ___ beau promettre, rien ne change. » (However much MPs promise…)"
+    options: [ont, sont, font]
+    answer: ont
+    explain: "« Avoir beau » + infinitif = « ils ont beau promettre » (bien qu'ils promettent)."
+  - id: politique-b2-02.e2
+    type: translate
+    prompt: "Translate: “an election”"
+    answer: "une élection"
+    accept: ["élection", "une election", "election", "l'élection"]
+  - id: politique-b2-02.e3
+    type: listen_type
+    audio_ref: b2/audio/scrutin.mp3
+    answer: scrutin
+    prompt: "Type the word you hear."
+  - id: politique-b2-02.e4
+    type: word_bank
+    prompt: "Build: “However hard she tries, the law does not change.”"
+    tokens: [elle, a, beau, essayer, la, loi, ne, change, pas, est]
+    answer: [elle, a, beau, essayer, la, loi, ne, change, pas]
+  - id: politique-b2-02.e5
+    type: match_pairs
+    pairs:
+      - ["député", "MP"]
+      - ["mandat", "term of office"]
+      - ["corruption", "corruption"]

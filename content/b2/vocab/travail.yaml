@@ -1,0 +1,107 @@
+- id: entrepreneuriat
+  fr: entrepreneuriat
+  en: entrepreneurship
+  pos: noun
+  tags: [travail]
+
+- id: management
+  fr: management
+  en: management
+  pos: noun
+  tags: [travail]
+
+- id: recrutement
+  fr: recrutement
+  en: recruitment
+  pos: noun
+  tags: [travail]
+
+- id: qualification
+  fr: qualification
+  en: qualification
+  pos: noun
+  tags: [travail]
+
+- id: penibilite
+  fr: pénibilité
+  en: "hardship (of work)"
+  pos: noun
+  tags: [travail]
+
+- id: harcelement
+  fr: harcèlement
+  en: harassment
+  pos: noun
+  tags: [travail]
+
+- id: reconnaissance
+  fr: reconnaissance
+  en: recognition
+  pos: noun
+  tags: [travail]
+
+- id: flexibilite
+  fr: flexibilité
+  en: flexibility
+  pos: noun
+  tags: [travail]
+
+- id: competitivite
+  fr: compétitivité
+  en: competitiveness
+  pos: noun
+  tags: [travail]
+
+- id: prime
+  fr: prime
+  en: "bonus"
+  pos: noun
+  tags: [travail]
+
+- id: conge
+  fr: congé
+  en: "leave, time off"
+  pos: noun
+  tags: [travail]
+
+- id: penurie
+  fr: pénurie
+  en: "shortage"
+  pos: noun
+  tags: [travail]
+
+- id: requalification
+  fr: requalification
+  en: "reskilling"
+  pos: noun
+  tags: [travail]
+
+- id: absenteisme
+  fr: absentéisme
+  en: absenteeism
+  pos: noun
+  tags: [travail]
+
+- id: rendement
+  fr: rendement
+  en: "output, yield"
+  pos: noun
+  tags: [travail]
+
+- id: cadre
+  fr: cadre
+  en: "executive, manager"
+  pos: noun
+  tags: [travail]
+
+- id: mobilite_professionnelle
+  fr: mobilité professionnelle
+  en: "job mobility"
+  pos: noun
+  tags: [travail]
+
+- id: syndicalisme
+  fr: syndicalisme
+  en: "trade unionism"
+  pos: noun
+  tags: [travail]

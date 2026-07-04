@@ -1,0 +1,64 @@
+id: read-b2-urban-life
+level: b2
+skill: reading
+title: "À quoi ressemblera la ville de demain ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Jamais les villes n'ont accueilli autant d'habitants. Plus de la moitié de
+  l'humanité vit désormais en zone urbaine, et cette proportion continue
+  d'augmenter. Cette concentration présente des avantages : elle facilite l'accès
+  aux emplois, aux soins et à la culture. Mais elle pose aussi de lourds défis. Les
+  embouteillages, la pollution et le manque de logements abordables pèsent sur la
+  qualité de vie. Pour y répondre, de nombreuses métropoles repensent leur
+  aménagement. Elles développent les transports en commun, créent des pistes
+  cyclables et rendent certains quartiers aux piétons. L'idée de la « ville du
+  quart d'heure », où l'on trouverait tout l'essentiel à quinze minutes de chez
+  soi, séduit de plus en plus d'urbanistes. Ces transformations ne font pas
+  l'unanimité : certains commerçants craignent de perdre des clients, et tous les
+  habitants n'ont pas les moyens de vivre au centre. La rénovation d'un quartier
+  fait parfois monter les prix, au point d'en chasser les plus modestes. Construire
+  la ville de demain, c'est donc chercher un équilibre entre densité, nature et
+  justice sociale. Car une ville agréable ne vaut que si elle reste accessible à
+  tous.
+questions:
+  - id: read-b2-urban-life.q1
+    prompt: "De quoi traite principalement le texte ?"
+    options:
+      - "Les défis et les transformations des villes modernes"
+      - "La construction de gratte-ciels toujours plus hauts"
+      - "Le prix de l'essence en ville"
+    answer: "Les défis et les transformations des villes modernes"
+    explain: "Le texte pèse les avantages, les défis et les projets de la ville de demain."
+  - id: read-b2-urban-life.q2
+    prompt: "Quel avantage de la concentration urbaine est cité ?"
+    options:
+      - "Un accès plus facile aux emplois, aux soins et à la culture"
+      - "La disparition totale des embouteillages"
+      - "La gratuité de tous les logements"
+    answer: "Un accès plus facile aux emplois, aux soins et à la culture"
+    explain: "« elle facilite l'accès aux emplois, aux soins et à la culture »."
+  - id: read-b2-urban-life.q3
+    prompt: "Que propose l'idée de la « ville du quart d'heure » ?"
+    options:
+      - "Trouver l'essentiel à quinze minutes de chez soi"
+      - "Interdire absolument toutes les voitures"
+      - "Construire uniquement en périphérie"
+    answer: "Trouver l'essentiel à quinze minutes de chez soi"
+    explain: "« où l'on trouverait tout l'essentiel à quinze minutes de chez soi »."
+  - id: read-b2-urban-life.q4
+    prompt: "Quel effet négatif la rénovation d'un quartier peut-elle avoir ?"
+    options:
+      - "Faire monter les prix et chasser les plus modestes"
+      - "Supprimer les transports en commun"
+      - "Réduire l'accès à la culture"
+    answer: "Faire monter les prix et chasser les plus modestes"
+    explain: "« La rénovation d'un quartier fait parfois monter les prix, au point d'en chasser les plus modestes »."
+  - id: read-b2-urban-life.q5
+    prompt: "Quelle idée conclut le texte ?"
+    options:
+      - "Une ville agréable doit rester accessible à tous"
+      - "Il faut cesser de construire des villes"
+      - "La densité urbaine est toujours un problème"
+    answer: "Une ville agréable doit rester accessible à tous"
+    explain: "« une ville agréable ne vaut que si elle reste accessible à tous »."

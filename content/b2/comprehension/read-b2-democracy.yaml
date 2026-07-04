@@ -1,0 +1,65 @@
+id: read-b2-democracy
+level: b2
+skill: reading
+title: "La démocratie souffre-t-elle d'un manque de confiance ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Dans de nombreux pays, la participation aux élections ne cesse de baisser.
+  L'abstention atteint parfois des niveaux records, en particulier chez les jeunes.
+  Faut-il y voir un rejet de la démocratie elle-même ? Rien n'est moins sûr.
+  Beaucoup de citoyens affirment rester attachés à ses principes — la liberté,
+  l'égalité, l'État de droit — tout en se disant déçus par la manière dont elle
+  fonctionne. Ils reprochent aux responsables politiques de ne pas tenir leurs
+  promesses et de sembler éloignés de leurs préoccupations. Certains dénoncent
+  aussi l'influence de l'argent et les affaires de corruption, qui nourrissent la
+  méfiance. Pourtant, l'abstention n'est pas la seule forme d'expression politique.
+  Les pétitions, les manifestations et l'engagement associatif attirent de plus en
+  plus de personnes, notamment celles qui ne votent plus. Pour certains
+  observateurs, ce n'est donc pas la démocratie qui est en crise, mais une certaine
+  façon de la pratiquer. Ils proposent d'associer davantage les citoyens aux
+  décisions, par exemple à travers des consultations ou des budgets participatifs.
+  D'autres, au contraire, craignent que ces dispositifs ne remplacent jamais le
+  vote. Une chose est sûre : redonner confiance ne se décrète pas, cela se construit
+  dans la durée.
+questions:
+  - id: read-b2-democracy.q1
+    prompt: "Quelle question centrale le texte pose-t-il ?"
+    options:
+      - "L'abstention traduit-elle un rejet de la démocratie ?"
+      - "Comment organiser matériellement une élection ?"
+      - "Pourquoi les jeunes voyagent-ils autant ?"
+    answer: "L'abstention traduit-elle un rejet de la démocratie ?"
+    explain: "« Faut-il y voir un rejet de la démocratie elle-même ? »."
+  - id: read-b2-democracy.q2
+    prompt: "Que pensent beaucoup de citoyens de la démocratie ?"
+    options:
+      - "Ils restent attachés à ses principes mais déçus par son fonctionnement"
+      - "Ils la rejettent totalement"
+      - "Ils la trouvent parfaite"
+    answer: "Ils restent attachés à ses principes mais déçus par son fonctionnement"
+    explain: "« rester attachés à ses principes… tout en se disant déçus par la manière dont elle fonctionne »."
+  - id: read-b2-democracy.q3
+    prompt: "Qu'est-ce qui nourrit la méfiance des citoyens ?"
+    options:
+      - "L'influence de l'argent et les affaires de corruption"
+      - "Le trop grand nombre d'élections"
+      - "La gratuité du vote"
+    answer: "L'influence de l'argent et les affaires de corruption"
+    explain: "« l'influence de l'argent et les affaires de corruption, qui nourrissent la méfiance »."
+  - id: read-b2-democracy.q4
+    prompt: "Que montre l'engagement dans les pétitions et les manifestations ?"
+    options:
+      - "Que l'abstention n'est pas la seule forme d'expression politique"
+      - "Que plus personne ne s'intéresse à la politique"
+      - "Que le vote est devenu obligatoire"
+    answer: "Que l'abstention n'est pas la seule forme d'expression politique"
+    explain: "« l'abstention n'est pas la seule forme d'expression politique… attirent de plus en plus de personnes »."
+  - id: read-b2-democracy.q5
+    prompt: "Quelle est la conclusion du texte ?"
+    options:
+      - "Redonner confiance se construit dans la durée"
+      - "Il faut supprimer les élections"
+      - "La démocratie a définitivement échoué"
+    answer: "Redonner confiance se construit dans la durée"
+    explain: "« redonner confiance ne se décrète pas, cela se construit dans la durée »."

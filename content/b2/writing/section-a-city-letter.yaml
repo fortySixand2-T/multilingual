@@ -1,0 +1,12 @@
+id: write-b2-city-letter
+level: b2
+section: A
+title: "Lettre au maire"
+min_words: 120
+max_words: 200
+prompt: |
+  Votre quartier manque d'espaces verts et de pistes cyclables. Écrivez une lettre
+  au maire de votre ville : décrivez la situation actuelle, expliquez ses
+  conséquences sur la qualité de vie des habitants, et proposez deux aménagements
+  concrets. Adoptez un ton formel et argumenté.
+target_vocab: [espace_vert, cyclable, amenagement, mobilite]

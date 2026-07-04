@@ -1,0 +1,34 @@
+id: travail-b2-01
+title: "The workplace & purpose"
+grammar_point: "l'expression du but : « pour que / afin que » + subjonctif"
+est_minutes: 7
+new_vocab: [entrepreneuriat, management, recrutement, qualification, penibilite, harcelement]
+pass_threshold: 8.0
+exercises:
+  - id: travail-b2-01.e1
+    type: mcq
+    prompt: "« L'entreprise forme ses cadres ___ ils soient plus efficaces. » (…so that they are more effective.)"
+    options: ["pour qu'", "pour", "afin de"]
+    answer: "pour qu'"
+    explain: "Deux sujets différents → « pour que » + subjonctif (« pour qu'ils soient »)."
+  - id: travail-b2-01.e2
+    type: translate
+    prompt: "Translate: “recruitment”"
+    answer: "le recrutement"
+    accept: ["recrutement"]
+  - id: travail-b2-01.e3
+    type: listen_type
+    audio_ref: b2/audio/management.mp3
+    answer: management
+    prompt: "Type the word you hear."
+  - id: travail-b2-01.e4
+    type: word_bank
+    prompt: "Build: “I explain so that everyone understands.”"
+    tokens: ["j'explique", pour, que, tout, le, monde, comprenne, comprend]
+    answer: ["j'explique", pour, que, tout, le, monde, comprenne]
+  - id: travail-b2-01.e5
+    type: match_pairs
+    pairs:
+      - ["entrepreneuriat", "entrepreneurship"]
+      - ["qualification", "qualification"]
+      - ["harcèlement", "harassment"]

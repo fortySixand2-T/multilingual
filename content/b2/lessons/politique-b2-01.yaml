@@ -1,0 +1,34 @@
+id: politique-b2-01
+title: "Democracy & concession"
+grammar_point: "l'opposition et la concession : « malgré », « en dépit de » (+ nom)"
+est_minutes: 7
+new_vocab: [democratie, justice, loi, droit, tribunal, egalite]
+pass_threshold: 8.0
+exercises:
+  - id: politique-b2-01.e1
+    type: mcq
+    prompt: "« ___ la corruption, le gouvernement a été réélu. » (Despite corruption…)"
+    options: ["Malgré", "Bien que", "Pour que"]
+    answer: "Malgré"
+    explain: "« Malgré » + nom exprime la concession ; « bien que » exigerait un verbe au subjonctif."
+  - id: politique-b2-01.e2
+    type: translate
+    prompt: "Translate: “democracy”"
+    answer: "la démocratie"
+    accept: ["démocratie", "la democratie", "democratie"]
+  - id: politique-b2-01.e3
+    type: listen_type
+    audio_ref: b2/audio/justice.mp3
+    answer: justice
+    prompt: "Type the word you hear."
+  - id: politique-b2-01.e4
+    type: word_bank
+    prompt: "Build: “In spite of the reform, inequalities persist.”"
+    tokens: [en, dépit, de, la, réforme, les, inégalités, persistent, malgré]
+    answer: [en, dépit, de, la, réforme, les, inégalités, persistent]
+  - id: politique-b2-01.e5
+    type: match_pairs
+    pairs:
+      - ["loi", "law"]
+      - ["tribunal", "court"]
+      - ["égalité", "equality"]
