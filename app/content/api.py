@@ -135,16 +135,22 @@ async def get_grammar(
     lesson) — a browsable reference/review companion to the lessons themselves.
     Lessons without a `grammar_point` are omitted."""
     units = (
-        await session.execute(
-            select(ContentUnit).where(ContentUnit.level == level).order_by(ContentUnit.ordinal)
+        (
+            await session.execute(
+                select(ContentUnit).where(ContentUnit.level == level).order_by(ContentUnit.ordinal)
+            )
         )
-    ).scalars().all()
+        .scalars()
+        .all()
+    )
     if not units:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"no content for level {level!r}")
 
     lessons = (
-        await session.execute(select(ContentLesson).where(ContentLesson.level == level))
-    ).scalars().all()
+        (await session.execute(select(ContentLesson).where(ContentLesson.level == level)))
+        .scalars()
+        .all()
+    )
     by_id = {les.id: les for les in lessons}
 
     items = []
