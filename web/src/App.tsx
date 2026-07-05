@@ -15,6 +15,7 @@ import Writing from "./screens/Writing";
 import WritingTask from "./screens/WritingTask";
 import Speaking from "./screens/Speaking";
 import Exam from "./screens/Exam";
+import Grammar from "./screens/Grammar";
 
 export default function App() {
   const { authed, logout } = useAuth();
@@ -32,6 +33,7 @@ export default function App() {
           <NavLink to="/" end>Learn</NavLink>
           <NavLink to="/vocab">Vocab</NavLink>
           <NavLink to="/review">Review</NavLink>
+          <NavLink to="/grammar">Grammar</NavLink>
           <NavLink to="/comprehension">Read &amp; Listen</NavLink>
           <NavLink to="/writing">Write</NavLink>
           <NavLink to="/speaking">Speak</NavLink>
@@ -50,6 +52,7 @@ export default function App() {
           <Route path="/" element={<Path />} />
           <Route path="/lesson/:id" element={<Lesson />} />
           <Route path="/review" element={<Review />} />
+          <Route path="/grammar" element={<Grammar />} />
           <Route path="/vocab" element={<Decks />} />
           <Route path="/vocab/:level/:tag" element={<Deck />} />
           <Route path="/comprehension" element={<Comprehension />} />

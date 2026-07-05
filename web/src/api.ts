@@ -248,6 +248,14 @@ export type VocabCard = {
   in_review?: boolean;
 };
 
+export type GrammarItem = {
+  unit_id: string;
+  unit_title: string;
+  lesson_id: string;
+  lesson_title: string;
+  grammar_point: string;
+};
+
 export const api = {
   signup: (b: { email: string; password: string; invite_code: string; display_name: string }) =>
     req<TokenResponse>("/auth/signup", { method: "POST", body: JSON.stringify(b) }),
@@ -256,6 +264,10 @@ export const api = {
 
   levels: () => req<{ levels: string[] }>("/content/levels"),
   path: (level = "a1") => req<PathView>(`/content/path?level=${encodeURIComponent(level)}`),
+  grammar: (level = "a1") =>
+    req<{ level: string; items: GrammarItem[] }>(
+      `/content/grammar?level=${encodeURIComponent(level)}`,
+    ),
   lesson: (id: string) => req<Lesson>(`/content/lessons/${encodeURIComponent(id)}`),
   // Omit `level` to fetch every level's vocab at once (each card carries its level).
   vocab: (level?: string, tag?: string) => {
