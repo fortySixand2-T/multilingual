@@ -148,6 +148,38 @@ def test_lesson_endpoint_404():
     assert client.get("/content/lessons/nope").status_code == 404
 
 
+def test_grammar_endpoint_lists_points_in_path_order():
+    body = client.get("/content/grammar", params={"level": "a1"}).json()
+    assert body["level"] == "a1"
+    items = body["items"]
+    assert items and all(i["grammar_point"].strip() for i in items)
+    assert {
+        "unit_id",
+        "unit_title",
+        "lesson_id",
+        "lesson_title",
+        "grammar_point",
+    } <= items[0].keys()
+    # items follow path order: unit ordinals never decrease down the list
+    path = client.get("/content/path", params={"level": "a1"}).json()["units"]
+    order = {u["id"]: idx for idx, u in enumerate(path)}
+    seq = [order[i["unit_id"]] for i in items]
+    assert seq == sorted(seq)
+    # completeness: every path-lesson with a non-empty grammar_point must appear
+    bundle = load_content(CONTENT_ROOT, "a1")
+    expected = sum(
+        1
+        for unit in bundle.path.units
+        for lid in unit.lessons
+        if (lesson := bundle.lessons.get(lid)) and lesson.grammar_point.strip()
+    )
+    assert len(items) == expected
+
+
+def test_grammar_endpoint_unknown_level_404():
+    assert client.get("/content/grammar", params={"level": "zz"}).status_code == 404
+
+
 # --- content audio delivery ---------------------------------------------------
 
 

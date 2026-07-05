@@ -125,6 +125,55 @@ async def get_path(
     }
 
 
+@router.get("/grammar")
+async def get_grammar(
+    level: str,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Every grammar point taught across a level's lessons, in path order (unit →
+    lesson) — a browsable reference/review companion to the lessons themselves.
+    Lessons without a `grammar_point` are omitted."""
+    units = (
+        (
+            await session.execute(
+                select(ContentUnit).where(ContentUnit.level == level).order_by(ContentUnit.ordinal)
+            )
+        )
+        .scalars()
+        .all()
+    )
+    if not units:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"no content for level {level!r}")
+
+    lessons = (
+        (await session.execute(select(ContentLesson).where(ContentLesson.level == level)))
+        .scalars()
+        .all()
+    )
+    by_id = {les.id: les for les in lessons}
+
+    items = []
+    for unit in units:
+        for lid in unit.lessons:
+            lesson = by_id.get(lid)
+            if lesson is None:
+                continue
+            grammar_point = (lesson.data.get("grammar_point") or "").strip()
+            if not grammar_point:
+                continue
+            items.append(
+                {
+                    "unit_id": unit.id,
+                    "unit_title": unit.title,
+                    "lesson_id": lid,
+                    "lesson_title": lesson.title,
+                    "grammar_point": grammar_point,
+                }
+            )
+    return {"level": level, "items": items}
+
+
 @router.get("/lessons/{lesson_id}")
 async def get_lesson(
     lesson_id: str,

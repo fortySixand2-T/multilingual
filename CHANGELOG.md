@@ -1,4 +1,12 @@
 # Changelog
+- [2026-07-04] Modified: qa/issues/446-a1-grammar-index-has-duplicate-grammar-point-labels.md — Critic block appended: deferred confirmed (duplicates real but usable via lesson_id links; editorial fix, not blocking)
+- [2026-07-04] Modified: qa/issues/445-grammar-test-missing-completeness-count-assertion.md — Critic block appended: validated (count assertion genuinely absent; note expected_count should be dynamic not hardcoded)
+- [2026-07-04] Modified: qa/issues/444-grammar-endpoint-no-auth-test-missing.md — Critic block appended: rejected confirmed (global dependency_overrides is deliberate project pattern; no user-visible bug)
+- [2026-07-04] Modified: qa/issues/443-a1-grammar-index-missing-6-lessons-stale-db.md — Critic block appended: validated (stale live DB confirmed; 20% of A1 curriculum unreachable; sync step required)
+- [2026-07-04] Created: qa/issues/446-a1-grammar-index-has-duplicate-grammar-point-labels.md — round 035 (edge-case-breaker): A1 grammar index has identical grammar_point labels for consecutive lesson pairs in 3 units
+- [2026-07-04] Created: qa/issues/445-grammar-test-missing-completeness-count-assertion.md — round 035 (edge-case-breaker): grammar test has no count assertion to detect partial-response omissions
+- [2026-07-04] Created: qa/issues/444-grammar-endpoint-no-auth-test-missing.md — round 035 (edge-case-breaker): grammar endpoint has no automated 401 test (auth override bypasses enforcement in test suite)
+- [2026-07-04] Created: qa/issues/443-a1-grammar-index-missing-6-lessons-stale-db.md — round 035 (edge-case-breaker): A1 grammar index omits 6 lessons (2 units) because live DB not re-synced after units a1.u11/u12 added to path.yaml
 - [2026-07-04] Modified: app/assessment/api.py — add target_vocab to list_tasks response (fix issue 442)
 - [2026-07-04] Modified: qa/issues/442-assessment-tasks-list-missing-target-vocab.md — Critic block appended: validated — asymmetry confirmed as plain omission; target_vocab IDs already in r.data, no extra query needed; medium severity correct
 - [2026-07-04] Modified: qa/issues/442-assessment-tasks-list-missing-target-vocab.md — Triage block appended: validated — list_tasks() omits target_vocab from the response dict while get_task() returns it wholesale; plain omission, not a design choice
@@ -515,3 +523,9 @@
 - [2026-07-04] Modified: qa/rounds/034-plan.md — QA round 034 plan and outcome for B2 final slice (alimentation u10)
 - [2026-07-04] Modified: tests/test_assessment.py — regression assertion for issue 442: /assessment/tasks list includes target_vocab
 - [2026-07-04] Modified: app/progress/api.py, web/src/api.ts, web/src/screens/Lesson.tsx, tests/test_progress.py — fix issue 428: rename lesson-result `first_time` → `first_pass` (matches the comprehension endpoint; the field gates first-pass XP/SRS, so false-on-fail is correct, and the name no longer implies "first attempt")
+- [2026-07-04] Created: web/src/screens/Grammar.tsx — grammar reference screen (browse/search all grammar points per level, links to lessons)
+- [2026-07-04] Modified: app/content/api.py, tests/test_content_sync.py — add GET /content/grammar (grammar points per level in path order) + tests
+- [2026-07-04] Modified: web/src/api.ts, web/src/App.tsx — wire api.grammar(), /grammar route + nav link
+- [2026-07-04] Modified: tests/test_content_sync.py — fix issue 445: assert grammar item count equals path-lessons-with-grammar (dynamic, from load_content) so partial-omission regressions fail
+- [2026-07-04] Modified: qa/rounds/035-plan.md — QA round 035 outcomes recorded (grammar reference: code sound; 443 stale-DB fixed by re-sync, 445 fixed, 444 rejected, 446 deferred)
+- [2026-07-04] Ran: content-sync (all levels) — fix issue 443: live data/tef.db was stale (a1 missing u11/u12); re-synced a1/a2/b1/b2 so /content/grammar returns all points (a1: 36)
