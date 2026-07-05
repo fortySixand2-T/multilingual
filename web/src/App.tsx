@@ -16,6 +16,7 @@ import WritingTask from "./screens/WritingTask";
 import Speaking from "./screens/Speaking";
 import Exam from "./screens/Exam";
 import Grammar from "./screens/Grammar";
+import Readiness from "./screens/Readiness";
 
 export default function App() {
   const { authed, logout } = useAuth();
@@ -39,6 +40,7 @@ export default function App() {
           <NavLink to="/speaking">Speak</NavLink>
           <NavLink to="/drill">Drill</NavLink>
           <NavLink to="/exam">Mock</NavLink>
+          <NavLink to="/readiness">Readiness</NavLink>
           <NavLink to="/board">Group</NavLink>
         </nav>
         <div className="topbar-right">
@@ -62,6 +64,7 @@ export default function App() {
           <Route path="/speaking" element={<Speaking />} />
           <Route path="/drill" element={<Drill />} />
           <Route path="/exam" element={<Exam />} />
+          <Route path="/readiness" element={<Readiness />} />
           <Route path="/board" element={<GroupBoard />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
