@@ -1,4 +1,5 @@
 # Changelog
+- [2026-07-05] Modified: web/src/screens/Readiness.tsx — fix focus pill showing when target_met=true (issue 447)
 - [2026-07-04] Modified: qa/issues/446-a1-grammar-index-has-duplicate-grammar-point-labels.md — Critic block appended: deferred confirmed (duplicates real but usable via lesson_id links; editorial fix, not blocking)
 - [2026-07-04] Modified: qa/issues/445-grammar-test-missing-completeness-count-assertion.md — Critic block appended: validated (count assertion genuinely absent; note expected_count should be dynamic not hardcoded)
 - [2026-07-04] Modified: qa/issues/444-grammar-endpoint-no-auth-test-missing.md — Critic block appended: rejected confirmed (global dependency_overrides is deliberate project pattern; no user-visible bug)
@@ -532,3 +533,6 @@
 - [2026-07-05] Created: web/src/screens/Readiness.tsx — per-skill CLB readiness dashboard (bars toward CLB 7, weakest-skill nudge, trend, empty state)
 - [2026-07-05] Modified: app/exam/api.py, tests/test_exam.py — add GET /exam/readiness (aggregate finished mocks' clb_report into per-skill best/recent/trend + weakest skill, reusing aggregate_report) + tests
 - [2026-07-05] Modified: web/src/api.ts, web/src/App.tsx — wire api.readiness(), /readiness route + nav link
+- [2026-07-05] Created: qa/issues/447-focus-pill-shows-when-target-met.md — filed bug: focus pill appears on skill bar when target_met=true, contradicting On Target header
+- [2026-07-05] Modified: web/src/screens/Readiness.tsx — fix issue 447: don't show the per-skill "focus" pill / amber bar when target_met (weakest_skill is always non-null; guard the pill like the card nudge)
+- [2026-07-05] Created: qa/rounds/036-plan.md, qa/issues/447-focus-pill-shows-when-target-met.md — QA round 036 on readiness dashboard: clean, 1 UI issue (447) found and fixed

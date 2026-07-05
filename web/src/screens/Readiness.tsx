@@ -61,7 +61,7 @@ export default function Readiness() {
       {SKILLS.map((s) => {
         const r = data.per_skill[s.key];
         if (!r) return null;
-        const weak = s.key === data.weakest_skill;
+        const weak = s.key === data.weakest_skill && !data.target_met;
         return (
           <div className="unit" key={s.key}>
             <div className="unit-head">
