@@ -165,6 +165,15 @@ def test_grammar_endpoint_lists_points_in_path_order():
     order = {u["id"]: idx for idx, u in enumerate(path)}
     seq = [order[i["unit_id"]] for i in items]
     assert seq == sorted(seq)
+    # completeness: every path-lesson with a non-empty grammar_point must appear
+    bundle = load_content(CONTENT_ROOT, "a1")
+    expected = sum(
+        1
+        for unit in bundle.path.units
+        for lid in unit.lessons
+        if (lesson := bundle.lessons.get(lid)) and lesson.grammar_point.strip()
+    )
+    assert len(items) == expected
 
 
 def test_grammar_endpoint_unknown_level_404():
