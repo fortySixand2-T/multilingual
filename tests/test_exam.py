@@ -2,6 +2,7 @@
 
 import asyncio
 import tempfile
+from contextlib import contextmanager
 from pathlib import Path
 
 import pytest
@@ -161,6 +162,66 @@ def test_full_mock_start_sections_finish_history():
     assert hist[0]["attempt_id"] == aid and hist[0]["status"] == "finished"
     assert hist[0]["clb_report"]["overall"] == 6
     assert hist[0]["level"] == "a1"  # qa-220: level must be serialized
+
+
+@contextmanager
+def _acting_as(uid: int):
+    """Route auth to a specific user id for the block, so its exam attempts are
+    isolated from the module's shared default user (id 314)."""
+    prev = app.dependency_overrides[get_current_user]
+    app.dependency_overrides[get_current_user] = lambda: type("U", (), {"id": uid})()
+    try:
+        yield
+    finally:
+        app.dependency_overrides[get_current_user] = prev
+
+
+def _finish_mock(scores: dict[str, int]) -> None:
+    """Start mock-1, record all 4 sections and finish. reading/listening take
+    correct/total (correct/10 maps to that CLB band); writing/speaking take clb."""
+    aid = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
+    client.post(
+        f"/exam/{aid}/section", json={"skill": "reading", "correct": scores["reading"], "total": 10}
+    )
+    client.post(
+        f"/exam/{aid}/section",
+        json={"skill": "listening", "correct": scores["listening"], "total": 10},
+    )
+    client.post(
+        f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": scores["writing"]}
+    )
+    client.post(
+        f"/exam/{aid}/section", json={"skill": "speaking", "clb_estimate": scores["speaking"]}
+    )
+    client.post(f"/exam/{aid}/finish")
+
+
+def test_readiness_empty_when_no_finished_mock():
+    with _acting_as(9001):
+        body = client.get("/exam/readiness").json()
+    assert body == {
+        "attempts": 0,
+        "per_skill": {},
+        "overall": None,
+        "target_met": False,
+        "weakest_skill": None,
+        "target_clb": 7,
+    }
+
+
+def test_readiness_aggregates_best_recent_and_trend():
+    with _acting_as(9002):
+        # two finished mocks; reading improves 6→8, speaking stays weakest
+        _finish_mock({"reading": 6, "listening": 7, "writing": 7, "speaking": 5})
+        _finish_mock({"reading": 8, "listening": 7, "writing": 8, "speaking": 6})
+        body = client.get("/exam/readiness").json()
+    assert body["attempts"] == 2
+    assert body["per_skill"]["reading"] == {"best": 8, "recent": 8, "trend": [6, 8]}
+    assert body["per_skill"]["speaking"] == {"best": 6, "recent": 6, "trend": [5, 6]}
+    # overall = weakest skill's best (speaking=6); not yet at CLB 7
+    assert body["overall"] == 6
+    assert body["target_met"] is False
+    assert body["weakest_skill"] == "speaking"
 
 
 def test_section_validation():

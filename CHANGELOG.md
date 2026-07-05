@@ -529,3 +529,6 @@
 - [2026-07-04] Modified: tests/test_content_sync.py — fix issue 445: assert grammar item count equals path-lessons-with-grammar (dynamic, from load_content) so partial-omission regressions fail
 - [2026-07-04] Modified: qa/rounds/035-plan.md — QA round 035 outcomes recorded (grammar reference: code sound; 443 stale-DB fixed by re-sync, 445 fixed, 444 rejected, 446 deferred)
 - [2026-07-04] Ran: content-sync (all levels) — fix issue 443: live data/tef.db was stale (a1 missing u11/u12); re-synced a1/a2/b1/b2 so /content/grammar returns all points (a1: 36)
+- [2026-07-05] Created: web/src/screens/Readiness.tsx — per-skill CLB readiness dashboard (bars toward CLB 7, weakest-skill nudge, trend, empty state)
+- [2026-07-05] Modified: app/exam/api.py, tests/test_exam.py — add GET /exam/readiness (aggregate finished mocks' clb_report into per-skill best/recent/trend + weakest skill, reusing aggregate_report) + tests
+- [2026-07-05] Modified: web/src/api.ts, web/src/App.tsx — wire api.readiness(), /readiness route + nav link

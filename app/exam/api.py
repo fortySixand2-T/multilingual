@@ -255,3 +255,59 @@ async def history(
             for a in rows
         ]
     }
+
+
+_TARGET_CLB = 7  # the CLB 7 goal (matches aggregate_report's target_met threshold)
+
+
+@router.get("/readiness")
+async def readiness(
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Per-skill CLB readiness from the user's finished mocks: for each skill, the
+    best and most-recent CLB plus the chronological trend. Overall is the weakest
+    skill's *best* (mirroring `aggregate_report`), so it reflects demonstrated
+    ceiling; `weakest_skill` is the nudge target. Empty when no mock is finished."""
+    rows = (
+        (
+            await session.execute(
+                select(ExamAttempt)
+                .where(ExamAttempt.user_id == user.id, ExamAttempt.status == "finished")
+                .order_by(ExamAttempt.id.asc())  # chronological, for the trend
+            )
+        )
+        .scalars()
+        .all()
+    )
+
+    series: dict[str, list[int]] = {}
+    for attempt in rows:
+        per_skill = (attempt.clb_report or {}).get("per_skill") or {}
+        for skill, clb in per_skill.items():
+            if clb is not None:
+                series.setdefault(skill, []).append(clb)
+
+    if not series:
+        return {
+            "attempts": len(rows),
+            "per_skill": {},
+            "overall": None,
+            "target_met": False,
+            "weakest_skill": None,
+            "target_clb": _TARGET_CLB,
+        }
+
+    best = {skill: max(vals) for skill, vals in series.items()}
+    report = aggregate_report(best)
+    return {
+        "attempts": len(rows),
+        "per_skill": {
+            skill: {"best": max(vals), "recent": vals[-1], "trend": vals}
+            for skill, vals in series.items()
+        },
+        "overall": report["overall"],
+        "target_met": report["target_met"],
+        "weakest_skill": min(best, key=lambda s: best[s]),
+        "target_clb": _TARGET_CLB,
+    }

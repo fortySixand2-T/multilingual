@@ -236,6 +236,16 @@ export type ExamAttemptSummary = {
   finished_at: string | null;
 };
 
+export type SkillReadiness = { best: number; recent: number; trend: number[] };
+export type Readiness = {
+  attempts: number;
+  per_skill: Record<string, SkillReadiness>;
+  overall: number | null;
+  target_met: boolean;
+  weakest_skill: string | null;
+  target_clb: number;
+};
+
 export type VocabCard = {
   id: string;
   fr: string;
@@ -330,6 +340,7 @@ export const api = {
 
   speechHistory: () => req<{ turns: SpeechHistoryTurn[] }>("/speech/history"),
 
+  readiness: () => req<Readiness>("/exam/readiness"),
   examBlueprints: (level = "a1") => req<{ blueprints: ExamBlueprintSummary[] }>(`/exam/blueprints?level=${encodeURIComponent(level)}`),
   examStart: (blueprint_id: string) =>
     req<{ attempt_id: number; blueprint: ExamBlueprint }>("/exam/start", {
