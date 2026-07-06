@@ -543,3 +543,4 @@
 - [2026-07-05] Created: migrations/versions/0012_weak_spots.py, web/src/screens/WeakSpots.tsx — weak-spot / mistake-review feature (student-help slice 3)
 - [2026-07-05] Modified: app/progress/{models,service,api}.py, app/comprehension/api.py — WeakSpot table + sync_weak_spots (capture misses in comprehension submit, resolve on correct) + GET /progress/weak-spots, POST answer/dismiss
 - [2026-07-05] Modified: tests/test_comprehension.py, web/src/{api.ts,App.tsx} — weak-spot tests; api methods; /weak-spots route + nav
+- [2026-07-05] Created: qa/rounds/037-plan.md, qa/issues/{449,450}-*.md — QA round 037 on weak-spots: 15 hypotheses sound; 448 fixed (in 61cf92e), 449/450 deferred (non-blocking)
