@@ -544,3 +544,6 @@
 - [2026-07-05] Modified: app/progress/{models,service,api}.py, app/comprehension/api.py — WeakSpot table + sync_weak_spots (capture misses in comprehension submit, resolve on correct) + GET /progress/weak-spots, POST answer/dismiss
 - [2026-07-05] Modified: tests/test_comprehension.py, web/src/{api.ts,App.tsx} — weak-spot tests; api methods; /weak-spots route + nav
 - [2026-07-05] Created: qa/rounds/037-plan.md, qa/issues/{449,450}-*.md — QA round 037 on weak-spots: 15 hypotheses sound; 448 fixed (in 61cf92e), 449/450 deferred (non-blocking)
+- [2026-07-06] Created: app/tutor/prompts/{a2,b1,b2}_drill.md — scaffolded drill prompts for A2/B1/B2 (level gate preserved: one bounded drill, no open conversation/free-form; scaffolding eases as level rises)
+- [2026-07-06] Modified: app/tutor/orchestrator.py, app/tutor/api.py, app/config/ai_routing.yaml — extend drill tutor to all levels: prompts/profiles per level (drill_a1..drill_b2), derive level from the lesson (was hardcoded a1), unsupported level → clean 400
+- [2026-07-06] Modified: tests/test_tutor_levelgate.py, web/src/screens/Drill.tsx — per-level gate + level-derivation tests; Drill screen uses the current level (removed the "A1 only" gate)

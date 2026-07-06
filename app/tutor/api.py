@@ -40,7 +40,15 @@ async def post_drill(
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"lesson {body.lesson_id!r} not found")
 
     data = lesson.data
-    tutor = Tutor(ai_router, level="a1")  # level-gated: A1 = scaffolded drills only
+    # Level-gated drills for every shipped level — the lesson's own level picks the
+    # scaffolded prompt/profile. Unsupported levels degrade to a clean 400.
+    try:
+        tutor = Tutor(ai_router, level=lesson.level)
+    except ValueError:
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            f"tutor drills are not available for level {lesson.level!r}",
+        ) from None
     result = await tutor.drill(
         session,
         user.id,
