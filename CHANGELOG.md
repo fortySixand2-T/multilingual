@@ -1,4 +1,8 @@
 # Changelog
+- [2026-07-05] Modified: web/src/screens/WeakSpots.tsx — fix wrong-pick highlight: add picked state, apply .option.wrong CSS class to user's incorrect selection (issue 448)
+- [2026-07-05] Modified: qa/issues/450-weakspots-no-tests-for-unanswered-ordering-404.md — Triage block appended: deferred (behaviors work, test gaps are regression risk not current defect)
+- [2026-07-05] Modified: qa/issues/449-weakspots-answer-resolves-but-no-filter-on-resolved.md — Triage block appended: deferred (real data mutation but only reachable via direct API abuse, no UI path)
+- [2026-07-05] Modified: qa/issues/448-weakspots-wrong-pick-not-highlighted.md — Triage block appended: validated (wrong pick receives no CSS class; confirmed by code reading WeakSpots.tsx)
 - [2026-07-05] Modified: web/src/screens/Readiness.tsx — fix focus pill showing when target_met=true (issue 447)
 - [2026-07-04] Modified: qa/issues/446-a1-grammar-index-has-duplicate-grammar-point-labels.md — Critic block appended: deferred confirmed (duplicates real but usable via lesson_id links; editorial fix, not blocking)
 - [2026-07-04] Modified: qa/issues/445-grammar-test-missing-completeness-count-assertion.md — Critic block appended: validated (count assertion genuinely absent; note expected_count should be dynamic not hardcoded)

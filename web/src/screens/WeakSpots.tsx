@@ -8,6 +8,7 @@ export default function WeakSpots() {
   const [items, setItems] = useState<WeakSpot[] | null>(null);
   const [error, setError] = useState("");
   const [graded, setGraded] = useState<Record<number, WeakSpotAnswer>>({});
+  const [picked, setPicked] = useState<Record<number, string>>({});
 
   const load = () =>
     api.weakSpots().then((r) => setItems(r.weak_spots)).catch((e) => setError(e.message));
@@ -16,6 +17,7 @@ export default function WeakSpots() {
   }, []);
 
   const answer = async (id: number, chosen: string) => {
+    setPicked((p) => ({ ...p, [id]: chosen }));
     const res = await api.answerWeakSpot(id, chosen);
     setGraded((g) => ({ ...g, [id]: res }));
     if (res.correct) setTimeout(() => setItems((it) => (it || []).filter((w) => w.id !== id)), 900);
@@ -57,12 +59,12 @@ export default function WeakSpots() {
             </div>
             <div className="node-title" style={{ margin: "6px 0 10px" }}>{w.prompt}</div>
             {w.options.map((o) => {
-              const isChosenCorrect = g?.correct && g.correct_answer === o;
-              const isWrongPick = g && !g.correct && g.correct_answer === o;
+              const isCorrectAnswer = !!g && g.correct_answer === o;
+              const isUserWrongPick = !!g && !g.correct && picked[w.id] === o;
               return (
                 <button
                   key={o}
-                  className={`option ${isChosenCorrect || isWrongPick ? "correct" : ""}`}
+                  className={`option${isCorrectAnswer ? " correct" : ""}${isUserWrongPick ? " wrong" : ""}`}
                   disabled={!!g?.correct}
                   onClick={() => answer(w.id, o)}
                 >
