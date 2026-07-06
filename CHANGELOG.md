@@ -1,4 +1,8 @@
 # Changelog
+- [2026-07-05] Modified: web/src/screens/WeakSpots.tsx — fix wrong-pick highlight: add picked state, apply .option.wrong CSS class to user's incorrect selection (issue 448)
+- [2026-07-05] Modified: qa/issues/450-weakspots-no-tests-for-unanswered-ordering-404.md — Triage block appended: deferred (behaviors work, test gaps are regression risk not current defect)
+- [2026-07-05] Modified: qa/issues/449-weakspots-answer-resolves-but-no-filter-on-resolved.md — Triage block appended: deferred (real data mutation but only reachable via direct API abuse, no UI path)
+- [2026-07-05] Modified: qa/issues/448-weakspots-wrong-pick-not-highlighted.md — Triage block appended: validated (wrong pick receives no CSS class; confirmed by code reading WeakSpots.tsx)
 - [2026-07-05] Modified: web/src/screens/Readiness.tsx — fix focus pill showing when target_met=true (issue 447)
 - [2026-07-04] Modified: qa/issues/446-a1-grammar-index-has-duplicate-grammar-point-labels.md — Critic block appended: deferred confirmed (duplicates real but usable via lesson_id links; editorial fix, not blocking)
 - [2026-07-04] Modified: qa/issues/445-grammar-test-missing-completeness-count-assertion.md — Critic block appended: validated (count assertion genuinely absent; note expected_count should be dynamic not hardcoded)
@@ -536,3 +540,7 @@
 - [2026-07-05] Created: qa/issues/447-focus-pill-shows-when-target-met.md — filed bug: focus pill appears on skill bar when target_met=true, contradicting On Target header
 - [2026-07-05] Modified: web/src/screens/Readiness.tsx — fix issue 447: don't show the per-skill "focus" pill / amber bar when target_met (weakest_skill is always non-null; guard the pill like the card nudge)
 - [2026-07-05] Created: qa/rounds/036-plan.md, qa/issues/447-focus-pill-shows-when-target-met.md — QA round 036 on readiness dashboard: clean, 1 UI issue (447) found and fixed
+- [2026-07-05] Created: migrations/versions/0012_weak_spots.py, web/src/screens/WeakSpots.tsx — weak-spot / mistake-review feature (student-help slice 3)
+- [2026-07-05] Modified: app/progress/{models,service,api}.py, app/comprehension/api.py — WeakSpot table + sync_weak_spots (capture misses in comprehension submit, resolve on correct) + GET /progress/weak-spots, POST answer/dismiss
+- [2026-07-05] Modified: tests/test_comprehension.py, web/src/{api.ts,App.tsx} — weak-spot tests; api methods; /weak-spots route + nav
+- [2026-07-05] Created: qa/rounds/037-plan.md, qa/issues/{449,450}-*.md — QA round 037 on weak-spots: 15 hypotheses sound; 448 fixed (in 61cf92e), 449/450 deferred (non-blocking)

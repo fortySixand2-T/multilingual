@@ -2,6 +2,7 @@
 
 import asyncio
 import tempfile
+from contextlib import contextmanager
 from pathlib import Path
 
 import pytest
@@ -251,3 +252,76 @@ def test_upload_audio_uses_level_prefixed_keys(tmp_path):
     n = upload_audio(store, tmp_path, "a1")
     assert n == 1
     assert store.objects["a1/audio/clip.mp3"] == b"xyz"
+
+
+# --- weak-spot capture + re-practice (issue: student-help slice 3) -------------
+
+
+@contextmanager
+def _acting_as(uid: int):
+    """Isolate a test's weak-spots to a dedicated user (shared _FakeUser id 1)."""
+    prev = app.dependency_overrides[get_current_user]
+    app.dependency_overrides[get_current_user] = lambda: type("U", (), {"id": uid})()
+    try:
+        yield
+    finally:
+        app.dependency_overrides[get_current_user] = prev
+
+
+def _submit_cafe(answers: dict) -> None:
+    client.post("/comprehension/sets/read-cafe-01/submit", json={"answers": answers})
+
+
+def test_weak_spot_captured_on_wrong_and_resolved_on_correct():
+    with _acting_as(7001):
+        # q1 wrong, q2 right → one weak-spot for q1, re-hydrated from the set
+        _submit_cafe({"read-cafe-01.q1": "WRONG", "read-cafe-01.q2": "Non"})
+        ws = client.get("/progress/weak-spots").json()["weak_spots"]
+        assert {w["question_id"] for w in ws} == {"read-cafe-01.q1"}
+        w = ws[0]
+        assert w["prompt"] and w["options"] and w["set_title"] and w["skill"] == "reading"
+        assert w["times_missed"] == 1
+        # miss again → count increments
+        _submit_cafe({"read-cafe-01.q1": "STILL WRONG", "read-cafe-01.q2": "Non"})
+        ws = client.get("/progress/weak-spots").json()["weak_spots"]
+        assert ws[0]["times_missed"] == 2
+        # answer it right (full submit) → resolved, queue empties
+        _submit_cafe({"read-cafe-01.q1": "Dans un café", "read-cafe-01.q2": "Non"})
+        assert client.get("/progress/weak-spots").json()["weak_spots"] == []
+
+
+def test_weak_spot_answer_and_dismiss_endpoints():
+    with _acting_as(7002):
+        _submit_cafe({"read-cafe-01.q1": "WRONG", "read-cafe-01.q2": "WRONG"})
+        by_q = {
+            w["question_id"]: w for w in client.get("/progress/weak-spots").json()["weak_spots"]
+        }
+        assert set(by_q) == {"read-cafe-01.q1", "read-cafe-01.q2"}
+        # re-answer q1 correctly → resolved
+        r = client.post(
+            f"/progress/weak-spots/{by_q['read-cafe-01.q1']['id']}/answer",
+            json={"chosen": "Dans un café"},
+        ).json()
+        assert (
+            r["correct"] is True and r["resolved"] is True and r["correct_answer"] == "Dans un café"
+        )
+        # dismiss q2
+        client.post(f"/progress/weak-spots/{by_q['read-cafe-01.q2']['id']}/dismiss")
+        assert client.get("/progress/weak-spots").json()["weak_spots"] == []
+
+
+def test_weak_spot_wrong_reanswer_keeps_open_and_counts():
+    with _acting_as(7003):
+        _submit_cafe({"read-cafe-01.q1": "WRONG", "read-cafe-01.q2": "Non"})
+        wid = client.get("/progress/weak-spots").json()["weak_spots"][0]["id"]
+        r = client.post(f"/progress/weak-spots/{wid}/answer", json={"chosen": "still wrong"}).json()
+        assert r["correct"] is False and r["resolved"] is False
+        assert client.get("/progress/weak-spots").json()["weak_spots"][0]["times_missed"] == 2
+
+
+def test_weak_spot_answer_404_for_other_user():
+    with _acting_as(7004):
+        _submit_cafe({"read-cafe-01.q1": "WRONG", "read-cafe-01.q2": "Non"})
+        wid = client.get("/progress/weak-spots").json()["weak_spots"][0]["id"]
+    with _acting_as(7005):  # different user can't touch it
+        assert client.post(f"/progress/weak-spots/{wid}/dismiss").status_code == 404

@@ -18,10 +18,11 @@ from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
+from app.comprehension.tables import ComprehensionSetRow
 from app.content.api import is_lesson_unlocked
 from app.content.tables import ContentLesson
 from app.db.session import get_session
-from app.progress.models import LessonCompletion, UserProgress
+from app.progress.models import LessonCompletion, UserProgress, WeakSpot
 from app.progress.service import get_or_create_progress, record_activity
 from app.srs.service import seed_cards
 from app.users.models import User
@@ -144,3 +145,105 @@ async def get_board(
     ]
     members.sort(key=lambda m: m["xp"], reverse=True)  # leaderboard order
     return {"members": members}
+
+
+class WeakSpotAnswer(BaseModel):
+    chosen: str
+
+
+@router.get("/weak-spots")
+async def get_weak_spots(
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Unresolved missed comprehension questions, re-hydrated with their
+    prompt/options/explain from the owning set — a targeted re-practice queue,
+    most-missed first."""
+    rows = (
+        (
+            await session.execute(
+                select(WeakSpot)
+                .where(WeakSpot.user_id == user.id, WeakSpot.resolved.is_(False))
+                .order_by(WeakSpot.times_missed.desc(), WeakSpot.last_missed.desc())
+            )
+        )
+        .scalars()
+        .all()
+    )
+    sets: dict[str, ComprehensionSetRow | None] = {}
+    for w in rows:
+        if w.set_id not in sets:
+            sets[w.set_id] = await session.get(ComprehensionSetRow, w.set_id)
+
+    items = []
+    for w in rows:
+        srow = sets.get(w.set_id)
+        if srow is None:
+            continue  # set was removed by a re-sync; skip (still resolvable via dismiss)
+        question = next((q for q in srow.data["questions"] if q["id"] == w.ref_id), None)
+        if question is None:
+            continue
+        items.append(
+            {
+                "id": w.id,
+                "set_id": w.set_id,
+                "set_title": srow.data.get("title", w.set_id),
+                "skill": srow.skill,
+                "question_id": w.ref_id,
+                "prompt": question["prompt"],
+                "options": question["options"],
+                "explain": question.get("explain", ""),
+                "times_missed": w.times_missed,
+            }
+        )
+    return {"weak_spots": items}
+
+
+async def _owned_weak_spot(session: AsyncSession, weak_spot_id: int, user_id: int) -> WeakSpot:
+    w = await session.get(WeakSpot, weak_spot_id)
+    if w is None or w.user_id != user_id:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "weak spot not found")
+    return w
+
+
+@router.post("/weak-spots/{weak_spot_id}/answer")
+async def answer_weak_spot(
+    weak_spot_id: int,
+    body: WeakSpotAnswer,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Re-answer a missed question. Correct → resolved; wrong → another miss."""
+    w = await _owned_weak_spot(session, weak_spot_id, user.id)
+    srow = await session.get(ComprehensionSetRow, w.set_id)
+    question = next(
+        (q for q in (srow.data["questions"] if srow else []) if q["id"] == w.ref_id), None
+    )
+    if question is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "question no longer exists")
+    correct = body.chosen == question["answer"]
+    if correct:
+        w.resolved = True
+    else:
+        w.times_missed += 1
+        w.last_missed = datetime.now(UTC).replace(tzinfo=None)
+    await session.commit()
+    return {
+        "correct": correct,
+        "correct_answer": question["answer"],
+        "explain": question.get("explain", ""),
+        "resolved": w.resolved,
+    }
+
+
+@router.post("/weak-spots/{weak_spot_id}/dismiss")
+async def dismiss_weak_spot(
+    weak_spot_id: int,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Clear a weak spot without re-answering ('I've got this')."""
+    w = await _owned_weak_spot(session, weak_spot_id, user.id)
+    w.resolved = True
+    await session.commit()
+    return {"id": weak_spot_id, "resolved": True}

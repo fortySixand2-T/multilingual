@@ -236,6 +236,24 @@ export type ExamAttemptSummary = {
   finished_at: string | null;
 };
 
+export type WeakSpot = {
+  id: number;
+  set_id: string;
+  set_title: string;
+  skill: string;
+  question_id: string;
+  prompt: string;
+  options: string[];
+  explain: string;
+  times_missed: number;
+};
+export type WeakSpotAnswer = {
+  correct: boolean;
+  correct_answer: string;
+  explain: string;
+  resolved: boolean;
+};
+
 export type SkillReadiness = { best: number; recent: number; trend: number[] };
 export type Readiness = {
   attempts: number;
@@ -341,6 +359,16 @@ export const api = {
   speechHistory: () => req<{ turns: SpeechHistoryTurn[] }>("/speech/history"),
 
   readiness: () => req<Readiness>("/exam/readiness"),
+  weakSpots: () => req<{ weak_spots: WeakSpot[] }>("/progress/weak-spots"),
+  answerWeakSpot: (id: number, chosen: string) =>
+    req<WeakSpotAnswer>(`/progress/weak-spots/${id}/answer`, {
+      method: "POST",
+      body: JSON.stringify({ chosen }),
+    }),
+  dismissWeakSpot: (id: number) =>
+    req<{ id: number; resolved: boolean }>(`/progress/weak-spots/${id}/dismiss`, {
+      method: "POST",
+    }),
   examBlueprints: (level = "a1") => req<{ blueprints: ExamBlueprintSummary[] }>(`/exam/blueprints?level=${encodeURIComponent(level)}`),
   examStart: (blueprint_id: string) =>
     req<{ attempt_id: number; blueprint: ExamBlueprint }>("/exam/start", {

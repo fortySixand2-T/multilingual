@@ -17,6 +17,7 @@ import Speaking from "./screens/Speaking";
 import Exam from "./screens/Exam";
 import Grammar from "./screens/Grammar";
 import Readiness from "./screens/Readiness";
+import WeakSpots from "./screens/WeakSpots";
 
 export default function App() {
   const { authed, logout } = useAuth();
@@ -34,6 +35,7 @@ export default function App() {
           <NavLink to="/" end>Learn</NavLink>
           <NavLink to="/vocab">Vocab</NavLink>
           <NavLink to="/review">Review</NavLink>
+          <NavLink to="/weak-spots">Weak spots</NavLink>
           <NavLink to="/grammar">Grammar</NavLink>
           <NavLink to="/comprehension">Read &amp; Listen</NavLink>
           <NavLink to="/writing">Write</NavLink>
@@ -54,6 +56,7 @@ export default function App() {
           <Route path="/" element={<Path />} />
           <Route path="/lesson/:id" element={<Lesson />} />
           <Route path="/review" element={<Review />} />
+          <Route path="/weak-spots" element={<WeakSpots />} />
           <Route path="/grammar" element={<Grammar />} />
           <Route path="/vocab" element={<Decks />} />
           <Route path="/vocab/:level/:tag" element={<Deck />} />
