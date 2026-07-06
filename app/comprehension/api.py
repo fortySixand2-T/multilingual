@@ -20,7 +20,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.auth import get_current_user
 from app.comprehension.tables import ComprehensionAttempt, ComprehensionPass, ComprehensionSetRow
 from app.db.session import get_session
-from app.progress.service import record_activity
+from app.progress.service import record_activity, sync_weak_spots
 from app.storage.interface import ObjectStorage
 from app.users.models import User
 
@@ -145,6 +145,11 @@ async def submit(
             elapsed_seconds=body.elapsed_seconds,
             created_at=datetime.now(UTC).replace(tzinfo=None),
         )
+    )
+
+    # Capture wrong answers for targeted re-practice (resolve any now answered right).
+    await sync_weak_spots(
+        session, user.id, set_id, [(r["question_id"], r["correct"]) for r in results]
     )
 
     # Award XP once per set, atomically: only an in-time pass tries to claim the unique

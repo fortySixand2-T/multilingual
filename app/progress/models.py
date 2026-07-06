@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from datetime import date, datetime, timedelta
 
-from sqlalchemy import Date, DateTime, Float, Integer, String, UniqueConstraint
+from sqlalchemy import Boolean, Date, DateTime, Float, Integer, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.users.models import Base
@@ -36,6 +36,25 @@ class LessonCompletion(Base):
     completed_at: Mapped[datetime] = mapped_column(DateTime)
 
     __table_args__ = (UniqueConstraint("user_id", "lesson_id", name="uq_completion_user_lesson"),)
+
+
+class WeakSpot(Base):
+    """A question a learner got wrong, kept for targeted re-practice. One row per
+    (user, ref_id); `resolved` flips true once they answer it correctly (or dismiss
+    it). `kind` is "comprehension" for now — the shape allows lesson misses later."""
+
+    __tablename__ = "weak_spots"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, index=True)
+    kind: Mapped[str] = mapped_column(String(16))  # "comprehension"
+    ref_id: Mapped[str] = mapped_column(String(96))  # the missed question id (set-prefixed)
+    set_id: Mapped[str] = mapped_column(String(64))  # owning comprehension set, for re-hydration
+    times_missed: Mapped[int] = mapped_column(Integer, default=1)
+    last_missed: Mapped[datetime] = mapped_column(DateTime)
+    resolved: Mapped[bool] = mapped_column(Boolean, default=False)
+
+    __table_args__ = (UniqueConstraint("user_id", "ref_id", name="uq_weak_spot_user_ref"),)
 
 
 def compute_streak(prev_streak: int, last_active: date | None, today: date) -> int:

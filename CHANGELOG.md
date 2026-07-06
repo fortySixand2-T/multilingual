@@ -536,3 +536,6 @@
 - [2026-07-05] Created: qa/issues/447-focus-pill-shows-when-target-met.md — filed bug: focus pill appears on skill bar when target_met=true, contradicting On Target header
 - [2026-07-05] Modified: web/src/screens/Readiness.tsx — fix issue 447: don't show the per-skill "focus" pill / amber bar when target_met (weakest_skill is always non-null; guard the pill like the card nudge)
 - [2026-07-05] Created: qa/rounds/036-plan.md, qa/issues/447-focus-pill-shows-when-target-met.md — QA round 036 on readiness dashboard: clean, 1 UI issue (447) found and fixed
+- [2026-07-05] Created: migrations/versions/0012_weak_spots.py, web/src/screens/WeakSpots.tsx — weak-spot / mistake-review feature (student-help slice 3)
+- [2026-07-05] Modified: app/progress/{models,service,api}.py, app/comprehension/api.py — WeakSpot table + sync_weak_spots (capture misses in comprehension submit, resolve on correct) + GET /progress/weak-spots, POST answer/dismiss
+- [2026-07-05] Modified: tests/test_comprehension.py, web/src/{api.ts,App.tsx} — weak-spot tests; api methods; /weak-spots route + nav

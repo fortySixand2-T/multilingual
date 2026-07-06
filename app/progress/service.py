@@ -7,13 +7,14 @@ truth for the daily streak + XP, shared by lessons and comprehension.
 
 from __future__ import annotations
 
-from datetime import date
+from collections.abc import Iterable
+from datetime import UTC, date, datetime
 
-from sqlalchemy import select
+from sqlalchemy import select, update
 from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.progress.models import LessonCompletion, UserProgress, compute_streak
+from app.progress.models import LessonCompletion, UserProgress, WeakSpot, compute_streak
 
 _LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
 
@@ -65,3 +66,43 @@ async def record_activity(
     if xp_award:
         prog.xp = UserProgress.xp + xp_award
     return prog
+
+
+async def sync_weak_spots(
+    session: AsyncSession,
+    user_id: int,
+    set_id: str,
+    graded: Iterable[tuple[str, bool]],
+) -> None:
+    """Given (question_id, correct) pairs from a comprehension submit, record the
+    misses for re-practice: a wrong answer upserts a weak-spot (increment the miss
+    count, re-open if previously resolved); a correct answer resolves any existing
+    one. Idempotent per submit; caller commits."""
+    now = datetime.now(UTC).replace(tzinfo=None)
+    for ref_id, correct in graded:
+        if correct:
+            await session.execute(
+                update(WeakSpot)
+                .where(WeakSpot.user_id == user_id, WeakSpot.ref_id == ref_id)
+                .values(resolved=True)
+            )
+        else:
+            stmt = sqlite_insert(WeakSpot).values(
+                user_id=user_id,
+                kind="comprehension",
+                ref_id=ref_id,
+                set_id=set_id,
+                times_missed=1,
+                last_missed=now,
+                resolved=False,
+            )
+            await session.execute(
+                stmt.on_conflict_do_update(
+                    index_elements=["user_id", "ref_id"],
+                    set_={
+                        "times_missed": WeakSpot.times_missed + 1,
+                        "last_missed": now,
+                        "resolved": False,
+                    },
+                )
+            )
