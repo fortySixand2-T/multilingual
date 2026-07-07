@@ -1,7 +1,8 @@
-"""Tutor API: generate a scaffolded A1 drill for a lesson.
+"""Tutor API: generate a scaffolded drill for a lesson (A1–B2).
 
-The AI router comes from app.state via a dependency so tests can inject a fake
-(no live LLM). Over-budget is a graceful 200, not an error (AC1.5).
+The lesson's own level picks the level-gated prompt/profile. The AI router comes
+from app.state via a dependency so tests can inject a fake (no live LLM).
+Over-budget is a graceful 200, not an error (AC1.5).
 """
 
 from __future__ import annotations
@@ -40,7 +41,15 @@ async def post_drill(
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"lesson {body.lesson_id!r} not found")
 
     data = lesson.data
-    tutor = Tutor(ai_router, level="a1")  # level-gated: A1 = scaffolded drills only
+    # Level-gated drills for every shipped level — the lesson's own level picks the
+    # scaffolded prompt/profile. Unsupported levels degrade to a clean 400.
+    try:
+        tutor = Tutor(ai_router, level=lesson.level)
+    except ValueError:
+        raise HTTPException(
+            status.HTTP_400_BAD_REQUEST,
+            f"tutor drills are not available for level {lesson.level!r}",
+        ) from None
     result = await tutor.drill(
         session,
         user.id,

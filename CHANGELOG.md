@@ -1,4 +1,8 @@
 # Changelog
+- [2026-07-06] Modified: qa/issues/451-api-docstring-stale-says-a1-drill-only.md — Critic block appended: rejected (inline comment at line 43-44 neutralises re-hardcoding risk; docstring is cosmetic, not a defect)
+- [2026-07-06] Modified: qa/issues/452-levelgate-test-missing-a2-b2-http-coverage.md — Critic block appended: deferred (PM's "missing level field" risk is structurally impossible; gap is hygiene not urgent CI blind spot; severity downgraded from medium to low)
+- [2026-07-06] Modified: qa/issues/451-api-docstring-stale-says-a1-drill-only.md — Triage block appended: validated (stale docstring is a real maintainability risk; implementation is multi-level but docstring still says A1-only)
+- [2026-07-06] Modified: qa/issues/452-levelgate-test-missing-a2-b2-http-coverage.md — Triage block appended: validated (a2/b2 HTTP-level routing is unexercised in CI; a2/b2 content exists on disk and is loadable)
 - [2026-07-05] Modified: web/src/screens/WeakSpots.tsx — fix wrong-pick highlight: add picked state, apply .option.wrong CSS class to user's incorrect selection (issue 448)
 - [2026-07-05] Modified: qa/issues/450-weakspots-no-tests-for-unanswered-ordering-404.md — Triage block appended: deferred (behaviors work, test gaps are regression risk not current defect)
 - [2026-07-05] Modified: qa/issues/449-weakspots-answer-resolves-but-no-filter-on-resolved.md — Triage block appended: deferred (real data mutation but only reachable via direct API abuse, no UI path)
@@ -544,3 +548,10 @@
 - [2026-07-05] Modified: app/progress/{models,service,api}.py, app/comprehension/api.py — WeakSpot table + sync_weak_spots (capture misses in comprehension submit, resolve on correct) + GET /progress/weak-spots, POST answer/dismiss
 - [2026-07-05] Modified: tests/test_comprehension.py, web/src/{api.ts,App.tsx} — weak-spot tests; api methods; /weak-spots route + nav
 - [2026-07-05] Created: qa/rounds/037-plan.md, qa/issues/{449,450}-*.md — QA round 037 on weak-spots: 15 hypotheses sound; 448 fixed (in 61cf92e), 449/450 deferred (non-blocking)
+- [2026-07-06] Created: app/tutor/prompts/{a2,b1,b2}_drill.md — scaffolded drill prompts for A2/B1/B2 (level gate preserved: one bounded drill, no open conversation/free-form; scaffolding eases as level rises)
+- [2026-07-06] Modified: app/tutor/orchestrator.py, app/tutor/api.py, app/config/ai_routing.yaml — extend drill tutor to all levels: prompts/profiles per level (drill_a1..drill_b2), derive level from the lesson (was hardcoded a1), unsupported level → clean 400
+- [2026-07-06] Modified: tests/test_tutor_levelgate.py, web/src/screens/Drill.tsx — per-level gate + level-derivation tests; Drill screen uses the current level (removed the "A1 only" gate)
+
+- [2026-07-06] Created: qa/issues/451-api-docstring-stale-says-a1-drill-only.md — QA round 038: stale module docstring in api.py says "A1 drill" after multi-level extension
+- [2026-07-06] Created: qa/issues/452-levelgate-test-missing-a2-b2-http-coverage.md — QA round 038: test_drill_endpoint_derives_level_from_lesson omits a2/b2 HTTP coverage- [2026-07-06] Modified: app/tutor/api.py — fix 451: module docstring said "A1 drill"; now "scaffolded drill (A1–B2), level from the lesson"
+- [2026-07-06] Created: qa/rounds/038-plan.md, qa/issues/{451,452}-*.md — QA round 038 on tutor A2/B1/B2: clean (9 hypotheses sound, level gate holds at every level incl. B2); 451 fixed, 452 deferred

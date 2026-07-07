@@ -8,6 +8,22 @@ profiles:
     primary: "ollama/llama3.1"
     fallback: "anthropic/claude-haiku-4-5"
 
+  # a2/b1/b2 mirror a1 (the level gate is the prompt, not the model); tune per level here.
+  drill_a2:
+    capability: llm
+    primary: "ollama/llama3.1"
+    fallback: "anthropic/claude-haiku-4-5"
+
+  drill_b1:
+    capability: llm
+    primary: "ollama/llama3.1"
+    fallback: "anthropic/claude-haiku-4-5"
+
+  drill_b2:
+    capability: llm
+    primary: "ollama/llama3.1"
+    fallback: "anthropic/claude-haiku-4-5"
+
   grammar_explain:
     capability: llm
     primary: "anthropic/claude-sonnet-4-6"

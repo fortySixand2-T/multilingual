@@ -37,6 +37,7 @@ async def _setup():
         await conn.run_sync(Base.metadata.create_all)
     async with _Session() as s:
         await sync_bundle(s, load_content(CONTENT_ROOT, "a1"))
+        await sync_bundle(s, load_content(CONTENT_ROOT, "b1"))  # for level-derivation test
 
 
 _run(_setup())
@@ -87,6 +88,18 @@ def test_unsupported_level_rejected():
         raise AssertionError("expected ValueError")
     except ValueError:
         pass
+
+
+def test_every_level_has_a_scaffolded_gated_prompt():
+    # a2/b1/b2 got their own scaffolded prompt + profile, and the level gate (one
+    # bounded drill, no open conversation / free-form) holds at every level.
+    for level in ("a1", "a2", "b1", "b2"):
+        t = Tutor(FakeRouter(), level=level)
+        assert t.profile == f"drill_{level}"
+        p = t.system_prompt.lower()
+        assert "exactly one" in p  # one drill
+        assert "not a conversation" in p
+        assert "free-form" in p or "free form" in p  # no free production
 
 
 # --- routing + budget (DB) ----------------------------------------------------
@@ -165,6 +178,17 @@ def test_drill_endpoint_returns_scaffolded_drill():
 def test_drill_endpoint_unknown_lesson_404():
     client = _make_client(FakeRouter())
     assert client.post("/tutor/drill", json={"lesson_id": "nope"}).status_code == 404
+
+
+def test_drill_endpoint_derives_level_from_lesson():
+    # the lesson's own level picks the drill profile — a b1 lesson routes drill_b1,
+    # an a1 lesson still routes drill_a1 (no longer hardcoded to a1).
+    fake = FakeRouter()
+    client = _make_client(fake)
+    assert client.post("/tutor/drill", json={"lesson_id": "travail-b1-01"}).status_code == 200
+    assert fake.calls[-1]["profile"] == "drill_b1"
+    assert client.post("/tutor/drill", json={"lesson_id": "greetings-01"}).status_code == 200
+    assert fake.calls[-1]["profile"] == "drill_a1"
 
 
 class FailingRouter:

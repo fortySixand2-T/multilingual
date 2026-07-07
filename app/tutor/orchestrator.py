@@ -26,8 +26,14 @@ from app.ai.interfaces import Msg
 from app.usage.service import add_usage, tokens_used_today
 
 _PROMPT_DIR = Path(__file__).parent / "prompts"
-_PROMPT_BY_LEVEL = {"a1": (_PROMPT_DIR / "a1_drill.md").read_text(encoding="utf-8")}
-_PROFILE_BY_LEVEL = {"a1": "drill_a1"}
+# One scaffolded-drill prompt + profile per level. The level gate is the *prompt*
+# (every level forbids open conversation / free-form production); the profile lets
+# providers be tuned per level. Levels beyond b2 aren't offered yet.
+_LEVELS = ("a1", "a2", "b1", "b2")
+_PROMPT_BY_LEVEL = {
+    lvl: (_PROMPT_DIR / f"{lvl}_drill.md").read_text(encoding="utf-8") for lvl in _LEVELS
+}
+_PROFILE_BY_LEVEL = {lvl: f"drill_{lvl}" for lvl in _LEVELS}
 _FEATURE = "tutor_drill"
 
 OVER_BUDGET_MESSAGE = (

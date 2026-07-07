@@ -11,12 +11,14 @@ export default function Drill() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    api.path("a1").then((p: PathView) => {
+    setError("");
+    api.path(level).then((p: PathView) => {
       const ids = p.units.flatMap((u) => u.lessons);
       setLessons(ids);
       setLessonId(ids[0] ?? "");
+      setResult(null);
     }).catch((e) => setError(e.message));
-  }, []);
+  }, [level]);
 
   const generate = async () => {
     if (!lessonId) return;
@@ -35,14 +37,9 @@ export default function Drill() {
     <div>
       <h1>Practice drill</h1>
       <p className="muted" style={{ marginTop: -10 }}>
-        A short scaffolded drill — one model sentence, one small change.
+        A short scaffolded drill for a {level.toUpperCase()} lesson — one model sentence, one
+        focused task. Scaffolding eases as the level rises.
       </p>
-
-      {level !== "a1" && (
-        <div className="feedback" style={{ marginTop: 0, marginBottom: 12 }}>
-          Practice drills currently cover <strong>A1</strong> lessons only — more levels coming soon.
-        </div>
-      )}
 
       <div className="card stack">
         <div className="field">
