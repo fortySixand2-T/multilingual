@@ -1,7 +1,8 @@
-"""Tutor API: generate a scaffolded A1 drill for a lesson.
+"""Tutor API: generate a scaffolded drill for a lesson (A1–B2).
 
-The AI router comes from app.state via a dependency so tests can inject a fake
-(no live LLM). Over-budget is a graceful 200, not an error (AC1.5).
+The lesson's own level picks the level-gated prompt/profile. The AI router comes
+from app.state via a dependency so tests can inject a fake (no live LLM).
+Over-budget is a graceful 200, not an error (AC1.5).
 """
 
 from __future__ import annotations
