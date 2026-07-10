@@ -4,7 +4,7 @@ title: "WeakSpots /answer endpoint accepts calls on already-resolved spots"
 severity: medium
 area: backend
 persona: edge-case-breaker
-status: deferred
+status: fixed
 found: 2026-07-05
 ---
 

@@ -555,3 +555,6 @@
 - [2026-07-06] Created: qa/issues/451-api-docstring-stale-says-a1-drill-only.md — QA round 038: stale module docstring in api.py says "A1 drill" after multi-level extension
 - [2026-07-06] Created: qa/issues/452-levelgate-test-missing-a2-b2-http-coverage.md — QA round 038: test_drill_endpoint_derives_level_from_lesson omits a2/b2 HTTP coverage- [2026-07-06] Modified: app/tutor/api.py — fix 451: module docstring said "A1 drill"; now "scaffolded drill (A1–B2), level from the lesson"
 - [2026-07-06] Created: qa/rounds/038-plan.md, qa/issues/{451,452}-*.md — QA round 038 on tutor A2/B1/B2: clean (9 hypotheses sound, level gate holds at every level incl. B2); 451 fixed, 452 deferred
+- [2026-07-09] Modified: app/progress/api.py — fix 449: /weak-spots/{id}/answer returns 404 on an already-resolved spot (no more times_missed inflation via a stray call)
+- [2026-07-09] Modified: tests/test_comprehension.py — fix 450: tests for unanswered-as-miss, most-missed-first ordering, nonexistent-id 404 (answer+dismiss), and the 449 resolved-spot guard
+- [2026-07-09] Modified: tests/test_tutor_levelgate.py — fix 452: HTTP level-derivation now covers all levels (a1/a2/b1/b2 → drill_<level>)

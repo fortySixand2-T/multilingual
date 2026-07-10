@@ -4,7 +4,7 @@ title: test_drill_endpoint_derives_level_from_lesson omits a2 and b2 HTTP covera
 severity: low
 area: tutor
 persona: edge-case-breaker
-status: deferred
+status: fixed
 found: 2026-07-06
 ---
 

@@ -36,8 +36,8 @@ async def _setup():
     async with _engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     async with _Session() as s:
-        await sync_bundle(s, load_content(CONTENT_ROOT, "a1"))
-        await sync_bundle(s, load_content(CONTENT_ROOT, "b1"))  # for level-derivation test
+        for lvl in ("a1", "a2", "b1", "b2"):  # all levels, for level-derivation tests
+            await sync_bundle(s, load_content(CONTENT_ROOT, lvl))
 
 
 _run(_setup())
@@ -181,14 +181,17 @@ def test_drill_endpoint_unknown_lesson_404():
 
 
 def test_drill_endpoint_derives_level_from_lesson():
-    # the lesson's own level picks the drill profile — a b1 lesson routes drill_b1,
-    # an a1 lesson still routes drill_a1 (no longer hardcoded to a1).
+    # the lesson's own level picks the drill profile at every level — not hardcoded a1 (qa-452).
     fake = FakeRouter()
     client = _make_client(fake)
-    assert client.post("/tutor/drill", json={"lesson_id": "travail-b1-01"}).status_code == 200
-    assert fake.calls[-1]["profile"] == "drill_b1"
-    assert client.post("/tutor/drill", json={"lesson_id": "greetings-01"}).status_code == 200
-    assert fake.calls[-1]["profile"] == "drill_a1"
+    for lesson_id, profile in (
+        ("greetings-01", "drill_a1"),
+        ("cuisine-a2-01", "drill_a2"),
+        ("travail-b1-01", "drill_b1"),
+        ("sciences-b2-01", "drill_b2"),
+    ):
+        assert client.post("/tutor/drill", json={"lesson_id": lesson_id}).status_code == 200
+        assert fake.calls[-1]["profile"] == profile
 
 
 class FailingRouter:

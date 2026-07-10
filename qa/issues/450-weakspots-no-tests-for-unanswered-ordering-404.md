@@ -4,7 +4,7 @@ title: "WeakSpots: test suite missing coverage for unanswered-as-miss, ordering,
 severity: medium
 area: test
 persona: edge-case-breaker
-status: deferred
+status: fixed
 found: 2026-07-05
 ---
 

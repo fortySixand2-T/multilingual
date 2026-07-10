@@ -325,3 +325,43 @@ def test_weak_spot_answer_404_for_other_user():
         wid = client.get("/progress/weak-spots").json()["weak_spots"][0]["id"]
     with _acting_as(7005):  # different user can't touch it
         assert client.post(f"/progress/weak-spots/{wid}/dismiss").status_code == 404
+
+
+def test_weak_spot_unanswered_questions_are_captured():
+    with _acting_as(7101):
+        # submit with NO answers → every question is a miss
+        client.post("/comprehension/sets/read-cafe-01/submit", json={"answers": {}})
+        got = {w["question_id"] for w in client.get("/progress/weak-spots").json()["weak_spots"]}
+        assert got == {"read-cafe-01.q1", "read-cafe-01.q2"}
+
+
+def test_weak_spots_ordered_most_missed_first():
+    with _acting_as(7102):
+        _submit_cafe({"read-cafe-01.q1": "WRONG", "read-cafe-01.q2": "Non"})  # q1 ×1
+        _submit_cafe({"read-cafe-01.q1": "WRONG", "read-cafe-01.q2": "WRONG"})  # q1 ×2, q2 ×1
+        ws = client.get("/progress/weak-spots").json()["weak_spots"]
+        assert [w["question_id"] for w in ws] == ["read-cafe-01.q1", "read-cafe-01.q2"]
+        assert ws[0]["times_missed"] == 2 and ws[1]["times_missed"] == 1
+
+
+def test_weak_spot_nonexistent_id_404():
+    with _acting_as(7103):
+        assert (
+            client.post("/progress/weak-spots/999999/answer", json={"chosen": "x"}).status_code
+            == 404
+        )
+        assert client.post("/progress/weak-spots/999999/dismiss").status_code == 404
+
+
+def test_weak_spot_answer_on_resolved_is_404():
+    with _acting_as(7104):
+        _submit_cafe({"read-cafe-01.q1": "WRONG", "read-cafe-01.q2": "Non"})
+        wid = client.get("/progress/weak-spots").json()["weak_spots"][0]["id"]
+        client.post(f"/progress/weak-spots/{wid}/dismiss")  # resolve it
+        # answering a resolved spot must not inflate its count — 404 (qa-449)
+        assert (
+            client.post(
+                f"/progress/weak-spots/{wid}/answer", json={"chosen": "Dans un café"}
+            ).status_code
+            == 404
+        )
