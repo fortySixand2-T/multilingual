@@ -215,6 +215,10 @@ async def answer_weak_spot(
 ) -> dict:
     """Re-answer a missed question. Correct → resolved; wrong → another miss."""
     w = await _owned_weak_spot(session, weak_spot_id, user.id)
+    if w.resolved:
+        # already cleared and not in the active queue — don't let a stray call
+        # inflate times_missed on a resolved row (qa-449).
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "weak spot already resolved")
     srow = await session.get(ComprehensionSetRow, w.set_id)
     question = next(
         (q for q in (srow.data["questions"] if srow else []) if q["id"] == w.ref_id), None
