@@ -163,6 +163,8 @@ def test_submit_grades_and_reveals_explanations():
     assert body["first_pass"] is True
     assert all(res["explain"] for res in body["results"])  # explanations revealed
     assert body["results"][0]["correct_answer"] == "Dans un café"
+    # first pass credits XP + a streak, and the response surfaces them (qa-463)
+    assert body["xp"] == 15 and body["streak"] == 1
 
 
 def test_second_pass_is_not_first_pass():
@@ -172,7 +174,9 @@ def test_second_pass_is_not_first_pass():
             "answers": {"read-cafe-01.q1": "Dans un café", "read-cafe-01.q2": "Non"},
         },
     )
-    assert r.json()["first_pass"] is False  # no double XP
+    body = r.json()
+    assert body["first_pass"] is False  # no double XP
+    assert body["xp"] == 15 and body["streak"] == 1  # totals returned, unchanged (qa-463)
 
 
 def test_partial_and_over_time():

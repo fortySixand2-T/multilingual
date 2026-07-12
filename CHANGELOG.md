@@ -10,3 +10,5 @@
 - [2026-07-05] Modified: qa/issues/450-weakspots-no-tests-for-unanswered-ordering-404.md — Triage block appended: deferred (behaviors work, test gaps are regression risk not current defect)
 - [2026-07-05] Modified: qa/issues/449-weakspots-answer-resolves-but-no-filter-on-resolved.md — Triage block appended: deferred (real data mutation but only reachable via direct API abuse, no UI path)
 - [2026-07-09] Created: qa/rounds/039-plan.md, qa/issues/463-comprehension-submit-response-missing-xp-streak.md — QA round 039 on the 449/450/452 hardening: clean (11 hypotheses sound, all 3 target fixes confirmed); 463 filed and deferred (full-stack, no user-visible harm)
+- [2026-07-11] Modified: app/comprehension/api.py, tests/test_comprehension.py — fix 463: comprehension submit returns xp/streak (capture record_activity's prog + refresh, or read existing row), matching the lesson-result endpoint
+- [2026-07-11] Modified: web/src/api.ts, web/src/screens/ComprehensionSet.tsx — surface live streak/XP on the comprehension result (🔥 streak / ⭐ xp XP + first-pass cue) instead of a hardcoded "+15 XP"

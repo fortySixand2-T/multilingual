@@ -130,7 +130,11 @@ function Results({ set, result }: { set: CompSetView; result: CompResult }) {
           {result.correct} / {result.total} correct
           {result.over_time ? " · over time" : ""}
         </p>
-        {result.first_pass && <span className="pill">⭐ +15 XP</span>}
+        <div className="btn-row center" style={{ justifyContent: "center", marginTop: 6 }}>
+          <span className="pill">🔥 {result.streak}</span>
+          <span className="pill">⭐ {result.xp} XP</span>
+          {result.first_pass && <span className="pill">+15</span>}
+        </div>
       </div>
 
       <div className="stack" style={{ marginTop: 16 }}>

@@ -20,6 +20,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.auth import get_current_user
 from app.comprehension.tables import ComprehensionAttempt, ComprehensionPass, ComprehensionSetRow
 from app.db.session import get_session
+from app.progress.models import UserProgress
 from app.progress.service import record_activity, sync_weak_spots
 from app.storage.interface import ObjectStorage
 from app.users.models import User
@@ -156,6 +157,7 @@ async def submit(
     # (user, set) marker, and rowcount==1 means this request claimed it first — so
     # concurrent submits can't double-pay (qa-100). Over-time runs never claim it (qa-040).
     first_pass = False
+    prog = None
     if passed and not over_time:
         claim = (
             sqlite_insert(ComprehensionPass)
@@ -168,8 +170,19 @@ async def submit(
         )
         first_pass = (await session.execute(claim)).rowcount == 1
         if first_pass:
-            await record_activity(session, user.id, xp_award=COMPREHENSION_XP, level=row.level)
+            prog = await record_activity(
+                session, user.id, xp_award=COMPREHENSION_XP, level=row.level
+            )
     await session.commit()
+
+    # Surface the learner's current XP/streak so the client isn't left stale after a
+    # submit — consistent with the lesson-result endpoint (qa-463). On first pass `prog`
+    # was just written (xp is an atomic increment → refresh to read it back); otherwise
+    # read the existing row (0/0 if the user has no activity yet).
+    if prog is not None:
+        await session.refresh(prog)
+    else:
+        prog = await session.get(UserProgress, user.id)
 
     return {
         "set_id": set_id,
@@ -179,6 +192,8 @@ async def submit(
         "passed": passed,
         "first_pass": first_pass,
         "over_time": over_time,
+        "xp": prog.xp if prog else 0,
+        "streak": prog.streak if prog else 0,
         "results": results,
     }
 

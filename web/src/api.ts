@@ -174,6 +174,8 @@ export type CompResult = {
   passed: boolean;
   first_pass: boolean;
   over_time: boolean;
+  xp: number;
+  streak: number;
   results: CompQResult[];
 };
 

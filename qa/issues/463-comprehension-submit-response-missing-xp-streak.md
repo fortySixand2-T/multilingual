@@ -4,7 +4,7 @@ title: "Comprehension submit response missing xp and streak fields"
 severity: medium
 area: comprehension
 persona: returning-learner
-status: deferred
+status: fixed
 found: 2026-07-09
 ---
 
