@@ -19,6 +19,9 @@ class Settings(BaseSettings):
     deepseek_api_key: str = ""
     ollama_base_url: str = "http://localhost:11434"
     ai_routing_path: str = "app/config/ai_routing.yaml"
+    # Learned routing weights from offline model eval (BanditPolicy). Absent by
+    # default -> router uses the static ai_routing.yaml order (no behavior change).
+    model_weights_path: str = "data/model_weights.json"
 
     database_url: str = "sqlite+aiosqlite:///./data/tef.db"
     jwt_secret: str = "dev-only-change-me"

@@ -109,15 +109,25 @@ def _print_leaderboard(ranked, *, lam: float) -> None:
 if __name__ == "__main__":
     import sys
 
-    if len(sys.argv) < 2:
+    _save = "--save" in sys.argv
+    _args = [a for a in sys.argv[1:] if a != "--save"]
+    if not _args:
         print(
-            'usage: python -m app.assessment.model_eval "<target1,target2,...>" [level] [lam]\n'
+            'usage: python -m app.assessment.model_eval "<target1,target2,...>" [level] [lam] '
+            "[--save]\n"
             "  e.g. python -m app.assessment.model_eval "
-            '"anthropic/claude-opus-4-8,openrouter/z-ai/glm-4.6" b2'
+            '"anthropic/claude-opus-4-8,openrouter/z-ai/glm-4.6" b2 --save'
         )
         raise SystemExit(1)
-    _candidates = [c.strip() for c in sys.argv[1].split(",") if c.strip()]
-    _level = sys.argv[2] if len(sys.argv) > 2 else "a1"
-    _lam = float(sys.argv[3]) if len(sys.argv) > 3 and sys.argv[3] else 0.15
+    _candidates = [c.strip() for c in _args[0].split(",") if c.strip()]
+    _level = _args[1] if len(_args) > 1 else "a1"
+    _lam = float(_args[2]) if len(_args) > 2 and _args[2] else 0.15
     _ranked = run_eval(_candidates, "content", _level, lam=_lam)
     _print_leaderboard(_ranked, lam=_lam)
+    if _save and _ranked:
+        from app.ai.policy import save_ranking
+        from app.config.settings import get_settings
+
+        path = get_settings().model_weights_path
+        save_ranking(path, _PROFILE, _ranked)
+        print(f"  saved learned routing for '{_PROFILE}' -> {path} (takes effect on restart)")

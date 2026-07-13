@@ -74,13 +74,27 @@ suggested routing (lam=0.15, quality-first): primary=…, fallback=…
 | Ground-truth eval runner for `writing_feedback` (reuses calibration + grader) | `app/assessment/model_eval.py` |
 | Pairwise LLM-judge critic (order-swapped) + generic round-robin runner | `app/ai/judge.py` + `app/ai/prompts/pairwise_judge.md` |
 | Pairwise eval runner for drills (items from lesson YAML, no DB) | `app/tutor/drill_eval.py` |
-| CLI | `./start.sh eval "t1,t2" [level] [lam]` · `./start.sh drill-eval "t1,t2" [level] [lam] [limit]` |
-| Tests (pure math, judge, aggregation) | `tests/test_model_eval.py` · `tests/test_judge.py` |
+| Routing policy seam: `StaticPolicy` (default) + `BanditPolicy` + JSON persistence | `app/ai/policy.py` |
+| CLI | `./start.sh eval "t1,t2" [level] [lam] [--save]` · `./start.sh drill-eval "t1,t2" [level] [lam] [limit] [--save]` |
+| Tests | `tests/test_model_eval.py` · `tests/test_judge.py` · `tests/test_policy.py` |
+
+## Learned routing (BanditPolicy)
+
+The router asks a **policy** to order a profile's candidate targets:
+
+- **`StaticPolicy`** (default) returns `[primary, fallback]` — today's behavior exactly.
+- **`BanditPolicy`** reorders by weights learned in an offline eval, read from a small
+  JSON store (`data/model_weights.json`, git-ignored). A profile with no learned weights
+  falls through to the static order, and the YAML fallback is always kept as a safety net
+  — so enabling the bandit **never regresses an un-evaluated profile**.
+
+Loop: run an eval with `--save` → it writes the ranked order for that profile into the
+store → the app loads it at startup (`load_bandit_policy`) and routes by learned weight.
+Persistence is a JSON file, not a DB table, because the router is synchronous and the
+store is tiny (same config-file ethos as `ai_routing.yaml`).
 
 ## Not built yet (follow-up slices)
 
-- **Persisted `model_scores` table** + a `BanditPolicy` the router consults, so learned
-  weights drive routing directly (default policy = today's `[primary, fallback]`, zero regression).
 - **Online ε-exploration** on drill profiles only (small ε live fan-out; never on graded writing).
 - **Judge eval for grammar / examiner** (reuse `run_pairwise_eval` with a per-profile
   `generate`/`describe`; drills are wired, these two are the same shape).

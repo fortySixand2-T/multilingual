@@ -1,5 +1,11 @@
 # Changelog
 
+- [2026-07-13] Created: app/ai/policy.py — RoutingPolicy seam: StaticPolicy (default, zero regression) + BanditPolicy + JSON weight persistence (load/save)
+- [2026-07-13] Created: tests/test_policy.py — policy ordering, persistence roundtrip, router-consults-policy
+- [2026-07-13] Modified: app/ai/router.py — router consults a routing policy for target order (defaults to StaticPolicy)
+- [2026-07-13] Modified: app/main.py, app/config/settings.py — load BanditPolicy from model_weights_path at startup (None -> static)
+- [2026-07-13] Modified: app/assessment/model_eval.py, app/tutor/drill_eval.py — `--save` persists learned routing for the profile
+- [2026-07-13] Modified: docs/model-eval.md — BanditPolicy now built; learned-routing section
 - [2026-07-13] Created: app/ai/judge.py — pairwise LLM-judge critic (order-swapped for position bias) + generic round-robin pairwise-eval runner
 - [2026-07-13] Created: app/ai/prompts/pairwise_judge.md — judge prompt (strict {"winner": A|B|tie})
 - [2026-07-13] Created: app/tutor/drill_eval.py — pairwise model comparison for drills (items from lesson YAML, no DB)
