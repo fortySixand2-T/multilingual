@@ -1,4 +1,16 @@
 # Changelog
+
+## Session summary — 2026-06-27 → 2026-07-12
+- **Completed the B2 level** (Upper Intermediate): 10 units, 30 lessons, 180 vocab, 12 comprehension
+  sets, 8 writing tasks, 4 mock exams — delivered as 5 QA'd slices (MVP + expansions 2/3/4), bringing
+  the app to full **A1 → A2 → B1 → B2** coverage. Also deepened B1 (4 new themes + comprehension/writing/mocks + a harder challenge tier).
+- **Four student-help features** (each a QA'd slice, PRs #31–#34): grammar reference index,
+  per-skill CLB readiness dashboard, weak-spot / mistake review (+ `weak_spots` migration 0012),
+  and extending the drill tutor from A1-only to **all levels** (A1–B2).
+- **Single-port LAN hosting**: FastAPI serves the built SPA from `web/dist` (PR #24).
+- **Cleared the QA backlog** across rounds 029–039: fixed 416, 419, 428 (first_time→first_pass),
+  429/430/431, 442, 443, 445, 447, 448, 449, 450, 451, 452, 463. PRs #24–#36.
+
 - [2026-07-09] Created: qa/rounds/039-plan.md — QA round 039 plan: hardening slice 449/450/452 + student-help regression sweep; 11 hypotheses, 0 validated, 1 deferred (463)
 - [2026-07-09] Modified: qa/issues/463-comprehension-submit-response-missing-xp-streak.md — Critic block appended: deferred (backend omission confirmed but UI never reads xp/streak from this response; described stale-counter harm is not reproducible; fix is incomplete without co-ordinated frontend changes)
 - [2026-07-09] Modified: qa/issues/463-comprehension-submit-response-missing-xp-streak.md — Triage block appended: validated (xp/streak discarded after record_activity call; returning-learner sees stale UI until next /progress/me fetch)
