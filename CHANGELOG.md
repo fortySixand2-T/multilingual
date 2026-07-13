@@ -1,5 +1,12 @@
 # Changelog
 
+- [2026-07-13] Modified: Dockerfile — multi-stage build (Node builds SPA with VITE_API_BASE="" → Python runtime); fixes prod serving no UI
+- [2026-07-13] Created: scripts/docker-entrypoint.sh — boot: migrate + sync all content (a1–b2), then serve (no reload)
+- [2026-07-13] Modified: docker-compose.yml — production stack: app + Ollama + Caddy, local FS storage (dropped MinIO)
+- [2026-07-13] Created: Caddyfile — reverse proxy + automatic HTTPS via SITE_ADDRESS
+- [2026-07-13] Modified: start.sh — add sync-all + serve-prod
+- [2026-07-13] Modified: .env.example — SITE_ADDRESS, JWT_SECRET/INVITE_CODES guidance
+- [2026-07-13] Created: docs/hosting.md — single-VPS deploy runbook (verified: image builds, container self-boots to usable)
 - [2026-07-13] Created: app/ai/policy.py — RoutingPolicy seam: StaticPolicy (default, zero regression) + BanditPolicy + JSON weight persistence (load/save)
 - [2026-07-13] Created: tests/test_policy.py — policy ordering, persistence roundtrip, router-consults-policy
 - [2026-07-13] Modified: app/ai/router.py — router consults a routing policy for target order (defaults to StaticPolicy)
