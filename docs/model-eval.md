@@ -36,10 +36,12 @@ weight ∝ exp(eta · utility)          # softmax; sums to 1
    output to a learner.
 2. **Ground truth where it exists.** `writing_feedback` reuses the human-rated
    **calibration set**: reward = CLB agreement within ±1 band. Objective, no judge.
-3. **LLM-as-judge for subjective tasks** (drills, grammar, examiner — *not built yet*).
-   **Pairwise** ("is A or B the better B2 drill for this prompt?") beats absolute
-   scoring. The judge is just another routing profile (`pairwise_judge`) pinned to a
-   strong model, so the critic is itself vendor-swappable.
+3. **LLM-as-judge for subjective tasks** (drills, grammar, examiner). **Pairwise**
+   ("is A or B the better B2 drill for this prompt?") beats absolute scoring. The
+   judge is just another routing profile (`pairwise_judge`) pinned to a strong model,
+   so the critic is itself vendor-swappable. Each pair is judged in **both orders**
+   and the verdict kept only if the orderings agree — cancelling the judge's position
+   bias. Per-model quality is the win rate across comparisons.
 
 ## Operating mode: offline shadow (built)
 
@@ -68,14 +70,17 @@ suggested routing (lam=0.15, quality-first): primary=…, fallback=…
 
 | Piece | File |
 |---|---|
-| Pure weighting math (advantages, cost-penalized rank, suggestion) | `app/ai/evaluation.py` |
-| Live runner for `writing_feedback` (reuses calibration + grader) | `app/assessment/model_eval.py` |
-| CLI | `./start.sh eval "t1,t2" [level] [lam]` |
-| Tests (pure math) | `tests/test_model_eval.py` |
+| Pure weighting math (advantages, cost-penalized rank, pairwise win rates, suggestion) | `app/ai/evaluation.py` |
+| Ground-truth eval runner for `writing_feedback` (reuses calibration + grader) | `app/assessment/model_eval.py` |
+| Pairwise LLM-judge critic (order-swapped) + generic round-robin runner | `app/ai/judge.py` + `app/ai/prompts/pairwise_judge.md` |
+| Pairwise eval runner for drills (items from lesson YAML, no DB) | `app/tutor/drill_eval.py` |
+| CLI | `./start.sh eval "t1,t2" [level] [lam]` · `./start.sh drill-eval "t1,t2" [level] [lam] [limit]` |
+| Tests (pure math, judge, aggregation) | `tests/test_model_eval.py` · `tests/test_judge.py` |
 
 ## Not built yet (follow-up slices)
 
-- **Pairwise LLM-judge critic** → extends eval to drills / grammar / examiner (no gold labels).
 - **Persisted `model_scores` table** + a `BanditPolicy` the router consults, so learned
   weights drive routing directly (default policy = today's `[primary, fallback]`, zero regression).
 - **Online ε-exploration** on drill profiles only (small ε live fan-out; never on graded writing).
+- **Judge eval for grammar / examiner** (reuse `run_pairwise_eval` with a per-profile
+  `generate`/`describe`; drills are wired, these two are the same shape).

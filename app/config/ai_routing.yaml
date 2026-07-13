@@ -51,3 +51,10 @@ profiles:
     capability: llm
     primary: "anthropic/claude-sonnet-4-6"
     fallback: "openrouter/z-ai/glm-4.6"
+
+  # LLM-as-judge for offline model comparison on subjective profiles (drill eval).
+  # Pinned to a strong model — a weak judge biases every ranking. Not user-facing.
+  pairwise_judge:
+    capability: llm
+    primary: "anthropic/claude-sonnet-4-6"
+    fallback: "anthropic/claude-opus-4-8"

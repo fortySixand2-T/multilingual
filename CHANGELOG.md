@@ -1,5 +1,13 @@
 # Changelog
 
+- [2026-07-13] Created: app/ai/judge.py — pairwise LLM-judge critic (order-swapped for position bias) + generic round-robin pairwise-eval runner
+- [2026-07-13] Created: app/ai/prompts/pairwise_judge.md — judge prompt (strict {"winner": A|B|tie})
+- [2026-07-13] Created: app/tutor/drill_eval.py — pairwise model comparison for drills (items from lesson YAML, no DB)
+- [2026-07-13] Created: tests/test_judge.py — win-rate aggregation, verdict parsing, bias handling, runner
+- [2026-07-13] Modified: app/ai/evaluation.py — add pairwise_win_rates aggregation
+- [2026-07-13] Modified: app/config/ai_routing.yaml — add pairwise_judge profile (strong model)
+- [2026-07-13] Modified: start.sh — add `drill-eval` command
+- [2026-07-13] Modified: docs/model-eval.md — pairwise judge now built; refreshed code map + follow-ups
 - [2026-07-13] Created: app/ai/evaluation.py — actor-critic weighting math (advantages, cost-penalized exponential-weights rank, routing suggestion)
 - [2026-07-13] Created: app/assessment/model_eval.py — offline shadow eval for writing_feedback (reuses calibration + grader as validity gate)
 - [2026-07-13] Created: tests/test_model_eval.py — weighting-math unit tests

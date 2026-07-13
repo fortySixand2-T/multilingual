@@ -13,6 +13,7 @@ case "$cmd" in
   exam-sync)    uv run python -m app.exam.sync "${2:-a1}" ;;
   calibrate)    uv run python -m app.assessment.calibration "${2:-a1}" ;;
   eval)         uv run python -m app.assessment.model_eval "${2:?comma-separated targets}" "${3:-a1}" "${4:-}" ;;
+  drill-eval)   uv run python -m app.tutor.drill_eval "${2:?comma-separated targets}" "${3:-a1}" "${4:-}" "${5:-}" ;;
   ollama-pull)  docker compose exec ollama ollama pull "${2:-llama3.1}" ;;
-  *) echo "usage: $0 {serve|test|lint|fmt|migrate|content-sync|comprehension-sync|writing-sync|exam-sync [level]|calibrate [level]|eval \"t1,t2\" [level] [lam]|ollama-pull [model]}"; exit 1 ;;
+  *) echo "usage: $0 {serve|test|lint|fmt|migrate|content-sync|comprehension-sync|writing-sync|exam-sync [level]|calibrate [level]|eval \"t1,t2\" [level] [lam]|drill-eval \"t1,t2\" [level] [lam] [limit]|ollama-pull [model]}"; exit 1 ;;
 esac

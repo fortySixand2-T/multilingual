@@ -43,6 +43,29 @@ class RankedModel:
     weight: float  # policy weight in [0, 1]; the whole set sums to 1
 
 
+def pairwise_win_rates(outcomes: list[tuple[str, str, str]]) -> dict[str, float]:
+    """Per-model win rate in [0, 1] from pairwise judgements — the critic reward
+    for subjective profiles that have no gold labels.
+
+    Each outcome is ``(model_a, model_b, winner)`` where ``winner`` is ``model_a``,
+    ``model_b``, or ``"tie"``. Win scores 1, tie 0.5, loss 0; a model's quality is
+    the mean over every comparison it took part in. Models with no comparisons are
+    absent from the result.
+    """
+    points: dict[str, float] = {}
+    games: dict[str, int] = {}
+    for a, b, winner in outcomes:
+        for m in (a, b):
+            games[m] = games.get(m, 0) + 1
+            points.setdefault(m, 0.0)
+        if winner == "tie":
+            points[a] += 0.5
+            points[b] += 0.5
+        else:
+            points[winner] += 1.0
+    return {m: points[m] / games[m] for m in games}
+
+
 def advantages(quality: dict[str, float]) -> dict[str, float]:
     """Reward minus the pool mean — the actor-critic baseline subtraction."""
     if not quality:
