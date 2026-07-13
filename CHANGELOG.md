@@ -1,5 +1,12 @@
 # Changelog
 
+- [2026-07-13] Created: app/ai/adapters/litellm_adapter.py — generic LiteLLM adapter (name = route prefix) for any LiteLLM provider (OpenRouter/GLM, DeepSeek, OpenAI-compatible)
+- [2026-07-13] Modified: app/ai/adapters/anthropic_adapter.py — now a thin subclass of LiteLLMAdapter (DRY)
+- [2026-07-13] Modified: app/ai/registry.py — register openrouter/deepseek when keyed
+- [2026-07-13] Modified: app/config/settings.py, .env.example — OPENROUTER_API_KEY / DEEPSEEK_API_KEY
+- [2026-07-13] Modified: app/config/ai_routing.yaml — cost-tiered routing (cheap/local drills, strong model kept for graded writing) with safe fail-over
+- [2026-07-13] Created: tests/test_litellm_adapter.py — model-string mapping, api_base, registry wiring
+
 ## Session summary — 2026-06-27 → 2026-07-12
 - **Completed the B2 level** (Upper Intermediate): 10 units, 30 lessons, 180 vocab, 12 comprehension
   sets, 8 writing tasks, 4 mock exams — delivered as 5 QA'd slices (MVP + expansions 2/3/4), bringing

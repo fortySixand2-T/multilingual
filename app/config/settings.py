@@ -11,6 +11,12 @@ class Settings(BaseSettings):
     app_version: str = "0.1.0"
 
     anthropic_api_key: str = ""
+    # Cheaper hosted LLMs reached through LiteLLM. Set a key to enable, then
+    # reference e.g. `openrouter/z-ai/glm-4.6` or `deepseek/deepseek-chat` as a
+    # profile primary/fallback in ai_routing.yaml. OpenRouter is one key for many
+    # models (GLM, DeepSeek, Qwen, ...).
+    openrouter_api_key: str = ""
+    deepseek_api_key: str = ""
     ollama_base_url: str = "http://localhost:11434"
     ai_routing_path: str = "app/config/ai_routing.yaml"
 
