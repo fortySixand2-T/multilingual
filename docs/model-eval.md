@@ -1,0 +1,81 @@
+# Actor-critic model comparison
+
+How we compare candidate LLMs (Anthropic, GLM/DeepSeek via OpenRouter, local Ollama)
+against each other and let measured performance — not a hand-guess — decide routing.
+
+## The idea
+
+Choosing a model for a task is picking one action from a discrete set, so this is a
+**bandit with a learned critic**, dressed in actor-critic vocabulary:
+
+| Term | Here |
+|---|---|
+| **Actor** | a candidate `provider/model` for a profile (an "arm"), e.g. `openrouter/z-ai/glm-4.6` |
+| **Critic** | scores an actor's output → reward in `[0, 1]` |
+| **Advantage** | `reward − mean(reward over actors on the same item)` — the actor-critic baseline; makes the comparison *relative* and cuts variance |
+| **Policy** | cost-penalized **exponential weights** over cumulative advantage → each model's routing weight |
+
+The one knob:
+
+```
+utility = advantage − lam · normalized_cost
+weight ∝ exp(eta · utility)          # softmax; sums to 1
+```
+
+- `lam` (cost sensitivity). **Small → quality-first**, cost only breaks near-ties —
+  our default (`0.15`), so graded work stays on strong models. Large → aggressively
+  prefer the cheap model unless it's clearly worse.
+- `eta` (softmax temperature). Higher → sharper preference for the top actor.
+
+## The critic — three layered signals
+
+1. **Validity gate (disqualifier, not a score).** Before any quality judgement:
+   does the output parse and conform? For `writing_feedback` the grader's strict-JSON
+   + Pydantic parse *is* the gate — unparseable output scores a **miss** on that item,
+   however fluent it read. This keeps a cheap model from ever shipping malformed graded
+   output to a learner.
+2. **Ground truth where it exists.** `writing_feedback` reuses the human-rated
+   **calibration set**: reward = CLB agreement within ±1 band. Objective, no judge.
+3. **LLM-as-judge for subjective tasks** (drills, grammar, examiner — *not built yet*).
+   **Pairwise** ("is A or B the better B2 drill for this prompt?") beats absolute
+   scoring. The judge is just another routing profile (`pairwise_judge`) pinned to a
+   strong model, so the critic is itself vendor-swappable.
+
+## Operating mode: offline shadow (built)
+
+Runs entirely **offline** — never routes a live learner to an unproven model:
+
+```
+./start.sh eval "anthropic/claude-opus-4-8,openrouter/z-ai/glm-4.6" b2
+```
+
+Each candidate grades every calibration sample → quality (agreement) + cost (provider
+usage) → `app.ai.evaluation.rank` → leaderboard + a **suggested** `ai_routing.yaml`
+block. Nothing is applied automatically; you read the board and edit routing by hand.
+
+```
+model                             quality  cost$    adv    weight
+------------------------------------------------------------
+anthropic/claude-sonnet-4-6        0.88    0.0300  +0.05    0.37
+anthropic/claude-opus-4-8          0.92    0.1500  +0.09    0.35
+openrouter/z-ai/glm-4.6            0.81    0.0060  -0.02    0.24
+deepseek/deepseek-chat             0.74    0.0030  -0.11    0.04
+
+suggested routing (lam=0.15, quality-first): primary=…, fallback=…
+```
+
+## Code map
+
+| Piece | File |
+|---|---|
+| Pure weighting math (advantages, cost-penalized rank, suggestion) | `app/ai/evaluation.py` |
+| Live runner for `writing_feedback` (reuses calibration + grader) | `app/assessment/model_eval.py` |
+| CLI | `./start.sh eval "t1,t2" [level] [lam]` |
+| Tests (pure math) | `tests/test_model_eval.py` |
+
+## Not built yet (follow-up slices)
+
+- **Pairwise LLM-judge critic** → extends eval to drills / grammar / examiner (no gold labels).
+- **Persisted `model_scores` table** + a `BanditPolicy` the router consults, so learned
+  weights drive routing directly (default policy = today's `[primary, fallback]`, zero regression).
+- **Online ε-exploration** on drill profiles only (small ε live fan-out; never on graded writing).

@@ -1,5 +1,10 @@
 # Changelog
 
+- [2026-07-13] Created: app/ai/evaluation.py — actor-critic weighting math (advantages, cost-penalized exponential-weights rank, routing suggestion)
+- [2026-07-13] Created: app/assessment/model_eval.py — offline shadow eval for writing_feedback (reuses calibration + grader as validity gate)
+- [2026-07-13] Created: tests/test_model_eval.py — weighting-math unit tests
+- [2026-07-13] Created: docs/model-eval.md — actor-critic model-comparison design + code map + follow-ups
+- [2026-07-13] Modified: start.sh — add `eval "t1,t2" [level] [lam]` command
 - [2026-07-13] Created: app/ai/adapters/litellm_adapter.py — generic LiteLLM adapter (name = route prefix) for any LiteLLM provider (OpenRouter/GLM, DeepSeek, OpenAI-compatible)
 - [2026-07-13] Modified: app/ai/adapters/anthropic_adapter.py — now a thin subclass of LiteLLMAdapter (DRY)
 - [2026-07-13] Modified: app/ai/registry.py — register openrouter/deepseek when keyed
