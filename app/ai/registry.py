@@ -26,10 +26,17 @@ class ProviderRegistry:
 
 def build_default_registry(settings) -> ProviderRegistry:
     from app.ai.adapters.anthropic_adapter import AnthropicAdapter
+    from app.ai.adapters.litellm_adapter import LiteLLMAdapter
     from app.ai.adapters.ollama_adapter import OllamaAdapter
 
     reg = ProviderRegistry()
     if settings.anthropic_api_key:
         reg.register(AnthropicAdapter(api_key=settings.anthropic_api_key))
+    # Cheaper hosted providers via LiteLLM. Registered only when a key is present;
+    # a routing target for an unregistered provider fails over to its `fallback`.
+    if settings.openrouter_api_key:
+        reg.register(LiteLLMAdapter(name="openrouter", api_key=settings.openrouter_api_key))
+    if settings.deepseek_api_key:
+        reg.register(LiteLLMAdapter(name="deepseek", api_key=settings.deepseek_api_key))
     reg.register(OllamaAdapter(base_url=settings.ollama_base_url))
     return reg

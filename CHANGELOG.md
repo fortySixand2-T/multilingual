@@ -1,5 +1,43 @@
 # Changelog
 
+- [2026-07-13] Modified: README.md — add Deploy section pointing to docs/hosting.md
+- [2026-07-13] Modified: docker-compose.yml — base stack now app + Ollama only; app on loopback 127.0.0.1:9000 (Tailscale/Caddy exposes it); Caddy moved to an override
+- [2026-07-13] Created: docker-compose.gpu.yml — NVIDIA GPU passthrough override for Ollama
+- [2026-07-13] Created: docker-compose.caddy.yml — optional Caddy override (public-domain HTTPS)
+- [2026-07-13] Modified: docs/hosting.md — laptop (NVIDIA + Tailscale) as primary runbook; CPU/no-Ollama + public-domain alternatives
+- [2026-07-13] Modified: Dockerfile — multi-stage build (Node builds SPA with VITE_API_BASE="" → Python runtime); fixes prod serving no UI
+- [2026-07-13] Created: scripts/docker-entrypoint.sh — boot: migrate + sync all content (a1–b2), then serve (no reload)
+- [2026-07-13] Modified: docker-compose.yml — production stack: app + Ollama + Caddy, local FS storage (dropped MinIO)
+- [2026-07-13] Created: Caddyfile — reverse proxy + automatic HTTPS via SITE_ADDRESS
+- [2026-07-13] Modified: start.sh — add sync-all + serve-prod
+- [2026-07-13] Modified: .env.example — SITE_ADDRESS, JWT_SECRET/INVITE_CODES guidance
+- [2026-07-13] Created: docs/hosting.md — single-VPS deploy runbook (verified: image builds, container self-boots to usable)
+- [2026-07-13] Created: app/ai/policy.py — RoutingPolicy seam: StaticPolicy (default, zero regression) + BanditPolicy + JSON weight persistence (load/save)
+- [2026-07-13] Created: tests/test_policy.py — policy ordering, persistence roundtrip, router-consults-policy
+- [2026-07-13] Modified: app/ai/router.py — router consults a routing policy for target order (defaults to StaticPolicy)
+- [2026-07-13] Modified: app/main.py, app/config/settings.py — load BanditPolicy from model_weights_path at startup (None -> static)
+- [2026-07-13] Modified: app/assessment/model_eval.py, app/tutor/drill_eval.py — `--save` persists learned routing for the profile
+- [2026-07-13] Modified: docs/model-eval.md — BanditPolicy now built; learned-routing section
+- [2026-07-13] Created: app/ai/judge.py — pairwise LLM-judge critic (order-swapped for position bias) + generic round-robin pairwise-eval runner
+- [2026-07-13] Created: app/ai/prompts/pairwise_judge.md — judge prompt (strict {"winner": A|B|tie})
+- [2026-07-13] Created: app/tutor/drill_eval.py — pairwise model comparison for drills (items from lesson YAML, no DB)
+- [2026-07-13] Created: tests/test_judge.py — win-rate aggregation, verdict parsing, bias handling, runner
+- [2026-07-13] Modified: app/ai/evaluation.py — add pairwise_win_rates aggregation
+- [2026-07-13] Modified: app/config/ai_routing.yaml — add pairwise_judge profile (strong model)
+- [2026-07-13] Modified: start.sh — add `drill-eval` command
+- [2026-07-13] Modified: docs/model-eval.md — pairwise judge now built; refreshed code map + follow-ups
+- [2026-07-13] Created: app/ai/evaluation.py — actor-critic weighting math (advantages, cost-penalized exponential-weights rank, routing suggestion)
+- [2026-07-13] Created: app/assessment/model_eval.py — offline shadow eval for writing_feedback (reuses calibration + grader as validity gate)
+- [2026-07-13] Created: tests/test_model_eval.py — weighting-math unit tests
+- [2026-07-13] Created: docs/model-eval.md — actor-critic model-comparison design + code map + follow-ups
+- [2026-07-13] Modified: start.sh — add `eval "t1,t2" [level] [lam]` command
+- [2026-07-13] Created: app/ai/adapters/litellm_adapter.py — generic LiteLLM adapter (name = route prefix) for any LiteLLM provider (OpenRouter/GLM, DeepSeek, OpenAI-compatible)
+- [2026-07-13] Modified: app/ai/adapters/anthropic_adapter.py — now a thin subclass of LiteLLMAdapter (DRY)
+- [2026-07-13] Modified: app/ai/registry.py — register openrouter/deepseek when keyed
+- [2026-07-13] Modified: app/config/settings.py, .env.example — OPENROUTER_API_KEY / DEEPSEEK_API_KEY
+- [2026-07-13] Modified: app/config/ai_routing.yaml — cost-tiered routing (cheap/local drills, strong model kept for graded writing) with safe fail-over
+- [2026-07-13] Created: tests/test_litellm_adapter.py — model-string mapping, api_base, registry wiring
+
 ## Session summary — 2026-06-27 → 2026-07-12
 - **Completed the B2 level** (Upper Intermediate): 10 units, 30 lessons, 180 vocab, 12 comprehension
   sets, 8 writing tasks, 4 mock exams — delivered as 5 QA'd slices (MVP + expansions 2/3/4), bringing

@@ -32,16 +32,22 @@ class ProfileConfig:
 
 
 class AIRouter:
-    def __init__(self, registry, profiles: dict[str, ProfileConfig], cache=None) -> None:
+    def __init__(
+        self, registry, profiles: dict[str, ProfileConfig], cache=None, policy=None
+    ) -> None:
+        from app.ai.policy import StaticPolicy
+
         self._registry = registry
         self._profiles = profiles
         self._cache = cache
+        # Policy orders a profile's targets. Default = static (primary, fallback).
+        self._policy = policy or StaticPolicy()
 
     @classmethod
-    def from_yaml(cls, registry, path: str, cache=None) -> AIRouter:
+    def from_yaml(cls, registry, path: str, cache=None, policy=None) -> AIRouter:
         raw = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
         profiles = {name: ProfileConfig(**cfg) for name, cfg in (raw.get("profiles") or {}).items()}
-        return cls(registry, profiles, cache=cache)
+        return cls(registry, profiles, cache=cache, policy=policy)
 
     def profiles(self) -> list[str]:
         return sorted(self._profiles)
@@ -75,7 +81,8 @@ class AIRouter:
             raise KeyError(f"unknown profile '{profile_name}'")
         prof = self._profiles[profile_name]
         use_cache = self._cache is not None and prof.cache
-        targets = [prof.primary] + ([prof.fallback] if prof.fallback else [])
+        static_targets = [prof.primary] + ([prof.fallback] if prof.fallback else [])
+        targets = self._policy.order(profile_name, static_targets)
         last_err: Exception | None = None
         for target in targets:
             provider_name, _, model = target.partition("/")

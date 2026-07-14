@@ -8,6 +8,7 @@ from fastapi.routing import APIRoute
 from fastapi.staticfiles import StaticFiles
 
 from app.ai.errors import AllProvidersFailedError
+from app.ai.policy import load_bandit_policy
 from app.ai.registry import build_default_registry
 from app.ai.router import AIRouter
 from app.api.auth import router as auth_router
@@ -72,7 +73,12 @@ def create_app(web_dist: Path | None = None) -> FastAPI:
     app.state.storage = build_storage(settings)
     app.state.stt = build_stt(settings)
     app.state.tts = build_tts(settings)
-    app.state.ai_router = AIRouter.from_yaml(registry, settings.ai_routing_path, cache=cache)
+    # Learned routing (BanditPolicy) if an offline eval has persisted weights;
+    # otherwise None -> router falls back to the static ai_routing.yaml order.
+    policy = load_bandit_policy(settings.model_weights_path)
+    app.state.ai_router = AIRouter.from_yaml(
+        registry, settings.ai_routing_path, cache=cache, policy=policy
+    )
 
     app.add_exception_handler(AllProvidersFailedError, _ai_unavailable)
 

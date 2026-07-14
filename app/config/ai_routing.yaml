@@ -1,41 +1,60 @@
 # Task profiles -> providers. Edit THIS file to swap providers; never the code.
-# Local-first defaults: cheap drills run on Ollama, with Anthropic as fallback.
+#
+# Cost-tiered routing: cheap/local models do the forgiving work (drills, cached
+# explanations); a strong model is kept only where output is graded (writing) or
+# user-facing and live (examiner). A target that references an unconfigured
+# provider (no API key -> not registered) fails over to the profile's `fallback`
+# automatically, so this file is safe to ship before every key is set.
+#
 # `cache: true` serves identical requests from the app cache (cost/latency win for
 # stable, repeated prompts). Leave off for anything that should vary per call.
+#
+# NOTE: confirm the exact GLM model id on your provider (e.g. OpenRouter's
+# `z-ai/glm-4.6`) — ids change between releases.
 profiles:
   drill_a1:
     capability: llm
-    primary: "ollama/llama3.1"
-    fallback: "anthropic/claude-haiku-4-5"
+    primary: "ollama/llama3.1"            # free, local
+    fallback: "openrouter/z-ai/glm-4.6"   # cheap hosted if the local box is down
 
   # a2/b1/b2 mirror a1 (the level gate is the prompt, not the model); tune per level here.
   drill_a2:
     capability: llm
     primary: "ollama/llama3.1"
-    fallback: "anthropic/claude-haiku-4-5"
+    fallback: "openrouter/z-ai/glm-4.6"
 
   drill_b1:
     capability: llm
     primary: "ollama/llama3.1"
-    fallback: "anthropic/claude-haiku-4-5"
+    fallback: "openrouter/z-ai/glm-4.6"
 
   drill_b2:
     capability: llm
     primary: "ollama/llama3.1"
-    fallback: "anthropic/claude-haiku-4-5"
+    fallback: "openrouter/z-ai/glm-4.6"
 
   grammar_explain:
     capability: llm
-    primary: "anthropic/claude-sonnet-4-6"
-    fallback: "ollama/llama3.1"
+    primary: "openrouter/z-ai/glm-4.6"    # cheap; explanations are cached so cost is tiny
+    fallback: "anthropic/claude-haiku-4-5"
     cache: true          # explanations of a fixed grammar point are reusable
     cache_ttl: 86400
 
   writing_feedback:
     capability: llm
+    # Graded output — keep a strong model until a cheap one passes the calibration
+    # harness (./start.sh calibrate). Cheap model is fallback only, for outages.
     primary: "anthropic/claude-opus-4-8"
-    fallback: "anthropic/claude-sonnet-4-6"
+    fallback: "openrouter/z-ai/glm-4.6"
 
   examiner_roleplay:
     capability: llm
     primary: "anthropic/claude-sonnet-4-6"
+    fallback: "openrouter/z-ai/glm-4.6"
+
+  # LLM-as-judge for offline model comparison on subjective profiles (drill eval).
+  # Pinned to a strong model — a weak judge biases every ranking. Not user-facing.
+  pairwise_judge:
+    capability: llm
+    primary: "anthropic/claude-sonnet-4-6"
+    fallback: "anthropic/claude-opus-4-8"

@@ -1,15 +1,26 @@
+# Base stack for a self-hosted box (Linux laptop / server): app (FastAPI + built
+# SPA) + Ollama for local AI. Storage is the local filesystem on the data volume.
+# The app is published on loopback only — expose it with Tailscale (recommended)
+# or the Caddy override (public domain). See docs/hosting.md.
+#
+#   cp .env.example .env        # set JWT_SECRET, INVITE_CODES
+#   # NVIDIA GPU box:
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d --build
+#   docker compose exec ollama ollama pull llama3.1
+#   # then expose it:  sudo tailscale serve --bg 9000
 services:
   app:
     build: .
-    ports: ["9000:9000"]
     env_file: .env
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
-      - S3_ENDPOINT_URL=http://minio:9000
+      - STORAGE_BACKEND=local
       - DATABASE_URL=sqlite+aiosqlite:///./data/tef.db
     volumes: ["./data:/app/data"]
-    depends_on: [ollama, minio]
+    depends_on: [ollama]
     restart: unless-stopped
+    # Loopback only; Tailscale (or the Caddy override) is what exposes it.
+    ports: ["127.0.0.1:9000:9000"]
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9000/health')"]
       interval: 30s
@@ -18,20 +29,8 @@ services:
 
   ollama:
     image: ollama/ollama
-    ports: ["11434:11434"]
     volumes: ["ollama:/root/.ollama"]
-    restart: unless-stopped
-
-  minio:
-    image: minio/minio
-    command: server /data --console-address ":9090"
-    ports: ["9002:9000", "9090:9090"]
-    environment:
-      - MINIO_ROOT_USER=minioadmin
-      - MINIO_ROOT_PASSWORD=minioadmin
-    volumes: ["minio:/data"]
     restart: unless-stopped
 
 volumes:
   ollama:
-  minio:
