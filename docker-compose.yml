@@ -1,13 +1,13 @@
-# Production stack for a single VPS: app (FastAPI + built SPA) behind Caddy
-# (automatic HTTPS), with Ollama for local AI. Storage is the local filesystem on
-# the data volume — no MinIO needed at this scale.
+# Base stack for a self-hosted box (Linux laptop / server): app (FastAPI + built
+# SPA) + Ollama for local AI. Storage is the local filesystem on the data volume.
+# The app is published on loopback only — expose it with Tailscale (recommended)
+# or the Caddy override (public domain). See docs/hosting.md.
 #
-#   cp .env.example .env    # then set JWT_SECRET, INVITE_CODES, SITE_ADDRESS
-#   docker compose up -d --build
+#   cp .env.example .env        # set JWT_SECRET, INVITE_CODES
+#   # NVIDIA GPU box:
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d --build
 #   docker compose exec ollama ollama pull llama3.1
-#
-# Ollama needs a roomy box (16GB+ RAM, GPU ideal). To run without it, drop the
-# ollama service + depends_on and leave AI features to 503 until a key is set.
+#   # then expose it:  sudo tailscale serve --bg 9000
 services:
   app:
     build: .
@@ -19,7 +19,8 @@ services:
     volumes: ["./data:/app/data"]
     depends_on: [ollama]
     restart: unless-stopped
-    expose: ["9000"]
+    # Loopback only; Tailscale (or the Caddy override) is what exposes it.
+    ports: ["127.0.0.1:9000:9000"]
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9000/health')"]
       interval: 30s
@@ -31,18 +32,5 @@ services:
     volumes: ["ollama:/root/.ollama"]
     restart: unless-stopped
 
-  caddy:
-    image: caddy:2
-    ports: ["80:80", "443:443"]
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    env_file: .env
-    depends_on: [app]
-    restart: unless-stopped
-
 volumes:
   ollama:
-  caddy_data:
-  caddy_config:

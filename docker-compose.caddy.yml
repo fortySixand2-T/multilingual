@@ -1,0 +1,19 @@
+# Optional: put the app behind Caddy for automatic HTTPS on a public domain
+# (VPS or a port-forwarded home server). NOT needed with Tailscale, which
+# terminates TLS itself. Set SITE_ADDRESS in .env, then:
+#   docker compose -f docker-compose.yml -f docker-compose.caddy.yml up -d --build
+services:
+  caddy:
+    image: caddy:2
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    env_file: .env
+    depends_on: [app]
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

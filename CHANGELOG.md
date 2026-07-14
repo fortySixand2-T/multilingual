@@ -1,5 +1,9 @@
 # Changelog
 
+- [2026-07-13] Modified: docker-compose.yml — base stack now app + Ollama only; app on loopback 127.0.0.1:9000 (Tailscale/Caddy exposes it); Caddy moved to an override
+- [2026-07-13] Created: docker-compose.gpu.yml — NVIDIA GPU passthrough override for Ollama
+- [2026-07-13] Created: docker-compose.caddy.yml — optional Caddy override (public-domain HTTPS)
+- [2026-07-13] Modified: docs/hosting.md — laptop (NVIDIA + Tailscale) as primary runbook; CPU/no-Ollama + public-domain alternatives
 - [2026-07-13] Modified: Dockerfile — multi-stage build (Node builds SPA with VITE_API_BASE="" → Python runtime); fixes prod serving no UI
 - [2026-07-13] Created: scripts/docker-entrypoint.sh — boot: migrate + sync all content (a1–b2), then serve (no reload)
 - [2026-07-13] Modified: docker-compose.yml — production stack: app + Ollama + Caddy, local FS storage (dropped MinIO)
