@@ -42,6 +42,19 @@ Local-first: Ollama needs no key; set `ANTHROPIC_API_KEY` in `.env` to enable th
 paid fallback. Speech is `disabled` by default — set `STT_BACKEND=faster-whisper`
 / `TTS_BACKEND=piper` on a self-host box. See `.env.example` and `web/README.md`.
 
+## Deploy it
+
+One container (FastAPI + built SPA) + Ollama, reached over Tailscale or a public
+domain. Full runbook — NVIDIA GPU laptop, Tailscale HTTPS, backups — in
+**[`docs/hosting.md`](docs/hosting.md)**. Model comparison / routing: `docs/model-eval.md`.
+
+```bash
+cp .env.example .env      # set JWT_SECRET, INVITE_CODES
+docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d --build
+docker compose exec ollama ollama pull llama3.1
+sudo tailscale serve --bg 9000
+```
+
 ## The AI abstraction
 
 Domain code calls a **task profile**, never a vendor:

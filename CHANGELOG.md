@@ -1,5 +1,6 @@
 # Changelog
 
+- [2026-07-13] Modified: README.md — add Deploy section pointing to docs/hosting.md
 - [2026-07-13] Modified: docker-compose.yml — base stack now app + Ollama only; app on loopback 127.0.0.1:9000 (Tailscale/Caddy exposes it); Caddy moved to an override
 - [2026-07-13] Created: docker-compose.gpu.yml — NVIDIA GPU passthrough override for Ollama
 - [2026-07-13] Created: docker-compose.caddy.yml — optional Caddy override (public-domain HTTPS)
