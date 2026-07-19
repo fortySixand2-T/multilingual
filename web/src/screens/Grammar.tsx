@@ -66,9 +66,10 @@ export default function Grammar() {
   if (error) return <div className="card center">Couldn't load grammar: {error}</div>;
   if (!items) return <div className="muted">Loading…</div>;
 
-  // group by category, in canonical order; items are already path-ordered within
+  // group by category, in canonical order; items are already path-ordered within.
+  // `categories` already includes "Other" when any lesson is uncategorized.
   const groups: { category: string; points: GrammarItem[] }[] = [];
-  for (const c of [...categories, OTHER]) {
+  for (const c of categories) {
     const points = filtered.filter((i) => catOf(i) === c);
     if (points.length) groups.push({ category: c, points });
   }

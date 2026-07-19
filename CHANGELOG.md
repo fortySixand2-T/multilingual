@@ -69,3 +69,5 @@
 - [2026-07-19] Modified: web/src/screens/Grammar.tsx — group grammar reference by category with filter chips (was grouped by theme/unit)
 - [2026-07-19] Modified: web/src/styles.css — add .chip / .chip.active category-filter styles
 - [2026-07-19] Modified: tests/test_content_loader.py, tests/test_content_sync.py — cover grammar_category validation + endpoint exposure
+- [2026-07-19] Modified: web/src/screens/Grammar.tsx — QA fix: drop redundant OTHER from group loop (categories already includes it) to avoid a duplicate "Other" group/key when a lesson is uncategorized
+- [2026-07-19] Created: web/src/screens/Grammar.test.tsx — cover category grouping (canonical order + single Other bucket), chip filtering, and search-within-filter
