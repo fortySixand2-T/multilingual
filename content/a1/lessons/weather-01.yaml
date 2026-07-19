@@ -1,6 +1,7 @@
 id: weather-01
 title: "The weather"
 grammar_point: "« il fait… » for weather"
+grammar_category: "Expressions & communication"
 est_minutes: 5
 new_vocab: [soleil, pluie, chaud, froid, meteo]
 pass_threshold: 8.0

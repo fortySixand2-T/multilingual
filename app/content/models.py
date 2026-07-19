@@ -100,16 +100,41 @@ Exercise = Annotated[
 
 # --- lessons, vocab, path ------------------------------------------------------
 
+# The controlled set of grammatical families a lesson's `grammar_point` can belong to.
+# It's the guiding axis for the grammar reference (grouping/filtering by structure, not
+# by theme). Authoring must pick one of these exact labels — an off-list value fails the
+# load, so the taxonomy can't silently drift as content grows.
+GRAMMAR_CATEGORIES: tuple[str, ...] = (
+    "Verb conjugation & tenses",
+    "Subjunctive",
+    "Pronouns",
+    "Articles & determiners",
+    "Adjectives & comparison",
+    "Logical connectors",
+    "Sentence structures",
+    "Expressions & communication",
+)
+
 
 class Lesson(BaseModel):
     model_config = _Strict
     id: str
     title: str
     grammar_point: str = ""
+    grammar_category: str = ""  # one of GRAMMAR_CATEGORIES (guides the grammar reference)
     est_minutes: int = 5
     new_vocab: list[str] = []  # vocab ids seeded into SRS on completion
     pass_threshold: float = 8.0  # 0–10 scale
     exercises: list[Exercise]
+
+    @model_validator(mode="after")
+    def _known_grammar_category(self) -> "Lesson":
+        if self.grammar_category and self.grammar_category not in GRAMMAR_CATEGORIES:
+            raise ValueError(
+                f"{self.id}: grammar_category {self.grammar_category!r} not one of "
+                f"{GRAMMAR_CATEGORIES}"
+            )
+        return self
 
 
 class Vocab(BaseModel):
