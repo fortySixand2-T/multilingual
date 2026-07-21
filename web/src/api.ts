@@ -287,6 +287,7 @@ export type GrammarItem = {
   lesson_id: string;
   lesson_title: string;
   grammar_point: string;
+  grammar_category: string; // grammatical family; "" if the lesson predates categories
 };
 
 export const api = {

@@ -62,6 +62,21 @@
 - [2026-07-09] Created: qa/rounds/039-plan.md, qa/issues/463-comprehension-submit-response-missing-xp-streak.md — QA round 039 on the 449/450/452 hardening: clean (11 hypotheses sound, all 3 target fixes confirmed); 463 filed and deferred (full-stack, no user-visible harm)
 - [2026-07-11] Modified: app/comprehension/api.py, tests/test_comprehension.py — fix 463: comprehension submit returns xp/streak (capture record_activity's prog + refresh, or read existing row), matching the lesson-result endpoint
 - [2026-07-11] Modified: web/src/api.ts, web/src/screens/ComprehensionSet.tsx — surface live streak/XP on the comprehension result (🔥 streak / ⭐ xp XP + first-pass cue) instead of a hardcoded "+15 XP"
+- [2026-07-19] Modified: app/content/models.py — add GRAMMAR_CATEGORIES controlled set + grammar_category field on Lesson (validated, off-list values fail load)
+- [2026-07-19] Modified: content/{a1,a2,b1,b2}/lessons/*.yaml (132 files) — add grammar_category to every lesson, classifying each grammar_point into one of 8 grammatical families
+- [2026-07-19] Modified: app/content/api.py — /content/grammar now emits grammar_category per item
+- [2026-07-19] Modified: web/src/api.ts — GrammarItem gains grammar_category
+- [2026-07-19] Modified: web/src/screens/Grammar.tsx — group grammar reference by category with filter chips (was grouped by theme/unit)
+- [2026-07-19] Modified: web/src/styles.css — add .chip / .chip.active category-filter styles
+- [2026-07-19] Modified: tests/test_content_loader.py, tests/test_content_sync.py — cover grammar_category validation + endpoint exposure
+- [2026-07-19] Modified: web/src/screens/Grammar.tsx — QA fix: drop redundant OTHER from group loop (categories already includes it) to avoid a duplicate "Other" group/key when a lesson is uncategorized
+- [2026-07-19] Created: web/src/screens/Grammar.test.tsx — cover category grouping (canonical order + single Other bucket), chip filtering, and search-within-filter
+- [2026-07-20] Modified: web/src/screens/Grammar.tsx, web/src/screens/Grammar.test.tsx, qa/issues/051-grammar-search-not-cleared-on-level-switch.md — fix qa-051: clear search box (setQ("")) in the level-change effect; add regression test
+- [2026-07-20] Modified: web/src/styles.css, qa/issues/052-grammar-chip-leftover-focus-style-looks-selected.md — fix qa-052: add .chip:focus-visible outline so a toggled-off chip no longer visually mimics the active/selected state
+- [2026-07-20] Created: qa/rounds/040-plan.md — QA round 040 (grammar category slice, browser-tester routing): 9 hypotheses, 2 confirmed → issues 051/052 filed, validated, and fixed
+- [2026-07-20] Created: .claude/agents/qa-browser-tester.md — reusable browser-driving QA agent that exercises the running app UI via Claude-in-Chrome as a student persona and files issues in qa/issues/ (UI complement to curl-based qa-tester)
+- [2026-07-20] Modified: .claude/agents/qa-planner.md — route each charter to qa-tester (API risk) or qa-browser-tester (UI risk); preflight notes SPA must be served for browser charters
+- [2026-07-20] Modified: .claude/agents/qa-pm.md, .claude/agents/qa-critic.md — grant Chrome tools so triage/critic can visually reproduce UI issues in the browser instead of judging from CSS/JSX
 - [2026-07-20] Modified: app/content/models.py — Vocab gains gender (m/f/mf/"") + fem; validator requires fem for gender "mf" and forbids it otherwise
 - [2026-07-20] Modified: app/content/api.py — /content/vocab passes gender/fem through and adds fem_audio (<id>_f.mp3) for dual-gender words
 - [2026-07-20] Modified: scripts/gen_audio.py — generate the feminine clip <id>_f.mp3 from `fem` for gender "mf" words

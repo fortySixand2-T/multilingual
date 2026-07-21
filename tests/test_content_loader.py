@@ -6,7 +6,15 @@ import pytest
 from pydantic import ValidationError
 
 from app.content.loader import ContentError, load_content
-from app.content.models import McqExercise, Vocab, WordBankExercise
+from app.content.models import (
+    GRAMMAR_CATEGORIES,
+    Lesson,
+    McqExercise,
+    Vocab,
+    WordBankExercise,
+)
+
+_MIN_EX = [{"id": "l.e1", "type": "listen_type", "audio_ref": "x.mp3", "answer": "a"}]
 
 CONTENT_ROOT = FsPath(__file__).resolve().parents[1] / "content"
 
@@ -55,6 +63,15 @@ def test_vocab_gender_and_fem_are_consistent():
     # an off-list gender is rejected by the Literal
     with pytest.raises(ValidationError):
         Vocab(id="x", fr="x", en="x", gender="male")
+
+
+def test_grammar_category_must_be_from_controlled_set():
+    # a valid category and the empty default both load
+    for cat in (GRAMMAR_CATEGORIES[0], ""):
+        Lesson(id="l", title="L", grammar_category=cat, exercises=_MIN_EX)
+    # an off-list value fails loudly (guards the taxonomy against drift)
+    with pytest.raises(ValidationError, match="grammar_category"):
+        Lesson(id="l", title="L", grammar_category="Verbs", exercises=_MIN_EX)
 
 
 def test_missing_lesson_reference_is_an_error(tmp_path):

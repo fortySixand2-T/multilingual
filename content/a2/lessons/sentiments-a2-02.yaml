@@ -1,6 +1,7 @@
 id: sentiments-a2-02
 title: "How do you feel?"
 grammar_point: "emotion adjectives"
+grammar_category: "Adjectives & comparison"
 est_minutes: 6
 new_vocab: [heureux, en_colere, peur, detester, esperer]
 pass_threshold: 8.0

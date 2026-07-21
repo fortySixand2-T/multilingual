@@ -16,7 +16,9 @@ tester runs, you decide where the bugs most likely *are* and point the testers a
 ## The independence contract (do not break it)
 The agents never call each other and share no state except the `qa/issues/` backlog —
 each is a pure stage keyed on issue **status**. You are the only coordinator.
-- `qa-tester` writes new issues as `status: open`.
+- `qa-tester` (HTTP/curl) and `qa-browser-tester` (real UI via Claude-in-Chrome) both
+  write new issues as `status: open`. They're interchangeable at the backlog level —
+  pick per hypothesis (see step 2), or run both against the same charter.
 - `qa-pm` reads `open`, appends `## Triage`, sets `validated|rejected|deferred|needs-info`.
 - `qa-critic` reads issues with a `## Triage` block, appends `## Critic`, sets the final status.
 - `dev-fixer` reads only `status: validated`, fixes, sets `done`.
@@ -24,7 +26,10 @@ Because the contract is status, any stage can also be run alone — you just run
 
 ## Run the round
 0. **Preflight.** Confirm the app is up (`curl -s http://127.0.0.1:9000/health`). If it
-   isn't, stop and say so. Note the next free issue id.
+   isn't, stop and say so. Note the next free issue id. **If the plan includes any
+   `qa-browser-tester` charter, the rendered SPA must be reachable too** — the browser
+   agent's own runbook covers building the frontend and serving it single-origin via
+   uvicorn; just make sure a browser charter isn't handed out against an API-only server.
 1. **Ideate — write the plan.** This is the "idea" stage; don't skip it. Mine the inputs
    for where bugs most likely live, then write `qa/rounds/<NNN>-plan.md` (copy
    `qa/rounds/TEMPLATE.md`). Read:
@@ -39,10 +44,20 @@ Because the contract is status, any stage can also be run alone — you just run
    Output a **ranked hypothesis list** ("if X, then Y might break, because Z"), the
    coverage gaps, and a **charter per persona** (which hypotheses each should chase).
    Pick personas from `qa/personas/` to fit the hypotheses — don't just run all of them.
-2. **Test (fan-out).** Launch one `qa-tester` per chosen persona, in parallel, **handing
-   each its charter from the plan** (the hypotheses to chase + its persona). To keep
-   parallel testers from colliding on the `NNN` id, **assign each a disjoint id block**
-   in its prompt (e.g. beginner→010–019, edge-case→020–029). Wait for all to finish.
+2. **Test (fan-out).** Launch one tester per chosen persona, in parallel, **handing each
+   its charter from the plan** (the hypotheses to chase + its persona). **Pick the tester
+   type per charter by the kind of risk it targets:**
+   - `qa-browser-tester` (drives the real UI in Chrome) for hypotheses about **rendering,
+     layout, visual state, interaction, or flow** — anything a learner sees or clicks:
+     broken/empty screens, overflow, wrapping, missing feedback, dead clicks, stale
+     filtered state, confusing onboarding, console errors. Default to it for `area: web`
+     risk and for changes touching `web/src/`.
+   - `qa-tester` (curl) for hypotheses about **API contract, status codes, data,
+     gating, limits, auth, or server logic** — anything checkable below the UI.
+   - When a hypothesis has both a data *and* a UI face, you may charter both types at it;
+     they file into the same backlog and the pm/critic gate dedupes overlap.
+   To keep parallel testers from colliding on the `NNN` id, **assign each a disjoint id
+   block** in its prompt (e.g. beginner→010–019, edge-case→020–029). Wait for all to finish.
 2. **Triage.** If any `status: open` issues exist, run `qa-pm` over them. Otherwise skip.
 3. **Critique.** Run `qa-critic` over every issue that now has a `## Triage` block. This
    is the gate — it sets the final status. Never skip it; a pm verdict alone is not final.
