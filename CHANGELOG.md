@@ -71,3 +71,4 @@
 - [2026-07-19] Modified: tests/test_content_loader.py, tests/test_content_sync.py — cover grammar_category validation + endpoint exposure
 - [2026-07-19] Modified: web/src/screens/Grammar.tsx — QA fix: drop redundant OTHER from group loop (categories already includes it) to avoid a duplicate "Other" group/key when a lesson is uncategorized
 - [2026-07-19] Created: web/src/screens/Grammar.test.tsx — cover category grouping (canonical order + single Other bucket), chip filtering, and search-within-filter
+- [2026-07-20] Modified: web/src/screens/Grammar.tsx, web/src/screens/Grammar.test.tsx, qa/issues/051-grammar-search-not-cleared-on-level-switch.md — fix qa-051: clear search box (setQ("")) in the level-change effect; add regression test

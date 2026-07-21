@@ -37,6 +37,7 @@ export default function Grammar() {
     setItems(null);
     setError("");
     setCat(null);
+    setQ("");
     api.grammar(level).then((r) => setItems(r.items)).catch((e) => setError(e.message));
   }, [level]);
 

@@ -6,7 +6,9 @@ import Grammar from "./Grammar";
 import { api } from "../api";
 
 vi.mock("../api", () => ({ api: { grammar: vi.fn() } }));
-vi.mock("../level", () => ({ useLevel: () => ({ level: "b2" }) }));
+
+let mockLevel = "b2";
+vi.mock("../level", () => ({ useLevel: () => ({ level: mockLevel }) }));
 
 const item = (id: string, category: string, point: string) => ({
   unit_id: "u1",
@@ -36,6 +38,7 @@ const renderGrammar = () => {
 };
 
 beforeEach(() => {
+  mockLevel = "b2";
   vi.mocked(api.grammar).mockResolvedValue({ level: "b2", items } as never);
 });
 
@@ -64,5 +67,29 @@ describe("Grammar reference", () => {
     expect(groupTitles()).toEqual(["Subjunctive"]);
     expect(screen.getByText("le subjonctif passé")).toBeInTheDocument();
     expect(screen.queryByText("le subjonctif présent")).not.toBeInTheDocument();
+  });
+
+  it("clears the search box when the level changes (qa-051)", async () => {
+    const user = userEvent.setup();
+    const { rerender } = renderGrammar();
+    const search = (await screen.findByPlaceholderText(
+      "Search grammar…",
+    )) as HTMLInputElement;
+    await user.type(search, "subjonctif");
+    expect(search.value).toBe("subjonctif");
+
+    const a1Items = [item("l5", "Articles & determiners", "un article défini")];
+    vi.mocked(api.grammar).mockResolvedValue({ level: "a1", items: a1Items } as never);
+    mockLevel = "a1";
+    rerender(
+      <MemoryRouter>
+        <Grammar />
+      </MemoryRouter>,
+    );
+
+    await screen.findByText("un article défini");
+    expect(
+      (screen.getByPlaceholderText("Search grammar…") as HTMLInputElement).value,
+    ).toBe("");
   });
 });
