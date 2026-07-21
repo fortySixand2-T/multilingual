@@ -28,6 +28,7 @@ class OllamaAdapter:
         model: str,
         temperature: float = 0.3,
         max_tokens: int = 1024,
+        format: str | None = None,
     ) -> LLMResult:
         payload = {
             "model": model,
@@ -38,6 +39,8 @@ class OllamaAdapter:
                 *[{"role": m.role, "content": m.content} for m in messages],
             ],
         }
+        if format:
+            payload["format"] = format  # e.g. "json" -> Ollama constrains output to valid JSON
         r = httpx.post(f"{self._base}/api/chat", json=payload, timeout=self._timeout)
         r.raise_for_status()
         data = r.json()
