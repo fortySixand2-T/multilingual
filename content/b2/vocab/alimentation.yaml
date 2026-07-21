@@ -1,30 +1,36 @@
 - id: agriculture
   fr: agriculture
   en: agriculture
+  gender: f
   pos: noun
   tags: [alimentation]
 
 - id: agriculteur
   fr: agriculteur
   en: farmer
+  gender: mf
+  fem: agricultrice
   pos: noun
   tags: [alimentation]
 
 - id: elevage
   fr: élevage
   en: "livestock farming"
+  gender: m
   pos: noun
   tags: [alimentation]
 
 - id: recolte
   fr: récolte
   en: harvest
+  gender: f
   pos: noun
   tags: [alimentation]
 
 - id: engrais
   fr: engrais
   en: fertilizer
+  gender: m
   pos: noun
   tags: [alimentation]
 
@@ -37,71 +43,84 @@
 - id: circuit_court
   fr: circuit court
   en: "short supply chain, local sourcing"
+  gender: m
   pos: noun
   tags: [alimentation]
 
 - id: gaspillage_alimentaire
   fr: gaspillage alimentaire
   en: "food waste"
+  gender: m
   pos: noun
   tags: [alimentation]
 
 - id: malbouffe
   fr: malbouffe
   en: "junk food"
+  gender: f
   pos: noun
   tags: [alimentation]
 
 - id: souverainete_alimentaire
   fr: souveraineté alimentaire
   en: "food sovereignty"
+  gender: f
   pos: noun
   tags: [alimentation]
 
 - id: terroir
   fr: terroir
   en: "local region, local produce"
+  gender: m
   pos: noun
   tags: [alimentation]
 
 - id: filiere
   fr: filière
   en: "sector, supply chain"
+  gender: f
   pos: noun
   tags: [alimentation]
 
 - id: cheptel
   fr: cheptel
   en: "livestock, herd"
+  gender: m
   pos: noun
   tags: [alimentation]
 
 - id: semence
   fr: semence
   en: seed
+  gender: f
   pos: noun
   tags: [alimentation]
 
 - id: autosuffisance
   fr: autosuffisance
   en: "self-sufficiency"
+  gender: f
   pos: noun
   tags: [alimentation]
 
 - id: etiquetage
   fr: étiquetage
   en: labelling
+  gender: m
   pos: noun
   tags: [alimentation]
 
 - id: producteur
   fr: producteur
   en: producer
+  gender: mf
+  fem: productrice
   pos: noun
   tags: [alimentation]
 
 - id: denree
   fr: denrée
   en: "commodity, foodstuff"
+  gender: f
   pos: noun
   tags: [alimentation]

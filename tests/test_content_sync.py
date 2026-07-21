@@ -248,6 +248,21 @@ def test_vocab_cards_carry_audio_key():
     assert cafe["audio"] == "a1/audio/cafe.mp3"  # convention fills it in
 
 
+def test_vocab_cards_carry_gender():
+    rows = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    cards = {c["id"]: c for c in rows}
+    assert cards["cafe"]["gender"] == "m"
+    assert cards["eau"]["gender"] == "f"
+    assert cards["un"]["gender"] == ""  # numeral: not gendered
+    # dual-gender word carries its feminine form + a feminine audio key
+    serveur = cards["serveur"]
+    assert serveur["gender"] == "mf"
+    assert serveur["fem"] == "serveuse"
+    assert serveur["fem_audio"] == "a1/audio/serveur_f.mp3"
+    # non-mf words get no fem_audio
+    assert "fem_audio" not in cards["cafe"]
+
+
 def test_vocab_known_mark_and_reset():
     # default: nothing known
     cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]

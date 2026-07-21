@@ -1,42 +1,49 @@
 - id: voyage
   fr: voyage
   en: trip
+  gender: m
   pos: noun
   tags: [travel]
 
 - id: vacances
   fr: vacances
   en: holidays
+  gender: f
   pos: noun
   tags: [travel]
 
 - id: valise
   fr: valise
   en: suitcase
+  gender: f
   pos: noun
   tags: [travel]
 
 - id: hotel
   fr: hôtel
   en: hotel
+  gender: m
   pos: noun
   tags: [travel]
 
 - id: aeroport
   fr: aéroport
   en: airport
+  gender: m
   pos: noun
   tags: [travel]
 
 - id: passeport
   fr: passeport
   en: passport
+  gender: m
   pos: noun
   tags: [travel]
 
 - id: plage
   fr: plage
   en: beach
+  gender: f
   pos: noun
   tags: [travel]
 
@@ -61,47 +68,55 @@
 - id: frontiere
   fr: frontière
   en: border
+  gender: f
   pos: noun
   tags: [travel]
 
 - id: douane
   fr: douane
   en: customs
+  gender: f
   pos: noun
   tags: [travel]
 
 - id: souvenir
   fr: souvenir
   en: souvenir
+  gender: m
   pos: noun
   tags: [travel]
 
 - id: guide
   fr: guide
   en: guide
+  gender: m
   pos: noun
   tags: [travel]
 
 - id: itineraire
   fr: itinéraire
   en: itinerary
+  gender: m
   pos: noun
   tags: [travel]
 
 - id: sejour
   fr: séjour
   en: stay
+  gender: m
   pos: noun
   tags: [travel]
 
 - id: depart
   fr: départ
   en: departure
+  gender: m
   pos: noun
   tags: [travel]
 
 - id: arrivee
   fr: arrivée
   en: arrival
+  gender: f
   pos: noun
   tags: [travel]

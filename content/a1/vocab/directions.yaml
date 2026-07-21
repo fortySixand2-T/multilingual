@@ -1,12 +1,14 @@
 - id: gauche
   fr: gauche
   en: left
+  gender: f
   pos: noun
   tags: [directions]
 
 - id: droite
   fr: droite
   en: right
+  gender: f
   pos: noun
   tags: [directions]
 
@@ -19,24 +21,28 @@
 - id: rue
   fr: rue
   en: street
+  gender: f
   pos: noun
   tags: [city]
 
 - id: gare
   fr: gare
   en: "train station"
+  gender: f
   pos: noun
   tags: [city]
 
 - id: hopital
   fr: hôpital
   en: hospital
+  gender: m
   pos: noun
   tags: [city]
 
 - id: banque
   fr: banque
   en: bank
+  gender: f
   pos: noun
   tags: [city]
 
@@ -67,41 +73,48 @@
 - id: coin
   fr: coin
   en: corner
+  gender: m
   pos: noun
   tags: [directions]
 
 - id: feu
   fr: feu
   en: "traffic light"
+  gender: m
   pos: noun
   tags: [city]
 
 - id: pont
   fr: pont
   en: bridge
+  gender: m
   pos: noun
   tags: [city]
 
 - id: place
   fr: place
   en: square
+  gender: f
   pos: noun
   tags: [city]
 
 - id: carrefour
   fr: carrefour
   en: crossroads
+  gender: m
   pos: noun
   tags: [directions]
 
 - id: nord
   fr: nord
   en: north
+  gender: m
   pos: noun
   tags: [directions]
 
 - id: sud
   fr: sud
   en: south
+  gender: m
   pos: noun
   tags: [directions]

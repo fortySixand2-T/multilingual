@@ -1,24 +1,28 @@
 - id: soleil
   fr: soleil
   en: sun
+  gender: m
   pos: noun
   tags: [weather]
 
 - id: pluie
   fr: pluie
   en: rain
+  gender: f
   pos: noun
   tags: [weather]
 
 - id: neige
   fr: neige
   en: snow
+  gender: f
   pos: noun
   tags: [weather]
 
 - id: vent
   fr: vent
   en: wind
+  gender: m
   pos: noun
   tags: [weather]
 
@@ -37,6 +41,7 @@
 - id: nuage
   fr: nuage
   en: cloud
+  gender: m
   pos: noun
   tags: [weather]
 
@@ -49,12 +54,14 @@
 - id: orage
   fr: orage
   en: storm
+  gender: m
   pos: noun
   tags: [weather]
 
 - id: meteo
   fr: météo
   en: "weather forecast"
+  gender: f
   pos: noun
   tags: [weather]
 
@@ -67,12 +74,14 @@
 - id: temperature
   fr: température
   en: temperature
+  gender: f
   pos: noun
   tags: [weather]
 
 - id: degre
   fr: degré
   en: degree
+  gender: m
   pos: noun
   tags: [weather]
 
@@ -85,23 +94,27 @@
 - id: brouillard
   fr: brouillard
   en: fog
+  gender: m
   pos: noun
   tags: [weather]
 
 - id: ciel
   fr: ciel
   en: sky
+  gender: m
   pos: noun
   tags: [weather]
 
 - id: saison
   fr: saison
   en: season
+  gender: f
   pos: noun
   tags: [weather]
 
 - id: parapluie
   fr: parapluie
   en: umbrella
+  gender: m
   pos: noun
   tags: [weather]

@@ -1,107 +1,125 @@
 - id: bien_etre
   fr: bien-être
   en: well-being
+  gender: m
   pos: noun
   tags: [lifestyle]
 
 - id: equilibre
   fr: équilibre
   en: balance
+  gender: m
   pos: noun
   tags: [lifestyle]
 
 - id: alimentation
   fr: alimentation
   en: "diet, nutrition"
+  gender: f
   pos: noun
   tags: [lifestyle]
 
 - id: sommeil
   fr: sommeil
   en: sleep
+  gender: m
   pos: noun
   tags: [lifestyle]
 
 - id: stress
   fr: stress
   en: stress
+  gender: m
   pos: noun
   tags: [lifestyle]
 
 - id: detente
   fr: détente
   en: relaxation
+  gender: f
   pos: noun
   tags: [lifestyle]
 
 - id: energie
   fr: énergie
   en: energy
+  gender: f
   pos: noun
   tags: [lifestyle]
 
 - id: effort
   fr: effort
   en: effort
+  gender: m
   pos: noun
   tags: [lifestyle]
 
 - id: volonte
   fr: volonté
   en: willpower
+  gender: f
   pos: noun
   tags: [lifestyle]
 
 - id: forme
   fr: forme
   en: "fitness, shape"
+  gender: f
   pos: noun
   tags: [lifestyle]
 
 - id: prevention
   fr: prévention
   en: prevention
+  gender: f
   pos: noun
   tags: [lifestyle]
 
 - id: repos
   fr: repos
   en: rest
+  gender: m
   pos: noun
   tags: [lifestyle]
 
 - id: epanouissement
   fr: épanouissement
   en: "fulfilment, flourishing"
+  gender: m
   pos: noun
   tags: [lifestyle]
 
 - id: exercice
   fr: exercice
   en: exercise
+  gender: m
   pos: noun
   tags: [lifestyle]
 
 - id: surmenage
   fr: surmenage
   en: "burnout, overwork"
+  gender: m
   pos: noun
   tags: [lifestyle]
 
 - id: hygiene
   fr: hygiène
   en: hygiene
+  gender: f
   pos: noun
   tags: [lifestyle]
 
 - id: vitalite
   fr: vitalité
   en: vitality
+  gender: f
   pos: noun
   tags: [lifestyle]
 
 - id: sedentarite
   fr: sédentarité
   en: "sedentary lifestyle"
+  gender: f
   pos: noun
   tags: [lifestyle]

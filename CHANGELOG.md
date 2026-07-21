@@ -77,3 +77,15 @@
 - [2026-07-20] Created: .claude/agents/qa-browser-tester.md — reusable browser-driving QA agent that exercises the running app UI via Claude-in-Chrome as a student persona and files issues in qa/issues/ (UI complement to curl-based qa-tester)
 - [2026-07-20] Modified: .claude/agents/qa-planner.md — route each charter to qa-tester (API risk) or qa-browser-tester (UI risk); preflight notes SPA must be served for browser charters
 - [2026-07-20] Modified: .claude/agents/qa-pm.md, .claude/agents/qa-critic.md — grant Chrome tools so triage/critic can visually reproduce UI issues in the browser instead of judging from CSS/JSX
+- [2026-07-20] Modified: app/content/models.py — Vocab gains gender (m/f/mf/"") + fem; validator requires fem for gender "mf" and forbids it otherwise
+- [2026-07-20] Modified: app/content/api.py — /content/vocab passes gender/fem through and adds fem_audio (<id>_f.mp3) for dual-gender words
+- [2026-07-20] Modified: scripts/gen_audio.py — generate the feminine clip <id>_f.mp3 from `fem` for gender "mf" words
+- [2026-07-20] Modified: content/a1/vocab/*.yaml — annotate all 135 a1 nouns with gender (79 m, 53 f, 3 mf); adjectives/verbs/numerals left ungendered
+- [2026-07-20] Created: content/a1/audio/{serveur,vendeur,client}_f.mp3 — feminine pronunciation clips for the a1 dual-gender words
+- [2026-07-20] Created: web/src/VocabWord.tsx — render the headword with its gender marker (m)/(fe); dual-gender shows both forms + both pronunciations
+- [2026-07-20] Modified: web/src/screens/Deck.tsx — use VocabWord for the flashcard headword
+- [2026-07-20] Modified: web/src/api.ts — VocabCard gains gender/fem/fem_audio
+- [2026-07-20] Modified: web/src/styles.css — .vocab-word / .gender-mark styles
+- [2026-07-20] Created: web/src/VocabWord.test.tsx, tests/test_content_loader.py, tests/test_content_sync.py — cover gender validation, API exposure, and UI rendering
+- [2026-07-20] Modified: content/{a2,b1,b2}/vocab/*.yaml — annotate all 504 a2/b1/b2 nouns with gender (16 dual-gender: patron; consommateur/enseignant/citoyen/immigrant/refugie/recruteur; agriculteur/producteur/pollueur/depute/soignant/utilisateur/militant/influenceur/pieton); completes gender across a1–b2
+- [2026-07-20] Created: content/{a2,b1,b2}/audio/*_f.mp3 — 16 feminine pronunciation clips for the a2–b2 dual-gender words

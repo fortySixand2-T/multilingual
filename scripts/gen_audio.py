@@ -55,6 +55,9 @@ def collect(level: str) -> list[tuple[str, str, str]]:
                 # `<level>/audio/<id>.mp3` (matches get_vocab in app/content/api.py)
                 ref = card.get("audio") or f"{level}/audio/{card['id']}.mp3"
                 jobs.append((Path(ref).name, card["fr"], DEFAULT_VOICE))
+                # dual-gender words also get a feminine clip `<id>_f.mp3` from `fem`
+                if card.get("gender") == "mf" and card.get("fem"):
+                    jobs.append((f"{card['id']}_f.mp3", card["fem"], DEFAULT_VOICE))
 
     cdir = root / "comprehension"
     if cdir.is_dir():

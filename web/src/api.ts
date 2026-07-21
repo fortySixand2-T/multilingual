@@ -274,6 +274,9 @@ export type VocabCard = {
   audio?: string;
   pos?: string;
   tags?: string[];
+  gender?: "" | "m" | "f" | "mf"; // "" = not gendered
+  fem?: string; // feminine spelling, present for gender "mf"
+  fem_audio?: string; // feminine pronunciation key, present for gender "mf"
   known?: boolean;
   in_review?: boolean;
 };

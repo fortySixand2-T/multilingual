@@ -1,6 +1,7 @@
 - id: intelligence_artificielle
   fr: intelligence artificielle
   en: "artificial intelligence"
+  gender: f
   pos: noun
   tags: [sciences]
 
@@ -13,95 +14,112 @@
 - id: donnee
   fr: donnée
   en: "(piece of) data"
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: algorithme
   fr: algorithme
   en: algorithm
+  gender: m
   pos: noun
   tags: [sciences]
 
 - id: innovation
   fr: innovation
   en: innovation
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: objet_connecte
   fr: objet connecté
   en: "connected device"
+  gender: m
   pos: noun
   tags: [sciences]
 
 - id: cybersecurite
   fr: cybersécurité
   en: cybersecurity
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: vie_privee
   fr: vie privée
   en: privacy
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: ethique
   fr: éthique
   en: ethics
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: automatisation
   fr: automatisation
   en: automation
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: logiciel
   fr: logiciel
   en: software
+  gender: m
   pos: noun
   tags: [sciences]
 
 - id: utilisateur
   fr: utilisateur
   en: user
+  gender: mf
+  fem: utilisatrice
   pos: noun
   tags: [sciences]
 
 - id: decouverte
   fr: découverte
   en: discovery
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: experimentation
   fr: expérimentation
   en: experimentation
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: fiabilite
   fr: fiabilité
   en: reliability
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: dependance
   fr: dépendance
   en: "dependence, addiction"
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: robotique
   fr: robotique
   en: robotics
+  gender: f
   pos: noun
   tags: [sciences]
 
 - id: surveillance
   fr: surveillance
   en: surveillance
+  gender: f
   pos: noun
   tags: [sciences]

@@ -1,107 +1,126 @@
 - id: formation
   fr: formation
   en: "training, education"
+  gender: f
   pos: noun
   tags: [education]
 
 - id: cursus
   fr: cursus
   en: "course of study"
+  gender: m
   pos: noun
   tags: [education]
 
 - id: matiere
   fr: matière
   en: "school subject"
+  gender: f
   pos: noun
   tags: [education]
 
 - id: apprentissage
   fr: apprentissage
   en: "learning, apprenticeship"
+  gender: m
   pos: noun
   tags: [education]
 
 - id: connaissance
   fr: connaissance
   en: knowledge
+  gender: f
   pos: noun
   tags: [education]
 
 - id: examen
   fr: examen
   en: exam
+  gender: m
   pos: noun
   tags: [education]
 
 - id: bourse
   fr: bourse
   en: "scholarship, grant"
+  gender: f
   pos: noun
   tags: [education]
 
 - id: faculte
   fr: faculté
   en: "faculty (university)"
+  gender: f
   pos: noun
   tags: [education]
 
 - id: memoire
   fr: mémoire
   en: "thesis, dissertation"
+  gender: m
   pos: noun
   tags: [education]
 
 - id: recherche
   fr: recherche
   en: research
+  gender: f
   pos: noun
   tags: [education]
 
 - id: enseignement
   fr: enseignement
   en: teaching
+  gender: m
   pos: noun
   tags: [education]
 
 - id: enseignant
   fr: enseignant
   en: teacher
+  gender: mf
+  fem: enseignante
   pos: noun
   tags: [education]
 
 - id: inscription
   fr: inscription
   en: "enrolment, registration"
+  gender: f
   pos: noun
   tags: [education]
 
 - id: niveau
   fr: niveau
   en: level
+  gender: m
   pos: noun
   tags: [education]
 
 - id: autonomie
   fr: autonomie
   en: autonomy
+  gender: f
   pos: noun
   tags: [education]
 
 - id: pedagogie
   fr: pédagogie
   en: pedagogy
+  gender: f
   pos: noun
   tags: [education]
 
 - id: savoir
   fr: savoir
   en: "knowledge, know-how"
+  gender: m
   pos: noun
   tags: [education]
 
 - id: etudes
   fr: études
   en: studies
+  gender: f
   pos: noun
   tags: [education]

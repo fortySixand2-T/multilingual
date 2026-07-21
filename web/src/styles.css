@@ -78,6 +78,10 @@ h2 { font-size: 18px; margin: 0 0 12px; }
 .node-title { font-weight: 700; }
 .node-sub { font-size: 13px; color: var(--muted); }
 
+/* vocab headword + gender marker */
+.vocab-word { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; align-items: center; }
+.gender-mark { font-size: 0.6em; font-weight: 700; color: var(--muted); vertical-align: middle; }
+
 /* category filter chips (grammar reference) */
 .chip {
   appearance: none; cursor: pointer; font: inherit; font-weight: 600; font-size: 13px;

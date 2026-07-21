@@ -1,30 +1,35 @@
 - id: loisir
   fr: loisir
   en: "leisure activity"
+  gender: m
   pos: noun
   tags: [hobbies]
 
 - id: sport
   fr: sport
   en: sport
+  gender: m
   pos: noun
   tags: [hobbies]
 
 - id: musique
   fr: musique
   en: music
+  gender: f
   pos: noun
   tags: [hobbies]
 
 - id: film
   fr: film
   en: film
+  gender: m
   pos: noun
   tags: [hobbies]
 
 - id: livre
   fr: livre
   en: book
+  gender: m
   pos: noun
   tags: [hobbies]
 
@@ -55,6 +60,7 @@
 - id: promenade
   fr: promenade
   en: walk
+  gender: f
   pos: noun
   tags: [hobbies]
 
@@ -85,23 +91,27 @@
 - id: photographie
   fr: photographie
   en: photography
+  gender: f
   pos: noun
   tags: [hobbies]
 
 - id: jeu
   fr: jeu
   en: game
+  gender: m
   pos: noun
   tags: [hobbies]
 
 - id: equipe
   fr: équipe
   en: team
+  gender: f
   pos: noun
   tags: [hobbies]
 
 - id: concert
   fr: concert
   en: concert
+  gender: m
   pos: noun
   tags: [hobbies]

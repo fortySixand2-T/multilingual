@@ -1,107 +1,126 @@
 - id: democratie
   fr: démocratie
   en: democracy
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: justice
   fr: justice
   en: justice
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: loi
   fr: loi
   en: law
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: droit
   fr: droit
   en: "right, (a) law"
+  gender: m
   pos: noun
   tags: [politique]
 
 - id: tribunal
   fr: tribunal
   en: court
+  gender: m
   pos: noun
   tags: [politique]
 
 - id: egalite
   fr: égalité
   en: equality
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: liberte
   fr: liberté
   en: freedom
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: election
   fr: élection
   en: election
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: scrutin
   fr: scrutin
   en: "ballot, vote"
+  gender: m
   pos: noun
   tags: [politique]
 
 - id: depute
   fr: député
   en: "member of parliament"
+  gender: mf
+  fem: députée
   pos: noun
   tags: [politique]
 
 - id: mandat
   fr: mandat
   en: "mandate, term of office"
+  gender: m
   pos: noun
   tags: [politique]
 
 - id: corruption
   fr: corruption
   en: corruption
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: reforme
   fr: réforme
   en: reform
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: pouvoir
   fr: pouvoir
   en: power
+  gender: m
   pos: noun
   tags: [politique]
 
 - id: gouvernement
   fr: gouvernement
   en: government
+  gender: m
   pos: noun
   tags: [politique]
 
 - id: constitution
   fr: constitution
   en: constitution
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: abstention
   fr: abstention
   en: abstention
+  gender: f
   pos: noun
   tags: [politique]
 
 - id: souverainete
   fr: souveraineté
   en: sovereignty
+  gender: f
   pos: noun
   tags: [politique]

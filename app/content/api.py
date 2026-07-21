@@ -214,9 +214,10 @@ async def get_vocab(
     session: AsyncSession = Depends(get_session),
     user: User = Depends(get_current_user),
 ) -> dict:
-    """Vocabulary as browsable decks (id/fr/en/audio/pos/tags, each tagged with its
-    `level`). Omit `level` to get every level at once; `tag` narrows to one theme.
-    Free-study companion to the scheduled SRS review."""
+    """Vocabulary as browsable decks (id/fr/en/audio/pos/tags/gender, each tagged with
+    its `level`). Omit `level` to get every level at once; `tag` narrows to one theme.
+    Dual-gender words carry `fem` + `fem_audio` for the feminine form. Free-study
+    companion to the scheduled SRS review."""
     query = select(ContentVocab).order_by(ContentVocab.level, ContentVocab.id)
     if level:
         query = query.where(ContentVocab.level == level)
@@ -240,6 +241,9 @@ async def get_vocab(
         # (matches scripts/gen_audio.py); served by the /content/audio route.
         if not card.get("audio"):
             card["audio"] = f"{r.level}/audio/{card['id']}.mp3"
+        # dual-gender words (gender "mf") also carry a feminine clip `<id>_f.mp3`
+        if card.get("gender") == "mf":
+            card["fem_audio"] = f"{r.level}/audio/{card['id']}_f.mp3"
         card["known"] = card["id"] in known
         card["in_review"] = card["id"] in in_review
         cards.append(card)

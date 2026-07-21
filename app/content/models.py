@@ -145,6 +145,21 @@ class Vocab(BaseModel):
     audio: str = ""
     pos: str = ""
     tags: list[str] = []
+    # Grammatical gender of the word, shown to learners as (m)/(fe):
+    #   "m"  masculine    "f"  feminine    "mf" both forms exist (e.g. ami / amie)
+    #   ""   not gendered (verbs, adverbs, phrases, numerals…)
+    # `fem` is the feminine spelling and is REQUIRED for (and only for) "mf" words; its
+    # pronunciation clip follows the convention `<level>/audio/<id>_f.mp3`.
+    gender: Literal["", "m", "f", "mf"] = ""
+    fem: str = ""
+
+    @model_validator(mode="after")
+    def _fem_matches_gender(self) -> "Vocab":
+        if self.gender == "mf" and not self.fem.strip():
+            raise ValueError(f"{self.id}: gender 'mf' requires a `fem` (feminine) form")
+        if self.gender != "mf" and self.fem:
+            raise ValueError(f"{self.id}: `fem` is only valid for gender 'mf'")
+        return self
 
 
 class UnlockRule(BaseModel):

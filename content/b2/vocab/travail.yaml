@@ -1,107 +1,125 @@
 - id: entrepreneuriat
   fr: entrepreneuriat
   en: entrepreneurship
+  gender: m
   pos: noun
   tags: [travail]
 
 - id: management
   fr: management
   en: management
+  gender: m
   pos: noun
   tags: [travail]
 
 - id: recrutement
   fr: recrutement
   en: recruitment
+  gender: m
   pos: noun
   tags: [travail]
 
 - id: qualification
   fr: qualification
   en: qualification
+  gender: f
   pos: noun
   tags: [travail]
 
 - id: penibilite
   fr: pénibilité
   en: "hardship (of work)"
+  gender: f
   pos: noun
   tags: [travail]
 
 - id: harcelement
   fr: harcèlement
   en: harassment
+  gender: m
   pos: noun
   tags: [travail]
 
 - id: reconnaissance
   fr: reconnaissance
   en: recognition
+  gender: f
   pos: noun
   tags: [travail]
 
 - id: flexibilite
   fr: flexibilité
   en: flexibility
+  gender: f
   pos: noun
   tags: [travail]
 
 - id: competitivite
   fr: compétitivité
   en: competitiveness
+  gender: f
   pos: noun
   tags: [travail]
 
 - id: prime
   fr: prime
   en: "bonus"
+  gender: f
   pos: noun
   tags: [travail]
 
 - id: conge
   fr: congé
   en: "leave, time off"
+  gender: m
   pos: noun
   tags: [travail]
 
 - id: penurie
   fr: pénurie
   en: "shortage"
+  gender: f
   pos: noun
   tags: [travail]
 
 - id: requalification
   fr: requalification
   en: "reskilling"
+  gender: f
   pos: noun
   tags: [travail]
 
 - id: absenteisme
   fr: absentéisme
   en: absenteeism
+  gender: m
   pos: noun
   tags: [travail]
 
 - id: rendement
   fr: rendement
   en: "output, yield"
+  gender: m
   pos: noun
   tags: [travail]
 
 - id: cadre
   fr: cadre
   en: "executive, manager"
+  gender: m
   pos: noun
   tags: [travail]
 
 - id: mobilite_professionnelle
   fr: mobilité professionnelle
   en: "job mobility"
+  gender: f
   pos: noun
   tags: [travail]
 
 - id: syndicalisme
   fr: syndicalisme
   en: "trade unionism"
+  gender: m
   pos: noun
   tags: [travail]

@@ -1,18 +1,21 @@
 - id: transition_energetique
   fr: transition énergétique
   en: "energy transition"
+  gender: f
   pos: noun
   tags: [environnement]
 
 - id: rechauffement_climatique
   fr: réchauffement climatique
   en: "global warming"
+  gender: m
   pos: noun
   tags: [environnement]
 
 - id: empreinte_carbone
   fr: empreinte carbone
   en: "carbon footprint"
+  gender: f
   pos: noun
   tags: [environnement]
 
@@ -25,83 +28,98 @@
 - id: durabilite
   fr: durabilité
   en: sustainability
+  gender: f
   pos: noun
   tags: [environnement]
 
 - id: deforestation
   fr: déforestation
   en: deforestation
+  gender: f
   pos: noun
   tags: [environnement]
 
 - id: pesticide
   fr: pesticide
   en: pesticide
+  gender: m
   pos: noun
   tags: [environnement]
 
 - id: surconsommation
   fr: surconsommation
   en: overconsumption
+  gender: f
   pos: noun
   tags: [environnement]
 
 - id: sobriete
   fr: sobriété
   en: "restraint, frugality"
+  gender: f
   pos: noun
   tags: [environnement]
 
 - id: extinction
   fr: extinction
   en: extinction
+  gender: f
   pos: noun
   tags: [environnement]
 
 - id: pollueur
   fr: pollueur
   en: polluter
+  gender: mf
+  fem: pollueuse
   pos: noun
   tags: [environnement]
 
 - id: militantisme
   fr: militantisme
   en: activism
+  gender: m
   pos: noun
   tags: [environnement]
 
 - id: catastrophe
   fr: catastrophe
   en: "disaster, catastrophe"
+  gender: f
   pos: noun
   tags: [environnement]
 
 - id: secheresse
   fr: sécheresse
   en: drought
+  gender: f
   pos: noun
   tags: [environnement]
 
 - id: inondation
   fr: inondation
   en: flood
+  gender: f
   pos: noun
   tags: [environnement]
 
 - id: covoiturage
   fr: covoiturage
   en: carpooling
+  gender: m
   pos: noun
   tags: [environnement]
 
 - id: compostage
   fr: compostage
   en: composting
+  gender: m
   pos: noun
   tags: [environnement]
 
 - id: energie_verte
   fr: énergie verte
   en: "green energy"
+  gender: f
   pos: noun
   tags: [environnement]

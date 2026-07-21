@@ -1,72 +1,84 @@
 - id: ordinateur
   fr: ordinateur
   en: computer
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: telephone
   fr: téléphone
   en: phone
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: internet
   fr: internet
   en: internet
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: courriel
   fr: courriel
   en: email
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: site_web
   fr: site web
   en: website
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: mot_de_passe
   fr: mot de passe
   en: password
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: ecran
   fr: écran
   en: screen
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: clavier
   fr: clavier
   en: keyboard
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: souris
   fr: souris
   en: mouse
+  gender: f
   pos: noun
   tags: [tech]
 
 - id: fichier
   fr: fichier
   en: file
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: reseau
   fr: réseau
   en: network
+  gender: m
   pos: noun
   tags: [tech]
 
 - id: application
   fr: application
   en: app
+  gender: f
   pos: noun
   tags: [tech]
 

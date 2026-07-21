@@ -1,107 +1,126 @@
 - id: epidemie
   fr: épidémie
   en: epidemic
+  gender: f
   pos: noun
   tags: [sante]
 
 - id: vaccin
   fr: vaccin
   en: vaccine
+  gender: m
   pos: noun
   tags: [sante]
 
 - id: systeme_de_sante
   fr: système de santé
   en: "health(care) system"
+  gender: m
   pos: noun
   tags: [sante]
 
 - id: obesite
   fr: obésité
   en: obesity
+  gender: f
   pos: noun
   tags: [sante]
 
 - id: esperance_de_vie
   fr: espérance de vie
   en: "life expectancy"
+  gender: f
   pos: noun
   tags: [sante]
 
 - id: depistage
   fr: dépistage
   en: screening
+  gender: m
   pos: noun
   tags: [sante]
 
 - id: soignant
   fr: soignant
   en: "caregiver, health worker"
+  gender: mf
+  fem: soignante
   pos: noun
   tags: [sante]
 
 - id: remede
   fr: remède
   en: remedy
+  gender: m
   pos: noun
   tags: [sante]
 
 - id: guerison
   fr: guérison
   en: "recovery, cure"
+  gender: f
   pos: noun
   tags: [sante]
 
 - id: symptome
   fr: symptôme
   en: symptom
+  gender: m
   pos: noun
   tags: [sante]
 
 - id: contagion
   fr: contagion
   en: contagion
+  gender: f
   pos: noun
   tags: [sante]
 
 - id: nutrition
   fr: nutrition
   en: nutrition
+  gender: f
   pos: noun
   tags: [sante]
 
 - id: activite_physique
   fr: activité physique
   en: "physical activity"
+  gender: f
   pos: noun
   tags: [sante]
 
 - id: vieillissement
   fr: vieillissement
   en: ageing
+  gender: m
   pos: noun
   tags: [sante]
 
 - id: handicap
   fr: handicap
   en: disability
+  gender: m
   pos: noun
   tags: [sante]
 
 - id: mutuelle
   fr: mutuelle
   en: "(complementary) health insurance"
+  gender: f
   pos: noun
   tags: [sante]
 
 - id: addiction
   fr: addiction
   en: addiction
+  gender: f
   pos: noun
   tags: [sante]
 
 - id: urgences
   fr: urgences
   en: "emergency room"
+  gender: f
   pos: noun
   tags: [sante]
