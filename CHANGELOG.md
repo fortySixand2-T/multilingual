@@ -73,3 +73,4 @@
 - [2026-07-19] Created: web/src/screens/Grammar.test.tsx — cover category grouping (canonical order + single Other bucket), chip filtering, and search-within-filter
 - [2026-07-20] Modified: web/src/screens/Grammar.tsx, web/src/screens/Grammar.test.tsx, qa/issues/051-grammar-search-not-cleared-on-level-switch.md — fix qa-051: clear search box (setQ("")) in the level-change effect; add regression test
 - [2026-07-20] Modified: web/src/styles.css, qa/issues/052-grammar-chip-leftover-focus-style-looks-selected.md — fix qa-052: add .chip:focus-visible outline so a toggled-off chip no longer visually mimics the active/selected state
+- [2026-07-20] Created: qa/rounds/040-plan.md — QA round 040 (grammar category slice, browser-tester routing): 9 hypotheses, 2 confirmed → issues 051/052 filed, validated, and fixed
