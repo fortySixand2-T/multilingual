@@ -74,3 +74,6 @@
 - [2026-07-20] Modified: web/src/screens/Grammar.tsx, web/src/screens/Grammar.test.tsx, qa/issues/051-grammar-search-not-cleared-on-level-switch.md — fix qa-051: clear search box (setQ("")) in the level-change effect; add regression test
 - [2026-07-20] Modified: web/src/styles.css, qa/issues/052-grammar-chip-leftover-focus-style-looks-selected.md — fix qa-052: add .chip:focus-visible outline so a toggled-off chip no longer visually mimics the active/selected state
 - [2026-07-20] Created: qa/rounds/040-plan.md — QA round 040 (grammar category slice, browser-tester routing): 9 hypotheses, 2 confirmed → issues 051/052 filed, validated, and fixed
+- [2026-07-20] Created: .claude/agents/qa-browser-tester.md — reusable browser-driving QA agent that exercises the running app UI via Claude-in-Chrome as a student persona and files issues in qa/issues/ (UI complement to curl-based qa-tester)
+- [2026-07-20] Modified: .claude/agents/qa-planner.md — route each charter to qa-tester (API risk) or qa-browser-tester (UI risk); preflight notes SPA must be served for browser charters
+- [2026-07-20] Modified: .claude/agents/qa-pm.md, .claude/agents/qa-critic.md — grant Chrome tools so triage/critic can visually reproduce UI issues in the browser instead of judging from CSS/JSX
