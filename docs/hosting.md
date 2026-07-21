@@ -85,6 +85,20 @@ State is one SQLite file. Cron a nightly copy **off the laptop**:
 `data/assets/` (audio) is rebuildable from `content/` via `scripts/gen_audio.py`, so
 `tef.db` is the only thing that's truly precious.
 
+## GPU present but Ollama runs on CPU ("NVIDIA driver too old")
+
+The current `ollama/ollama` image needs **driver ≥570** for GPUs of compute
+capability 5.0–6.2 (Maxwell/Pascal, e.g. GTX 10xx). On driver 550 it silently
+falls back to CPU (`docker compose logs ollama` shows `library=cpu` + a
+`driver too old` warning). Two fixes:
+
+- **No host change (recommended for a mixed-use box):** pin a CUDA-12 Ollama build
+  in `.env` — `OLLAMA_IMAGE_TAG=0.6.8` — and recreate: `docker compose -f
+  docker-compose.yml -f docker-compose.gpu.yml up -d --no-deps ollama`. Verify with
+  `docker exec … ollama ps` (should read `100% GPU`).
+- **Upgrade the driver to 570** (keeps the latest image). Note driver 590 drops
+  10-series support, so stay on 570/580 for Pascal.
+
 ## Running the model on CPU (no/weak GPU)
 Omit the GPU override — `docker compose up -d --build` runs Ollama on CPU (slower).
 Or skip Ollama entirely and set `OPENROUTER_API_KEY` / `ANTHROPIC_API_KEY` in `.env`

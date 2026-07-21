@@ -1,5 +1,8 @@
 # Changelog
 
+- [2026-07-20] Modified: docker-compose.yml — ollama image tag configurable via ${OLLAMA_IMAGE_TAG:-latest} (pin CUDA-12 build on driver <570)
+- [2026-07-20] Modified: .env.example — document OLLAMA_IMAGE_TAG
+- [2026-07-20] Modified: docs/hosting.md — troubleshooting: GPU present but Ollama on CPU (driver <570 / Pascal)
 - [2026-07-13] Modified: README.md — add Deploy section pointing to docs/hosting.md
 - [2026-07-13] Modified: docker-compose.yml — base stack now app + Ollama only; app on loopback 127.0.0.1:9000 (Tailscale/Caddy exposes it); Caddy moved to an override
 - [2026-07-13] Created: docker-compose.gpu.yml — NVIDIA GPU passthrough override for Ollama
