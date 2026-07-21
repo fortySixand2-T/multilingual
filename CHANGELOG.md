@@ -72,3 +72,5 @@
 - [2026-07-20] Modified: web/src/api.ts — VocabCard gains gender/fem/fem_audio
 - [2026-07-20] Modified: web/src/styles.css — .vocab-word / .gender-mark styles
 - [2026-07-20] Created: web/src/VocabWord.test.tsx, tests/test_content_loader.py, tests/test_content_sync.py — cover gender validation, API exposure, and UI rendering
+- [2026-07-20] Modified: content/{a2,b1,b2}/vocab/*.yaml — annotate all 504 a2/b1/b2 nouns with gender (16 dual-gender: patron; consommateur/enseignant/citoyen/immigrant/refugie/recruteur; agriculteur/producteur/pollueur/depute/soignant/utilisateur/militant/influenceur/pieton); completes gender across a1–b2
+- [2026-07-20] Created: content/{a2,b1,b2}/audio/*_f.mp3 — 16 feminine pronunciation clips for the a2–b2 dual-gender words

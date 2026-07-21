@@ -1,107 +1,127 @@
 - id: immigration
   fr: immigration
   en: immigration
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: immigrant
   fr: immigrant
   en: immigrant
+  gender: mf
+  fem: immigrante
   pos: noun
   tags: [immigration]
 
 - id: residence
   fr: résidence
   en: residence
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: citoyennete
   fr: citoyenneté
   en: citizenship
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: nationalite
   fr: nationalité
   en: nationality
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: visa
   fr: visa
   en: visa
+  gender: m
   pos: noun
   tags: [immigration]
 
 - id: permis_travail
   fr: permis de travail
   en: "work permit"
+  gender: m
   pos: noun
   tags: [immigration]
 
 - id: integration
   fr: intégration
   en: integration
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: demarche
   fr: démarche
   en: "procedure, step"
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: formulaire
   fr: formulaire
   en: form
+  gender: m
   pos: noun
   tags: [immigration]
 
 - id: administration
   fr: administration
   en: administration
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: naturalisation
   fr: naturalisation
   en: naturalisation
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: refugie
   fr: réfugié
   en: refugee
+  gender: mf
+  fem: réfugiée
   pos: noun
   tags: [immigration]
 
 - id: accueil
   fr: accueil
   en: "welcome, reception"
+  gender: m
   pos: noun
   tags: [immigration]
 
 - id: installation
   fr: installation
   en: "settling in"
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: demande
   fr: demande
   en: "application, request"
+  gender: f
   pos: noun
   tags: [immigration]
 
 - id: parrainage
   fr: parrainage
   en: sponsorship
+  gender: m
   pos: noun
   tags: [immigration]
 
 - id: statut
   fr: statut
   en: status
+  gender: m
   pos: noun
   tags: [immigration]

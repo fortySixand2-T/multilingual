@@ -1,107 +1,125 @@
 - id: mondialisation
   fr: mondialisation
   en: globalization
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: croissance
   fr: croissance
   en: "(economic) growth"
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: inegalite
   fr: inégalité
   en: inequality
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: concurrence
   fr: concurrence
   en: competition
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: precarite
   fr: précarité
   en: "job insecurity, precariousness"
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: commerce
   fr: commerce
   en: "trade, business"
+  gender: m
   pos: noun
   tags: [economie]
 
 - id: investissement
   fr: investissement
   en: investment
+  gender: m
   pos: noun
   tags: [economie]
 
 - id: richesse
   fr: richesse
   en: wealth
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: pauvrete
   fr: pauvreté
   en: poverty
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: multinationale
   fr: multinationale
   en: "multinational (company)"
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: delocalisation
   fr: délocalisation
   en: offshoring
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: inflation
   fr: inflation
   en: inflation
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: endettement
   fr: endettement
   en: indebtedness
+  gender: m
   pos: noun
   tags: [economie]
 
 - id: rentabilite
   fr: rentabilité
   en: profitability
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: main_doeuvre
   fr: main-d'œuvre
   en: "workforce, labour"
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: exportation
   fr: exportation
   en: export
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: importation
   fr: importation
   en: import
+  gender: f
   pos: noun
   tags: [economie]
 
 - id: profit
   fr: profit
   en: profit
+  gender: m
   pos: noun
   tags: [economie]

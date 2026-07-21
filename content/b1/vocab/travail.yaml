@@ -1,107 +1,126 @@
 - id: candidature
   fr: candidature
   en: "job application"
+  gender: f
   pos: noun
   tags: [work]
 
 - id: recruteur
   fr: recruteur
   en: recruiter
+  gender: mf
+  fem: recruteuse
   pos: noun
   tags: [work]
 
 - id: embauche
   fr: embauche
   en: hiring
+  gender: f
   pos: noun
   tags: [work]
 
 - id: licenciement
   fr: licenciement
   en: "dismissal, layoff"
+  gender: m
   pos: noun
   tags: [work]
 
 - id: promotion
   fr: promotion
   en: promotion
+  gender: f
   pos: noun
   tags: [work]
 
 - id: responsabilite
   fr: responsabilité
   en: responsibility
+  gender: f
   pos: noun
   tags: [work]
 
 - id: teletravail
   fr: télétravail
   en: "remote work"
+  gender: m
   pos: noun
   tags: [work]
 
 - id: productivite
   fr: productivité
   en: productivity
+  gender: f
   pos: noun
   tags: [work]
 
 - id: freelance
   fr: freelance
   en: freelance
+  gender: m
   pos: noun
   tags: [work]
 
 - id: syndicat
   fr: syndicat
   en: "trade union"
+  gender: m
   pos: noun
   tags: [work]
 
 - id: remuneration
   fr: rémunération
   en: pay
+  gender: f
   pos: noun
   tags: [work]
 
 - id: objectif
   fr: objectif
   en: "goal, target"
+  gender: m
   pos: noun
   tags: [work]
 
 - id: mutation
   fr: mutation
   en: "job transfer, relocation"
+  gender: f
   pos: noun
   tags: [work]
 
 - id: hierarchie
   fr: hiérarchie
   en: hierarchy
+  gender: f
   pos: noun
   tags: [work]
 
 - id: reconversion
   fr: reconversion
   en: "career change, retraining"
+  gender: f
   pos: noun
   tags: [work]
 
 - id: negociation
   fr: négociation
   en: negotiation
+  gender: f
   pos: noun
   tags: [work]
 
 - id: avancement
   fr: avancement
   en: "advancement, progress"
+  gender: m
   pos: noun
   tags: [work]
 
 - id: demission
   fr: démission
   en: resignation
+  gender: f
   pos: noun
   tags: [work]

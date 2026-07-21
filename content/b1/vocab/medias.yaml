@@ -1,107 +1,125 @@
 - id: actualite
   fr: actualité
   en: "current events, news"
+  gender: f
   pos: noun
   tags: [media]
 
 - id: journal
   fr: journal
   en: newspaper
+  gender: m
   pos: noun
   tags: [media]
 
 - id: chaine
   fr: chaîne
   en: "TV channel"
+  gender: f
   pos: noun
   tags: [media]
 
 - id: emission
   fr: émission
   en: "programme, broadcast"
+  gender: f
   pos: noun
   tags: [media]
 
 - id: publicite
   fr: publicité
   en: advertising
+  gender: f
   pos: noun
   tags: [media]
 
 - id: reseau_social
   fr: réseau social
   en: "social network"
+  gender: m
   pos: noun
   tags: [media]
 
 - id: abonnement
   fr: abonnement
   en: subscription
+  gender: m
   pos: noun
   tags: [media]
 
 - id: information
   fr: information
   en: "(piece of) information"
+  gender: f
   pos: noun
   tags: [media]
 
 - id: journaliste
   fr: journaliste
   en: journalist
+  gender: m
   pos: noun
   tags: [media]
 
 - id: rumeur
   fr: rumeur
   en: rumour
+  gender: f
   pos: noun
   tags: [media]
 
 - id: debat
   fr: débat
   en: debate
+  gender: m
   pos: noun
   tags: [media]
 
 - id: influence
   fr: influence
   en: influence
+  gender: f
   pos: noun
   tags: [media]
 
 - id: presse
   fr: presse
   en: "the press"
+  gender: f
   pos: noun
   tags: [media]
 
 - id: reportage
   fr: reportage
   en: "report, news story"
+  gender: m
   pos: noun
   tags: [media]
 
 - id: censure
   fr: censure
   en: censorship
+  gender: f
   pos: noun
   tags: [media]
 
 - id: desinformation
   fr: désinformation
   en: disinformation
+  gender: f
   pos: noun
   tags: [media]
 
 - id: audience
   fr: audience
   en: "audience, viewership"
+  gender: f
   pos: noun
   tags: [media]
 
 - id: source
   fr: source
   en: source
+  gender: f
   pos: noun
   tags: [media]

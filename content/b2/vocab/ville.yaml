@@ -1,90 +1,106 @@
 - id: urbanisme
   fr: urbanisme
   en: "urban planning"
+  gender: m
   pos: noun
   tags: [ville]
 
 - id: mobilite
   fr: mobilité
   en: mobility
+  gender: f
   pos: noun
   tags: [ville]
 
 - id: embouteillage
   fr: embouteillage
   en: "traffic jam"
+  gender: m
   pos: noun
   tags: [ville]
 
 - id: peripherie
   fr: périphérie
   en: "outskirts"
+  gender: f
   pos: noun
   tags: [ville]
 
 - id: amenagement
   fr: aménagement
   en: "development, planning"
+  gender: m
   pos: noun
   tags: [ville]
 
 - id: densite
   fr: densité
   en: density
+  gender: f
   pos: noun
   tags: [ville]
 
 - id: pieton
   fr: piéton
   en: pedestrian
+  gender: mf
+  fem: piétonne
   pos: noun
   tags: [ville]
 
 - id: infrastructure
   fr: infrastructure
   en: infrastructure
+  gender: f
   pos: noun
   tags: [ville]
 
 - id: gentrification
   fr: gentrification
   en: gentrification
+  gender: f
   pos: noun
   tags: [ville]
 
 - id: logement_social
   fr: logement social
   en: "social housing"
+  gender: m
   pos: noun
   tags: [ville]
 
 - id: transport_commun
   fr: transport en commun
   en: "public transport"
+  gender: m
   pos: noun
   tags: [ville]
 
 - id: voirie
   fr: voirie
   en: "roads, public highways"
+  gender: f
   pos: noun
   tags: [ville]
 
 - id: metropole
   fr: métropole
   en: metropolis
+  gender: f
   pos: noun
   tags: [ville]
 
 - id: etalement_urbain
   fr: étalement urbain
   en: "urban sprawl"
+  gender: m
   pos: noun
   tags: [ville]
 
 - id: rehabilitation
   fr: réhabilitation
   en: "renovation, rehabilitation"
+  gender: f
   pos: noun
   tags: [ville]
 
@@ -97,11 +113,13 @@
 - id: congestion
   fr: congestion
   en: "congestion"
+  gender: f
   pos: noun
   tags: [ville]
 
 - id: espace_vert
   fr: espace vert
   en: "green space"
+  gender: m
   pos: noun
   tags: [ville]

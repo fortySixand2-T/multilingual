@@ -1,107 +1,127 @@
 - id: engagement
   fr: engagement
   en: "commitment, involvement"
+  gender: m
   pos: noun
   tags: [societe]
 
 - id: manipulation
   fr: manipulation
   en: manipulation
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: diversite
   fr: diversité
   en: diversity
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: polemique
   fr: polémique
   en: "controversy"
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: liberte_expression
   fr: liberté d'expression
   en: "freedom of expression"
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: civisme
   fr: civisme
   en: "civic-mindedness"
+  gender: m
   pos: noun
   tags: [societe]
 
 - id: militant
   fr: militant
   en: activist
+  gender: mf
+  fem: militante
   pos: noun
   tags: [societe]
 
 - id: manifestation
   fr: manifestation
   en: "demonstration, protest"
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: opinion_publique
   fr: opinion publique
   en: "public opinion"
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: media
   fr: média
   en: "media outlet"
+  gender: m
   pos: noun
   tags: [societe]
 
 - id: influenceur
   fr: influenceur
   en: influencer
+  gender: mf
+  fem: influenceuse
   pos: noun
   tags: [societe]
 
 - id: tolerance
   fr: tolérance
   en: tolerance
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: discrimination
   fr: discrimination
   en: discrimination
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: entraide
   fr: entraide
   en: "mutual aid"
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: fracture_sociale
   fr: fracture sociale
   en: "social divide"
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: mobilisation
   fr: mobilisation
   en: mobilization
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: revendication
   fr: revendication
   en: "demand, claim"
+  gender: f
   pos: noun
   tags: [societe]
 
 - id: temoignage
   fr: témoignage
   en: "testimony, account"
+  gender: m
   pos: noun
   tags: [societe]

@@ -1,77 +1,90 @@
 - id: poste
   fr: poste
   en: "post office"
+  gender: f
   pos: noun
   tags: [services]
 
 - id: mairie
   fr: mairie
   en: "town hall"
+  gender: f
   pos: noun
   tags: [services]
 
 - id: bibliotheque
   fr: bibliothèque
   en: library
+  gender: f
   pos: noun
   tags: [services]
 
 - id: commissariat
   fr: commissariat
   en: "police station"
+  gender: m
   pos: noun
   tags: [services]
 
 - id: marche
   fr: marché
   en: market
+  gender: m
   pos: noun
   tags: [services]
 
 - id: eglise
   fr: église
   en: church
+  gender: f
   pos: noun
   tags: [services]
 
 - id: musee
   fr: musée
   en: museum
+  gender: m
   pos: noun
   tags: [services]
 
 - id: parc
   fr: parc
   en: park
+  gender: m
   pos: noun
   tags: [services]
 
 - id: ecole
   fr: école
   en: school
+  gender: f
   pos: noun
   tags: [services]
 
 - id: centre_ville
   fr: centre-ville
   en: "city centre"
+  gender: m
   pos: noun
   tags: [services]
 
 - id: quartier
   fr: quartier
   en: neighbourhood
+  gender: m
   pos: noun
   tags: [services]
 
 - id: boulangerie
   fr: boulangerie
   en: bakery
+  gender: f
   pos: noun
   tags: [services]
 
 - id: supermarche
   fr: supermarché
   en: supermarket
+  gender: m
   pos: noun
   tags: [services]

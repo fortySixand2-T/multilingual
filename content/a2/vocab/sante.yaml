@@ -1,12 +1,14 @@
 - id: sante
   fr: santé
   en: health
+  gender: f
   pos: noun
   tags: [health]
 
 - id: medecin
   fr: médecin
   en: doctor
+  gender: m
   pos: noun
   tags: [health]
 
@@ -19,36 +21,42 @@
 - id: tete
   fr: tête
   en: head
+  gender: f
   pos: noun
   tags: [body]
 
 - id: ventre
   fr: ventre
   en: stomach
+  gender: m
   pos: noun
   tags: [body]
 
 - id: main
   fr: main
   en: hand
+  gender: f
   pos: noun
   tags: [body]
 
 - id: jambe
   fr: jambe
   en: leg
+  gender: f
   pos: noun
   tags: [body]
 
 - id: medicament
   fr: médicament
   en: medicine
+  gender: m
   pos: noun
   tags: [health]
 
 - id: rendez_vous
   fr: rendez-vous
   en: appointment
+  gender: m
   pos: noun
   tags: [health]
 
@@ -61,47 +69,55 @@
 - id: fievre
   fr: fièvre
   en: fever
+  gender: f
   pos: noun
   tags: [health]
 
 - id: rhume
   fr: rhume
   en: "a cold"
+  gender: m
   pos: noun
   tags: [health]
 
 - id: toux
   fr: toux
   en: cough
+  gender: f
   pos: noun
   tags: [health]
 
 - id: pharmacie
   fr: pharmacie
   en: pharmacy
+  gender: f
   pos: noun
   tags: [health]
 
 - id: ordonnance
   fr: ordonnance
   en: prescription
+  gender: f
   pos: noun
   tags: [health]
 
 - id: dos
   fr: dos
   en: back
+  gender: m
   pos: noun
   tags: [health]
 
 - id: bras
   fr: bras
   en: arm
+  gender: m
   pos: noun
   tags: [health]
 
 - id: pied
   fr: pied
   en: foot
+  gender: m
   pos: noun
   tags: [health]

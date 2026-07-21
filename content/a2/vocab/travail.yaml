@@ -1,48 +1,57 @@
 - id: travail
   fr: travail
   en: work
+  gender: m
   pos: noun
   tags: [work]
 
 - id: bureau
   fr: bureau
   en: office
+  gender: m
   pos: noun
   tags: [work]
 
 - id: collegue
   fr: collègue
   en: colleague
+  gender: m
   pos: noun
   tags: [work]
 
 - id: reunion
   fr: réunion
   en: meeting
+  gender: f
   pos: noun
   tags: [work]
 
 - id: patron
   fr: patron
   en: boss
+  gender: mf
+  fem: patronne
   pos: noun
   tags: [work]
 
 - id: entreprise
   fr: entreprise
   en: company
+  gender: f
   pos: noun
   tags: [work]
 
 - id: salaire
   fr: salaire
   en: salary
+  gender: m
   pos: noun
   tags: [work]
 
 - id: emploi
   fr: emploi
   en: job
+  gender: m
   pos: noun
   tags: [work]
 
@@ -61,47 +70,55 @@
 - id: entretien
   fr: entretien
   en: "job interview"
+  gender: m
   pos: noun
   tags: [work]
 
 - id: contrat
   fr: contrat
   en: contract
+  gender: m
   pos: noun
   tags: [work]
 
 - id: experience
   fr: expérience
   en: experience
+  gender: f
   pos: noun
   tags: [work]
 
 - id: competence
   fr: compétence
   en: skill
+  gender: f
   pos: noun
   tags: [work]
 
 - id: carriere
   fr: carrière
   en: career
+  gender: f
   pos: noun
   tags: [work]
 
 - id: diplome
   fr: diplôme
   en: "degree / diploma"
+  gender: m
   pos: noun
   tags: [work]
 
 - id: stage
   fr: stage
   en: internship
+  gender: m
   pos: noun
   tags: [work]
 
 - id: chomage
   fr: chômage
   en: unemployment
+  gender: m
   pos: noun
   tags: [work]

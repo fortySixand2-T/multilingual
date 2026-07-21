@@ -1,107 +1,126 @@
 - id: environnement
   fr: environnement
   en: environment
+  gender: m
   pos: noun
   tags: [environment]
 
 - id: pollution
   fr: pollution
   en: pollution
+  gender: f
   pos: noun
   tags: [environment]
 
 - id: climat
   fr: climat
   en: climate
+  gender: m
   pos: noun
   tags: [environment]
 
 - id: rechauffement
   fr: réchauffement
   en: "warming (climate)"
+  gender: m
   pos: noun
   tags: [environment]
 
 - id: recyclage
   fr: recyclage
   en: recycling
+  gender: m
   pos: noun
   tags: [environment]
 
 - id: dechet
   fr: déchet
   en: "waste, rubbish"
+  gender: m
   pos: noun
   tags: [environment]
 
 - id: planete
   fr: planète
   en: planet
+  gender: f
   pos: noun
   tags: [environment]
 
 - id: nature
   fr: nature
   en: nature
+  gender: f
   pos: noun
   tags: [environment]
 
 - id: consommation
   fr: consommation
   en: consumption
+  gender: f
   pos: noun
   tags: [environment]
 
 - id: gaspillage
   fr: gaspillage
   en: "waste, squandering"
+  gender: m
   pos: noun
   tags: [environment]
 
 - id: citoyen
   fr: citoyen
   en: citizen
+  gender: mf
+  fem: citoyenne
   pos: noun
   tags: [environment]
 
 - id: solidarite
   fr: solidarité
   en: solidarity
+  gender: f
   pos: noun
   tags: [environment]
 
 - id: biodiversite
   fr: biodiversité
   en: biodiversity
+  gender: f
   pos: noun
   tags: [environment]
 
 - id: developpement_durable
   fr: développement durable
   en: "sustainable development"
+  gender: m
   pos: noun
   tags: [environment]
 
 - id: ressource
   fr: ressource
   en: resource
+  gender: f
   pos: noun
   tags: [environment]
 
 - id: espece
   fr: espèce
   en: "species"
+  gender: f
   pos: noun
   tags: [environment]
 
 - id: transition
   fr: transition
   en: transition
+  gender: f
   pos: noun
   tags: [environment]
 
 - id: empreinte
   fr: empreinte
   en: "footprint (carbon)"
+  gender: f
   pos: noun
   tags: [environment]

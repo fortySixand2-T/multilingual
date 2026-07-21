@@ -1,66 +1,77 @@
 - id: projet
   fr: projet
   en: "project, plan"
+  gender: m
   pos: noun
   tags: [future]
 
 - id: avenir
   fr: avenir
   en: future
+  gender: m
   pos: noun
   tags: [future]
 
 - id: but
   fr: but
   en: goal
+  gender: m
   pos: noun
   tags: [future]
 
 - id: ambition
   fr: ambition
   en: ambition
+  gender: f
   pos: noun
   tags: [future]
 
 - id: reussite
   fr: réussite
   en: success
+  gender: f
   pos: noun
   tags: [future]
 
 - id: echec
   fr: échec
   en: failure
+  gender: m
   pos: noun
   tags: [future]
 
 - id: defi
   fr: défi
   en: challenge
+  gender: m
   pos: noun
   tags: [future]
 
 - id: etape
   fr: étape
   en: "step, stage"
+  gender: f
   pos: noun
   tags: [future]
 
 - id: decision
   fr: décision
   en: decision
+  gender: f
   pos: noun
   tags: [future]
 
 - id: changement
   fr: changement
   en: change
+  gender: m
   pos: noun
   tags: [future]
 
 - id: opportunite
   fr: opportunité
   en: opportunity
+  gender: f
   pos: noun
   tags: [future]
 
@@ -73,35 +84,41 @@
 - id: planification
   fr: planification
   en: planning
+  gender: f
   pos: noun
   tags: [plans]
 
 - id: motivation
   fr: motivation
   en: motivation
+  gender: f
   pos: noun
   tags: [plans]
 
 - id: perseverance
   fr: persévérance
   en: perseverance
+  gender: f
   pos: noun
   tags: [plans]
 
 - id: obstacle
   fr: obstacle
   en: obstacle
+  gender: m
   pos: noun
   tags: [plans]
 
 - id: progres
   fr: progrès
   en: progress
+  gender: m
   pos: noun
   tags: [plans]
 
 - id: priorite
   fr: priorité
   en: priority
+  gender: f
   pos: noun
   tags: [plans]

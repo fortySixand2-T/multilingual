@@ -1,107 +1,125 @@
 - id: patrimoine
   fr: patrimoine
   en: heritage
+  gender: m
   pos: noun
   tags: [culture]
 
 - id: oeuvre
   fr: œuvre
   en: "work (of art)"
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: artiste
   fr: artiste
   en: artist
+  gender: m
   pos: noun
   tags: [culture]
 
 - id: spectacle
   fr: spectacle
   en: "show, performance"
+  gender: m
   pos: noun
   tags: [culture]
 
 - id: exposition
   fr: exposition
   en: exhibition
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: creation
   fr: création
   en: creation
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: tradition
   fr: tradition
   en: tradition
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: identite_culturelle
   fr: identité culturelle
   en: "cultural identity"
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: heritage
   fr: héritage
   en: "legacy, inheritance"
+  gender: m
   pos: noun
   tags: [culture]
 
 - id: chef_doeuvre
   fr: chef-d'œuvre
   en: masterpiece
+  gender: m
   pos: noun
   tags: [culture]
 
 - id: sculpture
   fr: sculpture
   en: sculpture
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: litterature
   fr: littérature
   en: literature
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: peinture
   fr: peinture
   en: painting
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: festival
   fr: festival
   en: festival
+  gender: m
   pos: noun
   tags: [culture]
 
 - id: representation
   fr: représentation
   en: "performance, representation"
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: mecenat
   fr: mécénat
   en: "patronage, sponsorship"
+  gender: m
   pos: noun
   tags: [culture]
 
 - id: conservation
   fr: conservation
   en: "conservation, preservation"
+  gender: f
   pos: noun
   tags: [culture]
 
 - id: diffusion
   fr: diffusion
   en: "broadcasting, dissemination"
+  gender: f
   pos: noun
   tags: [culture]

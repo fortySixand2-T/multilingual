@@ -1,107 +1,126 @@
 - id: budget
   fr: budget
   en: budget
+  gender: m
   pos: noun
   tags: [money]
 
 - id: depense
   fr: dépense
   en: expense
+  gender: f
   pos: noun
   tags: [money]
 
 - id: epargne
   fr: épargne
   en: savings
+  gender: f
   pos: noun
   tags: [money]
 
 - id: credit
   fr: crédit
   en: "credit, loan"
+  gender: m
   pos: noun
   tags: [money]
 
 - id: dette
   fr: dette
   en: debt
+  gender: f
   pos: noun
   tags: [money]
 
 - id: facture
   fr: facture
   en: "bill, invoice"
+  gender: f
   pos: noun
   tags: [money]
 
 - id: impot
   fr: impôt
   en: tax
+  gender: m
   pos: noun
   tags: [money]
 
 - id: revenu
   fr: revenu
   en: income
+  gender: m
   pos: noun
   tags: [money]
 
 - id: achat
   fr: achat
   en: purchase
+  gender: m
   pos: noun
   tags: [money]
 
 - id: rabais
   fr: rabais
   en: "discount, rebate"
+  gender: m
   pos: noun
   tags: [money]
 
 - id: remboursement
   fr: remboursement
   en: "refund, repayment"
+  gender: m
   pos: noun
   tags: [money]
 
 - id: especes
   fr: espèces
   en: cash
+  gender: f
   pos: noun
   tags: [money]
 
 - id: pouvoir_achat
   fr: pouvoir d'achat
   en: "purchasing power"
+  gender: m
   pos: noun
   tags: [money]
 
 - id: consommateur
   fr: consommateur
   en: consumer
+  gender: mf
+  fem: consommatrice
   pos: noun
   tags: [money]
 
 - id: prelevement
   fr: prélèvement
   en: "direct debit"
+  gender: m
   pos: noun
   tags: [money]
 
 - id: virement
   fr: virement
   en: "bank transfer"
+  gender: m
   pos: noun
   tags: [money]
 
 - id: decouvert
   fr: découvert
   en: overdraft
+  gender: m
   pos: noun
   tags: [money]
 
 - id: emprunt
   fr: emprunt
   en: "loan, borrowing"
+  gender: m
   pos: noun
   tags: [money]

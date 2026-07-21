@@ -1,48 +1,56 @@
 - id: bus
   fr: bus
   en: bus
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: metro
   fr: métro
   en: subway
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: voiture
   fr: voiture
   en: car
+  gender: f
   pos: noun
   tags: [transport]
 
 - id: velo
   fr: vélo
   en: bike
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: avion
   fr: avion
   en: plane
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: billet
   fr: billet
   en: ticket
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: station
   fr: station
   en: station
+  gender: f
   pos: noun
   tags: [transport]
 
 - id: arret
   fr: arrêt
   en: stop
+  gender: m
   pos: noun
   tags: [transport]
 
@@ -55,53 +63,62 @@
 - id: circulation
   fr: circulation
   en: traffic
+  gender: f
   pos: noun
   tags: [transport]
 
 - id: train
   fr: train
   en: train
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: taxi
   fr: taxi
   en: taxi
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: bateau
   fr: bateau
   en: boat
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: quai
   fr: quai
   en: platform
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: horaire
   fr: horaire
   en: timetable
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: retard
   fr: retard
   en: delay
+  gender: m
   pos: noun
   tags: [transport]
 
 - id: essence
   fr: essence
   en: fuel
+  gender: f
   pos: noun
   tags: [transport]
 
 - id: permis
   fr: permis
   en: "driving licence"
+  gender: m
   pos: noun
   tags: [transport]

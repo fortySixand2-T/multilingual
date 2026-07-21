@@ -1,107 +1,125 @@
 - id: maison
   fr: maison
   en: house
+  gender: f
   pos: noun
   tags: [home]
 
 - id: appartement
   fr: appartement
   en: flat
+  gender: m
   pos: noun
   tags: [home]
 
 - id: chambre
   fr: chambre
   en: bedroom
+  gender: f
   pos: noun
   tags: [home]
 
 - id: salon
   fr: salon
   en: "living room"
+  gender: m
   pos: noun
   tags: [home]
 
 - id: salle_de_bain
   fr: salle de bain
   en: bathroom
+  gender: f
   pos: noun
   tags: [home]
 
 - id: jardin
   fr: jardin
   en: garden
+  gender: m
   pos: noun
   tags: [home]
 
 - id: porte
   fr: porte
   en: door
+  gender: f
   pos: noun
   tags: [home]
 
 - id: fenetre
   fr: fenêtre
   en: window
+  gender: f
   pos: noun
   tags: [home]
 
 - id: loyer
   fr: loyer
   en: rent
+  gender: m
   pos: noun
   tags: [home]
 
 - id: meuble
   fr: meuble
   en: "piece of furniture"
+  gender: m
   pos: noun
   tags: [home]
 
 - id: cuisine
   fr: cuisine
   en: kitchen
+  gender: f
   pos: noun
   tags: [home]
 
 - id: escalier
   fr: escalier
   en: stairs
+  gender: m
   pos: noun
   tags: [home]
 
 - id: toit
   fr: toit
   en: roof
+  gender: m
   pos: noun
   tags: [home]
 
 - id: mur
   fr: mur
   en: wall
+  gender: m
   pos: noun
   tags: [home]
 
 - id: cle
   fr: clé
   en: key
+  gender: f
   pos: noun
   tags: [home]
 
 - id: lit
   fr: lit
   en: bed
+  gender: m
   pos: noun
   tags: [home]
 
 - id: canape
   fr: canapé
   en: sofa
+  gender: m
   pos: noun
   tags: [home]
 
 - id: etage
   fr: étage
   en: "floor / storey"
+  gender: m
   pos: noun
   tags: [home]

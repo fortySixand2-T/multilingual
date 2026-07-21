@@ -1,54 +1,63 @@
 - id: vetement
   fr: vêtement
   en: "piece of clothing"
+  gender: m
   pos: noun
   tags: [clothes]
 
 - id: manteau
   fr: manteau
   en: coat
+  gender: m
   pos: noun
   tags: [clothes]
 
 - id: chemise
   fr: chemise
   en: shirt
+  gender: f
   pos: noun
   tags: [clothes]
 
 - id: pantalon
   fr: pantalon
   en: trousers
+  gender: m
   pos: noun
   tags: [clothes]
 
 - id: robe
   fr: robe
   en: dress
+  gender: f
   pos: noun
   tags: [clothes]
 
 - id: chaussures
   fr: chaussures
   en: shoes
+  gender: f
   pos: noun
   tags: [clothes]
 
 - id: jupe
   fr: jupe
   en: skirt
+  gender: f
   pos: noun
   tags: [clothes]
 
 - id: veste
   fr: veste
   en: jacket
+  gender: f
   pos: noun
   tags: [clothes]
 
 - id: chapeau
   fr: chapeau
   en: hat
+  gender: m
   pos: noun
   tags: [clothes]
 
@@ -61,47 +70,55 @@
 - id: pull
   fr: pull
   en: sweater
+  gender: m
   pos: noun
   tags: [clothes]
 
 - id: short
   fr: short
   en: shorts
+  gender: m
   pos: noun
   tags: [clothes]
 
 - id: chaussette
   fr: chaussette
   en: sock
+  gender: f
   pos: noun
   tags: [clothes]
 
 - id: gant
   fr: gant
   en: glove
+  gender: m
   pos: noun
   tags: [clothes]
 
 - id: echarpe
   fr: écharpe
   en: scarf
+  gender: f
   pos: noun
   tags: [clothes]
 
 - id: ceinture
   fr: ceinture
   en: belt
+  gender: f
   pos: noun
   tags: [clothes]
 
 - id: cravate
   fr: cravate
   en: tie
+  gender: f
   pos: noun
   tags: [clothes]
 
 - id: couleur
   fr: couleur
   en: colour
+  gender: f
   pos: noun
   tags: [clothes]
