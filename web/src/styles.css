@@ -78,6 +78,16 @@ h2 { font-size: 18px; margin: 0 0 12px; }
 .node-title { font-weight: 700; }
 .node-sub { font-size: 13px; color: var(--muted); }
 
+/* category filter chips (grammar reference) */
+.chip {
+  appearance: none; cursor: pointer; font: inherit; font-weight: 600; font-size: 13px;
+  padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--card); color: var(--muted);
+}
+.chip:hover { color: var(--ink); }
+.chip.active { background: #eaf6ee; color: var(--green-dk); border-color: var(--green); }
+.chip:focus-visible { outline: 2px solid var(--line); outline-offset: 2px; }
+
 /* buttons */
 .btn {
   appearance: none; border: none; cursor: pointer; font: inherit; font-weight: 800;

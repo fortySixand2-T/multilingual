@@ -1,6 +1,7 @@
 id: family-01
 title: "My family"
 grammar_point: "possessive « mon / ma »"
+grammar_category: "Articles & determiners"
 est_minutes: 5
 new_vocab: [famille, mere, pere, frere, soeur]
 pass_threshold: 8.0

@@ -169,6 +169,9 @@ async def get_grammar(
                     "lesson_id": lid,
                     "lesson_title": lesson.title,
                     "grammar_point": grammar_point,
+                    # grammatical family (one of GRAMMAR_CATEGORIES); the reference groups
+                    # and filters by this. Older content without the field reads as "".
+                    "grammar_category": (lesson.data.get("grammar_category") or "").strip(),
                 }
             )
     return {"level": level, "items": items}

@@ -1,6 +1,7 @@
 id: weather-02
 title: "Kinds of weather"
 grammar_point: "« il y a du / de la »"
+grammar_category: "Articles & determiners"
 est_minutes: 5
 new_vocab: [neige, vent, nuage, beau_temps, orage]
 pass_threshold: 8.0

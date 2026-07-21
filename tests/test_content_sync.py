@@ -17,6 +17,7 @@ import app.srs.models  # noqa: F401 - register srs_cards (vocab in_review join)
 from app.api.auth import get_current_user
 from app.content.api import compute_unit_status, get_storage
 from app.content.loader import load_content
+from app.content.models import GRAMMAR_CATEGORIES
 from app.content.sync import sync_bundle
 from app.content.tables import ContentLesson, ContentUnit, ContentVocab
 from app.db.session import get_session
@@ -174,6 +175,16 @@ def test_grammar_endpoint_lists_points_in_path_order():
         if (lesson := bundle.lessons.get(lid)) and lesson.grammar_point.strip()
     )
     assert len(items) == expected
+
+
+def test_grammar_endpoint_items_carry_valid_category():
+    """Every grammar item exposes a grammar_category from the controlled set — the
+    grouping/filter axis the reference UI relies on. a1 content is fully categorized,
+    so none should be empty."""
+    items = client.get("/content/grammar", params={"level": "a1"}).json()["items"]
+    assert items
+    for it in items:
+        assert it["grammar_category"] in GRAMMAR_CATEGORIES, it
 
 
 def test_grammar_endpoint_unknown_level_404():

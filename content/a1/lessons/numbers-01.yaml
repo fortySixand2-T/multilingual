@@ -1,6 +1,7 @@
 id: numbers-01
 title: "Numbers 1–10"
 grammar_point: "cardinal numbers"
+grammar_category: "Expressions & communication"
 est_minutes: 5
 new_vocab: [un, deux, trois, quatre, cinq]
 pass_threshold: 8.0
