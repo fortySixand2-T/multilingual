@@ -62,3 +62,6 @@
 - [2026-07-09] Created: qa/rounds/039-plan.md, qa/issues/463-comprehension-submit-response-missing-xp-streak.md — QA round 039 on the 449/450/452 hardening: clean (11 hypotheses sound, all 3 target fixes confirmed); 463 filed and deferred (full-stack, no user-visible harm)
 - [2026-07-11] Modified: app/comprehension/api.py, tests/test_comprehension.py — fix 463: comprehension submit returns xp/streak (capture record_activity's prog + refresh, or read existing row), matching the lesson-result endpoint
 - [2026-07-11] Modified: web/src/api.ts, web/src/screens/ComprehensionSet.tsx — surface live streak/XP on the comprehension result (🔥 streak / ⭐ xp XP + first-pass cue) instead of a hardcoded "+15 XP"
+- [2026-07-20] Created: .claude/agents/qa-browser-tester.md — reusable browser-driving QA agent that exercises the running app UI via Claude-in-Chrome as a student persona and files issues in qa/issues/ (UI complement to curl-based qa-tester)
+- [2026-07-20] Modified: .claude/agents/qa-planner.md — route each charter to qa-tester (API risk) or qa-browser-tester (UI risk); preflight notes SPA must be served for browser charters
+- [2026-07-20] Modified: .claude/agents/qa-pm.md, .claude/agents/qa-critic.md — grant Chrome tools so triage/critic can visually reproduce UI issues in the browser instead of judging from CSS/JSX
