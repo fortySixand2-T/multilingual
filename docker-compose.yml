@@ -28,7 +28,9 @@ services:
       retries: 3
 
   ollama:
-    image: ollama/ollama
+    # Pin an older tag on hosts with an NVIDIA driver < 570 (e.g. Pascal / GTX 10xx
+    # on driver 550): set OLLAMA_IMAGE_TAG=0.6.8 in .env. Default = latest.
+    image: ollama/ollama:${OLLAMA_IMAGE_TAG:-latest}
     volumes: ["ollama:/root/.ollama"]
     restart: unless-stopped
 
