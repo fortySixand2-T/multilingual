@@ -1,0 +1,37 @@
+# Fully self-hosted routing: every profile runs on local Ollama, no API keys, no
+# cloud fallback. Select it by setting AI_ROUTING_PATH to this file in .env. Use on
+# a box with Ollama + a pulled model (default: llama3.1). If Ollama is down these
+# degrade to a clean 503 (there is no cloud fallback by design).
+profiles:
+  drill_a1:
+    capability: llm
+    primary: "ollama/llama3.1"
+  drill_a2:
+    capability: llm
+    primary: "ollama/llama3.1"
+  drill_b1:
+    capability: llm
+    primary: "ollama/llama3.1"
+  drill_b2:
+    capability: llm
+    primary: "ollama/llama3.1"
+
+  grammar_explain:
+    capability: llm
+    primary: "ollama/llama3.1"
+    cache: true          # a fixed grammar point's explanation is reusable
+    cache_ttl: 86400
+
+  writing_feedback:
+    capability: llm
+    primary: "ollama/llama3.1"
+    format: json         # grader parses a strict schema — constrain Ollama to valid JSON
+
+  examiner_roleplay:
+    capability: llm
+    primary: "ollama/llama3.1"
+
+  # Eval-only (offline model comparison). Kept local so the CLIs don't 503.
+  pairwise_judge:
+    capability: llm
+    primary: "ollama/llama3.1"

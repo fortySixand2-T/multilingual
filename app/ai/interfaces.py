@@ -43,6 +43,7 @@ class LLMProvider(Protocol):
         model: str,
         temperature: float = 0.3,
         max_tokens: int = 1024,
+        format: str | None = None,  # "json" -> request strict JSON output
     ) -> LLMResult: ...
 
 

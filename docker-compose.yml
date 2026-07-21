@@ -31,6 +31,10 @@ services:
     # Pin an older tag on hosts with an NVIDIA driver < 570 (e.g. Pascal / GTX 10xx
     # on driver 550): set OLLAMA_IMAGE_TAG=0.6.8 in .env. Default = latest.
     image: ollama/ollama:${OLLAMA_IMAGE_TAG:-latest}
+    # Keep the model resident on a dedicated box (-1) so there's no reload lag after
+    # idle; default 5m otherwise.
+    environment:
+      - OLLAMA_KEEP_ALIVE=${OLLAMA_KEEP_ALIVE:-5m}
     volumes: ["ollama:/root/.ollama"]
     restart: unless-stopped
 

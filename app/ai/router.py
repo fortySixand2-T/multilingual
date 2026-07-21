@@ -29,6 +29,7 @@ class ProfileConfig:
     fallback: str | None = None
     cache: bool = False
     cache_ttl: int | None = None  # seconds; None -> cache backend default
+    format: str | None = None  # "json" -> ask the provider for strict JSON output
 
 
 class AIRouter:
@@ -110,6 +111,7 @@ class AIRouter:
                     model=model,
                     temperature=temperature,
                     max_tokens=max_tokens,
+                    format=prof.format,
                 )
             except Exception as e:  # noqa: BLE001 - intentional fallback boundary
                 last_err = e

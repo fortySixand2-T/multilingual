@@ -31,8 +31,11 @@ class LiteLLMAdapter:
         model: str,
         temperature: float = 0.3,
         max_tokens: int = 1024,
+        format: str | None = None,
     ) -> LLMResult:
         extra = {"api_base": self._api_base} if self._api_base else {}
+        if format == "json":
+            extra["response_format"] = {"type": "json_object"}
         resp = litellm.completion(
             model=f"{self.name}/{model}",
             api_key=self._api_key,

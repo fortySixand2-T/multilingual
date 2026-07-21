@@ -1,5 +1,11 @@
 # Changelog
 
+- [2026-07-21] Modified: app/ai/router.py, interfaces.py — per-profile `format` option passed to provider.complete
+- [2026-07-21] Modified: app/ai/adapters/ollama_adapter.py — pass `format` (e.g. json) to Ollama; litellm_adapter.py — map format=json to response_format
+- [2026-07-21] Created: app/config/ai_routing.ollama.yaml — fully self-hosted routing preset (all profiles on ollama/llama3.1; writing_feedback format:json)
+- [2026-07-21] Created: tests/test_json_format.py — format flows config→router→adapters
+- [2026-07-21] Modified: docker-compose.yml — OLLAMA_KEEP_ALIVE env-driven; .env.example — OLLAMA_KEEP_ALIVE + ollama-only AI_ROUTING_PATH
+
 - [2026-07-20] Modified: docker-compose.yml — ollama image tag configurable via ${OLLAMA_IMAGE_TAG:-latest} (pin CUDA-12 build on driver <570)
 - [2026-07-20] Modified: .env.example — document OLLAMA_IMAGE_TAG
 - [2026-07-20] Modified: docs/hosting.md — troubleshooting: GPU present but Ollama on CPU (driver <570 / Pascal)
