@@ -1,107 +1,125 @@
 - id: pain
   fr: pain
   en: bread
+  gender: m
   pos: noun
   tags: [food]
 
 - id: fromage
   fr: fromage
   en: cheese
+  gender: m
   pos: noun
   tags: [food]
 
 - id: pomme
   fr: pomme
   en: apple
+  gender: f
   pos: noun
   tags: [food]
 
 - id: poulet
   fr: poulet
   en: chicken
+  gender: m
   pos: noun
   tags: [food]
 
 - id: poisson
   fr: poisson
   en: fish
+  gender: m
   pos: noun
   tags: [food]
 
 - id: legume
   fr: légume
   en: vegetable
+  gender: m
   pos: noun
   tags: [food]
 
 - id: viande
   fr: viande
   en: meat
+  gender: f
   pos: noun
   tags: [food]
 
 - id: oeuf
   fr: œuf
   en: egg
+  gender: m
   pos: noun
   tags: [food]
 
 - id: riz
   fr: riz
   en: rice
+  gender: m
   pos: noun
   tags: [food]
 
 - id: soupe
   fr: soupe
   en: soup
+  gender: f
   pos: noun
   tags: [food]
 
 - id: beurre
   fr: beurre
   en: butter
+  gender: m
   pos: noun
   tags: [food]
 
 - id: sel
   fr: sel
   en: salt
+  gender: m
   pos: noun
   tags: [food]
 
 - id: poivre
   fr: poivre
   en: pepper
+  gender: m
   pos: noun
   tags: [food]
 
 - id: salade
   fr: salade
   en: salad
+  gender: f
   pos: noun
   tags: [food]
 
 - id: fruit
   fr: fruit
   en: fruit
+  gender: m
   pos: noun
   tags: [food]
 
 - id: banane
   fr: banane
   en: banana
+  gender: f
   pos: noun
   tags: [food]
 
 - id: tomate
   fr: tomate
   en: tomato
+  gender: f
   pos: noun
   tags: [food]
 
 - id: gateau
   fr: gâteau
   en: cake
+  gender: m
   pos: noun
   tags: [food]

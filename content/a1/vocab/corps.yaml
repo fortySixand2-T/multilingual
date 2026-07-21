@@ -1,77 +1,90 @@
 - id: visage
   fr: visage
   en: face
+  gender: m
   pos: noun
   tags: [body]
 
 - id: cheveux
   fr: cheveux
   en: hair
+  gender: m
   pos: noun
   tags: [body]
 
 - id: yeux
   fr: yeux
   en: eyes
+  gender: m
   pos: noun
   tags: [body]
 
 - id: bouche
   fr: bouche
   en: mouth
+  gender: f
   pos: noun
   tags: [body]
 
 - id: nez
   fr: nez
   en: nose
+  gender: m
   pos: noun
   tags: [body]
 
 - id: oreille
   fr: oreille
   en: ear
+  gender: f
   pos: noun
   tags: [body]
 
 - id: dent
   fr: dent
   en: tooth
+  gender: f
   pos: noun
   tags: [body]
 
 - id: cou
   fr: cou
   en: neck
+  gender: m
   pos: noun
   tags: [body]
 
 - id: epaule
   fr: épaule
   en: shoulder
+  gender: f
   pos: noun
   tags: [body]
 
 - id: doigt
   fr: doigt
   en: finger
+  gender: m
   pos: noun
   tags: [body]
 
 - id: genou
   fr: genou
   en: knee
+  gender: m
   pos: noun
   tags: [body]
 
 - id: coeur
   fr: cœur
   en: heart
+  gender: m
   pos: noun
   tags: [body]
 
 - id: peau
   fr: peau
   en: skin
+  gender: f
   pos: noun
   tags: [body]

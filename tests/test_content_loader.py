@@ -6,7 +6,7 @@ import pytest
 from pydantic import ValidationError
 
 from app.content.loader import ContentError, load_content
-from app.content.models import McqExercise, WordBankExercise
+from app.content.models import McqExercise, Vocab, WordBankExercise
 
 CONTENT_ROOT = FsPath(__file__).resolve().parents[1] / "content"
 
@@ -38,6 +38,23 @@ def test_mcq_answer_must_be_in_options():
 def test_word_bank_answer_must_come_from_tokens():
     with pytest.raises(ValidationError):
         WordBankExercise(id="x", type="word_bank", prompt="?", tokens=["a"], answer=["b"])
+
+
+def test_vocab_gender_and_fem_are_consistent():
+    # plain gendered / ungendered words load
+    Vocab(id="cafe", fr="café", en="coffee", gender="m")
+    Vocab(id="eau", fr="eau", en="water", gender="f")
+    Vocab(id="un", fr="un", en="one")  # gender defaults to ""
+    # dual-gender needs a feminine form...
+    Vocab(id="serveur", fr="serveur", en="waiter", gender="mf", fem="serveuse")
+    with pytest.raises(ValidationError, match="requires a `fem`"):
+        Vocab(id="serveur", fr="serveur", en="waiter", gender="mf")
+    # ...and `fem` is meaningless without gender "mf"
+    with pytest.raises(ValidationError, match="only valid for gender 'mf'"):
+        Vocab(id="cafe", fr="café", en="coffee", gender="m", fem="cafée")
+    # an off-list gender is rejected by the Literal
+    with pytest.raises(ValidationError):
+        Vocab(id="x", fr="x", en="x", gender="male")
 
 
 def test_missing_lesson_reference_is_an_error(tmp_path):

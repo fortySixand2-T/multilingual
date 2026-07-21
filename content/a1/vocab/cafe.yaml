@@ -1,101 +1,118 @@
 - id: cafe
   fr: café
   en: coffee
+  gender: m
   pos: noun
   tags: [drink]
 
 - id: eau
   fr: eau
   en: water
+  gender: f
   pos: noun
   tags: [drink]
 
 - id: the
   fr: thé
   en: tea
+  gender: m
   pos: noun
   tags: [drink]
 
 - id: lait
   fr: lait
   en: milk
+  gender: m
   pos: noun
   tags: [drink]
 
 - id: sucre
   fr: sucre
   en: sugar
+  gender: m
   pos: noun
   tags: [food]
 
 - id: jus
   fr: jus
   en: juice
+  gender: m
   pos: noun
   tags: [drink]
 
 - id: biere
   fr: bière
   en: beer
+  gender: f
   pos: noun
   tags: [drink]
 
 - id: vin
   fr: vin
   en: wine
+  gender: m
   pos: noun
   tags: [drink]
 
 - id: addition
   fr: addition
   en: "bill / check"
+  gender: f
   pos: noun
   tags: [cafe]
 
 - id: chocolat_chaud
   fr: chocolat chaud
   en: "hot chocolate"
+  gender: m
   pos: noun
   tags: [drink]
 
 - id: limonade
   fr: limonade
   en: lemonade
+  gender: f
   pos: noun
   tags: [drink]
 
 - id: tasse
   fr: tasse
   en: cup
+  gender: f
   pos: noun
   tags: [cafe]
 
 - id: pourboire
   fr: pourboire
   en: tip
+  gender: m
   pos: noun
   tags: [cafe]
 
 - id: croissant
   fr: croissant
   en: croissant
+  gender: m
   pos: noun
   tags: [food]
 
 - id: terrasse
   fr: terrasse
   en: terrace
+  gender: f
   pos: noun
   tags: [cafe]
 
 - id: glacon
   fr: glaçon
   en: "ice cube"
+  gender: m
   pos: noun
   tags: [drink]
 
 - id: citron
   fr: citron
   en: lemon
+  gender: m
   pos: noun
   tags: [food]

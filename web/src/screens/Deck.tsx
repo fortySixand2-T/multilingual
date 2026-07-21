@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api, VocabCard } from "../api";
-import AudioButton from "../AudioButton";
+import VocabWord from "../VocabWord";
 import { shuffled } from "../shuffle";
 
 // Flashcard study for one deck: show French (+ pronunciation), flip to the meaning,
@@ -86,8 +86,7 @@ export default function Deck() {
         <div className="muted" style={{ textTransform: "capitalize" }}>
           {idx + 1} / {deck.length} · {label}{isKnown ? " · ✓ known" : ""}
         </div>
-        <div style={{ fontSize: 34, fontWeight: 800 }}>{card.fr}</div>
-        {card.audio && <AudioButton audioKey={card.audio} label="🔊" />}
+        <VocabWord card={card} />
         {flipped ? (
           <div style={{ fontSize: 20 }} className="muted">{card.en}</div>
         ) : (

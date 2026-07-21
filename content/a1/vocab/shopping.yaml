@@ -1,24 +1,28 @@
 - id: magasin
   fr: magasin
   en: shop
+  gender: m
   pos: noun
   tags: [shopping]
 
 - id: prix
   fr: prix
   en: price
+  gender: m
   pos: noun
   tags: [shopping]
 
 - id: argent
   fr: argent
   en: money
+  gender: m
   pos: noun
   tags: [shopping]
 
 - id: carte
   fr: carte
   en: "card (payment)"
+  gender: f
   pos: noun
   tags: [shopping]
 
@@ -37,36 +41,44 @@
 - id: soldes
   fr: soldes
   en: sales
+  gender: m
   pos: noun
   tags: [shopping]
 
 - id: taille
   fr: taille
   en: size
+  gender: f
   pos: noun
   tags: [shopping]
 
 - id: caisse
   fr: caisse
   en: "checkout / till"
+  gender: f
   pos: noun
   tags: [shopping]
 
 - id: euro
   fr: euro
   en: euro
+  gender: m
   pos: noun
   tags: [shopping]
 
 - id: vendeur
   fr: vendeur
   en: salesperson
+  gender: mf
+  fem: vendeuse
   pos: noun
   tags: [shopping]
 
 - id: client
   fr: client
   en: customer
+  gender: mf
+  fem: cliente
   pos: noun
   tags: [shopping]
 
@@ -85,18 +97,21 @@
 - id: monnaie
   fr: monnaie
   en: "change (coins)"
+  gender: f
   pos: noun
   tags: [shopping]
 
 - id: recu
   fr: reçu
   en: receipt
+  gender: m
   pos: noun
   tags: [shopping]
 
 - id: panier
   fr: panier
   en: basket
+  gender: m
   pos: noun
   tags: [shopping]
 

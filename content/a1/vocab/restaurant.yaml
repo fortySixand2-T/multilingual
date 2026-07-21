@@ -1,54 +1,64 @@
 - id: restaurant
   fr: restaurant
   en: restaurant
+  gender: m
   pos: noun
   tags: [restaurant]
 
 - id: menu
   fr: menu
   en: menu
+  gender: m
   pos: noun
   tags: [restaurant]
 
 - id: table
   fr: table
   en: table
+  gender: f
   pos: noun
   tags: [restaurant]
 
 - id: serveur
   fr: serveur
   en: waiter
+  gender: mf
+  fem: serveuse
   pos: noun
   tags: [restaurant]
 
 - id: plat
   fr: plat
   en: dish
+  gender: m
   pos: noun
   tags: [restaurant]
 
 - id: entree
   fr: entrée
   en: starter
+  gender: f
   pos: noun
   tags: [restaurant]
 
 - id: dessert
   fr: dessert
   en: dessert
+  gender: m
   pos: noun
   tags: [restaurant]
 
 - id: boisson
   fr: boisson
   en: drink
+  gender: f
   pos: noun
   tags: [restaurant]
 
 - id: reservation
   fr: réservation
   en: reservation
+  gender: f
   pos: noun
   tags: [restaurant]
 
@@ -61,12 +71,14 @@
 - id: fourchette
   fr: fourchette
   en: fork
+  gender: f
   pos: noun
   tags: [restaurant]
 
 - id: serviette
   fr: serviette
   en: napkin
+  gender: f
   pos: noun
   tags: [restaurant]
 
@@ -79,12 +91,14 @@
 - id: nappe
   fr: nappe
   en: tablecloth
+  gender: f
   pos: noun
   tags: [restaurant]
 
 - id: chef
   fr: chef
   en: chef
+  gender: m
   pos: noun
   tags: [restaurant]
 

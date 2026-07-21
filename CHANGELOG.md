@@ -62,3 +62,13 @@
 - [2026-07-09] Created: qa/rounds/039-plan.md, qa/issues/463-comprehension-submit-response-missing-xp-streak.md — QA round 039 on the 449/450/452 hardening: clean (11 hypotheses sound, all 3 target fixes confirmed); 463 filed and deferred (full-stack, no user-visible harm)
 - [2026-07-11] Modified: app/comprehension/api.py, tests/test_comprehension.py — fix 463: comprehension submit returns xp/streak (capture record_activity's prog + refresh, or read existing row), matching the lesson-result endpoint
 - [2026-07-11] Modified: web/src/api.ts, web/src/screens/ComprehensionSet.tsx — surface live streak/XP on the comprehension result (🔥 streak / ⭐ xp XP + first-pass cue) instead of a hardcoded "+15 XP"
+- [2026-07-20] Modified: app/content/models.py — Vocab gains gender (m/f/mf/"") + fem; validator requires fem for gender "mf" and forbids it otherwise
+- [2026-07-20] Modified: app/content/api.py — /content/vocab passes gender/fem through and adds fem_audio (<id>_f.mp3) for dual-gender words
+- [2026-07-20] Modified: scripts/gen_audio.py — generate the feminine clip <id>_f.mp3 from `fem` for gender "mf" words
+- [2026-07-20] Modified: content/a1/vocab/*.yaml — annotate all 135 a1 nouns with gender (79 m, 53 f, 3 mf); adjectives/verbs/numerals left ungendered
+- [2026-07-20] Created: content/a1/audio/{serveur,vendeur,client}_f.mp3 — feminine pronunciation clips for the a1 dual-gender words
+- [2026-07-20] Created: web/src/VocabWord.tsx — render the headword with its gender marker (m)/(fe); dual-gender shows both forms + both pronunciations
+- [2026-07-20] Modified: web/src/screens/Deck.tsx — use VocabWord for the flashcard headword
+- [2026-07-20] Modified: web/src/api.ts — VocabCard gains gender/fem/fem_audio
+- [2026-07-20] Modified: web/src/styles.css — .vocab-word / .gender-mark styles
+- [2026-07-20] Created: web/src/VocabWord.test.tsx, tests/test_content_loader.py, tests/test_content_sync.py — cover gender validation, API exposure, and UI rendering

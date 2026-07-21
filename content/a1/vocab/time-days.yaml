@@ -1,42 +1,49 @@
 - id: lundi
   fr: lundi
   en: Monday
+  gender: m
   pos: noun
   tags: [time]
 
 - id: mardi
   fr: mardi
   en: Tuesday
+  gender: m
   pos: noun
   tags: [time]
 
 - id: mercredi
   fr: mercredi
   en: Wednesday
+  gender: m
   pos: noun
   tags: [time]
 
 - id: jeudi
   fr: jeudi
   en: Thursday
+  gender: m
   pos: noun
   tags: [time]
 
 - id: vendredi
   fr: vendredi
   en: Friday
+  gender: m
   pos: noun
   tags: [time]
 
 - id: samedi
   fr: samedi
   en: Saturday
+  gender: m
   pos: noun
   tags: [time]
 
 - id: dimanche
   fr: dimanche
   en: Sunday
+  gender: m
   pos: noun
   tags: [time]
 
@@ -55,6 +62,7 @@
 - id: heure
   fr: heure
   en: "hour / time"
+  gender: f
   pos: noun
   tags: [time]
 
@@ -67,36 +75,42 @@
 - id: semaine
   fr: semaine
   en: week
+  gender: f
   pos: noun
   tags: [time]
 
 - id: mois
   fr: mois
   en: month
+  gender: m
   pos: noun
   tags: [time]
 
 - id: annee
   fr: année
   en: year
+  gender: f
   pos: noun
   tags: [time]
 
 - id: jour
   fr: jour
   en: day
+  gender: m
   pos: noun
   tags: [time]
 
 - id: minute
   fr: minute
   en: minute
+  gender: f
   pos: noun
   tags: [time]
 
 - id: soir
   fr: soir
   en: evening
+  gender: m
   pos: noun
   tags: [time]
 

@@ -122,17 +122,20 @@
 - id: monsieur
   fr: monsieur
   en: "sir / Mr"
+  gender: m
   pos: noun
   tags: [politeness]
 
 - id: madame
   fr: madame
   en: "ma'am / Mrs"
+  gender: f
   pos: noun
   tags: [politeness]
 
 - id: mademoiselle
   fr: mademoiselle
   en: miss
+  gender: f
   pos: noun
   tags: [politeness]
