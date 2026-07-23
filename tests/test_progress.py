@@ -224,3 +224,12 @@ def test_review_endpoint_reschedules_a_card():
     assert (
         client.post("/srs/review", json={"card_key": "ghost", "rating": "good"}).status_code == 404
     )
+
+
+def test_vocab_known_rejects_phantom_card_key():
+    # qa-321: /content/vocab/known must validate the key against the catalog (like
+    # srs/add qa-311), else phantom keys accumulate silently.
+    ok = client.post("/content/vocab/known", json={"card_key": "bonjour", "known": True})
+    assert ok.status_code == 200 and ok.json()["known"] is True
+    ghost = client.post("/content/vocab/known", json={"card_key": "ghost", "known": True})
+    assert ghost.status_code == 404

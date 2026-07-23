@@ -21,6 +21,7 @@ from app.db.session import get_session
 from app.exam.clb import aggregate_report, clb_from_fraction
 from app.exam.models import Skill
 from app.exam.tables import ExamAttempt, ExamBlueprintRow
+from app.progress.models import UserProgress
 from app.progress.service import record_activity
 from app.users.models import User
 
@@ -197,7 +198,13 @@ async def finish(
 ) -> dict:
     attempt = await _owned_attempt(session, attempt_id, user.id)
     if attempt.status == "finished":  # idempotent
-        return {"attempt_id": attempt.id, "report": attempt.clb_report}
+        prog = await session.get(UserProgress, user.id)
+        return {
+            "attempt_id": attempt.id,
+            "report": attempt.clb_report,
+            "xp": prog.xp if prog else 0,
+            "streak": prog.streak if prog else 0,
+        }
 
     required = await _required_skills(session, attempt.blueprint_id)
     missing = [s for s in required if s not in attempt.sections]
@@ -219,10 +226,25 @@ async def finish(
         .where(ExamAttempt.id == attempt.id, ExamAttempt.status == "in_progress")
         .values(status="finished", finished_at=now, clb_report=report)
     )
+    prog = None
     if result.rowcount == 1:
-        await record_activity(session, user.id, xp_award=EXAM_XP, level=attempt.level)
+        prog = await record_activity(session, user.id, xp_award=EXAM_XP, level=attempt.level)
     await session.commit()
-    return {"attempt_id": attempt.id, "report": report}
+
+    # Surface live XP/streak so the client isn't stale after finishing (qa-465,
+    # consistent with comprehension submit qa-463). On the awarding request `prog`
+    # was just written (xp is an atomic increment → refresh to read it back);
+    # otherwise (idempotent loser of the race, or no award) read the current row.
+    if prog is not None:
+        await session.refresh(prog)
+    else:
+        prog = await session.get(UserProgress, user.id)
+    return {
+        "attempt_id": attempt.id,
+        "report": report,
+        "xp": prog.xp if prog else 0,
+        "streak": prog.streak if prog else 0,
+    }
 
 
 @router.get("/history")
