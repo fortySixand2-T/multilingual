@@ -21,3 +21,12 @@
 - [2026-07-22] Modified: tests/test_exam.py — assert finish response carries xp/streak
 - [2026-07-22] Modified: tests/test_progress.py — test vocab/known rejects phantom card_key
 - [2026-07-22] Triaged: qa/issues/{321,322,341,342,360,464,465}.md — live-round verdicts (2 fixed, 2 rejected, 3 deferred)
+- [2026-07-22] Modified: app/users/models.py — add Invite model (managed reusable signup tokens)
+- [2026-07-22] Created: app/users/invites.py — token gen + redemption service (find_redeemable/create_invite)
+- [2026-07-22] Created: migrations/versions/0013_invites.py — invites table
+- [2026-07-22] Modified: app/api/auth.py — signup accepts managed invite tokens, consumes a use atomically
+- [2026-07-22] Modified: app/config/settings.py — add PUBLIC_BASE_URL for building invite links
+- [2026-07-22] Created: scripts/make_invite.py — CLI to mint/list/revoke invite links
+- [2026-07-22] Modified: web/src/screens/Login.tsx — ?invite=<token> link prefills code + opens signup
+- [2026-07-22] Modified: tests/test_auth.py — invite token redemption tests (reuse/cap/expiry/rollback)
+- [2026-07-22] Modified: .env.example, docs/hosting.md — document invite links

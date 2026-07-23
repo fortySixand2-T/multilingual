@@ -18,6 +18,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.config.settings import Settings, get_settings
 from app.db.session import get_session
 from app.users.auth import create_token, hash_password, verify_password, verify_token
+from app.users.invites import find_redeemable
 from app.users.models import User
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -66,14 +67,23 @@ async def signup(
     session: AsyncSession = Depends(get_session),
     settings: Settings = Depends(get_settings),
 ) -> TokenResponse:
+    # Two accepted forms: a static env code (unlimited, closed group) or a managed
+    # token from the `invites` table (reusable, revocable, optionally capped/expiring).
+    invite = None
     if body.invite_code not in settings.invite_code_set:
-        raise HTTPException(status.HTTP_403_FORBIDDEN, "invalid invite code")
+        invite = await find_redeemable(session, body.invite_code)
+        if invite is None:
+            raise HTTPException(status.HTTP_403_FORBIDDEN, "invalid invite code")
     user = User(
         email=body.email,
         display_name=body.display_name,
         password_hash=hash_password(body.password),
     )
     session.add(user)
+    # Consume a use only on a successful signup — commit both together so a
+    # duplicate-email rollback (below) doesn't burn a use (matters when max_uses is set).
+    if invite is not None:
+        invite.uses += 1
     try:
         await session.commit()
     except IntegrityError:

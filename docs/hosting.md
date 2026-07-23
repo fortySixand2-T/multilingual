@@ -61,6 +61,29 @@ Friends reach `https://<your-laptop>.<tailnet>.ts.net` once they're on your tail
 > HTTPS matters if you later enable the speech feature — browsers only allow
 > microphone access on secure origins.
 
+### Inviting people (signup gate)
+
+Signup requires an invite. Two options, used in parallel:
+
+- **Static codes** — `INVITE_CODES` in `.env` (comma-separated). Always valid,
+  unlimited, changed only by editing `.env` + restart. Fine for a fixed group.
+- **Managed invite links** — mint a token in the DB and share it as a link. Reusable
+  by default; you can cap, expire, or revoke it without a redeploy. Set
+  `PUBLIC_BASE_URL` so the CLI prints a full clickable link.
+
+```bash
+# inside the app container (or any env with the DB + deps):
+python -m scripts.make_invite new --label "Study group"          # reusable link
+python -m scripts.make_invite new --label "One friend" --max-uses 1
+python -m scripts.make_invite new --label "Reddit" --expires-days 7
+python -m scripts.make_invite list
+python -m scripts.make_invite revoke <token>
+```
+
+The link is `https://<host>/signup?invite=<token>` — opening it prefills the invite
+field and jumps to the signup form. Each successful signup bumps the token's use
+count; a token stops working once revoked, expired, or at its `max_uses` cap.
+
 ### 4. Keep the laptop serving (don't sleep on lid close)
 ```bash
 # /etc/systemd/logind.conf
