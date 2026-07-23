@@ -297,6 +297,14 @@ def test_finish_awards_xp():
     r = client.post(f"/exam/{aid}/finish")
     assert r.status_code == 200
 
+    # qa-465: the finish response surfaces the live XP/streak (like comprehension
+    # qa-463), so the client isn't stale after awarding.
+    body = r.json()
+    assert body["xp"] >= 25 and body["streak"] >= 1
+    # idempotent re-finish still reports the totals (no double award)
+    again = client.post(f"/exam/{aid}/finish").json()
+    assert again["xp"] == body["xp"] and again["streak"] == body["streak"]
+
     async def check():
         async with _Session() as s:
             return await s.get(UserProgress, _U.id)

@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { useAuth } from "../auth";
 
+// A ?invite=<token> link (e.g. /signup?invite=abc123) prefills the code and opens
+// signup, so a shared invite link is one click to the right form.
+const inviteFromUrl = new URLSearchParams(window.location.search).get("invite") ?? "";
+
 export default function Login() {
   const { login, signup } = useAuth();
-  const [mode, setMode] = useState<"login" | "signup">("login");
+  const [mode, setMode] = useState<"login" | "signup">(inviteFromUrl ? "signup" : "login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
-  const [inviteCode, setInviteCode] = useState("");
+  const [inviteCode, setInviteCode] = useState(inviteFromUrl);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 

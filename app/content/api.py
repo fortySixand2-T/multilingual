@@ -263,7 +263,13 @@ async def set_known(
     session: AsyncSession = Depends(get_session),
     user: User = Depends(get_current_user),
 ) -> dict:
-    """Mark a vocab card known (insert) or reset it (delete). Idempotent."""
+    """Mark a vocab card known (insert) or reset it (delete). Idempotent.
+
+    The key must name a real vocab card — validated against the content catalog so
+    phantom keys can't accumulate, consistent with the srs/add edge (qa-311, qa-321)."""
+    exists = await session.scalar(select(ContentVocab.id).where(ContentVocab.id == body.card_key))
+    if exists is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"no vocab card {body.card_key!r}")
     existing = (
         await session.execute(
             select(KnownVocab).where(

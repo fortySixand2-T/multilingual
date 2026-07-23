@@ -193,3 +193,54 @@ def test_duplicate_email_conflicts():
     }
     assert client.post("/auth/signup", json=body).status_code == 201
     assert client.post("/auth/signup", json=body).status_code == 409
+
+
+# --- managed invite tokens (0013_invites) ---------------------------------
+
+from datetime import UTC, datetime, timedelta  # noqa: E402
+
+from app.users.invites import create_invite  # noqa: E402
+
+
+def _mint(**kw) -> str:
+    async def go():
+        async with _Session() as s:
+            return (await create_invite(s, **kw)).token
+
+    return asyncio.run(go())
+
+
+def _signup(email, code):
+    return client.post(
+        "/auth/signup",
+        json={"email": email, "password": "pw123456", "invite_code": code, "display_name": "T"},
+    )
+
+
+def test_reusable_token_admits_multiple_signups():
+    token = _mint(label="Study group")  # max_uses None -> unlimited
+    assert _signup("inv1@x.com", token).status_code == 201
+    assert _signup("inv2@x.com", token).status_code == 201
+
+
+def test_capped_token_is_exhausted():
+    token = _mint(max_uses=1)
+    assert _signup("cap1@x.com", token).status_code == 201
+    assert _signup("cap2@x.com", token).status_code == 403  # no uses left
+
+
+def test_expired_token_rejected():
+    token = _mint(expires_at=datetime.now(UTC) - timedelta(days=1))
+    assert _signup("exp@x.com", token).status_code == 403
+
+
+def test_unknown_token_rejected():
+    assert _signup("unk@x.com", "not-a-real-token").status_code == 403
+
+
+def test_failed_signup_does_not_consume_a_use():
+    # A duplicate-email 409 must not burn a use on a capped token (atomic commit).
+    assert _signup("taken@x.com", "good-code").status_code == 201
+    token = _mint(max_uses=1)
+    assert _signup("taken@x.com", token).status_code == 409  # dup email, rolled back
+    assert _signup("fresh@x.com", token).status_code == 201  # use was preserved

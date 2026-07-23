@@ -28,6 +28,10 @@ class Settings(BaseSettings):
 
     # Invite-code signup (closed group). Comma-separated allowed codes.
     invite_codes: str = ""
+    # Public base URL used to build shareable invite links, e.g.
+    # https://tef.example.com -> https://tef.example.com/signup?invite=<token>.
+    # Falls back to a bare "/signup?invite=<token>" path when unset.
+    public_base_url: str = ""
 
     # Per-user daily token budgets for metered AI features (cost guard, R7).
     tutor_daily_token_budget: int = 50000
