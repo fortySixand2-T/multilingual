@@ -16,7 +16,9 @@ export default function Exam() {
   const [history, setHistory] = useState<ExamAttemptSummary[]>([]);
   const [attempt, setAttempt] = useState<{ id: number; blueprint: ExamBlueprint } | null>(null);
   const [recorded, setRecorded] = useState<Record<string, number>>({});
-  const [report, setReport] = useState<ClbReport | null>(null);
+  const [outcome, setOutcome] = useState<{ report: ClbReport; xp: number; streak: number } | null>(
+    null,
+  );
   const [error, setError] = useState("");
 
   const loadLists = () => {
@@ -28,7 +30,7 @@ export default function Exam() {
     // previous level, then reload that level's blueprints + history (qa-391).
     setAttempt(null);
     setRecorded({});
-    setReport(null);
+    setOutcome(null);
     setError("");
     loadLists();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,7 +42,7 @@ export default function Exam() {
       const r = await api.examStart(id);
       setAttempt({ id: r.attempt_id, blueprint: r.blueprint });
       setRecorded({});
-      setReport(null);
+      setOutcome(null);
     } catch (e: any) {
       setError(e.message);
     }
@@ -53,7 +55,7 @@ export default function Exam() {
       const d = await api.examAttempt(attemptId);
       setAttempt({ id: d.attempt_id, blueprint: d.blueprint });
       setRecorded(Object.fromEntries(d.recorded.map((s) => [s, 1])));
-      setReport(null);
+      setOutcome(null);
     } catch (e: any) {
       setError(e.message);
     }
@@ -64,7 +66,7 @@ export default function Exam() {
     setError("");
     try {
       const r = await api.examFinish(attempt.id);
-      setReport(r.report);
+      setOutcome({ report: r.report, xp: r.xp, streak: r.streak });
       setAttempt(null);
       loadLists();
     } catch (e: any) {
@@ -72,12 +74,17 @@ export default function Exam() {
     }
   };
 
-  if (report) {
+  if (outcome) {
     return (
       <div>
         <h1>Mock results</h1>
-        <ClbReportCard report={report} />
-        <button className="btn" style={{ marginTop: 16 }} onClick={() => setReport(null)}>Done</button>
+        <ClbReportCard report={outcome.report} />
+        {/* Surface the XP/streak the finish awarded, like the comprehension result (qa-465). */}
+        <div className="btn-row center" style={{ justifyContent: "center", marginTop: 12 }}>
+          <span className="pill">🔥 {outcome.streak}</span>
+          <span className="pill">⭐ {outcome.xp} XP</span>
+        </div>
+        <button className="btn" style={{ marginTop: 16 }} onClick={() => setOutcome(null)}>Done</button>
       </div>
     );
   }

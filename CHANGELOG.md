@@ -30,3 +30,5 @@
 - [2026-07-22] Modified: web/src/screens/Login.tsx — ?invite=<token> link prefills code + opens signup
 - [2026-07-22] Modified: tests/test_auth.py — invite token redemption tests (reuse/cap/expiry/rollback)
 - [2026-07-22] Modified: .env.example, docs/hosting.md — document invite links
+- [2026-07-24] Modified: web/src/api.ts — qa-465 fe: examFinish response type carries xp/streak
+- [2026-07-24] Modified: web/src/screens/Exam.tsx — qa-465 fe: Mock results shows 🔥 streak / ⭐ xp pills
