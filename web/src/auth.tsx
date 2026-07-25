@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { api, getToken, setToken } from "./api";
 
 type AuthCtx = {
@@ -12,6 +12,14 @@ const Ctx = createContext<AuthCtx | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [authed, setAuthed] = useState<boolean>(!!getToken());
+
+  // A dead session (401 on an authed request) fires "tef:unauthorized" from the API
+  // client; drop to the login view so the learner isn't stuck on a broken shell (qa-466).
+  useEffect(() => {
+    const onUnauth = () => setAuthed(false);
+    window.addEventListener("tef:unauthorized", onUnauth);
+    return () => window.removeEventListener("tef:unauthorized", onUnauth);
+  }, []);
 
   const login = async (email: string, password: string) => {
     const { access_token } = await api.login({ email, password });

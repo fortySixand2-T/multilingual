@@ -10,6 +10,15 @@ export function setToken(t: string | null) {
   else localStorage.removeItem(TOKEN_KEY);
 }
 
+// A 401 on an *authenticated* request means the session is dead (expired/invalid JWT
+// — every 7-day token eventually hits this). Clear it and signal the app to fall back
+// to login, instead of leaving a broken shell stuck on "invalid or expired token"
+// (qa-466). AuthProvider listens for this event.
+function onUnauthorized() {
+  setToken(null);
+  window.dispatchEvent(new Event("tef:unauthorized"));
+}
+
 // FastAPI returns 422 validation errors as `detail: [{loc, msg, type}]`. Render those as
 // a readable sentence instead of dumping raw JSON at the user (the backend's min/max/range
 // checks all land here).
@@ -43,7 +52,10 @@ async function req<T>(path: string, opts: RequestInit = {}): Promise<T> {
   const token = getToken();
   if (token) headers["Authorization"] = `Bearer ${token}`;
   const res = await fetch(`${BASE}${path}`, { ...opts, headers: { ...headers, ...(opts.headers || {}) } });
-  if (!res.ok) throw await errorFrom(res);
+  if (!res.ok) {
+    if (res.status === 401 && token) onUnauthorized();
+    throw await errorFrom(res);
+  }
   if (res.status === 204) return undefined as T;
   return (await res.json()) as T;
 }
@@ -61,7 +73,10 @@ export async function fetchAudioUrl(path: string): Promise<string> {
   const res = await fetch(`${BASE}${path}`, {
     headers: token ? { Authorization: `Bearer ${token}` } : {},
   });
-  if (!res.ok) throw new ApiError(res.status, "audio fetch failed");
+  if (!res.ok) {
+    if (res.status === 401 && token) onUnauthorized();
+    throw new ApiError(res.status, "audio fetch failed");
+  }
   return URL.createObjectURL(await res.blob());
 }
 
