@@ -396,6 +396,9 @@ export const api = {
       body: JSON.stringify(body),
     }),
   examFinish: (attemptId: number) =>
-    req<{ attempt_id: number; report: ClbReport }>(`/exam/${attemptId}/finish`, { method: "POST" }),
+    req<{ attempt_id: number; report: ClbReport; xp: number; streak: number }>(
+      `/exam/${attemptId}/finish`,
+      { method: "POST" },
+    ),
   examHistory: () => req<{ attempts: ExamAttemptSummary[] }>("/exam/history"),
 };
