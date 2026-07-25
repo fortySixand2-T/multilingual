@@ -107,7 +107,12 @@ export type Unit = {
   unlock: { type: string; requires: string[] };
   status: "locked" | "available" | "complete";
 };
-export type PathView = { level: string; units: Unit[] };
+export type PathView = {
+  level: string;
+  units: Unit[];
+  passed_lessons: string[];
+  waived_lessons: string[];
+};
 export type Exercise = Record<string, any> & { id: string; type: string };
 export type Lesson = {
   id: string;
@@ -123,6 +128,10 @@ export type LessonResult = {
   first_pass: boolean;
   streak: number;
   xp: number;
+  // present on a failing result: attempt count + whether the escape hatch is offered
+  attempts?: number;
+  can_waive?: boolean;
+  waived?: boolean;
 };
 export type DueCard = { card_key: string; due: string; vocab: { fr: string; en: string } | null };
 export type Me = { user_id: number; level: string; xp: number; streak: number; last_active: string | null };
@@ -326,6 +335,8 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ score }),
     }),
+  waiveLesson: (id: string) =>
+    req<LessonResult>(`/progress/lessons/${encodeURIComponent(id)}/waive`, { method: "POST" }),
 
   queue: (limit = 20) => req<{ due: DueCard[] }>(`/srs/queue?limit=${limit}`),
   review: (card_key: string, rating: "again" | "hard" | "good" | "easy") =>

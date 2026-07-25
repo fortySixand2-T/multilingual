@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { api, Exercise, Lesson as LessonT, LessonResult } from "../api";
 import AudioButton from "../AudioButton";
 import { shuffleLesson } from "../shuffle";
@@ -8,6 +8,7 @@ const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, " ");
 
 export default function Lesson() {
   const { id = "" } = useParams();
+  const navigate = useNavigate();
   const [lesson, setLesson] = useState<LessonT | null>(null);
   const [error, setError] = useState("");
   const [idx, setIdx] = useState(0);
@@ -28,6 +29,16 @@ export default function Lesson() {
 
   const total = exercises.length;
 
+  const doWaive = async () => {
+    if (!lesson) return;
+    try {
+      await api.waiveLesson(lesson.id);
+      navigate("/");
+    } catch (e: any) {
+      setError(e.message);
+    }
+  };
+
   if (result) {
     return (
       <div className="card center stack">
@@ -41,7 +52,19 @@ export default function Lesson() {
             {result.first_pass && <span className="pill">🆕 new words added to Review</span>}
           </div>
         )}
-        <Link className="btn" to="/">Back to path</Link>
+        {!result.passed && result.can_waive && (
+          <p className="muted" style={{ fontSize: 13 }}>
+            Stuck on this one? You can move on now and come back later — it stays marked for review.
+          </p>
+        )}
+        <div className="btn-row center" style={{ justifyContent: "center" }}>
+          <Link className="btn" to="/">Back to path</Link>
+          {!result.passed && result.can_waive && (
+            <button className="btn" onClick={doWaive}>
+              Continue anyway →
+            </button>
+          )}
+        </div>
       </div>
     );
   }

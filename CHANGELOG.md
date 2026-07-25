@@ -32,3 +32,12 @@
 - [2026-07-22] Modified: .env.example, docs/hosting.md — document invite links
 - [2026-07-24] Modified: web/src/api.ts — qa-465 fe: examFinish response type carries xp/streak
 - [2026-07-24] Modified: web/src/screens/Exam.tsx — qa-465 fe: Mock results shows 🔥 streak / ⭐ xp pills
+- [2026-07-25] Created: migrations/versions/0014_lesson_attempts.py — passed/waived/attempts on completions
+- [2026-07-25] Modified: app/progress/models.py — LessonCompletion gains passed/waived/attempts
+- [2026-07-25] Modified: app/progress/service.py — gating counts passed|waived; lesson_states helper
+- [2026-07-25] Modified: app/progress/api.py — attempt counting + /lessons/{id}/waive escape hatch
+- [2026-07-25] Modified: app/content/api.py — path exposes passed_lessons/waived_lessons
+- [2026-07-25] Created: tests/test_lesson_waive.py — full escape-hatch flow
+- [2026-07-25] Modified: web/src/api.ts — waiveLesson + attempts/can_waive/waived + path lesson sets
+- [2026-07-25] Modified: web/src/screens/Lesson.tsx — "Continue anyway" on a stuck lesson
+- [2026-07-25] Modified: web/src/screens/Path.tsx — mark passed (⭐) vs waived (review) lessons

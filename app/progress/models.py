@@ -34,6 +34,12 @@ class LessonCompletion(Base):
     level: Mapped[str] = mapped_column(String(16))
     score: Mapped[float] = mapped_column(Float)
     completed_at: Mapped[datetime] = mapped_column(DateTime)
+    # A row now exists once a lesson is attempted, not only when passed. `passed`
+    # is the mastery star; `waived` is the escape hatch (unlocks the next unit but
+    # stays flagged for review); `attempts` counts failed tries and gates the hatch.
+    passed: Mapped[bool] = mapped_column(Boolean, default=True)
+    waived: Mapped[bool] = mapped_column(Boolean, default=False)
+    attempts: Mapped[int] = mapped_column(Integer, default=0)
 
     __table_args__ = (UniqueConstraint("user_id", "lesson_id", name="uq_completion_user_lesson"),)
 

@@ -22,7 +22,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.auth import get_current_user
 from app.content.tables import ContentLesson, ContentUnit, ContentVocab, KnownVocab
 from app.db.session import get_session
-from app.progress.service import completed_lesson_ids
+from app.progress.service import completed_lesson_ids, lesson_states
 from app.srs.models import ReviewCard
 from app.storage.interface import ObjectStorage
 from app.users.models import User
@@ -109,8 +109,12 @@ async def get_path(
 
     completed = await completed_lesson_ids(session, user.id)
     status_by_unit = compute_unit_status(units, completed)
+    # Per-lesson marks: ⭐ passed vs review-flagged waived (escape hatch).
+    passed, waived = await lesson_states(session, user.id)
     return {
         "level": level,
+        "passed_lessons": sorted(passed),
+        "waived_lessons": sorted(waived),
         "units": [
             {
                 "id": u.id,

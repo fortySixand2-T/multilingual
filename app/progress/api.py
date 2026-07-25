@@ -13,7 +13,7 @@ from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
-from sqlalchemy import select
+from sqlalchemy import select, update
 from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -30,6 +30,9 @@ from app.users.models import User
 router = APIRouter(prefix="/progress", tags=["progress"])
 
 XP_PER_LESSON = 10
+# Failed full-lesson attempts before the learner may "continue anyway" (waive) past
+# a lesson to unlock the next unit. Keeps mastery the default; relaxes only when stuck.
+WAIVE_AFTER_ATTEMPTS = 2
 
 
 class LessonResultBody(BaseModel):
@@ -54,25 +57,56 @@ async def submit_result(
         )
 
     data = lesson.data
+    now = datetime.now(UTC).replace(tzinfo=None)
     passed = body.score >= float(data.get("pass_threshold", 8.0))  # 0–10 scale
 
     if not passed:
+        # Record/increment a failed attempt (a row may not exist yet). This no longer
+        # unlocks anything — completed_lesson_ids counts passed|waived only — but it
+        # powers the "continue anyway" escape hatch once enough attempts pile up.
+        bump = (
+            sqlite_insert(LessonCompletion)
+            .values(
+                user_id=user.id,
+                lesson_id=lesson_id,
+                level=lesson.level,
+                score=body.score,
+                completed_at=now,
+                passed=False,
+                waived=False,
+                attempts=1,
+            )
+            .on_conflict_do_update(
+                index_elements=["user_id", "lesson_id"],
+                set_={"attempts": LessonCompletion.attempts + 1, "score": body.score},
+            )
+        )
+        await session.execute(bump)
+        row = (
+            await session.execute(
+                select(LessonCompletion).where(
+                    LessonCompletion.user_id == user.id, LessonCompletion.lesson_id == lesson_id
+                )
+            )
+        ).scalar_one()
         prog = await get_or_create_progress(session, user.id, lesson.level)
         await session.commit()
-        # `first_pass` = "this submission was the first successful pass" (it gates
-        # first-pass XP + SRS seeding). A failing score never passes, so it's
-        # False here by definition — not a claim about whether it's a first attempt.
+        # `first_pass` = "this submission was the first successful pass". A failing
+        # score never passes, so it's False here by definition.
         return {
             "lesson_id": lesson_id,
             "passed": False,
             "first_pass": False,
+            "attempts": row.attempts,
+            "can_waive": row.attempts >= WAIVE_AFTER_ATTEMPTS and not row.passed and not row.waived,
             "streak": prog.streak,
             "xp": prog.xp,
         }
 
-    # Atomic insert-or-ignore: the DB decides who's first via the unique (user, lesson)
-    # constraint, so concurrent double-submits can't double-award XP or 500 on a race
-    # (qa-070). rowcount is 1 only for the request that actually inserted.
+    # Passing. Race-safe first-pass detection that also tolerates a pre-existing
+    # attempts row: insert-or-ignore a passed row (rowcount 1 → we're first); else the
+    # row already existed, so flip passed False→True under a guard (rowcount 1 → we
+    # flipped it, i.e. first pass; 0 → it was already passed). qa-070 stays covered.
     completion = (
         sqlite_insert(LessonCompletion)
         .values(
@@ -80,11 +114,25 @@ async def submit_result(
             lesson_id=lesson_id,
             level=lesson.level,
             score=body.score,
-            completed_at=datetime.now(UTC).replace(tzinfo=None),
+            completed_at=now,
+            passed=True,
+            waived=False,
+            attempts=0,
         )
         .on_conflict_do_nothing(index_elements=["user_id", "lesson_id"])
     )
     first_pass = (await session.execute(completion)).rowcount == 1
+    if not first_pass:
+        flip = (
+            update(LessonCompletion)
+            .where(
+                LessonCompletion.user_id == user.id,
+                LessonCompletion.lesson_id == lesson_id,
+                LessonCompletion.passed.is_(False),
+            )
+            .values(passed=True, score=body.score, completed_at=now)
+        )
+        first_pass = (await session.execute(flip)).rowcount == 1
 
     if first_pass:
         await seed_cards(session, user.id, data.get("new_vocab", []))
@@ -100,6 +148,52 @@ async def submit_result(
         "lesson_id": lesson_id,
         "passed": True,
         "first_pass": first_pass,
+        "streak": prog.streak,
+        "xp": prog.xp,
+    }
+
+
+@router.post("/lessons/{lesson_id}/waive")
+async def waive_lesson(
+    lesson_id: str,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Escape hatch: after WAIVE_AFTER_ATTEMPTS failed tries, move past a lesson so
+    the next unit unlocks. The lesson is marked `waived` (not passed) — it stays
+    retryable and flagged for review, and earns no XP. Idempotent once waived."""
+    lesson = await session.get(ContentLesson, lesson_id)
+    if lesson is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"lesson {lesson_id!r} not found")
+    if not await is_lesson_unlocked(session, user.id, lesson):
+        raise HTTPException(
+            status.HTTP_409_CONFLICT,
+            f"lesson {lesson_id!r} is locked — complete its prerequisites first",
+        )
+    row = (
+        await session.execute(
+            select(LessonCompletion).where(
+                LessonCompletion.user_id == user.id, LessonCompletion.lesson_id == lesson_id
+            )
+        )
+    ).scalar_one_or_none()
+    if row is None or row.passed:
+        raise HTTPException(
+            status.HTTP_409_CONFLICT, "nothing to waive — lesson not attempted or already passed"
+        )
+    if not row.waived and row.attempts < WAIVE_AFTER_ATTEMPTS:
+        raise HTTPException(
+            status.HTTP_409_CONFLICT,
+            f"keep trying — you can continue anyway after {WAIVE_AFTER_ATTEMPTS} attempts",
+        )
+    row.waived = True  # idempotent if already waived
+    prog = await record_activity(session, user.id, xp_award=0, level=lesson.level)
+    await session.commit()
+    await session.refresh(prog)
+    return {
+        "lesson_id": lesson_id,
+        "passed": False,
+        "waived": True,
         "streak": prog.streak,
         "xp": prog.xp,
     }
