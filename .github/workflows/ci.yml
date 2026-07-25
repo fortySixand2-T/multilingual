@@ -68,3 +68,47 @@ jobs:
           name: playwright-report
           path: web/playwright-report/
           retention-days: 7
+
+  clean-deploy:
+    # Verify the actual production deploy path — the same thing the box does on every
+    # redeploy — so a broken Dockerfile, entrypoint, migration chain, or content sync
+    # is caught in CI instead of on the box. Builds the image and boots it through the
+    # real entrypoint (alembic upgrade head + content/comprehension/assessment/exam
+    # sync for a1–b2), then smoke-tests that it serves real content.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the production image (multi-stage: SPA + API)
+        run: docker build -t tef-app .
+      - name: Boot via the real entrypoint (migrations + content sync, then serve)
+        run: |
+          docker run -d --name tef-app -p 9000:9000 -v /app/data \
+            -e DATABASE_URL="sqlite+aiosqlite:///./data/tef.db" \
+            -e STORAGE_BACKEND=local \
+            -e INVITE_CODES=ci-001 \
+            -e JWT_SECRET=ci-secret-key-long-enough-for-hs256-testing \
+            -e OLLAMA_BASE_URL=http://127.0.0.1:11434 \
+            tef-app
+      - name: Wait for a clean boot (healthy within 4 min)
+        run: |
+          for i in $(seq 1 48); do
+            if curl -fsS http://localhost:9000/health >/dev/null 2>&1; then
+              echo "healthy after $((i * 5))s"; curl -s http://localhost:9000/health; echo; ok=1; break
+            fi
+            sleep 5
+          done
+          [ "${ok:-0}" = 1 ] || { echo "app never became healthy"; exit 1; }
+      - name: Smoke — signup then real content served (proves migrations + sync worked)
+        run: |
+          set -euo pipefail
+          TOKEN=$(curl -fsS -X POST http://localhost:9000/auth/signup \
+            -H 'content-type: application/json' \
+            -d '{"email":"ci@x.test","password":"pw12345678","invite_code":"ci-001","display_name":"CI"}' \
+            | python3 -c "import sys,json;print(json.load(sys.stdin)['access_token'])")
+          UNITS=$(curl -fsS "http://localhost:9000/content/path?level=a1" -H "authorization: Bearer $TOKEN" \
+            | python3 -c "import sys,json;print(len(json.load(sys.stdin)['units']))")
+          echo "a1 units served: $UNITS"
+          test "$UNITS" -gt 0
+      - name: Container logs on failure
+        if: failure()
+        run: docker logs tef-app || true
