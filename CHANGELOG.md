@@ -45,3 +45,4 @@
 - [2026-07-25] Modified: web/src/auth.tsx — qa-466: AuthProvider drops to login on tef:unauthorized
 - [2026-07-25] Created: web/src/api.test.ts — 401 interceptor tests
 - [2026-07-25] Created: qa/issues/466-invalid-token-shows-broken-shell.md — filed + resolved
+- [2026-07-25] Modified: .github/workflows/ci.yml — add clean-deploy job (docker build + entrypoint boot + smoke)
