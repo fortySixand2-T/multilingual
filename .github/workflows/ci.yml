@@ -78,7 +78,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build the production image (multi-stage: SPA + API)
+      - name: "Build the production image (multi-stage: SPA + API)"
         run: docker build -t tef-app .
       - name: Boot via the real entrypoint (migrations + content sync, then serve)
         run: |
