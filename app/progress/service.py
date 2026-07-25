@@ -20,10 +20,30 @@ _LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
 
 
 async def completed_lesson_ids(session: AsyncSession, user_id: int) -> set[str]:
+    """Lessons that satisfy gating — passed OR waived (the escape hatch). A row that
+    only holds failed `attempts` does NOT unlock the next unit."""
     rows = await session.execute(
-        select(LessonCompletion.lesson_id).where(LessonCompletion.user_id == user_id)
+        select(LessonCompletion.lesson_id).where(
+            LessonCompletion.user_id == user_id,
+            (LessonCompletion.passed | LessonCompletion.waived),
+        )
     )
     return set(rows.scalars())
+
+
+async def lesson_states(session: AsyncSession, user_id: int) -> tuple[set[str], set[str]]:
+    """(passed, waived) lesson-id sets, so the path can mark a ⭐ pass vs a
+    review-flagged waive per lesson."""
+    rows = (
+        await session.execute(
+            select(
+                LessonCompletion.lesson_id, LessonCompletion.passed, LessonCompletion.waived
+            ).where(LessonCompletion.user_id == user_id)
+        )
+    ).all()
+    passed = {lid for lid, p, _ in rows if p}
+    waived = {lid for lid, p, w in rows if w and not p}
+    return passed, waived
 
 
 async def get_or_create_progress(

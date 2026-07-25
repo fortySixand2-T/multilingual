@@ -20,6 +20,9 @@ export default function Path() {
   if (error) return <div className="card center">Couldn't load your path: {error}</div>;
   if (!path) return <div className="muted">Loading…</div>;
 
+  const passed = new Set(path.passed_lessons);
+  const waived = new Set(path.waived_lessons);
+
   return (
     <div>
       <div className="btn-row" style={{ justifyContent: "space-between", alignItems: "center" }}>
@@ -44,6 +47,16 @@ export default function Path() {
 
           {u.lessons.map((lessonId) => {
             const locked = u.status === "locked";
+            const isPassed = passed.has(lessonId);
+            const isWaived = waived.has(lessonId);
+            const dot = isPassed ? "⭐" : isWaived ? "⚠️" : locked ? "🔒" : "★";
+            const sub = locked
+              ? "Finish the previous unit to unlock"
+              : isPassed
+                ? "Passed — tap to review"
+                : isWaived
+                  ? "Marked for review — retry to earn ⭐"
+                  : "Tap to start";
             return (
               <button
                 key={lessonId}
@@ -51,10 +64,10 @@ export default function Path() {
                 disabled={locked}
                 onClick={() => !locked && nav(`/lesson/${lessonId}`)}
               >
-                <span className={`node-dot ${u.status}`}>{u.status === "complete" ? "✓" : "★"}</span>
+                <span className={`node-dot ${isWaived ? "waived" : u.status}`}>{dot}</span>
                 <span className="grow">
                   <div className="node-title">{prettyLesson(lessonId)}</div>
-                  <div className="node-sub">{locked ? "Finish the previous unit to unlock" : "Tap to start"}</div>
+                  <div className="node-sub">{sub}</div>
                 </span>
               </button>
             );
