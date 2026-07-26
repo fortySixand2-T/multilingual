@@ -51,3 +51,4 @@
 - [2026-07-25] Created: qa/fixtures/speech/README.md — speech test fixtures spec for QA round 041
 - [2026-07-26] Created: qa/fixtures/speech/*.wav,*.mp3,*.bin — locally-generated (macOS say) speech fixtures for round 041
 - [2026-07-26] Modified: qa/fixtures/speech/README.md — document generated fixtures + what still needs recording
+- [2026-07-26] Modified: qa/fixtures/speech/README.md — pre-write Tatoeba CC-BY attribution block + incoming-clip rows, afconvert transcode note

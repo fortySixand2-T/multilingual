@@ -50,12 +50,36 @@ Regenerate the synthetic ones with the script in the session scratchpad
   pronounces `broken-fr.wav` fluently, so that fixture only tests broken **grammar**,
   not mispronunciation — Whisper's "auto-correct" of a real learner's accent needs a
   human recording.
-- **`english-speech.wav`** (English audio, for the wrong-language H9 case) — grab any
-  short English clip you already have, or record one.
+- **`english-speech.wav`** (English audio, for the wrong-language H9 case) — sourced
+  from Tatoeba (see below), or record one.
+
+## Third-party clips (Tatoeba — CC-BY, attribution required)
+Natural human-voice clips sourced from [Tatoeba](https://tatoeba.org). **Not CC0:**
+Tatoeba sentence text is CC-BY 2.0 FR and the per-recording audio is contributor-
+licensed (the API does not expose a per-clip license), so we treat these as **CC-BY
+and attribute them.** Downloaded via `https://audio.tatoeba.org/sentences/{lang}/{id}.mp3`.
+
+Do **not** re-license these as our own; keep this block with the files.
+
+| target fixture | source (Tatoeba) | sentence | contributor | probes |
+|---|---|---|---|---|
+| `natural-fr-1.wav` | [fra/373429](https://audio.tatoeba.org/sentences/fra/373429.mp3) | *"Je voudrais réserver un vol pour Vancouver."* | see sentence page 373429 | natural-voice baseline (real human, not TTS) |
+| `natural-fr-2.wav` | [fra/139756](https://audio.tatoeba.org/sentences/fra/139756.mp3) | *"Je voudrais un plan de la ville."* | see sentence page 139756 | natural-voice baseline #2 |
+| `english-speech.wav` | [eng/9414249](https://audio.tatoeba.org/sentences/eng/9414249.mp3) | *"I would like to participate."* | see sentence page 9414249 | H9 — wrong language (STT lang is `fr`) |
+
+> Attribution, verbatim for the commit / README: *"Audio clips `natural-fr-1`,
+> `natural-fr-2`, `english-speech` are from Tatoeba (tatoeba.org), sentences
+> 373429, 139756, 9414249, licensed CC-BY. Confirm each contributor's name on the
+> sentence page and list here before publishing."*
+
+Contributor names must be filled in from each sentence page (e.g.
+`https://tatoeba.org/en/sentences/show/373429`) before this is considered complete —
+CC-BY requires crediting the author, not just the source.
 
 ## Generating them
 - **`.wav`** (from any recording, normalized to what Whisper likes — 16 kHz mono PCM):
   `ffmpeg -i in.m4a -ar 16000 -ac 1 -c:a pcm_s16le hello-fr.wav`
+  — ffmpeg-free path (this box has no ffmpeg): `afconvert in.mp3 out.wav -d LEI16@16000 -c 1 -f WAVE`
 - **`.webm`** — capture the *same* utterance in Chrome so it's a genuine
   `MediaRecorder` blob (don't transcode a wav → webm; that hides the real codec
   quirks). Easiest: record it through the app's own Speaking screen and save the
