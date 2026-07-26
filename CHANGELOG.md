@@ -56,3 +56,6 @@
 - [2026-07-26] Created: qa/fixtures/speech/*.wav,*.mp3,*.bin — locally-generated (macOS say) speech fixtures for round 041
 - [2026-07-26] Modified: qa/fixtures/speech/README.md — document generated fixtures + what still needs recording
 - [2026-07-26] Modified: qa/fixtures/speech/README.md — pre-write Tatoeba CC-BY attribution block + incoming-clip rows, afconvert transcode note
+- [2026-07-26] Modified: web/src/screens/Path.tsx — fix qa-490: add visible "Practice & tools" h2 heading above the tool grid nav
+- [2026-07-26] Modified: web/src/styles.css — fix qa-490: add .section-label style for small muted section headings
+- [2026-07-26] Created: web/src/screens/Path.test.tsx — regression test for qa-490 (visible heading above tool grid)

@@ -46,6 +46,7 @@ export default function Path() {
         )}
       </div>
 
+      <h2 className="section-label">Practice &amp; tools</h2>
       <nav className="tool-grid" aria-label="Practice & tools">
         {TOOLS.map((t) => (
           <NavLink key={t.to} to={t.to} className="tool-card">

@@ -164,6 +164,11 @@ h2 { font-size: 18px; margin: 0 0 12px; }
 .switch button { background: none; border: none; color: var(--green-dk); font-weight: 800; cursor: pointer; }
 
 /* home hub: shortcuts to the tools that aren't in the slim topbar */
+.section-label {
+  font-size: 13px; font-weight: 800; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin: 4px 0 8px;
+}
 .tool-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
   margin: 4px 0 26px;
