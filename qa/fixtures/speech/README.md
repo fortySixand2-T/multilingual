@@ -23,20 +23,35 @@ The endpoint takes multipart `audio` (required) + `mode` form field
 (`app/speech/examiner.py`), so spoken content should be French except where a
 fixture deliberately isn't (see `english-*`, for H9).
 
-## Fixtures to add
-Not committed yet — generate these before the round. Keep them **short (2–6 s)**
-so turns are cheap.
+## What's here now
+Generated locally with macOS `say` (via the same path as `scripts/gen_audio.py`)
+— our own synthetic audio, no downloads, no licensing. All wavs are 16 kHz mono
+PCM16 (what Whisper prefers), 3–5 s.
 
 | filename | content | probes |
 |---|---|---|
-| `hello-fr.wav` | clean, correct French, e.g. *"Bonjour, je m'appelle Claire et j'habite à Montréal."* | baseline happy path |
-| `hello-fr.webm` | **same utterance**, recorded from Chrome `MediaRecorder` (webm/Opus) | H1 — format decode parity vs the `.wav` |
-| `broken-fr.wav` | deliberately halting / mispronounced beginner French with real errors | H6 — does the transcript show the errors, or does Whisper "fix" them? |
-| `accent-question-fr.wav` | asks in French *"Comment était ma prononciation ?"* | H7 — examiner must not fabricate accent/phoneme scores |
-| `english-speech.wav` | English speech (wrong language for `lang="fr"`) | H9 — graceful handling, no 500/hang |
+| `hello-fr.wav` | clean Québécois French (voice Amélie): *"Bonjour, je m'appelle Claire et j'habite à Montréal…"* | baseline happy path |
+| `hello-fr-france.wav` | clean France French (voice Jacques): a restaurant reservation | baseline + fr_FR vs fr_CA accent |
+| `broken-fr.wav` | grammatically broken beginner French (*"moi je aller au magasin… je acheter du pain"*) | H6 — does the transcript preserve the errors, or does Whisper "fix" them? |
+| `accent-question-fr.wav` | *"Comment était ma prononciation et mon accent ?"* | H7 — examiner must not fabricate accent/phoneme scores |
+| `passage-fr-baseline.mp3` | 20 s multi-sentence listening passage (copied from `content/b1/audio/`, our own TTS) | multi-sentence baseline; mp3-decode path |
 | `silence.wav` | 3 s of silence | H9 — empty transcript must not bill a blank LLM turn |
 | `empty.bin` | 0 bytes | H9 — reject cleanly (4xx), not 500 |
-| `not-audio.bin` | random bytes with an audio extension | H9 — reject cleanly |
+| `not-audio.bin` | 4 KB random bytes | H9 — reject cleanly |
+
+Regenerate the synthetic ones with the script in the session scratchpad
+(`make_fixtures.py`) or by hand — see "Generating them" below.
+
+### Still needed (can't be synthesized)
+- **`hello-fr.webm`** — the **same utterance as `hello-fr.wav`, captured from Chrome
+  `MediaRecorder`** (webm/Opus). This is the whole point of **H1**; a transcoded
+  wav→webm won't do — record it through the app's Speaking screen and save the blob.
+- **A real human "broken French" clip** for the *pronunciation* half of H6. `say`
+  pronounces `broken-fr.wav` fluently, so that fixture only tests broken **grammar**,
+  not mispronunciation — Whisper's "auto-correct" of a real learner's accent needs a
+  human recording.
+- **`english-speech.wav`** (English audio, for the wrong-language H9 case) — grab any
+  short English clip you already have, or record one.
 
 ## Generating them
 - **`.wav`** (from any recording, normalized to what Whisper likes — 16 kHz mono PCM):

@@ -49,3 +49,5 @@
 - [2026-07-25] Modified: web/src/styles.css — responsive nav: tabs become a horizontally scrollable strip on phones (<=640px)
 - [2026-07-25] Created: qa/rounds/041-plan.md — QA round plan for the speech module (end-to-end with real STT/TTS/LLM)
 - [2026-07-25] Created: qa/fixtures/speech/README.md — speech test fixtures spec for QA round 041
+- [2026-07-26] Created: qa/fixtures/speech/*.wav,*.mp3,*.bin — locally-generated (macOS say) speech fixtures for round 041
+- [2026-07-26] Modified: qa/fixtures/speech/README.md — document generated fixtures + what still needs recording
