@@ -1,5 +1,9 @@
 # Changelog
 
+- [2026-07-26] Modified: web/src/App.tsx — slim topbar nav from 12 pills to 4 (Learn/Review/Mock/Group); routes unchanged
+- [2026-07-26] Modified: web/src/screens/Path.tsx — add home "Practice & tools" hub grid linking the 8 off-nav destinations
+- [2026-07-26] Modified: web/src/styles.css — add .tool-grid/.tool-card styles; remove obsolete mobile nav horizontal-scroll hack
+
 - [2026-07-22] Created: qa/issues/321-vocab-known-accepts-nonexistent-card-key.md — QA issue: POST /content/vocab/known accepts phantom card_key with no vocab table check
 - [2026-07-22] Created: qa/issues/322-exam-section-time-limit-not-enforced-server-side.md — QA issue: exam blueprint time_limit_seconds per section is display-only, not enforced on submit
 

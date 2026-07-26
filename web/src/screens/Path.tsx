@@ -1,7 +1,18 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { api, Me, PathView } from "../api";
 import { useLevel } from "../level";
+
+const TOOLS = [
+  { to: "/vocab", icon: "📗", label: "Vocab" },
+  { to: "/grammar", icon: "📖", label: "Grammar" },
+  { to: "/drill", icon: "🎯", label: "Drill" },
+  { to: "/comprehension", icon: "🎧", label: "Read & Listen" },
+  { to: "/writing", icon: "✍️", label: "Write" },
+  { to: "/speaking", icon: "🎙️", label: "Speak" },
+  { to: "/weak-spots", icon: "🩹", label: "Weak spots" },
+  { to: "/readiness", icon: "📊", label: "Readiness" },
+];
 
 export default function Path() {
   const nav = useNavigate();
@@ -34,6 +45,15 @@ export default function Path() {
           </div>
         )}
       </div>
+
+      <nav className="tool-grid" aria-label="Practice & tools">
+        {TOOLS.map((t) => (
+          <NavLink key={t.to} to={t.to} className="tool-card">
+            <span className="tool-icon">{t.icon}</span>
+            <span className="tool-label">{t.label}</span>
+          </NavLink>
+        ))}
+      </nav>
 
       {path.units.map((u) => (
         <div className="unit" key={u.id}>
