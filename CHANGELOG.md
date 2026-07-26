@@ -46,3 +46,6 @@
 - [2026-07-25] Created: web/src/api.test.ts — 401 interceptor tests
 - [2026-07-25] Created: qa/issues/466-invalid-token-shows-broken-shell.md — filed + resolved
 - [2026-07-25] Modified: .github/workflows/ci.yml — add clean-deploy job (docker build + entrypoint boot + smoke)
+- [2026-07-25] Modified: web/src/styles.css — responsive nav: tabs become a horizontally scrollable strip on phones (<=640px)
+- [2026-07-25] Created: qa/rounds/041-plan.md — QA round plan for the speech module (end-to-end with real STT/TTS/LLM)
+- [2026-07-25] Created: qa/fixtures/speech/README.md — speech test fixtures spec for QA round 041
