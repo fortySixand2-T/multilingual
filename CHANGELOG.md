@@ -1,5 +1,9 @@
 # Changelog
 
+- [2026-07-26] Modified: web/src/App.tsx — slim topbar nav from 12 pills to 4 (Learn/Review/Mock/Group); routes unchanged
+- [2026-07-26] Modified: web/src/screens/Path.tsx — add home "Practice & tools" hub grid linking the 8 off-nav destinations
+- [2026-07-26] Modified: web/src/styles.css — add .tool-grid/.tool-card styles; remove obsolete mobile nav horizontal-scroll hack
+
 - [2026-07-22] Created: qa/issues/321-vocab-known-accepts-nonexistent-card-key.md — QA issue: POST /content/vocab/known accepts phantom card_key with no vocab table check
 - [2026-07-22] Created: qa/issues/322-exam-section-time-limit-not-enforced-server-side.md — QA issue: exam blueprint time_limit_seconds per section is display-only, not enforced on submit
 
@@ -52,3 +56,6 @@
 - [2026-07-26] Created: qa/fixtures/speech/*.wav,*.mp3,*.bin — locally-generated (macOS say) speech fixtures for round 041
 - [2026-07-26] Modified: qa/fixtures/speech/README.md — document generated fixtures + what still needs recording
 - [2026-07-26] Modified: qa/fixtures/speech/README.md — pre-write Tatoeba CC-BY attribution block + incoming-clip rows, afconvert transcode note
+- [2026-07-26] Modified: web/src/screens/Path.tsx — fix qa-490: add visible "Practice & tools" h2 heading above the tool grid nav
+- [2026-07-26] Modified: web/src/styles.css — fix qa-490: add .section-label style for small muted section headings
+- [2026-07-26] Created: web/src/screens/Path.test.tsx — regression test for qa-490 (visible heading above tool grid)

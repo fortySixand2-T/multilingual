@@ -163,17 +163,30 @@ h2 { font-size: 18px; margin: 0 0 12px; }
 .switch { text-align: center; margin-top: 14px; color: var(--muted); }
 .switch button { background: none; border: none; color: var(--green-dk); font-weight: 800; cursor: pointer; }
 
-/* phones: brand + controls on top, tabs become a horizontally scrollable strip */
+/* home hub: shortcuts to the tools that aren't in the slim topbar */
+.section-label {
+  font-size: 13px; font-weight: 800; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin: 4px 0 8px;
+}
+.tool-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  margin: 4px 0 26px;
+}
+.tool-card {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 14px 8px; border-radius: 16px; text-align: center;
+  background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.tool-card:hover { transform: translateY(-1px); }
+.tool-card.active { border-color: var(--green); background: #eaf6ee; }
+.tool-icon { font-size: 22px; line-height: 1; }
+.tool-label { font-weight: 700; font-size: 13px; }
+
+/* phones: slim nav wraps neatly; tool grid drops to 2 columns */
 @media (max-width: 640px) {
   .topbar { flex-wrap: wrap; gap: 12px; padding: 12px 16px; }
-  .nav {
-    order: 3; width: 100%; margin-left: 0;
-    flex-wrap: nowrap; overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 2px;
-  }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav a { flex: 0 0 auto; white-space: nowrap; }
+  .nav { order: 3; width: 100%; margin-left: 0; }
   .topbar-right { gap: 12px; }
+  .tool-grid { grid-template-columns: repeat(2, 1fr); }
 }

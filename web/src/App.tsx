@@ -33,16 +33,8 @@ export default function App() {
         </div>
         <nav className="nav">
           <NavLink to="/" end>Learn</NavLink>
-          <NavLink to="/vocab">Vocab</NavLink>
           <NavLink to="/review">Review</NavLink>
-          <NavLink to="/weak-spots">Weak spots</NavLink>
-          <NavLink to="/grammar">Grammar</NavLink>
-          <NavLink to="/comprehension">Read &amp; Listen</NavLink>
-          <NavLink to="/writing">Write</NavLink>
-          <NavLink to="/speaking">Speak</NavLink>
-          <NavLink to="/drill">Drill</NavLink>
           <NavLink to="/exam">Mock</NavLink>
-          <NavLink to="/readiness">Readiness</NavLink>
           <NavLink to="/board">Group</NavLink>
         </nav>
         <div className="topbar-right">
