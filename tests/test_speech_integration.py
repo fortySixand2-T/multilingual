@@ -72,6 +72,17 @@ def test_whisper_transcribes_french_fixture(whisper: FasterWhisperAdapter) -> No
     assert t.provider == "faster-whisper"
 
 
+def test_whisper_transcribes_browser_webm(whisper: FasterWhisperAdapter) -> None:
+    # hello-fr.webm is a genuine Chrome MediaRecorder webm/opus blob (same utterance
+    # as hello-fr.wav), captured through the Speaking screen. This is the H1 path:
+    # the real browser codec must decode (via PyAV) and transcribe, not just a clean wav.
+    audio = (_FIXTURES / "hello-fr.webm").read_bytes()
+    low = whisper.transcribe(audio=audio, lang="fr").text.lower()
+    assert any(w in low for w in ("claire", "montréal", "montreal", "appelle")), (
+        f"browser webm/opus did not decode+transcribe: {low!r}"
+    )
+
+
 def test_piper_to_whisper_roundtrip(piper: PiperAdapter, whisper: FasterWhisperAdapter) -> None:
     # Synthesize known French, transcribe it back — proves both adapters interoperate
     # (incl. Piper's 22.05 kHz output decoding through whisper) without the LLM/HTTP.
