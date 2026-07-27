@@ -1,5 +1,10 @@
 # Changelog
 
+- [2026-07-27] Modified: pyproject.toml, uv.lock — add faster-whisper (CPU int8 STT) dependency
+- [2026-07-27] Modified: Dockerfile — install Piper binary + fr_FR-siwis-medium voice, libgomp1, bake whisper 'small' model into HF_HOME
+- [2026-07-27] Modified: docker-compose.yml — enable speech stack (STT=faster-whisper, TTS=piper, WHISPER_MODEL=small, PIPER_VOICE) for self-host app
+- [2026-07-27] Modified: .env.example — document speech stack now enabled via compose; whisper on CPU
+
 - [2026-07-26] Modified: web/src/App.tsx — slim topbar nav from 12 pills to 4 (Learn/Review/Mock/Group); routes unchanged
 - [2026-07-26] Modified: web/src/screens/Path.tsx — add home "Practice & tools" hub grid linking the 8 off-nav destinations
 - [2026-07-26] Modified: web/src/styles.css — add .tool-grid/.tool-card styles; remove obsolete mobile nav horizontal-scroll hack

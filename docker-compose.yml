@@ -16,6 +16,12 @@ services:
       - OLLAMA_BASE_URL=http://ollama:11434
       - STORAGE_BACKEND=local
       - DATABASE_URL=sqlite+aiosqlite:///./data/tef.db
+      # Speech stack (self-host): STT on CPU int8 (GPU stays free for the resident
+      # LLM); TTS via the Piper binary + voice baked into the image.
+      - STT_BACKEND=faster-whisper
+      - TTS_BACKEND=piper
+      - WHISPER_MODEL=small
+      - PIPER_VOICE=/app/voices/fr_FR-siwis-medium.onnx
     volumes: ["./data:/app/data"]
     depends_on: [ollama]
     restart: unless-stopped
