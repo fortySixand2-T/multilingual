@@ -25,6 +25,7 @@ from fastapi import (
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.ai.errors import TranscriptionError
 from app.ai.router import AIRouter
 from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
@@ -38,6 +39,7 @@ from app.users.models import User
 router = APIRouter(prefix="/speech", tags=["speech"])
 
 _HISTORY_TURNS = 3  # how many prior turns to feed back as conversation context
+_MAX_AUDIO_BYTES = 10 * 1024 * 1024  # 10 MB — a spoken turn is seconds of audio, not this
 
 
 async def _recent_history(session: AsyncSession, user_id: int):
@@ -78,7 +80,14 @@ async def speech_turn(
     if stt is None:
         raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "speech is not configured")
 
-    data = await audio.read()
+    # Bound how much we pull into memory (reads at most the cap + 1 byte), and reject
+    # an empty upload before touching the model — a clean 4xx, never a 500.
+    data = await audio.read(_MAX_AUDIO_BYTES + 1)
+    if len(data) > _MAX_AUDIO_BYTES:
+        raise HTTPException(status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, "audio upload too large")
+    if not data:
+        raise HTTPException(status.HTTP_400_BAD_REQUEST, "empty audio upload")
+
     examiner = SpeakingExaminer(stt, tts, ai_router)
     history = await _recent_history(session, user.id)
     try:
@@ -95,9 +104,19 @@ async def speech_turn(
         raise HTTPException(
             status.HTTP_503_SERVICE_UNAVAILABLE, "speech is not configured"
         ) from None
+    except TranscriptionError:
+        # Corrupt / not-audio upload — the model couldn't decode it. Nothing billed.
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_ENTITY, "could not decode the audio"
+        ) from None
 
     if result.over_budget:
         return {"over_budget": True, "transcript": "", "reply_text": result.reply_text}
+
+    # Silence → no transcript. The examiner already skipped the LLM/billing; reject
+    # cleanly so we never persist a blank turn. (H9)
+    if result.no_speech:
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "no speech detected in the audio")
 
     turn = SpeechTurn(
         user_id=user.id,

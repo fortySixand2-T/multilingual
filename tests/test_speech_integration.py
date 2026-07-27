@@ -83,6 +83,22 @@ def test_whisper_transcribes_browser_webm(whisper: FasterWhisperAdapter) -> None
     )
 
 
+def test_whisper_rejects_non_audio(whisper: FasterWhisperAdapter) -> None:
+    # H9: corrupt / non-audio uploads must surface as TranscriptionError (→ 4xx),
+    # not an opaque crash. empty.bin is 0 bytes; not-audio.bin is random bytes.
+    from app.ai.errors import TranscriptionError
+
+    for name in ("empty.bin", "not-audio.bin"):
+        with pytest.raises(TranscriptionError):
+            whisper.transcribe(audio=(_FIXTURES / name).read_bytes(), lang="fr")
+
+
+def test_whisper_silence_is_empty_transcript(whisper: FasterWhisperAdapter) -> None:
+    # H9: silence must decode to an empty transcript so the turn is skipped, not billed.
+    t = whisper.transcribe(audio=(_FIXTURES / "silence.wav").read_bytes(), lang="fr")
+    assert t.text.strip() == "", f"silence produced a phantom transcript: {t.text!r}"
+
+
 def test_piper_to_whisper_roundtrip(piper: PiperAdapter, whisper: FasterWhisperAdapter) -> None:
     # Synthesize known French, transcribe it back — proves both adapters interoperate
     # (incl. Piper's 22.05 kHz output decoding through whisper) without the LLM/HTTP.

@@ -1,5 +1,11 @@
 # Changelog
 
+- [2026-07-27] Modified: app/speech/api.py — reject empty (400) / oversized (413, 10MB cap) / undecodable (422) audio cleanly; skip billing on no-speech (422) — H9
+- [2026-07-27] Modified: app/speech/examiner.py — empty transcript short-circuits before the LLM/billing (no_speech)
+- [2026-07-27] Modified: app/ai/adapters/faster_whisper_adapter.py — wrap decode failures as TranscriptionError; vad_filter=True so silence→empty (no phantom transcript)
+- [2026-07-27] Modified: app/ai/errors.py — add TranscriptionError (bad audio → 4xx, not 500)
+- [2026-07-27] Modified: tests/test_speech.py, tests/test_speech_integration.py — H9 input-hardening tests (unit + real-model)
+
 - [2026-07-27] Created: qa/fixtures/speech/english-speech.wav — synthetic English clip (macOS say) for the H9 wrong-language case; Tatoeba source rejected as CC BY-NC-ND
 - [2026-07-27] Modified: qa/fixtures/speech/README.md — document english-speech.wav (H9 whisper-translates finding); correct the Tatoeba block's wrong CC-BY assumption (verify per-clip license)
 
