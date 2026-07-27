@@ -42,6 +42,26 @@ PCM16 (what Whisper prefers), 3–5 s.
 Regenerate the synthetic ones with the script in the session scratchpad
 (`make_fixtures.py`) or by hand — see "Generating them" below.
 
+## Graded utterances (llama3.1 + Piper)
+Real French audio generated end-to-end on the self-host box: the running
+**llama3.1** wrote one candidate-style sentence per CEFR level, then the deployed
+**Piper** voice (`fr_FR-siwis-medium`) synthesized each; resampled to 16 kHz mono
+PCM16 (`afconvert … -d LEI16@16000 -c 1 -f WAVE`). France French — Piper has no
+fr_CA voice. Our own synthetic audio, no licensing.
+
+| filename | level | source sentence (Piper input) | probes |
+|---|---|---|---|
+| `graded-a1-fr.wav` | A1 | *"Je m'appelle Pierre et je suis venu ici pour apprendre l'anglais."* | simple STT baseline |
+| `graded-a2-fr.wav` | A2 | *"Je suis étudiant et j'ai besoin d'un logement à Paris."* | short everyday sentence |
+| `graded-b1-fr.wav` | B1 | *"J'ai passé mon bac en France, mais maintenant je cherche un emploi en Angleterre."* | longer; proper nouns |
+| `graded-b2-fr.wav` | B2 | *"Bien que j'aie des connaissances solides en marketing, je suis intéressé par les nuances de la communication interculturelle dans le cadre professionnel."* | dense subjunctive — stresses the STT model |
+
+Observed with `WHISPER_MODEL=small` (CPU int8 — the deployed config): A1/A2
+transcribe verbatim; B1 slips a proper noun (*Angleterre → "embleterre"*); B2's
+dense opening clause garbles (*"j'aie des connaissances solides" → "je déconnece ce
+lit"*) — an honest marker of the small model's ceiling on complex French. Bump
+`WHISPER_MODEL` to `medium` if those need to land cleanly.
+
 ### Still needed (can't be synthesized)
 - **`hello-fr.webm`** — the **same utterance as `hello-fr.wav`, captured from Chrome
   `MediaRecorder`** (webm/Opus). This is the whole point of **H1**; a transcoded
