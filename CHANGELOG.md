@@ -1,5 +1,8 @@
 # Changelog
 
+- [2026-07-27] Created: qa/fixtures/speech/english-speech.wav — synthetic English clip (macOS say) for the H9 wrong-language case; Tatoeba source rejected as CC BY-NC-ND
+- [2026-07-27] Modified: qa/fixtures/speech/README.md — document english-speech.wav (H9 whisper-translates finding); correct the Tatoeba block's wrong CC-BY assumption (verify per-clip license)
+
 - [2026-07-27] Created: qa/fixtures/speech/hello-fr.webm — real Chrome MediaRecorder webm/opus blob captured through the Speaking screen (H1 fixture)
 - [2026-07-27] Modified: tests/test_speech_integration.py — add webm/opus decode+transcribe test (H1)
 - [2026-07-27] Modified: qa/fixtures/speech/README.md — mark hello-fr.webm done; document the capture method

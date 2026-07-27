@@ -39,6 +39,7 @@ PCM16 (what Whisper prefers), 3–5 s.
 | `silence.wav` | 3 s of silence | H9 — empty transcript must not bill a blank LLM turn |
 | `empty.bin` | 0 bytes | H9 — reject cleanly (4xx), not 500 |
 | `not-audio.bin` | 4 KB random bytes | H9 — reject cleanly |
+| `english-speech.wav` | English (macOS `say`, voice Alex): *"I would like to participate in the conversation today."* — our own synthetic audio, no licensing | H9 — wrong language: whisper forced to `fr` silently **translates** it (*"j'aimerais participer dans la conversation aujourd'hui"*) rather than flagging non-French |
 
 Regenerate the synthetic ones with the script in the session scratchpad
 (`make_fixtures.py`) or by hand — see "Generating them" below.
@@ -72,32 +73,41 @@ upload boundary — a genuine `audio/webm;codecs=opus` MediaRecorder blob, not a
 transcoded wav. Verified: the deployed whisper decodes and transcribes it to the same
 sentence as `hello-fr.wav`. (`tests/test_speech_integration.py::test_whisper_transcribes_browser_webm`.)
 
+### Done: `english-speech.wav` (H9)
+Synthesized with macOS `say` (voice Alex) — our own audio, no licensing. The
+Tatoeba source pre-staged below (`eng/9414249`) turned out to be **CC BY-NC-ND 3.0**
+(author CK, via manythings.org), *not* CC-BY: the NC + ND terms bar committing a
+resampled derivative here, so it was rejected in favor of a synthetic clip.
+
 ### Still needed (can't be synthesized)
 - **A real human "broken French" clip** for the *pronunciation* half of H6. `say`
   pronounces `broken-fr.wav` fluently, so that fixture only tests broken **grammar**,
   not mispronunciation — Whisper's "auto-correct" of a real learner's accent needs a
   human recording.
-- **`english-speech.wav`** (English audio, for the wrong-language H9 case) — sourced
-  from Tatoeba (see below), or record one.
 
-## Third-party clips (Tatoeba — CC-BY, attribution required)
-Natural human-voice clips sourced from [Tatoeba](https://tatoeba.org). **Not CC0:**
-Tatoeba sentence text is CC-BY 2.0 FR and the per-recording audio is contributor-
-licensed (the API does not expose a per-clip license), so we treat these as **CC-BY
-and attribute them.** Downloaded via `https://audio.tatoeba.org/sentences/{lang}/{id}.mp3`.
+## Third-party clips (Tatoeba) — VERIFY THE PER-CLIP LICENSE FIRST
+Natural human-voice clips *could* come from [Tatoeba](https://tatoeba.org), but the
+earlier assumption that Tatoeba audio is "CC-BY, just attribute it" is **wrong**. The
+API **does** expose a per-recording license — check it before downloading anything:
 
-Do **not** re-license these as our own; keep this block with the files.
+```
+curl -s https://tatoeba.org/en/api_v0/sentence/<id> | jq '.audios[] | {author, license}'
+```
 
-| target fixture | source (Tatoeba) | sentence | contributor | probes |
-|---|---|---|---|---|
-| `natural-fr-1.wav` | [fra/373429](https://audio.tatoeba.org/sentences/fra/373429.mp3) | *"Je voudrais réserver un vol pour Vancouver."* | see sentence page 373429 | natural-voice baseline (real human, not TTS) |
-| `natural-fr-2.wav` | [fra/139756](https://audio.tatoeba.org/sentences/fra/139756.mp3) | *"Je voudrais un plan de la ville."* | see sentence page 139756 | natural-voice baseline #2 |
-| `english-speech.wav` | [eng/9414249](https://audio.tatoeba.org/sentences/eng/9414249.mp3) | *"I would like to participate."* | see sentence page 9414249 | H9 — wrong language (STT lang is `fr`) |
+Many of the most-recorded contributors (e.g. **CK**, via manythings.org) release under
+**CC BY-NC-ND** — the **NC** (noncommercial) and **ND** (no derivatives; a resampled wav
+*is* a derivative) terms make those clips unusable here. `eng/9414249` was exactly this
+case, which is why `english-speech.wav` is a macOS-`say` synth instead. Only commit a
+Tatoeba clip if the API reports **CC-BY or CC0**, and then attribute the audio author
+verbatim in this block. When in doubt, synthesize our own (no licensing).
 
-> Attribution, verbatim for the commit / README: *"Audio clips `natural-fr-1`,
-> `natural-fr-2`, `english-speech` are from Tatoeba (tatoeba.org), sentences
-> 373429, 139756, 9414249, licensed CC-BY. Confirm each contributor's name on the
-> sentence page and list here before publishing."*
+The two natural-voice French baselines below are **candidates only — not downloaded**,
+pending a per-clip license check:
+
+| candidate | source (Tatoeba) | sentence | status |
+|---|---|---|---|
+| `natural-fr-1.wav` | [fra/373429](https://tatoeba.org/en/sentences/show/373429) | *"Je voudrais réserver un vol pour Vancouver."* | verify audio license before use |
+| `natural-fr-2.wav` | [fra/139756](https://tatoeba.org/en/sentences/show/139756) | *"Je voudrais un plan de la ville."* | verify audio license before use |
 
 Contributor names must be filled in from each sentence page (e.g.
 `https://tatoeba.org/en/sentences/show/373429`) before this is considered complete —
