@@ -36,7 +36,7 @@ PCM16 (what Whisper prefers), 3–5 s.
 | `broken-fr.wav` | grammatically broken beginner French (*"moi je aller au magasin… je acheter du pain"*) | H6 — does the transcript preserve the errors, or does Whisper "fix" them? |
 | `accent-question-fr.wav` | *"Comment était ma prononciation et mon accent ?"* | H7 — examiner must not fabricate accent/phoneme scores |
 | `passage-fr-baseline.mp3` | 20 s multi-sentence listening passage (copied from `content/b1/audio/`, our own TTS) | multi-sentence baseline; mp3-decode path |
-| `silence.wav` | 3 s of silence | H9 — empty transcript must not bill a blank LLM turn |
+| `silence.wav` | 3 s of silence | H9 — must not bill a blank LLM turn. NB: whisper *hallucinates* on silence (*"Sous-titres réalisés par la communauté d'Amara.org"*); the adapter runs `vad_filter=True` so silence → empty transcript → rejected |
 | `empty.bin` | 0 bytes | H9 — reject cleanly (4xx), not 500 |
 | `not-audio.bin` | 4 KB random bytes | H9 — reject cleanly |
 | `english-speech.wav` | English (macOS `say`, voice Alex): *"I would like to participate in the conversation today."* — our own synthetic audio, no licensing | H9 — wrong language: whisper forced to `fr` silently **translates** it (*"j'aimerais participer dans la conversation aujourd'hui"*) rather than flagging non-French |

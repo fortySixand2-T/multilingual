@@ -46,6 +46,7 @@ class TurnResult:
     reply_audio: bytes | None
     provider: str
     model: str
+    no_speech: bool = False
 
 
 class SpeakingExaminer:
@@ -81,6 +82,11 @@ class SpeakingExaminer:
             functools.partial(self._stt.transcribe, audio=audio, lang="fr")
         )
         # R10: `audio` is used only here; it is never stored.
+
+        # Silence (or audio that decoded to nothing) must not spend an LLM turn or
+        # get billed — bail before the router runs. (H9)
+        if not transcript.text.strip():
+            return TurnResult(False, "", "", None, "", "", no_speech=True)
 
         system = self.system_prompt(mode)
         messages = list(history or []) + [Msg("user", transcript.text)]

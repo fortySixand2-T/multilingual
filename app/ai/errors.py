@@ -19,3 +19,11 @@ class AllProvidersFailedError(AIError):
         self.profile = profile
         self.last_error = last_error
         super().__init__(f"all providers failed for profile {profile!r}")
+
+
+class TranscriptionError(AIError):
+    """STT could not decode the supplied audio (corrupt / not audio / empty).
+
+    A *client* problem — the upload wasn't usable audio — so the API maps it to a
+    4xx, not a 500. Distinct from a provider outage.
+    """

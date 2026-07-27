@@ -23,8 +23,20 @@ class FasterWhisperAdapter:
         self._model = WhisperModel(model, device=device, compute_type=compute_type)
 
     def transcribe(self, *, audio: bytes, lang: str = "fr") -> Transcript:
+        from app.ai.errors import TranscriptionError
+
         # R1: lower the model's tendency to "fix" learner errors — no internal
         # language-model rescoring beyond default; we surface the raw transcript.
-        segments, _info = self._model.transcribe(io.BytesIO(audio), language=lang)
-        text = " ".join(seg.text for seg in segments).strip()
+        try:
+            # vad_filter: strip non-speech before decoding. Without it, Whisper
+            # hallucinates phantom text on silence (e.g. "Sous-titres réalisés par
+            # la communauté d'Amara.org"), which would bill a blank turn (H9).
+            segments, _info = self._model.transcribe(
+                io.BytesIO(audio), language=lang, vad_filter=True
+            )
+            # segments is a generator; decoding happens as it's consumed, so a
+            # corrupt/non-audio upload raises here, not on the call above.
+            text = " ".join(seg.text for seg in segments).strip()
+        except Exception as e:  # noqa: BLE001 — any decode/inference failure is a bad upload
+            raise TranscriptionError("could not decode the supplied audio") from e
         return Transcript(text=text, provider=self.name)
