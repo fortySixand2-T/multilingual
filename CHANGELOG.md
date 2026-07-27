@@ -1,5 +1,7 @@
 # Changelog
 
+- [2026-07-27] Created: tests/test_speech_integration.py — real faster-whisper+piper adapter tests (gated behind RUN_SPEECH_INTEGRATION; runs on the self-host box)
+
 - [2026-07-27] Modified: pyproject.toml, uv.lock — add faster-whisper (CPU int8 STT) dependency
 - [2026-07-27] Modified: Dockerfile — install Piper binary + fr_FR-siwis-medium voice, libgomp1, bake whisper 'small' model into HF_HOME
 - [2026-07-27] Modified: docker-compose.yml — enable speech stack (STT=faster-whisper, TTS=piper, WHISPER_MODEL=small, PIPER_VOICE) for self-host app
