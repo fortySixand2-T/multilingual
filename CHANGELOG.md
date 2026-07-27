@@ -1,5 +1,9 @@
 # Changelog
 
+- [2026-07-27] Created: qa/fixtures/speech/hello-fr.webm — real Chrome MediaRecorder webm/opus blob captured through the Speaking screen (H1 fixture)
+- [2026-07-27] Modified: tests/test_speech_integration.py — add webm/opus decode+transcribe test (H1)
+- [2026-07-27] Modified: qa/fixtures/speech/README.md — mark hello-fr.webm done; document the capture method
+
 - [2026-07-27] Created: qa/fixtures/speech/graded-{a1,a2,b1,b2}-fr.wav — graded French STT fixtures (llama3.1 text + Piper voice, 16kHz mono)
 - [2026-07-27] Modified: qa/fixtures/speech/README.md — document graded llama3.1+Piper fixtures + observed whisper-small transcription
 

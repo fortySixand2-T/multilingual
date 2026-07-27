@@ -31,6 +31,7 @@ PCM16 (what Whisper prefers), 3–5 s.
 | filename | content | probes |
 |---|---|---|
 | `hello-fr.wav` | clean Québécois French (voice Amélie): *"Bonjour, je m'appelle Claire et j'habite à Montréal…"* | baseline happy path |
+| `hello-fr.webm` | **same utterance as `hello-fr.wav`**, captured through the Speaking screen (Chrome `MediaRecorder`, webm/Opus) | **H1** — real browser blob decodes (PyAV/opus, no system ffmpeg) + transcribes |
 | `hello-fr-france.wav` | clean France French (voice Jacques): a restaurant reservation | baseline + fr_FR vs fr_CA accent |
 | `broken-fr.wav` | grammatically broken beginner French (*"moi je aller au magasin… je acheter du pain"*) | H6 — does the transcript preserve the errors, or does Whisper "fix" them? |
 | `accent-question-fr.wav` | *"Comment était ma prononciation et mon accent ?"* | H7 — examiner must not fabricate accent/phoneme scores |
@@ -62,10 +63,16 @@ dense opening clause garbles (*"j'aie des connaissances solides" → "je déconn
 lit"*) — an honest marker of the small model's ceiling on complex French. Bump
 `WHISPER_MODEL` to `medium` if those need to land cleanly.
 
+### Done: `hello-fr.webm` (H1)
+Captured through the real Speaking screen in headless Chromium (Playwright): the
+screen's own `getUserMedia → MediaRecorder → postSpeechTurn` path runs, with the
+"mic" fed `hello-fr.wav` decoded through Web Audio into a `MediaStream` (deterministic,
+unlike Chrome's flaky `--use-file-for-fake-audio-capture`). The blob is grabbed at the
+upload boundary — a genuine `audio/webm;codecs=opus` MediaRecorder blob, not a
+transcoded wav. Verified: the deployed whisper decodes and transcribes it to the same
+sentence as `hello-fr.wav`. (`tests/test_speech_integration.py::test_whisper_transcribes_browser_webm`.)
+
 ### Still needed (can't be synthesized)
-- **`hello-fr.webm`** — the **same utterance as `hello-fr.wav`, captured from Chrome
-  `MediaRecorder`** (webm/Opus). This is the whole point of **H1**; a transcoded
-  wav→webm won't do — record it through the app's Speaking screen and save the blob.
 - **A real human "broken French" clip** for the *pronunciation* half of H6. `say`
   pronounces `broken-fr.wav` fluently, so that fixture only tests broken **grammar**,
   not mispronunciation — Whisper's "auto-correct" of a real learner's accent needs a
