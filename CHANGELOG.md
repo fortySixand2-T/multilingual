@@ -1,5 +1,8 @@
 # Changelog
 
+- [2026-07-27] Created: qa/fixtures/speech/graded-{a1,a2,b1,b2}-fr.wav — graded French STT fixtures (llama3.1 text + Piper voice, 16kHz mono)
+- [2026-07-27] Modified: qa/fixtures/speech/README.md — document graded llama3.1+Piper fixtures + observed whisper-small transcription
+
 - [2026-07-27] Created: tests/test_speech_integration.py — real faster-whisper+piper adapter tests (gated behind RUN_SPEECH_INTEGRATION; runs on the self-host box)
 
 - [2026-07-27] Modified: pyproject.toml, uv.lock — add faster-whisper (CPU int8 STT) dependency
