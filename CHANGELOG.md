@@ -1,5 +1,11 @@
 # Changelog
 
+- [2026-07-27] Created: migrations/versions/0015_daily_xp.py, app/progress/models.py DailyXp — per-(user,day,source) XP ledger for the daily-goal ring + anti-farm caps
+- [2026-07-27] Modified: app/progress/service.py — record_activity gains source/once_per_day (writes daily ledger); add xp_earned_today + DAILY_XP_GOAL
+- [2026-07-27] Modified: app/srs/api.py, app/tutor/api.py — Review & Drill now award XP (once/day) + advance the streak; return xp/xp_today
+- [2026-07-27] Modified: app/progress/api.py (me: +xp_today/daily_goal), app/comprehension/api.py, app/exam/api.py — tag record_activity with source
+- [2026-07-27] Created: tests/test_daily_xp.py — once-per-day cap, cross-source ring sum, streak coverage, next-day reset
+
 - [2026-07-27] Modified: app/speech/api.py — reject empty (400) / oversized (413, 10MB cap) / undecodable (422) audio cleanly; skip billing on no-speech (422) — H9
 - [2026-07-27] Modified: app/speech/examiner.py — empty transcript short-circuits before the LLM/billing (no_speech)
 - [2026-07-27] Modified: app/ai/adapters/faster_whisper_adapter.py — wrap decode failures as TranscriptionError; vad_filter=True so silence→empty (no phantom transcript)

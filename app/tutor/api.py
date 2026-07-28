@@ -17,10 +17,14 @@ from app.api.deps import get_ai_router  # re-exported for callers/tests
 from app.config.settings import Settings, get_settings
 from app.content.tables import ContentLesson
 from app.db.session import get_session
+from app.progress.models import UserProgress
+from app.progress.service import DAILY_XP_GOAL, record_activity, xp_earned_today
 from app.tutor.orchestrator import Tutor
 from app.users.models import User
 
 router = APIRouter(prefix="/tutor", tags=["tutor"])
+
+DRILL_XP = 10  # bonus for the day's first drill (once per day — see record_activity)
 
 
 class DrillBody(BaseModel):
@@ -58,7 +62,23 @@ async def post_drill(
         attempt=body.attempt,
         daily_budget=settings.tutor_daily_token_budget,
     )
+    # A delivered drill (not an over-budget no-op) counts toward the streak; the XP
+    # bonus is claimed once per day so repeated drills can't inflate XP.
+    prog = None
+    if not result.over_budget:
+        prog = await record_activity(
+            session,
+            user.id,
+            xp_award=DRILL_XP,
+            source="drill",
+            once_per_day=True,
+            level=lesson.level,
+        )
     await session.commit()
+    if prog is not None:
+        await session.refresh(prog)
+    else:
+        prog = await session.get(UserProgress, user.id)
     return {
         "lesson_id": body.lesson_id,
         "over_budget": result.over_budget,
@@ -67,4 +87,8 @@ async def post_drill(
         "model": result.model,
         "tokens_used_today": result.tokens_used_today,
         "daily_budget": result.daily_budget,
+        "streak": prog.streak if prog else 0,
+        "xp": prog.xp if prog else 0,
+        "xp_today": await xp_earned_today(session, user.id),
+        "daily_goal": DAILY_XP_GOAL,
     }

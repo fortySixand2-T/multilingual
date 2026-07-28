@@ -63,6 +63,26 @@ class WeakSpot(Base):
     __table_args__ = (UniqueConstraint("user_id", "ref_id", name="uq_weak_spot_user_ref"),)
 
 
+class DailyXp(Base):
+    """XP earned per (user, day, source). Two jobs: it's the source of truth for
+    "XP earned today" (the daily-goal ring sums a day's rows), and the once-per-day
+    cap for repeatable activities — review/drill claim their bonus only once per day
+    via the unique (user, day, source) marker, so they can't be farmed. Per-unit
+    sources (lesson/comprehension/exam) accumulate into the day's row instead."""
+
+    __tablename__ = "progress_daily_xp"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, index=True)
+    day: Mapped[date] = mapped_column(Date, index=True)
+    source: Mapped[str] = mapped_column(String(24))  # lesson|comprehension|exam|review|drill
+    xp: Mapped[int] = mapped_column(Integer, default=0)
+
+    __table_args__ = (
+        UniqueConstraint("user_id", "day", "source", name="uq_daily_xp_user_day_source"),
+    )
+
+
 def compute_streak(prev_streak: int, last_active: date | None, today: date) -> int:
     """Daily-activity streak: +1 on a consecutive day, unchanged on the same day,
     reset to 1 after any gap."""
