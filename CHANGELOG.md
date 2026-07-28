@@ -13,6 +13,9 @@
 - [2026-07-27] Modified: tests/test_speech_integration.py — add webm/opus decode+transcribe test (H1)
 - [2026-07-27] Modified: qa/fixtures/speech/README.md — mark hello-fr.webm done; document the capture method
 
+- [2026-07-27] Modified: qa/issues/530-topbar-nav-overflow-320px.md — triaged: validated (independently reproduced 320px `.nav` overflow via iframe + getBoundingClientRect, not just tester's screenshots)
+- [2026-07-27] Modified: qa/issues/540-speaking-record-requests-mic-before-checking-availability.md — triaged: validated (mic-permission-before-availability-check confirmed real via source read of Speaking.tsx/api.py; in-scope per qa/README's "handling is poor" carve-out)
+
 - [2026-07-27] Created: qa/fixtures/speech/graded-{a1,a2,b1,b2}-fr.wav — graded French STT fixtures (llama3.1 text + Piper voice, 16kHz mono)
 - [2026-07-27] Modified: qa/fixtures/speech/README.md — document graded llama3.1+Piper fixtures + observed whisper-small transcription
 
@@ -82,3 +85,7 @@
 - [2026-07-26] Modified: web/src/screens/Path.tsx — fix qa-490: add visible "Practice & tools" h2 heading above the tool grid nav
 - [2026-07-26] Modified: web/src/styles.css — fix qa-490: add .section-label style for small muted section headings
 - [2026-07-26] Created: web/src/screens/Path.test.tsx — regression test for qa-490 (visible heading above tool grid)
+- [2026-07-27] Created: qa/issues/540-speaking-record-requests-mic-before-checking-availability.md — QA round 043 H8 finding: Speaking screen requests mic permission before checking backend speech availability
+- [2026-07-27] Modified: web/src/styles.css — fix qa-530: contain the phone `.nav` row's overflow (overflow-x: auto strip) instead of leaking into page scroll at 320px
+- [2026-07-27] Created: web/src/styles.test.ts — regression test for qa-530 (phone media query keeps .nav overflow-safe)
+- [2026-07-27] Modified: qa/issues/530-topbar-nav-overflow-320px.md — status: done, add Fix section
