@@ -23,7 +23,12 @@ from app.content.api import is_lesson_unlocked
 from app.content.tables import ContentLesson
 from app.db.session import get_session
 from app.progress.models import LessonCompletion, UserProgress, WeakSpot
-from app.progress.service import get_or_create_progress, record_activity
+from app.progress.service import (
+    DAILY_XP_GOAL,
+    get_or_create_progress,
+    record_activity,
+    xp_earned_today,
+)
 from app.srs.service import seed_cards
 from app.users.models import User
 
@@ -139,7 +144,11 @@ async def submit_result(
 
     # Shared write path: streak counts daily activity; XP only on first pass.
     prog = await record_activity(
-        session, user.id, xp_award=(XP_PER_LESSON if first_pass else 0), level=lesson.level
+        session,
+        user.id,
+        xp_award=(XP_PER_LESSON if first_pass else 0),
+        source="lesson",
+        level=lesson.level,
     )
     await session.commit()
     await session.refresh(prog)  # xp was an atomic increment expression — read it back
@@ -187,7 +196,7 @@ async def waive_lesson(
             f"keep trying — you can continue anyway after {WAIVE_AFTER_ATTEMPTS} attempts",
         )
     row.waived = True  # idempotent if already waived
-    prog = await record_activity(session, user.id, xp_award=0, level=lesson.level)
+    prog = await record_activity(session, user.id, xp_award=0, source="lesson", level=lesson.level)
     await session.commit()
     await session.refresh(prog)
     return {
@@ -211,6 +220,8 @@ async def get_me(
         "xp": prog.xp if prog else 0,
         "streak": prog.streak if prog else 0,
         "last_active": prog.last_active.isoformat() if prog and prog.last_active else None,
+        "xp_today": await xp_earned_today(session, user.id),
+        "daily_goal": DAILY_XP_GOAL,
     }
 
 

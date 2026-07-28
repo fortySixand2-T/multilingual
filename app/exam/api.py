@@ -228,7 +228,9 @@ async def finish(
     )
     prog = None
     if result.rowcount == 1:
-        prog = await record_activity(session, user.id, xp_award=EXAM_XP, level=attempt.level)
+        prog = await record_activity(
+            session, user.id, xp_award=EXAM_XP, source="exam", level=attempt.level
+        )
     await session.commit()
 
     # Surface live XP/streak so the client isn't stale after finishing (qa-465,

@@ -171,7 +171,7 @@ async def submit(
         first_pass = (await session.execute(claim)).rowcount == 1
         if first_pass:
             prog = await record_activity(
-                session, user.id, xp_award=COMPREHENSION_XP, level=row.level
+                session, user.id, xp_award=COMPREHENSION_XP, source="comprehension", level=row.level
             )
     await session.commit()
 

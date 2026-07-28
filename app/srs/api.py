@@ -12,11 +12,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.auth import get_current_user
 from app.content.tables import ContentVocab
 from app.db.session import get_session
+from app.progress.service import DAILY_XP_GOAL, record_activity, xp_earned_today
 from app.srs.fsrs import RATINGS
 from app.srs.service import due_cards, review_card, seed_cards
 from app.users.models import User
 
 router = APIRouter(prefix="/srs", tags=["srs"])
+
+REVIEW_XP = 10  # bonus for the day's first review (once per day — see record_activity)
 
 
 class ReviewBody(BaseModel):
@@ -94,8 +97,22 @@ async def post_review(
     new_due = await review_card(session, user.id, body.card_key, body.rating)
     if new_due is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"no card {body.card_key!r} for user")
+    # Reviewing counts toward the streak every day; the XP bonus is claimed once per
+    # day so grinding the queue can't inflate XP.
+    prog = await record_activity(
+        session, user.id, xp_award=REVIEW_XP, source="review", once_per_day=True
+    )
     await session.commit()
-    return {"card_key": body.card_key, "rating": body.rating, "due": new_due.isoformat()}
+    await session.refresh(prog)
+    return {
+        "card_key": body.card_key,
+        "rating": body.rating,
+        "due": new_due.isoformat(),
+        "streak": prog.streak,
+        "xp": prog.xp,
+        "xp_today": await xp_earned_today(session, user.id),
+        "daily_goal": DAILY_XP_GOAL,
+    }
 
 
 # Exposed so callers/tests can introspect valid ratings without importing the engine.

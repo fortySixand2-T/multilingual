@@ -10,13 +10,17 @@ from __future__ import annotations
 from collections.abc import Iterable
 from datetime import UTC, date, datetime
 
-from sqlalchemy import select, update
+from sqlalchemy import func, select, update
 from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.progress.models import LessonCompletion, UserProgress, WeakSpot, compute_streak
+from app.progress.models import DailyXp, LessonCompletion, UserProgress, WeakSpot, compute_streak
 
 _LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
+
+# The daily-goal ring target. Tuned so it's hit by *variety* — e.g. a lesson (10) +
+# a review (10) + a drill (10), or a comprehension set (15) + a review (10).
+DAILY_XP_GOAL = 30
 
 
 async def completed_lesson_ids(session: AsyncSession, user_id: int) -> set[str]:
@@ -62,16 +66,56 @@ async def get_or_create_progress(
     return prog
 
 
+async def _claim_daily_xp(
+    session: AsyncSession, user_id: int, day: date, source: str, xp: int, once_per_day: bool
+) -> int:
+    """Record an XP award into the per-day ledger; return how much was actually
+    granted. For `once_per_day` sources (review/drill) the unique (user, day, source)
+    marker is claimed atomically — a second attempt the same day grants 0 (anti-farm),
+    same pattern as comprehension's once-per-set claim. Per-unit sources accumulate."""
+    if once_per_day:
+        claim = (
+            sqlite_insert(DailyXp)
+            .values(user_id=user_id, day=day, source=source, xp=xp)
+            .on_conflict_do_nothing(index_elements=["user_id", "day", "source"])
+        )
+        return xp if (await session.execute(claim)).rowcount == 1 else 0
+    upsert = (
+        sqlite_insert(DailyXp)
+        .values(user_id=user_id, day=day, source=source, xp=xp)
+        .on_conflict_do_update(
+            index_elements=["user_id", "day", "source"], set_={"xp": DailyXp.xp + xp}
+        )
+    )
+    await session.execute(upsert)
+    return xp
+
+
+async def xp_earned_today(session: AsyncSession, user_id: int, today: date | None = None) -> int:
+    """Total XP earned today across all sources — what the daily-goal ring fills to."""
+    today = today or date.today()
+    total = await session.scalar(
+        select(func.coalesce(func.sum(DailyXp.xp), 0)).where(
+            DailyXp.user_id == user_id, DailyXp.day == today
+        )
+    )
+    return int(total or 0)
+
+
 async def record_activity(
     session: AsyncSession,
     user_id: int,
     *,
     xp_award: int = 0,
+    source: str = "lesson",
+    once_per_day: bool = False,
     level: str = "a1",
     today: date | None = None,
 ) -> UserProgress:
     """Bump the daily streak (once per day) and add XP. The shared write path for
-    any learning activity that should count toward streak/XP."""
+    any learning activity that should count toward streak/XP. `source` tags the
+    per-day ledger (feeds the daily-goal ring); `once_per_day` caps a repeatable
+    activity's XP to one bonus per day."""
     today = today or date.today()
     prog = await get_or_create_progress(session, user_id, level)
     # streak is idempotent within a day, so concurrent writers converge; xp uses an
@@ -84,7 +128,9 @@ async def record_activity(
     prog.streak = compute_streak(prog.streak, prog.last_active, today)
     prog.last_active = today
     if xp_award:
-        prog.xp = UserProgress.xp + xp_award
+        granted = await _claim_daily_xp(session, user_id, today, source, xp_award, once_per_day)
+        if granted:
+            prog.xp = UserProgress.xp + granted
     return prog
 
 
