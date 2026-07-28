@@ -64,6 +64,17 @@ async def _recent_history(session: AsyncSession, user_id: int):
     return msgs
 
 
+@router.get("/status")
+async def speech_status(request: Request) -> dict:
+    """Lightweight capability check so the frontend can hide/disable the Record
+    button (and skip the mic-permission prompt) before speech is even attempted,
+    instead of only learning it's unconfigured after a wasted record round-trip.
+    `/speech/history` always 200s regardless of STT/TTS config, so it can't be
+    reused for this — this is a dedicated, no-DB-query signal.
+    """
+    return {"available": request.app.state.stt is not None}
+
+
 @router.post("/turn")
 async def speech_turn(
     request: Request,

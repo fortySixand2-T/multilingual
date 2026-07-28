@@ -186,7 +186,11 @@ h2 { font-size: 18px; margin: 0 0 12px; }
 /* phones: slim nav wraps neatly; tool grid drops to 2 columns */
 @media (max-width: 640px) {
   .topbar { flex-wrap: wrap; gap: 12px; padding: 12px 16px; }
-  .nav { order: 3; width: 100%; margin-left: 0; }
+  .nav {
+    order: 3; width: 100%; margin-left: 0;
+    overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch;
+  }
+  .nav a { flex: none; }
   .topbar-right { gap: 12px; }
   .tool-grid { grid-template-columns: repeat(2, 1fr); }
 }
