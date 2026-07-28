@@ -72,6 +72,16 @@ def test_whisper_transcribes_french_fixture(whisper: FasterWhisperAdapter) -> No
     assert t.provider == "faster-whisper"
 
 
+def test_piper_multiline_reply_is_a_single_wav(piper: PiperAdapter) -> None:
+    # An LLM reply spans multiple lines; Piper emits one WAV per line, so without
+    # normalization a player cuts off at the first line break. The adapter must
+    # collapse it to ONE wav (one RIFF header), not one-per-line.
+    wav = piper.synthesize(text="Bonjour Claire.\nQu'est-ce qui t'a amenée à Montréal ?")
+    assert wav[:4] == b"RIFF"
+    assert wav.count(b"RIFF") == 1, "multi-line reply produced multiple concatenated WAVs"
+    assert _wav_frames(wav) > 0
+
+
 def test_whisper_transcribes_browser_webm(whisper: FasterWhisperAdapter) -> None:
     # hello-fr.webm is a genuine Chrome MediaRecorder webm/opus blob (same utterance
     # as hello-fr.wav), captured through the Speaking screen. This is the H1 path:

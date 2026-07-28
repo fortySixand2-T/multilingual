@@ -1,5 +1,8 @@
 # Changelog
 
+- [2026-07-28] Fixed: app/ai/adapters/piper_adapter.py — collapse reply whitespace to one line so Piper emits a single WAV; multi-line examiner replies were cut off at the first line break (played only the first sentence)
+- [2026-07-28] Created: tests/test_piper_adapter.py — _one_line normalization (CI); tests/test_speech_integration.py — multi-line reply → single WAV (gated)
+
 - [2026-07-27] Modified: web/src/screens/Path.tsx, web/src/styles.css — daily-goal ring on the home (progress + goal-reached celebration)
 - [2026-07-27] Modified: web/src/api.ts — Me type carries xp_today/daily_goal
 - [2026-07-27] Modified: web/src/screens/Path.test.tsx — daily-goal ring tests (progress + reached)
