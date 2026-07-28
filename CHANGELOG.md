@@ -1,5 +1,8 @@
 # Changelog
 
+- [2026-07-27] Modified: web/src/screens/Path.tsx, web/src/styles.css — daily-goal ring on the home (progress + goal-reached celebration)
+- [2026-07-27] Modified: web/src/api.ts — Me type carries xp_today/daily_goal
+- [2026-07-27] Modified: web/src/screens/Path.test.tsx — daily-goal ring tests (progress + reached)
 - [2026-07-27] Created: migrations/versions/0015_daily_xp.py, app/progress/models.py DailyXp — per-(user,day,source) XP ledger for the daily-goal ring + anti-farm caps
 - [2026-07-27] Modified: app/progress/service.py — record_activity gains source/once_per_day (writes daily ledger); add xp_earned_today + DAILY_XP_GOAL
 - [2026-07-27] Modified: app/srs/api.py, app/tutor/api.py — Review & Drill now award XP (once/day) + advance the streak; return xp/xp_today

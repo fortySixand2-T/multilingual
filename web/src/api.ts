@@ -149,7 +149,7 @@ export type LessonResult = {
   waived?: boolean;
 };
 export type DueCard = { card_key: string; due: string; vocab: { fr: string; en: string } | null };
-export type Me = { user_id: number; level: string; xp: number; streak: number; last_active: string | null };
+export type Me = { user_id: number; level: string; xp: number; streak: number; last_active: string | null; xp_today: number; daily_goal: number };
 export type BoardMember = { user_id: number; display_name: string; level: string; xp: number; streak: number };
 export type Drill = {
   lesson_id: string;

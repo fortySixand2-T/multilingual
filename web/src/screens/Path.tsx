@@ -46,6 +46,8 @@ export default function Path() {
         )}
       </div>
 
+      {me && <DailyGoal today={me.xp_today} goal={me.daily_goal} />}
+
       <h2 className="section-label">Practice &amp; tools</h2>
       <nav className="tool-grid" aria-label="Practice & tools">
         {TOOLS.map((t) => (
@@ -95,6 +97,40 @@ export default function Path() {
           })}
         </div>
       ))}
+    </div>
+  );
+}
+
+function DailyGoal({ today, goal }: { today: number; goal: number }) {
+  const pct = goal > 0 ? Math.min(1, today / goal) : 0;
+  const R = 20;
+  const C = 2 * Math.PI * R;
+  const done = goal > 0 && today >= goal;
+  return (
+    <div className={`daily-goal ${done ? "done" : ""}`}>
+      <div className="daily-ring" aria-hidden="true">
+        <svg width="52" height="52" viewBox="0 0 52 52">
+          <circle className="ring-track" cx="26" cy="26" r={R} />
+          <circle
+            className="ring-fill"
+            cx="26"
+            cy="26"
+            r={R}
+            strokeDasharray={C}
+            strokeDashoffset={C * (1 - pct)}
+            transform="rotate(-90 26 26)"
+          />
+        </svg>
+        <span className="ring-center">{done ? "🎉" : today}</span>
+      </div>
+      <div className="grow">
+        <div className="daily-goal-title">{done ? "Daily goal reached!" : "Daily goal"}</div>
+        <div className="daily-goal-sub">
+          {done
+            ? `${today} XP today — nice. Come back tomorrow to keep it going.`
+            : `${today} / ${goal} XP today`}
+        </div>
+      </div>
     </div>
   );
 }

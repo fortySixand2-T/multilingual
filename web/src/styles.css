@@ -163,6 +163,23 @@ h2 { font-size: 18px; margin: 0 0 12px; }
 .switch { text-align: center; margin-top: 14px; color: var(--muted); }
 .switch button { background: none; border: none; color: var(--green-dk); font-weight: 800; cursor: pointer; }
 
+/* daily-goal ring — the come-back-tomorrow hook on the home */
+.daily-goal {
+  display: flex; align-items: center; gap: 14px; margin: 0 0 22px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  box-shadow: var(--shadow); padding: 12px 16px;
+}
+.daily-goal.done { background: #eaf6ee; border-color: var(--green); }
+.daily-ring { position: relative; width: 52px; height: 52px; display: grid; place-items: center; flex: none; }
+.daily-ring .ring-center { position: absolute; font-weight: 800; font-size: 15px; }
+.ring-track { fill: none; stroke: var(--line); stroke-width: 6; }
+.ring-fill {
+  fill: none; stroke: var(--green); stroke-width: 6; stroke-linecap: round;
+  transition: stroke-dashoffset .5s ease;
+}
+.daily-goal-title { font-weight: 800; }
+.daily-goal-sub { font-size: 13px; color: var(--muted); }
+
 /* home hub: shortcuts to the tools that aren't in the slim topbar */
 .section-label {
   font-size: 13px; font-weight: 800; color: var(--muted);
