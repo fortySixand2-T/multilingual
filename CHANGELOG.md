@@ -89,3 +89,9 @@
 - [2026-07-27] Modified: web/src/styles.css — fix qa-530: contain the phone `.nav` row's overflow (overflow-x: auto strip) instead of leaking into page scroll at 320px
 - [2026-07-27] Created: web/src/styles.test.ts — regression test for qa-530 (phone media query keeps .nav overflow-safe)
 - [2026-07-27] Modified: qa/issues/530-topbar-nav-overflow-320px.md — status: done, add Fix section
+- [2026-07-27] Modified: app/speech/api.py — fix qa-540: add GET /speech/status capability check ({"available": bool})
+- [2026-07-27] Modified: web/src/api.ts — fix qa-540: add api.speechStatus()
+- [2026-07-27] Modified: web/src/screens/Speaking.tsx — fix qa-540: preflight speech availability on mount; disable Record + show message upfront when unconfigured, instead of after a wasted mic-grant/record/transcribe round-trip
+- [2026-07-27] Modified: tests/test_speech.py — regression tests for GET /speech/status (available true/false)
+- [2026-07-27] Created: web/src/screens/Speaking.test.tsx — regression test for qa-540 (Record disabled + message shown when speech unavailable)
+- [2026-07-27] Modified: qa/issues/540-speaking-record-requests-mic-before-checking-availability.md — status: done, add Fix section

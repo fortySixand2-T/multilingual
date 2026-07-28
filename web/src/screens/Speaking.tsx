@@ -9,6 +9,9 @@ export default function Speaking() {
   const [recording, setRecording] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  // null = still checking; avoids flashing the "unavailable" message before the
+  // status check resolves.
+  const [available, setAvailable] = useState<boolean | null>(null);
   const recorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
 
@@ -18,6 +21,11 @@ export default function Speaking() {
         setTurns(r.turns.map((t) => ({ transcript: t.transcript, reply_text: t.reply_text, reply_audio_url: t.reply_audio_url })))
       )
       .catch((e) => setError(e.message));
+    // Preflight: don't let a learner grant a real mic permission and record
+    // only to discover afterwards that speech isn't configured here (qa-540).
+    api.speechStatus()
+      .then((r) => setAvailable(r.available))
+      .catch(() => setAvailable(true)); // fail open — don't block Record on a flaky check
   }, []);
 
   const upload = async (blob: Blob) => {
@@ -41,6 +49,10 @@ export default function Speaking() {
   };
 
   const start = async () => {
+    if (available === false) {
+      setError("Speaking practice isn't enabled on this server yet (no speech models configured).");
+      return;
+    }
     setError("");
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -95,6 +107,11 @@ export default function Speaking() {
         {turns.length === 0 && <div className="card center muted">Tap record and introduce yourself in French.</div>}
       </div>
 
+      {available === false && (
+        <div className="feedback no" style={{ marginTop: 14 }}>
+          Speaking practice isn't enabled on this server yet (no speech models configured).
+        </div>
+      )}
       {error && <div className="feedback no" style={{ marginTop: 14 }}>{error}</div>}
 
       <div className="center" style={{ marginTop: 18 }}>
@@ -105,7 +122,7 @@ export default function Speaking() {
             ◼ Stop &amp; send
           </button>
         ) : (
-          <button className="btn" onClick={start}>🎙 Record</button>
+          <button className="btn" onClick={start} disabled={available === false}>🎙 Record</button>
         )}
       </div>
     </div>

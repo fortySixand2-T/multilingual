@@ -4,7 +4,7 @@ title: Speaking screen requests mic permission before checking if speech backend
 severity: medium
 area: speech
 persona: absolute-beginner
-status: validated
+status: done
 found: 2026-07-27
 ---
 
@@ -163,3 +163,29 @@ end-to-end; otherwise a small `/speech/status` style check would suffice.
   new subsystem) — anything heavier would tip into "fix worse than the bug"
   territory for what remains, at bottom, a local/dev-only rough edge.
 - Final verdict: validated
+
+## Fix
+Added a small, dedicated capability signal instead of a new subsystem, per
+the critic's proportionality note:
+- `app/speech/api.py`: new `GET /speech/status` returning
+  `{"available": bool}` from `request.app.state.stt is not None` — no DB
+  query, no auth requirement, mirrors the existing 503 logic in
+  `/speech/turn` without needing history's (misleading) 200.
+- `web/src/api.ts`: added `api.speechStatus()`.
+- `web/src/screens/Speaking.tsx`: the mount `useEffect` now also calls
+  `speechStatus()` (alongside the existing `speechHistory()` call) and
+  stores the result in `available` (`null` while pending, to avoid a
+  flash of the unavailable message). When `available === false`, the
+  Record button is disabled and an upfront "Speaking practice isn't
+  enabled on this server yet…" message is shown before the learner ever
+  touches Record — no more mic-permission prompt, record, and
+  "Transcribing…" wait for a guaranteed 503. `start()` also keeps a
+  defense-in-depth guard for the same case. If the status check itself
+  fails (network hiccup), it fails open (`available` defaults true) so a
+  flaky check never blocks a working deployment.
+- Tests: `tests/test_speech.py` adds
+  `test_speech_status_reports_unavailable_when_stt_not_configured` and
+  `test_speech_status_reports_available_when_stt_configured`.
+  `web/src/screens/Speaking.test.tsx` (new) asserts Record is disabled
+  with the message shown when unavailable, and enabled with no message
+  when available.

@@ -210,6 +210,23 @@ def test_speech_disabled_returns_503():
     assert r.status_code == 503
 
 
+# --- capability preflight (qa-540): let the frontend know before requesting mic ---
+
+
+def test_speech_status_reports_unavailable_when_stt_not_configured():
+    client, _ = _client(stt=None, tts=None)
+    r = client.get("/speech/status")
+    assert r.status_code == 200
+    assert r.json() == {"available": False}
+
+
+def test_speech_status_reports_available_when_stt_configured():
+    client, _ = _client(stt=FakeSTT(), tts=FakeTTS())
+    r = client.get("/speech/status")
+    assert r.status_code == 200
+    assert r.json() == {"available": True}
+
+
 # --- input hardening (H9): bad audio must 4xx cleanly, never 500 or a billed turn ---
 
 

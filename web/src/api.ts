@@ -389,6 +389,7 @@ export const api = {
     }),
 
   speechHistory: () => req<{ turns: SpeechHistoryTurn[] }>("/speech/history"),
+  speechStatus: () => req<{ available: boolean }>("/speech/status"),
 
   readiness: () => req<Readiness>("/exam/readiness"),
   weakSpots: () => req<{ weak_spots: WeakSpot[] }>("/progress/weak-spots"),
