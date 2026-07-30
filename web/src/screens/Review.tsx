@@ -50,7 +50,7 @@ export default function Review() {
       <div className="card center stack" style={{ minHeight: 240, justifyContent: "center" }}>
         <div className="muted">{idx + 1} / {cards.length}</div>
         <div style={{ fontSize: 34, fontWeight: 800 }}>{card.vocab?.fr ?? card.card_key}</div>
-        {vocabAudio && <AudioButton audioKey={vocabAudio} label="🔊" />}
+        {vocabAudio && <AudioButton audioKey={vocabAudio} label="🔊" slow />}
         {revealed ? (
           <div style={{ fontSize: 20 }} className="muted">{card.vocab?.en ?? "—"}</div>
         ) : (

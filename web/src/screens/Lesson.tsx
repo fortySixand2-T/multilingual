@@ -199,7 +199,7 @@ function ListenType({ ex, disabled, onChecked }: SubProps) {
   return (
     <div className="exercise">
       <div className="prompt">Type what you hear</div>
-      <AudioButton audioKey={ex.audio_ref} label="🔊 Play" style={{ marginBottom: 12 }} />
+      <AudioButton audioKey={ex.audio_ref} label="🔊 Play" slow style={{ marginBottom: 12 }} />
       <input className="text-input" value={val} disabled={disabled} onChange={(e) => setVal(e.target.value)} placeholder="écrivez ici…" />
       {!disabled && (
         <button className="btn wide" style={{ marginTop: 16 }} disabled={!val.trim()} onClick={() => onChecked(norm(val) === norm(ex.answer))}>Check</button>
