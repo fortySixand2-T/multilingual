@@ -20,12 +20,12 @@ export default function VocabWord({ card }: { card: VocabCard }) {
         <span style={BIG}>
           {card.fr} <span className="gender-mark">{MARK.m}</span>
         </span>
-        {card.audio && <AudioButton audioKey={card.audio} label="🔊" />}
+        {card.audio && <AudioButton audioKey={card.audio} label="🔊" slow />}
         <span className="muted" style={{ fontSize: 26, fontWeight: 800 }}>/</span>
         <span style={BIG}>
           {card.fem} <span className="gender-mark">{MARK.f}</span>
         </span>
-        {card.fem_audio && <AudioButton audioKey={card.fem_audio} label="🔊" />}
+        {card.fem_audio && <AudioButton audioKey={card.fem_audio} label="🔊" slow />}
       </div>
     );
   }
@@ -37,7 +37,7 @@ export default function VocabWord({ card }: { card: VocabCard }) {
         {card.fr}
         {marked && <> <span className="gender-mark">{MARK[card.gender as "m" | "f"]}</span></>}
       </span>
-      {card.audio && <AudioButton audioKey={card.audio} label="🔊" />}
+      {card.audio && <AudioButton audioKey={card.audio} label="🔊" slow />}
     </div>
   );
 }

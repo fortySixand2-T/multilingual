@@ -1,6 +1,7 @@
 import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./auth";
 import { LevelProvider, LevelSwitcher } from "./level";
+import { SpeedProvider, SlowSpeedControl } from "./speed";
 import Login from "./screens/Login";
 import Path from "./screens/Path";
 import Lesson from "./screens/Lesson";
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <LevelProvider>
+    <SpeedProvider>
     <div className="app">
       <header className="topbar">
         <div className="brand">
@@ -39,6 +41,7 @@ export default function App() {
         </nav>
         <div className="topbar-right">
           <LevelSwitcher />
+          <SlowSpeedControl />
           <button className="link-btn" onClick={logout}>Log out</button>
         </div>
       </header>
@@ -65,6 +68,7 @@ export default function App() {
         </Routes>
       </main>
     </div>
+    </SpeedProvider>
     </LevelProvider>
   );
 }

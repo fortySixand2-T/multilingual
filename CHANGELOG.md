@@ -107,3 +107,10 @@
 - [2026-07-27] Modified: tests/test_speech.py — regression tests for GET /speech/status (available true/false)
 - [2026-07-27] Created: web/src/screens/Speaking.test.tsx — regression test for qa-540 (Record disabled + message shown when speech unavailable)
 - [2026-07-27] Modified: qa/issues/540-speaking-record-requests-mic-before-checking-availability.md — status: done, add Fix section
+- [2026-07-30] Created: web/src/speed.tsx — Shared, localStorage-backed slow-replay rate (0.9×–0.5×) + header control
+- [2026-07-30] Modified: web/src/AudioButton.tsx — 🐢 button now uses the user-set slow rate
+- [2026-07-30] Modified: web/src/screens/Speaking.tsx — Added 🐢 slow-replay to examiner reply audio
+- [2026-07-30] Modified: web/src/App.tsx — Wrapped app in SpeedProvider; added SlowSpeedControl to header
+- [2026-07-30] Modified: web/src/VocabWord.tsx — Enabled 🐢 slow replay on vocab word audio
+- [2026-07-30] Modified: web/src/screens/Review.tsx — Enabled 🐢 slow replay on vocab audio
+- [2026-07-30] Modified: web/src/screens/Lesson.tsx — Enabled 🐢 slow replay on listen-type drill audio

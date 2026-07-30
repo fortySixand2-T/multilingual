@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { SpeechTurnResult, api, fetchAudioUrl, postSpeechTurn } from "../api";
+import { useSlowRate } from "../speed";
 
 type Turn = { transcript: string; reply_text: string; reply_audio_url: string | null };
 
@@ -131,11 +132,16 @@ export default function Speaking() {
 
 function PlayButton({ url }: { url: string }) {
   const [loading, setLoading] = useState(false);
-  const play = async () => {
+  const { slowRate } = useSlowRate();
+  const play = async (rate: number) => {
     setLoading(true);
     try {
       const objUrl = await fetchAudioUrl(url);
-      await new Audio(objUrl).play();
+      const audio = new Audio(objUrl);
+      // Time-stretch instead of pitch-shifting so the slow replay stays natural.
+      audio.preservesPitch = true;
+      audio.playbackRate = rate;
+      await audio.play();
     } catch {
       /* ignore playback errors */
     } finally {
@@ -143,8 +149,25 @@ function PlayButton({ url }: { url: string }) {
     }
   };
   return (
-    <button className="btn secondary" style={{ marginTop: 10 }} onClick={play} disabled={loading}>
-      {loading ? "…" : "🔊 Play reply"}
-    </button>
+    <>
+      <button
+        className="btn secondary"
+        style={{ marginTop: 10 }}
+        onClick={() => play(1)}
+        disabled={loading}
+      >
+        {loading ? "…" : "🔊 Play reply"}
+      </button>
+      <button
+        className="btn secondary"
+        style={{ marginTop: 10 }}
+        onClick={() => play(slowRate)}
+        disabled={loading}
+        aria-label="Play reply slowly"
+        title="Play reply slowly"
+      >
+        🐢
+      </button>
+    </>
   );
 }
