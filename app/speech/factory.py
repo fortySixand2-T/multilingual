@@ -17,7 +17,11 @@ def build_stt(settings):
     if backend == "faster-whisper":
         from app.ai.adapters.faster_whisper_adapter import FasterWhisperAdapter
 
-        return FasterWhisperAdapter(model=settings.whisper_model)
+        return FasterWhisperAdapter(
+            model=settings.whisper_model,
+            device=settings.whisper_device,
+            compute_type=settings.whisper_compute_type,
+        )
     raise ValueError(f"unknown stt backend '{backend}' (have: faster-whisper, disabled)")
 
 

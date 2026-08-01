@@ -70,6 +70,7 @@ class SpeakingExaminer:
         want_audio: bool = True,
         voice: str = "",
         system_extra: str = "",
+        max_tokens: int = 1024,
         today: date | None = None,
     ) -> TurnResult:
         if self._stt is None:
@@ -92,7 +93,9 @@ class SpeakingExaminer:
         system = self.system_prompt(mode) + system_extra
         messages = list(history or []) + [Msg("user", transcript.text)]
         reply = await anyio.to_thread.run_sync(
-            functools.partial(self._router.run, _PROFILE, system=system, messages=messages)
+            functools.partial(
+                self._router.run, _PROFILE, system=system, messages=messages, max_tokens=max_tokens
+            )
         )
         await add_usage(
             session, user_id, _FEATURE, reply.usage.input_tokens, reply.usage.output_tokens, today

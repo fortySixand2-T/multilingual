@@ -148,6 +148,7 @@ async def speech_turn(
             daily_budget=settings.speaking_daily_token_budget,
             voice=settings.piper_voice,
             system_extra=system_extra,
+            max_tokens=settings.examiner_max_tokens,
         )
     except SpeechNotConfigured:
         raise HTTPException(
