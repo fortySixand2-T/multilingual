@@ -96,13 +96,26 @@ export type SpeechHistoryTurn = {
   reply_text: string;
   reply_audio_url: string | null;
 };
+export type SpeakingTopic = {
+  id: string;
+  section: "A" | "B";
+  title: string;
+  prompt: string;
+  points: string[];
+};
 
 // Multipart upload of recorded audio (FormData — don't set Content-Type by hand).
-export async function postSpeechTurn(audio: Blob, mode: string): Promise<SpeechTurnResult> {
+// `topicId` (optional) frames the examiner session around an authored topic.
+export async function postSpeechTurn(
+  audio: Blob,
+  mode: string,
+  topicId = ""
+): Promise<SpeechTurnResult> {
   const token = getToken();
   const form = new FormData();
   form.append("audio", audio, "turn.webm");
   form.append("mode", mode);
+  if (topicId) form.append("topic_id", topicId);
   const res = await fetch(`${BASE}/speech/turn`, {
     method: "POST",
     headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -390,6 +403,10 @@ export const api = {
 
   speechHistory: () => req<{ turns: SpeechHistoryTurn[] }>("/speech/history"),
   speechStatus: () => req<{ available: boolean }>("/speech/status"),
+  speakingTopics: (level: string, section?: "A" | "B") =>
+    req<{ topics: SpeakingTopic[] }>(
+      `/speech/topics?level=${encodeURIComponent(level)}${section ? `&section=${section}` : ""}`
+    ),
 
   readiness: () => req<Readiness>("/exam/readiness"),
   weakSpots: () => req<{ weak_spots: WeakSpot[] }>("/progress/weak-spots"),

@@ -8,6 +8,7 @@ case "$cmd" in
                  uv run python -m app.content.sync "$lvl"
                  uv run python -m app.comprehension.sync "$lvl"
                  uv run python -m app.assessment.sync "$lvl"
+                 uv run python -m app.speech.topics "$lvl"
                  uv run python -m app.exam.sync "$lvl"
                done ;;
   test)        uv run pytest -q ;;

@@ -1,0 +1,12 @@
+id: speak-b2-b-reseaux
+level: b2
+section: B
+title: "Les réseaux sociaux et l'information"
+prompt: |
+  « Les réseaux sociaux sont-ils une menace pour la qualité de l'information ? »
+  Défendez un point de vue argumenté en nuançant et en donnant des exemples.
+points:
+  - la diffusion des fausses informations
+  - l'accès rapide et démocratisé à l'information
+  - le rôle des algorithmes et des bulles de filtres
+  - la responsabilité des plateformes et des utilisateurs

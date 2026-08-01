@@ -1,0 +1,13 @@
+id: speak-a2-a-logement
+level: a2
+section: A
+title: "Louer un appartement"
+prompt: |
+  Vous cherchez un appartement à louer. Vous téléphonez à l'agence : posez des
+  questions pour connaître le loyer, le quartier, la taille du logement et la date
+  de disponibilité.
+points:
+  - le loyer et les charges
+  - le quartier et les transports
+  - le nombre de pièces
+  - la date de disponibilité

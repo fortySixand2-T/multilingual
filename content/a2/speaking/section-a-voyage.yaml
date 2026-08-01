@@ -1,0 +1,13 @@
+id: speak-a2-a-voyage
+level: a2
+section: A
+title: "Préparer un voyage"
+prompt: |
+  Vous préparez un voyage en train et vous vous rendez au guichet. Posez des
+  questions pour connaître les horaires, le prix des billets, les correspondances
+  et les réductions possibles.
+points:
+  - les horaires de départ et d'arrivée
+  - le prix et les réductions
+  - les correspondances
+  - les bagages autorisés

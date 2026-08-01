@@ -114,3 +114,14 @@
 - [2026-07-30] Modified: web/src/VocabWord.tsx — Enabled 🐢 slow replay on vocab word audio
 - [2026-07-30] Modified: web/src/screens/Review.tsx — Enabled 🐢 slow replay on vocab audio
 - [2026-07-30] Modified: web/src/screens/Lesson.tsx — Enabled 🐢 slow replay on listen-type drill audio
+- [2026-08-01] Created: app/speech/topics.py — SpeakingTopic model + YAML loader + per-level sync + examiner framing
+- [2026-08-01] Modified: app/speech/tables.py — add SpeakingTopicRow (synced speaking topics)
+- [2026-08-01] Modified: app/speech/examiner.py — turn() accepts system_extra to append topic framing
+- [2026-08-01] Modified: app/speech/api.py — GET /speech/topics; POST /speech/turn accepts topic_id
+- [2026-08-01] Created: migrations/versions/0016_speaking_topics.py — speaking_topics table
+- [2026-08-01] Modified: start.sh — sync-all now syncs speaking topics
+- [2026-08-01] Created: content/{a1,a2,b1,b2}/speaking/*.yaml — 8 authored TEF speaking topics
+- [2026-08-01] Created: tests/test_speaking_topics.py — loader/framing/list/turn-framing tests
+- [2026-08-01] Modified: web/src/api.ts — SpeakingTopic type, speakingTopics(), postSpeechTurn topicId
+- [2026-08-01] Modified: web/src/screens/Speaking.tsx — topic picker + task card; passes topic_id per turn
+- [2026-08-01] Modified: web/src/screens/Speaking.test.tsx — mock useLevel/speakingTopics; topic-picker test

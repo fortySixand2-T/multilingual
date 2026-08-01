@@ -69,6 +69,7 @@ class SpeakingExaminer:
         daily_budget: int,
         want_audio: bool = True,
         voice: str = "",
+        system_extra: str = "",
         today: date | None = None,
     ) -> TurnResult:
         if self._stt is None:
@@ -88,7 +89,7 @@ class SpeakingExaminer:
         if not transcript.text.strip():
             return TurnResult(False, "", "", None, "", "", no_speech=True)
 
-        system = self.system_prompt(mode)
+        system = self.system_prompt(mode) + system_extra
         messages = list(history or []) + [Msg("user", transcript.text)]
         reply = await anyio.to_thread.run_sync(
             functools.partial(self._router.run, _PROFILE, system=system, messages=messages)
