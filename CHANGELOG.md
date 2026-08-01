@@ -131,3 +131,6 @@
 - [2026-08-01] Modified: app/speech/api.py — cap examiner reply via examiner_max_tokens setting
 - [2026-08-01] Modified: .env.example — document whisper device/compute + examiner token knobs
 - [2026-08-01] Created: tests/test_speech_speed.py — STT device/compute wiring + max_tokens cap tests
+- [2026-08-01] Modified: web/src/screens/Speaking.tsx — qa-560: topic-aware record hint (was static "introduce yourself" text)
+- [2026-08-01] Modified: web/src/screens/Speaking.test.tsx — qa-560: test generic vs topic-aware hint copy
+- [2026-08-01] Modified: qa/issues/560-speaking-instruction-hint-ignores-picked-topic.md — status: done, added Fix note
