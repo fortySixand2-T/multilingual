@@ -1,0 +1,13 @@
+id: speak-a1-a-restaurant
+level: a1
+section: A
+title: "Réserver une table"
+prompt: |
+  Vous voulez réserver une table au restaurant. Posez des questions à
+  l'employé(e) pour obtenir les informations dont vous avez besoin (jour, heure,
+  nombre de personnes, prix du menu).
+points:
+  - le jour et l'heure
+  - le nombre de personnes
+  - le prix du menu
+  - une question sur les plats

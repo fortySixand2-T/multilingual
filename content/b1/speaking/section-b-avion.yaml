@@ -1,0 +1,12 @@
+id: speak-b1-b-avion
+level: b1
+section: B
+title: "Les voyages en avion"
+prompt: |
+  « Faut-il limiter les voyages en avion pour protéger l'environnement ? »
+  Donnez votre opinion et défendez-la avec des arguments et des exemples.
+points:
+  - l'impact sur l'environnement
+  - le coût et les alternatives (train, visioconférence)
+  - la liberté de voyager
+  - les emplois du secteur

@@ -32,7 +32,8 @@ from app.api.deps import get_ai_router, get_storage
 from app.config.settings import Settings, get_settings
 from app.db.session import get_session
 from app.speech.examiner import SpeakingExaminer, SpeechNotConfigured
-from app.speech.tables import SpeechTurn
+from app.speech.tables import SpeakingTopicRow, SpeechTurn
+from app.speech.topics import SpeakingTopic, framing
 from app.storage.interface import ObjectStorage
 from app.users.models import User
 
@@ -64,6 +65,33 @@ async def _recent_history(session: AsyncSession, user_id: int):
     return msgs
 
 
+@router.get("/topics")
+async def list_topics(
+    level: str,
+    section: str | None = None,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """Authored speaking topics for a level (optionally one section), so the learner
+    can pick one to frame the session. Mirrors GET /assessment/tasks."""
+    q = select(SpeakingTopicRow).where(SpeakingTopicRow.level == level)
+    if section:
+        q = q.where(SpeakingTopicRow.section == section)
+    rows = (await session.execute(q.order_by(SpeakingTopicRow.id))).scalars().all()
+    return {
+        "topics": [
+            {
+                "id": r.id,
+                "section": r.section,
+                "title": r.data["title"],
+                "prompt": r.data["prompt"],
+                "points": r.data.get("points", []),
+            }
+            for r in rows
+        ]
+    }
+
+
 @router.get("/status")
 async def speech_status(request: Request) -> dict:
     """Lightweight capability check so the frontend can hide/disable the Record
@@ -80,6 +108,7 @@ async def speech_turn(
     request: Request,
     audio: UploadFile = File(...),
     mode: str = Form("examiner"),
+    topic_id: str = Form(""),
     session: AsyncSession = Depends(get_session),
     user: User = Depends(get_current_user),
     ai_router: AIRouter = Depends(get_ai_router),
@@ -99,6 +128,14 @@ async def speech_turn(
     if not data:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "empty audio upload")
 
+    # An optional topic focuses the session: its framing is appended to the system
+    # prompt. Unknown/absent id → free conversation (no framing), never an error.
+    system_extra = ""
+    if topic_id:
+        row = await session.get(SpeakingTopicRow, topic_id)
+        if row is not None:
+            system_extra = framing(SpeakingTopic.model_validate(row.data))
+
     examiner = SpeakingExaminer(stt, tts, ai_router)
     history = await _recent_history(session, user.id)
     try:
@@ -110,6 +147,7 @@ async def speech_turn(
             history=history,
             daily_budget=settings.speaking_daily_token_budget,
             voice=settings.piper_voice,
+            system_extra=system_extra,
         )
     except SpeechNotConfigured:
         raise HTTPException(

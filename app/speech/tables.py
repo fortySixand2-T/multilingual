@@ -5,10 +5,22 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from sqlalchemy import DateTime, Integer, String, Text
+from sqlalchemy import JSON, DateTime, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.users.models import Base
+
+
+class SpeakingTopicRow(Base):
+    """Authored speaking topics (content/<level>/speaking/*.yaml), synced per level
+    like writing tasks. Read-only content the learner picks to frame a session."""
+
+    __tablename__ = "speaking_topics"
+
+    id: Mapped[str] = mapped_column(String(64), primary_key=True)
+    level: Mapped[str] = mapped_column(String(16), index=True)
+    section: Mapped[str] = mapped_column(String(2), index=True)
+    data: Mapped[dict] = mapped_column(JSON)
 
 
 class SpeechTurn(Base):

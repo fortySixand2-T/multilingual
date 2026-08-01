@@ -1,0 +1,13 @@
+id: speak-a1-a-cours
+level: a1
+section: A
+title: "S'inscrire à un cours"
+prompt: |
+  Vous voulez vous inscrire à un cours de sport. Posez des questions au
+  secrétariat pour connaître les jours, les horaires, le prix et le matériel
+  nécessaire.
+points:
+  - les jours et les horaires
+  - le prix de l'inscription
+  - le matériel nécessaire
+  - le niveau demandé
