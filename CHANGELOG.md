@@ -142,3 +142,5 @@
 - [2026-08-01] Modified: docker-compose.yml — PIPER_VOICE=fr_FR-upmc-medium.onnx
 - [2026-08-01] Modified: .env.example — note upmc voice + no Canadian Piper voice
 - [2026-08-01] Modified: tests/test_speech_integration.py — default voice fallback fr_FR-upmc-medium
+- [2026-08-01] Modified: app/speech/api.py — lazy audio: POST /speech/turn no longer synthesizes; GET /speech/audio synthesizes on first play and caches
+- [2026-08-01] Modified: tests/test_speech.py — lazy-audio tests (no synth at POST, synth+cache on GET, no-TTS 404)

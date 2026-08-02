@@ -149,6 +149,7 @@ async def speech_turn(
             voice=settings.piper_voice,
             system_extra=system_extra,
             max_tokens=settings.examiner_max_tokens,
+            want_audio=False,  # lazy: synthesized on demand by GET /speech/audio
         )
     except SpeechNotConfigured:
         raise HTTPException(
@@ -179,12 +180,13 @@ async def speech_turn(
     session.add(turn)
     await session.flush()
 
-    reply_audio_url = None
-    if result.reply_audio:
-        key = f"speech/{turn.id}.wav"
-        await anyio.to_thread.run_sync(lambda: storage.put(key, result.reply_audio, "audio/wav"))
-        turn.reply_audio_key = key
-        reply_audio_url = f"/speech/audio/{turn.id}"
+    # Lazy audio: don't synthesize here — advertise the audio URL whenever TTS is
+    # configured and there's something to speak, and let GET /speech/audio produce
+    # (and then cache) the WAV on first play. Returning the reply text without
+    # waiting on synthesis is the perceived-latency win.
+    reply_audio_url = (
+        f"/speech/audio/{turn.id}" if tts is not None and result.reply_text.strip() else None
+    )
 
     await session.commit()
     return {
@@ -200,18 +202,36 @@ async def speech_turn(
 
 @router.get("/audio/{turn_id}")
 async def speech_audio(
+    request: Request,
     turn_id: int,
     session: AsyncSession = Depends(get_session),
     storage: ObjectStorage = Depends(get_storage),
     user: User = Depends(get_current_user),
+    settings: Settings = Depends(get_settings),
 ) -> Response:
     turn = await session.get(SpeechTurn, turn_id)
-    if turn is None or turn.user_id != user.id or not turn.reply_audio_key:
+    if turn is None or turn.user_id != user.id:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "no audio for this turn")
-    try:
-        data = await anyio.to_thread.run_sync(lambda: storage.get(turn.reply_audio_key))
-    except Exception:
-        raise HTTPException(status.HTTP_404_NOT_FOUND, "audio asset not found") from None
+
+    # Cache hit: audio was already synthesized on a prior play — serve it.
+    if turn.reply_audio_key:
+        try:
+            data = await anyio.to_thread.run_sync(lambda: storage.get(turn.reply_audio_key))
+        except Exception:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "audio asset not found") from None
+        return Response(content=data, media_type="audio/wav")
+
+    # Cache miss: synthesize now (lazy), persist so repeat plays are instant.
+    tts = request.app.state.tts
+    if tts is None or not turn.reply_text.strip():
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "no audio for this turn")
+    data = await anyio.to_thread.run_sync(
+        lambda: tts.synthesize(text=turn.reply_text, voice=settings.piper_voice, lang="fr")
+    )
+    key = f"speech/{turn.id}.wav"
+    await anyio.to_thread.run_sync(lambda: storage.put(key, data, "audio/wav"))
+    turn.reply_audio_key = key
+    await session.commit()
     return Response(content=data, media_type="audio/wav")
 
 
