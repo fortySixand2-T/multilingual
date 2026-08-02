@@ -31,6 +31,11 @@ profiles:
     capability: llm
     primary: "ollama/llama3.1"
 
+  vocab_extract:
+    capability: llm
+    primary: "ollama/llama3.1"
+    format: json         # strict JSON word list — constrain Ollama to valid JSON
+
   # Eval-only (offline model comparison). Kept local so the CLIs don't 503.
   pairwise_judge:
     capability: llm

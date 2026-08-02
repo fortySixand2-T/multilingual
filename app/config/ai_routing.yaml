@@ -52,6 +52,14 @@ profiles:
     primary: "anthropic/claude-sonnet-4-6"
     fallback: "openrouter/z-ai/glm-4.6"
 
+  # End-of-conversation vocab mining: cheap, forgiving, strict-JSON output. Not
+  # graded and not live in the conversation, so a cheap model is fine.
+  vocab_extract:
+    capability: llm
+    primary: "openrouter/z-ai/glm-4.6"
+    fallback: "anthropic/claude-haiku-4-5"
+    format: json
+
   # LLM-as-judge for offline model comparison on subjective profiles (drill eval).
   # Pinned to a strong model — a weak judge biases every ranking. Not user-facing.
   pairwise_judge:

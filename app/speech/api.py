@@ -8,7 +8,7 @@ discarded — never written to disk or DB (R10).
 
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 
 import anyio
 from fastapi import (
@@ -34,7 +34,9 @@ from app.db.session import get_session
 from app.speech.examiner import SpeakingExaminer, SpeechNotConfigured
 from app.speech.tables import SpeakingTopicRow, SpeechTurn
 from app.speech.topics import SpeakingTopic, framing
+from app.speech.vocab_review import extract_review_words, resolve_to_vocab
 from app.storage.interface import ObjectStorage
+from app.usage.service import add_usage
 from app.users.models import User
 
 router = APIRouter(prefix="/speech", tags=["speech"])
@@ -43,18 +45,16 @@ _HISTORY_TURNS = 3  # how many prior turns to feed back as conversation context
 _MAX_AUDIO_BYTES = 10 * 1024 * 1024  # 10 MB — a spoken turn is seconds of audio, not this
 
 
-async def _recent_history(session: AsyncSession, user_id: int):
+async def _recent_history(session: AsyncSession, user_id: int, session_id: str = ""):
     from app.ai.interfaces import Msg
 
+    q = select(SpeechTurn).where(SpeechTurn.user_id == user_id)
+    # Scope context to the current conversation so changing topic (= new session)
+    # starts fresh — prior-topic turns don't bleed into the examiner's context.
+    if session_id:
+        q = q.where(SpeechTurn.session_id == session_id)
     rows = (
-        (
-            await session.execute(
-                select(SpeechTurn)
-                .where(SpeechTurn.user_id == user_id)
-                .order_by(SpeechTurn.id.desc())
-                .limit(_HISTORY_TURNS)
-            )
-        )
+        (await session.execute(q.order_by(SpeechTurn.id.desc()).limit(_HISTORY_TURNS)))
         .scalars()
         .all()
     )
@@ -109,6 +109,7 @@ async def speech_turn(
     audio: UploadFile = File(...),
     mode: str = Form("examiner"),
     topic_id: str = Form(""),
+    session_id: str = Form(""),
     session: AsyncSession = Depends(get_session),
     user: User = Depends(get_current_user),
     ai_router: AIRouter = Depends(get_ai_router),
@@ -137,7 +138,7 @@ async def speech_turn(
             system_extra = framing(SpeakingTopic.model_validate(row.data))
 
     examiner = SpeakingExaminer(stt, tts, ai_router)
-    history = await _recent_history(session, user.id)
+    history = await _recent_history(session, user.id, session_id)
     try:
         result = await examiner.turn(
             session,
@@ -171,6 +172,7 @@ async def speech_turn(
 
     turn = SpeechTurn(
         user_id=user.id,
+        session_id=session_id or None,
         mode=mode,
         transcript=result.transcript,
         reply_text=result.reply_text,
@@ -198,6 +200,50 @@ async def speech_turn(
         "provider": result.provider,
         "model": result.model,
     }
+
+
+@router.post("/session/{session_id}/vocab-review")
+async def session_vocab_review(
+    session_id: str,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+    ai_router: AIRouter = Depends(get_ai_router),
+) -> dict:
+    """End-of-conversation debrief: mine this session's transcript for French words
+    worth reviewing and return the ones that map to real vocab cards (and aren't
+    already in the learner's review deck). Read-only — the learner confirms which to
+    add, then the client seeds them via POST /srs/add. Empty/unknown session → [].
+
+    Re-runnable for a past session_id (transcripts persist), which is what lets a
+    later slice resurface "words from your last conversation" if they skipped this."""
+    rows = (
+        (
+            await session.execute(
+                select(SpeechTurn)
+                .where(SpeechTurn.user_id == user.id, SpeechTurn.session_id == session_id)
+                .order_by(SpeechTurn.id)
+            )
+        )
+        .scalars()
+        .all()
+    )
+    if not rows:
+        return {"candidates": []}
+
+    words, result = await extract_review_words(ai_router, rows)
+    if result is not None:
+        # Bill the extraction against the same daily ledger as spoken turns.
+        await add_usage(
+            session,
+            user.id,
+            "speaking",
+            result.usage.input_tokens,
+            result.usage.output_tokens,
+            date.today(),
+        )
+        await session.commit()
+    candidates = await resolve_to_vocab(session, user.id, words)
+    return {"candidates": candidates}
 
 
 @router.get("/audio/{turn_id}")

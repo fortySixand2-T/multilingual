@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { SpeakingTopic, SpeechTurnResult, api, fetchAudioUrl, postSpeechTurn } from "../api";
+import {
+  SpeakingTopic,
+  SpeechTurnResult,
+  VocabCandidate,
+  api,
+  fetchAudioUrl,
+  postSpeechTurn,
+} from "../api";
 import { useSlowRate } from "../speed";
 import { useLevel } from "../level";
 
@@ -17,6 +24,10 @@ export default function Speaking() {
   // null = still checking; avoids flashing the "unavailable" message before the
   // status check resolves.
   const [available, setAvailable] = useState<boolean | null>(null);
+  // One conversation = one session (topic = session; changing topic starts a new
+  // one). The end-of-conversation vocab review is scoped to this id.
+  const [sessionId, setSessionId] = useState(() => crypto.randomUUID());
+  const [sessionTurns, setSessionTurns] = useState(0); // turns spoken *this* session
   const recorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
 
@@ -46,12 +57,13 @@ export default function Speaking() {
     setBusy(true);
     setError("");
     try {
-      const res: SpeechTurnResult = await postSpeechTurn(blob, mode, topic?.id);
+      const res: SpeechTurnResult = await postSpeechTurn(blob, mode, topic?.id, sessionId);
       if (res.over_budget) {
         setError("You've reached today's speaking-practice limit. Try again tomorrow.");
         return;
       }
       setTurns((t) => [...t, { transcript: res.transcript, reply_text: res.reply_text ?? "", reply_audio_url: res.reply_audio_url ?? null }]);
+      setSessionTurns((n) => n + 1);
     } catch (e: any) {
       setError(
         e.status === 503 ? "Speaking practice isn't enabled on this server yet (no speech models configured)."
@@ -90,6 +102,16 @@ export default function Speaking() {
     setRecording(false);
   };
 
+  // Topic = session: switching topics starts a fresh conversation (new id, clean
+  // transcript panel) so the vocab review that follows covers only this exchange.
+  const pickTopic = (t: SpeakingTopic | null) => {
+    setTopic(t);
+    setSessionId(crypto.randomUUID());
+    setSessionTurns(0);
+    setTurns([]);
+    setError("");
+  };
+
   return (
     <div>
       <div className="btn-row" style={{ justifyContent: "space-between", alignItems: "center" }}>
@@ -107,7 +129,7 @@ export default function Speaking() {
       <TopicPicker
         topics={topics}
         topic={topic}
-        onPick={setTopic}
+        onPick={pickTopic}
         disabled={recording || busy}
       />
 
@@ -134,6 +156,9 @@ export default function Speaking() {
         )}
       </div>
 
+      {/* Keyed by session so it fully resets when the topic (session) changes. */}
+      <SessionReview key={sessionId} sessionId={sessionId} hasTurns={sessionTurns > 0} />
+
       {available === false && (
         <div className="feedback no" style={{ marginTop: 14 }}>
           Speaking practice isn't enabled on this server yet (no speech models configured).
@@ -152,6 +177,101 @@ export default function Speaking() {
           <button className="btn" onClick={start} disabled={available === false}>🎙 Record</button>
         )}
       </div>
+    </div>
+  );
+}
+
+// End-of-conversation debrief: on "Finish", ask the backend which French words
+// from this session are worth reviewing, then let the learner add them to their
+// SRS deck (harder words then resurface via the normal review schedule). Confirm-
+// to-add — never auto-seed — so the review deck stays the learner's own.
+function SessionReview({ sessionId, hasTurns }: { sessionId: string; hasTurns: boolean }) {
+  const [phase, setPhase] = useState<"idle" | "loading" | "done">("idle");
+  const [candidates, setCandidates] = useState<VocabCandidate[]>([]);
+  const [added, setAdded] = useState<Record<string, boolean>>({});
+  const [error, setError] = useState("");
+
+  if (!hasTurns) return null;
+
+  const finish = async () => {
+    setPhase("loading");
+    setError("");
+    try {
+      const res = await api.speechVocabReview(sessionId);
+      setCandidates(res.candidates);
+      setPhase("done");
+    } catch (e: any) {
+      setError(e.message || "Couldn't fetch review words.");
+      setPhase("idle");
+    }
+  };
+
+  const add = async (key: string) => {
+    setAdded((a) => ({ ...a, [key]: true })); // optimistic; idempotent server-side
+    try {
+      await api.addToReview(key);
+    } catch {
+      setAdded((a) => ({ ...a, [key]: false }));
+    }
+  };
+
+  if (phase === "idle") {
+    return (
+      <div className="center" style={{ marginTop: 14 }}>
+        <button className="btn secondary" onClick={finish}>
+          ✓ Finish &amp; review words
+        </button>
+        {error && <div className="feedback no" style={{ marginTop: 10 }}>{error}</div>}
+      </div>
+    );
+  }
+
+  if (phase === "loading") {
+    return (
+      <div className="card center muted" style={{ marginTop: 14 }}>
+        Picking out words to review…
+      </div>
+    );
+  }
+
+  if (candidates.length === 0) {
+    return (
+      <div className="card center muted" style={{ marginTop: 14 }}>
+        No new words to review from this conversation — nice work!
+      </div>
+    );
+  }
+
+  const allAdded = candidates.every((c) => added[c.card_key]);
+  return (
+    <div className="card" style={{ marginTop: 14 }}>
+      <div style={{ fontWeight: 700 }}>Words to review</div>
+      <div className="muted" style={{ fontSize: 13, margin: "2px 0 10px" }}>
+        From this conversation — add any to your review deck.
+      </div>
+      <div className="btn-row" style={{ flexWrap: "wrap", gap: 8 }}>
+        {candidates.map((c) => (
+          <button
+            key={c.card_key}
+            className={`btn ${added[c.card_key] ? "" : "secondary"}`}
+            onClick={() => add(c.card_key)}
+            disabled={added[c.card_key]}
+            title={`${c.en} · ${c.level.toUpperCase()}`}
+          >
+            {added[c.card_key] ? "✓ " : "+ "}
+            {c.fr}
+          </button>
+        ))}
+      </div>
+      {!allAdded && (
+        <button
+          className="link-btn"
+          style={{ marginTop: 10 }}
+          onClick={() => candidates.forEach((c) => !added[c.card_key] && add(c.card_key))}
+        >
+          Add all
+        </button>
+      )}
     </div>
   );
 }
