@@ -28,6 +28,9 @@ export default function Speaking() {
   // one). The end-of-conversation vocab review is scoped to this id.
   const [sessionId, setSessionId] = useState(() => crypto.randomUUID());
   const [sessionTurns, setSessionTurns] = useState(0); // turns spoken *this* session
+  // The learner's most recent *prior* conversation, to resurface its review words
+  // if they left without reviewing. Refetched whenever a new session starts.
+  const [priorSession, setPriorSession] = useState<string | null>(null);
   const recorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
 
@@ -43,6 +46,15 @@ export default function Speaking() {
       .then((r) => setAvailable(r.available))
       .catch(() => setAvailable(true)); // fail open — don't block Record on a flaky check
   }, []);
+
+  // Find the last conversation (excluding this fresh one) so we can offer to
+  // resurface its review words. Cheap (no LLM); re-runs when the session changes
+  // (e.g. after switching topics), so a just-abandoned conversation shows up.
+  useEffect(() => {
+    api.speechLastSession(sessionId)
+      .then((r) => setPriorSession(r.session_id))
+      .catch(() => setPriorSession(null));
+  }, [sessionId]);
 
   // Load the authored topics for the current level; a picked topic is level-
   // specific, so drop it when the level changes.
@@ -133,6 +145,19 @@ export default function Speaking() {
         disabled={recording || busy}
       />
 
+      {/* Resurface the last conversation's review words if it was left unreviewed.
+          Keyed by the prior session so it resets when that changes. */}
+      {priorSession && priorSession !== sessionId && (
+        <SessionReview
+          key={`prior-${priorSession}`}
+          sessionId={priorSession}
+          visible
+          dismissible
+          label="Review words from your last conversation"
+          blurb="From your last conversation — add any to your review deck."
+        />
+      )}
+
       <div className="stack" style={{ marginTop: 8 }}>
         {turns.map((t, i) => (
           <div key={i} className="stack">
@@ -157,7 +182,13 @@ export default function Speaking() {
       </div>
 
       {/* Keyed by session so it fully resets when the topic (session) changes. */}
-      <SessionReview key={sessionId} sessionId={sessionId} hasTurns={sessionTurns > 0} />
+      <SessionReview
+        key={sessionId}
+        sessionId={sessionId}
+        visible={sessionTurns > 0}
+        label="✓ Finish & review words"
+        blurb="From this conversation — add any to your review deck."
+      />
 
       {available === false && (
         <div className="feedback no" style={{ marginTop: 14 }}>
@@ -181,18 +212,31 @@ export default function Speaking() {
   );
 }
 
-// End-of-conversation debrief: on "Finish", ask the backend which French words
-// from this session are worth reviewing, then let the learner add them to their
-// SRS deck (harder words then resurface via the normal review schedule). Confirm-
-// to-add — never auto-seed — so the review deck stays the learner's own.
-function SessionReview({ sessionId, hasTurns }: { sessionId: string; hasTurns: boolean }) {
+// Confirm-to-add vocab review over one speaking session's transcript. Used two
+// ways: the end-of-conversation debrief for the *current* session ("Finish &
+// review words"), and a resurface nudge for the learner's *last* conversation if
+// they skipped it. Never auto-seeds — the review deck stays the learner's own.
+function SessionReview({
+  sessionId,
+  visible,
+  label,
+  blurb,
+  dismissible = false,
+}: {
+  sessionId: string;
+  visible: boolean;
+  label: string;
+  blurb: string;
+  dismissible?: boolean;
+}) {
   const [phase, setPhase] = useState<"idle" | "loading" | "done">("idle");
   const [candidates, setCandidates] = useState<VocabCandidate[]>([]);
   const [overBudget, setOverBudget] = useState(false);
   const [added, setAdded] = useState<Record<string, boolean>>({});
   const [error, setError] = useState("");
+  const [dismissed, setDismissed] = useState(false);
 
-  if (!hasTurns) return null;
+  if (!visible || dismissed) return null;
 
   const finish = async () => {
     setPhase("loading");
@@ -221,8 +265,13 @@ function SessionReview({ sessionId, hasTurns }: { sessionId: string; hasTurns: b
     return (
       <div className="center" style={{ marginTop: 14 }}>
         <button className="btn secondary" onClick={finish}>
-          ✓ Finish &amp; review words
+          {label}
         </button>
+        {dismissible && (
+          <button className="link-btn" style={{ marginLeft: 10 }} onClick={() => setDismissed(true)}>
+            Not now
+          </button>
+        )}
         {error && <div className="feedback no" style={{ marginTop: 10 }}>{error}</div>}
       </div>
     );
@@ -239,7 +288,7 @@ function SessionReview({ sessionId, hasTurns }: { sessionId: string; hasTurns: b
   if (overBudget) {
     return (
       <div className="card center muted" style={{ marginTop: 14 }}>
-        You've reached today's speaking-practice limit. Come back tomorrow to review words from this conversation.
+        You've reached today's speaking-practice limit. Come back tomorrow to review these words.
       </div>
     );
   }
@@ -247,7 +296,7 @@ function SessionReview({ sessionId, hasTurns }: { sessionId: string; hasTurns: b
   if (candidates.length === 0) {
     return (
       <div className="card center muted" style={{ marginTop: 14 }}>
-        No new words to review from this conversation — nice work!
+        No new words to review — nice work!
       </div>
     );
   }
@@ -257,7 +306,7 @@ function SessionReview({ sessionId, hasTurns }: { sessionId: string; hasTurns: b
     <div className="card" style={{ marginTop: 14 }}>
       <div style={{ fontWeight: 700 }}>Words to review</div>
       <div className="muted" style={{ fontSize: 13, margin: "2px 0 10px" }}>
-        From this conversation — add any to your review deck.
+        {blurb}
       </div>
       <div className="btn-row" style={{ flexWrap: "wrap", gap: 8 }}>
         {candidates.map((c) => (

@@ -177,7 +177,11 @@ loop is proven):
 1. **Slice 3a** — Speaking → vocab loop, *cheap tier*: `session_id` + end-of-
    conversation `vocab-review` endpoint (existing-id resolve only) + confirm-seed UI
    → QA round → PR → merge.
-2. **Slice 3b** — last-session resurface nudge → QA → PR → merge.
+2. **Slice 3b** — last-session resurface nudge **(built)**: `GET /speech/last-session`
+   returns the most recent prior session; the Speaking screen offers "Review words
+   from your last conversation" (opt-in, no auto-billing). No "reviewed" flag needed
+   — `resolve_to_vocab` already excludes words already in the deck, so a re-reviewed
+   session returns an empty list. → QA → PR → merge.
 3. **Slice 1** — AnkiWeb import pipeline + first imported deck (also builds the
    enrichment path the rich tier needs) → QA → PR → merge.
 4. **Slice 3c** — Speaking loop *rich tier*: unmatched lemmas → Slice 1 enrichment

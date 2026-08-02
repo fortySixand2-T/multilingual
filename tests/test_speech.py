@@ -457,6 +457,25 @@ def test_vocab_review_over_budget_skips_llm_and_stops_billing():
     assert row.input_tokens + row.output_tokens == budget  # unchanged — nothing re-billed
 
 
+def test_last_session_returns_most_recent_prior_excluding_current():
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=206)
+    for sid in ("s1", "s2"):  # s2 posted last -> most recent
+        client.post(
+            "/speech/turn",
+            files={"audio": ("a.wav", b"x", "audio/wav")},
+            data={"mode": "examiner", "session_id": sid},
+        )
+    # No exclude -> the latest conversation.
+    assert client.get("/speech/last-session").json()["session_id"] == "s2"
+    # Excluding the current (s2) -> the one before it.
+    assert client.get("/speech/last-session?exclude=s2").json()["session_id"] == "s1"
+
+
+def test_last_session_null_when_no_prior_conversation():
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=207)
+    assert client.get("/speech/last-session").json()["session_id"] is None
+
+
 def test_session_id_scopes_history_and_persists_on_turn():
     client, _ = _client(stt=FakeSTT(), tts=None, uid=204)
     body = client.post(

@@ -253,6 +253,25 @@ async def session_vocab_review(
     return {"candidates": candidates}
 
 
+@router.get("/last-session")
+async def last_session(
+    exclude: str = "",
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """The learner's most recent prior conversation (session_id), so the client can
+    offer to resurface its review words — "words from your last conversation" — when
+    they skipped the end-of-conversation review. Cheap (no LLM); pass `exclude` to
+    skip the session they're currently in. None → no prior session."""
+    q = select(SpeechTurn.session_id).where(
+        SpeechTurn.user_id == user.id, SpeechTurn.session_id.is_not(None)
+    )
+    if exclude:
+        q = q.where(SpeechTurn.session_id != exclude)
+    sid = await session.scalar(q.order_by(SpeechTurn.id.desc()).limit(1))
+    return {"session_id": sid}
+
+
 @router.get("/audio/{turn_id}")
 async def speech_audio(
     request: Request,

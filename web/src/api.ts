@@ -422,6 +422,11 @@ export const api = {
       `/speech/session/${encodeURIComponent(sessionId)}/vocab-review`,
       { method: "POST" }
     ),
+  // Most recent prior conversation, to resurface its review words on return.
+  speechLastSession: (excludeId = "") =>
+    req<{ session_id: string | null }>(
+      `/speech/last-session${excludeId ? `?exclude=${encodeURIComponent(excludeId)}` : ""}`
+    ),
 
   readiness: () => req<Readiness>("/exam/readiness"),
   weakSpots: () => req<{ weak_spots: WeakSpot[] }>("/progress/weak-spots"),

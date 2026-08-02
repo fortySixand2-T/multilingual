@@ -158,3 +158,9 @@
 - [2026-08-01] Modified: tests/test_speech.py — tests for vocab-review extraction/resolution/exclusion, empty-session no-LLM, session_id persistence
 - [2026-08-01] Created: tests/test_qa_580_vocab_review.py — QA scratch tests probing speaking vocab-review budget/isolation/resolve hypotheses (H1-H4)
 - [2026-08-01] Created: qa/issues/580-speech-vocab-review-no-budget-check.md — filed H1 finding: session_vocab_review has no daily-budget check, bills unbounded
+- [2026-08-01] Modified: app/speech/api.py — Slice 3b: GET /speech/last-session (most recent prior session for resurface nudge)
+- [2026-08-01] Modified: web/src/api.ts — speechLastSession()
+- [2026-08-01] Modified: web/src/screens/Speaking.tsx — generalized SessionReview; "Review words from your last conversation" nudge (opt-in, dismissible)
+- [2026-08-01] Modified: web/src/screens/Speaking.test.tsx — mock speechLastSession
+- [2026-08-01] Modified: tests/test_speech.py — tests for /speech/last-session (latest/exclude/null)
+- [2026-08-01] Modified: docs/anki-vocab-plan.md — mark Slice 3b built
