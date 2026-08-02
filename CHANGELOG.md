@@ -147,3 +147,4 @@
 - [2026-08-01] Created: qa/rounds/046-plan.md; qa/issues/570-573 — round 046 (diction sanitizer)
 - [2026-08-01] Modified: app/speech/api.py — lazy audio: POST /speech/turn no longer synthesizes; GET /speech/audio synthesizes on first play and caches
 - [2026-08-01] Modified: tests/test_speech.py — lazy-audio tests (no synth at POST, synth+cache on GET, no-TTS 404)
+- [2026-08-01] Modified: scripts/docker-entrypoint.sh — sync speaking topics on boot (was missing; only start.sh had it)

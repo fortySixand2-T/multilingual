@@ -15,6 +15,7 @@ for lvl in "${LEVELS[@]}"; do
   "$VENV/python" -m app.content.sync "$lvl"
   "$VENV/python" -m app.comprehension.sync "$lvl"
   "$VENV/python" -m app.assessment.sync "$lvl"
+  "$VENV/python" -m app.speech.topics "$lvl"
   "$VENV/python" -m app.exam.sync "$lvl"
 done
 
