@@ -1,0 +1,233 @@
+# News & economy vocabulary (TEF register: work, society, economy).
+# Wordlist reference: AnkiWeb "French frequency lists/1-2000 on Wiktionary"
+#   (https://ankiweb.net/shared/info/451937078), a Wiktionary-derived frequency
+#   list (source content CC-BY-SA). Machine-extracted with scripts/import_anki.py,
+#   then curated by hand: genders assigned, glosses rewritten concise, function
+#   words / inflected forms dropped. Committed text is our own authoring.
+
+- id: societe
+  fr: société
+  en: "company / society"
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: secteur
+  fr: secteur
+  en: sector
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: benefice
+  fr: bénéfice
+  en: profit
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: hausse
+  fr: hausse
+  en: rise, increase
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: baisse
+  fr: baisse
+  en: fall, decrease
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: vente
+  fr: vente
+  en: sale
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: chiffre
+  fr: chiffre
+  en: figure, number
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: taux
+  fr: taux
+  en: rate
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: valeur
+  fr: valeur
+  en: value
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: rapport
+  fr: rapport
+  en: "report / ratio"
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: production
+  fr: production
+  en: production
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: groupe
+  fr: groupe
+  en: group
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: part
+  fr: part
+  en: share, portion
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: pays
+  fr: pays
+  en: country
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: monde
+  fr: monde
+  en: world
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: situation
+  fr: situation
+  en: situation
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: question
+  fr: question
+  en: question
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: exemple
+  fr: exemple
+  en: example
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: effet
+  fr: effet
+  en: effect
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: cas
+  fr: cas
+  en: case
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: terme
+  fr: terme
+  en: term
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: debut
+  fr: début
+  en: beginning, start
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: raison
+  fr: raison
+  en: reason
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: nombre
+  fr: nombre
+  en: number, quantity
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: fin
+  fr: fin
+  en: end
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: action
+  fr: action
+  en: "action / share"
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: qualite
+  fr: qualité
+  en: quality
+  gender: f
+  pos: noun
+  tags: [actualite]
+
+- id: moment
+  fr: moment
+  en: moment
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: service
+  fr: service
+  en: service
+  gender: m
+  pos: noun
+  tags: [actualite]
+
+- id: economique
+  fr: économique
+  en: economic
+  pos: adjective
+  tags: [actualite]
+
+- id: politique
+  fr: politique
+  en: "political / politics"
+  pos: adjective
+  tags: [actualite]
+
+- id: notamment
+  fr: notamment
+  en: notably, in particular
+  pos: adverb
+  tags: [actualite]
+
+- id: toutefois
+  fr: toutefois
+  en: however, nevertheless
+  pos: adverb
+  tags: [actualite]
