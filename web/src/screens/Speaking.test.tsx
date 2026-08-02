@@ -75,4 +75,26 @@ describe("Speaking topic picker", () => {
     expect(screen.getByText("environnement")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /change topic/i })).toBeInTheDocument();
   });
+
+  // Regression test for qa-560: the record hint used to always say "introduce
+  // yourself in French", even after a topic was picked — contradicting the
+  // task card shown right above it.
+  it("shows the generic hint with no topic picked, and a topic-aware hint once picked", async () => {
+    const { default: userEvent } = await import("@testing-library/user-event");
+    renderSpeaking();
+
+    expect(
+      await screen.findByText(/tap record and introduce yourself in french/i)
+    ).toBeInTheDocument();
+
+    const pick = await screen.findByRole("button", { name: /Les voyages en avion/i });
+    await userEvent.setup().click(pick);
+
+    expect(
+      screen.queryByText(/tap record and introduce yourself in french/i)
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByText(/tap record and start responding to "les voyages en avion" above/i)
+    ).toBeInTheDocument();
+  });
 });

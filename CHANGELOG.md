@@ -125,3 +125,12 @@
 - [2026-08-01] Modified: web/src/api.ts — SpeakingTopic type, speakingTopics(), postSpeechTurn topicId
 - [2026-08-01] Modified: web/src/screens/Speaking.tsx — topic picker + task card; passes topic_id per turn
 - [2026-08-01] Modified: web/src/screens/Speaking.test.tsx — mock useLevel/speakingTopics; topic-picker test
+- [2026-08-01] Modified: app/config/settings.py — add whisper_device/whisper_compute_type + examiner_max_tokens
+- [2026-08-01] Modified: app/speech/factory.py — pass device/compute_type to FasterWhisperAdapter
+- [2026-08-01] Modified: app/speech/examiner.py — turn() forwards max_tokens to the router
+- [2026-08-01] Modified: app/speech/api.py — cap examiner reply via examiner_max_tokens setting
+- [2026-08-01] Modified: .env.example — document whisper device/compute + examiner token knobs
+- [2026-08-01] Created: tests/test_speech_speed.py — STT device/compute wiring + max_tokens cap tests
+- [2026-08-01] Modified: web/src/screens/Speaking.tsx — qa-560: topic-aware record hint (was static "introduce yourself" text)
+- [2026-08-01] Modified: web/src/screens/Speaking.test.tsx — qa-560: test generic vs topic-aware hint copy
+- [2026-08-01] Modified: qa/issues/560-speaking-instruction-hint-ignores-picked-topic.md — status: done, added Fix note

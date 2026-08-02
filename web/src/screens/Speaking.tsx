@@ -125,7 +125,13 @@ export default function Speaking() {
             </div>
           </div>
         ))}
-        {turns.length === 0 && <div className="card center muted">Tap record and introduce yourself in French.</div>}
+        {turns.length === 0 && (
+          <div className="card center muted">
+            {topic
+              ? `Tap record and start responding to "${topic.title}" above.`
+              : "Tap record and introduce yourself in French."}
+          </div>
+        )}
       </div>
 
       {available === false && (

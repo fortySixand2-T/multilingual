@@ -42,7 +42,16 @@ class Settings(BaseSettings):
     stt_backend: str = "disabled"  # disabled | faster-whisper
     tts_backend: str = "disabled"  # disabled | piper
     whisper_model: str = "large-v3"
+    # STT is the main speaking-latency cost. Defaults keep the current CPU/int8
+    # behavior; on a box with a GPU set whisper_device=cuda (compute_type
+    # float16 or int8_float16) for a large speedup, or drop whisper_model to
+    # small/medium to trade a little accuracy for speed on CPU.
+    whisper_device: str = "cpu"  # cpu | cuda
+    whisper_compute_type: str = "int8"  # int8 | float16 | int8_float16 | float32
     piper_voice: str = ""  # path to a Piper .onnx voice model
+    # Cap the examiner reply length: replies are 2–4 sentences, so a tight cap
+    # cuts generation time (esp. local Ollama) without truncating real answers.
+    examiner_max_tokens: int = 220
 
     # Application data cache (in-process now; swap path to Redis later).
     cache_backend: str = "memory"
