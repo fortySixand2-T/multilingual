@@ -134,3 +134,11 @@
 - [2026-08-01] Modified: web/src/screens/Speaking.tsx — qa-560: topic-aware record hint (was static "introduce yourself" text)
 - [2026-08-01] Modified: web/src/screens/Speaking.test.tsx — qa-560: test generic vs topic-aware hint copy
 - [2026-08-01] Modified: qa/issues/560-speaking-instruction-hint-ignores-picked-topic.md — status: done, added Fix note
+- [2026-08-01] Modified: app/ai/adapters/piper_adapter.py — _clean(): strip markdown/emoji, normalize typographic punctuation before TTS (was _one_line)
+- [2026-08-01] Modified: tests/test_piper_adapter.py — cover markup/emoji/punctuation sanitizing
+- [2026-08-01] Modified: app/speech/prompts/examiner.md — instruct plain spoken French (no markdown/emoji/English)
+- [2026-08-01] Modified: app/speech/prompts/conversation.md — same clean-spoken-French output rule
+- [2026-08-01] Modified: Dockerfile — bake fr_FR-upmc-medium voice (clearer than siwis; Piper has no fr_CA)
+- [2026-08-01] Modified: docker-compose.yml — PIPER_VOICE=fr_FR-upmc-medium.onnx
+- [2026-08-01] Modified: .env.example — note upmc voice + no Canadian Piper voice
+- [2026-08-01] Modified: tests/test_speech_integration.py — default voice fallback fr_FR-upmc-medium
