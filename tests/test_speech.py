@@ -51,7 +51,11 @@ class FakeSTT:
 class FakeTTS:
     name = "fake-tts"
 
+    def __init__(self):
+        self.calls = 0
+
     def synthesize(self, *, text, voice="", lang="fr"):
+        self.calls += 1
         return b"RIFFfakewavbytes"
 
 
@@ -164,7 +168,8 @@ def _client(*, stt=None, tts=None, uid=99, router=None):
 
 
 def test_turn_endpoint_stores_transcript_not_audio_and_serves_reply():
-    client, storage = _client(stt=FakeSTT(), tts=FakeTTS())
+    tts = FakeTTS()
+    client, storage = _client(stt=FakeSTT(), tts=tts)
     r = client.post(
         "/speech/turn",
         files={"audio": ("a.wav", b"rawaudio", "audio/wav")},
@@ -175,24 +180,42 @@ def test_turn_endpoint_stores_transcript_not_audio_and_serves_reply():
     assert body["transcript"].startswith("Je voudrais")
     assert body["reply_audio_url"] == f"/speech/audio/{body['turn_id']}"
 
-    # R10: stored turn has the transcript, never the uploaded audio bytes
-    async def check():
+    # Lazy audio: the POST does NOT synthesize — nothing stored, TTS untouched yet.
+    assert tts.calls == 0
+    assert storage.objects == {}
+
+    async def get_turn():
         async with _Session() as s:
-            turn = (
+            return (
                 await s.execute(select(SpeechTurn).where(SpeechTurn.id == body["turn_id"]))
             ).scalar_one()
-            return turn
 
-    turn = _run(check())
+    turn = _run(get_turn())
     assert turn.transcript and turn.reply_text
-    assert b"rawaudio" not in (
-        storage.objects.get(turn.reply_audio_key) or b""
-    )  # only TTS reply stored
-    assert storage.objects[turn.reply_audio_key] == b"RIFFfakewavbytes"
+    assert turn.reply_audio_key is None  # not synthesized at POST time
 
-    # examiner audio is served back
+    # First play synthesizes on demand and serves audio/wav...
     audio = client.get(body["reply_audio_url"])
     assert audio.status_code == 200 and audio.headers["content-type"] == "audio/wav"
+    assert audio.content == b"RIFFfakewavbytes"
+    assert tts.calls == 1
+
+    # ...and caches it: the turn now has a key, storage holds only the TTS reply
+    # (never the uploaded audio — R10), and a second play is served from cache.
+    turn = _run(get_turn())
+    assert turn.reply_audio_key
+    assert storage.objects[turn.reply_audio_key] == b"RIFFfakewavbytes"
+    assert all(b"rawaudio" not in v for v in storage.objects.values())
+    client.get(body["reply_audio_url"])
+    assert tts.calls == 1  # cached — not re-synthesized
+
+
+def test_turn_without_tts_advertises_no_audio_and_audio_404s():
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=101)
+    body = client.post("/speech/turn", files={"audio": ("a.wav", b"x", "audio/wav")}).json()
+    assert body["reply_audio_url"] is None  # nothing to play without TTS
+    r = client.get(f"/speech/audio/{body['turn_id']}")
+    assert r.status_code == 404  # no key, and no TTS to synthesize one
 
 
 def test_history_grows_and_feeds_back():
