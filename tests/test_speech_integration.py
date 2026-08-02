@@ -32,7 +32,7 @@ from app.ai.adapters.faster_whisper_adapter import FasterWhisperAdapter
 from app.ai.adapters.piper_adapter import PiperAdapter
 
 _FIXTURES = Path(__file__).resolve().parent.parent / "qa" / "fixtures" / "speech"
-_VOICE = os.getenv("PIPER_VOICE", "/app/voices/fr_FR-siwis-medium.onnx")
+_VOICE = os.getenv("PIPER_VOICE", "/app/voices/fr_FR-upmc-medium.onnx")
 _WHISPER = os.getenv("WHISPER_MODEL", "small")
 
 

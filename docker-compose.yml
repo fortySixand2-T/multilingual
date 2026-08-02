@@ -21,7 +21,7 @@ services:
       - STT_BACKEND=faster-whisper
       - TTS_BACKEND=piper
       - WHISPER_MODEL=small
-      - PIPER_VOICE=/app/voices/fr_FR-siwis-medium.onnx
+      - PIPER_VOICE=/app/voices/fr_FR-upmc-medium.onnx
     volumes: ["./data:/app/data"]
     depends_on: [ollama]
     restart: unless-stopped
