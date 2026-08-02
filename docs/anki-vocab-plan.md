@@ -46,6 +46,14 @@ lists) as sources; record provenance per import.
 
 ## Slice 1 — AnkiWeb → vocab import pipeline  *(net-new; primary value)*
 
+**Status: importer built** — `scripts/import_anki.py` + `tests/test_import_anki.py`
+(10 tests). Reads a legacy `.apkg` (zip → SQLite `notes.flds`), cleans HTML/media,
+strips articles for gender, keeps single words (or `--keep-phrases`), dedups against
+all 780 existing ids+lemmas, emits house-style YAML with a provenance header and a
+stderr review report. `.apkg` inputs are gitignored under `imports/`. **Not yet run
+against a real deck** (needs a chosen `.apkg`); enrichment is heuristic (LLM-assist =
+follow-up). Steps below are the intended end-to-end flow.
+
 A build script that turns a chosen `.apkg` into review-ready authored YAML.
 
 `scripts/import_anki.py <deck.apkg> --level a2 --tag voyage`:

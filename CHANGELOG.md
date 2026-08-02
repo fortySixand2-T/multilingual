@@ -166,3 +166,7 @@
 - [2026-08-01] Modified: docs/anki-vocab-plan.md — mark Slice 3b built
 - [2026-08-02] Modified: web/src/screens/Speaking.tsx — QA-601: clearer prior-session nudge label (add-to-deck action)
 - [2026-08-02] Created: qa/issues/600-602, qa/rounds/048-plan.md — Slice 3b QA round (601 fixed; 600,602 rejected)
+- [2026-08-02] Created: scripts/import_anki.py — Slice 1: AnkiWeb .apkg → review-ready vocab YAML (clean/normalize/dedup/enrich/emit)
+- [2026-08-02] Created: tests/test_import_anki.py — 10 tests for the importer (synthetic .apkg fixture)
+- [2026-08-02] Modified: .gitignore — ignore imports/ (.apkg build inputs, not redistributed)
+- [2026-08-02] Modified: docs/anki-vocab-plan.md — mark Slice 1 importer built
