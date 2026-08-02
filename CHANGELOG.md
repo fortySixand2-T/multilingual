@@ -142,3 +142,6 @@
 - [2026-08-01] Modified: docker-compose.yml — PIPER_VOICE=fr_FR-upmc-medium.onnx
 - [2026-08-01] Modified: .env.example — note upmc voice + no Canadian Piper voice
 - [2026-08-01] Modified: tests/test_speech_integration.py — default voice fallback fr_FR-upmc-medium
+- [2026-08-01] Modified: app/ai/adapters/piper_adapter.py — qa-570/571/572/573: extend emoji range, strip truncated md-links, bare URLs, and leading list bullets
+- [2026-08-01] Modified: tests/test_piper_adapter.py — regression tests for qa-570..573
+- [2026-08-01] Created: qa/rounds/046-plan.md; qa/issues/570-573 — round 046 (diction sanitizer)
