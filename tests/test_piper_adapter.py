@@ -43,3 +43,35 @@ def test_normalizes_typographic_punctuation_keeping_french():
 
 def test_keeps_accents_and_guillemets():
     assert _clean("Ça coûte « très » cher à Montréal.") == "Ça coûte « très » cher à Montréal."
+
+
+def test_removes_misc_symbols_and_arrows_emoji():
+    # U+2B50 (star), U+2B06 (up arrow) live in the Misc Symbols and Arrows block,
+    # not covered by the other four _EMOJI ranges (qa-570).
+    assert _clean("Bravo ⭐ continue ⬆ !") == "Bravo continue !"
+
+
+def test_strips_truncated_markdown_link_missing_closing_paren():
+    # A reply-length cap can cut a Markdown link mid-URL, leaving no ")" (qa-571).
+    assert _clean("Regarde [le site](https://example.com/lo") == "Regarde le site"
+
+
+def test_strips_bare_url():
+    # A raw (non-Markdown) URL should not be voiced letter-by-letter (qa-572).
+    out = _clean("Voir https://exemple.fr/page pour plus.")
+    assert "https://" not in out
+    assert out == "Voir pour plus."
+
+
+def test_strips_leading_hyphen_bullet_markers():
+    # "- item" list markers are list noise, not French text, and should be
+    # stripped like the other _MD_MARKS bullets are (qa-573).
+    assert _clean("- Bonjour\n- Ça va ?") == "Bonjour Ça va ?"
+
+
+def test_hyphen_bullet_strip_preserves_french_elision_hyphens():
+    # Mid-word hyphens (not at start of line) must survive.
+    assert (
+        _clean("Qu'est-ce qui t'a amenée, peut-être vas-y ?")
+        == "Qu'est-ce qui t'a amenée, peut-être vas-y ?"
+    )
