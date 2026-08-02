@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { SpeakingTopic, SpeechTurnResult, api, fetchAudioUrl, postSpeechTurn } from "../api";
+import {
+  SpeakingTopic,
+  SpeechTurnResult,
+  VocabCandidate,
+  api,
+  fetchAudioUrl,
+  postSpeechTurn,
+} from "../api";
 import { useSlowRate } from "../speed";
 import { useLevel } from "../level";
 
@@ -17,6 +24,13 @@ export default function Speaking() {
   // null = still checking; avoids flashing the "unavailable" message before the
   // status check resolves.
   const [available, setAvailable] = useState<boolean | null>(null);
+  // One conversation = one session (topic = session; changing topic starts a new
+  // one). The end-of-conversation vocab review is scoped to this id.
+  const [sessionId, setSessionId] = useState(() => crypto.randomUUID());
+  const [sessionTurns, setSessionTurns] = useState(0); // turns spoken *this* session
+  // The learner's most recent *prior* conversation, to resurface its review words
+  // if they left without reviewing. Refetched whenever a new session starts.
+  const [priorSession, setPriorSession] = useState<string | null>(null);
   const recorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
 
@@ -33,6 +47,15 @@ export default function Speaking() {
       .catch(() => setAvailable(true)); // fail open — don't block Record on a flaky check
   }, []);
 
+  // Find the last conversation (excluding this fresh one) so we can offer to
+  // resurface its review words. Cheap (no LLM); re-runs when the session changes
+  // (e.g. after switching topics), so a just-abandoned conversation shows up.
+  useEffect(() => {
+    api.speechLastSession(sessionId)
+      .then((r) => setPriorSession(r.session_id))
+      .catch(() => setPriorSession(null));
+  }, [sessionId]);
+
   // Load the authored topics for the current level; a picked topic is level-
   // specific, so drop it when the level changes.
   useEffect(() => {
@@ -46,12 +69,13 @@ export default function Speaking() {
     setBusy(true);
     setError("");
     try {
-      const res: SpeechTurnResult = await postSpeechTurn(blob, mode, topic?.id);
+      const res: SpeechTurnResult = await postSpeechTurn(blob, mode, topic?.id, sessionId);
       if (res.over_budget) {
         setError("You've reached today's speaking-practice limit. Try again tomorrow.");
         return;
       }
       setTurns((t) => [...t, { transcript: res.transcript, reply_text: res.reply_text ?? "", reply_audio_url: res.reply_audio_url ?? null }]);
+      setSessionTurns((n) => n + 1);
     } catch (e: any) {
       setError(
         e.status === 503 ? "Speaking practice isn't enabled on this server yet (no speech models configured)."
@@ -90,6 +114,16 @@ export default function Speaking() {
     setRecording(false);
   };
 
+  // Topic = session: switching topics starts a fresh conversation (new id, clean
+  // transcript panel) so the vocab review that follows covers only this exchange.
+  const pickTopic = (t: SpeakingTopic | null) => {
+    setTopic(t);
+    setSessionId(crypto.randomUUID());
+    setSessionTurns(0);
+    setTurns([]);
+    setError("");
+  };
+
   return (
     <div>
       <div className="btn-row" style={{ justifyContent: "space-between", alignItems: "center" }}>
@@ -107,9 +141,22 @@ export default function Speaking() {
       <TopicPicker
         topics={topics}
         topic={topic}
-        onPick={setTopic}
+        onPick={pickTopic}
         disabled={recording || busy}
       />
+
+      {/* Resurface the last conversation's review words if it was left unreviewed.
+          Keyed by the prior session so it resets when that changes. */}
+      {priorSession && priorSession !== sessionId && (
+        <SessionReview
+          key={`prior-${priorSession}`}
+          sessionId={priorSession}
+          visible
+          dismissible
+          label="+ Add vocab from your last conversation"
+          blurb="Useful words from your last conversation — add any to your review deck."
+        />
+      )}
 
       <div className="stack" style={{ marginTop: 8 }}>
         {turns.map((t, i) => (
@@ -134,6 +181,15 @@ export default function Speaking() {
         )}
       </div>
 
+      {/* Keyed by session so it fully resets when the topic (session) changes. */}
+      <SessionReview
+        key={sessionId}
+        sessionId={sessionId}
+        visible={sessionTurns > 0}
+        label="✓ Finish & review words"
+        blurb="From this conversation — add any to your review deck."
+      />
+
       {available === false && (
         <div className="feedback no" style={{ marginTop: 14 }}>
           Speaking practice isn't enabled on this server yet (no speech models configured).
@@ -152,6 +208,129 @@ export default function Speaking() {
           <button className="btn" onClick={start} disabled={available === false}>🎙 Record</button>
         )}
       </div>
+    </div>
+  );
+}
+
+// Confirm-to-add vocab review over one speaking session's transcript. Used two
+// ways: the end-of-conversation debrief for the *current* session ("Finish &
+// review words"), and a resurface nudge for the learner's *last* conversation if
+// they skipped it. Never auto-seeds — the review deck stays the learner's own.
+function SessionReview({
+  sessionId,
+  visible,
+  label,
+  blurb,
+  dismissible = false,
+}: {
+  sessionId: string;
+  visible: boolean;
+  label: string;
+  blurb: string;
+  dismissible?: boolean;
+}) {
+  const [phase, setPhase] = useState<"idle" | "loading" | "done">("idle");
+  const [candidates, setCandidates] = useState<VocabCandidate[]>([]);
+  const [overBudget, setOverBudget] = useState(false);
+  const [added, setAdded] = useState<Record<string, boolean>>({});
+  const [error, setError] = useState("");
+  const [dismissed, setDismissed] = useState(false);
+
+  if (!visible || dismissed) return null;
+
+  const finish = async () => {
+    setPhase("loading");
+    setError("");
+    try {
+      const res = await api.speechVocabReview(sessionId);
+      setCandidates(res.candidates);
+      setOverBudget(!!res.over_budget);
+      setPhase("done");
+    } catch (e: any) {
+      setError(e.message || "Couldn't fetch review words.");
+      setPhase("idle");
+    }
+  };
+
+  const add = async (key: string) => {
+    setAdded((a) => ({ ...a, [key]: true })); // optimistic; idempotent server-side
+    try {
+      await api.addToReview(key);
+    } catch {
+      setAdded((a) => ({ ...a, [key]: false }));
+    }
+  };
+
+  if (phase === "idle") {
+    return (
+      <div className="center" style={{ marginTop: 14 }}>
+        <button className="btn secondary" onClick={finish}>
+          {label}
+        </button>
+        {dismissible && (
+          <button className="link-btn" style={{ marginLeft: 10 }} onClick={() => setDismissed(true)}>
+            Not now
+          </button>
+        )}
+        {error && <div className="feedback no" style={{ marginTop: 10 }}>{error}</div>}
+      </div>
+    );
+  }
+
+  if (phase === "loading") {
+    return (
+      <div className="card center muted" style={{ marginTop: 14 }}>
+        Picking out words to review…
+      </div>
+    );
+  }
+
+  if (overBudget) {
+    return (
+      <div className="card center muted" style={{ marginTop: 14 }}>
+        You've reached today's speaking-practice limit. Come back tomorrow to review these words.
+      </div>
+    );
+  }
+
+  if (candidates.length === 0) {
+    return (
+      <div className="card center muted" style={{ marginTop: 14 }}>
+        No new words to review — nice work!
+      </div>
+    );
+  }
+
+  const allAdded = candidates.every((c) => added[c.card_key]);
+  return (
+    <div className="card" style={{ marginTop: 14 }}>
+      <div style={{ fontWeight: 700 }}>Words to review</div>
+      <div className="muted" style={{ fontSize: 13, margin: "2px 0 10px" }}>
+        {blurb}
+      </div>
+      <div className="btn-row" style={{ flexWrap: "wrap", gap: 8 }}>
+        {candidates.map((c) => (
+          <button
+            key={c.card_key}
+            className={`btn ${added[c.card_key] ? "" : "secondary"}`}
+            onClick={() => add(c.card_key)}
+            disabled={added[c.card_key]}
+            title={`${c.en} · ${c.level.toUpperCase()}`}
+          >
+            {added[c.card_key] ? "✓ " : "+ "}
+            {c.fr}
+          </button>
+        ))}
+      </div>
+      {!allAdded && (
+        <button
+          className="link-btn"
+          style={{ marginTop: 10 }}
+          onClick={() => candidates.forEach((c) => !added[c.card_key] && add(c.card_key))}
+        >
+          Add all
+        </button>
+      )}
     </div>
   );
 }

@@ -148,3 +148,21 @@
 - [2026-08-01] Modified: app/speech/api.py — lazy audio: POST /speech/turn no longer synthesizes; GET /speech/audio synthesizes on first play and caches
 - [2026-08-01] Modified: tests/test_speech.py — lazy-audio tests (no synth at POST, synth+cache on GET, no-TTS 404)
 - [2026-08-01] Modified: scripts/docker-entrypoint.sh — sync speaking topics on boot (was missing; only start.sh had it)
+- [2026-08-01] Created: migrations/versions/0017_speech_session_id.py — Add nullable session_id to speech_turns (conversation grouping)
+- [2026-08-01] Modified: app/speech/tables.py — SpeechTurn.session_id column
+- [2026-08-01] Created: app/speech/vocab_review.py — Slice 3a: extract review words from a session transcript + resolve to existing vocab ids
+- [2026-08-01] Modified: app/speech/api.py — session_id on /speech/turn, session-scoped history, POST /speech/session/{id}/vocab-review endpoint
+- [2026-08-01] Modified: app/config/ai_routing.yaml, ai_routing.ollama.yaml — vocab_extract profile (cheap, JSON)
+- [2026-08-01] Modified: web/src/api.ts — postSpeechTurn sessionId param, VocabCandidate type, speechVocabReview()
+- [2026-08-01] Modified: web/src/screens/Speaking.tsx — per-conversation session id + end-of-conversation SessionReview (confirm-seed words to SRS)
+- [2026-08-01] Modified: tests/test_speech.py — tests for vocab-review extraction/resolution/exclusion, empty-session no-LLM, session_id persistence
+- [2026-08-01] Created: tests/test_qa_580_vocab_review.py — QA scratch tests probing speaking vocab-review budget/isolation/resolve hypotheses (H1-H4)
+- [2026-08-01] Created: qa/issues/580-speech-vocab-review-no-budget-check.md — filed H1 finding: session_vocab_review has no daily-budget check, bills unbounded
+- [2026-08-01] Modified: app/speech/api.py — Slice 3b: GET /speech/last-session (most recent prior session for resurface nudge)
+- [2026-08-01] Modified: web/src/api.ts — speechLastSession()
+- [2026-08-01] Modified: web/src/screens/Speaking.tsx — generalized SessionReview; "Review words from your last conversation" nudge (opt-in, dismissible)
+- [2026-08-01] Modified: web/src/screens/Speaking.test.tsx — mock speechLastSession
+- [2026-08-01] Modified: tests/test_speech.py — tests for /speech/last-session (latest/exclude/null)
+- [2026-08-01] Modified: docs/anki-vocab-plan.md — mark Slice 3b built
+- [2026-08-02] Modified: web/src/screens/Speaking.tsx — QA-601: clearer prior-session nudge label (add-to-deck action)
+- [2026-08-02] Created: qa/issues/600-602, qa/rounds/048-plan.md — Slice 3b QA round (601 fixed; 600,602 rejected)

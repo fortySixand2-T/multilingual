@@ -8,7 +8,9 @@ from fastapi.testclient import TestClient
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
+import app.content.tables  # noqa: F401  (register content_vocab for create_all)
 import app.speech.tables  # noqa: F401
+import app.srs.models  # noqa: F401  (register srs_cards for create_all)
 import app.usage.models  # noqa: F401
 from app.ai.accounting import make_usage
 from app.ai.interfaces import LLMResult, Transcript
@@ -317,3 +319,175 @@ def test_empty_transcript_returns_422_without_billing_or_saving_a_turn():
             return len(rows)
 
     assert _run(count()) == 0  # no blank turn persisted
+
+
+# --- Slice 3a: end-of-conversation vocab review (Speaking -> SRS loop) ---------
+
+from app.content.tables import ContentVocab  # noqa: E402
+from app.speech.vocab_review import _norm, _parse_words  # noqa: E402
+from app.srs.models import ReviewCard  # noqa: E402
+
+
+class JsonRouter:
+    """Extraction model: returns a strict-JSON word list (what vocab_extract asks for)."""
+
+    def __init__(self, words):
+        self._words = words
+
+    def run(self, profile, *, system, messages, **kw):
+        import json
+
+        return LLMResult(
+            text=json.dumps({"words": self._words}),
+            provider="ollama",
+            model="llama3.1",
+            usage=make_usage(input_tokens=40, output_tokens=10),
+        )
+
+
+async def _seed_vocab(cards):
+    async with _Session() as s:
+        for cid, fr, en, level in cards:
+            s.add(ContentVocab(id=cid, level=level, data={"fr": fr, "en": en}))
+        await s.commit()
+
+
+def test_parse_words_tolerates_fences_and_shapes():
+    assert _parse_words('{"words": ["café", "eau"]}') == ["café", "eau"]
+    assert _parse_words('```json\n{"words": ["thé"]}\n```') == ["thé"]
+    assert _parse_words('["pain", "vin"]') == ["pain", "vin"]  # bare list
+    assert _parse_words("not json at all") == []
+
+
+def test_norm_strips_articles_and_case():
+    assert _norm("Le café") == "café"
+    assert _norm("l'eau") == "eau"
+    assert _norm("  VIN.  ") == "vin"
+
+
+def test_vocab_review_suggests_known_words_from_the_session():
+    _run(_seed_vocab([("cafe", "café", "coffee", "a1"), ("eau", "eau", "water", "a1")]))
+    router = JsonRouter(["café", "eau", "montréal"])  # montréal has no vocab card -> dropped
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=201, router=router)
+
+    sid = "sess-201"
+    client.post(
+        "/speech/turn",
+        files={"audio": ("a.wav", b"x", "audio/wav")},
+        data={"mode": "examiner", "session_id": sid},
+    )
+    r = client.post(f"/speech/session/{sid}/vocab-review")
+    assert r.status_code == 200
+    keys = {c["card_key"] for c in r.json()["candidates"]}
+    assert keys == {"cafe", "eau"}  # only lemmas resolving to real vocab ids
+
+
+def test_vocab_review_excludes_words_already_in_review():
+    _run(_seed_vocab([("pain", "pain", "bread", "a1")]))
+
+    async def already_reviewing():
+        async with _Session() as s:
+            from datetime import UTC, datetime
+
+            due = datetime.now(UTC).replace(tzinfo=None)
+            s.add(ReviewCard(user_id=202, card_key="pain", due=due, state={}))
+            await s.commit()
+
+    _run(already_reviewing())
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=202, router=JsonRouter(["pain"]))
+    sid = "sess-202"
+    client.post(
+        "/speech/turn",
+        files={"audio": ("a.wav", b"x", "audio/wav")},
+        data={"mode": "examiner", "session_id": sid},
+    )
+    r = client.post(f"/speech/session/{sid}/vocab-review")
+    assert r.json()["candidates"] == []  # already in the deck -> not re-suggested
+
+
+def test_vocab_review_empty_for_unknown_session_makes_no_llm_call():
+    # BoomRouter proves we never invoke the model when the session has no turns.
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=203, router=BoomRouter())
+    r = client.post("/speech/session/does-not-exist/vocab-review")
+    assert r.status_code == 200
+    assert r.json() == {"candidates": []}
+
+
+def test_vocab_review_over_budget_skips_llm_and_stops_billing():
+    # qa-580: once the "speaking" daily ledger is at/over the budget, vocab-review
+    # must not call the extraction LLM (or bill further) — same gate as /speech/turn.
+    from app.config.settings import get_settings
+    from app.usage.models import DailyUsage
+
+    _run(_seed_vocab([("cafe-580", "café", "coffee", "a1")]))
+    sid = "sess-580"
+
+    # Seed a turn (with budget untouched, via a plain FakeRouter) so the review has
+    # a real transcript to work with — before we exhaust the ledger below.
+    seed_client, _ = _client(stt=FakeSTT(), tts=None, uid=580, router=FakeRouter())
+    seed_client.post(
+        "/speech/turn",
+        files={"audio": ("a.wav", b"x", "audio/wav")},
+        data={"mode": "examiner", "session_id": sid},
+    )
+
+    async def exhaust_budget():
+        async with _Session() as s:
+            row = await s.get(DailyUsage, (580, date.today(), "speaking"))
+            budget = get_settings().speaking_daily_token_budget
+            row.input_tokens = budget
+            row.output_tokens = 0
+            await s.commit()
+
+    _run(exhaust_budget())
+
+    # Now vocab-review must not touch the LLM at all — BoomRouter raises if it does.
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=580, router=BoomRouter())
+    r = client.post(f"/speech/session/{sid}/vocab-review")
+    assert r.status_code == 200
+    assert r.json() == {"candidates": [], "over_budget": True}
+    # BoomRouter would have raised AssertionError had extract_review_words run it.
+
+    async def usage_row():
+        async with _Session() as s:
+            return await s.get(DailyUsage, (580, date.today(), "speaking"))
+
+    row = _run(usage_row())
+    budget = get_settings().speaking_daily_token_budget
+    assert row.input_tokens + row.output_tokens == budget  # unchanged — nothing re-billed
+
+
+def test_last_session_returns_most_recent_prior_excluding_current():
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=206)
+    for sid in ("s1", "s2"):  # s2 posted last -> most recent
+        client.post(
+            "/speech/turn",
+            files={"audio": ("a.wav", b"x", "audio/wav")},
+            data={"mode": "examiner", "session_id": sid},
+        )
+    # No exclude -> the latest conversation.
+    assert client.get("/speech/last-session").json()["session_id"] == "s2"
+    # Excluding the current (s2) -> the one before it.
+    assert client.get("/speech/last-session?exclude=s2").json()["session_id"] == "s1"
+
+
+def test_last_session_null_when_no_prior_conversation():
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=207)
+    assert client.get("/speech/last-session").json()["session_id"] is None
+
+
+def test_session_id_scopes_history_and_persists_on_turn():
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=204)
+    body = client.post(
+        "/speech/turn",
+        files={"audio": ("a.wav", b"x", "audio/wav")},
+        data={"mode": "examiner", "session_id": "sess-204"},
+    ).json()
+
+    async def get_turn():
+        async with _Session() as s:
+            return (
+                await s.execute(select(SpeechTurn).where(SpeechTurn.id == body["turn_id"]))
+            ).scalar_one()
+
+    assert _run(get_turn()).session_id == "sess-204"

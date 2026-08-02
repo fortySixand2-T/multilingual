@@ -28,6 +28,9 @@ class SpeechTurn(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(Integer, index=True)
+    # Groups turns into one conversation (topic = session; changing topic starts a
+    # new one). Client-generated; nullable for legacy turns / clients that omit it.
+    session_id: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
     mode: Mapped[str] = mapped_column(String(16))
     transcript: Mapped[str] = mapped_column(Text)  # what the learner said
     reply_text: Mapped[str] = mapped_column(Text)  # examiner reply

@@ -103,19 +103,28 @@ export type SpeakingTopic = {
   prompt: string;
   points: string[];
 };
+// A word the examiner flagged from a conversation, offered for the review deck.
+export type VocabCandidate = {
+  card_key: string;
+  fr: string;
+  en: string;
+  level: string;
+};
 
 // Multipart upload of recorded audio (FormData — don't set Content-Type by hand).
 // `topicId` (optional) frames the examiner session around an authored topic.
 export async function postSpeechTurn(
   audio: Blob,
   mode: string,
-  topicId = ""
+  topicId = "",
+  sessionId = ""
 ): Promise<SpeechTurnResult> {
   const token = getToken();
   const form = new FormData();
   form.append("audio", audio, "turn.webm");
   form.append("mode", mode);
   if (topicId) form.append("topic_id", topicId);
+  if (sessionId) form.append("session_id", sessionId);
   const res = await fetch(`${BASE}/speech/turn`, {
     method: "POST",
     headers: token ? { Authorization: `Bearer ${token}` } : {},
@@ -406,6 +415,17 @@ export const api = {
   speakingTopics: (level: string, section?: "A" | "B") =>
     req<{ topics: SpeakingTopic[] }>(
       `/speech/topics?level=${encodeURIComponent(level)}${section ? `&section=${section}` : ""}`
+    ),
+  // End-of-conversation debrief: words from this session worth reviewing.
+  speechVocabReview: (sessionId: string) =>
+    req<{ candidates: VocabCandidate[]; over_budget?: boolean }>(
+      `/speech/session/${encodeURIComponent(sessionId)}/vocab-review`,
+      { method: "POST" }
+    ),
+  // Most recent prior conversation, to resurface its review words on return.
+  speechLastSession: (excludeId = "") =>
+    req<{ session_id: string | null }>(
+      `/speech/last-session${excludeId ? `?exclude=${encodeURIComponent(excludeId)}` : ""}`
     ),
 
   readiness: () => req<Readiness>("/exam/readiness"),

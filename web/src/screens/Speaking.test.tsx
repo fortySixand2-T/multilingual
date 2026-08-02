@@ -9,7 +9,12 @@ import { api } from "../api";
 // checks /speech/status on mount and disables Record (with an upfront
 // message) instead.
 vi.mock("../api", () => ({
-  api: { speechHistory: vi.fn(), speechStatus: vi.fn(), speakingTopics: vi.fn() },
+  api: {
+    speechHistory: vi.fn(),
+    speechStatus: vi.fn(),
+    speakingTopics: vi.fn(),
+    speechLastSession: vi.fn(),
+  },
 }));
 
 // Speaking reads the current level via useLevel; stub it so the test doesn't
@@ -23,6 +28,7 @@ const renderSpeaking = () => render(<Speaking />);
 beforeEach(() => {
   vi.mocked(api.speechHistory).mockResolvedValue({ turns: [] });
   vi.mocked(api.speakingTopics).mockResolvedValue({ topics: [] });
+  vi.mocked(api.speechLastSession).mockResolvedValue({ session_id: null });
 });
 
 describe("Speaking preflight availability check (qa-540)", () => {
