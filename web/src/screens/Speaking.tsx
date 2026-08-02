@@ -153,8 +153,8 @@ export default function Speaking() {
           sessionId={priorSession}
           visible
           dismissible
-          label="Review words from your last conversation"
-          blurb="From your last conversation — add any to your review deck."
+          label="+ Add vocab from your last conversation"
+          blurb="Useful words from your last conversation — add any to your review deck."
         />
       )}
 
