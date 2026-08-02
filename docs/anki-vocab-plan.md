@@ -1,13 +1,17 @@
-# Plan: AnkiWeb-sourced vocab + user-personalized difficulty decks
+# Plan: personalized vocab decks (Speaking-driven, dictionary-enriched)
 
-Branch: `feat/anki-vocab-decks` (off `main`). Ships as small QA'd slices per the
-delivery workflow.
+Ships as small QA'd slices per the delivery workflow. Branches so far:
+`feat/anki-vocab-decks` (3a/3b, merged #67), `feat/anki-vocab-import` (Slice 1, open).
 
 ## Goal (from the user)
 
-1. Use AnkiWeb shared French decks to **grow / enrich the vocab stack**.
+1. Grow / enrich the vocab stack (originally: AnkiWeb decks; now: **dictionary
+   enrichment**, with AnkiWeb import as a secondary bulk path).
 2. Give each user a **personalized deck driven by which words felt hard**, with
    visible **degrees of difficulty**, so harder words resurface for review more often.
+3. **(2026-08-02)** An **Anki-like "build your own deck"** — personal per-user cards,
+   fed mainly by the learner's own Speaking practice and auto-enriched by the
+   dictionary. See "Direction update" below.
 
 ## What already exists (don't rebuild)
 
@@ -31,6 +35,31 @@ So the net-new work is (A) getting more/better vocab from AnkiWeb into the YAML
 bank, and (B) *surfacing* the difficulty FSRS already tracks + a dedicated
 hardest-words deck. We are **not** re-implementing spaced repetition.
 
+## Direction update (2026-08-02) — dictionary enrichment + personal decks
+
+After the first real AnkiWeb import proved that parsing glosses out of a deck is
+brittle (verbose Wiktionary text, no gender, function-word noise → heavy manual
+curation), we reshaped the vocab-growth strategy. Decisions:
+
+- **Enrichment = a "dictionary", not deck-gloss parsing.** Given a bare French word,
+  produce `{gender, pos, en gloss, ipa}`. Backend: **local LLM (ollama via the AI
+  router) + an offline Lexique.org gender table as source-of-truth** (LLM for
+  gloss/pos/ipa; Lexique overrides gender for determinism). Chosen over an online
+  dictionary API because the self-host box sleeps / network is flaky, and over a
+  pure-LLM approach because gender must be reliable. (Online Wiktionary/Wikidata
+  remain a fallback data source; commercial dict APIs forbid storing results.)
+- **Both audiences, one engine.** The same enrichment powers (a) **personal per-user
+  decks** — the Anki-like "build your own deck" the user wants — and (b) cleaner
+  **author-side global imports** (`import_anki.py`). Shared infra, two consumers.
+- **Primary user entry point = Speaking (Slice 3c).** Words a learner reaches for in
+  conversation are the main way cards enter *their* deck; manual "type a word" is
+  secondary. This makes 3c the flagship of the personal-deck feature, not a footnote.
+
+New capability implied — **personal decks** (a later slice, see below): a per-user
+`user_vocab` store, wired into the existing SRS queue/Review (today `/srs/add` only
+accepts global `ContentVocab` ids), with **on-demand TTS** for user words (reuse the
+lazy-audio infra from Speaking) instead of pre-built mp3s.
+
 ## Licensing reality (decides the import design)
 
 AnkiWeb shared decks are user-uploaded `.apkg` files (a zipped SQLite
@@ -46,13 +75,17 @@ lists) as sources; record provenance per import.
 
 ## Slice 1 — AnkiWeb → vocab import pipeline  *(net-new; primary value)*
 
-**Status: importer built** — `scripts/import_anki.py` + `tests/test_import_anki.py`
-(10 tests). Reads a legacy `.apkg` (zip → SQLite `notes.flds`), cleans HTML/media,
-strips articles for gender, keeps single words (or `--keep-phrases`), dedups against
-all 780 existing ids+lemmas, emits house-style YAML with a provenance header and a
-stderr review report. `.apkg` inputs are gitignored under `imports/`. **Not yet run
-against a real deck** (needs a chosen `.apkg`); enrichment is heuristic (LLM-assist =
-follow-up). Steps below are the intended end-to-end flow.
+**Status: importer built + first deck imported.** `scripts/import_anki.py` +
+`tests/test_import_anki.py` (10 tests). Reads a legacy `.apkg` (zip → SQLite
+`notes.flds`), cleans HTML/media, strips articles for gender, keeps single words (or
+`--keep-phrases`), dedups against all existing ids+lemmas, emits house-style YAML +
+stderr review report. `.apkg` inputs gitignored under `imports/`. First real run:
+AnkiWeb "French frequency lists/1-2000 on Wiktionary" (CC-BY-SA) → hand-curated into
+`content/b2/vocab/actualite.yaml` (33 news/economy cards; b2 180→213), audio
+generated. **Learning:** raw frequency dumps are noisy → this motivated the
+dictionary-enrichment direction above; heuristic article-based gender only works when
+the deck includes articles (the Wiktionary deck didn't). Steps below are the intended
+end-to-end flow; step 4 (enrich) should become the dictionary engine.
 
 A build script that turns a chosen `.apkg` into review-ready authored YAML.
 
@@ -147,11 +180,12 @@ we only need a way to group a conversation's turns and a moment to process them.
    - **Cheap/clean tier (ship first):** keep only lemmas that map to an existing
      vocab id → `seed_cards(user, ids)`. Known words → clean cards, no authoring,
      license-free.
-   - **Rich tier (later — the "word suggestion" idea, after the transcript loop is
-     proven):** lemmas with no match flow through the *same* enrichment/authoring
-     path as the AnkiWeb import (Slice 1). Speaking discovers the gap; the import
-     pipeline fills it. This slots into step 2's resolve without changing the
-     timing model.
+   - **Rich tier (Slice 3c — the flagship personal-deck path):** lemmas with no
+     match run through the **dictionary enrichment engine** (LLM + Lexique gender)
+     and are offered for the learner's **personal deck** (`user_vocab`), not the
+     global bank. Speaking discovers the gap; the dictionary fills it; the word
+     becomes a private card in the user's FSRS review. Slots into step 2's resolve
+     without changing the timing model.
 4. **Presentation:** the endpoint's list renders as a "Add these to your review
    deck" confirm-chip debrief (learner confirms — never silent auto-seed, so the
    deck stays trustworthy). Seeded words ride the existing FSRS loop (Slice 2 makes
@@ -170,6 +204,34 @@ confirmed-seed UI at end-of-conversation → QA; (b) last-session resurface nudg
 (c) rich tier once Slice 1's enrichment path exists. Per-turn *live* hints (a
 different feature — real-time coaching, not review-seeding) stay out of scope.
 
+## Slice D — dictionary enrichment engine  *(shared infrastructure; new)*
+
+The foundation both personal decks and cleaner imports need.
+
+- **Data:** bundle a small **Lexique.org** table (CC-BY, ~1–2 MB) → `data/` as
+  `{lemma → gender, pos, freq}`. Source-of-truth for gender.
+- **Service:** `enrich(word) → {fr, gender, pos, en, ipa}`. LLM (new `vocab_enrich`
+  JSON profile, like `vocab_extract`) produces gloss/pos/ipa; the Lexique table
+  overrides gender when the lemma is known. Low-confidence rows flagged.
+- **Consumers:** `import_anki.py` step 4, Speaking rich tier (3c), and the personal
+  "add card" flow. Offline on the box (ollama + bundled table); no external API.
+
+## Slice E — personal user decks (Anki-like)  *(new; the "build your own deck" ask)*
+
+Let each user keep private cards, not just study the shared bank.
+
+- **Storage:** `user_vocab` (user_id, id, fr, en, gender, pos, ipa, source). Distinct
+  from global `ContentVocab`.
+- **SRS wiring:** the SRS `card_key` is already an unconstrained string with no FK —
+  extend `/srs/add`, the queue, and Review to resolve a card from *either*
+  `ContentVocab` or `user_vocab`. Personal cards then ride the exact FSRS loop +
+  difficulty surfacing (Slice 2) with no new scheduling.
+- **Audio:** synthesize user-word audio **on demand** (reuse the Speaking lazy-TTS +
+  object-storage cache) instead of pre-built mp3s.
+- **Entry points (priority order):** Speaking (3c) → optional manual "type a word →
+  dictionary preview → add" → (later) paste-a-list / upload-own-`.apkg`.
+- **UI:** a "My deck" view alongside the shared Decks screen.
+
 ## Out of scope (explicitly)
 
 - Re-implementing SRS/scheduling (FSRS already does it).
@@ -177,27 +239,25 @@ different feature — real-time coaching, not review-seeding) stay out of scope.
 - Exporting the app's vocab *as* an Anki deck (a valid separate idea — the reverse
   direction via `genanki` — but not this plan).
 
-## Sequence
+## Sequence & status
 
-Decided order (Slice 3 leads; word-suggestion/rich tier comes after the transcript
-loop is proven):
+Done:
+1. **Slice 3a** — Speaking→vocab loop, cheap tier. ✅ merged (#67) + deployed.
+2. **Slice 3b** — last-session resurface nudge. ✅ merged (#67) + deployed.
+3. **Slice 1** — importer + first imported deck (`actualite` b2). ✅ built on
+   `feat/anki-vocab-import`; **not yet PR'd**.
 
-1. **Slice 3a** — Speaking → vocab loop, *cheap tier*: `session_id` + end-of-
-   conversation `vocab-review` endpoint (existing-id resolve only) + confirm-seed UI
-   → QA round → PR → merge.
-2. **Slice 3b** — last-session resurface nudge **(built)**: `GET /speech/last-session`
-   returns the most recent prior session; the Speaking screen offers "Review words
-   from your last conversation" (opt-in, no auto-billing). No "reviewed" flag needed
-   — `resolve_to_vocab` already excludes words already in the deck, so a re-reviewed
-   session returns an empty list. → QA → PR → merge.
-3. **Slice 1** — AnkiWeb import pipeline + first imported deck (also builds the
-   enrichment path the rich tier needs) → QA → PR → merge.
-4. **Slice 3c** — Speaking loop *rich tier*: unmatched lemmas → Slice 1 enrichment
-   → QA → PR → merge.
-5. **Slice 2** — difficulty surfacing + hardest-words deck → QA → PR → merge.
-6. Deploy to the box after each merge.
+Next (revised after the 2026-08-02 direction update):
+4. **Slice D** — dictionary enrichment engine (Lexique table + `vocab_enrich` LLM
+   profile + `enrich()` service). Prereq for 3c and E. → QA → PR.
+5. **Slice E** — personal user decks (`user_vocab` + SRS/Review wiring + on-demand
+   audio + "My deck" UI). → QA → PR.
+6. **Slice 3c** — Speaking rich tier: unmatched spoken words → dictionary enrich →
+   personal deck (needs D + E). → QA → PR.
+7. **Slice 2** — difficulty surfacing + "hardest for you" deck (applies to both
+   global and personal cards). → QA → PR.
+8. Deploy to the box after each merge.
 
-Slices stay independent; this is the intended path, not a hard dependency chain
-(only 3c depends on 1). Slice 3 leads because its difficulty signal comes from the
-user's own speech rather than a grade button — closest to the original "deck of
-words I found hard" goal.
+Dependencies: 3c needs D + E; E needs D. Slices 1 and 2 are independent. The
+`import_anki.py` global-import path continues to exist but is now the *secondary*
+way vocab enters the app — personal decks (E, driven by 3c) are primary.

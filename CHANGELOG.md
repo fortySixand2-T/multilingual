@@ -171,3 +171,4 @@
 - [2026-08-02] Modified: .gitignore — ignore imports/ (.apkg build inputs, not redistributed)
 - [2026-08-02] Modified: docs/anki-vocab-plan.md — mark Slice 1 importer built
 - [2026-08-02] Created: content/b2/vocab/actualite.yaml — 33-card news/economy vocab deck imported from AnkiWeb Wiktionary frequency list (curated) + 33 TTS clips
+- [2026-08-02] Modified: docs/anki-vocab-plan.md — Direction update: dictionary enrichment (LLM+Lexique) + personal user decks (Slices D, E); reframed 3c; revised roadmap
