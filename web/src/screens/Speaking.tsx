@@ -188,6 +188,7 @@ export default function Speaking() {
 function SessionReview({ sessionId, hasTurns }: { sessionId: string; hasTurns: boolean }) {
   const [phase, setPhase] = useState<"idle" | "loading" | "done">("idle");
   const [candidates, setCandidates] = useState<VocabCandidate[]>([]);
+  const [overBudget, setOverBudget] = useState(false);
   const [added, setAdded] = useState<Record<string, boolean>>({});
   const [error, setError] = useState("");
 
@@ -199,6 +200,7 @@ function SessionReview({ sessionId, hasTurns }: { sessionId: string; hasTurns: b
     try {
       const res = await api.speechVocabReview(sessionId);
       setCandidates(res.candidates);
+      setOverBudget(!!res.over_budget);
       setPhase("done");
     } catch (e: any) {
       setError(e.message || "Couldn't fetch review words.");
@@ -230,6 +232,14 @@ function SessionReview({ sessionId, hasTurns }: { sessionId: string; hasTurns: b
     return (
       <div className="card center muted" style={{ marginTop: 14 }}>
         Picking out words to review…
+      </div>
+    );
+  }
+
+  if (overBudget) {
+    return (
+      <div className="card center muted" style={{ marginTop: 14 }}>
+        You've reached today's speaking-practice limit. Come back tomorrow to review words from this conversation.
       </div>
     );
   }

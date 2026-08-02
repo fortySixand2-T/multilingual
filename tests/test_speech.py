@@ -413,6 +413,50 @@ def test_vocab_review_empty_for_unknown_session_makes_no_llm_call():
     assert r.json() == {"candidates": []}
 
 
+def test_vocab_review_over_budget_skips_llm_and_stops_billing():
+    # qa-580: once the "speaking" daily ledger is at/over the budget, vocab-review
+    # must not call the extraction LLM (or bill further) — same gate as /speech/turn.
+    from app.config.settings import get_settings
+    from app.usage.models import DailyUsage
+
+    _run(_seed_vocab([("cafe-580", "café", "coffee", "a1")]))
+    sid = "sess-580"
+
+    # Seed a turn (with budget untouched, via a plain FakeRouter) so the review has
+    # a real transcript to work with — before we exhaust the ledger below.
+    seed_client, _ = _client(stt=FakeSTT(), tts=None, uid=580, router=FakeRouter())
+    seed_client.post(
+        "/speech/turn",
+        files={"audio": ("a.wav", b"x", "audio/wav")},
+        data={"mode": "examiner", "session_id": sid},
+    )
+
+    async def exhaust_budget():
+        async with _Session() as s:
+            row = await s.get(DailyUsage, (580, date.today(), "speaking"))
+            budget = get_settings().speaking_daily_token_budget
+            row.input_tokens = budget
+            row.output_tokens = 0
+            await s.commit()
+
+    _run(exhaust_budget())
+
+    # Now vocab-review must not touch the LLM at all — BoomRouter raises if it does.
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=580, router=BoomRouter())
+    r = client.post(f"/speech/session/{sid}/vocab-review")
+    assert r.status_code == 200
+    assert r.json() == {"candidates": [], "over_budget": True}
+    # BoomRouter would have raised AssertionError had extract_review_words run it.
+
+    async def usage_row():
+        async with _Session() as s:
+            return await s.get(DailyUsage, (580, date.today(), "speaking"))
+
+    row = _run(usage_row())
+    budget = get_settings().speaking_daily_token_budget
+    assert row.input_tokens + row.output_tokens == budget  # unchanged — nothing re-billed
+
+
 def test_session_id_scopes_history_and_persists_on_turn():
     client, _ = _client(stt=FakeSTT(), tts=None, uid=204)
     body = client.post(

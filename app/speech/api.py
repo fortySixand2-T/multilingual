@@ -36,7 +36,7 @@ from app.speech.tables import SpeakingTopicRow, SpeechTurn
 from app.speech.topics import SpeakingTopic, framing
 from app.speech.vocab_review import extract_review_words, resolve_to_vocab
 from app.storage.interface import ObjectStorage
-from app.usage.service import add_usage
+from app.usage.service import add_usage, tokens_used_today
 from app.users.models import User
 
 router = APIRouter(prefix="/speech", tags=["speech"])
@@ -208,6 +208,7 @@ async def session_vocab_review(
     session: AsyncSession = Depends(get_session),
     user: User = Depends(get_current_user),
     ai_router: AIRouter = Depends(get_ai_router),
+    settings: Settings = Depends(get_settings),
 ) -> dict:
     """End-of-conversation debrief: mine this session's transcript for French words
     worth reviewing and return the ones that map to real vocab cards (and aren't
@@ -229,6 +230,12 @@ async def session_vocab_review(
     )
     if not rows:
         return {"candidates": []}
+
+    # Same "speaking" daily ledger as /speech/turn — skip the extraction LLM entirely
+    # once the day's budget is exhausted rather than billing without limit.
+    used = await tokens_used_today(session, user.id, "speaking", date.today())
+    if used >= settings.speaking_daily_token_budget:
+        return {"candidates": [], "over_budget": True}
 
     words, result = await extract_review_words(ai_router, rows)
     if result is not None:

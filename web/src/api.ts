@@ -418,7 +418,7 @@ export const api = {
     ),
   // End-of-conversation debrief: words from this session worth reviewing.
   speechVocabReview: (sessionId: string) =>
-    req<{ candidates: VocabCandidate[] }>(
+    req<{ candidates: VocabCandidate[]; over_budget?: boolean }>(
       `/speech/session/${encodeURIComponent(sessionId)}/vocab-review`,
       { method: "POST" }
     ),

@@ -156,3 +156,5 @@
 - [2026-08-01] Modified: web/src/api.ts — postSpeechTurn sessionId param, VocabCandidate type, speechVocabReview()
 - [2026-08-01] Modified: web/src/screens/Speaking.tsx — per-conversation session id + end-of-conversation SessionReview (confirm-seed words to SRS)
 - [2026-08-01] Modified: tests/test_speech.py — tests for vocab-review extraction/resolution/exclusion, empty-session no-LLM, session_id persistence
+- [2026-08-01] Created: tests/test_qa_580_vocab_review.py — QA scratch tests probing speaking vocab-review budget/isolation/resolve hypotheses (H1-H4)
+- [2026-08-01] Created: qa/issues/580-speech-vocab-review-no-budget-check.md — filed H1 finding: session_vocab_review has no daily-budget check, bills unbounded
