@@ -44,10 +44,25 @@ _ARTICLES = ("de la ", "de l'", "l'", "d'", "le ", "la ", "les ", "un ", "une ",
 # so the most specific ending wins (‑ation before ‑tion is redundant, but ‑ité before
 # ‑té matters). Exceptions below carve out the well-known counter-examples.
 _FEM_SUFFIXES = (
-    "tion", "sion", "aison", "ité", "té", "ette", "ance", "ence", "ude", "esse",
+    "tion",
+    "sion",
+    "aison",
+    "ité",
+    "té",
+    "ette",
+    "ance",
+    "ence",
+    "ude",
+    "esse",
 )
 _MASC_SUFFIXES = (
-    "ment", "isme", "eau", "phone", "scope", "age", "oir",
+    "ment",
+    "isme",
+    "eau",
+    "phone",
+    "scope",
+    "age",
+    "oir",
 )
 # The classic feminine `-age` / `-eau` nouns that break the masculine rule.
 _AGE_FEM = {"cage", "image", "nage", "page", "plage", "rage"}
@@ -60,7 +75,7 @@ def strip_leading_article(word: str) -> str:
     low = w.lower()
     for art in _ARTICLES:
         if low.startswith(art):
-            return w[len(art):].strip()
+            return w[len(art) :].strip()
     return w
 
 
@@ -138,7 +153,7 @@ _ENRICH_SYSTEM = (
     '"gender": "m|f|mf|", "ipa": "..."}\n'
     "Rules: `en` is a short gloss (a few words, no article). `pos` is the part of "
     "speech. `gender` is the grammatical gender for NOUNS only (m, f, or mf when both "
-    "a masculine and feminine form exist like ami/amie); use \"\" for anything that is "
+    'a masculine and feminine form exist like ami/amie); use "" for anything that is '
     "not a noun. `ipa` is the IPA pronunciation without slashes. If unsure of gender, "
     'use "".'
 )
