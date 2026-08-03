@@ -15,3 +15,7 @@ data/*
 
 # pirated source PDFs — never commit (see memory)
 books/
+
+# AnkiWeb .apkg build inputs — wordlist reference only, not redistributed (see
+# docs/anki-vocab-plan.md). Only the reviewed YAML output is committed.
+imports/
