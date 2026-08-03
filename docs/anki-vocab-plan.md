@@ -204,17 +204,25 @@ confirmed-seed UI at end-of-conversation → QA; (b) last-session resurface nudg
 (c) rich tier once Slice 1's enrichment path exists. Per-turn *live* hints (a
 different feature — real-time coaching, not review-seeding) stay out of scope.
 
-## Slice D — dictionary enrichment engine  *(shared infrastructure; new)*
+## Slice D — dictionary enrichment engine  *(shared infrastructure)* ✅ built
 
-The foundation both personal decks and cleaner imports need.
+The foundation both personal decks and cleaner imports need. Built on
+`feat/vocab-enrich` (`app/content/enrich.py` + `tests/test_enrich.py`, 14 tests).
 
-- **Data:** bundle a small **Lexique.org** table (CC-BY, ~1–2 MB) → `data/` as
-  `{lemma → gender, pos, freq}`. Source-of-truth for gender.
-- **Service:** `enrich(word) → {fr, gender, pos, en, ipa}`. LLM (new `vocab_enrich`
-  JSON profile, like `vocab_extract`) produces gloss/pos/ipa; the Lexique table
-  overrides gender when the lemma is known. Low-confidence rows flagged.
-- **Consumers:** `import_anki.py` step 4, Speaking rich tier (3c), and the personal
-  "add card" flow. Offline on the box (ollama + bundled table); no external API.
+- **Service:** `enrich(router, word) → (Enrichment{fr, en, pos, gender, ipa,
+  gender_source}, llm_result)`. Two decoupled layers: `propose` runs one cheap LLM
+  pass (new `vocab_enrich` JSON profile, cached 7d) for gloss/pos/ipa; then
+  `resolve_gender` applies a **deterministic backstop** because a local model gets
+  French gender wrong too often to trust: **table > high-confidence suffix rule
+  (‑tion/‑té→f, ‑ment/‑eau→m) > model guess > "" (unresolved)**. `gender_source`
+  records which layer won, for confidence/flagging.
+- **Gender table (source of truth):** `GenderTable.load()` reads a TSV at
+  `app/content/data/fr_gender.tsv` — seeded with common words + suffix-rule
+  counter-examples (silence, musée = m). **Drop a full Lexique383 extract at that
+  path to widen coverage with zero code change** (the "bundle Lexique" step, deferred:
+  it's a ~5 MB download and the seed + suffix rules already cover the common cases).
+- **Consumers:** `import_anki.py` enrichment step, Speaking rich tier (3c), and the
+  personal "add card" flow (E). Offline on the box (ollama + local table); no external API.
 
 ## Slice E — personal user decks (Anki-like)  *(new; the "build your own deck" ask)*
 
@@ -244,12 +252,13 @@ Let each user keep private cards, not just study the shared bank.
 Done:
 1. **Slice 3a** — Speaking→vocab loop, cheap tier. ✅ merged (#67) + deployed.
 2. **Slice 3b** — last-session resurface nudge. ✅ merged (#67) + deployed.
-3. **Slice 1** — importer + first imported deck (`actualite` b2). ✅ built on
-   `feat/anki-vocab-import`; **not yet PR'd**.
+3. **Slice 1** — importer + first imported deck (`actualite` b2). ✅ merged (#68)
+   + deployed.
+4. **Slice D** — dictionary enrichment engine (`enrich()` + gender table + suffix
+   backstop + `vocab_enrich` profile). ✅ built on `feat/vocab-enrich`; **QA → PR
+   pending**. Prereq for 3c and E.
 
 Next (revised after the 2026-08-02 direction update):
-4. **Slice D** — dictionary enrichment engine (Lexique table + `vocab_enrich` LLM
-   profile + `enrich()` service). Prereq for 3c and E. → QA → PR.
 5. **Slice E** — personal user decks (`user_vocab` + SRS/Review wiring + on-demand
    audio + "My deck" UI). → QA → PR.
 6. **Slice 3c** — Speaking rich tier: unmatched spoken words → dictionary enrich →

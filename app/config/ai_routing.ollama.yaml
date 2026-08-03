@@ -36,6 +36,13 @@ profiles:
     primary: "ollama/llama3.1"
     format: json         # strict JSON word list — constrain Ollama to valid JSON
 
+  vocab_enrich:
+    capability: llm
+    primary: "ollama/llama3.1"
+    format: json         # strict JSON dictionary entry — constrain Ollama to valid JSON
+    cache: true          # a word's dictionary entry is stable
+    cache_ttl: 604800
+
   # Eval-only (offline model comparison). Kept local so the CLIs don't 503.
   pairwise_judge:
     capability: llm

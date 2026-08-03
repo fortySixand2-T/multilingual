@@ -1,5 +1,11 @@
 # Changelog
 
+- [2026-08-02] Created: app/content/enrich.py — Slice D: dictionary enrichment engine (LLM gloss/pos/ipa + deterministic gender backstop: table > suffix rule > model guess)
+- [2026-08-02] Created: app/content/data/fr_gender.tsv — seed French noun-gender table (source of truth; drop-in slot for a full Lexique383 extract)
+- [2026-08-02] Created: tests/test_enrich.py — 14 tests for the enrichment engine (suffix rules, table precedence, JSON parsing, async orchestration)
+- [2026-08-02] Modified: app/config/ai_routing.yaml, ai_routing.ollama.yaml — add cached vocab_enrich JSON profile
+- [2026-08-02] Modified: docs/anki-vocab-plan.md — mark Slice 1 merged (#68) + Slice D built
+
 - [2026-07-28] Fixed: app/ai/adapters/piper_adapter.py — collapse reply whitespace to one line so Piper emits a single WAV; multi-line examiner replies were cut off at the first line break (played only the first sentence)
 - [2026-07-28] Created: tests/test_piper_adapter.py — _one_line normalization (CI); tests/test_speech_integration.py — multi-line reply → single WAV (gated)
 

@@ -1,0 +1,56 @@
+# French noun gender table — the authoritative source for enrich.resolve_gender.
+# Format: <word><TAB><m|f|mf>. Word is lowercase, accents kept, no article.
+# Seed set of common words + endings that break the suffix heuristic (e.g. silence,
+# musée are masculine despite feminine-looking endings). Drop a full Lexique383
+# extract here (word\tgenre column) to widen coverage — no code change needed.
+# Lexique is distributed under CC BY-SA 4.0 (http://www.lexique.org).
+homme	m
+femme	f
+enfant	mf
+ami	mf
+ordinateur	m
+téléphone	m
+voiture	f
+maison	f
+travail	m
+argent	m
+eau	f
+peau	f
+pain	m
+vin	m
+café	m
+thé	m
+livre	m
+table	f
+chaise	f
+porte	f
+fenêtre	f
+jour	m
+nuit	f
+semaine	f
+mois	m
+année	f
+temps	m
+heure	f
+ville	f
+pays	m
+route	f
+rue	f
+gare	f
+train	m
+avion	m
+voyage	m
+plage	f
+image	f
+cage	f
+page	f
+# masculine despite a feminine-looking ending — the table must beat the suffix rule
+silence	m
+musée	m
+lycée	m
+incendie	m
+génie	m
+# feminine despite a masculine-looking ending
+main	f
+fin	f
+faim	f
