@@ -60,6 +60,17 @@ profiles:
     fallback: "anthropic/claude-haiku-4-5"
     format: json
 
+  # Dictionary enrichment: bare French word -> {en, pos, gender, ipa} as strict JSON.
+  # Cheap and cacheable (a word's dictionary entry is stable) — the offline gender
+  # table is the source of truth, so the model only needs to get the gloss/pos/ipa right.
+  vocab_enrich:
+    capability: llm
+    primary: "openrouter/z-ai/glm-4.6"
+    fallback: "anthropic/claude-haiku-4-5"
+    format: json
+    cache: true
+    cache_ttl: 604800   # 7 days; dictionary entries don't change
+
   # LLM-as-judge for offline model comparison on subjective profiles (drill eval).
   # Pinned to a strong model — a weak judge biases every ranking. Not user-facing.
   pairwise_judge:
