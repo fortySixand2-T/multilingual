@@ -18,6 +18,7 @@ from app.cache.factory import build_cache
 from app.comprehension.api import router as comprehension_router
 from app.config.settings import get_settings
 from app.content.api import router as content_router
+from app.content.personal_api import router as personal_vocab_router
 from app.exam.api import router as exam_router
 from app.progress.api import router as progress_router
 from app.speech.api import router as speech_router
@@ -86,6 +87,7 @@ def create_app(web_dist: Path | None = None) -> FastAPI:
         health_router,
         auth_router,
         content_router,
+        personal_vocab_router,
         srs_router,
         progress_router,
         tutor_router,

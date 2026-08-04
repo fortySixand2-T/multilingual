@@ -37,6 +37,7 @@ class Settings(BaseSettings):
     tutor_daily_token_budget: int = 50000
     writing_daily_token_budget: int = 100000
     speaking_daily_token_budget: int = 60000
+    vocab_daily_token_budget: int = 20000  # dictionary-enrichment previews (cheap, cached)
 
     # Speech (Phase 4): "disabled" until local models are configured on a self-host box.
     stt_backend: str = "disabled"  # disabled | faster-whisper

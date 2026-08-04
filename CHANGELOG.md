@@ -1,5 +1,14 @@
 # Changelog
 
+- [2026-08-04] Created: migrations/versions/0018_user_vocab.py — user_vocab table (personal decks)
+- [2026-08-04] Modified: app/content/tables.py — UserVocab model (per-user cards, uv:<slug> key, lazy audio_key)
+- [2026-08-04] Created: app/content/personal.py — personal-deck service (key namespacing, add/list/get, queue resolver)
+- [2026-08-04] Created: app/content/personal_api.py — /vocab/personal API: preview (enrich), add, my-deck, lazy TTS audio
+- [2026-08-04] Modified: app/srs/api.py — /srs/queue resolves uv: keys from user_vocab (personal cards ride the shared FSRS loop)
+- [2026-08-04] Modified: app/main.py — register personal-vocab router; app/config/settings.py — vocab_daily_token_budget
+- [2026-08-04] Created: tests/test_personal_vocab.py — 8 tests (service, preview+budget, add/queue, lazy audio)
+- [2026-08-04] Modified: web/src — MyDeck screen + route/nav, api personal methods, AudioButton audioUrl, Review personal audio; MyDeck.test.tsx (Slice E)
+
 - [2026-08-02] Created: app/content/enrich.py — Slice D: dictionary enrichment engine (LLM gloss/pos/ipa + deterministic gender backstop: table > suffix rule > model guess)
 - [2026-08-02] Created: app/content/data/fr_gender.tsv — seed French noun-gender table (source of truth; drop-in slot for a full Lexique383 extract)
 - [2026-08-02] Created: tests/test_enrich.py — 14 tests for the enrichment engine (suffix rules, table precedence, JSON parsing, async orchestration)

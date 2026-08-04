@@ -5,6 +5,7 @@ import { useLevel } from "../level";
 
 const TOOLS = [
   { to: "/vocab", icon: "📗", label: "Vocab" },
+  { to: "/my-deck", icon: "⭐", label: "My deck" },
   { to: "/grammar", icon: "📖", label: "Grammar" },
   { to: "/drill", icon: "🎯", label: "Drill" },
   { to: "/comprehension", icon: "🎧", label: "Read & Listen" },

@@ -224,7 +224,16 @@ The foundation both personal decks and cleaner imports need. Built on
 - **Consumers:** `import_anki.py` enrichment step, Speaking rich tier (3c), and the
   personal "add card" flow (E). Offline on the box (ollama + local table); no external API.
 
-## Slice E — personal user decks (Anki-like)  *(new; the "build your own deck" ask)*
+## Slice E — personal user decks (Anki-like)  *(the "build your own deck" ask)* ✅ built
+
+Built on `feat/personal-decks`. `user_vocab` table (migration 0018) + `/vocab/personal`
+API (preview→enrich, add, my-deck list, lazy-TTS audio) + `MyDeck` screen. Personal
+card keys are namespaced `uv:<slug>`; `/srs/queue` routes those to `user_vocab` and
+everything else to `ContentVocab`, so personal cards ride the exact FSRS loop with no
+new scheduling. Audio synthesized on demand (cached on the row), no pre-built mp3.
+Backend 8 tests + FE MyDeck test; suite 278 pass, FE 39 pass.
+
+### Original design notes
 
 Let each user keep private cards, not just study the shared bank.
 
