@@ -413,6 +413,34 @@ def test_vocab_review_empty_for_unknown_session_makes_no_llm_call():
     assert r.json() == {"candidates": []}
 
 
+def test_vocab_review_new_words_rich_tier():
+    # Slice 3c: words used but NOT in the content bank (and not already a personal card)
+    # come back as `new_words` for one-click enrich-and-add; content words go to
+    # `candidates`, and an already-owned personal card is excluded.
+    from app.content.tables import UserVocab
+
+    _run(_seed_vocab([("miel", "miel", "honey", "a1")]))  # unique id (not seeded elsewhere)
+
+    async def own_personal():
+        async with _Session() as s:
+            s.add(UserVocab(user_id=204, card_key="uv:flaner", fr="flâner", en="to stroll"))
+            await s.commit()
+
+    _run(own_personal())
+    # miel -> content candidate; flâner -> already owned (excluded); dépaysement -> new
+    router = JsonRouter(["miel", "flâner", "dépaysement"])
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=204, router=router)
+    sid = "sess-204"
+    client.post(
+        "/speech/turn",
+        files={"audio": ("a.wav", b"x", "audio/wav")},
+        data={"mode": "examiner", "session_id": sid},
+    )
+    body = client.post(f"/speech/session/{sid}/vocab-review").json()
+    assert {c["card_key"] for c in body["candidates"]} == {"miel"}
+    assert body["new_words"] == ["dépaysement"]  # not in bank, not already owned
+
+
 def test_vocab_review_over_budget_skips_llm_and_stops_billing():
     # qa-580: once the "speaking" daily ledger is at/over the budget, vocab-review
     # must not call the extraction LLM (or bill further) — same gate as /speech/turn.

@@ -14,6 +14,8 @@ vi.mock("../api", () => ({
     speechStatus: vi.fn(),
     speakingTopics: vi.fn(),
     speechLastSession: vi.fn(),
+    speechVocabReview: vi.fn(),
+    personalAddFromWord: vi.fn(),
   },
 }));
 

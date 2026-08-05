@@ -268,10 +268,14 @@ Done:
    pending**. Prereq for 3c and E.
 
 Next (revised after the 2026-08-02 direction update):
-5. **Slice E** — personal user decks (`user_vocab` + SRS/Review wiring + on-demand
-   audio + "My deck" UI). → QA → PR.
+5. **Slice E** — personal user decks. ✅ merged (#70) + deployed.
 6. **Slice 3c** — Speaking rich tier: unmatched spoken words → dictionary enrich →
-   personal deck (needs D + E). → QA → PR.
+   personal deck. ✅ built on `feat/speaking-rich-tier`. `resolve_new_words()` returns
+   extracted lemmas not in the content bank and not already personal cards; the
+   `/speech/session/{id}/vocab-review` response carries them as `new_words`; a new
+   `POST /vocab/personal/from-word` enriches (D) + adds (E) in one budget-gated call;
+   Speaking's SessionReview shows a "New words for your deck" one-click-add section.
+   → QA → PR.
 7. **Slice 2** — difficulty surfacing + "hardest for you" deck (applies to both
    global and personal cards). → QA → PR.
 8. Deploy to the box after each merge.
