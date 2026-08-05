@@ -193,6 +193,40 @@ def test_add_card_seeds_review_and_appears_in_queue():
     assert entry["vocab"]["audio_url"] == f"/vocab/personal/audio/{key}"
 
 
+def test_add_rejects_degenerate_words_no_blank_card():
+    # QA round 049: whitespace / punctuation / non-Latin words slugify to "" and used to
+    # be stored as a shared blank "uv:" card that leaked into the review queue. They must
+    # now be rejected (422), and nothing gets stored.
+    client, _ = _client(uid=13)
+    for bad in ["   ", "!!!", "があ", "。。。"]:
+        r = client.post("/vocab/personal", json={"fr": bad, "en": "junk"})
+        assert r.status_code == 422, f"{bad!r} should be rejected, got {r.status_code}"
+    assert client.get("/vocab/personal").json()["cards"] == []
+    # and no blank card sneaked into the queue
+    due = client.get("/srs/queue").json()["due"]
+    assert not any(d["card_key"] == "uv:" for d in due)
+
+
+def test_card_key_never_exceeds_column_limit():
+    # QA round 049 #611: a long fr (API caps it at 128) must not mint a card_key past the
+    # user_vocab.card_key String(64) column, or a length-enforcing DB (Postgres) 500s.
+    client, _ = _client(uid=15)
+    long_fr = ("anticonstitutionnellement " * 4).strip()  # ~103 chars, under the 128 API cap
+    r = client.post("/vocab/personal", json={"fr": long_fr, "en": "x"})
+    assert r.status_code == 200, r.text
+    card = r.json()["card"]
+    assert len(card["card_key"]) <= 64
+    assert card["card_key"].startswith("uv:")
+
+
+def test_add_strips_leading_article_like_preview():
+    # A direct add of "le chien" should store the bare lemma (matching the preview flow),
+    # not "le chien" with key uv:le_chien.
+    client, _ = _client(uid=14)
+    card = client.post("/vocab/personal", json={"fr": "le chien", "en": "dog"}).json()["card"]
+    assert card["card_key"] == "uv:chien" and card["fr"] == "chien"
+
+
 def test_add_card_is_idempotent():
     client, _ = _client(uid=9)
     first = client.post("/vocab/personal", json={"fr": "loisir", "en": "leisure"}).json()

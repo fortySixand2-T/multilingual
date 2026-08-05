@@ -23,7 +23,13 @@ from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
 from app.config.settings import Settings, get_settings
 from app.content.enrich import GenderTable, enrich
-from app.content.personal import add_personal, card_payload, get_personal, list_personal
+from app.content.personal import (
+    EmptyLemmaError,
+    add_personal,
+    card_payload,
+    get_personal,
+    list_personal,
+)
 from app.db.session import get_session
 from app.srs.service import seed_cards
 from app.storage.interface import ObjectStorage
@@ -91,16 +97,21 @@ async def add(
 ) -> dict:
     """Store a personal card and seed its SRS review. Idempotent per word — re-adding
     returns the existing card without resetting its progress (`added` is False)."""
-    row, created = await add_personal(
-        session,
-        user.id,
-        fr=body.fr,
-        en=body.en,
-        gender=body.gender,
-        pos=body.pos,
-        ipa=body.ipa,
-        source=body.source or "manual",
-    )
+    try:
+        row, created = await add_personal(
+            session,
+            user.id,
+            fr=body.fr,
+            en=body.en,
+            gender=body.gender,
+            pos=body.pos,
+            ipa=body.ipa,
+            source=body.source or "manual",
+        )
+    except EmptyLemmaError:
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_ENTITY, "word has no letters to make a card from"
+        ) from None
     seeded = await seed_cards(session, user.id, [row.card_key])
     await session.commit()
     return {"card": card_payload(row), "added": created, "review_seeded": seeded > 0}

@@ -1,5 +1,9 @@
 # Changelog
 
+- [2026-08-05] Fixed: app/content/personal.py — QA round 049 #610 (reject degenerate/empty-slug words → 422, strip leading article) + #611 (clamp uv:<slug> to the card_key 64-char column); app/content/personal_api.py maps EmptyLemmaError→422
+- [2026-08-05] Modified: tests/test_personal_vocab.py — regression tests for #610/#611 (11 tests total)
+- [2026-08-05] Created: qa/rounds/049-plan.md; qa/issues/610-*, 611-* (marked done) — Slice E QA round (run by hand after orchestrator failed)
+
 - [2026-08-04] Created: migrations/versions/0018_user_vocab.py — user_vocab table (personal decks)
 - [2026-08-04] Modified: app/content/tables.py — UserVocab model (per-user cards, uv:<slug> key, lazy audio_key)
 - [2026-08-04] Created: app/content/personal.py — personal-deck service (key namespacing, add/list/get, queue resolver)
@@ -187,3 +191,5 @@
 - [2026-08-02] Modified: docs/anki-vocab-plan.md — mark Slice 1 importer built
 - [2026-08-02] Created: content/b2/vocab/actualite.yaml — 33-card news/economy vocab deck imported from AnkiWeb Wiktionary frequency list (curated) + 33 TTS clips
 - [2026-08-02] Modified: docs/anki-vocab-plan.md — Direction update: dictionary enrichment (LLM+Lexique) + personal user decks (Slices D, E); reframed 3c; revised roadmap
+- [2026-08-05] Created: qa/issues/610-personal-vocab-whitespace-degenerate-card-key.md — QA finding: whitespace-only fr collapses to degenerate uv: card_key
+- [2026-08-05] Created: qa/issues/611-personal-vocab-card-key-exceeds-column-limit.md — QA finding: long fr produces card_key exceeding declared 64-char DB column

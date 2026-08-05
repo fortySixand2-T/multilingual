@@ -15,13 +15,29 @@ import unicodedata
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.content.enrich import strip_leading_article
 from app.content.tables import UserVocab
 
 PERSONAL_PREFIX = "uv:"
 
 
+class EmptyLemmaError(ValueError):
+    """The word has no letters/digits to build a card key from (e.g. "  ", "!!!", "があ").
+    Caught at the API edge and returned as a 422 rather than storing a blank card."""
+
+
 def is_personal_key(card_key: str) -> bool:
     return card_key.startswith(PERSONAL_PREFIX)
+
+
+def normalize_lemma(fr: str) -> str:
+    """The stored `fr` for a personal card: trimmed, with a leading article dropped so a
+    direct API add matches what the preview flow (which enriches to a bare lemma) yields.
+    Raises EmptyLemmaError if nothing sluggable remains."""
+    fr = strip_leading_article(fr.strip())
+    if not slugify(fr):
+        raise EmptyLemmaError(fr)
+    return fr
 
 
 def slugify(fr: str) -> str:
@@ -33,7 +49,11 @@ def slugify(fr: str) -> str:
 
 
 def personal_key(fr: str) -> str:
-    return PERSONAL_PREFIX + slugify(fr)
+    # Clamp so `uv:<slug>` always fits the card_key String(64) column regardless of DB
+    # backend (SQLite ignores the cap; Postgres would 500 on INSERT). fr is already
+    # length-capped at the API, but keep the invariant here where the key is minted.
+    slug = slugify(fr)[: 64 - len(PERSONAL_PREFIX)]
+    return PERSONAL_PREFIX + slug
 
 
 def card_payload(v: UserVocab) -> dict:
@@ -67,8 +87,11 @@ async def add_personal(
     """Insert a personal card (idempotent per user+slug). Returns (row, created).
     An existing card is returned untouched so re-adding a word never clobbers it or
     resets its review progress. Does NOT seed the SRS card — the caller does that so
-    the commit boundary stays with the request handler."""
-    fr = fr.strip()
+    the commit boundary stays with the request handler.
+
+    Raises EmptyLemmaError for input that slugifies to nothing (whitespace / punctuation
+    / non-Latin only), so a blank "uv:" card can never be stored or seeded into review."""
+    fr = normalize_lemma(fr)
     key = personal_key(fr)
     existing = await session.scalar(
         select(UserVocab).where(UserVocab.user_id == user_id, UserVocab.card_key == key)
