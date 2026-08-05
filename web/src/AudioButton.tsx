@@ -11,12 +11,14 @@ import { useSlowRate } from "./speed";
 // on-demand slow repeat without regenerating any audio.
 export default function AudioButton({
   audioKey,
+  audioUrl,
   label = "🔊 Play",
   slow = false,
   className = "btn secondary",
   style,
 }: {
-  audioKey: string;
+  audioKey?: string;
+  audioUrl?: string; // full API path (e.g. personal cards' lazy-TTS endpoint); wins over audioKey
   label?: string;
   slow?: boolean;
   className?: string;
@@ -27,7 +29,7 @@ export default function AudioButton({
   const play = async (rate: number) => {
     setLoading(true);
     try {
-      const objUrl = await fetchAudioUrl(`/content/audio/${audioKey}`);
+      const objUrl = await fetchAudioUrl(audioUrl ?? `/content/audio/${audioKey}`);
       const audio = new Audio(objUrl);
       // Time-stretch instead of pitch-shifting so the slow replay stays natural.
       audio.preservesPitch = true;

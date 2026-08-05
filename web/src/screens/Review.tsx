@@ -32,8 +32,10 @@ export default function Review() {
     );
 
   const card = cards[idx];
-  // vocab carries an optional `audio` storage key (most cards don't have one yet)
-  const vocabAudio = (card.vocab as { audio?: string } | null)?.audio;
+  // Content cards carry an `audio` storage key; personal cards ("My deck") carry an
+  // `audio_url` to the lazy-TTS endpoint instead.
+  const vocabAudio = card.vocab?.audio;
+  const vocabAudioUrl = card.vocab?.audio_url;
   const rate = async (rating: "again" | "hard" | "good" | "easy") => {
     try {
       await api.review(card.card_key, rating);
@@ -50,7 +52,11 @@ export default function Review() {
       <div className="card center stack" style={{ minHeight: 240, justifyContent: "center" }}>
         <div className="muted">{idx + 1} / {cards.length}</div>
         <div style={{ fontSize: 34, fontWeight: 800 }}>{card.vocab?.fr ?? card.card_key}</div>
-        {vocabAudio && <AudioButton audioKey={vocabAudio} label="🔊" slow />}
+        {vocabAudioUrl ? (
+          <AudioButton audioUrl={vocabAudioUrl} label="🔊" slow />
+        ) : (
+          vocabAudio && <AudioButton audioKey={vocabAudio} label="🔊" slow />
+        )}
         {revealed ? (
           <div style={{ fontSize: 20 }} className="muted">{card.vocab?.en ?? "—"}</div>
         ) : (

@@ -10,7 +10,9 @@ learner data (plan §6).
 
 from __future__ import annotations
 
-from sqlalchemy import JSON, Integer, String, UniqueConstraint
+from datetime import datetime
+
+from sqlalchemy import JSON, DateTime, Integer, String, UniqueConstraint, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.users.models import Base
@@ -58,3 +60,31 @@ class KnownVocab(Base):
     card_key: Mapped[str] = mapped_column(String(64))
 
     __table_args__ = (UniqueConstraint("user_id", "card_key", name="uq_known_user_card"),)
+
+
+class UserVocab(Base):
+    """A learner's own vocab card (personal deck) — words they added themselves, e.g.
+    from a Speaking conversation or the manual "add a word" flow. Distinct from the
+    shared `ContentVocab` bank: private to one user and enriched on the fly (Slice D).
+
+    `card_key` is the SRS card key, namespaced `uv:<slug>` so it can never collide with
+    a global content id — the review queue routes any `uv:`-prefixed key here instead of
+    to `ContentVocab`. Still no FK to anything: SRS/progress reference it by string.
+    Pronunciation is synthesized lazily (`audio_key` caches the first play), mirroring
+    the Speaking lazy-TTS path — no pre-built mp3."""
+
+    __tablename__ = "user_vocab"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, index=True)
+    card_key: Mapped[str] = mapped_column(String(64))  # "uv:<slug>"
+    fr: Mapped[str] = mapped_column(String(128))
+    en: Mapped[str] = mapped_column(String(255))
+    gender: Mapped[str] = mapped_column(String(2), default="")
+    pos: Mapped[str] = mapped_column(String(16), default="")
+    ipa: Mapped[str] = mapped_column(String(64), default="")
+    source: Mapped[str] = mapped_column(String(32), default="")  # "manual" | "speaking"
+    audio_key: Mapped[str | None] = mapped_column(String(128), nullable=True)  # lazy-TTS cache
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+
+    __table_args__ = (UniqueConstraint("user_id", "card_key", name="uq_uservocab_user_card"),)

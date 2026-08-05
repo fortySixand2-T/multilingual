@@ -8,6 +8,7 @@ import Lesson from "./screens/Lesson";
 import Review from "./screens/Review";
 import Decks from "./screens/Decks";
 import Deck from "./screens/Deck";
+import MyDeck from "./screens/MyDeck";
 import Drill from "./screens/Drill";
 import GroupBoard from "./screens/GroupBoard";
 import Comprehension from "./screens/Comprehension";
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/weak-spots" element={<WeakSpots />} />
           <Route path="/grammar" element={<Grammar />} />
           <Route path="/vocab" element={<Decks />} />
+          <Route path="/my-deck" element={<MyDeck />} />
           <Route path="/vocab/:level/:tag" element={<Deck />} />
           <Route path="/comprehension" element={<Comprehension />} />
           <Route path="/comprehension/:id" element={<ComprehensionSet />} />

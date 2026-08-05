@@ -170,7 +170,38 @@ export type LessonResult = {
   can_waive?: boolean;
   waived?: boolean;
 };
-export type DueCard = { card_key: string; due: string; vocab: { fr: string; en: string } | null };
+// A review card's vocab metadata. Content cards carry an `audio` storage key; personal
+// cards (from "My deck") carry `personal: true` and an `audio_url` (lazy-synthesized).
+export type ReviewVocab = {
+  fr: string;
+  en: string;
+  audio?: string;
+  gender?: string;
+  ipa?: string;
+  personal?: boolean;
+  audio_url?: string;
+};
+export type DueCard = { card_key: string; due: string; vocab: ReviewVocab | null };
+
+// A dictionary enrichment (Slice D) previewed before adding a personal card.
+export type PersonalEnrichment = {
+  fr: string;
+  en: string;
+  pos: string;
+  gender: string;
+  ipa: string;
+  gender_source: string;
+};
+export type PersonalCard = {
+  card_key: string;
+  fr: string;
+  en: string;
+  gender: string;
+  pos: string;
+  ipa: string;
+  source: string;
+  audio_url: string;
+};
 export type Me = { user_id: number; level: string; xp: number; streak: number; last_active: string | null; xp_today: number; daily_goal: number };
 export type BoardMember = { user_id: number; display_name: string; level: string; xp: number; streak: number };
 export type Drill = {
@@ -374,6 +405,26 @@ export const api = {
     }),
   waiveLesson: (id: string) =>
     req<LessonResult>(`/progress/lessons/${encodeURIComponent(id)}/waive`, { method: "POST" }),
+
+  // Personal decks (Slice E): preview a word's dictionary entry, add it, list "My deck".
+  personalPreview: (word: string) =>
+    req<{ enrichment: PersonalEnrichment | null; over_budget?: boolean }>(
+      "/vocab/personal/preview",
+      { method: "POST", body: JSON.stringify({ word }) }
+    ),
+  personalAdd: (b: {
+    fr: string;
+    en: string;
+    gender?: string;
+    pos?: string;
+    ipa?: string;
+    source?: string;
+  }) =>
+    req<{ card: PersonalCard; added: boolean; review_seeded: boolean }>("/vocab/personal", {
+      method: "POST",
+      body: JSON.stringify(b),
+    }),
+  myDeck: () => req<{ cards: PersonalCard[] }>("/vocab/personal"),
 
   queue: (limit = 20) => req<{ due: DueCard[] }>(`/srs/queue?limit=${limit}`),
   review: (card_key: string, rating: "again" | "hard" | "good" | "easy") =>

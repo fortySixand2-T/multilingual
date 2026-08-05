@@ -10,6 +10,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
+from app.content.personal import is_personal_key, resolve_queue_vocab
 from app.content.tables import ContentVocab
 from app.db.session import get_session
 from app.progress.service import DAILY_XP_GOAL, record_activity, xp_earned_today
@@ -41,8 +42,12 @@ async def get_queue(
     vocab: dict[str, dict] = {}
     keys = [c.card_key for c in cards]
     if keys:
+        # Personal cards (`uv:` keys) live in user_vocab and carry a lazy-TTS audio_url;
+        # everything else resolves against the shared content bank.
+        vocab = await resolve_queue_vocab(session, user.id, keys)
+        content_keys = [k for k in keys if not is_personal_key(k)]
         rows = (
-            (await session.execute(select(ContentVocab).where(ContentVocab.id.in_(keys))))
+            (await session.execute(select(ContentVocab).where(ContentVocab.id.in_(content_keys))))
             .scalars()
             .all()
         )
@@ -50,14 +55,12 @@ async def get_queue(
         # (app/content/api.py get_vocab) so review cards can play audio too — otherwise
         # the Review screen never shows the play button for cards without an explicit
         # `audio:` field (i.e. almost all of them).
-        vocab = {
-            r.id: {
+        for r in rows:
+            vocab[r.id] = {
                 **r.data,
                 "level": r.level,
                 "audio": r.data.get("audio") or f"{r.level}/audio/{r.id}.mp3",
             }
-            for r in rows
-        }
     return {
         "due": [
             {"card_key": c.card_key, "due": c.due.isoformat(), "vocab": vocab.get(c.card_key)}
