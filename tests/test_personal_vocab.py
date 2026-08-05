@@ -278,6 +278,30 @@ def test_from_word_respects_daily_budget():
     assert client.get("/vocab/personal").json()["cards"] == []  # nothing stored
 
 
+def test_from_word_rejects_word_already_in_content_bank():
+    # QA round-050 #620: a caller hitting from-word directly (bypassing the Speaking
+    # UI's resolve_new_words filter) with a word already in the content bank must not
+    # mint a duplicate uv: card for it.
+    from app.content.tables import ContentVocab
+
+    async def seed():
+        async with _Session() as s:
+            s.add(ContentVocab(id="cuisiner", level="a2", data={"fr": "cuisiner", "en": "to cook"}))
+            await s.commit()
+
+    _run(seed())
+
+    router = FakeRouter({"en": "to cook", "pos": "verb", "gender": "", "ipa": ""})
+    client, _ = _client(uid=22, router=router)
+    r = client.post("/vocab/personal/from-word", json={"word": "cuisiner"})
+    assert r.status_code == 422
+    assert "content bank" in r.json()["detail"]
+    # no duplicate uv: card was minted
+    assert client.get("/vocab/personal").json()["cards"] == []
+    due = client.get("/srs/queue").json()["due"]
+    assert not any(d["card_key"] == "uv:cuisiner" for d in due)
+
+
 # --- API: lazy pronunciation --------------------------------------------------
 
 

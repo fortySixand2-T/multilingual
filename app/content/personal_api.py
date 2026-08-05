@@ -31,6 +31,7 @@ from app.content.personal import (
     list_personal,
 )
 from app.db.session import get_session
+from app.speech.vocab_review import find_content_match
 from app.srs.service import seed_cards
 from app.storage.interface import ObjectStorage
 from app.usage.service import add_usage, tokens_used_today
@@ -145,6 +146,14 @@ async def add_from_word(
     if result is None or not result.en:
         await session.commit()  # persist any usage billed before bailing
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "couldn't look that word up")
+    if await find_content_match(session, result.fr) is not None:
+        # Already a real content-bank word — the intended Speaking UI flow never offers
+        # these (resolve_new_words filters them out first), but a caller hitting this
+        # endpoint directly must not mint a duplicate `uv:` card for it.
+        await session.commit()  # persist any usage billed before bailing
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_ENTITY, "word is already in the content bank"
+        )
     try:
         row, created = await add_personal(
             session,

@@ -1,5 +1,7 @@
 # Changelog
 
+- [2026-08-05] Fixed: app/content/personal_api.py — QA #620: /vocab/personal/from-word now rejects (422) words that already resolve to a ContentVocab entry instead of silently minting a duplicate uv: card; app/speech/vocab_review.py — added find_content_match() reusing resolve_new_words' _norm/_deaccent matching; tests/test_personal_vocab.py — regression test for #620; qa/issues/620-from-word-no-content-bank-check.md — marked done
+
 - [2026-08-05] Modified: app/speech/vocab_review.py — Slice 3c: resolve_new_words() (rich tier — extracted lemmas not in content bank, not already personal cards)
 - [2026-08-05] Modified: app/speech/api.py — vocab-review response carries `new_words`
 - [2026-08-05] Modified: app/content/personal_api.py — POST /vocab/personal/from-word (enrich + add in one budget-gated call)
