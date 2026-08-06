@@ -68,6 +68,20 @@ def test_gender_table_loads_seed_and_looks_up():
     assert t.get("nonexistent-word") == ""
 
 
+def test_gender_table_has_full_lexique_coverage():
+    # The bundled table is the full Lexique383 extract, not just the seed set.
+    t = E.GenderTable.load()
+    assert len(t) > 40000
+    # Animate m/f pairs share a Lexique lemma but must keep their own gender.
+    assert t.get("chien") == "m" and t.get("chienne") == "f"
+    assert t.get("acteur") == "m" and t.get("actrice") == "f"
+    # Robust to Lexique's blank-headword quirk (genre only on the plural row).
+    assert t.get("voiture") == "f" and t.get("main") == "f"
+    # Curated overrides win: true epicene, and a noun blank throughout Lexique.
+    assert t.get("élève") == "mf"
+    assert t.get("livre") == "m"
+
+
 def test_gender_table_loads_custom_file(tmp_path):
     p = tmp_path / "g.tsv"
     p.write_text("# comment\nfoo\tf\nbar\tm\nbad\tx\n\n", encoding="utf-8")

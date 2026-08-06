@@ -214,3 +214,6 @@
 - [2026-08-05] Modified: qa/issues/621-hardest-negative-limit-silently-drops-cards.md — critic gate: appended Critic block, kept validated
 - [2026-08-05] Modified: qa/issues/622-queue-difficulty-unrounded-vs-hardest-rounded.md — critic gate: appended Critic block, kept validated
 - [2026-08-05] Modified: qa/issues/640-review-tough-badge-missing-space-after-emoji.md — critic gate: appended Critic block, kept validated (repro'd live in browser)
+- [2026-08-06] Modified: app/content/data/fr_gender.tsv — Full Lexique383 gender extract (45,687 surface forms) replacing the seed set; widens enrich gender coverage
+- [2026-08-06] Created: scripts/build_gender_table.py — Regenerator: Lexique383.tsv → fr_gender.tsv (per-lemma gender, split animate m/f pairs, curated overrides)
+- [2026-08-06] Modified: tests/test_enrich.py — Added regression test locking full-table coverage + animate m/f split (chien/chienne) + overrides
