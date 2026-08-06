@@ -12,7 +12,7 @@ from datetime import UTC, datetime
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.srs.fsrs import FSRSEngine
+from app.srs.fsrs import FSRSEngine, difficulty
 from app.srs.models import ReviewCard
 
 _engine = FSRSEngine()
@@ -70,6 +70,27 @@ async def due_cards(
         .limit(limit)
     )
     return list(result.scalars().all())
+
+
+async def hardest_cards(
+    session: AsyncSession, user_id: int, *, limit: int = 20
+) -> list[tuple[ReviewCard, float]]:
+    """The learner's cards they find hardest — sorted by FSRS difficulty, hardest first.
+    Only cards reviewed at least once have a difficulty (new cards are excluded, since
+    they carry no signal yet). Returns (card, difficulty) pairs, capped at `limit`.
+
+    Difficulty lives inside the opaque FSRS state JSON, so we score in Python rather than
+    ORDER BY — fine at per-learner deck sizes (hundreds of cards, not millions)."""
+    rows = (
+        (await session.execute(select(ReviewCard).where(ReviewCard.user_id == user_id)))
+        .scalars()
+        .all()
+    )
+    scored = [(c, difficulty(c.state)) for c in rows]
+    ranked = sorted(
+        ((c, d) for c, d in scored if d is not None), key=lambda cd: cd[1], reverse=True
+    )
+    return ranked[:limit]
 
 
 async def review_card(

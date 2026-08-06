@@ -302,6 +302,35 @@ def test_from_word_rejects_word_already_in_content_bank():
     assert not any(d["card_key"] == "uv:cuisiner" for d in due)
 
 
+# --- API: hardest deck (Slice 2) ----------------------------------------------
+
+
+def test_hardest_endpoint_ranks_and_resolves_personal_card_vocab():
+    # A personal card rated "again" is hard; it appears in /srs/hardest with its
+    # difficulty and fully-resolved personal vocab metadata (fr/en/audio_url).
+    client, _ = _client(uid=25)
+    key = client.post("/vocab/personal", json={"fr": "quolibet", "en": "gibe"}).json()["card"][
+        "card_key"
+    ]
+    client.post("/srs/review", json={"card_key": key, "rating": "again"})
+
+    cards = client.get("/srs/hardest").json()["cards"]
+    entry = next(c for c in cards if c["card_key"] == key)
+    assert entry["difficulty"] >= 1.0
+    assert entry["vocab"]["fr"] == "quolibet" and entry["vocab"]["personal"] is True
+    assert entry["vocab"]["audio_url"] == f"/vocab/personal/audio/{key}"
+
+
+def test_hardest_endpoint_excludes_unreviewed_cards():
+    client, _ = _client(uid=26)
+    key = client.post("/vocab/personal", json={"fr": "farfelu", "en": "wacky"}).json()["card"][
+        "card_key"
+    ]
+    # never reviewed -> no difficulty signal -> not in the hardest deck
+    cards = client.get("/srs/hardest").json()["cards"]
+    assert all(c["card_key"] != key for c in cards)
+
+
 # --- API: lazy pronunciation --------------------------------------------------
 
 

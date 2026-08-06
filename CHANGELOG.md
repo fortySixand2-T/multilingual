@@ -1,5 +1,11 @@
 # Changelog
 
+- [2026-08-05] Modified: app/srs/fsrs.py — difficulty(state) reader (FSRS 1–10, null until first review)
+- [2026-08-05] Modified: app/srs/service.py — hardest_cards() ranks a user's reviewed cards by difficulty
+- [2026-08-05] Modified: app/srs/api.py — GET /srs/hardest (Slice 2); shared _resolve_vocab helper; /srs/queue gains `difficulty`
+- [2026-08-05] Created: web/src/screens/Hardest.tsx + Hardest.test.tsx — "Hardest for you" deck (difficulty bands, reveal, audio)
+- [2026-08-05] Modified: web/src/App.tsx, web/src/screens/Path.tsx — /hardest route + 🔥 hub tile; web/src/api.ts — hardest() + HardCard/DueCard.difficulty; web/src/screens/Review.tsx — tough-card badge
+
 - [2026-08-05] Fixed: app/content/personal_api.py — QA #620: /vocab/personal/from-word now rejects (422) words that already resolve to a ContentVocab entry instead of silently minting a duplicate uv: card; app/speech/vocab_review.py — added find_content_match() reusing resolve_new_words' _norm/_deaccent matching; tests/test_personal_vocab.py — regression test for #620; qa/issues/620-from-word-no-content-bank-check.md — marked done
 
 - [2026-08-05] Modified: app/speech/vocab_review.py — Slice 3c: resolve_new_words() (rich tier — extracted lemmas not in content bank, not already personal cards)

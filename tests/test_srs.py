@@ -8,8 +8,8 @@ import pytest
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
 import app.srs.models  # noqa: F401 - register table
-from app.srs.fsrs import FSRSEngine
-from app.srs.service import due_cards, review_card, seed_cards
+from app.srs.fsrs import FSRSEngine, difficulty
+from app.srs.service import due_cards, hardest_cards, review_card, seed_cards
 from app.users.models import Base
 
 _DB = f"sqlite+aiosqlite:///{tempfile.mkdtemp()}/srs.db"
@@ -72,6 +72,50 @@ def test_seed_is_idempotent_and_queue_returns_due_cards():
     assert created == 2  # de-duped; "bonjour" counted once
     assert again == 0  # existing cards not re-seeded
     assert keys == ["bonjour", "salut"]
+
+
+def test_difficulty_none_until_reviewed():
+    eng = FSRSEngine()
+    fresh = eng.new()
+    assert difficulty(fresh.state) is None  # no signal before the first review
+    hard = eng.review(fresh.state, "again")
+    easy = eng.review(fresh.state, "easy")
+    assert difficulty(hard.state) > difficulty(easy.state)  # "again" is harder than "easy"
+
+
+def test_hardest_cards_ranks_reviewed_by_difficulty_excluding_new():
+    # Slice 2: three cards rated again/hard/easy rank hardest-first; an unreviewed card
+    # (no difficulty signal) is excluded entirely.
+    async def go():
+        async with _Session() as s:
+            await seed_cards(s, user_id=30, card_keys=["tough", "medium", "trivial", "fresh"])
+            await s.commit()
+            await review_card(s, 30, "tough", "again")
+            await review_card(s, 30, "medium", "hard")
+            await review_card(s, 30, "trivial", "easy")
+            await s.commit()  # "fresh" is never reviewed
+            ranked = await hardest_cards(s, user_id=30)
+            return [(c.card_key, round(d, 1)) for c, d in ranked]
+
+    ranked = _run(go())
+    keys = [k for k, _ in ranked]
+    assert "fresh" not in keys  # unreviewed cards carry no difficulty -> excluded
+    assert keys == ["tough", "medium", "trivial"]  # hardest first
+    assert ranked[0][1] >= ranked[-1][1]
+
+
+def test_hardest_cards_respects_limit():
+    async def go():
+        async with _Session() as s:
+            keys = [f"w{i}" for i in range(5)]
+            await seed_cards(s, user_id=31, card_keys=keys)
+            await s.commit()
+            for k in keys:
+                await review_card(s, 31, k, "hard")
+            await s.commit()
+            return await hardest_cards(s, user_id=31, limit=2)
+
+    assert len(_run(go())) == 2
 
 
 def test_review_advances_due_and_missing_card_returns_none():

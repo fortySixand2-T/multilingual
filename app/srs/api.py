@@ -14,8 +14,8 @@ from app.content.personal import is_personal_key, resolve_queue_vocab
 from app.content.tables import ContentVocab
 from app.db.session import get_session
 from app.progress.service import DAILY_XP_GOAL, record_activity, xp_earned_today
-from app.srs.fsrs import RATINGS
-from app.srs.service import due_cards, review_card, seed_cards
+from app.srs.fsrs import RATINGS, difficulty
+from app.srs.service import due_cards, hardest_cards, review_card, seed_cards
 from app.users.models import User
 
 router = APIRouter(prefix="/srs", tags=["srs"])
@@ -32,6 +32,32 @@ class AddBody(BaseModel):
     card_key: str = Field(min_length=1)
 
 
+async def _resolve_vocab(session: AsyncSession, user_id: int, keys: list[str]) -> dict[str, dict]:
+    """Vocab metadata for a set of review card keys. Personal cards (`uv:` keys) resolve
+    from user_vocab (with a lazy-TTS audio_url); everything else from the shared content
+    bank. Shared by the due queue and the "hardest words" deck."""
+    if not keys:
+        return {}
+    vocab = await resolve_queue_vocab(session, user_id, keys)
+    content_keys = [k for k in keys if not is_personal_key(k)]
+    rows = (
+        (await session.execute(select(ContentVocab).where(ContentVocab.id.in_(content_keys))))
+        .scalars()
+        .all()
+    )
+    # Attach the pronunciation key by the same convention the vocab endpoint uses
+    # (app/content/api.py get_vocab) so review cards can play audio too — otherwise the
+    # Review screen never shows the play button for cards without an explicit `audio:`
+    # field (i.e. almost all of them).
+    for r in rows:
+        vocab[r.id] = {
+            **r.data,
+            "level": r.level,
+            "audio": r.data.get("audio") or f"{r.level}/audio/{r.id}.mp3",
+        }
+    return vocab
+
+
 @router.get("/queue")
 async def get_queue(
     limit: int = 20,
@@ -39,32 +65,40 @@ async def get_queue(
     user: User = Depends(get_current_user),
 ) -> dict:
     cards = await due_cards(session, user.id, limit=limit)
-    vocab: dict[str, dict] = {}
-    keys = [c.card_key for c in cards]
-    if keys:
-        # Personal cards (`uv:` keys) live in user_vocab and carry a lazy-TTS audio_url;
-        # everything else resolves against the shared content bank.
-        vocab = await resolve_queue_vocab(session, user.id, keys)
-        content_keys = [k for k in keys if not is_personal_key(k)]
-        rows = (
-            (await session.execute(select(ContentVocab).where(ContentVocab.id.in_(content_keys))))
-            .scalars()
-            .all()
-        )
-        # Attach the pronunciation key by the same convention the vocab endpoint uses
-        # (app/content/api.py get_vocab) so review cards can play audio too — otherwise
-        # the Review screen never shows the play button for cards without an explicit
-        # `audio:` field (i.e. almost all of them).
-        for r in rows:
-            vocab[r.id] = {
-                **r.data,
-                "level": r.level,
-                "audio": r.data.get("audio") or f"{r.level}/audio/{r.id}.mp3",
-            }
+    vocab = await _resolve_vocab(session, user.id, [c.card_key for c in cards])
     return {
         "due": [
-            {"card_key": c.card_key, "due": c.due.isoformat(), "vocab": vocab.get(c.card_key)}
+            {
+                "card_key": c.card_key,
+                "due": c.due.isoformat(),
+                "difficulty": difficulty(c.state),  # 1–10 (null until first review)
+                "vocab": vocab.get(c.card_key),
+            }
             for c in cards
+        ]
+    }
+
+
+@router.get("/hardest")
+async def get_hardest(
+    limit: int = 30,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+) -> dict:
+    """The learner's hardest words (Slice 2): cards ranked by FSRS difficulty, hardest
+    first — a "these keep tripping you up" deck. Only reviewed cards have a difficulty,
+    so brand-new cards don't appear. Spans both content and personal cards."""
+    ranked = await hardest_cards(session, user.id, limit=limit)
+    vocab = await _resolve_vocab(session, user.id, [c.card_key for c, _ in ranked])
+    return {
+        "cards": [
+            {
+                "card_key": c.card_key,
+                "difficulty": round(d, 1),
+                "due": c.due.isoformat(),
+                "vocab": vocab.get(c.card_key),
+            }
+            for c, d in ranked
         ]
     }
 

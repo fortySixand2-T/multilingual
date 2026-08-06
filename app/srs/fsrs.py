@@ -30,6 +30,14 @@ class CardState:
     due: datetime  # next review time (tz-aware UTC)
 
 
+def difficulty(state: dict) -> float | None:
+    """FSRS difficulty for a card: 1 (easiest) .. 10 (hardest). `None` until the card's
+    first review — a brand-new card has no difficulty signal yet. Kept here so FSRS-state
+    shape stays confined to this module (domain code asks for a number, not a dict key)."""
+    d = state.get("difficulty")
+    return float(d) if d is not None else None
+
+
 class FSRSEngine:
     def __init__(self) -> None:
         self._scheduler = fsrs.Scheduler()

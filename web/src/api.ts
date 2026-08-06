@@ -181,7 +181,14 @@ export type ReviewVocab = {
   personal?: boolean;
   audio_url?: string;
 };
-export type DueCard = { card_key: string; due: string; vocab: ReviewVocab | null };
+export type DueCard = {
+  card_key: string;
+  due: string;
+  difficulty?: number | null; // FSRS 1–10, null until first review
+  vocab: ReviewVocab | null;
+};
+// A card in the "hardest for you" deck (Slice 2), ranked by FSRS difficulty.
+export type HardCard = { card_key: string; difficulty: number; due: string; vocab: ReviewVocab | null };
 
 // A dictionary enrichment (Slice D) previewed before adding a personal card.
 export type PersonalEnrichment = {
@@ -427,6 +434,7 @@ export const api = {
   myDeck: () => req<{ cards: PersonalCard[] }>("/vocab/personal"),
 
   queue: (limit = 20) => req<{ due: DueCard[] }>(`/srs/queue?limit=${limit}`),
+  hardest: (limit = 30) => req<{ cards: HardCard[] }>(`/srs/hardest?limit=${limit}`),
   review: (card_key: string, rating: "again" | "hard" | "good" | "easy") =>
     req<{ card_key: string; due: string }>("/srs/review", {
       method: "POST",
