@@ -1,5 +1,15 @@
 # Changelog
 
+- [2026-08-05] Fixed: app/srs/api.py — QA round 051 #621: GET /srs/hardest `limit` is now `Query(30, ge=0)` (422 on negative, matching Field(ge=...) convention) instead of silently truncating the tail of the ranked deck via `ranked[:limit]`; #622: GET /srs/queue's `difficulty` is now rounded to 1dp (None-safe) to match GET /srs/hardest; tests/test_personal_vocab.py — regression tests for #621/#622
+- [2026-08-05] Fixed: web/src/screens/Review.tsx — QA round 051 #640: tough-card badge emoji/label split into separate flex spans (fixes visually-collapsing space) and lowercased to "one of your tough ones"; web/src/screens/Review.test.tsx — new regression test
+- [2026-08-05] Modified: qa/issues/621-hardest-negative-limit-silently-drops-cards.md, qa/issues/622-queue-difficulty-unrounded-vs-hardest-rounded.md, qa/issues/640-review-tough-badge-missing-space-after-emoji.md — marked done with Fix notes
+
+- [2026-08-05] Modified: app/srs/fsrs.py — difficulty(state) reader (FSRS 1–10, null until first review)
+- [2026-08-05] Modified: app/srs/service.py — hardest_cards() ranks a user's reviewed cards by difficulty
+- [2026-08-05] Modified: app/srs/api.py — GET /srs/hardest (Slice 2); shared _resolve_vocab helper; /srs/queue gains `difficulty`
+- [2026-08-05] Created: web/src/screens/Hardest.tsx + Hardest.test.tsx — "Hardest for you" deck (difficulty bands, reveal, audio)
+- [2026-08-05] Modified: web/src/App.tsx, web/src/screens/Path.tsx — /hardest route + 🔥 hub tile; web/src/api.ts — hardest() + HardCard/DueCard.difficulty; web/src/screens/Review.tsx — tough-card badge
+
 - [2026-08-05] Fixed: app/content/personal_api.py — QA #620: /vocab/personal/from-word now rejects (422) words that already resolve to a ContentVocab entry instead of silently minting a duplicate uv: card; app/speech/vocab_review.py — added find_content_match() reusing resolve_new_words' _norm/_deaccent matching; tests/test_personal_vocab.py — regression test for #620; qa/issues/620-from-word-no-content-bank-check.md — marked done
 
 - [2026-08-05] Modified: app/speech/vocab_review.py — Slice 3c: resolve_new_words() (rich tier — extracted lemmas not in content bank, not already personal cards)
@@ -201,3 +211,6 @@
 - [2026-08-02] Modified: docs/anki-vocab-plan.md — Direction update: dictionary enrichment (LLM+Lexique) + personal user decks (Slices D, E); reframed 3c; revised roadmap
 - [2026-08-05] Created: qa/issues/610-personal-vocab-whitespace-degenerate-card-key.md — QA finding: whitespace-only fr collapses to degenerate uv: card_key
 - [2026-08-05] Created: qa/issues/611-personal-vocab-card-key-exceeds-column-limit.md — QA finding: long fr produces card_key exceeding declared 64-char DB column
+- [2026-08-05] Modified: qa/issues/621-hardest-negative-limit-silently-drops-cards.md — critic gate: appended Critic block, kept validated
+- [2026-08-05] Modified: qa/issues/622-queue-difficulty-unrounded-vs-hardest-rounded.md — critic gate: appended Critic block, kept validated
+- [2026-08-05] Modified: qa/issues/640-review-tough-badge-missing-space-after-emoji.md — critic gate: appended Critic block, kept validated (repro'd live in browser)

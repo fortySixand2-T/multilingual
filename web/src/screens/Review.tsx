@@ -51,6 +51,15 @@ export default function Review() {
       <div className="progress-bar"><div style={{ width: `${(idx / cards.length) * 100}%` }} /></div>
       <div className="card center stack" style={{ minHeight: 240, justifyContent: "center" }}>
         <div className="muted">{idx + 1} / {cards.length}</div>
+        {typeof card.difficulty === "number" && card.difficulty >= 7 && (
+          <div
+            title={`FSRS difficulty ${card.difficulty} / 10`}
+            style={{ fontSize: 12, fontWeight: 700, color: "#c0392b", display: "flex", gap: 4 }}
+          >
+            <span>🔥</span>
+            <span>one of your tough ones</span>
+          </div>
+        )}
         <div style={{ fontSize: 34, fontWeight: 800 }}>{card.vocab?.fr ?? card.card_key}</div>
         {vocabAudioUrl ? (
           <AudioButton audioUrl={vocabAudioUrl} label="🔊" slow />

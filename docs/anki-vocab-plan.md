@@ -276,8 +276,14 @@ Next (revised after the 2026-08-02 direction update):
    `POST /vocab/personal/from-word` enriches (D) + adds (E) in one budget-gated call;
    Speaking's SessionReview shows a "New words for your deck" one-click-add section.
    → QA → PR.
-7. **Slice 2** — difficulty surfacing + "hardest for you" deck (applies to both
-   global and personal cards). → QA → PR.
+7. **Slice 2** — difficulty surfacing + "hardest for you" deck. ✅ built on
+   `feat/hardest-deck`. `fsrs.difficulty(state)` reads FSRS difficulty (1–10, null
+   until first review); `srs.service.hardest_cards()` ranks a user's reviewed cards
+   hardest-first; `GET /srs/hardest` resolves both content + personal vocab (shared
+   `_resolve_vocab` helper, also now feeds `/srs/queue` which gained a `difficulty`
+   field). Web: `Hardest` screen (`/hardest`, 🔥 hub tile) with difficulty bands +
+   reveal + audio; Review shows a "🔥 one of your tough ones" badge for difficulty ≥ 7.
+   → QA → PR.
 8. Deploy to the box after each merge.
 
 Dependencies: 3c needs D + E; E needs D. Slices 1 and 2 are independent. The
