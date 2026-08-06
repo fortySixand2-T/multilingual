@@ -1,5 +1,13 @@
 # Changelog
 
+- [2026-08-05] Fixed: app/content/personal_api.py — QA #620: /vocab/personal/from-word now rejects (422) words that already resolve to a ContentVocab entry instead of silently minting a duplicate uv: card; app/speech/vocab_review.py — added find_content_match() reusing resolve_new_words' _norm/_deaccent matching; tests/test_personal_vocab.py — regression test for #620; qa/issues/620-from-word-no-content-bank-check.md — marked done
+
+- [2026-08-05] Modified: app/speech/vocab_review.py — Slice 3c: resolve_new_words() (rich tier — extracted lemmas not in content bank, not already personal cards)
+- [2026-08-05] Modified: app/speech/api.py — vocab-review response carries `new_words`
+- [2026-08-05] Modified: app/content/personal_api.py — POST /vocab/personal/from-word (enrich + add in one budget-gated call)
+- [2026-08-05] Modified: web/src/screens/Speaking.tsx, web/src/api.ts — SessionReview "New words for your deck" one-click add; speechVocabReview new_words + personalAddFromWord
+- [2026-08-05] Modified: tests/test_speech.py, tests/test_personal_vocab.py, web/.../Speaking.test.tsx — Slice 3c tests
+
 - [2026-08-05] Fixed: app/content/personal.py — QA round 049 #610 (reject degenerate/empty-slug words → 422, strip leading article) + #611 (clamp uv:<slug> to the card_key 64-char column); app/content/personal_api.py maps EmptyLemmaError→422
 - [2026-08-05] Modified: tests/test_personal_vocab.py — regression tests for #610/#611 (11 tests total)
 - [2026-08-05] Created: qa/rounds/049-plan.md; qa/issues/610-*, 611-* (marked done) — Slice E QA round (run by hand after orchestrator failed)

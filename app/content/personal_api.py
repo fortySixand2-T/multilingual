@@ -31,6 +31,7 @@ from app.content.personal import (
     list_personal,
 )
 from app.db.session import get_session
+from app.speech.vocab_review import find_content_match
 from app.srs.service import seed_cards
 from app.storage.interface import ObjectStorage
 from app.usage.service import add_usage, tokens_used_today
@@ -109,6 +110,63 @@ async def add(
             source=body.source or "manual",
         )
     except EmptyLemmaError:
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_ENTITY, "word has no letters to make a card from"
+        ) from None
+    seeded = await seed_cards(session, user.id, [row.card_key])
+    await session.commit()
+    return {"card": card_payload(row), "added": created, "review_seeded": seeded > 0}
+
+
+class FromWordBody(BaseModel):
+    word: str = Field(min_length=1, max_length=80)
+    source: str = Field(default="speaking", max_length=32)
+
+
+@router.post("/from-word")
+async def add_from_word(
+    body: FromWordBody,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+    ai_router: AIRouter = Depends(get_ai_router),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """One-click enrich-and-add: look a word up (Slice D) and store it as a personal card
+    in a single call — the Speaking rich tier (Slice 3c) uses this to add a spoken word
+    the learner reached for. Metered on the daily 'vocab' budget like /preview."""
+    used = await tokens_used_today(session, user.id, "vocab", date.today())
+    if used >= settings.vocab_daily_token_budget:
+        return {"card": None, "added": False, "over_budget": True}
+
+    result, llm = await enrich(ai_router, body.word, table=_GENDER_TABLE)
+    if llm is not None:
+        await add_usage(
+            session, user.id, "vocab", llm.usage.input_tokens, llm.usage.output_tokens, date.today()
+        )
+    if result is None or not result.en:
+        await session.commit()  # persist any usage billed before bailing
+        raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "couldn't look that word up")
+    if await find_content_match(session, result.fr) is not None:
+        # Already a real content-bank word — the intended Speaking UI flow never offers
+        # these (resolve_new_words filters them out first), but a caller hitting this
+        # endpoint directly must not mint a duplicate `uv:` card for it.
+        await session.commit()  # persist any usage billed before bailing
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_ENTITY, "word is already in the content bank"
+        )
+    try:
+        row, created = await add_personal(
+            session,
+            user.id,
+            fr=result.fr,
+            en=result.en,
+            gender=result.gender,
+            pos=result.pos,
+            ipa=result.ipa,
+            source=body.source or "speaking",
+        )
+    except EmptyLemmaError:
+        await session.commit()
         raise HTTPException(
             status.HTTP_422_UNPROCESSABLE_ENTITY, "word has no letters to make a card from"
         ) from None

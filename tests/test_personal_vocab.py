@@ -237,6 +237,71 @@ def test_add_card_is_idempotent():
     assert len(cards) == 1 and cards[0]["en"] == "leisure"
 
 
+# --- API: one-click enrich-and-add (Slice 3c rich tier) -----------------------
+
+
+def test_from_word_enriches_and_adds():
+    # Speaking rich tier: POST a bare word -> enrich (Slice D) -> stored personal card
+    # + seeded review, in one call. Gender comes from the table backstop.
+    router = FakeRouter({"en": "fulfillment", "pos": "noun", "gender": "x", "ipa": "epanwismɑ̃"})
+    client, _ = _client(uid=20, router=router)
+    r = client.post("/vocab/personal/from-word", json={"word": "l'épanouissement"})
+    assert r.status_code == 200
+    body = r.json()
+    assert body["added"] is True and body["review_seeded"] is True
+    assert body["card"]["card_key"] == "uv:epanouissement"  # article stripped
+    assert body["card"]["en"] == "fulfillment"
+    assert body["card"]["source"] == "speaking"
+    assert router.calls == ["vocab_enrich"]
+    # it's in the deck and the shared review queue
+    assert client.get("/vocab/personal").json()["cards"][0]["card_key"] == "uv:epanouissement"
+    assert any(d["card_key"] == "uv:epanouissement" for d in client.get("/srs/queue").json()["due"])
+
+
+def test_from_word_respects_daily_budget():
+    from datetime import date
+
+    router = FakeRouter({"en": "x", "pos": "noun", "gender": "m", "ipa": ""})
+    client, _ = _client(uid=21, router=router)
+
+    async def burn():
+        async with _Session() as s:
+            from app.usage.service import add_usage
+
+            await add_usage(s, 21, "vocab", 999_999, 0, date.today())
+            await s.commit()
+
+    _run(burn())
+    r = client.post("/vocab/personal/from-word", json={"word": "chat"})
+    assert r.json() == {"card": None, "added": False, "over_budget": True}
+    assert router.calls == []  # no enrich call once over budget
+    assert client.get("/vocab/personal").json()["cards"] == []  # nothing stored
+
+
+def test_from_word_rejects_word_already_in_content_bank():
+    # QA round-050 #620: a caller hitting from-word directly (bypassing the Speaking
+    # UI's resolve_new_words filter) with a word already in the content bank must not
+    # mint a duplicate uv: card for it.
+    from app.content.tables import ContentVocab
+
+    async def seed():
+        async with _Session() as s:
+            s.add(ContentVocab(id="cuisiner", level="a2", data={"fr": "cuisiner", "en": "to cook"}))
+            await s.commit()
+
+    _run(seed())
+
+    router = FakeRouter({"en": "to cook", "pos": "verb", "gender": "", "ipa": ""})
+    client, _ = _client(uid=22, router=router)
+    r = client.post("/vocab/personal/from-word", json={"word": "cuisiner"})
+    assert r.status_code == 422
+    assert "content bank" in r.json()["detail"]
+    # no duplicate uv: card was minted
+    assert client.get("/vocab/personal").json()["cards"] == []
+    due = client.get("/srs/queue").json()["due"]
+    assert not any(d["card_key"] == "uv:cuisiner" for d in due)
+
+
 # --- API: lazy pronunciation --------------------------------------------------
 
 

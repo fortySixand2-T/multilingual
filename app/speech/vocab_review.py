@@ -7,10 +7,11 @@ Two decoupled steps so each is testable in isolation:
   2. `resolve_to_vocab` — matches those lemmas against the content catalog and the
      learner's existing SRS cards, returning only *new, known* words to suggest.
 
-Slice 3a is the "cheap tier": we keep only lemmas that resolve to an existing
+`resolve_to_vocab` is the "cheap tier" (Slice 3a): lemmas that resolve to an existing
 `ContentVocab` id, so every suggested card is a real, audio-backed vocab entry.
-Unmatched lemmas (the "rich tier") are dropped here — a later slice routes them
-through the authoring/enrichment pipeline.
+`resolve_new_words` is the "rich tier" (Slice 3c): the leftover lemmas — words the
+learner used that aren't in the bank and aren't already personal cards — surfaced for
+one-click enrich-and-add into their own deck (Slice D dictionary + Slice E user_vocab).
 """
 
 from __future__ import annotations
@@ -24,7 +25,8 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.interfaces import LLMResult, Msg
-from app.content.tables import ContentVocab
+from app.content.personal import personal_key
+from app.content.tables import ContentVocab, UserVocab
 from app.speech.tables import SpeechTurn
 from app.srs.models import ReviewCard
 
@@ -164,3 +166,54 @@ async def resolve_to_vocab(
         if len(picked) >= limit:
             break
     return picked
+
+
+async def find_content_match(session: AsyncSession, word: str) -> ContentVocab | None:
+    """Look up `word` against the shared content bank using the same normalized/
+    deaccented matching `resolve_new_words` uses. Lets other entry points (e.g.
+    POST /vocab/personal/from-word, called directly rather than via the Speaking
+    debrief) reject a word that already has a real ContentVocab entry instead of
+    silently minting a duplicate `uv:` personal card for it."""
+    n = _deaccent(_norm(word))
+    if not n:
+        return None
+    rows = (await session.execute(select(ContentVocab))).scalars().all()
+    for r in rows:
+        fr = r.data.get("fr", "")
+        if fr and _deaccent(_norm(fr)) == n:
+            return r
+    return None
+
+
+async def resolve_new_words(
+    session: AsyncSession, user_id: int, words: list[str], *, limit: int = 6
+) -> list[str]:
+    """The "rich tier" (Slice 3c): extracted lemmas that DON'T map to a content card and
+    aren't already in the learner's personal deck. These are the words worth enriching
+    (Slice D) into a personal card (Slice E) — returned as bare lemmas for the client to
+    add one-click via POST /vocab/personal/from-word. Deduped, capped at `limit`."""
+    if not words:
+        return []
+
+    rows = (await session.execute(select(ContentVocab))).scalars().all()
+    content = {_deaccent(_norm(r.data.get("fr", ""))) for r in rows if r.data.get("fr")}
+    owned = set(
+        (
+            await session.execute(select(UserVocab.card_key).where(UserVocab.user_id == user_id))
+        ).scalars()
+    )
+
+    out: list[str] = []
+    seen: set[str] = set()
+    for w in words:
+        n = _norm(w)
+        if not n or _deaccent(n) in content:
+            continue  # empty, or the cheap tier already offers it as a content card
+        key = personal_key(n)
+        if key == "uv:" or key in owned or key in seen:
+            continue  # degenerate slug, already owned, or a dup within this batch
+        seen.add(key)
+        out.append(n)
+        if len(out) >= limit:
+            break
+    return out

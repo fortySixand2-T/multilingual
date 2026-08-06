@@ -34,7 +34,7 @@ from app.db.session import get_session
 from app.speech.examiner import SpeakingExaminer, SpeechNotConfigured
 from app.speech.tables import SpeakingTopicRow, SpeechTurn
 from app.speech.topics import SpeakingTopic, framing
-from app.speech.vocab_review import extract_review_words, resolve_to_vocab
+from app.speech.vocab_review import extract_review_words, resolve_new_words, resolve_to_vocab
 from app.storage.interface import ObjectStorage
 from app.usage.service import add_usage, tokens_used_today
 from app.users.models import User
@@ -250,7 +250,10 @@ async def session_vocab_review(
         )
         await session.commit()
     candidates = await resolve_to_vocab(session, user.id, words)
-    return {"candidates": candidates}
+    # Rich tier (Slice 3c): words the learner used that aren't in the content bank and
+    # aren't already personal cards — offered for one-click enrich-and-add to their deck.
+    new_words = await resolve_new_words(session, user.id, words)
+    return {"candidates": candidates, "new_words": new_words}
 
 
 @router.get("/last-session")

@@ -231,8 +231,11 @@ function SessionReview({
 }) {
   const [phase, setPhase] = useState<"idle" | "loading" | "done">("idle");
   const [candidates, setCandidates] = useState<VocabCandidate[]>([]);
+  const [newWords, setNewWords] = useState<string[]>([]);
   const [overBudget, setOverBudget] = useState(false);
   const [added, setAdded] = useState<Record<string, boolean>>({});
+  // Rich-tier words (Slice 3c): "adding" | "added" | "limit" | "error" per word.
+  const [addedNew, setAddedNew] = useState<Record<string, string>>({});
   const [error, setError] = useState("");
   const [dismissed, setDismissed] = useState(false);
 
@@ -244,6 +247,7 @@ function SessionReview({
     try {
       const res = await api.speechVocabReview(sessionId);
       setCandidates(res.candidates);
+      setNewWords(res.new_words ?? []);
       setOverBudget(!!res.over_budget);
       setPhase("done");
     } catch (e: any) {
@@ -258,6 +262,17 @@ function SessionReview({
       await api.addToReview(key);
     } catch {
       setAdded((a) => ({ ...a, [key]: false }));
+    }
+  };
+
+  // Rich tier: enrich a spoken word and add it to the personal deck in one click.
+  const addNew = async (word: string) => {
+    setAddedNew((a) => ({ ...a, [word]: "adding" }));
+    try {
+      const res = await api.personalAddFromWord(word);
+      setAddedNew((a) => ({ ...a, [word]: res.over_budget ? "limit" : "added" }));
+    } catch {
+      setAddedNew((a) => ({ ...a, [word]: "error" }));
     }
   };
 
@@ -293,7 +308,7 @@ function SessionReview({
     );
   }
 
-  if (candidates.length === 0) {
+  if (candidates.length === 0 && newWords.length === 0) {
     return (
       <div className="card center muted" style={{ marginTop: 14 }}>
         No new words to review — nice work!
@@ -302,34 +317,82 @@ function SessionReview({
   }
 
   const allAdded = candidates.every((c) => added[c.card_key]);
+  const newLabel = (word: string) => {
+    switch (addedNew[word]) {
+      case "added":
+        return "✓ ";
+      case "adding":
+        return "… ";
+      case "limit":
+        return "⏳ ";
+      case "error":
+        return "⚠ ";
+      default:
+        return "+ ";
+    }
+  };
   return (
     <div className="card" style={{ marginTop: 14 }}>
-      <div style={{ fontWeight: 700 }}>Words to review</div>
-      <div className="muted" style={{ fontSize: 13, margin: "2px 0 10px" }}>
-        {blurb}
-      </div>
-      <div className="btn-row" style={{ flexWrap: "wrap", gap: 8 }}>
-        {candidates.map((c) => (
-          <button
-            key={c.card_key}
-            className={`btn ${added[c.card_key] ? "" : "secondary"}`}
-            onClick={() => add(c.card_key)}
-            disabled={added[c.card_key]}
-            title={`${c.en} · ${c.level.toUpperCase()}`}
-          >
-            {added[c.card_key] ? "✓ " : "+ "}
-            {c.fr}
-          </button>
-        ))}
-      </div>
-      {!allAdded && (
-        <button
-          className="link-btn"
-          style={{ marginTop: 10 }}
-          onClick={() => candidates.forEach((c) => !added[c.card_key] && add(c.card_key))}
-        >
-          Add all
-        </button>
+      {candidates.length > 0 && (
+        <>
+          <div style={{ fontWeight: 700 }}>Words to review</div>
+          <div className="muted" style={{ fontSize: 13, margin: "2px 0 10px" }}>
+            {blurb}
+          </div>
+          <div className="btn-row" style={{ flexWrap: "wrap", gap: 8 }}>
+            {candidates.map((c) => (
+              <button
+                key={c.card_key}
+                className={`btn ${added[c.card_key] ? "" : "secondary"}`}
+                onClick={() => add(c.card_key)}
+                disabled={added[c.card_key]}
+                title={`${c.en} · ${c.level.toUpperCase()}`}
+              >
+                {added[c.card_key] ? "✓ " : "+ "}
+                {c.fr}
+              </button>
+            ))}
+          </div>
+          {!allAdded && (
+            <button
+              className="link-btn"
+              style={{ marginTop: 10 }}
+              onClick={() => candidates.forEach((c) => !added[c.card_key] && add(c.card_key))}
+            >
+              Add all
+            </button>
+          )}
+        </>
+      )}
+
+      {newWords.length > 0 && (
+        <div style={{ marginTop: candidates.length > 0 ? 16 : 0 }}>
+          <div style={{ fontWeight: 700 }}>New words for your deck</div>
+          <div className="muted" style={{ fontSize: 13, margin: "2px 0 10px" }}>
+            Words you used that aren't in the bank yet — add one to look it up and start
+            reviewing it.
+          </div>
+          <div className="btn-row" style={{ flexWrap: "wrap", gap: 8 }}>
+            {newWords.map((w) => (
+              <button
+                key={w}
+                className={`btn ${addedNew[w] === "added" ? "" : "secondary"}`}
+                onClick={() => addNew(w)}
+                disabled={addedNew[w] === "adding" || addedNew[w] === "added"}
+                title={
+                  addedNew[w] === "limit"
+                    ? "Daily word-lookup limit reached"
+                    : addedNew[w] === "error"
+                      ? "Couldn't add — try again"
+                      : "Add to my deck"
+                }
+              >
+                {newLabel(w)}
+                {w}
+              </button>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );
