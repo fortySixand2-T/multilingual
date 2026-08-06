@@ -54,9 +54,10 @@ export default function Review() {
         {typeof card.difficulty === "number" && card.difficulty >= 7 && (
           <div
             title={`FSRS difficulty ${card.difficulty} / 10`}
-            style={{ fontSize: 12, fontWeight: 700, color: "#c0392b" }}
+            style={{ fontSize: 12, fontWeight: 700, color: "#c0392b", display: "flex", gap: 4 }}
           >
-            🔥 One of your tough ones
+            <span>🔥</span>
+            <span>one of your tough ones</span>
           </div>
         )}
         <div style={{ fontSize: 34, fontWeight: 800 }}>{card.vocab?.fr ?? card.card_key}</div>

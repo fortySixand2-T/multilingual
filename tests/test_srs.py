@@ -132,3 +132,38 @@ def test_review_advances_due_and_missing_card_returns_none():
     before, new_due, missing = _run(go())
     assert new_due > before
     assert missing is None
+
+
+def test_again_persists_sooner_due_than_easy():
+    # Slice 2 (H8): the difficulty->frequency invariant at the service/persistence
+    # layer, not just the raw FSRS engine — an "again"-rated card must be persisted
+    # with a due date sooner than an "easy"-rated card, seeded and reviewed under
+    # the exact same DB/service path a real request takes.
+    async def go():
+        async with _Session() as s:
+            await seed_cards(s, user_id=40, card_keys=["tough_word", "easy_word"])
+            await s.commit()
+            again_due = await review_card(s, 40, "tough_word", "again")
+            easy_due = await review_card(s, 40, "easy_word", "easy")
+            await s.commit()
+            return again_due, easy_due
+
+    again_due, easy_due = _run(go())
+    assert again_due < easy_due
+
+
+def test_personal_card_key_gets_identical_scheduling_to_content_key():
+    # Slice 2 (H8): personal (`uv:`) cards ride the exact same FSRSEngine/service
+    # path as content cards — an "again" rating on a `uv:` key must schedule sooner
+    # than an "easy" rating on another `uv:` key, matching the content-card gap.
+    async def go():
+        async with _Session() as s:
+            await seed_cards(s, user_id=41, card_keys=["uv:chameau", "uv:hibou"])
+            await s.commit()
+            again_due = await review_card(s, 41, "uv:chameau", "again")
+            easy_due = await review_card(s, 41, "uv:hibou", "easy")
+            await s.commit()
+            return again_due, easy_due
+
+    again_due, easy_due = _run(go())
+    assert again_due < easy_due

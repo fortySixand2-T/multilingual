@@ -331,6 +331,51 @@ def test_hardest_endpoint_excludes_unreviewed_cards():
     assert all(c["card_key"] != key for c in cards)
 
 
+def test_hardest_endpoint_rejects_negative_limit():
+    # QA round 051 #621: a negative limit used to silently truncate the tail of the
+    # ranked deck via Python slice semantics (`ranked[:-1]`) instead of erroring.
+    client, _ = _client(uid=27)
+    r = client.get("/srs/hardest", params={"limit": -1})
+    assert r.status_code == 422
+
+
+def test_queue_difficulty_rounded_same_as_hardest():
+    # QA round 051 #622: /srs/queue used to return the raw unrounded FSRS float while
+    # /srs/hardest rounded to 1dp for the same underlying signal.
+    from datetime import datetime
+
+    from sqlalchemy import update
+
+    from app.srs.models import ReviewCard
+
+    client, _ = _client(uid=28)
+    key = client.post("/vocab/personal", json={"fr": "acariatre", "en": "cranky"}).json()["card"][
+        "card_key"
+    ]
+    client.post("/srs/review", json={"card_key": key, "rating": "again"})
+
+    # "again" reschedules the card into the future, which would drop it out of the due
+    # queue; force it back due now so we can compare the same card's difficulty across
+    # both endpoints.
+    async def make_due():
+        async with _Session() as s:
+            await s.execute(
+                update(ReviewCard)
+                .where(ReviewCard.user_id == 28, ReviewCard.card_key == key)
+                .values(due=datetime(2000, 1, 1))
+            )
+            await s.commit()
+
+    _run(make_due())
+
+    due = client.get("/srs/queue").json()["due"]
+    hardest = client.get("/srs/hardest").json()["cards"]
+    due_entry = next(d for d in due if d["card_key"] == key)
+    hardest_entry = next(c for c in hardest if c["card_key"] == key)
+    assert due_entry["difficulty"] == hardest_entry["difficulty"]
+    assert due_entry["difficulty"] == round(due_entry["difficulty"], 1)
+
+
 # --- API: lazy pronunciation --------------------------------------------------
 
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -71,7 +71,7 @@ async def get_queue(
             {
                 "card_key": c.card_key,
                 "due": c.due.isoformat(),
-                "difficulty": difficulty(c.state),  # 1–10 (null until first review)
+                "difficulty": d if (d := difficulty(c.state)) is None else round(d, 1),
                 "vocab": vocab.get(c.card_key),
             }
             for c in cards
@@ -81,7 +81,7 @@ async def get_queue(
 
 @router.get("/hardest")
 async def get_hardest(
-    limit: int = 30,
+    limit: int = Query(30, ge=0),
     session: AsyncSession = Depends(get_session),
     user: User = Depends(get_current_user),
 ) -> dict:
