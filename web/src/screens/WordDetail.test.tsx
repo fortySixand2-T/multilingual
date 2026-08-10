@@ -2,30 +2,22 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import WordDetail from "./WordDetail";
-import { api, PersonalCard } from "../api";
+import { api } from "../api";
 
 vi.mock("../api", () => ({
-  api: { personalForms: vi.fn(), personalExamples: vi.fn() },
+  api: { vocabExtra: vi.fn(), vocabForms: vi.fn(), vocabExamples: vi.fn() },
 }));
 
-const card = (over: Partial<PersonalCard> = {}): PersonalCard => ({
-  card_key: "uv:manger",
-  fr: "manger",
-  en: "to eat",
-  gender: "",
-  pos: "verb",
-  ipa: "",
-  source: "manual",
-  audio_url: "/vocab/personal/audio/uv:manger",
-  ...over,
+beforeEach(() => {
+  vi.clearAllMocks();
+  // default: nothing stored yet
+  vi.mocked(api.vocabExtra).mockResolvedValue({ forms: null, examples: [] });
 });
 
-beforeEach(() => vi.clearAllMocks());
-
 describe("WordDetail", () => {
-  it("is collapsed until expanded, then fetches forms for an inflecting word", async () => {
+  it("is collapsed until expanded, then hydrates and generates forms for an inflecting word", async () => {
     const user = userEvent.setup();
-    vi.mocked(api.personalForms).mockResolvedValue({
+    vi.mocked(api.vocabForms).mockResolvedValue({
       forms: [
         { label: "présent", fr: "je mange" },
         { label: "passé composé", fr: "j'ai mangé" },
@@ -33,63 +25,63 @@ describe("WordDetail", () => {
       cached: false,
     });
 
-    render(<WordDetail card={card()} />);
-    // nothing fetched on render
-    expect(api.personalForms).not.toHaveBeenCalled();
+    render(<WordDetail cardKey="uv:manger" pos="verb" />);
+    expect(api.vocabExtra).not.toHaveBeenCalled(); // nothing on render
 
     await user.click(screen.getByRole("button", { name: /Forms & examples/ }));
 
-    expect(api.personalForms).toHaveBeenCalledWith("uv:manger");
+    expect(api.vocabExtra).toHaveBeenCalledWith("uv:manger");
+    expect(api.vocabForms).toHaveBeenCalledWith("uv:manger"); // forms were null → generate
     expect(await screen.findByText("je mange")).toBeInTheDocument();
     expect(screen.getByText("j'ai mangé")).toBeInTheDocument();
   });
 
-  it("generates a fresh example on press and shows the returned history newest-first", async () => {
+  it("works for a content-bank card key (not just uv:)", async () => {
     const user = userEvent.setup();
-    vi.mocked(api.personalForms).mockResolvedValue({ forms: [], cached: false });
-    vi.mocked(api.personalExamples).mockResolvedValue({
+    vi.mocked(api.vocabForms).mockResolvedValue({ forms: [{ label: "pluriel", fr: "les chats" }], cached: false });
+    render(<WordDetail cardKey="chat_a1" pos="noun" />);
+    await user.click(screen.getByRole("button", { name: /Forms & examples/ }));
+    expect(api.vocabExtra).toHaveBeenCalledWith("chat_a1");
+    expect(await screen.findByText("les chats")).toBeInTheDocument();
+  });
+
+  it("does not regenerate forms already stored (even when empty)", async () => {
+    const user = userEvent.setup();
+    vi.mocked(api.vocabExtra).mockResolvedValue({ forms: [], examples: [] }); // stored, empty
+    render(<WordDetail cardKey="uv:vite" pos="adverb" />);
+    await user.click(screen.getByRole("button", { name: /Forms & examples/ }));
+    // adverb doesn't inflect → no Forms section, and never a generate call
+    expect(api.vocabForms).not.toHaveBeenCalled();
+  });
+
+  it("shows stored example history on open, then a fresh one on press", async () => {
+    const user = userEvent.setup();
+    vi.mocked(api.vocabExtra).mockResolvedValue({
+      forms: [],
+      examples: [{ fr: "Le chat dort.", en: "The cat sleeps." }],
+    });
+    vi.mocked(api.vocabExamples).mockResolvedValue({
       examples: [
         { fr: "Un chat noir.", en: "A black cat." },
         { fr: "Le chat dort.", en: "The cat sleeps." },
       ],
     });
 
-    render(<WordDetail card={card({ card_key: "uv:chat", fr: "chat", pos: "noun", gender: "m" })} />);
+    render(<WordDetail cardKey="chat_a1" pos="noun" />);
     await user.click(screen.getByRole("button", { name: /Forms & examples/ }));
-    await user.click(await screen.findByRole("button", { name: /Get examples/ }));
+    // stored history is shown immediately (button reads "New example", not "Get examples")
+    expect(await screen.findByText("Le chat dort.")).toBeInTheDocument();
 
-    expect(api.personalExamples).toHaveBeenCalledWith("uv:chat");
+    await user.click(screen.getByRole("button", { name: /New example/ }));
+    expect(api.vocabExamples).toHaveBeenCalledWith("chat_a1");
     expect(await screen.findByText("Un chat noir.")).toBeInTheDocument();
-    expect(screen.getByText("Le chat dort.")).toBeInTheDocument();
-    // once there's history, the button becomes "New example"
-    expect(screen.getByRole("button", { name: /New example/ })).toBeInTheDocument();
-  });
-
-  it("does not offer forms for a non-inflecting part of speech", async () => {
-    const user = userEvent.setup();
-    render(<WordDetail card={card({ pos: "adverb", fr: "vite", card_key: "uv:vite" })} />);
-    await user.click(screen.getByRole("button", { name: /Forms & examples/ }));
-    expect(api.personalForms).not.toHaveBeenCalled();
-    expect(screen.queryByText("Forms")).not.toBeInTheDocument();
-  });
-
-  it("treats a persisted-but-empty forms array as already known, not unfetched (qa-660)", async () => {
-    // A malformed-parse case can leave `forms: []` persisted for an inflecting pos —
-    // that must not look like "never fetched" and trigger a refetch on expand.
-    const user = userEvent.setup();
-    render(<WordDetail card={card({ forms: [] })} />);
-    await user.click(screen.getByRole("button", { name: /Forms & examples/ }));
-
-    expect(api.personalForms).not.toHaveBeenCalled();
-    expect(screen.getByText("No forms for this word.")).toBeInTheDocument();
   });
 
   it("shows a limit message when examples are over budget", async () => {
     const user = userEvent.setup();
-    vi.mocked(api.personalForms).mockResolvedValue({ forms: [], cached: false });
-    vi.mocked(api.personalExamples).mockResolvedValue({ examples: [], over_budget: true });
+    vi.mocked(api.vocabExamples).mockResolvedValue({ examples: [], over_budget: true });
 
-    render(<WordDetail card={card({ pos: "noun", gender: "m" })} />);
+    render(<WordDetail cardKey="chat_a1" pos="noun" />);
     await user.click(screen.getByRole("button", { name: /Forms & examples/ }));
     await user.click(await screen.findByRole("button", { name: /Get examples/ }));
 

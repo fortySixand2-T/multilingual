@@ -1,45 +1,51 @@
 import { useState } from "react";
-import { api, PersonalCard, WordForm, WordExample } from "../api";
+import { api, WordForm, WordExample } from "../api";
 
-// Expandable study panel for a personal vocab card: the word's morphological forms
-// (noun plural / verb conjugations / adjective m·f·pl) plus example sentences. Forms
-// are generated once and cached server-side; example sentences are generated FRESH on
-// each "New example" press and kept as a small rolling history (newest first).
+// Expandable study panel for ANY vocab card (personal or content-bank), addressed by
+// its `cardKey`: the word's morphological forms (noun plural / verb conjugations /
+// adjective m·f·pl) plus example sentences. Forms are generated once and cached per
+// user; example sentences are generated FRESH on each "New example" press and kept as
+// a small rolling history (newest first).
 //
-// Everything is lazy: nothing is fetched until the learner expands the panel, and
-// forms are only fetched if the card doesn't already carry them.
-export default function WordDetail({ card }: { card: PersonalCard }) {
+// Everything is lazy: nothing is fetched until the panel is expanded. On expand it
+// hydrates stored extras via /vocab/extra (free, no model call), then — only for an
+// inflecting part of speech with no forms yet — generates the forms.
+export default function WordDetail({ cardKey, pos }: { cardKey: string; pos?: string }) {
   const [open, setOpen] = useState(false);
-  // card.forms may be undefined (never fetched) or a persisted `[]` (already generated,
-  // turned out empty for a non-inflecting word) — only the former should trigger a fetch.
-  const [forms, setForms] = useState<WordForm[] | null>(card.forms ?? null);
-  const [examples, setExamples] = useState<WordExample[]>(card.examples ?? []);
-  const [formsState, setFormsState] = useState<"idle" | "loading" | "over_budget" | "none">(
-    card.forms && card.forms.length === 0 ? "none" : "idle"
-  );
+  const [forms, setForms] = useState<WordForm[] | null>(null);
+  const [examples, setExamples] = useState<WordExample[]>([]);
+  const [formsState, setFormsState] = useState<"idle" | "loading" | "over_budget" | "none">("idle");
   const [exState, setExState] = useState<"idle" | "loading" | "over_budget">("idle");
 
   const expand = async () => {
     setOpen(true);
-    if (forms === null && formsState === "idle" && inflects(card.pos)) {
-      setFormsState("loading");
-      try {
-        const r = await api.personalForms(card.card_key);
-        if (r.over_budget) setFormsState("over_budget");
-        else {
-          setForms(r.forms);
-          setFormsState(r.forms.length ? "idle" : "none");
-        }
-      } catch {
-        setFormsState("none");
+    if (formsState !== "idle" || examples.length) return; // already hydrated
+    setFormsState(inflects(pos) ? "loading" : "none");
+    try {
+      const extra = await api.vocabExtra(cardKey);
+      setExamples(extra.examples);
+      if (!inflects(pos)) return;
+      if (extra.forms !== null) {
+        // already generated (possibly []) — show it, don't regenerate
+        setForms(extra.forms);
+        setFormsState(extra.forms.length ? "idle" : "none");
+        return;
       }
+      const r = await api.vocabForms(cardKey); // generate once
+      if (r.over_budget) setFormsState("over_budget");
+      else {
+        setForms(r.forms);
+        setFormsState(r.forms.length ? "idle" : "none");
+      }
+    } catch {
+      setFormsState("none");
     }
   };
 
   const newExample = async () => {
     setExState("loading");
     try {
-      const r = await api.personalExamples(card.card_key);
+      const r = await api.vocabExamples(cardKey);
       setExamples(r.examples);
       setExState(r.over_budget ? "over_budget" : "idle");
     } catch {
@@ -57,7 +63,7 @@ export default function WordDetail({ card }: { card: PersonalCard }) {
 
   return (
     <div className="stack" style={{ gap: 10, marginTop: 8 }}>
-      {inflects(card.pos) && (
+      {inflects(pos) && (
         <div>
           <div className="muted" style={LABEL}>Forms</div>
           {formsState === "loading" && <div className="muted">Loading forms…</div>}

@@ -11,8 +11,10 @@ vi.mock("../api", () => ({
     myDeck: vi.fn(),
     personalPreview: vi.fn(),
     personalAdd: vi.fn(),
-    personalForms: vi.fn(),
-    personalExamples: vi.fn(),
+    // WordDetail (rendered under each card) uses these; collapsed on render so unused here
+    vocabExtra: vi.fn(),
+    vocabForms: vi.fn(),
+    vocabExamples: vi.fn(),
   },
   fetchAudioUrl: vi.fn(),
 }));

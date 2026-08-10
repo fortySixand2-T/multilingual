@@ -123,7 +123,7 @@ export default function MyDeck() {
                 <div style={{ marginTop: 6 }}>
                   <AudioButton audioUrl={c.audio_url} label="🔊" slow />
                 </div>
-                <WordDetail card={c} />
+                <WordDetail cardKey={c.card_key} pos={c.pos} />
               </div>
             ))}
           </div>
