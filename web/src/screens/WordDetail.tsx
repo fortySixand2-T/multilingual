@@ -10,9 +10,13 @@ import { api, PersonalCard, WordForm, WordExample } from "../api";
 // forms are only fetched if the card doesn't already carry them.
 export default function WordDetail({ card }: { card: PersonalCard }) {
   const [open, setOpen] = useState(false);
-  const [forms, setForms] = useState<WordForm[] | null>(card.forms?.length ? card.forms : null);
+  // card.forms may be undefined (never fetched) or a persisted `[]` (already generated,
+  // turned out empty for a non-inflecting word) — only the former should trigger a fetch.
+  const [forms, setForms] = useState<WordForm[] | null>(card.forms ?? null);
   const [examples, setExamples] = useState<WordExample[]>(card.examples ?? []);
-  const [formsState, setFormsState] = useState<"idle" | "loading" | "over_budget" | "none">("idle");
+  const [formsState, setFormsState] = useState<"idle" | "loading" | "over_budget" | "none">(
+    card.forms && card.forms.length === 0 ? "none" : "idle"
+  );
   const [exState, setExState] = useState<"idle" | "loading" | "over_budget">("idle");
 
   const expand = async () => {

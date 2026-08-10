@@ -73,6 +73,17 @@ describe("WordDetail", () => {
     expect(screen.queryByText("Forms")).not.toBeInTheDocument();
   });
 
+  it("treats a persisted-but-empty forms array as already known, not unfetched (qa-660)", async () => {
+    // A malformed-parse case can leave `forms: []` persisted for an inflecting pos —
+    // that must not look like "never fetched" and trigger a refetch on expand.
+    const user = userEvent.setup();
+    render(<WordDetail card={card({ forms: [] })} />);
+    await user.click(screen.getByRole("button", { name: /Forms & examples/ }));
+
+    expect(api.personalForms).not.toHaveBeenCalled();
+    expect(screen.getByText("No forms for this word.")).toBeInTheDocument();
+  });
+
   it("shows a limit message when examples are over budget", async () => {
     const user = userEvent.setup();
     vi.mocked(api.personalForms).mockResolvedValue({ forms: [], cached: false });

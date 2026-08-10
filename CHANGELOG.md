@@ -1,5 +1,6 @@
 # Changelog
 
+- [2026-08-09] Fixed: app/content/personal_api.py — QA #660: `card_forms`'s cache guard `if card.forms:` treated a persisted-but-empty forms list (`[]`, deliberately written for non-inflecting parts of speech) as "never generated," causing the endpoint to wrongly re-enter the budget check and return `over_budget: true` once the daily vocab budget was exhausted; changed to `if card.forms is not None:`; web/src/screens/WordDetail.tsx — same None-vs-`[]` trap on `forms` initial state fixed (`card.forms ?? null` + `formsState` seeded to "none" for a persisted-empty array); tests/test_personal_vocab.py, web/src/screens/WordDetail.test.tsx — new regression tests
 - [2026-08-05] Fixed: app/srs/api.py — QA round 051 #621: GET /srs/hardest `limit` is now `Query(30, ge=0)` (422 on negative, matching Field(ge=...) convention) instead of silently truncating the tail of the ranked deck via `ranked[:limit]`; #622: GET /srs/queue's `difficulty` is now rounded to 1dp (None-safe) to match GET /srs/hardest; tests/test_personal_vocab.py — regression tests for #621/#622
 - [2026-08-05] Fixed: web/src/screens/Review.tsx — QA round 051 #640: tough-card badge emoji/label split into separate flex spans (fixes visually-collapsing space) and lowercased to "one of your tough ones"; web/src/screens/Review.test.tsx — new regression test
 - [2026-08-05] Modified: qa/issues/621-hardest-negative-limit-silently-drops-cards.md, qa/issues/622-queue-difficulty-unrounded-vs-hardest-rounded.md, qa/issues/640-review-tough-badge-missing-space-after-emoji.md — marked done with Fix notes
@@ -231,3 +232,4 @@
 - [2026-08-09] Modified: web/src/screens/MyDeck.tsx — Render WordDetail under each personal card
 - [2026-08-09] Created: web/src/screens/WordDetail.test.tsx — Tests for expand/forms/fresh-examples/over-budget
 - [2026-08-09] Modified: web/src/screens/MyDeck.test.tsx — Extended api mock with personalForms/personalExamples
+- [2026-08-09] Modified: qa/issues/660-forms-cache-check-empty-list-falsy.md — Added Critic block confirming validated verdict for None-vs-[] forms cache bug

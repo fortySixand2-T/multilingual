@@ -200,7 +200,7 @@ async def card_forms(
     Stable, so generated once and cached on the card — a second request returns the
     stored forms with no LLM call. Metered on the daily 'vocab' budget."""
     card = await _load_card(session, user.id, body.card_key)
-    if card.forms:  # already generated — free, no model call
+    if card.forms is not None:  # already generated (even if empty) — free, no model call
         return {"forms": card.forms, "cached": True}
 
     used = await tokens_used_today(session, user.id, "vocab", date.today())

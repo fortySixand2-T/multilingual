@@ -453,6 +453,49 @@ def test_forms_unknown_card_is_404():
     assert client.post("/vocab/personal/forms", json={"card_key": "uv:nope"}).status_code == 404
 
 
+def test_forms_empty_result_is_cached_for_non_inflecting_pos():
+    # A non-inflecting pos (e.g. adverb) short-circuits generate_forms with an empty
+    # list; that persisted `[]` must still count as "already generated" on the next
+    # call (regression for qa-660: `if card.forms:` is falsy for `[]`).
+    router = ProfileRouter({"vocab_forms": {"forms": [{"label": "x", "fr": "y"}]}})
+    client, _ = _client(uid=60, router=router)
+    key = _add_card(client, "vite", "quickly", pos="adverb")
+
+    r1 = client.post("/vocab/personal/forms", json={"card_key": key})
+    assert r1.json() == {"forms": [], "cached": False}
+    assert router.calls == []  # non-inflecting pos never calls the model
+
+    r2 = client.post("/vocab/personal/forms", json={"card_key": key})
+    assert r2.json() == {"forms": [], "cached": True}
+
+
+def test_forms_cached_empty_result_survives_exhausted_budget():
+    from datetime import date
+
+    from app.usage.service import add_usage
+
+    router = ProfileRouter({"vocab_forms": {"forms": [{"label": "x", "fr": "y"}]}})
+    client, _ = _client(uid=61, router=router)
+    key = _add_card(client, "vite", "quickly", pos="adverb")
+
+    # first call persists forms=[] for this non-inflecting card, free of charge
+    r1 = client.post("/vocab/personal/forms", json={"card_key": key})
+    assert r1.json() == {"forms": [], "cached": False}
+
+    async def burn():
+        async with _Session() as s:
+            await add_usage(s, 61, "vocab", 999_999, 0, date.today())
+            await s.commit()
+
+    _run(burn())
+
+    # even with the daily budget exhausted, the already-known answer is free/cached —
+    # never `over_budget: True`
+    r2 = client.post("/vocab/personal/forms", json={"card_key": key})
+    assert r2.json() == {"forms": [], "cached": True}
+    assert router.calls == []  # no model call was ever made
+
+
 # --- API: usage examples (fresh each press, rolling history) -------------------
 
 
