@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api, VocabCard } from "../api";
 import VocabWord from "../VocabWord";
+import WordDetail from "./WordDetail";
 import { shuffled } from "../shuffle";
 
 // Flashcard study for one deck: show French (+ pronunciation), flip to the meaning,
@@ -109,6 +110,10 @@ export default function Deck() {
           <p className="muted" style={{ textAlign: "center", fontSize: 13, marginTop: 8 }}>
             “Still learning” resets a word you'd marked known.
           </p>
+          {/* key by card id so the panel's fetched forms/examples reset per card */}
+          <div className="card" style={{ marginTop: 12 }}>
+            <WordDetail key={card.id} cardKey={card.id} pos={card.pos} />
+          </div>
         </>
       )}
     </div>

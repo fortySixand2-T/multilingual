@@ -85,11 +85,33 @@ class UserVocab(Base):
     ipa: Mapped[str] = mapped_column(String(64), default="")
     source: Mapped[str] = mapped_column(String(32), default="")  # "manual" | "speaking"
     audio_key: Mapped[str | None] = mapped_column(String(128), nullable=True)  # lazy-TTS cache
-    # Study extras, generated on demand (vocab forms slice):
-    #  forms    — cached morphological forms [{label, fr}] (stable; generated once)
-    #  examples — rolling history of generated usage sentences [{fr, en}], newest first
-    forms: Mapped[list | None] = mapped_column(JSON, nullable=True)
-    examples: Mapped[list | None] = mapped_column(JSON, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
     __table_args__ = (UniqueConstraint("user_id", "card_key", name="uq_uservocab_user_card"),)
+
+
+class VocabExtra(Base):
+    """On-demand study extras for ANY vocab card, per user (word forms + usage examples).
+
+    Keyed by (user_id, card_key) where card_key is either a content vocab id or a
+    personal `uv:<slug>` key — so one table serves both the shared content bank and a
+    learner's personal deck. FK-free like the rest of learner state; a content re-sync
+    never touches it. `forms` is a cached, stable morphological table; `examples` is a
+    small rolling history of generated sentences (newest first).
+
+    `forms is None` means "never generated" (fetch), while `forms == []` means
+    "generated, this word has no useful form table" (a non-inflecting pos) — the two
+    must stay distinguishable, so the column is nullable and callers check `is None`."""
+
+    __tablename__ = "vocab_extra"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, index=True)
+    card_key: Mapped[str] = mapped_column(String(64))  # content id OR "uv:<slug>"
+    forms: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    examples: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime, server_default=func.now(), onupdate=func.now()
+    )
+
+    __table_args__ = (UniqueConstraint("user_id", "card_key", name="uq_vocabextra_user_card"),)

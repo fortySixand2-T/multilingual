@@ -234,3 +234,22 @@
 - [2026-08-09] Modified: web/src/screens/MyDeck.test.tsx — Extended api mock with personalForms/personalExamples
 - [2026-08-09] Modified: qa/issues/660-forms-cache-check-empty-list-falsy.md — Added Critic block confirming validated verdict for None-vs-[] forms cache bug
 - [2026-08-09] Created: qa/rounds/052-plan.md — QA round 052 plan + outcomes (feat/vocab-forms-examples): found/fixed issue 660
+- [2026-08-09] Modified: app/content/tables.py — Dropped user_vocab.forms/.examples; added shared per-user VocabExtra(user_id, card_key, forms, examples) table
+- [2026-08-09] Created: migrations/versions/0020_vocab_extra.py — Create vocab_extra; drop the 0019 user_vocab columns (superseded)
+- [2026-08-09] Created: app/content/vocab_extra.py — resolve_card_meta (routes uv: → user_vocab, else content_vocab) + get/upsert extras
+- [2026-08-09] Created: app/content/vocab_extra_api.py — Generic /vocab/extra (read), /vocab/forms (cached), /vocab/examples (fresh) for both banks
+- [2026-08-09] Modified: app/content/personal_api.py — Removed personal-specific forms/examples endpoints (superseded by generic /vocab/*)
+- [2026-08-09] Modified: app/content/personal.py — card_payload no longer embeds forms/examples (fetched lazily via /vocab/extra)
+- [2026-08-09] Modified: app/main.py — Register vocab_extra_router
+- [2026-08-09] Created: tests/test_vocab_extra.py — Generic forms/examples API tests across content + personal banks, per-user scoping
+- [2026-08-09] Modified: tests/test_personal_vocab.py — Moved forms/examples API tests out to test_vocab_extra.py
+- [2026-08-09] Modified: web/src/api.ts — Generic vocabExtra/vocabForms/vocabExamples clients; dropped personal-specific ones
+- [2026-08-09] Modified: web/src/screens/WordDetail.tsx — Take {cardKey, pos}; hydrate stored extras via /vocab/extra on expand
+- [2026-08-09] Modified: web/src/screens/Deck.tsx — Show WordDetail on flipped content flashcards (keyed per card)
+- [2026-08-09] Modified: web/src/screens/MyDeck.tsx — Pass cardKey/pos to the generalized WordDetail
+- [2026-08-09] Modified: web/src/screens/WordDetail.test.tsx — Rewrote for generic props + /vocab/extra hydration + content-key case
+- [2026-08-09] Modified: web/src/screens/MyDeck.test.tsx — Updated api mock to the generic vocab clients
+- [2026-08-09] Modified: web/src/screens/WordDetail.tsx — QA #710: "Get examples" catch block silently reverted to `"idle"` on a failed POST /vocab/examples, giving zero UI feedback; added an `"error"` exState member + "Couldn't generate an example right now." message, mirroring the sibling Forms fallback pattern
+- [2026-08-09] Modified: web/src/screens/WordDetail.test.tsx — New regression test for QA #710 (examples-fetch failure shows an error message, not the stale placeholder)
+- [2026-08-09] Modified: qa/issues/710-word-detail-get-examples-silent-failure.md — Marked done with Resolution section
+- [2026-08-09] Created: qa/rounds/053-plan.md — QA round 053 plan + outcomes (feat/vocab-extra-content-decks): found/fixed issue 710
