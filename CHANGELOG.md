@@ -233,3 +233,4 @@
 - [2026-08-09] Created: web/src/screens/WordDetail.test.tsx — Tests for expand/forms/fresh-examples/over-budget
 - [2026-08-09] Modified: web/src/screens/MyDeck.test.tsx — Extended api mock with personalForms/personalExamples
 - [2026-08-09] Modified: qa/issues/660-forms-cache-check-empty-list-falsy.md — Added Critic block confirming validated verdict for None-vs-[] forms cache bug
+- [2026-08-09] Created: qa/rounds/052-plan.md — QA round 052 plan + outcomes (feat/vocab-forms-examples): found/fixed issue 660
