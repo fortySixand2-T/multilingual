@@ -1,0 +1,108 @@
+import { useState } from "react";
+import { api, PersonalCard, WordForm, WordExample } from "../api";
+
+// Expandable study panel for a personal vocab card: the word's morphological forms
+// (noun plural / verb conjugations / adjective m·f·pl) plus example sentences. Forms
+// are generated once and cached server-side; example sentences are generated FRESH on
+// each "New example" press and kept as a small rolling history (newest first).
+//
+// Everything is lazy: nothing is fetched until the learner expands the panel, and
+// forms are only fetched if the card doesn't already carry them.
+export default function WordDetail({ card }: { card: PersonalCard }) {
+  const [open, setOpen] = useState(false);
+  const [forms, setForms] = useState<WordForm[] | null>(card.forms?.length ? card.forms : null);
+  const [examples, setExamples] = useState<WordExample[]>(card.examples ?? []);
+  const [formsState, setFormsState] = useState<"idle" | "loading" | "over_budget" | "none">("idle");
+  const [exState, setExState] = useState<"idle" | "loading" | "over_budget">("idle");
+
+  const expand = async () => {
+    setOpen(true);
+    if (forms === null && formsState === "idle" && inflects(card.pos)) {
+      setFormsState("loading");
+      try {
+        const r = await api.personalForms(card.card_key);
+        if (r.over_budget) setFormsState("over_budget");
+        else {
+          setForms(r.forms);
+          setFormsState(r.forms.length ? "idle" : "none");
+        }
+      } catch {
+        setFormsState("none");
+      }
+    }
+  };
+
+  const newExample = async () => {
+    setExState("loading");
+    try {
+      const r = await api.personalExamples(card.card_key);
+      setExamples(r.examples);
+      setExState(r.over_budget ? "over_budget" : "idle");
+    } catch {
+      setExState("idle");
+    }
+  };
+
+  if (!open) {
+    return (
+      <button className="btn secondary" style={LINK} onClick={expand}>
+        Forms &amp; examples ▸
+      </button>
+    );
+  }
+
+  return (
+    <div className="stack" style={{ gap: 10, marginTop: 8 }}>
+      {inflects(card.pos) && (
+        <div>
+          <div className="muted" style={LABEL}>Forms</div>
+          {formsState === "loading" && <div className="muted">Loading forms…</div>}
+          {formsState === "over_budget" && (
+            <div className="muted">Daily limit reached — try forms again tomorrow.</div>
+          )}
+          {formsState === "none" && <div className="muted">No forms for this word.</div>}
+          {forms && forms.length > 0 && (
+            <div className="stack" style={{ gap: 3 }}>
+              {forms.map((f) => (
+                <div key={f.label} style={{ display: "flex", gap: 8, alignItems: "baseline" }}>
+                  <span className="muted" style={{ minWidth: 96, fontSize: 12 }}>{f.label}</span>
+                  <span style={{ fontWeight: 700 }}>{f.fr}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      <div>
+        <div className="btn-row" style={{ justifyContent: "space-between", alignItems: "center" }}>
+          <div className="muted" style={LABEL}>Examples</div>
+          <button className="btn secondary" style={{ padding: "4px 10px" }} onClick={newExample} disabled={exState === "loading"}>
+            {exState === "loading" ? "…" : examples.length ? "🔄 New example" : "✨ Get examples"}
+          </button>
+        </div>
+        {exState === "over_budget" && (
+          <div className="muted">Daily limit reached — more examples tomorrow.</div>
+        )}
+        {examples.length === 0 && exState === "idle" ? (
+          <div className="muted">Press for a sentence using this word.</div>
+        ) : (
+          <ol className="stack" style={{ gap: 6, margin: "4px 0 0", paddingLeft: 18 }}>
+            {examples.map((e, i) => (
+              <li key={`${e.fr}-${i}`}>
+                <div style={{ fontWeight: 600 }}>{e.fr}</div>
+                {e.en && <div className="muted" style={{ fontSize: 13 }}>{e.en}</div>}
+              </li>
+            ))}
+          </ol>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Only nouns, verbs and adjectives have a useful form table (matches the backend skip).
+const inflects = (pos?: string) => pos === "noun" || pos === "verb" || pos === "adjective";
+
+const LINK = { padding: "4px 0", border: "none", boxShadow: "none", background: "none", color: "var(--green-dk)", fontSize: 13, textAlign: "left" as const };
+const LABEL = { fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: 0.4 };

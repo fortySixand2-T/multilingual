@@ -11,6 +11,8 @@ vi.mock("../api", () => ({
     myDeck: vi.fn(),
     personalPreview: vi.fn(),
     personalAdd: vi.fn(),
+    personalForms: vi.fn(),
+    personalExamples: vi.fn(),
   },
   fetchAudioUrl: vi.fn(),
 }));

@@ -217,3 +217,17 @@
 - [2026-08-06] Modified: app/content/data/fr_gender.tsv — Full Lexique383 gender extract (45,687 surface forms) replacing the seed set; widens enrich gender coverage
 - [2026-08-06] Created: scripts/build_gender_table.py — Regenerator: Lexique383.tsv → fr_gender.tsv (per-lemma gender, split animate m/f pairs, curated overrides)
 - [2026-08-06] Modified: tests/test_enrich.py — Added regression test locking full-table coverage + animate m/f split (chien/chienne) + overrides
+- [2026-08-09] Created: app/content/forms.py — Word forms (pos-based, cached) + fresh usage-example sentence generation for vocab cards
+- [2026-08-09] Modified: app/config/ai_routing.yaml — Added vocab_forms (cached) + vocab_examples (uncached) LLM profiles
+- [2026-08-09] Modified: app/config/ai_routing.ollama.yaml — Mirrored vocab_forms/vocab_examples profiles for the self-hosted routing
+- [2026-08-09] Modified: app/content/tables.py — UserVocab: added forms/examples JSON columns (on-demand study extras)
+- [2026-08-09] Created: migrations/versions/0019_vocab_forms_examples.py — Add user_vocab.forms + user_vocab.examples
+- [2026-08-09] Modified: app/content/personal.py — card_payload surfaces forms/examples
+- [2026-08-09] Modified: app/content/personal_api.py — POST /vocab/personal/forms (cached) + /examples (fresh each press, rolling history), metered on vocab budget
+- [2026-08-09] Created: tests/test_forms.py — Unit tests for forms parsing, non-inflecting skip, example merge/history
+- [2026-08-09] Modified: tests/test_personal_vocab.py — API tests for forms caching + fresh-examples history + over-budget paths
+- [2026-08-09] Modified: web/src/api.ts — WordForm/WordExample types, PersonalCard forms/examples, personalForms/personalExamples clients
+- [2026-08-09] Created: web/src/screens/WordDetail.tsx — Expandable per-card panel: forms (lazy) + example sentences with a "New example" button
+- [2026-08-09] Modified: web/src/screens/MyDeck.tsx — Render WordDetail under each personal card
+- [2026-08-09] Created: web/src/screens/WordDetail.test.tsx — Tests for expand/forms/fresh-examples/over-budget
+- [2026-08-09] Modified: web/src/screens/MyDeck.test.tsx — Extended api mock with personalForms/personalExamples
