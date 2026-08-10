@@ -85,6 +85,11 @@ class UserVocab(Base):
     ipa: Mapped[str] = mapped_column(String(64), default="")
     source: Mapped[str] = mapped_column(String(32), default="")  # "manual" | "speaking"
     audio_key: Mapped[str | None] = mapped_column(String(128), nullable=True)  # lazy-TTS cache
+    # Study extras, generated on demand (vocab forms slice):
+    #  forms    — cached morphological forms [{label, fr}] (stable; generated once)
+    #  examples — rolling history of generated usage sentences [{fr, en}], newest first
+    forms: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    examples: Mapped[list | None] = mapped_column(JSON, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
     __table_args__ = (UniqueConstraint("user_id", "card_key", name="uq_uservocab_user_card"),)

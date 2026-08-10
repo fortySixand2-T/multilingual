@@ -23,6 +23,7 @@ from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
 from app.config.settings import Settings, get_settings
 from app.content.enrich import GenderTable, enrich
+from app.content.forms import generate_examples, generate_forms, merge_examples
 from app.content.personal import (
     EmptyLemmaError,
     add_personal,
@@ -30,6 +31,7 @@ from app.content.personal import (
     get_personal,
     list_personal,
 )
+from app.content.tables import UserVocab
 from app.db.session import get_session
 from app.speech.vocab_review import find_content_match
 from app.srs.service import seed_cards
@@ -173,6 +175,76 @@ async def add_from_word(
     seeded = await seed_cards(session, user.id, [row.card_key])
     await session.commit()
     return {"card": card_payload(row), "added": created, "review_seeded": seeded > 0}
+
+
+class CardBody(BaseModel):
+    card_key: str = Field(min_length=1, max_length=64)
+
+
+async def _load_card(session: AsyncSession, user_id: int, card_key: str) -> UserVocab:
+    card = await get_personal(session, user_id, card_key)
+    if card is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "no such card")
+    return card
+
+
+@router.post("/forms")
+async def card_forms(
+    body: CardBody,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+    ai_router: AIRouter = Depends(get_ai_router),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """The word's morphological forms (noun plural, verb conjugations, adjective m/f/pl).
+    Stable, so generated once and cached on the card — a second request returns the
+    stored forms with no LLM call. Metered on the daily 'vocab' budget."""
+    card = await _load_card(session, user.id, body.card_key)
+    if card.forms is not None:  # already generated (even if empty) — free, no model call
+        return {"forms": card.forms, "cached": True}
+
+    used = await tokens_used_today(session, user.id, "vocab", date.today())
+    if used >= settings.vocab_daily_token_budget:
+        return {"forms": [], "over_budget": True}
+
+    forms, llm = await generate_forms(ai_router, card.fr, card.pos, card.gender)
+    if llm is not None:
+        await add_usage(
+            session, user.id, "vocab", llm.usage.input_tokens, llm.usage.output_tokens, date.today()
+        )
+    card.forms = forms  # persist even when empty so we don't retry a non-inflecting word
+    await session.commit()
+    return {"forms": forms, "cached": False}
+
+
+@router.post("/examples")
+async def card_examples(
+    body: CardBody,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+    ai_router: AIRouter = Depends(get_ai_router),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """Fresh usage sentences for the word — new ones each press (uncached), prepended to
+    the card's small rolling history so past sentences stay visible. The recent history
+    is fed to the model as `avoid` to push it off repeats. Metered on 'vocab' budget."""
+    card = await _load_card(session, user.id, body.card_key)
+    used = await tokens_used_today(session, user.id, "vocab", date.today())
+    if used >= settings.vocab_daily_token_budget:
+        return {"examples": card.examples or [], "over_budget": True}
+
+    history = card.examples or []
+    fresh, llm = await generate_examples(
+        ai_router, card.fr, card.en, avoid=[e.get("fr", "") for e in history]
+    )
+    if llm is not None:
+        await add_usage(
+            session, user.id, "vocab", llm.usage.input_tokens, llm.usage.output_tokens, date.today()
+        )
+    merged = merge_examples(history, fresh)
+    card.examples = merged
+    await session.commit()
+    return {"examples": merged, "fresh": fresh}
 
 
 @router.get("")

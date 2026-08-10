@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api, PersonalCard, PersonalEnrichment } from "../api";
 import AudioButton from "../AudioButton";
+import WordDetail from "./WordDetail";
 
 // "My deck": a learner's own vocab cards. Add a word → look it up (dictionary
 // enrichment, Slice D) → confirm → it's stored and enters the normal review queue.
@@ -122,6 +123,7 @@ export default function MyDeck() {
                 <div style={{ marginTop: 6 }}>
                   <AudioButton audioUrl={c.audio_url} label="🔊" slow />
                 </div>
+                <WordDetail card={c} />
               </div>
             ))}
           </div>

@@ -199,6 +199,8 @@ export type PersonalEnrichment = {
   ipa: string;
   gender_source: string;
 };
+export type WordForm = { label: string; fr: string };
+export type WordExample = { fr: string; en: string };
 export type PersonalCard = {
   card_key: string;
   fr: string;
@@ -208,6 +210,8 @@ export type PersonalCard = {
   ipa: string;
   source: string;
   audio_url: string;
+  forms?: WordForm[]; // morphological forms (empty until first generated)
+  examples?: WordExample[]; // rolling history of usage sentences, newest first
 };
 export type Me = { user_id: number; level: string; xp: number; streak: number; last_active: string | null; xp_today: number; daily_goal: number };
 export type BoardMember = { user_id: number; display_name: string; level: string; xp: number; streak: number };
@@ -432,6 +436,18 @@ export const api = {
       body: JSON.stringify(b),
     }),
   myDeck: () => req<{ cards: PersonalCard[] }>("/vocab/personal"),
+  // A card's morphological forms — generated once, then served from cache.
+  personalForms: (card_key: string) =>
+    req<{ forms: WordForm[]; cached?: boolean; over_budget?: boolean }>(
+      "/vocab/personal/forms",
+      { method: "POST", body: JSON.stringify({ card_key }) }
+    ),
+  // Fresh usage sentences — new ones each press, prepended to the card's history.
+  personalExamples: (card_key: string) =>
+    req<{ examples: WordExample[]; fresh?: WordExample[]; over_budget?: boolean }>(
+      "/vocab/personal/examples",
+      { method: "POST", body: JSON.stringify({ card_key }) }
+    ),
 
   queue: (limit = 20) => req<{ due: DueCard[] }>(`/srs/queue?limit=${limit}`),
   hardest: (limit = 30) => req<{ cards: HardCard[] }>(`/srs/hardest?limit=${limit}`),

@@ -58,7 +58,8 @@ def personal_key(fr: str) -> str:
 
 def card_payload(v: UserVocab) -> dict:
     """Queue/list shape for a personal card. `level: 'personal'` tags its origin;
-    `audio_url` points at the lazy-TTS endpoint (no pre-built clip, so no `audio` key)."""
+    `audio_url` points at the lazy-TTS endpoint (no pre-built clip, so no `audio` key).
+    `forms`/`examples` are the on-demand study extras (empty until first generated)."""
     return {
         "card_key": v.card_key,
         "fr": v.fr,
@@ -70,6 +71,8 @@ def card_payload(v: UserVocab) -> dict:
         "personal": True,
         "source": v.source,
         "audio_url": f"/vocab/personal/audio/{v.card_key}",
+        "forms": v.forms or [],
+        "examples": v.examples or [],
     }
 
 

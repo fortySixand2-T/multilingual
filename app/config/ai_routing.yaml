@@ -71,6 +71,24 @@ profiles:
     cache: true
     cache_ttl: 604800   # 7 days; dictionary entries don't change
 
+  # Word forms: bare word + pos -> its inflected forms as strict JSON. Like enrichment,
+  # a word's form table is stable, so cache it; cheap model is plenty.
+  vocab_forms:
+    capability: llm
+    primary: "openrouter/z-ai/glm-4.6"
+    fallback: "anthropic/claude-haiku-4-5"
+    format: json
+    cache: true
+    cache_ttl: 604800   # 7 days; a word's forms don't change
+
+  # Usage examples: fresh sentences using the word. Deliberately NOT cached — the
+  # learner presses "new example" to get different sentences each time.
+  vocab_examples:
+    capability: llm
+    primary: "openrouter/z-ai/glm-4.6"
+    fallback: "anthropic/claude-haiku-4-5"
+    format: json
+
   # LLM-as-judge for offline model comparison on subjective profiles (drill eval).
   # Pinned to a strong model — a weak judge biases every ranking. Not user-facing.
   pairwise_judge:
