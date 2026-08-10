@@ -252,3 +252,4 @@
 - [2026-08-09] Modified: web/src/screens/WordDetail.tsx — QA #710: "Get examples" catch block silently reverted to `"idle"` on a failed POST /vocab/examples, giving zero UI feedback; added an `"error"` exState member + "Couldn't generate an example right now." message, mirroring the sibling Forms fallback pattern
 - [2026-08-09] Modified: web/src/screens/WordDetail.test.tsx — New regression test for QA #710 (examples-fetch failure shows an error message, not the stale placeholder)
 - [2026-08-09] Modified: qa/issues/710-word-detail-get-examples-silent-failure.md — Marked done with Resolution section
+- [2026-08-09] Created: qa/rounds/053-plan.md — QA round 053 plan + outcomes (feat/vocab-extra-content-decks): found/fixed issue 710
