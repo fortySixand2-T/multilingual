@@ -87,4 +87,17 @@ describe("WordDetail", () => {
 
     expect(await screen.findByText(/Daily limit reached/)).toBeInTheDocument();
   });
+
+  it("shows an error message when the examples request fails (e.g. 503)", async () => {
+    const user = userEvent.setup();
+    vi.mocked(api.vocabExamples).mockRejectedValue(new Error("503"));
+
+    render(<WordDetail cardKey="chat_a1" pos="noun" />);
+    await user.click(screen.getByRole("button", { name: /Forms & examples/ }));
+    await user.click(await screen.findByRole("button", { name: /Get examples/ }));
+
+    expect(await screen.findByText(/Couldn't generate an example right now/)).toBeInTheDocument();
+    // placeholder text must not silently reappear as if nothing happened
+    expect(screen.queryByText("Press for a sentence using this word.")).not.toBeInTheDocument();
+  });
 });

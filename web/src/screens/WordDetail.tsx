@@ -15,7 +15,7 @@ export default function WordDetail({ cardKey, pos }: { cardKey: string; pos?: st
   const [forms, setForms] = useState<WordForm[] | null>(null);
   const [examples, setExamples] = useState<WordExample[]>([]);
   const [formsState, setFormsState] = useState<"idle" | "loading" | "over_budget" | "none">("idle");
-  const [exState, setExState] = useState<"idle" | "loading" | "over_budget">("idle");
+  const [exState, setExState] = useState<"idle" | "loading" | "over_budget" | "error">("idle");
 
   const expand = async () => {
     setOpen(true);
@@ -49,7 +49,7 @@ export default function WordDetail({ cardKey, pos }: { cardKey: string; pos?: st
       setExamples(r.examples);
       setExState(r.over_budget ? "over_budget" : "idle");
     } catch {
-      setExState("idle");
+      setExState("error");
     }
   };
 
@@ -94,9 +94,13 @@ export default function WordDetail({ cardKey, pos }: { cardKey: string; pos?: st
         {exState === "over_budget" && (
           <div className="muted">Daily limit reached — more examples tomorrow.</div>
         )}
-        {examples.length === 0 && exState === "idle" ? (
+        {exState === "error" && (
+          <div className="muted">Couldn't generate an example right now.</div>
+        )}
+        {examples.length === 0 && exState === "idle" && (
           <div className="muted">Press for a sentence using this word.</div>
-        ) : (
+        )}
+        {examples.length > 0 && (
           <ol className="stack" style={{ gap: 6, margin: "4px 0 0", paddingLeft: 18 }}>
             {examples.map((e, i) => (
               <li key={`${e.fr}-${i}`}>
