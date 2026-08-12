@@ -1,0 +1,36 @@
+{
+  "model": "qwen2.5:3b-instruct-q4_K_M",
+  "seed": 42,
+  "samples": [
+    {
+      "task": "grammar_depuis",
+      "prompt": "Explain when to use 'depuis', 'il y a', and 'pendant' in French time expressions. Give one correct example sentence for each.",
+      "output": "Certainly! Let's break down the usage of \"depuis,\" \"il y a,\" and \"pendant\" in French time expressions, along with providing examples.\n\n### 1. **Depuis**\n- **Usage:** \"Depuis\" is used to indicate that something has started from a specific point in the past until now.\n- **Example Sentence:** \"Depuis le matin, je travaille à la bibliothèque.\" (Since morning, I have been working at the library.)\n\n### 2. **Il y a**\n- **Usage:** \"Il y a\" is used to indicate that something happened in the past and it's not happening now.\n- **Example Sentence:** \"Il y a trois jours, j'ai mangé une pomme.\" (Three days ago, I ate an apple.)\n\n### 3. **Pendant**\n- **Usage:** \"Pendant\" is used when you want to specify that something happened during a particular time period or while another action was occurring.\n- **Example Sentence:** \"Je lis pendant que tu cuisines.\" (I read while you are cooking.)\n\nEach of these expressions helps convey different nuances in the timing and duration of events."
+    },
+    {
+      "task": "writing_feedback",
+      "prompt": "Grade this A2 French text and return JSON with keys {\"clb_estimate\": int (1-12), \"errors\": [str], \"feedback\": str}. List each grammatical error you find. Text: \"Je suis allé au marché hier. J'ai acheter des pomme et j'ai bu un cafés. Il faisait très beau et je suis rentrer à la maison à midi.\"",
+      "output": "{\n  \"clb_estimate\": 2,\n  \"errors\": [\n    \"suis\"   ],\"should be \": \"ai\",\n    \"allé\":\"\",\n    \"acheter\":\"\",\n    \"des\":\"\",\n    \"pomme\":\"\",\n    \"j'ai\":\"\",\n    \"bu\":\"\",\n    \"un\":\"\",\n    \"cafés\":\"\",\n    \"Il\":\"\",\n    \"fait\":\"\",\n    \"faire\":\"\",\n    \"et\":\"\",\n    \"je suis\":\"\",\n    \"rentrer\":\"\",\n    \"à\":\"\",\n    \"midi\":\"\"\n  \t}"
+    },
+    {
+      "task": "vocab_enrich",
+      "prompt": "For the French word \"grenouille\" return JSON {\"en\": str, \"pos\": str, \"gender\": \"masculine\"|\"feminine\"|null, \"ipa\": str}.",
+      "output": "{\"en\": \"frog\", \"pos\": \"noun\", \"gender\": null, \"ipa\": \"ɡʁə.nuˈwi.lɛ}\"}"
+    },
+    {
+      "task": "drill_subjunctive",
+      "prompt": "Crée un exercice à trous de niveau B1 pour pratiquer le subjonctif après 'il faut que', avec le verbe 'faire' à la 2e personne du singulier (tu). Donne la phrase avec un trou, puis la bonne réponse.",
+      "output": "Voici une proposition d'exercice :\n\nTu __________ faire tes devoirs avant de partir pour l'école.\n\nLa bonne réponse est : \nTu dois faire\n\nPour compléter le premier trou, voici plusieurs options possibles :\nA) fais\nB) fasses\nC) faites\nD) font\n\nLa bonne réponse à ce trou serait B) fasses."
+    },
+    {
+      "task": "examiner_roleplay",
+      "prompt": "Le candidat dit : « Je pense que les réseaux sociaux sont mauvais pour les jeunes. » Réagissez et posez une question de relance.",
+      "output": "C'est un sujet intéressant. Quels arguments pouvez-vous donner pour soutenir cette affirmation ?"
+    },
+    {
+      "task": "correction_translation",
+      "prompt": "Correct and translate into natural French: 'I have been learning French since three years and I want improve my speaking.' Give only the corrected French sentence.",
+      "output": "J'ai été en train d'apprendre le français depuis trois ans et je veux améliorer ma prononciation."
+    }
+  ]
+}

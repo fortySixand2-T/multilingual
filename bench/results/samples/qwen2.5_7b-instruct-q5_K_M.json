@@ -1,0 +1,36 @@
+{
+  "model": "qwen2.5:7b-instruct-q5_K_M",
+  "seed": 42,
+  "samples": [
+    {
+      "task": "grammar_depuis",
+      "prompt": "Explain when to use 'depuis', 'il y a', and 'pendant' in French time expressions. Give one correct example sentence for each.",
+      "output": "Certainly! Understanding the nuances between \"depuis,\" \"il y a,\" and \"pendant\" is crucial for expressing time in French. Let's break down each of these expressions with examples:\n\n### 1. Depuis\n\n\"Depuis\" is used to indicate that an action or state has been ongoing from a specific point in the past up until now.\n\n**Example sentence:**\n- **French:** Je lis ce livre depuis deux heures.\n- **English:** I have been reading this book for two hours.\n\n### 2. Il y a\n\n\"Il y a\" is used to indicate that an action or state occurred at some time in the past, but it does not necessarily imply continuity into the present. It focuses on the duration of time since the event happened.\n\n**Example sentence:**\n- **French:** Il y a deux heures que je lis ce livre.\n- **English:** Two hours have passed since I started reading this book.\n\n### 3. Pendant\n\n\"Pendant\" is used to indicate that an action or state occurred during a specific period of time, which may or may not be ongoing at the moment being discussed.\n\n**Example sentence:**\n- **French:** Je lis ce livre pendant deux heures.\n- **English:** I read this book for two hours.\n\n### Summary\n\n- **Depuis**: Used to indicate that an action has been ongoing from a specific point in the past up until now. (e.g., \"Je lis depuis deux heures.\")\n- **Il y a**: Indicates that an event occurred at some time in the past, but it does not necessarily imply continuity into the present. (e.g., \"Il y a deux heures que je lis ce livre.\")\n- **Pendant**: Used to indicate that an action or state occurred during a specific period of time, which may or may not be ongoing at the moment being discussed. (e.g., \"Je lis pendant deux heures.\")\n\nEach of these expressions has its own distinct use and"
+    },
+    {
+      "task": "writing_feedback",
+      "prompt": "Grade this A2 French text and return JSON with keys {\"clb_estimate\": int (1-12), \"errors\": [str], \"feedback\": str}. List each grammatical error you find. Text: \"Je suis allé au marché hier. J'ai acheter des pomme et j'ai bu un cafés. Il faisait très beau et je suis rentrer à la maison à midi.\"",
+      "output": "{\"clb_estimate\": 2, \"errors\": [\"\"\t\t\t\t\t     \t\t],\"feedback\": \"The text contains several grammatical errors such as incorrect verb conjugations and missing accents. Corrected version: 'Je suis allé au marché hier. J'ai acheté des pommes et j'ai bu un café. Il faisait très beau et je suis rentré à la maison à midi.'\"}"
+    },
+    {
+      "task": "vocab_enrich",
+      "prompt": "For the French word \"grenouille\" return JSON {\"en\": str, \"pos\": str, \"gender\": \"masculine\"|\"feminine\"|null, \"ipa\": str}.",
+      "output": "{\"en\": \"frog\", \"pos\": \"noun\", \"gender\": \"masculine\", \"ipa\": \"/ɡʁənoj/\"}"
+    },
+    {
+      "task": "drill_subjunctive",
+      "prompt": "Crée un exercice à trous de niveau B1 pour pratiquer le subjonctif après 'il faut que', avec le verbe 'faire' à la 2e personne du singulier (tu). Donne la phrase avec un trou, puis la bonne réponse.",
+      "output": "Bien sûr ! Voici un exercice à trous de niveau B1 pour pratiquer l'utilisation du subjonctif après \"il faut que\" avec le verbe \"faire\" à la 2e personne du singulier (tu).\n\n**Phrase avec un trou :**\nIl faut que tu _______ tes devoirs avant d'aller au cinéma.\n\n**Réponse correcte :**\nIl faut que tu fasses tes devoirs avant d'aller au cinéma."
+    },
+    {
+      "task": "examiner_roleplay",
+      "prompt": "Le candidat dit : « Je pense que les réseaux sociaux sont mauvais pour les jeunes. » Réagissez et posez une question de relance.",
+      "output": "Je comprends votre point de vue. Les réseaux sociaux peuvent effectivement avoir des effets négatifs sur la santé mentale des jeunes, mais ils offrent aussi des opportunités d'apprendre et de se connecter. Quels aspects précis pensez-vous que les jeunes devraient éviter sur ces plateformes ?"
+    },
+    {
+      "task": "correction_translation",
+      "prompt": "Correct and translate into natural French: 'I have been learning French since three years and I want improve my speaking.' Give only the corrected French sentence.",
+      "output": "Je apprends le français depuis trois ans et je souhaite améliorer ma prononciation et mon parlé."
+    }
+  ]
+}

@@ -260,3 +260,8 @@
 - [2026-08-12] Created: bench/results/*.json + *.ps.txt — Raw benchmark results for 6 models (3b→14b) on the GTX 1070 box
 - [2026-08-12] Created: bench/reports/ollama-perf-2026-08-12.md — Rendered data report (VRAM fit, tokens/sec, TTFT per profile)
 - [2026-08-12] Created: bench/reports/FINDINGS-2026-08-12.md — Analysis + recommendation (qwen2.5:7b-instruct-q4_K_M; 14b spills, unusable)
+- [2026-08-12] Created: bench/gen_samples.py — Captures real model outputs (greedy+seed) for 6 French-teaching tasks with known ground truth
+- [2026-08-12] Created: bench/gen_on_box.sh — Runs sample generation across the model matrix on the box
+- [2026-08-12] Created: bench/build_eval_packet.py — Anonymizes samples (Model A–F) into a blind judge packet + hidden key
+- [2026-08-12] Created: bench/results/samples/*.json — Raw captured outputs per model
+- [2026-08-12] Created: bench/results/eval_key.json — Anonymization key (label → real model)

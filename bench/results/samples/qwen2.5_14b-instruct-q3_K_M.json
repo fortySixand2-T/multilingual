@@ -1,0 +1,36 @@
+{
+  "model": "qwen2.5:14b-instruct-q3_K_M",
+  "seed": 42,
+  "samples": [
+    {
+      "task": "grammar_depuis",
+      "prompt": "Explain when to use 'depuis', 'il y a', and 'pendant' in French time expressions. Give one correct example sentence for each.",
+      "output": "In French, the prepositions \"depuis,\" \"il y a,\" and \"pendant\" are used to express different aspects of time. Here's how you use them:\n\n1. **Depuis**: This word is used to indicate an action that started in the past and continues up until now or into the future. It translates roughly to \"since.\" For example, if someone has been living somewhere for a certain period, you would say they have lived there \"depuis\" a specific date or event.\n\n   - **Example**: *J'habite à Paris depuis trois ans.* (I've been living in Paris since three years ago.)\n\n2. **Il y a**: This phrase is used to indicate something that happened at a point in the past, similar to \"it was X time ago\" in English. It's often followed by a period of time and then a verb in the passé composé (compound past tense).\n\n   - **Example**: *Il y a deux semaines, j'ai visité Londres.* (Two weeks ago, I visited London.)\n\n3. **Pendant**: This word is used to indicate an action that occurred during a specific period of time or while something else was happening. It translates roughly to \"during\" in English.\n\n   - **Example**: *J'ai étudié pendant deux heures.* (I studied for two hours.)\n\nEach of these expressions helps you convey different nuances about when events occur, making your French more precise and expressive."
+    },
+    {
+      "task": "writing_feedback",
+      "prompt": "Grade this A2 French text and return JSON with keys {\"clb_estimate\": int (1-12), \"errors\": [str], \"feedback\": str}. List each grammatical error you find. Text: \"Je suis allé au marché hier. J'ai acheter des pomme et j'ai bu un cafés. Il faisait très beau et je suis rentrer à la maison à midi.\"",
+      "output": "{\n  \"clb_estimate\": 2,\n  \"errors\": [\n    \"J'ai acheter (should be J'ai acheté)\",\n    \"des pomme (should be des pommes)\",\n    \"un cafés (should be un café)\",\n    \"Il faisait très beau (correct but sounds odd, might want to rephrase)\",\n    \"je suis rentrer (should be je suis rentré)\"\n  ],\n  \"feedback\": \"The text shows basic understanding of French with some grammatical errors. It would benefit from more practice in verb conjugation and spelling.\"\n}"
+    },
+    {
+      "task": "vocab_enrich",
+      "prompt": "For the French word \"grenouille\" return JSON {\"en\": str, \"pos\": str, \"gender\": \"masculine\"|\"feminine\"|null, \"ipa\": str}.",
+      "output": "{\n  \"en\": \"frog\",\n  \"pos\": \"noun\",\n  \"gender\": \"feminine\",\n  \"ipa\": \"ɡʁə.nu.il\"\n}"
+    },
+    {
+      "task": "drill_subjunctive",
+      "prompt": "Crée un exercice à trous de niveau B1 pour pratiquer le subjonctif après 'il faut que', avec le verbe 'faire' à la 2e personne du singulier (tu). Donne la phrase avec un trou, puis la bonne réponse.",
+      "output": "Bien sûr ! Voici un exercice à trous pour pratiquer le subjonctif après \"il faut que\" avec le verbe \"faire\" à la deuxième personne du singulier :\n\nPhrase : Il faut que tu ________ tes devoirs avant d'aller jouer.\n\nRéponse correcte : Il faut que tu fasses tes devoirs avant d'aller jouer."
+    },
+    {
+      "task": "examiner_roleplay",
+      "prompt": "Le candidat dit : « Je pense que les réseaux sociaux sont mauvais pour les jeunes. » Réagissez et posez une question de relance.",
+      "output": "Je comprends votre point de vue, mais pouvez-vous développer pourquoi vous pensez cela ? Quels aspects spécifiques des réseaux sociaux trouvez-vous préjudiciables pour la jeunesse d'aujourd'hui ?"
+    },
+    {
+      "task": "correction_translation",
+      "prompt": "Correct and translate into natural French: 'I have been learning French since three years and I want improve my speaking.' Give only the corrected French sentence.",
+      "output": "J'apprends le français depuis trois ans et je veux améliorer ma conversation."
+    }
+  ]
+}

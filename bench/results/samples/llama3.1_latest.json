@@ -1,0 +1,36 @@
+{
+  "model": "llama3.1:latest",
+  "seed": 42,
+  "samples": [
+    {
+      "task": "grammar_depuis",
+      "prompt": "Explain when to use 'depuis', 'il y a', and 'pendant' in French time expressions. Give one correct example sentence for each.",
+      "output": "Bien sûr ! Let me explain the differences between \"depuis\", \"il y a\", and \"pendant\" in French time expressions.\n\n**Depuis**\n\n\"Depuis\" is used to indicate that an action or situation has been happening from a specific point in time until now. It's often translated as \"since\".\n\nExample sentence: J'ai étudié le français depuis trois ans. (I've been studying French for three years.)\n\nIn this example, the speaker started studying French three years ago and is still doing it now.\n\n**Il y a**\n\n\"Il y a\" is used to indicate that an action or situation happened at some point in the past, but not necessarily from a specific starting point. It's often translated as \"there has been\" or \"it has been\".\n\nExample sentence: Il y a deux ans que je suis allé à Paris. (It's two years since I went to Paris.)\n\nIn this example, the speaker went to Paris two years ago and is not necessarily still there now.\n\n**Pendant**\n\n\"Pendant\" is used to indicate that an action or situation happened during a specific period of time. It can be translated as \"during\", \"while\", or \"for\".\n\nExample sentence: J'ai étudié pendant trois ans avant de passer mon diplôme. (I studied for three years before getting my diploma.)\n\nIn this example, the speaker was studying for three years and then got their diploma.\n\nRemember that these expressions are often used in different contexts, but they all relate to time. Make sure to use them correctly to avoid confusion!"
+    },
+    {
+      "task": "writing_feedback",
+      "prompt": "Grade this A2 French text and return JSON with keys {\"clb_estimate\": int (1-12), \"errors\": [str], \"feedback\": str}. List each grammatical error you find. Text: \"Je suis allé au marché hier. J'ai acheter des pomme et j'ai bu un cafés. Il faisait très beau et je suis rentrer à la maison à midi.\"",
+      "output": "{\n  \"clb_estimate\": 4,\n  \"errors\": [\n    \"Impersonal verb 'faisait' should be replaced with a personal verb to match the subject-verb agreement.\",\n    \"Incorrect use of the imperfect tense for 'faire beau'. The correct form is 'était'\",\n    \"The verb 'acheter' should be in the infinitive form as it's used in a subordinate clause.\",\n    \"The verb 'bu' should be replaced with 'buvais' to match the subject-verb agreement and use of the imperfect tense.\",\n    \"Incorrect use of the verb 'rentrer'. The correct form is 'rentre'\",\n    \"Missing accent on 'pomme'\"\n  ],\n  \"feedback\": \"Your text shows some effort in using French grammar, but there are several errors that need to be corrected. Make sure to pay attention to subject-verb agreement and tense consistency.\"\n}"
+    },
+    {
+      "task": "vocab_enrich",
+      "prompt": "For the French word \"grenouille\" return JSON {\"en\": str, \"pos\": str, \"gender\": \"masculine\"|\"feminine\"|null, \"ipa\": str}.",
+      "output": "{\n  \"en\": \"frog\",\n  \"pos\": \"noun\",\n  \"gender\": \"feminine\",\n  \"ipa\": \"/ɡʁənwaʲl/\"\n}"
+    },
+    {
+      "task": "drill_subjunctive",
+      "prompt": "Crée un exercice à trous de niveau B1 pour pratiquer le subjonctif après 'il faut que', avec le verbe 'faire' à la 2e personne du singulier (tu). Donne la phrase avec un trou, puis la bonne réponse.",
+      "output": "Voici l'exercice :\n\nIl faut que tu ________ (faire) attention au trafic.\n\nRéponse : fasses\n\nNote : Le subjonctif est utilisé ici parce qu'il s'agit d'une opinion ou d'un conseil, et non d'une obligation."
+    },
+    {
+      "task": "examiner_roleplay",
+      "prompt": "Le candidat dit : « Je pense que les réseaux sociaux sont mauvais pour les jeunes. » Réagissez et posez une question de relance.",
+      "output": "\"Ah, intéressant ! Vous pensez donc que les réseaux sociaux ont un impact négatif sur la jeunesse. Pouvez-vous expliquer pourquoi vous avez cette opinion ? Quels sont les aspects spécifiques des réseaux sociaux qui vous inquiètent ?\""
+    },
+    {
+      "task": "correction_translation",
+      "prompt": "Correct and translate into natural French: 'I have been learning French since three years and I want improve my speaking.' Give only the corrected French sentence.",
+      "output": "J'apprends le français depuis trois ans et je veux améliorer ma prononciation.\n\n(Note: I changed \"parler\" to \"prononciation\", as it's more common in French to say \"améliorer ma prononciation\" when referring to improving one's speaking skills, rather than just saying \"parler\".)"
+    }
+  ]
+}
