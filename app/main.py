@@ -79,7 +79,11 @@ def create_app(web_dist: Path | None = None) -> FastAPI:
     # otherwise None -> router falls back to the static ai_routing.yaml order.
     policy = load_bandit_policy(settings.model_weights_path)
     app.state.ai_router = AIRouter.from_yaml(
-        registry, settings.ai_routing_path, cache=cache, policy=policy
+        registry,
+        settings.ai_routing_path,
+        cache=cache,
+        policy=policy,
+        ollama_model=settings.ollama_model,
     )
 
     app.add_exception_handler(AllProvidersFailedError, _ai_unavailable)

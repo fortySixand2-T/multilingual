@@ -18,6 +18,14 @@ class Settings(BaseSettings):
     openrouter_api_key: str = ""
     deepseek_api_key: str = ""
     ollama_base_url: str = "http://localhost:11434"
+    # Local Ollama model tag substituted into `ollama/${OLLAMA_MODEL}` targets in
+    # the routing YAML (see ai_routing.ollama.yaml). The tag carries BOTH the model
+    # and its quantization, so swapping model or quant is a one-line env change with
+    # no new config file, e.g. OLLAMA_MODEL=qwen2.5:7b-instruct-q4_K_M (fits the 8 GB
+    # 1070) or qwen2.5:14b-instruct-q3_K_M (bigger model, lower quant, to fit). The
+    # model must be pulled on the box first. Files that hardcode a model (no
+    # placeholder) are unaffected.
+    ollama_model: str = "llama3.1"
     ai_routing_path: str = "app/config/ai_routing.yaml"
     # Learned routing weights from offline model eval (BanditPolicy). Absent by
     # default -> router uses the static ai_routing.yaml order (no behavior change).
