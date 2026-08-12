@@ -1,0 +1,37 @@
+{
+  "method": "Blind eval by a context-free judge agent (expert-FLE-examiner role, no project knowledge, no model identities). Greedy decoding + fixed seed. 6 tasks, several with known ground-truth answer key. Scores 0-10 per task; mean_overall is the average across 6 tasks.",
+  "legend_label_to_model": {
+    "Model A": "qwen2.5:14b-instruct-q3_K_M",
+    "Model B": "llama3.1:latest",
+    "Model C": "qwen2.5:7b-instruct-q4_K_M",
+    "Model D": "qwen2.5:3b-instruct-q4_K_M",
+    "Model E": "qwen2.5:7b-instruct-q5_K_M",
+    "Model F": "qwen2.5:7b-instruct-q6_K"
+  },
+  "mean_overall_by_model": {
+    "qwen2.5:14b-instruct-q3_K_M": 8.0,
+    "qwen2.5:7b-instruct-q5_K_M": 6.5,
+    "qwen2.5:7b-instruct-q4_K_M": 6.33,
+    "qwen2.5:7b-instruct-q6_K": 5.67,
+    "llama3.1:latest": 5.33,
+    "qwen2.5:3b-instruct-q4_K_M": 3.67
+  },
+  "per_task_overall": {
+    "task_order": ["grammar_depuis", "writing_feedback", "vocab_enrich", "drill_subjunctive", "examiner_roleplay", "correction_translation"],
+    "qwen2.5:14b-instruct-q3_K_M": [9, 6, 8, 9, 7, 9],
+    "qwen2.5:7b-instruct-q5_K_M": [8, 5, 2, 9, 8, 7],
+    "qwen2.5:7b-instruct-q4_K_M": [8, 5, 3, 9, 6, 7],
+    "qwen2.5:7b-instruct-q6_K": [6, 6, 3, 8, 7, 4],
+    "llama3.1:latest": [3, 2, 6, 5, 8, 8],
+    "qwen2.5:3b-instruct-q4_K_M": [6, 1, 2, 3, 6, 4]
+  },
+  "ranking_best_first": [
+    "qwen2.5:14b-instruct-q3_K_M",
+    "qwen2.5:7b-instruct-q5_K_M",
+    "qwen2.5:7b-instruct-q4_K_M",
+    "qwen2.5:7b-instruct-q6_K",
+    "llama3.1:latest",
+    "qwen2.5:3b-instruct-q4_K_M"
+  ],
+  "note": "Raw per-criterion scores and per-task notes are in the judge transcript; this file records the de-anonymized aggregates. n=1 sample/task, single judge — treat the three 7B quants (6.5/6.33/5.67) as a statistical tie."
+}

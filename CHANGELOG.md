@@ -265,3 +265,5 @@
 - [2026-08-12] Created: bench/build_eval_packet.py — Anonymizes samples (Model A–F) into a blind judge packet + hidden key
 - [2026-08-12] Created: bench/results/samples/*.json — Raw captured outputs per model
 - [2026-08-12] Created: bench/results/eval_key.json — Anonymization key (label → real model)
+- [2026-08-12] Created: bench/results/quality_scores.json — De-anonymized blind-judge quality scores (0–10/task, 6 models)
+- [2026-08-12] Created: bench/reports/QUALITY-2026-08-12.md — Output-quality report + revised speed×quality verdict
