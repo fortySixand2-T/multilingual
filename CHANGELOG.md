@@ -257,3 +257,6 @@
 - [2026-08-12] Created: bench/run_on_box.sh — Orchestrates the benchmark matrix on the box (pull/unload/measure/restore live model)
 - [2026-08-12] Created: bench/render_report.py — Renders results/*.json into a markdown report
 - [2026-08-12] Created: bench/README.md — How to run the model/quant benchmark
+- [2026-08-12] Created: bench/results/*.json + *.ps.txt — Raw benchmark results for 6 models (3b→14b) on the GTX 1070 box
+- [2026-08-12] Created: bench/reports/ollama-perf-2026-08-12.md — Rendered data report (VRAM fit, tokens/sec, TTFT per profile)
+- [2026-08-12] Created: bench/reports/FINDINGS-2026-08-12.md — Analysis + recommendation (qwen2.5:7b-instruct-q4_K_M; 14b spills, unusable)

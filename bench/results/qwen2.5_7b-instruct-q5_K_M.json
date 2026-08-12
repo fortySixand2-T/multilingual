@@ -1,0 +1,190 @@
+{
+  "model": "qwen2.5:7b-instruct-q5_K_M",
+  "runs_per_profile": 3,
+  "fit": {
+    "resident": true,
+    "size_gb": 6.7,
+    "vram_gb": 6.7,
+    "gpu_fraction": 1.0,
+    "fully_on_gpu": true
+  },
+  "cold_load_s": 4.866,
+  "mean_gen_tok_per_s": 25.25,
+  "profiles": [
+    {
+      "profile": "drill_a2",
+      "total_s": 1.211,
+      "gen_tok_per_s": 25.69,
+      "prompt_tok_per_s": 8861.472,
+      "gen_tokens": 30,
+      "prompt_tokens": 63,
+      "ttft_s": 0.072,
+      "samples": [
+        {
+          "total_s": 1.211459987,
+          "load_s": 0.031348443,
+          "prompt_tokens": 63,
+          "prompt_tok_per_s": 8452.060182961613,
+          "gen_tokens": 30,
+          "gen_tok_per_s": 25.69044146868236
+        },
+        {
+          "total_s": 1.833274993,
+          "load_s": 0.02403992,
+          "prompt_tokens": 63,
+          "prompt_tok_per_s": 8889.75560086352,
+          "gen_tokens": 46,
+          "gen_tok_per_s": 25.59259782667036
+        },
+        {
+          "total_s": 1.200389643,
+          "load_s": 0.021732572,
+          "prompt_tokens": 63,
+          "prompt_tok_per_s": 8861.472399748616,
+          "gen_tokens": 30,
+          "gen_tok_per_s": 25.7165194291206
+        }
+      ]
+    },
+    {
+      "profile": "grammar_explain",
+      "total_s": 16.364,
+      "gen_tok_per_s": 24.499,
+      "prompt_tok_per_s": 4705.746,
+      "gen_tokens": 400,
+      "prompt_tokens": 49,
+      "ttft_s": 0.074,
+      "samples": [
+        {
+          "total_s": 16.364036959,
+          "load_s": 0.02121045,
+          "prompt_tokens": 49,
+          "prompt_tok_per_s": 4705.746321282813,
+          "gen_tokens": 400,
+          "gen_tok_per_s": 24.498616662795797
+        },
+        {
+          "total_s": 16.403124001,
+          "load_s": 0.021013383,
+          "prompt_tokens": 49,
+          "prompt_tok_per_s": 6881.939347361816,
+          "gen_tokens": 400,
+          "gen_tok_per_s": 24.43463945960867
+        },
+        {
+          "total_s": 16.256365765,
+          "load_s": 0.022501145,
+          "prompt_tokens": 49,
+          "prompt_tok_per_s": 4681.938257464753,
+          "gen_tokens": 400,
+          "gen_tok_per_s": 24.663183085981395
+        }
+      ]
+    },
+    {
+      "profile": "writing_feedback",
+      "total_s": 3.226,
+      "gen_tok_per_s": 25.212,
+      "prompt_tok_per_s": 9969.358,
+      "gen_tokens": 80,
+      "prompt_tokens": 71,
+      "ttft_s": 0.074,
+      "samples": [
+        {
+          "total_s": 2.809540755,
+          "load_s": 0.020994159,
+          "prompt_tokens": 71,
+          "prompt_tok_per_s": 9969.357564769582,
+          "gen_tokens": 70,
+          "gen_tok_per_s": 25.211912408765265
+        },
+        {
+          "total_s": 3.309485241,
+          "load_s": 0.020991391,
+          "prompt_tokens": 71,
+          "prompt_tok_per_s": 9970.838807347243,
+          "gen_tokens": 83,
+          "gen_tok_per_s": 25.335163865872595
+        },
+        {
+          "total_s": 3.226485695,
+          "load_s": 0.025174839,
+          "prompt_tokens": 71,
+          "prompt_tok_per_s": 9885.535248129023,
+          "gen_tokens": 80,
+          "gen_tok_per_s": 25.08528561251417
+        }
+      ]
+    },
+    {
+      "profile": "examiner_roleplay",
+      "total_s": 2.125,
+      "gen_tok_per_s": 25.34,
+      "prompt_tok_per_s": 7141.502,
+      "gen_tokens": 53,
+      "prompt_tokens": 50,
+      "ttft_s": 0.071,
+      "samples": [
+        {
+          "total_s": 2.519863482,
+          "load_s": 0.021218348,
+          "prompt_tokens": 50,
+          "prompt_tok_per_s": 7141.502297849779,
+          "gen_tokens": 63,
+          "gen_tok_per_s": 25.333864830847318
+        },
+        {
+          "total_s": 2.124913886,
+          "load_s": 0.021484795,
+          "prompt_tokens": 50,
+          "prompt_tok_per_s": 7135.973986234992,
+          "gen_tokens": 53,
+          "gen_tok_per_s": 25.33977115431784
+        },
+        {
+          "total_s": 1.767325281,
+          "load_s": 0.022535172,
+          "prompt_tokens": 50,
+          "prompt_tok_per_s": 7150.739300634815,
+          "gen_tokens": 44,
+          "gen_tok_per_s": 25.41419314103261
+        }
+      ]
+    },
+    {
+      "profile": "vocab_enrich",
+      "total_s": 1.406,
+      "gen_tok_per_s": 25.498,
+      "prompt_tok_per_s": 7483.871,
+      "gen_tokens": 35,
+      "prompt_tokens": 54,
+      "ttft_s": 0.071,
+      "samples": [
+        {
+          "total_s": 1.478759422,
+          "load_s": 0.023589886,
+          "prompt_tokens": 54,
+          "prompt_tok_per_s": 6200.141248403033,
+          "gen_tokens": 36,
+          "gen_tok_per_s": 24.97870355631329
+        },
+        {
+          "total_s": 1.399537301,
+          "load_s": 0.021179603,
+          "prompt_tokens": 54,
+          "prompt_tok_per_s": 7483.871218098439,
+          "gen_tokens": 35,
+          "gen_tok_per_s": 25.61546635979865
+        },
+        {
+          "total_s": 1.406039165,
+          "load_s": 0.021565594,
+          "prompt_tokens": 54,
+          "prompt_tok_per_s": 7689.043682311498,
+          "gen_tokens": 35,
+          "gen_tok_per_s": 25.497636441588003
+        }
+      ]
+    }
+  ]
+}
