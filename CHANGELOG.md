@@ -253,3 +253,7 @@
 - [2026-08-09] Modified: web/src/screens/WordDetail.test.tsx — New regression test for QA #710 (examples-fetch failure shows an error message, not the stale placeholder)
 - [2026-08-09] Modified: qa/issues/710-word-detail-get-examples-silent-failure.md — Marked done with Resolution section
 - [2026-08-09] Created: qa/rounds/053-plan.md — QA round 053 plan + outcomes (feat/vocab-extra-content-decks): found/fixed issue 710
+- [2026-08-12] Created: bench/ollama_perf.py — In-container Ollama perf probe (native tokens/sec, TTFT, VRAM fit via /api/ps) across app routing profiles
+- [2026-08-12] Created: bench/run_on_box.sh — Orchestrates the benchmark matrix on the box (pull/unload/measure/restore live model)
+- [2026-08-12] Created: bench/render_report.py — Renders results/*.json into a markdown report
+- [2026-08-12] Created: bench/README.md — How to run the model/quant benchmark
