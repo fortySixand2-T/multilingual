@@ -1,0 +1,2 @@
+NAME                           ID              SIZE      PROCESSOR          UNTIL   
+qwen2.5:14b-instruct-q3_K_M    4d8dbee0507f    9.4 GB    12%/88% CPU/GPU    Forever    

@@ -1,0 +1,8 @@
+{
+  "Model B": "llama3.1:latest",
+  "Model A": "qwen2.5:14b-instruct-q3_K_M",
+  "Model D": "qwen2.5:3b-instruct-q4_K_M",
+  "Model C": "qwen2.5:7b-instruct-q4_K_M",
+  "Model F": "qwen2.5:7b-instruct-q5_K_M",
+  "Model E": "qwen2.5:7b-instruct-q6_K"
+}

@@ -1,0 +1,2 @@
+NAME                        ID              SIZE      PROCESSOR    UNTIL   
+qwen2.5:7b-instruct-q6_K    a7e494737d58    7.5 GB    100% GPU     Forever    
