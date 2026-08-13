@@ -15,6 +15,7 @@ import hashlib
 import json
 from dataclasses import dataclass, replace
 from pathlib import Path
+from string import Template
 
 import yaml
 
@@ -45,8 +46,18 @@ class AIRouter:
         self._policy = policy or StaticPolicy()
 
     @classmethod
-    def from_yaml(cls, registry, path: str, cache=None, policy=None) -> AIRouter:
-        raw = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
+    def from_yaml(
+        cls, registry, path: str, cache=None, policy=None, ollama_model: str = "llama3.1"
+    ) -> AIRouter:
+        # Substitute ${OLLAMA_MODEL} (the full Ollama tag, incl. quantization) into
+        # the routing text before parsing, so the local model/quant is one env var
+        # instead of a hardcoded id repeated across every profile. safe_substitute
+        # leaves any other `$...` untouched and never raises on an absent key, so
+        # routing files without the placeholder are passed through unchanged.
+        text = Template(Path(path).read_text(encoding="utf-8")).safe_substitute(
+            OLLAMA_MODEL=ollama_model
+        )
+        raw = yaml.safe_load(text) or {}
         profiles = {name: ProfileConfig(**cfg) for name, cfg in (raw.get("profiles") or {}).items()}
         return cls(registry, profiles, cache=cache, policy=policy)
 

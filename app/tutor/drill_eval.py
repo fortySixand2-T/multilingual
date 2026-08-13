@@ -85,7 +85,10 @@ def run_drill_eval(
         return messages[0].content
 
     print(f"  comparing {available} on {len(items)} drill items (judge = pairwise_judge) ...")
-    judge = PairwiseJudge(AIRouter.from_yaml(registry, get_settings().ai_routing_path))
+    _s = get_settings()
+    judge = PairwiseJudge(
+        AIRouter.from_yaml(registry, _s.ai_routing_path, ollama_model=_s.ollama_model)
+    )
     return run_pairwise_eval(
         available, items, generate=generate, describe=describe, judge=judge, lam=lam
     )

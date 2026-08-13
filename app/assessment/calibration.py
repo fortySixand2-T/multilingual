@@ -70,7 +70,11 @@ def run_calibration(content_root: str | Path, level: str, tolerance: int = 1) ->
     from app.config.settings import get_settings
 
     settings = get_settings()
-    router = AIRouter.from_yaml(build_default_registry(settings), settings.ai_routing_path)
+    router = AIRouter.from_yaml(
+        build_default_registry(settings),
+        settings.ai_routing_path,
+        ollama_model=settings.ollama_model,
+    )
     grader = WritingGrader(router)
 
     pairs: list[tuple[int, int]] = []

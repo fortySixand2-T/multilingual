@@ -1,62 +1,67 @@
 # Fully self-hosted routing: every profile runs on local Ollama, no API keys, no
 # cloud fallback. Select it by setting AI_ROUTING_PATH to this file in .env. Use on
-# a box with Ollama + a pulled model (default: llama3.1). If Ollama is down these
-# degrade to a clean 503 (there is no cloud fallback by design).
+# a box with Ollama + a pulled model. If Ollama is down these degrade to a clean 503
+# (there is no cloud fallback by design).
+#
+# The model is NOT hardcoded here: `${OLLAMA_MODEL}` is filled from the OLLAMA_MODEL
+# env var (default: llama3.1) at load time. The tag carries the quantization too, so
+# swapping model or quant is one env var + a matching `ollama pull` on the box —
+# e.g. OLLAMA_MODEL=qwen2.5:7b-instruct-q4_K_M or qwen2.5:14b-instruct-q3_K_M.
 profiles:
   drill_a1:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
   drill_a2:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
   drill_b1:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
   drill_b2:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
 
   grammar_explain:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
     cache: true          # a fixed grammar point's explanation is reusable
     cache_ttl: 86400
 
   writing_feedback:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
     format: json         # grader parses a strict schema — constrain Ollama to valid JSON
 
   examiner_roleplay:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
 
   vocab_extract:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
     format: json         # strict JSON word list — constrain Ollama to valid JSON
 
   vocab_enrich:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
     format: json         # strict JSON dictionary entry — constrain Ollama to valid JSON
     cache: true          # a word's dictionary entry is stable
     cache_ttl: 604800
 
   vocab_forms:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
     format: json         # strict JSON form table — constrain Ollama to valid JSON
     cache: true          # a word's forms are stable
     cache_ttl: 604800
 
   vocab_examples:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"
     format: json         # strict JSON sentence list — constrain Ollama to valid JSON
     # not cached: "new example" should return different sentences each press
 
   # Eval-only (offline model comparison). Kept local so the CLIs don't 503.
   pairwise_judge:
     capability: llm
-    primary: "ollama/llama3.1"
+    primary: "ollama/${OLLAMA_MODEL}"

@@ -253,6 +253,14 @@
 - [2026-08-09] Modified: web/src/screens/WordDetail.test.tsx — New regression test for QA #710 (examples-fetch failure shows an error message, not the stale placeholder)
 - [2026-08-09] Modified: qa/issues/710-word-detail-get-examples-silent-failure.md — Marked done with Resolution section
 - [2026-08-09] Created: qa/rounds/053-plan.md — QA round 053 plan + outcomes (feat/vocab-extra-content-decks): found/fixed issue 710
+- [2026-08-12] Modified: app/config/settings.py — Added OLLAMA_MODEL setting (default llama3.1); full Ollama tag incl. quantization, substituted into ollama routing targets
+- [2026-08-12] Modified: app/ai/router.py — from_yaml() substitutes ${OLLAMA_MODEL} into routing text via string.Template.safe_substitute before parsing (new ollama_model arg)
+- [2026-08-12] Modified: app/config/ai_routing.ollama.yaml — Every profile now targets ollama/${OLLAMA_MODEL} instead of hardcoded llama3.1; header documents model/quant swap
+- [2026-08-12] Modified: app/main.py — Pass settings.ollama_model to AIRouter.from_yaml
+- [2026-08-12] Modified: app/assessment/calibration.py — Pass settings.ollama_model to AIRouter.from_yaml
+- [2026-08-12] Modified: app/tutor/drill_eval.py — Pass settings.ollama_model to AIRouter.from_yaml
+- [2026-08-12] Modified: .env.example — Document OLLAMA_MODEL (model+quant selector) with 8 GB-fit examples
+- [2026-08-12] Modified: tests/test_ai_router.py — Tests for ${OLLAMA_MODEL} substitution and default/no-placeholder passthrough
 - [2026-08-12] Created: bench/ollama_perf.py — In-container Ollama perf probe (native tokens/sec, TTFT, VRAM fit via /api/ps) across app routing profiles
 - [2026-08-12] Created: bench/run_on_box.sh — Orchestrates the benchmark matrix on the box (pull/unload/measure/restore live model)
 - [2026-08-12] Created: bench/render_report.py — Renders results/*.json into a markdown report
