@@ -15,7 +15,9 @@ vi.mock("../api", () => ({
     addToReview: vi.fn(() => Promise.resolve({ added: true })),
     vocabExtra: vi.fn(() => Promise.resolve({ forms: null, examples: [] })),
     vocabForms: vi.fn(() => Promise.resolve({ forms: [], cached: true })),
-    vocabExamples: vi.fn(() => Promise.resolve({ examples: [] })),
+    vocabExamples: vi.fn(() =>
+      Promise.resolve({ examples: [{ fr: "Bonjour, ça va ?", en: "Hello, how are you?" }] }),
+    ),
   },
   fetchAudioUrl: vi.fn(),
 }));
@@ -61,10 +63,12 @@ describe("Deck flashcards", () => {
 
     await user.click(screen.getByRole("button", { name: "Show meaning" }));
 
-    // …and still not shown after: the panel is already open, hydrated directly.
+    // …and still not shown after: the panel is already open, hydrated directly, and
+    // an example is auto-generated — no expander and no "Get examples" press.
     expect(screen.queryByRole("button", { name: /Forms & examples/ })).not.toBeInTheDocument();
-    expect(await screen.findByRole("button", { name: /Get examples/ })).toBeInTheDocument();
+    expect(await screen.findByText("Bonjour, ça va ?")).toBeInTheDocument();
     expect(vi.mocked(api.vocabExtra)).toHaveBeenCalled();
+    expect(vi.mocked(api.vocabExamples)).toHaveBeenCalled();
   });
 
   it("advances through every card to a completion summary", async () => {

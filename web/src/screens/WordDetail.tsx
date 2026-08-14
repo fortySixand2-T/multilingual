@@ -30,41 +30,34 @@ export default function WordDetail({
   const [exState, setExState] = useState<"idle" | "loading" | "over_budget" | "error">("idle");
 
   // Load stored extras (and generate forms once for inflecting words). Guarded so a
-  // second open — or the defaultOpen mount below — never re-fetches.
-  const hydrate = async () => {
-    if (formsState !== "idle" || examples.length) return; // already hydrated
+  // second open — or the defaultOpen mount below — never re-fetches. Returns the
+  // number of stored examples found, so the caller can decide whether to auto-generate.
+  const hydrate = async (): Promise<number> => {
+    if (formsState !== "idle" || examples.length) return examples.length; // already hydrated
     setFormsState(inflects(pos) ? "loading" : "none");
     try {
       const extra = await api.vocabExtra(cardKey);
       setExamples(extra.examples);
-      if (!inflects(pos)) return;
-      if (extra.forms !== null) {
-        // already generated (possibly []) — show it, don't regenerate
-        setForms(extra.forms);
-        setFormsState(extra.forms.length ? "idle" : "none");
-        return;
+      if (inflects(pos)) {
+        if (extra.forms !== null) {
+          // already generated (possibly []) — show it, don't regenerate
+          setForms(extra.forms);
+          setFormsState(extra.forms.length ? "idle" : "none");
+        } else {
+          const r = await api.vocabForms(cardKey); // generate once
+          if (r.over_budget) setFormsState("over_budget");
+          else {
+            setForms(r.forms);
+            setFormsState(r.forms.length ? "idle" : "none");
+          }
+        }
       }
-      const r = await api.vocabForms(cardKey); // generate once
-      if (r.over_budget) setFormsState("over_budget");
-      else {
-        setForms(r.forms);
-        setFormsState(r.forms.length ? "idle" : "none");
-      }
+      return extra.examples.length;
     } catch {
       setFormsState("none");
+      return 0;
     }
   };
-
-  const expand = () => {
-    setOpen(true);
-    void hydrate();
-  };
-
-  // defaultOpen: hydrate on mount without waiting for a click.
-  useEffect(() => {
-    if (defaultOpen) void hydrate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const newExample = async () => {
     setExState("loading");
@@ -76,6 +69,23 @@ export default function WordDetail({
       setExState("error");
     }
   };
+
+  const expand = () => {
+    setOpen(true);
+    void hydrate();
+  };
+
+  // defaultOpen: hydrate on mount without waiting for a click, and — since the panel
+  // only appears here once the meaning is revealed — auto-generate a first example
+  // too, so forms AND examples are shown without any press (any stored examples are
+  // used instead of a fresh call). Local inference makes the extra call cheap.
+  useEffect(() => {
+    if (!defaultOpen) return;
+    hydrate().then((stored) => {
+      if (!stored) void newExample();
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!open) {
     return (
@@ -120,6 +130,9 @@ export default function WordDetail({
         )}
         {exState === "error" && (
           <div className="muted">Couldn't generate an example right now.</div>
+        )}
+        {examples.length === 0 && exState === "loading" && (
+          <div className="muted">Generating an example…</div>
         )}
         {examples.length === 0 && exState === "idle" && (
           <div className="muted">Press for a sentence using this word.</div>
