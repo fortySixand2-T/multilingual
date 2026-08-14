@@ -275,3 +275,7 @@
 - [2026-08-12] Created: bench/results/eval_key.json — Anonymization key (label → real model)
 - [2026-08-12] Created: bench/results/quality_scores.json — De-anonymized blind-judge quality scores (0–10/task, 6 models)
 - [2026-08-12] Created: bench/reports/QUALITY-2026-08-12.md — Output-quality report + revised speed×quality verdict
+- [2026-08-13] Modified: web/src/screens/WordDetail.tsx — Added `defaultOpen` prop that hydrates forms/examples on mount (extracted `hydrate()` from `expand()`), removing the extra expander step
+- [2026-08-13] Modified: web/src/screens/Deck.tsx — Pass `defaultOpen` to WordDetail so forms & examples show as soon as the meaning is revealed (no dropdown click)
+- [2026-08-13] Modified: web/src/screens/WordDetail.test.tsx — Test: defaultOpen hydrates on mount with no click
+- [2026-08-13] Modified: web/src/screens/Deck.test.tsx — Mock vocab-extra endpoints; test panel auto-opens on flip with no expander

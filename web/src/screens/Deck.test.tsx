@@ -6,11 +6,16 @@ import Deck from "./Deck";
 import { api } from "../api";
 
 // Deck uses api.vocab / api.setKnown; AudioButton (for cards with audio) uses fetchAudioUrl.
+// On flip it also renders <WordDetail defaultOpen>, which hydrates via api.vocabExtra
+// (and, for inflecting words, api.vocabForms) — mock them so that auto-load resolves.
 vi.mock("../api", () => ({
   api: {
     vocab: vi.fn(),
     setKnown: vi.fn(() => Promise.resolve({})),
     addToReview: vi.fn(() => Promise.resolve({ added: true })),
+    vocabExtra: vi.fn(() => Promise.resolve({ forms: null, examples: [] })),
+    vocabForms: vi.fn(() => Promise.resolve({ forms: [], cached: true })),
+    vocabExamples: vi.fn(() => Promise.resolve({ examples: [] })),
   },
   fetchAudioUrl: vi.fn(),
 }));
@@ -44,6 +49,22 @@ describe("Deck flashcards", () => {
 
     await user.click(screen.getByRole("button", { name: "Show meaning" }));
     expect(screen.getByText(/^(hello|hi)$/)).toBeInTheDocument();
+  });
+
+  it("auto-opens the forms & examples panel on flip — no separate expander click", async () => {
+    const user = userEvent.setup();
+    renderDeck();
+    await screen.findByText(/^(bonjour|salut)$/);
+
+    // collapsed toggle is not shown before flipping…
+    expect(screen.queryByRole("button", { name: /Forms & examples/ })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Show meaning" }));
+
+    // …and still not shown after: the panel is already open, hydrated directly.
+    expect(screen.queryByRole("button", { name: /Forms & examples/ })).not.toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: /Get examples/ })).toBeInTheDocument();
+    expect(vi.mocked(api.vocabExtra)).toHaveBeenCalled();
   });
 
   it("advances through every card to a completion summary", async () => {

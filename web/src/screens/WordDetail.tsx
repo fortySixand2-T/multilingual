@@ -1,24 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api, WordForm, WordExample } from "../api";
 
-// Expandable study panel for ANY vocab card (personal or content-bank), addressed by
-// its `cardKey`: the word's morphological forms (noun plural / verb conjugations /
+// Study panel for ANY vocab card (personal or content-bank), addressed by its
+// `cardKey`: the word's morphological forms (noun plural / verb conjugations /
 // adjective m·f·pl) plus example sentences. Forms are generated once and cached per
 // user; example sentences are generated FRESH on each "New example" press and kept as
 // a small rolling history (newest first).
 //
-// Everything is lazy: nothing is fetched until the panel is expanded. On expand it
+// Fetching is lazy — nothing loads until the panel opens. `defaultOpen` opens it
+// immediately (used in the flashcard deck, where the panel appears only once the
+// learner reveals the meaning, so the extra expander click is redundant); otherwise
+// it starts collapsed behind a "Forms & examples ▸" toggle (used in the My-deck list,
+// where every card is on screen at once and we don't want a fetch per row). On open it
 // hydrates stored extras via /vocab/extra (free, no model call), then — only for an
 // inflecting part of speech with no forms yet — generates the forms.
-export default function WordDetail({ cardKey, pos }: { cardKey: string; pos?: string }) {
-  const [open, setOpen] = useState(false);
+export default function WordDetail({
+  cardKey,
+  pos,
+  defaultOpen = false,
+}: {
+  cardKey: string;
+  pos?: string;
+  defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
   const [forms, setForms] = useState<WordForm[] | null>(null);
   const [examples, setExamples] = useState<WordExample[]>([]);
   const [formsState, setFormsState] = useState<"idle" | "loading" | "over_budget" | "none">("idle");
   const [exState, setExState] = useState<"idle" | "loading" | "over_budget" | "error">("idle");
 
-  const expand = async () => {
-    setOpen(true);
+  // Load stored extras (and generate forms once for inflecting words). Guarded so a
+  // second open — or the defaultOpen mount below — never re-fetches.
+  const hydrate = async () => {
     if (formsState !== "idle" || examples.length) return; // already hydrated
     setFormsState(inflects(pos) ? "loading" : "none");
     try {
@@ -41,6 +54,17 @@ export default function WordDetail({ cardKey, pos }: { cardKey: string; pos?: st
       setFormsState("none");
     }
   };
+
+  const expand = () => {
+    setOpen(true);
+    void hydrate();
+  };
+
+  // defaultOpen: hydrate on mount without waiting for a click.
+  useEffect(() => {
+    if (defaultOpen) void hydrate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const newExample = async () => {
     setExState("loading");
