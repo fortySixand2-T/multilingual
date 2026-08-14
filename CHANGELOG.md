@@ -279,3 +279,6 @@
 - [2026-08-13] Modified: web/src/screens/Deck.tsx — Pass `defaultOpen` to WordDetail so forms & examples show as soon as the meaning is revealed (no dropdown click)
 - [2026-08-13] Modified: web/src/screens/WordDetail.test.tsx — Test: defaultOpen hydrates on mount with no click
 - [2026-08-13] Modified: web/src/screens/Deck.test.tsx — Mock vocab-extra endpoints; test panel auto-opens on flip with no expander
+- [2026-08-13] Modified: web/src/screens/WordDetail.tsx — defaultOpen now also auto-generates a first example on reveal (uses stored examples if present); hydrate() returns stored-example count; added "Generating an example…" state
+- [2026-08-13] Modified: web/src/screens/WordDetail.test.tsx — Tests: defaultOpen auto-generates an example; reuses stored examples without a fresh call
+- [2026-08-13] Modified: web/src/screens/Deck.test.tsx — Assert example auto-generates on flip (no "Get examples" press)

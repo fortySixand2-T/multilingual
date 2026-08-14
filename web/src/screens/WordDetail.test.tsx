@@ -12,6 +12,7 @@ beforeEach(() => {
   vi.clearAllMocks();
   // default: nothing stored yet
   vi.mocked(api.vocabExtra).mockResolvedValue({ forms: null, examples: [] });
+  vi.mocked(api.vocabExamples).mockResolvedValue({ examples: [] });
 });
 
 describe("WordDetail", () => {
@@ -36,17 +37,34 @@ describe("WordDetail", () => {
     expect(screen.getByText("j'ai mangé")).toBeInTheDocument();
   });
 
-  it("defaultOpen hydrates on mount with no click", async () => {
+  it("defaultOpen hydrates forms AND auto-generates a first example — no clicks", async () => {
     vi.mocked(api.vocabForms).mockResolvedValue({
       forms: [{ label: "pluriel", fr: "les chats" }],
       cached: false,
+    });
+    vi.mocked(api.vocabExamples).mockResolvedValue({
+      examples: [{ fr: "Le chat dort.", en: "The cat sleeps." }],
     });
     render(<WordDetail cardKey="chat_a1" pos="noun" defaultOpen />);
 
     // no expander button — the panel is already open and loading
     expect(screen.queryByRole("button", { name: /Forms & examples/ })).not.toBeInTheDocument();
     expect(await screen.findByText("les chats")).toBeInTheDocument();
+    // examples auto-generate too — no "Get examples" press needed
+    expect(await screen.findByText("Le chat dort.")).toBeInTheDocument();
     expect(api.vocabExtra).toHaveBeenCalledWith("chat_a1");
+    expect(api.vocabExamples).toHaveBeenCalledWith("chat_a1");
+  });
+
+  it("defaultOpen reuses stored examples instead of a fresh generate", async () => {
+    vi.mocked(api.vocabExtra).mockResolvedValue({
+      forms: [],
+      examples: [{ fr: "Phrase stockée.", en: "Stored sentence." }],
+    });
+    render(<WordDetail cardKey="uv:stock" pos="adverb" defaultOpen />);
+
+    expect(await screen.findByText("Phrase stockée.")).toBeInTheDocument();
+    expect(api.vocabExamples).not.toHaveBeenCalled(); // stored → no fresh call
   });
 
   it("works for a content-bank card key (not just uv:)", async () => {
