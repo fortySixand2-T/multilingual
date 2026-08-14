@@ -110,9 +110,11 @@ export default function Deck() {
           <p className="muted" style={{ textAlign: "center", fontSize: 13, marginTop: 8 }}>
             “Still learning” resets a word you'd marked known.
           </p>
-          {/* key by card id so the panel's fetched forms/examples reset per card */}
+          {/* key by card id so the panel's fetched forms/examples reset per card.
+              defaultOpen: the panel only appears once the meaning is revealed, so
+              forms & examples show straight away — no extra expander click. */}
           <div className="card" style={{ marginTop: 12 }}>
-            <WordDetail key={card.id} cardKey={card.id} pos={card.pos} />
+            <WordDetail key={card.id} cardKey={card.id} pos={card.pos} defaultOpen />
           </div>
         </>
       )}

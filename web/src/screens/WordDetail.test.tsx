@@ -36,6 +36,19 @@ describe("WordDetail", () => {
     expect(screen.getByText("j'ai mangé")).toBeInTheDocument();
   });
 
+  it("defaultOpen hydrates on mount with no click", async () => {
+    vi.mocked(api.vocabForms).mockResolvedValue({
+      forms: [{ label: "pluriel", fr: "les chats" }],
+      cached: false,
+    });
+    render(<WordDetail cardKey="chat_a1" pos="noun" defaultOpen />);
+
+    // no expander button — the panel is already open and loading
+    expect(screen.queryByRole("button", { name: /Forms & examples/ })).not.toBeInTheDocument();
+    expect(await screen.findByText("les chats")).toBeInTheDocument();
+    expect(api.vocabExtra).toHaveBeenCalledWith("chat_a1");
+  });
+
   it("works for a content-bank card key (not just uv:)", async () => {
     const user = userEvent.setup();
     vi.mocked(api.vocabForms).mockResolvedValue({ forms: [{ label: "pluriel", fr: "les chats" }], cached: false });
