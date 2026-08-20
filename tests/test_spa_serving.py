@@ -45,3 +45,20 @@ def test_registered_api_route_still_served(tmp_path):
     res = client.get("/health")
     assert res.status_code == 200
     assert res.headers["content-type"].startswith("application/json")
+
+
+def test_index_html_is_no_cache(tmp_path):
+    # The shell must revalidate every load so a deploy's new asset hashes are picked
+    # up instead of a cached index pinning stale JS.
+    client = TestClient(create_app(web_dist=_fake_dist(tmp_path)))
+    for path in ("/", "/lessons/greetings-01"):
+        res = client.get(path)
+        assert res.headers.get("cache-control") == "no-cache"
+
+
+def test_hashed_assets_are_immutable(tmp_path):
+    # Content-hashed bundles can be cached forever (their name changes each build).
+    client = TestClient(create_app(web_dist=_fake_dist(tmp_path)))
+    res = client.get("/assets/app.js")
+    assert res.status_code == 200
+    assert res.headers.get("cache-control") == "public, max-age=31536000, immutable"

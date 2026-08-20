@@ -37,15 +37,33 @@ async def _ai_unavailable(request: Request, exc: AllProvidersFailedError) -> JSO
     )
 
 
+class _ImmutableStaticFiles(StaticFiles):
+    """StaticFiles for Vite's content-hashed bundles. Their filenames change on every
+    build, so they can be cached forever — mark them ``immutable`` so browsers never
+    refetch or revalidate a hash they already have."""
+
+    async def get_response(self, path: str, scope):
+        response = await super().get_response(path, scope)
+        response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        return response
+
+
 def _mount_spa(app: FastAPI, api_routers: list, web_dist: Path) -> None:
     """Serve the built SPA from ``web_dist`` on the same origin as the API.
 
     ``api_routers`` must already be registered on ``app`` (they take precedence).
     A path under a real API prefix that matched no route is a genuine API 404 and
     returns JSON; everything else falls back to ``index.html`` for client-side
-    routing."""
-    app.mount("/assets", StaticFiles(directory=web_dist / "assets"), name="assets")
+    routing.
+
+    Caching: the hashed ``/assets/*`` are immutable (see above), but ``index.html``
+    is served ``no-cache`` so the browser always revalidates it and picks up the new
+    asset hashes on the next deploy — otherwise a cached shell keeps loading stale JS."""
+    app.mount("/assets", _ImmutableStaticFiles(directory=web_dist / "assets"), name="assets")
     index_html = web_dist / "index.html"
+    # no-cache = may store but must revalidate before use; a deploy's new ETag then
+    # forces a fresh fetch. (Not no-store: revalidation is a cheap 304 when unchanged.)
+    index_headers = {"Cache-Control": "no-cache"}
 
     # Top-level segments owned by the API (health, auth, content, exam, …),
     # derived from the routers themselves so this stays correct as they change.
@@ -60,7 +78,7 @@ def _mount_spa(app: FastAPI, api_routers: list, web_dist: Path) -> None:
     async def _spa(full_path: str) -> FileResponse | JSONResponse:
         if full_path.split("/", 1)[0] in api_prefixes:
             return JSONResponse(status_code=404, content={"detail": "Not Found"})
-        return FileResponse(index_html)
+        return FileResponse(index_html, headers=index_headers)
 
 
 def create_app(web_dist: Path | None = None) -> FastAPI:
