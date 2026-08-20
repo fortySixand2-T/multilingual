@@ -31,7 +31,7 @@ from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
 from app.config.settings import Settings, get_settings
 from app.db.session import get_session
-from app.speech.examiner import SpeakingExaminer, SpeechNotConfigured
+from app.speech.examiner import SpeakingExaminer, SpeechNotConfigured, canned_opener
 from app.speech.tables import SpeakingTopicRow, SpeechTurn
 from app.speech.topics import SpeakingTopic, framing
 from app.speech.vocab_review import extract_review_words, resolve_new_words, resolve_to_vocab
@@ -215,6 +215,7 @@ async def speech_opener(
     session: AsyncSession = Depends(get_session),
     user: User = Depends(get_current_user),
     ai_router: AIRouter = Depends(get_ai_router),
+    storage: ObjectStorage = Depends(get_storage),
     settings: Settings = Depends(get_settings),
 ) -> dict:
     """The examiner's opening line for a fresh session, so it talks first instead of
@@ -234,41 +235,71 @@ async def speech_opener(
         if row is not None:
             system_extra = framing(SpeakingTopic.model_validate(row.data))
 
-    examiner = SpeakingExaminer(stt, tts, ai_router)
-    result = await examiner.opener(
-        session,
-        user.id,
-        mode=mode,
-        daily_budget=settings.speaking_daily_token_budget,
-        voice=settings.piper_voice,
-        system_extra=system_extra,
-        max_tokens=settings.examiner_max_tokens,
-        want_audio=False,  # lazy: synthesized on demand by GET /speech/audio
-    )
-    if result.over_budget:
-        return {"over_budget": True, "reply_text": result.reply_text}
+    if system_extra:
+        # Topic opener: framed around the picked task, so it's worth an LLM call
+        # billed against the daily ledger.
+        examiner = SpeakingExaminer(stt, tts, ai_router)
+        result = await examiner.opener(
+            session,
+            user.id,
+            mode=mode,
+            daily_budget=settings.speaking_daily_token_budget,
+            voice=settings.piper_voice,
+            system_extra=system_extra,
+            max_tokens=settings.examiner_max_tokens,
+            want_audio=False,  # lazy: synthesized on demand by GET /speech/audio
+        )
+        if result.over_budget:
+            return {"over_budget": True, "reply_text": result.reply_text}
+        reply_text = result.reply_text
+        reply_audio_key = None
+    else:
+        # Free conversation: a canned greeting — no LLM, nothing billed. Its audio is
+        # synthesized once per mode and reused across every session's opener.
+        canon_mode, reply_text = canned_opener(mode)
+        reply_audio_key = await _canned_audio_key(
+            storage, tts, canon_mode, reply_text, voice=settings.piper_voice
+        )
 
     turn = SpeechTurn(
         user_id=user.id,
         session_id=session_id or None,
         mode=mode,
         transcript="",  # opener has no learner utterance
-        reply_text=result.reply_text,
-        reply_audio_key=None,
+        reply_text=reply_text,
+        reply_audio_key=reply_audio_key,
         created_at=datetime.now(UTC).replace(tzinfo=None),
     )
     session.add(turn)
     await session.flush()
-    reply_audio_url = (
-        f"/speech/audio/{turn.id}" if tts is not None and result.reply_text.strip() else None
-    )
+    reply_audio_url = f"/speech/audio/{turn.id}" if tts is not None and reply_text.strip() else None
     await session.commit()
     return {
         "turn_id": turn.id,
         "over_budget": False,
-        "reply_text": result.reply_text,
+        "reply_text": reply_text,
         "reply_audio_url": reply_audio_url,
     }
+
+
+async def _canned_audio_key(
+    storage: ObjectStorage, tts, mode: str, text: str, *, voice: str
+) -> str | None:
+    """Storage key for a canned opener's audio, synthesizing it once per mode and
+    reusing the cached clip on every later session. None when TTS is unconfigured."""
+    if tts is None or not text.strip():
+        return None
+    key = f"speech/canned-{mode}.wav"
+
+    def _work() -> str:
+        try:
+            storage.get(key)  # already synthesized for this mode — reuse it
+        except Exception:
+            data = tts.synthesize(text=text, voice=voice, lang="fr")
+            storage.put(key, data, "audio/wav")
+        return key
+
+    return await anyio.to_thread.run_sync(_work)
 
 
 @router.post("/session/{session_id}/vocab-review")

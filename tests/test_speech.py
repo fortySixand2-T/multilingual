@@ -19,7 +19,7 @@ from app.api.deps import get_ai_router, get_storage
 from app.db.session import get_session
 from app.main import create_app
 from app.speech.examiner import SpeakingExaminer
-from app.speech.tables import SpeechTurn
+from app.speech.tables import SpeakingTopicRow, SpeechTurn
 from app.users.models import Base
 
 _DB = f"sqlite+aiosqlite:///{tempfile.mkdtemp()}/speech.db"
@@ -169,6 +169,29 @@ def _client(*, stt=None, tts=None, uid=99, router=None):
     return TestClient(app), storage
 
 
+def _add_topic(tid, *, level="a1", section="A", title="T", prompt="Parlez-en", points=None):
+    async def go():
+        async with _Session() as s:
+            s.add(
+                SpeakingTopicRow(
+                    id=tid,
+                    level=level,
+                    section=section,
+                    data={
+                        "id": tid,
+                        "level": level,
+                        "section": section,
+                        "title": title,
+                        "prompt": prompt,
+                        "points": points or [],
+                    },
+                )
+            )
+            await s.commit()
+
+    _run(go())
+
+
 def test_turn_endpoint_stores_transcript_not_audio_and_serves_reply():
     tts = FakeTTS()
     client, storage = _client(stt=FakeSTT(), tts=tts)
@@ -253,15 +276,44 @@ def test_opener_returns_reply_and_persists_empty_transcript_turn():
     assert hist[0]["reply_text"] == body["reply_text"]
 
 
-def test_opener_directs_the_model_to_start_the_conversation():
+def test_topic_opener_directs_the_model_to_start_the_conversation():
     router = FakeRouter()
     client, _ = _client(stt=FakeSTT(), tts=None, uid=301, router=router)
-    client.post("/speech/opener", data={"mode": "conversation", "session_id": "s"})
-    # The opener adds a start directive and sends only a stage-direction cue (no
-    # learner audio), so the model produces the first line itself.
+    _add_topic("t-op-301")
+    client.post(
+        "/speech/opener",
+        data={"mode": "conversation", "topic_id": "t-op-301", "session_id": "s"},
+    )
+    # A topic opener adds a start directive + the topic framing, and sends only a
+    # stage-direction cue (no learner audio), so the model produces the first line.
     call = router.calls[0]
     assert "start the conversation" in call["system"].lower()
+    assert "expression orale" in call["system"].lower()  # topic framing applied
     assert len(call["messages"]) == 1 and call["messages"][0].role == "user"
+
+
+def test_free_conversation_opener_is_canned_and_never_calls_the_llm():
+    tts = FakeTTS()
+    # BoomRouter raises if the LLM is invoked — the free-conversation opener must not.
+    client, _ = _client(stt=FakeSTT(), tts=tts, uid=310, router=BoomRouter())
+    r1 = client.post("/speech/opener", data={"mode": "conversation", "session_id": "s1"})
+    r2 = client.post("/speech/opener", data={"mode": "conversation", "session_id": "s2"})
+    b1, b2 = r1.json(), r2.json()
+    assert b1["over_budget"] is False and b1["reply_text"]
+    assert b1["reply_text"] == b2["reply_text"]  # same canned greeting every session
+    # Audio is synthesized once and shared across sessions (cached by mode).
+    assert tts.calls == 1
+    assert b1["reply_audio_url"] and b2["reply_audio_url"]
+    audio = client.get(b1["reply_audio_url"])
+    assert audio.status_code == 200 and audio.content == b"RIFFfakewavbytes"
+    assert tts.calls == 1  # serving the cached clip doesn't re-synthesize
+
+
+def test_canned_opener_persists_empty_transcript_turn():
+    client, _ = _client(stt=FakeSTT(), tts=FakeTTS(), uid=311, router=BoomRouter())
+    client.post("/speech/opener", data={"mode": "conversation", "session_id": "s"})
+    hist = client.get("/speech/history").json()["turns"]
+    assert len(hist) == 1 and hist[0]["transcript"] == ""
 
 
 def test_opener_then_turn_feeds_greeting_back_without_blank_user_message():
