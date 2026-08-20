@@ -134,6 +134,34 @@ export async function postSpeechTurn(
   return res.json();
 }
 
+export type SpeechOpenerResult = {
+  turn_id?: number;
+  over_budget: boolean;
+  reply_text?: string;
+  reply_audio_url?: string | null;
+};
+
+// The examiner's opening line for a fresh session (agent speaks first). Form POST,
+// no audio — mirrors postSpeechTurn's multipart style.
+export async function postSpeechOpener(
+  mode: string,
+  topicId = "",
+  sessionId = ""
+): Promise<SpeechOpenerResult> {
+  const token = getToken();
+  const form = new FormData();
+  form.append("mode", mode);
+  if (topicId) form.append("topic_id", topicId);
+  if (sessionId) form.append("session_id", sessionId);
+  const res = await fetch(`${BASE}/speech/opener`, {
+    method: "POST",
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    body: form,
+  });
+  if (!res.ok) throw await errorFrom(res);
+  return res.json();
+}
+
 // --- shapes (subset of what the backend returns) ---
 export type TokenResponse = { access_token: string; token_type: string };
 export type Unit = {

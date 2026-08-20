@@ -235,6 +235,79 @@ def test_speech_disabled_returns_503():
     assert r.status_code == 503
 
 
+# --- examiner opener: the agent speaks first on a fresh session --------------
+
+
+def test_opener_returns_reply_and_persists_empty_transcript_turn():
+    client, _ = _client(stt=FakeSTT(), tts=FakeTTS(), uid=300)
+    r = client.post("/speech/opener", data={"mode": "conversation", "session_id": "s-open"})
+    assert r.status_code == 200
+    body = r.json()
+    assert body["over_budget"] is False
+    assert "?" in body["reply_text"]  # opens with a question to invite the learner
+    assert body["reply_audio_url"] == f"/speech/audio/{body['turn_id']}"
+    # Persisted as a turn with no learner utterance so it shows in history.
+    hist = client.get("/speech/history").json()["turns"]
+    assert len(hist) == 1
+    assert hist[0]["transcript"] == ""
+    assert hist[0]["reply_text"] == body["reply_text"]
+
+
+def test_opener_directs_the_model_to_start_the_conversation():
+    router = FakeRouter()
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=301, router=router)
+    client.post("/speech/opener", data={"mode": "conversation", "session_id": "s"})
+    # The opener adds a start directive and sends only a stage-direction cue (no
+    # learner audio), so the model produces the first line itself.
+    call = router.calls[0]
+    assert "start the conversation" in call["system"].lower()
+    assert len(call["messages"]) == 1 and call["messages"][0].role == "user"
+
+
+def test_opener_then_turn_feeds_greeting_back_without_blank_user_message():
+    router = FakeRouter()
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=302, router=router)
+    client.post("/speech/opener", data={"mode": "conversation", "session_id": "s"})
+    client.post(
+        "/speech/turn",
+        data={"mode": "conversation", "session_id": "s"},
+        files={"audio": ("a.wav", b"reply", "audio/wav")},
+    )
+    # The turn's context includes the opener as an assistant message, but the empty
+    # opener transcript must not leak in as a blank user message.
+    turn_msgs = router.calls[-1]["messages"]
+    assert any(m.role == "assistant" for m in turn_msgs)
+    assert all(m.content.strip() for m in turn_msgs if m.role == "user")
+
+
+def test_opener_over_budget_skips_the_llm():
+    router = FakeRouter()
+
+    async def go():
+        today = date(2026, 6, 20)
+        async with _Session() as s:
+            await SpeakingExaminer(FakeSTT(), FakeTTS(), FakeRouter()).turn(
+                s, 44, audio=b"x", daily_budget=100, today=today
+            )
+            await s.commit()
+        async with _Session() as s:
+            res = await SpeakingExaminer(FakeSTT(), FakeTTS(), router).opener(
+                s, 44, daily_budget=100, today=today
+            )
+            await s.commit()
+            return res
+
+    res = _run(go())
+    assert res.over_budget is True
+    assert router.calls == []  # over-budget opener never bills the LLM
+
+
+def test_opener_speech_disabled_returns_503():
+    client, _ = _client(stt=None, tts=None)
+    r = client.post("/speech/opener", data={"mode": "conversation", "session_id": "s"})
+    assert r.status_code == 503
+
+
 # --- capability preflight (qa-540): let the frontend know before requesting mic ---
 
 

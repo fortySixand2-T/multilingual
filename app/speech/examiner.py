@@ -33,6 +33,17 @@ _FEATURE = "speaking"
 
 OVER_BUDGET_MESSAGE = "You've reached today's speaking-practice limit. Try again tomorrow."
 
+# Appended to the system prompt to make the examiner open the conversation itself,
+# before the learner has said anything. Paired with a neutral stage-direction cue
+# (the model needs a user turn) so the reply is a spoken French greeting + question.
+_OPENER_DIRECTIVE = (
+    "\n\n## Start the conversation\n"
+    "The learner has just begun this session and hasn't spoken yet. Open the "
+    "conversation yourself: greet them warmly in simple French and ask your first "
+    "question to get them talking. Keep it to one or two short sentences."
+)
+_OPENER_CUE = "[The learner just opened the session and is ready. Greet them and begin.]"
+
 
 class SpeechNotConfigured(Exception):
     """No STT provider is configured (speech is disabled)."""
@@ -110,3 +121,47 @@ class SpeakingExaminer:
         return TurnResult(
             False, transcript.text, reply.text, reply_audio, reply.provider, reply.model
         )
+
+    async def opener(
+        self,
+        session: AsyncSession,
+        user_id: int,
+        *,
+        mode: str = "examiner",
+        daily_budget: int,
+        want_audio: bool = True,
+        voice: str = "",
+        system_extra: str = "",
+        max_tokens: int = 1024,
+        today: date | None = None,
+    ) -> TurnResult:
+        """The examiner's opening line — spoken before the learner says anything, so
+        a session starts as a conversation instead of a cold prompt. No STT (there's
+        no learner audio yet); billed against the same daily ledger as a spoken turn.
+        Returns a TurnResult with an empty transcript (the opener has no utterance)."""
+        today = today or date.today()
+        used = await tokens_used_today(session, user_id, _FEATURE, today)
+        if used >= daily_budget:
+            return TurnResult(True, "", OVER_BUDGET_MESSAGE, None, "", "")
+
+        system = self.system_prompt(mode) + system_extra + _OPENER_DIRECTIVE
+        reply = await anyio.to_thread.run_sync(
+            functools.partial(
+                self._router.run,
+                _PROFILE,
+                system=system,
+                messages=[Msg("user", _OPENER_CUE)],
+                max_tokens=max_tokens,
+            )
+        )
+        await add_usage(
+            session, user_id, _FEATURE, reply.usage.input_tokens, reply.usage.output_tokens, today
+        )
+
+        reply_audio = None
+        if want_audio and self._tts is not None:
+            reply_audio = await anyio.to_thread.run_sync(
+                functools.partial(self._tts.synthesize, text=reply.text, voice=voice, lang="fr")
+            )
+
+        return TurnResult(False, "", reply.text, reply_audio, reply.provider, reply.model)
