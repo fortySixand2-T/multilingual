@@ -282,3 +282,5 @@
 - [2026-08-13] Modified: web/src/screens/WordDetail.tsx — defaultOpen now also auto-generates a first example on reveal (uses stored examples if present); hydrate() returns stored-example count; added "Generating an example…" state
 - [2026-08-13] Modified: web/src/screens/WordDetail.test.tsx — Tests: defaultOpen auto-generates an example; reuses stored examples without a fresh call
 - [2026-08-13] Modified: web/src/screens/Deck.test.tsx — Assert example auto-generates on flip (no "Get examples" press)
+- [2026-08-20] Modified: app/main.py — SPA cache-control: index.html served no-cache (revalidate → picks up new asset hashes each deploy); hashed /assets/* served public, immutable, 1yr via _ImmutableStaticFiles
+- [2026-08-20] Modified: tests/test_spa_serving.py — Tests: index.html is no-cache; hashed assets are immutable
