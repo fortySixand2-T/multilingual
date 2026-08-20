@@ -5,6 +5,7 @@ import {
   VocabCandidate,
   api,
   fetchAudioUrl,
+  postSpeechOpener,
   postSpeechTurn,
 } from "../api";
 import { useSlowRate } from "../speed";
@@ -31,15 +32,25 @@ export default function Speaking() {
   // The learner's most recent *prior* conversation, to resurface its review words
   // if they left without reviewing. Refetched whenever a new session starts.
   const [priorSession, setPriorSession] = useState<string | null>(null);
+  // Gate the examiner's opener on the initial history fetch resolving, so we never
+  // fire an opener for a returning learner whose transcript is still loading.
+  const [historyLoaded, setHistoryLoaded] = useState(false);
   const recorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
+  // Sessions we've already asked the examiner to open, so the opener fires at most
+  // once per conversation (survives re-renders / strict-mode double effects).
+  const openedSessions = useRef<Set<string>>(new Set());
+  // The level effect also runs on mount; skip resetting the session that first time
+  // so restored history isn't wiped — only a genuine level *change* starts fresh.
+  const firstLevel = useRef(true);
 
   useEffect(() => {
     api.speechHistory()
       .then((r) =>
         setTurns(r.turns.map((t) => ({ transcript: t.transcript, reply_text: t.reply_text, reply_audio_url: t.reply_audio_url })))
       )
-      .catch((e) => setError(e.message));
+      .catch((e) => setError(e.message))
+      .finally(() => setHistoryLoaded(true));
     // Preflight: don't let a learner grant a real mic permission and record
     // only to discover afterwards that speech isn't configured here (qa-540).
     api.speechStatus()
@@ -57,13 +68,46 @@ export default function Speaking() {
   }, [sessionId]);
 
   // Load the authored topics for the current level; a picked topic is level-
-  // specific, so drop it when the level changes.
+  // specific, so drop it when the level changes. A genuine level change also starts
+  // a fresh conversation (like picking a topic) so the panel doesn't keep showing —
+  // or silently append to — the previous level's session.
   useEffect(() => {
     api.speakingTopics(level)
       .then((r) => setTopics(r.topics))
       .catch(() => setTopics([]));
     setTopic(null);
+    if (firstLevel.current) {
+      firstLevel.current = false;
+      return;
+    }
+    resetSession();
   }, [level]);
+
+  // The examiner opens the conversation itself, so a fresh session starts as a chat
+  // instead of a cold "tap record" prompt. Fires once per session, only when there's
+  // nothing to interrupt: an empty transcript, before the learner has spoken.
+  useEffect(() => {
+    if (!historyLoaded || available !== true) return;
+    if (turns.length > 0 || sessionTurns > 0) return;
+    if (openedSessions.current.has(sessionId)) return;
+    openedSessions.current.add(sessionId);
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await postSpeechOpener(mode, topic?.id, sessionId);
+        if (cancelled || res.over_budget || !res.reply_text) return;
+        setTurns([{ transcript: "", reply_text: res.reply_text, reply_audio_url: res.reply_audio_url ?? null }]);
+        if (res.reply_audio_url) void autoplay(res.reply_audio_url);
+      } catch {
+        // Opener is best-effort — fall back to the empty-state hint, and allow a
+        // retry the next time this session re-triggers.
+        openedSessions.current.delete(sessionId);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [historyLoaded, available, sessionId, turns.length, sessionTurns, mode, topic?.id]);
 
   const upload = async (blob: Blob) => {
     setBusy(true);
@@ -114,14 +158,34 @@ export default function Speaking() {
     setRecording(false);
   };
 
-  // Topic = session: switching topics starts a fresh conversation (new id, clean
-  // transcript panel) so the vocab review that follows covers only this exchange.
-  const pickTopic = (t: SpeakingTopic | null) => {
-    setTopic(t);
+  // Start a fresh conversation: new id, clean transcript panel, reset turn count.
+  // Used when the topic or level changes so the vocab review that follows — and the
+  // examiner's context — cover only this exchange.
+  const resetSession = () => {
     setSessionId(crypto.randomUUID());
     setSessionTurns(0);
     setTurns([]);
     setError("");
+  };
+
+  // Topic = session: switching topics starts a fresh conversation.
+  const pickTopic = (t: SpeakingTopic | null) => {
+    setTopic(t);
+    resetSession();
+  };
+
+  // Best-effort autoplay of the examiner's spoken opener. Browsers block autoplay
+  // without a user gesture (e.g. on first page load) — then the text and Play
+  // button are already on screen, so nothing is lost.
+  const autoplay = async (url: string) => {
+    try {
+      const objUrl = await fetchAudioUrl(url);
+      const audio = new Audio(objUrl);
+      audio.preservesPitch = true;
+      await audio.play();
+    } catch {
+      /* autoplay blocked or playback failed — the Play button remains */
+    }
   };
 
   return (
@@ -161,10 +225,14 @@ export default function Speaking() {
       <div className="stack" style={{ marginTop: 8 }}>
         {turns.map((t, i) => (
           <div key={i} className="stack">
-            <div className="card" style={{ background: "#eaf6ee" }}>
-              <div className="muted" style={{ fontSize: 12 }}>You said</div>
-              <div>{t.transcript}</div>
-            </div>
+            {/* Opener turns have no learner utterance (empty transcript) — show only
+                the examiner card so the conversation starts with it speaking. */}
+            {t.transcript && (
+              <div className="card" style={{ background: "#eaf6ee" }}>
+                <div className="muted" style={{ fontSize: 12 }}>You said</div>
+                <div>{t.transcript}</div>
+              </div>
+            )}
             <div className="card">
               <div className="muted" style={{ fontSize: 12 }}>Examiner</div>
               <div>{t.reply_text}</div>
@@ -176,7 +244,7 @@ export default function Speaking() {
           <div className="card center muted">
             {topic
               ? `Tap record and start responding to "${topic.title}" above.`
-              : "Tap record and introduce yourself in French."}
+              : "Tap record and say hello in French to get started."}
           </div>
         )}
       </div>

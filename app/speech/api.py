@@ -60,7 +60,11 @@ async def _recent_history(session: AsyncSession, user_id: int, session_id: str =
     )
     msgs: list[Msg] = []
     for turn in reversed(rows):  # oldest first
-        msgs.append(Msg("user", turn.transcript))
+        # Opener turns have no learner utterance (empty transcript) — feed back only
+        # the assistant's greeting so the examiner remembers it already spoke,
+        # without a blank "user" message polluting the context.
+        if turn.transcript.strip():
+            msgs.append(Msg("user", turn.transcript))
         msgs.append(Msg("assistant", turn.reply_text))
     return msgs
 
@@ -199,6 +203,71 @@ async def speech_turn(
         "reply_audio_url": reply_audio_url,
         "provider": result.provider,
         "model": result.model,
+    }
+
+
+@router.post("/opener")
+async def speech_opener(
+    request: Request,
+    mode: str = Form("examiner"),
+    topic_id: str = Form(""),
+    session_id: str = Form(""),
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+    ai_router: AIRouter = Depends(get_ai_router),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """The examiner's opening line for a fresh session, so it talks first instead of
+    waiting for the learner. Same framing/budget as a spoken turn but no audio in;
+    persisted as a turn with an empty transcript so it shows in history and grounds
+    the examiner's context. Over-budget → a clean flag, never a billed call."""
+    stt = request.app.state.stt
+    tts = request.app.state.tts
+    # Gate on STT like the record flow: with no STT the learner can't reply, so an
+    # opener alone would be a dead end. Keeps availability consistent with /status.
+    if stt is None:
+        raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "speech is not configured")
+
+    system_extra = ""
+    if topic_id:
+        row = await session.get(SpeakingTopicRow, topic_id)
+        if row is not None:
+            system_extra = framing(SpeakingTopic.model_validate(row.data))
+
+    examiner = SpeakingExaminer(stt, tts, ai_router)
+    result = await examiner.opener(
+        session,
+        user.id,
+        mode=mode,
+        daily_budget=settings.speaking_daily_token_budget,
+        voice=settings.piper_voice,
+        system_extra=system_extra,
+        max_tokens=settings.examiner_max_tokens,
+        want_audio=False,  # lazy: synthesized on demand by GET /speech/audio
+    )
+    if result.over_budget:
+        return {"over_budget": True, "reply_text": result.reply_text}
+
+    turn = SpeechTurn(
+        user_id=user.id,
+        session_id=session_id or None,
+        mode=mode,
+        transcript="",  # opener has no learner utterance
+        reply_text=result.reply_text,
+        reply_audio_key=None,
+        created_at=datetime.now(UTC).replace(tzinfo=None),
+    )
+    session.add(turn)
+    await session.flush()
+    reply_audio_url = (
+        f"/speech/audio/{turn.id}" if tts is not None and result.reply_text.strip() else None
+    )
+    await session.commit()
+    return {
+        "turn_id": turn.id,
+        "over_budget": False,
+        "reply_text": result.reply_text,
+        "reply_audio_url": reply_audio_url,
     }
 
 
