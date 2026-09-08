@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/meritocratie.mp3
     answer: méritocratie
     prompt: "Type the word you hear."
+
+  - id: education-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["excellence", "excellence"]
+      - ["évaluation", "assessment"]
+      - ["abandon", "withdrawal, giving up"]

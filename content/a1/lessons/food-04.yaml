@@ -55,7 +55,6 @@ exercises:
     type: translate
     prompt: "Translate: “a glass of wine”"
     answer: "un verre de vin"
-    accept: ["un verre de vin rouge"]
 
   - id: food-04.e8
     type: listen_type

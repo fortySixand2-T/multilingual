@@ -64,3 +64,15 @@ exercises:
     audio_ref: b1/audio/depaysement.mp3
     answer: dépaysement
     prompt: "Type the word you hear."
+
+  - id: tourism-b1-01.e9
+    type: match_pairs
+    pairs:
+      - ["attraction", "attraction"]
+
+  - id: tourism-b1-01.e10
+    type: match_pairs
+    pairs:
+      - ["escapade", "getaway"]
+      - ["auberge", "hostel, inn"]
+      - ["chambre d'hôte", "bed and breakfast"]

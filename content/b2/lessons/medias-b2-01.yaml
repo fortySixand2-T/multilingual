@@ -64,3 +64,12 @@ exercises:
     audio_ref: b2/audio/deontologie.mp3
     answer: déontologie
     prompt: "Type the word you hear."
+
+  - id: medias-b2-01.e9
+    type: match_pairs
+    pairs:
+      - [chronique, column]
+      - [traitement médiatique, media coverage]
+      - [couverture de presse, press coverage]
+      - [indépendance, independence]
+      - [abonné, subscriber]

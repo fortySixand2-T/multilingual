@@ -65,3 +65,9 @@ exercises:
     audio_ref: a1/audio/angleterre.mp3
     answer: l'Angleterre
     prompt: "Type the country you hear."
+
+  - id: countries-01.e9
+    type: match_pairs
+    pairs:
+      - ["Haïti", "Haiti"]
+      - ["l'Italie", "Italy"]

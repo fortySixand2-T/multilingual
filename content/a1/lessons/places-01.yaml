@@ -64,3 +64,9 @@ exercises:
     prompt: "Translate: “the gas station”"
     answer: "la station-service"
     accept: ["station-service", "la station service"]
+
+  - id: places-01.e9
+    type: match_pairs
+    pairs:
+      - ["salon de coiffure", "hair salon"]
+      - ["terrain de jeu", "playground"]

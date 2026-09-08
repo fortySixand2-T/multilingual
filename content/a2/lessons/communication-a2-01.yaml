@@ -63,3 +63,17 @@ exercises:
     audio_ref: a2/audio/enveloppe.mp3
     answer: enveloppe
     prompt: "Type the word you hear."
+
+  - id: communication-a2-01.e9
+    type: match_pairs
+    pairs:
+      - ["signature", "signature"]
+      - ["conversation", "conversation"]
+      - ["discuter", "to chat, to discuss"]
+
+  - id: communication-a2-01.e10
+    type: match_pairs
+    pairs:
+      - ["demander", "to ask"]
+      - ["appel", "call"]
+      - ["message", "message"]

@@ -64,3 +64,17 @@ exercises:
     audio_ref: a1/audio/ecrire.mp3
     answer: écrire
     prompt: "Type the verb you hear."
+
+  - id: verbs-01.e9
+    type: match_pairs
+    pairs:
+      - [dire, to say]
+      - [devoir, to have to]
+      - [mettre, to put]
+
+  - id: verbs-01.e10
+    type: match_pairs
+    pairs:
+      - ["vouloir", "to want"]
+      - ["être", "to be"]
+      - ["avoir", "to have"]

@@ -63,3 +63,8 @@ exercises:
     audio_ref: a2/audio/thermometre.mp3
     answer: thermomètre
     prompt: "Type the word you hear."
+
+  - id: sante-a2-04.e9
+    type: match_pairs
+    pairs:
+      - ["orteil", "toe"]

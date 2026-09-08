@@ -64,3 +64,9 @@ exercises:
     audio_ref: b1/audio/deviation.mp3
     answer: déviation
     prompt: "Type the word you hear."
+
+  - id: mobility-b1-01.e9
+    type: match_pairs
+    pairs:
+      - ["titre de transport", "transit fare, pass"]
+      - ["conducteur", "driver"]

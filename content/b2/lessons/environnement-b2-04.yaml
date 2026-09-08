@@ -64,3 +64,9 @@ exercises:
     audio_ref: b2/audio/carboneutralite.mp3
     answer: carboneutralité
     prompt: "Type the word you hear."
+
+  - id: environnement-b2-04.e9
+    type: match_pairs
+    pairs:
+      - ["consigne", "container deposit"]
+      - ["îlot de chaleur", "heat island"]

@@ -64,3 +64,8 @@ exercises:
     audio_ref: b1/audio/expiration.mp3
     answer: expiration
     prompt: "Type the word you hear."
+
+  - id: immigration-b1-04.e9
+    type: match_pairs
+    pairs:
+      - ["équivalence de diplôme", "credential equivalence"]

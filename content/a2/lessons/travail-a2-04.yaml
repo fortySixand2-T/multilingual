@@ -64,3 +64,8 @@ exercises:
     audio_ref: a2/audio/employeur.mp3
     answer: employeur
     prompt: "Type the word you hear."
+
+  - id: travail-a2-04.e9
+    type: match_pairs
+    pairs:
+      - ["sécurité au travail", "workplace safety"]

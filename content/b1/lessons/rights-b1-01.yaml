@@ -64,3 +64,8 @@ exercises:
     audio_ref: b1/audio/procuration.mp3
     answer: procuration
     prompt: "Type the word you hear."
+
+  - id: rights-b1-01.e9
+    type: match_pairs
+    pairs:
+      - ["certificat", "certificate"]

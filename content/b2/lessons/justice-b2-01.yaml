@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/jurisprudence.mp3
     answer: jurisprudence
     prompt: "Type the word you hear."
+
+  - id: justice-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["pourvoi en cassation", "appeal to a higher court"]
+      - ["légitimité", "legitimacy"]
+      - ["poursuite judiciaire", "prosecution, lawsuit"]

@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/deracinement.mp3
     answer: déracinement
     prompt: "Type the word you hear."
+
+  - id: migration-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["expatriation", "expatriation"]
+      - ["assimilation", "assimilation"]
+      - ["cohabitation", "living together, coexistence"]

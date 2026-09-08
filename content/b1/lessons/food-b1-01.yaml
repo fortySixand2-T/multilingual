@@ -63,3 +63,10 @@ exercises:
     audio_ref: b1/audio/tracabilite.mp3
     answer: traçabilité
     prompt: "Type the word you hear."
+
+  - id: food-b1-01.e9
+    type: match_pairs
+    pairs:
+      - ["complément alimentaire", "supplement"]
+      - ["digestion", "digestion"]
+      - ["assaisonner", "to season"]

@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/chronologie.mp3
     answer: chronologie
     prompt: "Type the word you hear."
+
+  - id: histoire-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["archives", "archives"]
+      - ["récit national", "national narrative"]
+      - ["révisionnisme", "revisionism"]

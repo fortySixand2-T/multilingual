@@ -64,3 +64,9 @@ exercises:
     audio_ref: b2/audio/comorbidite.mp3
     answer: comorbidité
     prompt: "Type the word you hear."
+
+  - id: sante-b2-04.e9
+    type: match_pairs
+    pairs:
+      - ["variant", "variant"]
+      - ["aide médicale à mourir", "medical assistance in dying"]

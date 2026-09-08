@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/hyperconnexion.mp3
     answer: hyperconnexion
     prompt: "Type the word you hear."
+
+  - id: technologie-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["prototype", "prototype"]
+      - ["exploitation des données", "data exploitation"]
+      - ["vigilance", "watchfulness"]

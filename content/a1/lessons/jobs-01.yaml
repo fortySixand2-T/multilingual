@@ -64,3 +64,8 @@ exercises:
     prompt: "Translate: “she is a firefighter”"
     answer: "elle est pompière"
     accept: ["Elle est pompière", "elle est pompier"]
+
+  - id: jobs-01.e9
+    type: match_pairs
+    pairs:
+      - ["chauffeur", "driver"]

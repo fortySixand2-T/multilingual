@@ -64,3 +64,8 @@ exercises:
     audio_ref: a2/audio/camion.mp3
     answer: camion
     prompt: "Type the word you hear."
+
+  - id: transport-a2-04.e9
+    type: match_pairs
+    pairs:
+      - ["réservoir", "tank"]

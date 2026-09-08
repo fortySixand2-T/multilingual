@@ -64,3 +64,10 @@ exercises:
     audio_ref: b1/audio/repetition.mp3
     answer: répétition
     prompt: "Type the word you hear."
+
+  - id: arts-b1-01.e9
+    type: match_pairs
+    pairs:
+      - ["instrument", "instrument"]
+      - ["atelier", "workshop, studio"]
+      - ["danse", "dance"]

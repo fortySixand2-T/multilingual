@@ -64,3 +64,11 @@ exercises:
     audio_ref: b2/audio/resilience.mp3
     answer: résilience
     prompt: "Type the word you hear."
+
+  - id: psychologie-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["psychologue", "psychologist"]
+      - ["émotion", "emotion"]
+      - ["perception", "perception"]
+      - ["adaptation", "adaptation, coping"]

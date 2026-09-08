@@ -64,3 +64,8 @@ exercises:
     options: ["l'évier", "le drap", "le garage"]
     answer: "l'évier"
     explain: "l'évier = the kitchen sink."
+
+  - id: house-01.e9
+    type: match_pairs
+    pairs:
+      - ["toilettes", "toilet, washroom"]

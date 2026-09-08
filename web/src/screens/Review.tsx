@@ -14,13 +14,33 @@ export default function Review() {
   const [idx, setIdx] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [error, setError] = useState("");
+  const [checkingMore, setCheckingMore] = useState(false);
 
   useEffect(() => {
     api.queue().then((q) => setCards(q.due)).catch((e) => setError(e.message));
   }, []);
 
+  // api.queue() only returns a capped batch (default limit=20). Running out of
+  // the local batch doesn't mean the server has no more due cards, so re-fetch
+  // before declaring "all caught up" — only a fresh, empty fetch is trusted.
+  useEffect(() => {
+    if (!cards || checkingMore) return;
+    if (cards.length === 0 || idx < cards.length) return;
+    setCheckingMore(true);
+    api
+      .queue()
+      .then((q) => {
+        setCards(q.due);
+        setIdx(0);
+      })
+      .catch((e) => setError(e.message))
+      .finally(() => setCheckingMore(false));
+  }, [idx, cards, checkingMore]);
+
   if (error) return <div className="card center">Couldn't load reviews: {error}</div>;
   if (!cards) return <div className="muted">Loading…</div>;
+
+  if (checkingMore) return <div className="muted">Checking for more due cards…</div>;
 
   if (cards.length === 0 || idx >= cards.length)
     return (

@@ -43,7 +43,7 @@ exercises:
   - id: health-b1-01.e5
     type: mcq
     prompt: "« Je suis ___ chez le médecin hier. »"
-    options: ["allé", "allée aller", "vais"]
+    options: ["allé", "allée", "vais"]
     answer: "allé"
     explain: "aller takes être in the passé composé: je suis allé(e)."
 

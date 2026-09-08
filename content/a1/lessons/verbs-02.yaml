@@ -63,3 +63,11 @@ exercises:
     audio_ref: a1/audio/choisir.mp3
     answer: choisir
     prompt: "Type the verb you hear."
+
+  - id: verbs-02.e9
+    type: match_pairs
+    pairs:
+      - [passer, to pass]
+      - [connaître, to know (someone)]
+      - [sentir, to feel]
+      - [tenir, to hold]

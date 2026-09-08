@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/uberisation.mp3
     answer: ubérisation
     prompt: "Type the word you hear."
+
+  - id: travail-b2-04.e9
+    type: match_pairs
+    pairs:
+      - ["sous-traitant", "subcontractor"]
+      - ["sous-effectif", "understaffing"]
+      - ["surcharge de travail", "work overload"]

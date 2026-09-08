@@ -64,3 +64,10 @@ exercises:
     audio_ref: a2/audio/presentation.mp3
     answer: présentation
     prompt: "Type the word you hear."
+
+  - id: studies-a2-01.e9
+    type: match_pairs
+    pairs:
+      - ["uniforme", "uniform"]
+      - ["inscrire", "to enrol"]
+      - ["camarade de classe", "classmate"]

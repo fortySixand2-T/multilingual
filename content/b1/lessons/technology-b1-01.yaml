@@ -63,3 +63,9 @@ exercises:
     audio_ref: b1/audio/imprimante.mp3
     answer: imprimante
     prompt: "Type the word you hear."
+
+  - id: technology-b1-01.e9
+    type: match_pairs
+    pairs:
+      - ["wifi", "wi-fi"]
+      - ["plateforme", "platform"]
