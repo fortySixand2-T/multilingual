@@ -1,0 +1,66 @@
+id: people-a2-01
+title: "Describing people"
+grammar_point: "adjective agreement with people"
+grammar_category: "Adjectives & comparison"
+est_minutes: 8
+new_vocab: [mince, gros, chauve, barbe, lunettes, gentil, poli, timide, bavard, drole, serieux, paresseux, courageux, genereux, honnete, patient, curieux, sympathique, ami, copain]
+pass_threshold: 8.0
+exercises:
+  - id: people-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [mince, slim]
+      - [gros, big]
+      - [chauve, bald]
+      - [barbe, beard]
+      - [lunettes, glasses]
+
+  - id: people-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [gentil, kind]
+      - [poli, polite]
+      - [timide, shy]
+      - [bavard, talkative]
+      - [drôle, funny]
+
+  - id: people-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [courageux, brave]
+      - [généreux, generous]
+      - [honnête, honest]
+      - [curieux, curious]
+      - [paresseux, lazy]
+
+  - id: people-a2-01.e4
+    type: mcq
+    prompt: "« Elle est très ___. » (generous)"
+    options: ["généreuse", "généreux", "généreuxe"]
+    answer: "généreuse"
+    explain: "-eux → -euse in the feminine: généreux / généreuse, curieux / curieuse."
+
+  - id: people-a2-01.e5
+    type: mcq
+    prompt: "« Mon amie est ___. » (kind)"
+    options: ["gentille", "gentil", "gentils"]
+    answer: "gentille"
+    explain: "gentil → gentille (double the l, add -e)."
+
+  - id: people-a2-01.e6
+    type: word_bank
+    prompt: "Build: “he wears glasses”"
+    tokens: [Il, porte, des, lunettes, une, barbe]
+    answer: [Il, porte, des, lunettes]
+
+  - id: people-a2-01.e7
+    type: translate
+    prompt: "Translate: “a friend” (female)"
+    answer: "une amie"
+    accept: [amie]
+
+  - id: people-a2-01.e8
+    type: listen_type
+    audio_ref: a2/audio/sympathique.mp3
+    answer: sympathique
+    prompt: "Type the adjective you hear."

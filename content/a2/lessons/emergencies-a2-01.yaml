@@ -1,0 +1,66 @@
+id: emergencies-a2-01
+title: "Emergencies"
+grammar_point: "the imperative: appelez ! aidez !"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [accident, ambulance, blessure, blesse, secours, police, voleur, vol, incendie, alarme, danger, aider, appeler, prevenir, temoin, plainte, panne, remorquage, premiers_soins, extincteur]
+pass_threshold: 8.0
+exercises:
+  - id: emergencies-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [accident, accident]
+      - [ambulance, ambulance]
+      - [blessure, injury]
+      - [secours, help]
+      - [police, police]
+
+  - id: emergencies-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [voleur, thief]
+      - [vol, theft]
+      - [incendie, fire]
+      - [alarme, alarm]
+      - [danger, danger]
+
+  - id: emergencies-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [témoin, witness]
+      - [plainte, complaint]
+      - [panne, breakdown]
+      - [remorquage, towing]
+      - [extincteur, fire extinguisher]
+
+  - id: emergencies-a2-01.e4
+    type: mcq
+    prompt: "« ___ le 911 ! » (Call 911!)"
+    options: ["Appelez", "Appeler", "Vous appelez"]
+    answer: "Appelez"
+    explain: "The imperative drops the subject: Appelez ! Aidez-moi !"
+
+  - id: emergencies-a2-01.e5
+    type: mcq
+    prompt: "Your car won't start. You say « Je suis en ___. »"
+    options: ["panne", "plainte", "vol"]
+    answer: "panne"
+    explain: "être en panne = to have broken down."
+
+  - id: emergencies-a2-01.e6
+    type: word_bank
+    prompt: "Build: “help me, please”"
+    tokens: [Aidez-moi, s'il, vous, plaît, Appelez]
+    answer: [Aidez-moi, s'il, vous, plaît]
+
+  - id: emergencies-a2-01.e7
+    type: translate
+    prompt: "Translate: “first aid”"
+    answer: "les premiers soins"
+    accept: ["premiers soins"]
+
+  - id: emergencies-a2-01.e8
+    type: listen_type
+    audio_ref: a2/audio/incendie.mp3
+    answer: incendie
+    prompt: "Type the word you hear."

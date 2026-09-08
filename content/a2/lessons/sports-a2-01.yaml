@@ -1,0 +1,65 @@
+id: sports-a2-01
+title: "Sports"
+grammar_point: "jouer à / faire de with sports"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [soccer, hockey, basketball, tennis, natation, course, ski, patin, patinoire, match, entrainement, entraineur, joueur, ballon, raquette, perdre, echauffement, gymnastique, marathon, terrain]
+pass_threshold: 8.0
+exercises:
+  - id: sports-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [soccer, soccer]
+      - [hockey, hockey]
+      - [tennis, tennis]
+      - [natation, swimming]
+      - [ski, skiing]
+
+  - id: sports-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [patinoire, skating rink]
+      - [match, game]
+      - [entraîneur, coach]
+      - [joueur, player]
+      - [terrain, field]
+
+  - id: sports-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [ballon, ball]
+      - [raquette, racket]
+      - [échauffement, warm-up]
+      - [gymnastique, gymnastics]
+      - [marathon, marathon]
+
+  - id: sports-a2-01.e4
+    type: mcq
+    prompt: "In Québec, the game played with a round ball and goals is…"
+    options: ["le soccer", "le football", "le hockey"]
+    answer: "le soccer"
+    explain: "In Québec le soccer = soccer; le football means American/Canadian football."
+
+  - id: sports-a2-01.e5
+    type: mcq
+    prompt: "« Je ___ au tennis. »"
+    options: ["joue", "fais", "vais"]
+    answer: "joue"
+    explain: "jouer à + sport with a ball: je joue au tennis. But: je fais de la natation."
+
+  - id: sports-a2-01.e6
+    type: word_bank
+    prompt: "Build: “I do gymnastics”"
+    tokens: [Je, fais, de, la, gymnastique, joue]
+    answer: [Je, fais, de, la, gymnastique]
+
+  - id: sports-a2-01.e7
+    type: translate
+    prompt: "Translate: “to lose”"
+    answer: perdre
+
+  - id: sports-a2-01.e8
+    type: listen_type
+    audio_ref: a2/audio/patinoire.mp3
+    answer: patinoire
+    prompt: "Type the word you hear."

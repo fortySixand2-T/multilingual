@@ -1,0 +1,66 @@
+id: travail-a2-04
+title: "Getting hired"
+grammar_point: "postuler, embaucher — talking about hiring"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [cv, employe, employeur, tache, pause, conge_maladie, salaire_minimum, paie, temps_plein, temps_partiel, quart_travail, postuler, embaucher, travailler, chef_equipe, securite_travail, outil]
+pass_threshold: 8.0
+exercises:
+  - id: travail-a2-04.e1
+    type: match_pairs
+    pairs:
+      - [CV, résumé]
+      - [employé, employee]
+      - [employeur, employer]
+      - [tâche, task]
+      - [pause, break]
+
+  - id: travail-a2-04.e2
+    type: match_pairs
+    pairs:
+      - [temps plein, full time]
+      - [temps partiel, part time]
+      - [quart de travail, work shift]
+      - [paie, pay]
+      - [salaire minimum, minimum wage]
+
+  - id: travail-a2-04.e3
+    type: match_pairs
+    pairs:
+      - [postuler, to apply]
+      - [embaucher, to hire]
+      - [travailler, to work]
+      - [chef d'équipe, team lead]
+      - [outil, tool]
+
+  - id: travail-a2-04.e4
+    type: mcq
+    prompt: "In Québec, an evening work shift is « un ___ de soir »."
+    options: ["quart", "temps", "congé"]
+    answer: "quart"
+    explain: "un quart de travail = a work shift in Québec."
+
+  - id: travail-a2-04.e5
+    type: mcq
+    prompt: "« Je vais ___ à cette offre d'emploi. »"
+    options: ["postuler", "embaucher", "travailler"]
+    answer: "postuler"
+    explain: "postuler = to apply; embaucher = to hire (what the employer does)."
+
+  - id: travail-a2-04.e6
+    type: word_bank
+    prompt: "Build: “I work part time”"
+    tokens: [Je, travaille, à, temps, partiel, plein]
+    answer: [Je, travaille, à, temps, partiel]
+
+  - id: travail-a2-04.e7
+    type: translate
+    prompt: "Translate: “sick leave”"
+    answer: "un congé de maladie"
+    accept: ["congé de maladie", "le congé de maladie"]
+
+  - id: travail-a2-04.e8
+    type: listen_type
+    audio_ref: a2/audio/employeur.mp3
+    answer: employeur
+    prompt: "Type the word you hear."

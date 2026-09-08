@@ -1,0 +1,65 @@
+id: money-a2-01
+title: "Money & paying"
+grammar_point: "verbs with money: coûter, dépenser, économiser"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [portefeuille, piece_monnaie, compte_bancaire, guichet, distributeur, carte_bancaire, cheque, couter, depenser, economiser, emprunter, preter, rembourser, taxe, tarif, reduction, assurance, frais, riche, pauvre]
+pass_threshold: 8.0
+exercises:
+  - id: money-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [portefeuille, wallet]
+      - [pièce de monnaie, coin]
+      - [compte bancaire, bank account]
+      - [carte bancaire, bank card]
+      - [chèque, cheque]
+
+  - id: money-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [coûter, to cost]
+      - [dépenser, to spend]
+      - [économiser, to save]
+      - [emprunter, to borrow]
+      - [prêter, to lend]
+  - id: money-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [taxe, tax]
+      - [tarif, rate]
+      - [réduction, discount]
+      - [assurance, insurance]
+      - [frais, fees]
+
+  - id: money-a2-01.e4
+    type: mcq
+    prompt: "« Combien ça ___ ? »"
+    options: ["coûte", "dépense", "économise"]
+    answer: "coûte"
+    explain: "coûter = to cost → Combien ça coûte ?"
+
+  - id: money-a2-01.e5
+    type: mcq
+    prompt: "You borrow money FROM a friend. You…"
+    options: ["empruntez", "prêtez", "remboursez"]
+    answer: "empruntez"
+    explain: "emprunter = to borrow; prêter = to lend. Careful — they're easy to swap."
+
+  - id: money-a2-01.e6
+    type: word_bank
+    prompt: "Build: “I want to save money”"
+    tokens: [Je, veux, économiser, de, l'argent, dépenser]
+    answer: [Je, veux, économiser, de, l'argent]
+
+  - id: money-a2-01.e7
+    type: translate
+    prompt: "Translate: “the ATM”"
+    answer: "le distributeur"
+    accept: [distributeur, "le guichet automatique"]
+
+  - id: money-a2-01.e8
+    type: listen_type
+    audio_ref: a2/audio/rembourser.mp3
+    answer: rembourser
+    prompt: "Type the verb you hear."
