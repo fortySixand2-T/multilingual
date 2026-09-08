@@ -50,4 +50,13 @@ describe("VocabWord gender display", () => {
     expect(screen.queryByText("(m)")).not.toBeInTheDocument();
     expect(screen.queryByText("(fe)")).not.toBeInTheDocument();
   });
+
+  it("marks a known epicene noun (m)-only in the data with (m/f), not a plain (m)", () => {
+    // témoin is authored gender:"m" (no distinct feminine spelling exists), but
+    // "la témoin" is equally correct — the plain (m) badge would wrongly assert
+    // it's masculine-only. See qa/issues/720-epicene-nouns-always-shown-as-m-le.md.
+    render(<VocabWord card={{ ...base, id: "temoin", fr: "témoin", gender: "m" }} />);
+    expect(screen.getByText("(m/f)")).toBeInTheDocument();
+    expect(screen.queryByText("(m)")).not.toBeInTheDocument();
+  });
 });

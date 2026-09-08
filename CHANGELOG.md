@@ -293,3 +293,8 @@
 - [2026-09-07] Created: content/b1/vocab/{health,technology,arts,relationships,rights,tourism,food,mobility}.yaml — 8 new B1 decks, 160 words
 - [2026-09-07] Created: content/b2/vocab/{justice,technologie,education,medias,entreprise,psychologie,migration,histoire}.yaml — 8 new B2 decks, 160 words
 - [2026-09-07] Created: content/{a1,a2,b1,b2}/audio/*.mp3 — TTS pronunciation clips for the 640 new words (scripts/gen_audio.py, fr_CA voice)
+- [2026-09-07] Modified: web/src/VocabWord.tsx — QA 720: epicene nouns (témoin, psychologue, …) badged (m/f) not (m); QA 741: AudioButton keyed by card id so loading state can't bleed across cards
+- [2026-09-07] Modified: web/src/AudioButton.tsx — QA 741: race audio.play() against a 4s timeout so the button never sticks on "…"
+- [2026-09-07] Created: web/src/AudioButton.test.tsx — Tests: loading state always clears, even when play() never settles
+- [2026-09-07] Modified: web/src/VocabWord.test.tsx — Tests: epicene (m/f) badge
+- [2026-09-07] Created: qa/rounds/054-plan.md + qa/issues/{720,721,730,741}-*.md — QA round 054 on the vocab expansion
