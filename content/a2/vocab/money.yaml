@@ -1,0 +1,132 @@
+- id: portefeuille
+  fr: portefeuille
+  en: wallet
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: piece_monnaie
+  fr: pièce de monnaie
+  en: coin
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: compte_bancaire
+  fr: compte bancaire
+  en: bank account
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: guichet
+  fr: guichet
+  en: counter, teller window
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: distributeur
+  fr: distributeur
+  en: ATM
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: carte_bancaire
+  fr: carte bancaire
+  en: bank card
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: cheque
+  fr: chèque
+  en: cheque
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: couter
+  fr: coûter
+  en: to cost
+  pos: verb
+  tags: [money]
+
+- id: depenser
+  fr: dépenser
+  en: to spend
+  pos: verb
+  tags: [money]
+
+- id: economiser
+  fr: économiser
+  en: to save (money)
+  pos: verb
+  tags: [money]
+
+- id: emprunter
+  fr: emprunter
+  en: to borrow
+  pos: verb
+  tags: [money]
+
+- id: preter
+  fr: prêter
+  en: to lend
+  pos: verb
+  tags: [money]
+
+- id: rembourser
+  fr: rembourser
+  en: to pay back
+  pos: verb
+  tags: [money]
+
+- id: taxe
+  fr: taxe
+  en: tax
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: tarif
+  fr: tarif
+  en: rate, fare
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: reduction
+  fr: réduction
+  en: discount
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: assurance
+  fr: assurance
+  en: insurance
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: frais
+  fr: frais
+  en: fees
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: riche
+  fr: riche
+  en: rich
+  pos: adjective
+  tags: [money]
+
+- id: pauvre
+  fr: pauvre
+  en: poor
+  pos: adjective
+  tags: [money]
+

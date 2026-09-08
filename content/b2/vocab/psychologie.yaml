@@ -1,0 +1,140 @@
+- id: anxiete
+  fr: anxiété
+  en: anxiety
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: depression
+  fr: dépression
+  en: depression
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: epuisement
+  fr: épuisement professionnel
+  en: burnout
+  gender: m
+  pos: noun
+  tags: [psychologie]
+
+- id: resilience
+  fr: résilience
+  en: resilience
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: estime_de_soi
+  fr: estime de soi
+  en: self-esteem
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: empathie
+  fr: empathie
+  en: empathy
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: therapie
+  fr: thérapie
+  en: therapy
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: psychologue
+  fr: psychologue
+  en: psychologist
+  gender: m
+  pos: noun
+  tags: [psychologie]
+
+- id: trouble
+  fr: trouble
+  en: disorder
+  gender: m
+  pos: noun
+  tags: [psychologie]
+
+- id: phobie
+  fr: phobie
+  en: phobia
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: deni
+  fr: déni
+  en: denial
+  gender: m
+  pos: noun
+  tags: [psychologie]
+
+- id: emotion
+  fr: émotion
+  en: emotion
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: comportement
+  fr: comportement
+  en: behaviour
+  gender: m
+  pos: noun
+  tags: [psychologie]
+
+- id: perception
+  fr: perception
+  en: perception
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: conscience
+  fr: conscience
+  en: awareness, conscience
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: inconscient
+  fr: inconscient
+  en: the unconscious
+  gender: m
+  pos: noun
+  tags: [psychologie]
+
+- id: traumatisme
+  fr: traumatisme
+  en: trauma
+  gender: m
+  pos: noun
+  tags: [psychologie]
+
+- id: charge_mentale
+  fr: charge mentale
+  en: mental load
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: pleine_conscience
+  fr: pleine conscience
+  en: mindfulness
+  gender: f
+  pos: noun
+  tags: [psychologie]
+
+- id: adaptation
+  fr: adaptation
+  en: adaptation, coping
+  gender: f
+  pos: noun
+  tags: [psychologie]
+

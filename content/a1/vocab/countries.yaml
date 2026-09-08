@@ -1,0 +1,139 @@
+- id: canada
+  fr: le Canada
+  en: Canada
+  gender: m
+  pos: noun
+  tags: [countries]
+
+- id: quebec
+  fr: le Québec
+  en: Quebec
+  gender: m
+  pos: noun
+  tags: [countries]
+
+- id: france
+  fr: la France
+  en: France
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: belgique
+  fr: la Belgique
+  en: Belgium
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: suisse
+  fr: la Suisse
+  en: Switzerland
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: maroc
+  fr: le Maroc
+  en: Morocco
+  gender: m
+  pos: noun
+  tags: [countries]
+
+- id: algerie
+  fr: l'Algérie
+  en: Algeria
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: tunisie
+  fr: la Tunisie
+  en: Tunisia
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: senegal
+  fr: le Sénégal
+  en: Senegal
+  gender: m
+  pos: noun
+  tags: [countries]
+
+- id: haiti
+  fr: Haïti
+  en: Haiti
+  gender: m
+  pos: noun
+  tags: [countries]
+
+- id: etats_unis
+  fr: les États-Unis
+  en: the United States
+  gender: m
+  pos: noun
+  tags: [countries]
+
+- id: mexique
+  fr: le Mexique
+  en: Mexico
+  gender: m
+  pos: noun
+  tags: [countries]
+
+- id: bresil
+  fr: le Brésil
+  en: Brazil
+  gender: m
+  pos: noun
+  tags: [countries]
+
+- id: chine
+  fr: la Chine
+  en: China
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: japon
+  fr: le Japon
+  en: Japan
+  gender: m
+  pos: noun
+  tags: [countries]
+
+- id: inde
+  fr: l'Inde
+  en: India
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: allemagne
+  fr: l'Allemagne
+  en: Germany
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: espagne
+  fr: l'Espagne
+  en: Spain
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: italie
+  fr: l'Italie
+  en: Italy
+  gender: f
+  pos: noun
+  tags: [countries]
+
+- id: angleterre
+  fr: l'Angleterre
+  en: England
+  gender: f
+  pos: noun
+  tags: [countries]

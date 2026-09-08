@@ -1,0 +1,140 @@
+- id: colonisation
+  fr: colonisation
+  en: colonization
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: decolonisation
+  fr: décolonisation
+  en: decolonization
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: revolution
+  fr: révolution
+  en: revolution
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: conquete
+  fr: conquête
+  en: conquest
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: traite
+  fr: traité
+  en: treaty
+  gender: m
+  pos: noun
+  tags: [histoire]
+
+- id: referendum
+  fr: référendum
+  en: referendum
+  gender: m
+  pos: noun
+  tags: [histoire]
+
+- id: monarchie
+  fr: monarchie
+  en: monarchy
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: republique
+  fr: république
+  en: republic
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: empire
+  fr: empire
+  en: empire
+  gender: m
+  pos: noun
+  tags: [histoire]
+
+- id: siecle
+  fr: siècle
+  en: century
+  gender: m
+  pos: noun
+  tags: [histoire]
+
+- id: epoque
+  fr: époque
+  en: era
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: vestige
+  fr: vestige
+  en: remains, relic
+  gender: m
+  pos: noun
+  tags: [histoire]
+
+- id: archive
+  fr: archives
+  en: archives
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: commemoration
+  fr: commémoration
+  en: commemoration
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: memoire_collective
+  fr: mémoire collective
+  en: collective memory
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: ancetre
+  fr: ancêtre
+  en: ancestor
+  gender: m
+  pos: noun
+  tags: [histoire]
+
+- id: chronologie
+  fr: chronologie
+  en: timeline
+  gender: f
+  pos: noun
+  tags: [histoire]
+
+- id: recit_national
+  fr: récit national
+  en: national narrative
+  gender: m
+  pos: noun
+  tags: [histoire]
+
+- id: revisionnisme
+  fr: révisionnisme
+  en: revisionism
+  gender: m
+  pos: noun
+  tags: [histoire]
+
+- id: autochtone
+  fr: autochtone
+  en: Indigenous person
+  gender: m
+  pos: noun
+  tags: [histoire]
+

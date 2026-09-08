@@ -1,0 +1,132 @@
+- id: appel
+  fr: appel
+  en: call
+  gender: m
+  pos: noun
+  tags: [communication]
+
+- id: message
+  fr: message
+  en: message
+  gender: m
+  pos: noun
+  tags: [communication]
+
+- id: texto
+  fr: texto
+  en: text message
+  gender: m
+  pos: noun
+  tags: [communication]
+
+- id: boite_vocale
+  fr: boîte vocale
+  en: voicemail
+  gender: f
+  pos: noun
+  tags: [communication]
+
+- id: sonner
+  fr: sonner
+  en: to ring
+  pos: verb
+  tags: [communication]
+
+- id: repondre
+  fr: répondre
+  en: to answer
+  pos: verb
+  tags: [communication]
+
+- id: rappeler
+  fr: rappeler
+  en: to call back
+  pos: verb
+  tags: [communication]
+
+- id: raccrocher
+  fr: raccrocher
+  en: to hang up
+  pos: verb
+  tags: [communication]
+
+- id: numero
+  fr: numéro
+  en: number
+  gender: m
+  pos: noun
+  tags: [communication]
+
+- id: lettre
+  fr: lettre
+  en: letter
+  gender: f
+  pos: noun
+  tags: [communication]
+
+- id: enveloppe
+  fr: enveloppe
+  en: envelope
+  gender: f
+  pos: noun
+  tags: [communication]
+
+- id: timbre
+  fr: timbre
+  en: stamp
+  gender: m
+  pos: noun
+  tags: [communication]
+
+- id: colis
+  fr: colis
+  en: parcel
+  gender: m
+  pos: noun
+  tags: [communication]
+
+- id: adresse
+  fr: adresse
+  en: address
+  gender: f
+  pos: noun
+  tags: [communication]
+
+- id: signature
+  fr: signature
+  en: signature
+  gender: f
+  pos: noun
+  tags: [communication]
+
+- id: conversation
+  fr: conversation
+  en: conversation
+  gender: f
+  pos: noun
+  tags: [communication]
+
+- id: discuter
+  fr: discuter
+  en: to chat, to discuss
+  pos: verb
+  tags: [communication]
+
+- id: expliquer
+  fr: expliquer
+  en: to explain
+  pos: verb
+  tags: [communication]
+
+- id: demander
+  fr: demander
+  en: to ask
+  pos: verb
+  tags: [communication]
+
+- id: remercier
+  fr: remercier
+  en: to thank
+  pos: verb
+  tags: [communication]
+

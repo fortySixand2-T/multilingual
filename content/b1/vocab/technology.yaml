@@ -1,0 +1,137 @@
+- id: mise_a_jour
+  fr: mise à jour
+  en: update
+  gender: f
+  pos: noun
+  tags: [technology]
+
+- id: sauvegarde
+  fr: sauvegarde
+  en: backup
+  gender: f
+  pos: noun
+  tags: [technology]
+
+- id: piratage
+  fr: piratage
+  en: hacking
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: virus
+  fr: virus
+  en: virus
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: navigateur
+  fr: navigateur
+  en: browser
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: moteur_recherche
+  fr: moteur de recherche
+  en: search engine
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: forfait
+  fr: forfait
+  en: plan, package
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: connexion
+  fr: connexion
+  en: connection
+  gender: f
+  pos: noun
+  tags: [technology]
+
+- id: debit
+  fr: débit
+  en: bandwidth, speed
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: wifi
+  fr: wifi
+  en: wi-fi
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: imprimante
+  fr: imprimante
+  en: printer
+  gender: f
+  pos: noun
+  tags: [technology]
+
+- id: haut_parleur
+  fr: haut-parleur
+  en: speaker
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: chargeur
+  fr: chargeur
+  en: charger
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: batterie
+  fr: batterie
+  en: battery
+  gender: f
+  pos: noun
+  tags: [technology]
+
+- id: plateforme
+  fr: plateforme
+  en: platform
+  gender: f
+  pos: noun
+  tags: [technology]
+
+- id: parametres
+  fr: paramètres
+  en: settings
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: tutoriel
+  fr: tutoriel
+  en: tutorial
+  gender: m
+  pos: noun
+  tags: [technology]
+
+- id: installer
+  fr: installer
+  en: to install
+  pos: verb
+  tags: [technology]
+
+- id: brancher
+  fr: brancher
+  en: to plug in
+  pos: verb
+  tags: [technology]
+
+- id: partager
+  fr: partager
+  en: to share
+  pos: verb
+  tags: [technology]
+

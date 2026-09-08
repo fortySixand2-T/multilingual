@@ -1,0 +1,140 @@
+- id: actionnaire
+  fr: actionnaire
+  en: shareholder
+  gender: m
+  pos: noun
+  tags: [entreprise]
+
+- id: gouvernance
+  fr: gouvernance
+  en: governance
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: strategie
+  fr: stratégie
+  en: strategy
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: fusion
+  fr: fusion
+  en: merger
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: acquisition
+  fr: acquisition
+  en: acquisition
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: filiale
+  fr: filiale
+  en: subsidiary
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: sous_traitance
+  fr: sous-traitance
+  en: outsourcing
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: chaine_approvisionnement
+  fr: chaîne d'approvisionnement
+  en: supply chain
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: marge
+  fr: marge
+  en: margin
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: tresorerie
+  fr: trésorerie
+  en: cash flow
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: levee_fonds
+  fr: levée de fonds
+  en: fundraising round
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: jeune_pousse
+  fr: jeune pousse
+  en: start-up
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: actif
+  fr: actif
+  en: asset
+  gender: m
+  pos: noun
+  tags: [entreprise]
+
+- id: passif
+  fr: passif
+  en: liability
+  gender: m
+  pos: noun
+  tags: [entreprise]
+
+- id: audit
+  fr: audit
+  en: audit
+  gender: m
+  pos: noun
+  tags: [entreprise]
+
+- id: conformite
+  fr: conformité
+  en: compliance
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: restructuration
+  fr: restructuration
+  en: restructuring
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: expansion
+  fr: expansion
+  en: expansion
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: part_marche
+  fr: part de marché
+  en: market share
+  gender: f
+  pos: noun
+  tags: [entreprise]
+
+- id: positionnement
+  fr: positionnement
+  en: positioning
+  gender: m
+  pos: noun
+  tags: [entreprise]
+

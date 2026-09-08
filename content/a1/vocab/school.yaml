@@ -1,0 +1,141 @@
+- id: cahier
+  fr: cahier
+  en: notebook
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: stylo
+  fr: stylo
+  en: pen
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: crayon
+  fr: crayon
+  en: pencil
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: efface
+  fr: efface
+  en: eraser (Québec)
+  gender: f
+  pos: noun
+  tags: [school]
+
+- id: regle
+  fr: règle
+  en: ruler
+  gender: f
+  pos: noun
+  tags: [school]
+
+- id: trousse
+  fr: trousse
+  en: pencil case
+  gender: f
+  pos: noun
+  tags: [school]
+
+- id: sac_a_dos
+  fr: sac à dos
+  en: backpack
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: feuille
+  fr: feuille
+  en: sheet (of paper)
+  gender: f
+  pos: noun
+  tags: [school]
+
+- id: papier
+  fr: papier
+  en: paper
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: tableau
+  fr: tableau
+  en: board
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: classe
+  fr: classe
+  en: class, classroom
+  gender: f
+  pos: noun
+  tags: [school]
+
+- id: professeur
+  fr: professeur
+  en: teacher
+  gender: mf
+  fem: professeure
+  pos: noun
+  tags: [school]
+
+- id: etudiant
+  fr: étudiant
+  en: student
+  gender: mf
+  fem: étudiante
+  pos: noun
+  tags: [school]
+
+- id: devoirs
+  fr: devoirs
+  en: homework
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: lecon
+  fr: leçon
+  en: lesson
+  gender: f
+  pos: noun
+  tags: [school]
+
+- id: mot
+  fr: mot
+  en: word
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: dictionnaire
+  fr: dictionnaire
+  en: dictionary
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: ciseaux
+  fr: ciseaux
+  en: scissors
+  gender: m
+  pos: noun
+  tags: [school]
+
+- id: colle
+  fr: colle
+  en: glue
+  gender: f
+  pos: noun
+  tags: [school]
+
+- id: recreation
+  fr: récréation
+  en: recess, break
+  gender: f
+  pos: noun
+  tags: [school]

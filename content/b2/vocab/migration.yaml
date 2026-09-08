@@ -1,0 +1,140 @@
+- id: diaspora
+  fr: diaspora
+  en: diaspora
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: exil
+  fr: exil
+  en: exile
+  gender: m
+  pos: noun
+  tags: [migration]
+
+- id: expatriation
+  fr: expatriation
+  en: expatriation
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: asile
+  fr: asile
+  en: asylum
+  gender: m
+  pos: noun
+  tags: [migration]
+
+- id: apatride
+  fr: apatride
+  en: stateless person
+  gender: m
+  pos: noun
+  tags: [migration]
+
+- id: quota
+  fr: quota
+  en: quota
+  gender: m
+  pos: noun
+  tags: [migration]
+
+- id: regularisation
+  fr: régularisation
+  en: regularization of status
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: clandestinite
+  fr: clandestinité
+  en: living without status
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: exode
+  fr: exode
+  en: exodus
+  gender: m
+  pos: noun
+  tags: [migration]
+
+- id: fuite_cerveaux
+  fr: fuite des cerveaux
+  en: brain drain
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: acculturation
+  fr: acculturation
+  en: acculturation
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: assimilation
+  fr: assimilation
+  en: assimilation
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: cohabitation
+  fr: cohabitation
+  en: living together, coexistence
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: deracinement
+  fr: déracinement
+  en: uprooting
+  gender: m
+  pos: noun
+  tags: [migration]
+
+- id: hospitalite
+  fr: hospitalité
+  en: hospitality
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: xenophobie
+  fr: xénophobie
+  en: xenophobia
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: flux_migratoire
+  fr: flux migratoire
+  en: migration flow
+  gender: m
+  pos: noun
+  tags: [migration]
+
+- id: rapatriement
+  fr: rapatriement
+  en: repatriation
+  gender: m
+  pos: noun
+  tags: [migration]
+
+- id: residence_permanente
+  fr: résidence permanente
+  en: permanent residence
+  gender: f
+  pos: noun
+  tags: [migration]
+
+- id: francisation
+  fr: francisation
+  en: francization (Québec)
+  gender: f
+  pos: noun
+  tags: [migration]
+

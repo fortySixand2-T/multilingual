@@ -1,0 +1,139 @@
+- id: chaise
+  fr: chaise
+  en: chair
+  gender: f
+  pos: noun
+  tags: [house]
+
+- id: armoire
+  fr: armoire
+  en: wardrobe
+  gender: f
+  pos: noun
+  tags: [house]
+
+- id: tiroir
+  fr: tiroir
+  en: drawer
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: etagere
+  fr: étagère
+  en: shelf
+  gender: f
+  pos: noun
+  tags: [house]
+
+- id: tapis
+  fr: tapis
+  en: rug, carpet
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: rideau
+  fr: rideau
+  en: curtain
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: oreiller
+  fr: oreiller
+  en: pillow
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: couverture
+  fr: couverture
+  en: blanket
+  gender: f
+  pos: noun
+  tags: [house]
+
+- id: drap
+  fr: drap
+  en: bed sheet
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: miroir
+  fr: miroir
+  en: mirror
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: lampe
+  fr: lampe
+  en: lamp
+  gender: f
+  pos: noun
+  tags: [house]
+
+- id: douche
+  fr: douche
+  en: shower
+  gender: f
+  pos: noun
+  tags: [house]
+
+- id: baignoire
+  fr: baignoire
+  en: bathtub
+  gender: f
+  pos: noun
+  tags: [house]
+
+- id: evier
+  fr: évier
+  en: kitchen sink
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: frigo
+  fr: frigo
+  en: fridge
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: placard
+  fr: placard
+  en: cupboard, closet
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: balcon
+  fr: balcon
+  en: balcony
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: garage
+  fr: garage
+  en: garage
+  gender: m
+  pos: noun
+  tags: [house]
+
+- id: cave
+  fr: cave
+  en: cellar, basement
+  gender: f
+  pos: noun
+  tags: [house]
+
+- id: toilettes
+  fr: toilettes
+  en: toilet, washroom
+  gender: f
+  pos: noun
+  tags: [house]

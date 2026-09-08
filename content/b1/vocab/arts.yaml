@@ -1,0 +1,142 @@
+- id: roman
+  fr: roman
+  en: novel
+  gender: m
+  pos: noun
+  tags: [arts]
+
+- id: poesie
+  fr: poésie
+  en: poetry
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: piece_theatre
+  fr: pièce de théâtre
+  en: play
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: scene
+  fr: scène
+  en: stage, scene
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: public
+  fr: public
+  en: audience
+  gender: m
+  pos: noun
+  tags: [arts]
+
+- id: realisateur
+  fr: réalisateur
+  en: film director
+  gender: mf
+  fem: réalisatrice
+  pos: noun
+  tags: [arts]
+
+- id: tournage
+  fr: tournage
+  en: filming
+  gender: m
+  pos: noun
+  tags: [arts]
+
+- id: personnage
+  fr: personnage
+  en: character
+  gender: m
+  pos: noun
+  tags: [arts]
+
+- id: intrigue
+  fr: intrigue
+  en: plot
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: chanson
+  fr: chanson
+  en: song
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: chanteur
+  fr: chanteur
+  en: singer
+  gender: mf
+  fem: chanteuse
+  pos: noun
+  tags: [arts]
+
+- id: orchestre
+  fr: orchestre
+  en: orchestra
+  gender: m
+  pos: noun
+  tags: [arts]
+
+- id: instrument
+  fr: instrument
+  en: instrument
+  gender: m
+  pos: noun
+  tags: [arts]
+
+- id: galerie
+  fr: galerie
+  en: gallery
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: atelier
+  fr: atelier
+  en: workshop, studio
+  gender: m
+  pos: noun
+  tags: [arts]
+
+- id: critique
+  fr: critique
+  en: review
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: billetterie
+  fr: billetterie
+  en: box office
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: repetition
+  fr: répétition
+  en: rehearsal
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: toile
+  fr: toile
+  en: canvas
+  gender: f
+  pos: noun
+  tags: [arts]
+
+- id: danse
+  fr: danse
+  en: dance
+  gender: f
+  pos: noun
+  tags: [arts]
+

@@ -1,0 +1,135 @@
+- id: cours
+  fr: cours
+  en: class, course
+  gender: m
+  pos: noun
+  tags: [studies]
+
+- id: note
+  fr: note
+  en: grade, mark
+  gender: f
+  pos: noun
+  tags: [studies]
+
+- id: bulletin
+  fr: bulletin
+  en: report card
+  gender: m
+  pos: noun
+  tags: [studies]
+
+- id: semestre
+  fr: semestre
+  en: semester
+  gender: m
+  pos: noun
+  tags: [studies]
+
+- id: rentree
+  fr: rentrée
+  en: back-to-school
+  gender: f
+  pos: noun
+  tags: [studies]
+
+- id: cantine
+  fr: cantine
+  en: cafeteria
+  gender: f
+  pos: noun
+  tags: [studies]
+
+- id: uniforme
+  fr: uniforme
+  en: uniform
+  gender: m
+  pos: noun
+  tags: [studies]
+
+- id: bourse_etudes
+  fr: bourse d'études
+  en: scholarship
+  gender: f
+  pos: noun
+  tags: [studies]
+
+- id: memoriser
+  fr: mémoriser
+  en: to memorize
+  pos: verb
+  tags: [studies]
+
+- id: reviser
+  fr: réviser
+  en: to revise, to study
+  pos: verb
+  tags: [studies]
+
+- id: redoubler
+  fr: redoubler
+  en: to repeat a year
+  pos: verb
+  tags: [studies]
+
+- id: reussir
+  fr: réussir
+  en: to pass, to succeed
+  pos: verb
+  tags: [studies]
+
+- id: echouer
+  fr: échouer
+  en: to fail
+  pos: verb
+  tags: [studies]
+
+- id: inscrire
+  fr: inscrire
+  en: to enrol
+  pos: verb
+  tags: [studies]
+
+- id: presentation
+  fr: présentation
+  en: presentation
+  gender: f
+  pos: noun
+  tags: [studies]
+
+- id: camarade
+  fr: camarade de classe
+  en: classmate
+  gender: m
+  pos: noun
+  tags: [studies]
+
+- id: conference
+  fr: conférence
+  en: lecture
+  gender: f
+  pos: noun
+  tags: [studies]
+
+- id: laboratoire
+  fr: laboratoire
+  en: lab
+  gender: m
+  pos: noun
+  tags: [studies]
+
+- id: tuteur
+  fr: tuteur
+  en: tutor
+  gender: mf
+  fem: tutrice
+  pos: noun
+  tags: [studies]
+
+- id: casier
+  fr: casier
+  en: locker
+  gender: m
+  pos: noun
+  tags: [studies]
+

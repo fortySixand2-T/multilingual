@@ -1,0 +1,141 @@
+- id: deontologie
+  fr: déontologie
+  en: professional ethics
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: ligne_editoriale
+  fr: ligne éditoriale
+  en: editorial stance
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: redaction
+  fr: rédaction
+  en: newsroom, editorial team
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: la_une
+  fr: la une
+  en: front page
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: editorial
+  fr: éditorial
+  en: editorial
+  gender: m
+  pos: noun
+  tags: [medias]
+
+- id: chronique
+  fr: chronique
+  en: column
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: enquete
+  fr: enquête
+  en: investigation
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: verification_faits
+  fr: vérification des faits
+  en: fact-checking
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: sensationnalisme
+  fr: sensationnalisme
+  en: sensationalism
+  gender: m
+  pos: noun
+  tags: [medias]
+
+- id: traitement_mediatique
+  fr: traitement médiatique
+  en: media coverage, framing
+  gender: m
+  pos: noun
+  tags: [medias]
+
+- id: couverture_presse
+  fr: couverture de presse
+  en: press coverage
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: pluralisme
+  fr: pluralisme
+  en: pluralism
+  gender: m
+  pos: noun
+  tags: [medias]
+
+- id: independance
+  fr: indépendance
+  en: independence
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: abonne
+  fr: abonné
+  en: subscriber
+  gender: mf
+  fem: abonnée
+  pos: noun
+  tags: [medias]
+
+- id: audimat
+  fr: audimat
+  en: ratings
+  gender: m
+  pos: noun
+  tags: [medias]
+
+- id: viralite
+  fr: viralité
+  en: virality
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: clivage
+  fr: clivage
+  en: divide, polarization
+  gender: m
+  pos: noun
+  tags: [medias]
+
+- id: bulle_informationnelle
+  fr: bulle informationnelle
+  en: filter bubble
+  gender: f
+  pos: noun
+  tags: [medias]
+
+- id: recoupement
+  fr: recoupement
+  en: cross-checking
+  gender: m
+  pos: noun
+  tags: [medias]
+
+- id: credibilite
+  fr: crédibilité
+  en: credibility
+  gender: f
+  pos: noun
+  tags: [medias]
+

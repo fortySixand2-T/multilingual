@@ -1,0 +1,139 @@
+- id: cinema
+  fr: cinéma
+  en: movie theatre
+  gender: m
+  pos: noun
+  tags: [places]
+
+- id: theatre
+  fr: théâtre
+  en: theatre
+  gender: m
+  pos: noun
+  tags: [places]
+
+- id: piscine
+  fr: piscine
+  en: swimming pool
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: stade
+  fr: stade
+  en: stadium
+  gender: m
+  pos: noun
+  tags: [places]
+
+- id: zoo
+  fr: zoo
+  en: zoo
+  gender: m
+  pos: noun
+  tags: [places]
+
+- id: librairie
+  fr: librairie
+  en: bookshop
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: boucherie
+  fr: boucherie
+  en: butcher's shop
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: patisserie
+  fr: pâtisserie
+  en: pastry shop
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: salon_de_coiffure
+  fr: salon de coiffure
+  en: hair salon
+  gender: m
+  pos: noun
+  tags: [places]
+
+- id: garderie
+  fr: garderie
+  en: daycare
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: universite
+  fr: université
+  en: university
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: epicerie
+  fr: épicerie
+  en: grocery store
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: centre_commercial
+  fr: centre commercial
+  en: shopping mall
+  gender: m
+  pos: noun
+  tags: [places]
+
+- id: station_service
+  fr: station-service
+  en: gas station
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: clinique
+  fr: clinique
+  en: clinic
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: camping
+  fr: camping
+  en: campground
+  gender: m
+  pos: noun
+  tags: [places]
+
+- id: gymnase
+  fr: gymnase
+  en: gym
+  gender: m
+  pos: noun
+  tags: [places]
+
+- id: depanneur
+  fr: dépanneur
+  en: corner store (Québec)
+  gender: m
+  pos: noun
+  tags: [places]
+
+- id: buanderie
+  fr: buanderie
+  en: laundromat
+  gender: f
+  pos: noun
+  tags: [places]
+
+- id: terrain_de_jeu
+  fr: terrain de jeu
+  en: playground
+  gender: m
+  pos: noun
+  tags: [places]

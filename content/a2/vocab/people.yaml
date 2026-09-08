@@ -1,0 +1,126 @@
+- id: mince
+  fr: mince
+  en: slim
+  pos: adjective
+  tags: [people]
+
+- id: gros
+  fr: gros
+  en: big, fat
+  pos: adjective
+  tags: [people]
+
+- id: chauve
+  fr: chauve
+  en: bald
+  pos: adjective
+  tags: [people]
+
+- id: barbe
+  fr: barbe
+  en: beard
+  gender: f
+  pos: noun
+  tags: [people]
+
+- id: lunettes
+  fr: lunettes
+  en: glasses
+  gender: f
+  pos: noun
+  tags: [people]
+
+- id: gentil
+  fr: gentil
+  en: kind
+  pos: adjective
+  tags: [people]
+
+- id: poli
+  fr: poli
+  en: polite
+  pos: adjective
+  tags: [people]
+
+- id: timide
+  fr: timide
+  en: shy
+  pos: adjective
+  tags: [people]
+
+- id: bavard
+  fr: bavard
+  en: talkative
+  pos: adjective
+  tags: [people]
+
+- id: drole
+  fr: drôle
+  en: funny
+  pos: adjective
+  tags: [people]
+
+- id: serieux
+  fr: sérieux
+  en: serious
+  pos: adjective
+  tags: [people]
+
+- id: paresseux
+  fr: paresseux
+  en: lazy
+  pos: adjective
+  tags: [people]
+
+- id: courageux
+  fr: courageux
+  en: brave
+  pos: adjective
+  tags: [people]
+
+- id: genereux
+  fr: généreux
+  en: generous
+  pos: adjective
+  tags: [people]
+
+- id: honnete
+  fr: honnête
+  en: honest
+  pos: adjective
+  tags: [people]
+
+- id: patient
+  fr: patient
+  en: patient
+  pos: adjective
+  tags: [people]
+
+- id: curieux
+  fr: curieux
+  en: curious
+  pos: adjective
+  tags: [people]
+
+- id: sympathique
+  fr: sympathique
+  en: friendly, nice
+  pos: adjective
+  tags: [people]
+
+- id: ami
+  fr: ami
+  en: friend
+  gender: mf
+  fem: amie
+  pos: noun
+  tags: [people]
+
+- id: copain
+  fr: copain
+  en: buddy, boyfriend
+  gender: mf
+  fem: copine
+  pos: noun
+  tags: [people]
+

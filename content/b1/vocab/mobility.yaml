@@ -1,0 +1,140 @@
+- id: stationnement
+  fr: stationnement
+  en: parking
+  gender: m
+  pos: noun
+  tags: [mobility]
+
+- id: autoroute
+  fr: autoroute
+  en: highway
+  gender: f
+  pos: noun
+  tags: [mobility]
+
+- id: peage
+  fr: péage
+  en: toll
+  gender: m
+  pos: noun
+  tags: [mobility]
+
+- id: panneau
+  fr: panneau
+  en: road sign
+  gender: m
+  pos: noun
+  tags: [mobility]
+
+- id: limitation
+  fr: limitation de vitesse
+  en: speed limit
+  gender: f
+  pos: noun
+  tags: [mobility]
+
+- id: casque
+  fr: casque
+  en: helmet
+  gender: m
+  pos: noun
+  tags: [mobility]
+
+- id: deviation
+  fr: déviation
+  en: detour
+  gender: f
+  pos: noun
+  tags: [mobility]
+
+- id: chantier
+  fr: chantier
+  en: roadworks, construction site
+  gender: m
+  pos: noun
+  tags: [mobility]
+
+- id: correspondance
+  fr: correspondance
+  en: transfer, connection
+  gender: f
+  pos: noun
+  tags: [mobility]
+
+- id: navette
+  fr: navette
+  en: shuttle
+  gender: f
+  pos: noun
+  tags: [mobility]
+
+- id: trajet
+  fr: trajet
+  en: trip, route
+  gender: m
+  pos: noun
+  tags: [mobility]
+
+- id: titre_transport
+  fr: titre de transport
+  en: transit fare, pass
+  gender: m
+  pos: noun
+  tags: [mobility]
+
+- id: borne_recharge
+  fr: borne de recharge
+  en: charging station
+  gender: f
+  pos: noun
+  tags: [mobility]
+
+- id: electrique
+  fr: électrique
+  en: electric
+  pos: adjective
+  tags: [mobility]
+
+- id: pneu
+  fr: pneu
+  en: tire
+  gender: m
+  pos: noun
+  tags: [mobility]
+
+- id: reparation
+  fr: réparation
+  en: repair
+  gender: f
+  pos: noun
+  tags: [mobility]
+
+- id: assurance_auto
+  fr: assurance auto
+  en: car insurance
+  gender: f
+  pos: noun
+  tags: [mobility]
+
+- id: conducteur
+  fr: conducteur
+  en: driver
+  gender: mf
+  fem: conductrice
+  pos: noun
+  tags: [mobility]
+
+- id: auto_partage
+  fr: autopartage
+  en: car sharing
+  gender: m
+  pos: noun
+  tags: [mobility]
+
+- id: trottinette
+  fr: trottinette
+  en: scooter
+  gender: f
+  pos: noun
+  tags: [mobility]
+

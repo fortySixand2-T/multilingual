@@ -1,0 +1,141 @@
+- id: jurisprudence
+  fr: jurisprudence
+  en: case law
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: magistrat
+  fr: magistrat
+  en: judge, magistrate
+  gender: mf
+  fem: magistrate
+  pos: noun
+  tags: [justice]
+
+- id: proces
+  fr: procès
+  en: trial
+  gender: m
+  pos: noun
+  tags: [justice]
+
+- id: verdict
+  fr: verdict
+  en: verdict
+  gender: m
+  pos: noun
+  tags: [justice]
+
+- id: peine
+  fr: peine
+  en: sentence, penalty
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: presomption_innocence
+  fr: présomption d'innocence
+  en: presumption of innocence
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: plaidoyer
+  fr: plaidoyer
+  en: plea, closing argument
+  gender: m
+  pos: noun
+  tags: [justice]
+
+- id: recidive
+  fr: récidive
+  en: reoffending
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: impunite
+  fr: impunité
+  en: impunity
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: sanction
+  fr: sanction
+  en: penalty, sanction
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: indemnisation
+  fr: indemnisation
+  en: compensation
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: detention
+  fr: détention
+  en: detention
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: reinsertion
+  fr: réinsertion
+  en: reintegration
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: prescription
+  fr: prescription
+  en: statute of limitations
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: pourvoi
+  fr: pourvoi en cassation
+  en: appeal to a higher court
+  gender: m
+  pos: noun
+  tags: [justice]
+
+- id: equite
+  fr: équité
+  en: fairness, equity
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: legitimite
+  fr: légitimité
+  en: legitimacy
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: infraction
+  fr: infraction
+  en: offence
+  gender: f
+  pos: noun
+  tags: [justice]
+
+- id: delit
+  fr: délit
+  en: misdemeanour
+  gender: m
+  pos: noun
+  tags: [justice]
+
+- id: poursuite
+  fr: poursuite judiciaire
+  en: prosecution, lawsuit
+  gender: f
+  pos: noun
+  tags: [justice]
+

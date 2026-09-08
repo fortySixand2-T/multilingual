@@ -1,0 +1,159 @@
+- id: infirmier
+  fr: infirmier
+  en: nurse
+  gender: mf
+  fem: infirmière
+  pos: noun
+  tags: [jobs]
+
+- id: policier
+  fr: policier
+  en: police officer
+  gender: mf
+  fem: policière
+  pos: noun
+  tags: [jobs]
+
+- id: pompier
+  fr: pompier
+  en: firefighter
+  gender: mf
+  fem: pompière
+  pos: noun
+  tags: [jobs]
+
+- id: boulanger
+  fr: boulanger
+  en: baker
+  gender: mf
+  fem: boulangère
+  pos: noun
+  tags: [jobs]
+
+- id: cuisinier
+  fr: cuisinier
+  en: cook
+  gender: mf
+  fem: cuisinière
+  pos: noun
+  tags: [jobs]
+
+- id: coiffeur
+  fr: coiffeur
+  en: hairdresser
+  gender: mf
+  fem: coiffeuse
+  pos: noun
+  tags: [jobs]
+
+- id: facteur
+  fr: facteur
+  en: mail carrier
+  gender: mf
+  fem: factrice
+  pos: noun
+  tags: [jobs]
+
+- id: chauffeur
+  fr: chauffeur
+  en: driver
+  gender: mf
+  fem: chauffeuse
+  pos: noun
+  tags: [jobs]
+
+- id: mecanicien
+  fr: mécanicien
+  en: mechanic
+  gender: mf
+  fem: mécanicienne
+  pos: noun
+  tags: [jobs]
+
+- id: electricien
+  fr: électricien
+  en: electrician
+  gender: mf
+  fem: électricienne
+  pos: noun
+  tags: [jobs]
+
+- id: plombier
+  fr: plombier
+  en: plumber
+  gender: mf
+  fem: plombière
+  pos: noun
+  tags: [jobs]
+
+- id: avocat
+  fr: avocat
+  en: lawyer
+  gender: mf
+  fem: avocate
+  pos: noun
+  tags: [jobs]
+
+- id: ingenieur
+  fr: ingénieur
+  en: engineer
+  gender: mf
+  fem: ingénieure
+  pos: noun
+  tags: [jobs]
+
+- id: caissier
+  fr: caissier
+  en: cashier
+  gender: mf
+  fem: caissière
+  pos: noun
+  tags: [jobs]
+
+- id: jardinier
+  fr: jardinier
+  en: gardener
+  gender: mf
+  fem: jardinière
+  pos: noun
+  tags: [jobs]
+
+- id: pharmacien
+  fr: pharmacien
+  en: pharmacist
+  gender: mf
+  fem: pharmacienne
+  pos: noun
+  tags: [jobs]
+
+- id: traducteur
+  fr: traducteur
+  en: translator
+  gender: mf
+  fem: traductrice
+  pos: noun
+  tags: [jobs]
+
+- id: musicien
+  fr: musicien
+  en: musician
+  gender: mf
+  fem: musicienne
+  pos: noun
+  tags: [jobs]
+
+- id: acteur
+  fr: acteur
+  en: actor
+  gender: mf
+  fem: actrice
+  pos: noun
+  tags: [jobs]
+
+- id: directeur
+  fr: directeur
+  en: director, manager
+  gender: mf
+  fem: directrice
+  pos: noun
+  tags: [jobs]

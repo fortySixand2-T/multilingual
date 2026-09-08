@@ -1,0 +1,136 @@
+- id: fete
+  fr: fête
+  en: party, holiday
+  gender: f
+  pos: noun
+  tags: [celebrations]
+
+- id: anniversaire
+  fr: anniversaire
+  en: birthday
+  gender: m
+  pos: noun
+  tags: [celebrations]
+
+- id: cadeau
+  fr: cadeau
+  en: gift
+  gender: m
+  pos: noun
+  tags: [celebrations]
+
+- id: invitation
+  fr: invitation
+  en: invitation
+  gender: f
+  pos: noun
+  tags: [celebrations]
+
+- id: noel
+  fr: Noël
+  en: Christmas
+  gender: m
+  pos: noun
+  tags: [celebrations]
+
+- id: paques
+  fr: Pâques
+  en: Easter
+  pos: noun
+  tags: [celebrations]
+
+- id: jour_de_lan
+  fr: jour de l'An
+  en: New Year's Day
+  gender: m
+  pos: noun
+  tags: [celebrations]
+
+- id: saint_valentin
+  fr: Saint-Valentin
+  en: Valentine's Day
+  gender: f
+  pos: noun
+  tags: [celebrations]
+
+- id: action_de_graces
+  fr: Action de grâce
+  en: Thanksgiving (Québec)
+  gender: f
+  pos: noun
+  tags: [celebrations]
+
+- id: halloween
+  fr: Halloween
+  en: Halloween
+  gender: f
+  pos: noun
+  tags: [celebrations]
+
+- id: mariage
+  fr: mariage
+  en: wedding
+  gender: m
+  pos: noun
+  tags: [celebrations]
+
+- id: bapteme
+  fr: baptême
+  en: christening
+  gender: m
+  pos: noun
+  tags: [celebrations]
+
+- id: feux_artifice
+  fr: feux d'artifice
+  en: fireworks
+  gender: m
+  pos: noun
+  tags: [celebrations]
+
+- id: decoration
+  fr: décoration
+  en: decoration
+  gender: f
+  pos: noun
+  tags: [celebrations]
+
+- id: bougie
+  fr: bougie
+  en: candle
+  gender: f
+  pos: noun
+  tags: [celebrations]
+
+- id: souhaiter
+  fr: souhaiter
+  en: to wish
+  pos: verb
+  tags: [celebrations]
+
+- id: feter
+  fr: fêter
+  en: to celebrate
+  pos: verb
+  tags: [celebrations]
+
+- id: inviter
+  fr: inviter
+  en: to invite
+  pos: verb
+  tags: [celebrations]
+
+- id: defile
+  fr: défilé
+  en: parade
+  gender: m
+  pos: noun
+  tags: [celebrations]
+
+- id: costume
+  fr: costume
+  en: costume, suit
+  gender: m
+  pos: noun
+  tags: [celebrations]
+

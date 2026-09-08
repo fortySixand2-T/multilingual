@@ -1,0 +1,141 @@
+- id: soccer
+  fr: soccer
+  en: soccer
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: hockey
+  fr: hockey
+  en: hockey
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: basketball
+  fr: basketball
+  en: basketball
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: tennis
+  fr: tennis
+  en: tennis
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: natation
+  fr: natation
+  en: swimming
+  gender: f
+  pos: noun
+  tags: [sports]
+
+- id: course
+  fr: course
+  en: running, race
+  gender: f
+  pos: noun
+  tags: [sports]
+
+- id: ski
+  fr: ski
+  en: skiing
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: patin
+  fr: patin
+  en: skate
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: patinoire
+  fr: patinoire
+  en: skating rink
+  gender: f
+  pos: noun
+  tags: [sports]
+
+- id: match
+  fr: match
+  en: game, match
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: entrainement
+  fr: entraînement
+  en: training
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: entraineur
+  fr: entraîneur
+  en: coach
+  gender: mf
+  fem: entraîneuse
+  pos: noun
+  tags: [sports]
+
+- id: joueur
+  fr: joueur
+  en: player
+  gender: mf
+  fem: joueuse
+  pos: noun
+  tags: [sports]
+
+- id: ballon
+  fr: ballon
+  en: ball
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: raquette
+  fr: raquette
+  en: racket
+  gender: f
+  pos: noun
+  tags: [sports]
+
+- id: perdre
+  fr: perdre
+  en: to lose
+  pos: verb
+  tags: [sports]
+
+- id: echauffement
+  fr: échauffement
+  en: warm-up
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: gymnastique
+  fr: gymnastique
+  en: gymnastics
+  gender: f
+  pos: noun
+  tags: [sports]
+
+- id: marathon
+  fr: marathon
+  en: marathon
+  gender: m
+  pos: noun
+  tags: [sports]
+
+- id: terrain
+  fr: terrain
+  en: field, court
+  gender: m
+  pos: noun
+  tags: [sports]
+

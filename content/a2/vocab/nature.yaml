@@ -1,0 +1,140 @@
+- id: montagne
+  fr: montagne
+  en: mountain
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: riviere
+  fr: rivière
+  en: river
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: lac
+  fr: lac
+  en: lake
+  gender: m
+  pos: noun
+  tags: [nature]
+
+- id: mer
+  fr: mer
+  en: sea
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: foret
+  fr: forêt
+  en: forest
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: arbre
+  fr: arbre
+  en: tree
+  gender: m
+  pos: noun
+  tags: [nature]
+
+- id: fleur
+  fr: fleur
+  en: flower
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: herbe
+  fr: herbe
+  en: grass
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: branche
+  fr: branche
+  en: branch
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: ile
+  fr: île
+  en: island
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: colline
+  fr: colline
+  en: hill
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: champ
+  fr: champ
+  en: field
+  gender: m
+  pos: noun
+  tags: [nature]
+
+- id: sable
+  fr: sable
+  en: sand
+  gender: m
+  pos: noun
+  tags: [nature]
+
+- id: pierre
+  fr: pierre
+  en: stone
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: etoile
+  fr: étoile
+  en: star
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: lune
+  fr: lune
+  en: moon
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: sentier
+  fr: sentier
+  en: trail
+  gender: m
+  pos: noun
+  tags: [nature]
+
+- id: randonnee
+  fr: randonnée
+  en: hike
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: campagne
+  fr: campagne
+  en: countryside
+  gender: f
+  pos: noun
+  tags: [nature]
+
+- id: vallee
+  fr: vallée
+  en: valley
+  gender: f
+  pos: noun
+  tags: [nature]
+
