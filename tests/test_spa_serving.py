@@ -40,6 +40,20 @@ def test_client_side_route_falls_back_to_index_html(tmp_path):
         assert "<title>TEF</title>" in res.text
 
 
+def test_spa_route_colliding_with_api_prefix_serves_shell(tmp_path):
+    # /vocab, /comprehension, and /exam are frontend SPA routes that happen to
+    # share their first path segment with a real API prefix (POST /vocab/known,
+    # GET /comprehension/sets, GET /exam/blueprints, …). A full-page load or
+    # refresh of one of these must still serve the app shell, not a bogus API
+    # 404 — regression guard for QA issue 740.
+    client = TestClient(create_app(web_dist=_fake_dist(tmp_path)))
+    for path in ("/vocab", "/vocab/b1/food", "/comprehension", "/comprehension/set-1", "/exam"):
+        res = client.get(path)
+        assert res.status_code == 200, path
+        assert res.headers["content-type"].startswith("text/html")
+        assert "<title>TEF</title>" in res.text
+
+
 def test_registered_api_route_still_served(tmp_path):
     client = TestClient(create_app(web_dist=_fake_dist(tmp_path)))
     res = client.get("/health")

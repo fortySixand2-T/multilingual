@@ -288,3 +288,5 @@
 - [2026-08-13] Modified: web/src/screens/Deck.test.tsx — Assert example auto-generates on flip (no "Get examples" press)
 - [2026-08-20] Modified: app/main.py — SPA cache-control: index.html served no-cache (revalidate → picks up new asset hashes each deploy); hashed /assets/* served public, immutable, 1yr via _ImmutableStaticFiles
 - [2026-08-20] Modified: tests/test_spa_serving.py — Tests: index.html is no-cache; hashed assets are immutable
+- [2026-09-07] Modified: app/main.py — QA 740: SPA catch-all serves the app shell for frontend routes whose first segment collides with an API prefix (/vocab, /comprehension, /exam); genuinely unmatched API paths still 404 as JSON
+- [2026-09-07] Modified: tests/test_spa_serving.py — Tests: colliding SPA routes serve the shell (regression guard for 740)
