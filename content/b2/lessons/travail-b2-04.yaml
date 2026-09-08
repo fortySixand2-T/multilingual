@@ -1,0 +1,66 @@
+id: travail-b2-04
+title: "Labour relations"
+grammar_point: "expressing consequence: si bien que, de sorte que"
+grammar_category: "Logical connectors"
+est_minutes: 8
+new_vocab: [sous_effectif, surcharge, conciliation_travail_famille, equite_salariale, plafond_verre, precarisation, uberisation, sous_traitant, polyvalence, fidelisation, roulement_personnel, climat_travail, medecine_travail, accident_travail, grief, negociation_collective, greve]
+pass_threshold: 8.0
+exercises:
+  - id: travail-b2-04.e1
+    type: match_pairs
+    pairs:
+      - [sous-effectif, understaffing]
+      - [surcharge de travail, work overload]
+      - [roulement de personnel, staff turnover]
+      - [fidélisation, staff retention]
+      - [climat de travail, workplace atmosphere]
+
+  - id: travail-b2-04.e2
+    type: match_pairs
+    pairs:
+      - [équité salariale, pay equity]
+      - [plafond de verre, glass ceiling]
+      - [précarisation, growing job insecurity]
+      - [ubérisation, gig-economy shift]
+      - [polyvalence, versatility]
+
+  - id: travail-b2-04.e3
+    type: match_pairs
+    pairs:
+      - [négociation collective, collective bargaining]
+      - [grève, strike]
+      - [grief, grievance]
+      - [accident du travail, workplace accident]
+      - [médecine du travail, occupational health]
+
+  - id: travail-b2-04.e4
+    type: mcq
+    prompt: "In Québec, « la conciliation travail-famille » means…"
+    options: ["work-life balance", "a labour tribunal", "a union contract"]
+    answer: "work-life balance"
+    explain: "A central term in Québec workplace policy debates."
+
+  - id: travail-b2-04.e5
+    type: mcq
+    prompt: "« L'équipe est en sous-effectif, ___ les délais s'allongent. »"
+    options: ["si bien que", "bien que", "pourvu que"]
+    answer: "si bien que"
+    explain: "si bien que = with the result that (indicative). bien que = although (subjunctive)."
+
+  - id: travail-b2-04.e6
+    type: word_bank
+    prompt: "Build: “the employees went on strike”"
+    tokens: [Les, employés, se, sont, mis, en, grève]
+    answer: [Les, employés, se, sont, mis, en, grève]
+
+  - id: travail-b2-04.e7
+    type: translate
+    prompt: "Translate: “the glass ceiling”"
+    answer: "le plafond de verre"
+    accept: ["plafond de verre"]
+
+  - id: travail-b2-04.e8
+    type: listen_type
+    audio_ref: b2/audio/uberisation.mp3
+    answer: ubérisation
+    prompt: "Type the word you hear."

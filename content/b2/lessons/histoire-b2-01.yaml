@@ -1,0 +1,66 @@
+id: histoire-b2-01
+title: "History & memory"
+grammar_point: "the passé simple in written narrative (recognition)"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [colonisation, decolonisation, revolution, conquete, traite, referendum, monarchie, republique, empire, siecle, epoque, vestige, archive, commemoration, memoire_collective, ancetre, chronologie, recit_national, revisionnisme, autochtone]
+pass_threshold: 8.0
+exercises:
+  - id: histoire-b2-01.e1
+    type: match_pairs
+    pairs:
+      - [colonisation, colonization]
+      - [décolonisation, decolonization]
+      - [conquête, conquest]
+      - [traité, treaty]
+      - [révolution, revolution]
+
+  - id: histoire-b2-01.e2
+    type: match_pairs
+    pairs:
+      - [monarchie, monarchy]
+      - [république, republic]
+      - [empire, empire]
+      - [siècle, century]
+      - [époque, era]
+
+  - id: histoire-b2-01.e3
+    type: match_pairs
+    pairs:
+      - [vestige, relic]
+      - [commémoration, commemoration]
+      - [mémoire collective, collective memory]
+      - [ancêtre, ancestor]
+      - [autochtone, Indigenous person]
+
+  - id: histoire-b2-01.e4
+    type: mcq
+    prompt: "In Canada, « les peuples autochtones » are…"
+    options: ["the Indigenous peoples", "the settlers", "recent immigrants"]
+    answer: "the Indigenous peoples"
+    explain: "autochtone = Indigenous — the standard term in Canadian French."
+
+  - id: histoire-b2-01.e5
+    type: mcq
+    prompt: "« Il fut élu en 1867 » uses which tense?"
+    options: ["passé simple", "passé composé", "imparfait"]
+    answer: "passé simple"
+    explain: "The passé simple (il fut, il eut) appears in written history; you need to read it, not speak it."
+
+  - id: histoire-b2-01.e6
+    type: word_bank
+    prompt: "Build: “the referendum marked an era”"
+    tokens: [Le, référendum, a, marqué, une, époque, siècle]
+    answer: [Le, référendum, a, marqué, une, époque]
+
+  - id: histoire-b2-01.e7
+    type: translate
+    prompt: "Translate: “collective memory”"
+    answer: "la mémoire collective"
+    accept: ["mémoire collective"]
+
+  - id: histoire-b2-01.e8
+    type: listen_type
+    audio_ref: b2/audio/chronologie.mp3
+    answer: chronologie
+    prompt: "Type the word you hear."

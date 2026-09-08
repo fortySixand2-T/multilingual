@@ -1,0 +1,67 @@
+id: actualite-b2-04
+title: "Reading the news I"
+grammar_point: "quantity and trend nouns: hausse, baisse, taux, part"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [hausse, baisse, taux, part, nombre, chiffre, valeur, qualite, production, vente, benefice, secteur, service, groupe, action, terme]
+pass_threshold: 8.0
+exercises:
+  - id: actualite-b2-04.e1
+    type: match_pairs
+    pairs:
+      - [hausse, rise]
+      - [baisse, fall]
+      - [taux, rate]
+      - [part, share]
+      - [nombre, number]
+
+  - id: actualite-b2-04.e2
+    type: match_pairs
+    pairs:
+      - [chiffre, figure]
+      - [valeur, value]
+      - [qualité, quality]
+      - [production, output]
+      - [vente, sale]
+
+  - id: actualite-b2-04.e3
+    type: match_pairs
+    pairs:
+      - [bénéfice, profit]
+      - [secteur, sector]
+      - [service, service]
+      - [groupe, group]
+      - [terme, term]
+      - [action, "share of stock"]
+
+  - id: actualite-b2-04.e4
+    type: mcq
+    prompt: "« une ___ des prix » (a rise)"
+    options: ["hausse", "baisse", "part"]
+    answer: "hausse"
+    explain: "une hausse = a rise; une baisse = a fall. Both take de."
+
+  - id: actualite-b2-04.e5
+    type: mcq
+    prompt: "In business news, « une action » is…"
+    options: [a share of stock, a lawsuit, an action plan]
+    answer: a share of stock
+    explain: "In financial contexts une action = a share."
+
+  - id: actualite-b2-04.e6
+    type: word_bank
+    prompt: "Build: “a rise in the unemployment rate”"
+    tokens: [une, hausse, du, taux, de, chômage, baisse]
+    answer: [une, hausse, du, taux, de, chômage]
+
+  - id: actualite-b2-04.e7
+    type: translate
+    prompt: "Translate: “market share”"
+    answer: "la part de marché"
+    accept: ["part de marché"]
+
+  - id: actualite-b2-04.e8
+    type: listen_type
+    audio_ref: b2/audio/benefice.mp3
+    answer: bénéfice
+    prompt: "Type the word you hear."

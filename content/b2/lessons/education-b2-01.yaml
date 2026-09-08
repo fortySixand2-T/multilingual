@@ -1,0 +1,66 @@
+id: education-b2-01
+title: "Education debates"
+grammar_point: "expressing cause: en raison de, faute de, grâce à"
+grammar_category: "Logical connectors"
+est_minutes: 8
+new_vocab: [decrochage, assiduite, excellence, meritocratie, elitisme, vulgarisation, alternance, programme, evaluation, encadrement, accompagnement, tutorat, mixite_sociale, orientation, insertion_professionnelle, savoir_faire, autodidacte, financement, abandon, exigence]
+pass_threshold: 8.0
+exercises:
+  - id: education-b2-01.e1
+    type: match_pairs
+    pairs:
+      - [décrochage scolaire, dropping out]
+      - [assiduité, attendance]
+      - [méritocratie, meritocracy]
+      - [élitisme, elitism]
+      - [vulgarisation, popularization]
+
+  - id: education-b2-01.e2
+    type: match_pairs
+    pairs:
+      - [alternance, "co-op work-study"]
+      - [encadrement, supervision]
+      - [accompagnement, mentoring]
+      - [tutorat, tutoring]
+      - [orientation, career guidance]
+
+  - id: education-b2-01.e3
+    type: match_pairs
+    pairs:
+      - [mixité sociale, social diversity]
+      - [insertion professionnelle, entry into the workforce]
+      - [savoir-faire, know-how]
+      - [autodidacte, self-taught person]
+      - [exigence, requirement]
+
+  - id: education-b2-01.e4
+    type: mcq
+    prompt: "« ___ du manque de financement, le programme a été annulé. »"
+    options: ["En raison", "Grâce", "Afin"]
+    answer: "En raison"
+    explain: "en raison de = because of (neutral); grâce à = thanks to (positive)."
+
+  - id: education-b2-01.e5
+    type: mcq
+    prompt: "« le décrochage scolaire » is…"
+    options: [dropping out of school, a scholarship, a school board]
+    answer: dropping out of school
+    explain: "le décrochage scolaire = students leaving school early."
+
+  - id: education-b2-01.e6
+    type: word_bank
+    prompt: "Build: “thanks to the funding, the project continues”"
+    tokens: [Grâce, au, financement, le, projet, continue, raison]
+    answer: [Grâce, au, financement, le, projet, continue]
+
+  - id: education-b2-01.e7
+    type: translate
+    prompt: "Translate: “know-how”"
+    answer: "le savoir-faire"
+    accept: ["savoir-faire"]
+
+  - id: education-b2-01.e8
+    type: listen_type
+    audio_ref: b2/audio/meritocratie.mp3
+    answer: méritocratie
+    prompt: "Type the word you hear."

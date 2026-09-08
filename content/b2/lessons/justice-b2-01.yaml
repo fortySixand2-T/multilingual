@@ -1,0 +1,66 @@
+id: justice-b2-01
+title: "The courts"
+grammar_point: "the passive voice in formal writing"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [jurisprudence, magistrat, proces, verdict, peine, presomption_innocence, plaidoyer, recidive, impunite, sanction, indemnisation, detention, reinsertion, prescription, pourvoi, equite, legitimite, infraction, delit, poursuite]
+pass_threshold: 8.0
+exercises:
+  - id: justice-b2-01.e1
+    type: match_pairs
+    pairs:
+      - [jurisprudence, case law]
+      - [magistrat, judge]
+      - [procès, trial]
+      - [verdict, verdict]
+      - [peine, sentence]
+
+  - id: justice-b2-01.e2
+    type: match_pairs
+    pairs:
+      - [présomption d'innocence, presumption of innocence]
+      - [plaidoyer, closing argument]
+      - [récidive, reoffending]
+      - [impunité, impunity]
+      - [sanction, penalty]
+
+  - id: justice-b2-01.e3
+    type: match_pairs
+    pairs:
+      - [indemnisation, compensation]
+      - [détention, detention]
+      - [réinsertion, reintegration]
+      - [infraction, offence]
+      - [délit, misdemeanour]
+
+  - id: justice-b2-01.e4
+    type: mcq
+    prompt: "« L'accusé ___ par le tribunal. » (was acquitted)"
+    options: ["a été acquitté", "a acquitté", "est acquitter"]
+    answer: "a été acquitté"
+    explain: "The passive: être + past participle, agreeing with the subject."
+
+  - id: justice-b2-01.e5
+    type: mcq
+    prompt: "« la prescription » in law means…"
+    options: ["the statute of limitations", "a doctor's order", "a court fee"]
+    answer: "the statute of limitations"
+    explain: "In legal French la prescription = the time limit after which no case can be brought."
+
+  - id: justice-b2-01.e6
+    type: word_bank
+    prompt: "Build: “everyone is presumed innocent”"
+    tokens: [Tout, le, monde, est, présumé, innocent, coupable]
+    answer: [Tout, le, monde, est, présumé, innocent]
+
+  - id: justice-b2-01.e7
+    type: translate
+    prompt: "Translate: “fairness”"
+    answer: "l'équité"
+    accept: ["équité"]
+
+  - id: justice-b2-01.e8
+    type: listen_type
+    audio_ref: b2/audio/jurisprudence.mp3
+    answer: jurisprudence
+    prompt: "Type the word you hear."

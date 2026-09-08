@@ -1,0 +1,66 @@
+id: psychologie-b2-01
+title: "Mind & wellbeing"
+grammar_point: "the subjunctive after emotion and doubt"
+grammar_category: "Subjunctive"
+est_minutes: 8
+new_vocab: [anxiete, depression, epuisement, resilience, estime_de_soi, empathie, therapie, psychologue, trouble, phobie, deni, emotion, comportement, perception, conscience, inconscient, traumatisme, charge_mentale, pleine_conscience, adaptation]
+pass_threshold: 8.0
+exercises:
+  - id: psychologie-b2-01.e1
+    type: match_pairs
+    pairs:
+      - [anxiété, anxiety]
+      - [dépression, depression]
+      - [épuisement professionnel, burnout]
+      - [résilience, resilience]
+      - [estime de soi, self-esteem]
+
+  - id: psychologie-b2-01.e2
+    type: match_pairs
+    pairs:
+      - [empathie, empathy]
+      - [thérapie, therapy]
+      - [trouble, disorder]
+      - [phobie, phobia]
+      - [déni, denial]
+
+  - id: psychologie-b2-01.e3
+    type: match_pairs
+    pairs:
+      - [comportement, behaviour]
+      - [traumatisme, trauma]
+      - [charge mentale, mental load]
+      - [pleine conscience, mindfulness]
+      - [inconscient, the unconscious]
+
+  - id: psychologie-b2-01.e4
+    type: mcq
+    prompt: "« Je doute qu'il ___ conscient du problème. »"
+    options: ["soit", "est", "sera"]
+    answer: "soit"
+    explain: "douter que triggers the subjunctive: qu'il soit."
+
+  - id: psychologie-b2-01.e5
+    type: mcq
+    prompt: "« la charge mentale » describes…"
+    options: ["the invisible work of planning", "a physical burden", "a medical bill"]
+    answer: "the invisible work of planning"
+    explain: "la charge mentale = the invisible cognitive load of organizing a household."
+
+  - id: psychologie-b2-01.e6
+    type: word_bank
+    prompt: "Build: “I'm glad she is doing better”"
+    tokens: [Je, suis, content, qu'elle, aille, mieux, va]
+    answer: [Je, suis, content, qu'elle, aille, mieux]
+
+  - id: psychologie-b2-01.e7
+    type: translate
+    prompt: "Translate: “burnout”"
+    answer: "l'épuisement professionnel"
+    accept: ["épuisement professionnel"]
+
+  - id: psychologie-b2-01.e8
+    type: listen_type
+    audio_ref: b2/audio/resilience.mp3
+    answer: résilience
+    prompt: "Type the word you hear."

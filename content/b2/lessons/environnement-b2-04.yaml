@@ -1,0 +1,66 @@
+id: environnement-b2-04
+title: "Climate & energy"
+grammar_point: "the future and conditional in projections"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [gaz_effet_serre, carboneutralite, attenuation, eau_potable, bassin_versant, milieu_humide, aire_protegee, reboisement, energie_fossile, hydroelectricite, eolienne, geothermie, consigne, enfouissement, valorisation, ilot_chaleur, pergelisol]
+pass_threshold: 8.0
+exercises:
+  - id: environnement-b2-04.e1
+    type: match_pairs
+    pairs:
+      - [gaz à effet de serre, greenhouse gas]
+      - [carboneutralité, carbon neutrality]
+      - [atténuation, mitigation]
+      - [énergie fossile, fossil fuel]
+      - [hydroélectricité, hydroelectricity]
+
+  - id: environnement-b2-04.e2
+    type: match_pairs
+    pairs:
+      - [éolienne, wind turbine]
+      - [géothermie, geothermal energy]
+      - [reboisement, reforestation]
+      - [aire protégée, protected area]
+      - [milieu humide, wetland]
+
+  - id: environnement-b2-04.e3
+    type: match_pairs
+    pairs:
+      - [eau potable, drinking water]
+      - [bassin versant, watershed]
+      - [enfouissement, landfilling]
+      - [valorisation, repurposing]
+      - [pergélisol, permafrost]
+
+  - id: environnement-b2-04.e4
+    type: mcq
+    prompt: "Québec's electricity comes mostly from…"
+    options: ["l'hydroélectricité", "la géothermie", "l'énergie fossile"]
+    answer: "l'hydroélectricité"
+    explain: "Québec runs largely on hydroelectric power — a recurring exam topic."
+
+  - id: environnement-b2-04.e5
+    type: mcq
+    prompt: "« Si rien ne changeait, la situation ___ pire. »"
+    options: ["serait", "sera", "est"]
+    answer: "serait"
+    explain: "si + imparfait → conditional in the main clause: si rien ne changeait, ce serait pire."
+
+  - id: environnement-b2-04.e6
+    type: word_bank
+    prompt: "Build: “the permafrost is melting”"
+    tokens: [Le, pergélisol, est, en, train, de, fondre]
+    answer: [Le, pergélisol, est, en, train, de, fondre]
+
+  - id: environnement-b2-04.e7
+    type: translate
+    prompt: "Translate: “greenhouse gases”"
+    answer: "les gaz à effet de serre"
+    accept: ["gaz à effet de serre"]
+
+  - id: environnement-b2-04.e8
+    type: listen_type
+    audio_ref: b2/audio/carboneutralite.mp3
+    answer: carboneutralité
+    prompt: "Type the word you hear."

@@ -60,3 +60,93 @@ units:
     icon: harvest
     lessons: [alimentation-b2-01, alimentation-b2-02, alimentation-b2-03]
     unlock: { type: all_of, requires: [b2.u9] }
+
+  - id: b2.u11
+    title: "Reading the news"
+    icon: news
+    lessons: [actualite-b2-04, actualite-b2-05]
+    unlock: { type: all_of, requires: [b2.u10] }
+
+  - id: b2.u12
+    title: "The courts"
+    icon: scale
+    lessons: [justice-b2-01]
+    unlock: { type: all_of, requires: [b2.u11] }
+
+  - id: b2.u13
+    title: "Data & digital society"
+    icon: cpu
+    lessons: [technologie-b2-01]
+    unlock: { type: all_of, requires: [b2.u12] }
+
+  - id: b2.u14
+    title: "Education debates"
+    icon: book
+    lessons: [education-b2-01]
+    unlock: { type: all_of, requires: [b2.u13] }
+
+  - id: b2.u15
+    title: "Media & credibility"
+    icon: news
+    lessons: [medias-b2-01]
+    unlock: { type: all_of, requires: [b2.u14] }
+
+  - id: b2.u16
+    title: "Migration & belonging"
+    icon: globe
+    lessons: [migration-b2-01]
+    unlock: { type: all_of, requires: [b2.u15] }
+
+  - id: b2.u17
+    title: "Companies & finance"
+    icon: chart
+    lessons: [entreprise-b2-01]
+    unlock: { type: all_of, requires: [b2.u16] }
+
+  - id: b2.u18
+    title: "Mind & wellbeing"
+    icon: bulb
+    lessons: [psychologie-b2-01]
+    unlock: { type: all_of, requires: [b2.u17] }
+
+  - id: b2.u19
+    title: "History & memory"
+    icon: harvest
+    lessons: [histoire-b2-01]
+    unlock: { type: all_of, requires: [b2.u18] }
+
+  - id: b2.u20
+    title: "Labour relations"
+    icon: briefcase
+    lessons: [travail-b2-04]
+    unlock: { type: all_of, requires: [b2.u19] }
+
+  - id: b2.u21
+    title: "Public health"
+    icon: health
+    lessons: [sante-b2-04]
+    unlock: { type: all_of, requires: [b2.u20] }
+
+  - id: b2.u22
+    title: "Inclusion & exclusion"
+    icon: people
+    lessons: [societe-b2-04]
+    unlock: { type: all_of, requires: [b2.u21] }
+
+  - id: b2.u23
+    title: "Climate & energy"
+    icon: leaf
+    lessons: [environnement-b2-04]
+    unlock: { type: all_of, requires: [b2.u22] }
+
+  - id: b2.u24
+    title: "The economy & the state"
+    icon: chart
+    lessons: [economie-b2-04]
+    unlock: { type: all_of, requires: [b2.u23] }
+
+  - id: b2.u25
+    title: "Elections & institutions"
+    icon: target
+    lessons: [politique-b2-04]
+    unlock: { type: all_of, requires: [b2.u24] }

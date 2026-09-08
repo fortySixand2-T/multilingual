@@ -1,0 +1,66 @@
+id: technologie-b2-01
+title: "Data & digital society"
+grammar_point: "abstract nouns in -ité, -isation, -ement"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [apprentissage_automatique, biais, anonymisation, chiffrement, souverainete_numerique, obsolescence, interoperabilite, deploiement, prototype, brevet, logiciel_libre, fracture_numerique, empreinte_numerique, essor, moderation, hyperconnexion, infonuagique, exploitation, transparence, vigilance]
+pass_threshold: 8.0
+exercises:
+  - id: technologie-b2-01.e1
+    type: match_pairs
+    pairs:
+      - [apprentissage automatique, machine learning]
+      - [biais, bias]
+      - [anonymisation, anonymization]
+      - [chiffrement, encryption]
+      - [brevet, patent]
+
+  - id: technologie-b2-01.e2
+    type: match_pairs
+    pairs:
+      - [fracture numérique, digital divide]
+      - [empreinte numérique, digital footprint]
+      - [souveraineté numérique, digital sovereignty]
+      - [logiciel libre, open-source software]
+      - [interopérabilité, interoperability]
+
+  - id: technologie-b2-01.e3
+    type: match_pairs
+    pairs:
+      - [obsolescence programmée, planned obsolescence]
+      - [déploiement, rollout]
+      - [modération, content moderation]
+      - [essor, rapid growth]
+      - [infonuagique, cloud computing]
+
+  - id: technologie-b2-01.e4
+    type: mcq
+    prompt: "The Québec term for cloud computing is…"
+    options: ["l'infonuagique", "le chiffrement", "le déploiement"]
+    answer: "l'infonuagique"
+    explain: "l'infonuagique is the OQLF term for cloud computing."
+
+  - id: technologie-b2-01.e5
+    type: mcq
+    prompt: "« un biais algorithmique » is…"
+    options: [an algorithmic bias, a patent, a rollout]
+    answer: an algorithmic bias
+    explain: "un biais = a bias — a central term in AI ethics debates."
+
+  - id: technologie-b2-01.e6
+    type: word_bank
+    prompt: "Build: “the digital divide is widening”"
+    tokens: [La, fracture, numérique, se, creuse, empreinte]
+    answer: [La, fracture, numérique, se, creuse]
+
+  - id: technologie-b2-01.e7
+    type: translate
+    prompt: "Translate: “transparency”"
+    answer: "la transparence"
+    accept: [transparence]
+
+  - id: technologie-b2-01.e8
+    type: listen_type
+    audio_ref: b2/audio/hyperconnexion.mp3
+    answer: hyperconnexion
+    prompt: "Type the word you hear."

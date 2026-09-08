@@ -1,0 +1,66 @@
+id: sante-b2-04
+title: "Public health"
+grammar_point: "impersonal constructions: il convient de, il importe que"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [sante_publique, sante_mentale, confinement, quarantaine, variant, immunisation, liste_attente, medecin_famille, soins_domicile, soins_palliatifs, aide_medicale_mourir, maladie_chronique, comorbidite, malnutrition, toxicomanie, surdose, sevrage]
+pass_threshold: 8.0
+exercises:
+  - id: sante-b2-04.e1
+    type: match_pairs
+    pairs:
+      - [santé publique, public health]
+      - [santé mentale, mental health]
+      - [confinement, lockdown]
+      - [quarantaine, quarantine]
+      - [immunisation, immunization]
+
+  - id: sante-b2-04.e2
+    type: match_pairs
+    pairs:
+      - [liste d'attente, waiting list]
+      - [médecin de famille, family doctor]
+      - [soins à domicile, home care]
+      - [soins palliatifs, palliative care]
+      - [maladie chronique, chronic illness]
+
+  - id: sante-b2-04.e3
+    type: match_pairs
+    pairs:
+      - [comorbidité, comorbidity]
+      - [malnutrition, malnutrition]
+      - [toxicomanie, substance addiction]
+      - [surdose, overdose]
+      - [sevrage, withdrawal]
+
+  - id: sante-b2-04.e4
+    type: mcq
+    prompt: "A long-running Québec health-system complaint is the…"
+    options: ["liste d'attente", "quarantaine", "sevrage"]
+    answer: "liste d'attente"
+    explain: "Waiting lists — and access to a médecin de famille — dominate the debate."
+
+  - id: sante-b2-04.e5
+    type: mcq
+    prompt: "« Il importe que le système ___ réformé. »"
+    options: ["soit", "est", "sera"]
+    answer: "soit"
+    explain: "il importe que takes the subjunctive: qu'il soit."
+
+  - id: sante-b2-04.e6
+    type: word_bank
+    prompt: "Build: “access to a family doctor is difficult”"
+    tokens: [L'accès, à, un, médecin, de, famille, est, difficile]
+    answer: [L'accès, à, un, médecin, de, famille, est, difficile]
+
+  - id: sante-b2-04.e7
+    type: translate
+    prompt: "Translate: “palliative care”"
+    answer: "les soins palliatifs"
+    accept: ["soins palliatifs"]
+
+  - id: sante-b2-04.e8
+    type: listen_type
+    audio_ref: b2/audio/comorbidite.mp3
+    answer: comorbidité
+    prompt: "Type the word you hear."
