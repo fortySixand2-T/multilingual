@@ -1,0 +1,137 @@
+- id: accident
+  fr: accident
+  en: accident
+  gender: m
+  pos: noun
+  tags: [emergencies]
+
+- id: ambulance
+  fr: ambulance
+  en: ambulance
+  gender: f
+  pos: noun
+  tags: [emergencies]
+
+- id: blessure
+  fr: blessure
+  en: injury
+  gender: f
+  pos: noun
+  tags: [emergencies]
+
+- id: blesse
+  fr: blessé
+  en: injured
+  pos: adjective
+  tags: [emergencies]
+
+- id: secours
+  fr: secours
+  en: help, rescue
+  gender: m
+  pos: noun
+  tags: [emergencies]
+
+- id: police
+  fr: police
+  en: police
+  gender: f
+  pos: noun
+  tags: [emergencies]
+
+- id: voleur
+  fr: voleur
+  en: thief
+  gender: mf
+  fem: voleuse
+  pos: noun
+  tags: [emergencies]
+
+- id: vol
+  fr: vol
+  en: theft
+  gender: m
+  pos: noun
+  tags: [emergencies]
+
+- id: incendie
+  fr: incendie
+  en: fire
+  gender: m
+  pos: noun
+  tags: [emergencies]
+
+- id: alarme
+  fr: alarme
+  en: alarm
+  gender: f
+  pos: noun
+  tags: [emergencies]
+
+- id: danger
+  fr: danger
+  en: danger
+  gender: m
+  pos: noun
+  tags: [emergencies]
+
+- id: aider
+  fr: aider
+  en: to help
+  pos: verb
+  tags: [emergencies]
+
+- id: appeler
+  fr: appeler
+  en: to call
+  pos: verb
+  tags: [emergencies]
+
+- id: prevenir
+  fr: prévenir
+  en: to warn, to notify
+  pos: verb
+  tags: [emergencies]
+
+- id: temoin
+  fr: témoin
+  en: witness
+  gender: m
+  pos: noun
+  tags: [emergencies]
+
+- id: plainte
+  fr: plainte
+  en: complaint
+  gender: f
+  pos: noun
+  tags: [emergencies]
+
+- id: panne
+  fr: panne
+  en: breakdown
+  gender: f
+  pos: noun
+  tags: [emergencies]
+
+- id: remorquage
+  fr: remorquage
+  en: towing
+  gender: m
+  pos: noun
+  tags: [emergencies]
+
+- id: premiers_soins
+  fr: premiers soins
+  en: first aid
+  gender: m
+  pos: noun
+  tags: [emergencies]
+
+- id: extincteur
+  fr: extincteur
+  en: fire extinguisher
+  gender: m
+  pos: noun
+  tags: [emergencies]
+

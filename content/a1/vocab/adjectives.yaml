@@ -1,0 +1,119 @@
+- id: grand
+  fr: grand
+  en: big, tall
+  pos: adjective
+  tags: [adjectives]
+
+- id: petit
+  fr: petit
+  en: small
+  pos: adjective
+  tags: [adjectives]
+
+- id: nouveau
+  fr: nouveau
+  en: new
+  pos: adjective
+  tags: [adjectives]
+
+- id: vieux
+  fr: vieux
+  en: old
+  pos: adjective
+  tags: [adjectives]
+
+- id: jeune
+  fr: jeune
+  en: young
+  pos: adjective
+  tags: [adjectives]
+
+- id: beau
+  fr: beau
+  en: beautiful, handsome
+  pos: adjective
+  tags: [adjectives]
+
+- id: joli
+  fr: joli
+  en: pretty
+  pos: adjective
+  tags: [adjectives]
+
+- id: bon
+  fr: bon
+  en: good
+  pos: adjective
+  tags: [adjectives]
+
+- id: mauvais
+  fr: mauvais
+  en: bad
+  pos: adjective
+  tags: [adjectives]
+
+- id: facile
+  fr: facile
+  en: easy
+  pos: adjective
+  tags: [adjectives]
+
+- id: difficile
+  fr: difficile
+  en: difficult
+  pos: adjective
+  tags: [adjectives]
+
+- id: long
+  fr: long
+  en: long
+  pos: adjective
+  tags: [adjectives]
+
+- id: court
+  fr: court
+  en: short
+  pos: adjective
+  tags: [adjectives]
+
+- id: fort
+  fr: fort
+  en: strong
+  pos: adjective
+  tags: [adjectives]
+
+- id: faible
+  fr: faible
+  en: weak
+  pos: adjective
+  tags: [adjectives]
+
+- id: rapide
+  fr: rapide
+  en: fast
+  pos: adjective
+  tags: [adjectives]
+
+- id: lent
+  fr: lent
+  en: slow
+  pos: adjective
+  tags: [adjectives]
+
+- id: propre
+  fr: propre
+  en: clean
+  pos: adjective
+  tags: [adjectives]
+
+- id: sale
+  fr: sale
+  en: dirty
+  pos: adjective
+  tags: [adjectives]
+
+- id: plein
+  fr: plein
+  en: full
+  pos: adjective
+  tags: [adjectives]

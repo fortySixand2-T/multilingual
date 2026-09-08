@@ -1,0 +1,119 @@
+- id: etre
+  fr: être
+  en: to be
+  pos: verb
+  tags: [verbs]
+
+- id: avoir
+  fr: avoir
+  en: to have
+  pos: verb
+  tags: [verbs]
+
+- id: aller
+  fr: aller
+  en: to go
+  pos: verb
+  tags: [verbs]
+
+- id: faire
+  fr: faire
+  en: to do, to make
+  pos: verb
+  tags: [verbs]
+
+- id: parler
+  fr: parler
+  en: to speak
+  pos: verb
+  tags: [verbs]
+
+- id: manger
+  fr: manger
+  en: to eat
+  pos: verb
+  tags: [verbs]
+
+- id: boire
+  fr: boire
+  en: to drink
+  pos: verb
+  tags: [verbs]
+
+- id: venir
+  fr: venir
+  en: to come
+  pos: verb
+  tags: [verbs]
+
+- id: prendre
+  fr: prendre
+  en: to take
+  pos: verb
+  tags: [verbs]
+
+- id: voir
+  fr: voir
+  en: to see
+  pos: verb
+  tags: [verbs]
+
+- id: dire
+  fr: dire
+  en: to say
+  pos: verb
+  tags: [verbs]
+
+- id: vouloir
+  fr: vouloir
+  en: to want
+  pos: verb
+  tags: [verbs]
+
+- id: devoir
+  fr: devoir
+  en: to have to, must
+  pos: verb
+  tags: [verbs]
+
+- id: mettre
+  fr: mettre
+  en: to put
+  pos: verb
+  tags: [verbs]
+
+- id: ouvrir
+  fr: ouvrir
+  en: to open
+  pos: verb
+  tags: [verbs]
+
+- id: fermer
+  fr: fermer
+  en: to close
+  pos: verb
+  tags: [verbs]
+
+- id: ecouter
+  fr: écouter
+  en: to listen
+  pos: verb
+  tags: [verbs]
+
+- id: regarder
+  fr: regarder
+  en: to watch, to look at
+  pos: verb
+  tags: [verbs]
+
+- id: lire
+  fr: lire
+  en: to read
+  pos: verb
+  tags: [verbs]
+
+- id: ecrire
+  fr: écrire
+  en: to write
+  pos: verb
+  tags: [verbs]

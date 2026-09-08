@@ -1,0 +1,140 @@
+- id: couple
+  fr: couple
+  en: couple
+  gender: m
+  pos: noun
+  tags: [relationships]
+
+- id: amitie
+  fr: amitié
+  en: friendship
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: confiance
+  fr: confiance
+  en: trust
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: dispute
+  fr: dispute
+  en: argument
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: rupture
+  fr: rupture
+  en: break-up
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: reconciliation
+  fr: réconciliation
+  en: reconciliation
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: divorce
+  fr: divorce
+  en: divorce
+  gender: m
+  pos: noun
+  tags: [relationships]
+
+- id: fiancailles
+  fr: fiançailles
+  en: engagement
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: celibataire
+  fr: célibataire
+  en: single
+  pos: adjective
+  tags: [relationships]
+
+- id: conjoint
+  fr: conjoint
+  en: spouse, partner
+  gender: mf
+  fem: conjointe
+  pos: noun
+  tags: [relationships]
+
+- id: belle_famille
+  fr: belle-famille
+  en: in-laws
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: entente
+  fr: entente
+  en: understanding, agreement
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: respect
+  fr: respect
+  en: respect
+  gender: m
+  pos: noun
+  tags: [relationships]
+
+- id: jalousie
+  fr: jalousie
+  en: jealousy
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: soutien
+  fr: soutien
+  en: support
+  gender: m
+  pos: noun
+  tags: [relationships]
+
+- id: complicite
+  fr: complicité
+  en: closeness, rapport
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: malentendu
+  fr: malentendu
+  en: misunderstanding
+  gender: m
+  pos: noun
+  tags: [relationships]
+
+- id: se_disputer
+  fr: se disputer
+  en: to argue
+  pos: verb
+  tags: [relationships]
+
+- id: rencontre
+  fr: rencontre
+  en: meeting, encounter
+  gender: f
+  pos: noun
+  tags: [relationships]
+
+- id: voisin
+  fr: voisin
+  en: neighbour
+  gender: mf
+  fem: voisine
+  pos: noun
+  tags: [relationships]
+

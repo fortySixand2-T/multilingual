@@ -1,0 +1,141 @@
+- id: chien
+  fr: chien
+  en: dog
+  gender: mf
+  fem: chienne
+  pos: noun
+  tags: [animals]
+
+- id: chat
+  fr: chat
+  en: cat
+  gender: mf
+  fem: chatte
+  pos: noun
+  tags: [animals]
+
+- id: oiseau
+  fr: oiseau
+  en: bird
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: cheval
+  fr: cheval
+  en: horse
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: vache
+  fr: vache
+  en: cow
+  gender: f
+  pos: noun
+  tags: [animals]
+
+- id: cochon
+  fr: cochon
+  en: pig
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: mouton
+  fr: mouton
+  en: sheep
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: poule
+  fr: poule
+  en: hen
+  gender: f
+  pos: noun
+  tags: [animals]
+
+- id: canard
+  fr: canard
+  en: duck
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: lapin
+  fr: lapin
+  en: rabbit
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: ours
+  fr: ours
+  en: bear
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: loup
+  fr: loup
+  en: wolf
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: renard
+  fr: renard
+  en: fox
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: ecureuil
+  fr: écureuil
+  en: squirrel
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: abeille
+  fr: abeille
+  en: bee
+  gender: f
+  pos: noun
+  tags: [animals]
+
+- id: papillon
+  fr: papillon
+  en: butterfly
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: animal
+  fr: animal
+  en: animal
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: ferme
+  fr: ferme
+  en: farm
+  gender: f
+  pos: noun
+  tags: [animals]
+
+- id: chaton
+  fr: chaton
+  en: kitten
+  gender: m
+  pos: noun
+  tags: [animals]
+
+- id: chiot
+  fr: chiot
+  en: puppy
+  gender: m
+  pos: noun
+  tags: [animals]

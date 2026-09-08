@@ -1,0 +1,137 @@
+- id: consultation
+  fr: consultation
+  en: appointment, consultation
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: diagnostic
+  fr: diagnostic
+  en: diagnosis
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: traitement
+  fr: traitement
+  en: treatment
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: chirurgie
+  fr: chirurgie
+  en: surgery
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: analyse
+  fr: analyse
+  en: test, analysis
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: radiographie
+  fr: radiographie
+  en: X-ray
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: specialiste
+  fr: spécialiste
+  en: specialist
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: generaliste
+  fr: médecin généraliste
+  en: family doctor
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: assurance_maladie
+  fr: assurance maladie
+  en: health insurance
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: suivi
+  fr: suivi
+  en: follow-up
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: retablissement
+  fr: rétablissement
+  en: recovery
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: douleur
+  fr: douleur
+  en: pain
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: allergie
+  fr: allergie
+  en: allergy
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: antibiotique
+  fr: antibiotique
+  en: antibiotic
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: effets_secondaires
+  fr: effets secondaires
+  en: side effects
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: hospitalisation
+  fr: hospitalisation
+  en: hospital stay
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: convalescence
+  fr: convalescence
+  en: convalescence
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: guerir
+  fr: guérir
+  en: to heal, to cure
+  pos: verb
+  tags: [health]
+
+- id: soigner
+  fr: soigner
+  en: to treat, to care for
+  pos: verb
+  tags: [health]
+
+- id: consulter
+  fr: consulter
+  en: to see a doctor
+  pos: verb
+  tags: [health]
+

@@ -34,7 +34,13 @@ export default function AudioButton({
       // Time-stretch instead of pitch-shifting so the slow replay stays natural.
       audio.preservesPitch = true;
       audio.playbackRate = rate;
-      await audio.play();
+      // audio.play() can hang indefinitely on some browsers/clips without ever
+      // resolving or rejecting — race it against a timeout so `loading` always
+      // clears and the button never gets stuck on "…" forever.
+      await Promise.race([
+        audio.play(),
+        new Promise((resolve) => setTimeout(resolve, 4000)),
+      ]);
     } catch {
       /* ignore playback errors — the clip just won't play */
     } finally {

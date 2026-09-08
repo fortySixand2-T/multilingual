@@ -1,0 +1,140 @@
+- id: decrochage
+  fr: décrochage scolaire
+  en: dropping out
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: assiduite
+  fr: assiduité
+  en: attendance, diligence
+  gender: f
+  pos: noun
+  tags: [education]
+
+- id: excellence
+  fr: excellence
+  en: excellence
+  gender: f
+  pos: noun
+  tags: [education]
+
+- id: meritocratie
+  fr: méritocratie
+  en: meritocracy
+  gender: f
+  pos: noun
+  tags: [education]
+
+- id: elitisme
+  fr: élitisme
+  en: elitism
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: vulgarisation
+  fr: vulgarisation
+  en: popularization (of knowledge)
+  gender: f
+  pos: noun
+  tags: [education]
+
+- id: alternance
+  fr: alternance
+  en: co-op, work-study
+  gender: f
+  pos: noun
+  tags: [education]
+
+- id: programme
+  fr: programme
+  en: curriculum
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: evaluation
+  fr: évaluation
+  en: assessment
+  gender: f
+  pos: noun
+  tags: [education]
+
+- id: encadrement
+  fr: encadrement
+  en: supervision
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: accompagnement
+  fr: accompagnement
+  en: support, mentoring
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: tutorat
+  fr: tutorat
+  en: tutoring
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: mixite_sociale
+  fr: mixité sociale
+  en: social diversity
+  gender: f
+  pos: noun
+  tags: [education]
+
+- id: orientation
+  fr: orientation
+  en: career guidance
+  gender: f
+  pos: noun
+  tags: [education]
+
+- id: insertion_professionnelle
+  fr: insertion professionnelle
+  en: entry into the workforce
+  gender: f
+  pos: noun
+  tags: [education]
+
+- id: savoir_faire
+  fr: savoir-faire
+  en: know-how
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: autodidacte
+  fr: autodidacte
+  en: self-taught person
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: financement
+  fr: financement
+  en: funding
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: abandon
+  fr: abandon
+  en: withdrawal, giving up
+  gender: m
+  pos: noun
+  tags: [education]
+
+- id: exigence
+  fr: exigence
+  en: requirement, demand
+  gender: f
+  pos: noun
+  tags: [education]
+

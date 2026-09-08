@@ -1,0 +1,140 @@
+- id: apprentissage_automatique
+  fr: apprentissage automatique
+  en: machine learning
+  gender: m
+  pos: noun
+  tags: [technologie]
+
+- id: biais
+  fr: biais
+  en: bias
+  gender: m
+  pos: noun
+  tags: [technologie]
+
+- id: anonymisation
+  fr: anonymisation
+  en: anonymization
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: chiffrement
+  fr: chiffrement
+  en: encryption
+  gender: m
+  pos: noun
+  tags: [technologie]
+
+- id: souverainete_numerique
+  fr: souveraineté numérique
+  en: digital sovereignty
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: obsolescence
+  fr: obsolescence programmée
+  en: planned obsolescence
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: interoperabilite
+  fr: interopérabilité
+  en: interoperability
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: deploiement
+  fr: déploiement
+  en: rollout
+  gender: m
+  pos: noun
+  tags: [technologie]
+
+- id: prototype
+  fr: prototype
+  en: prototype
+  gender: m
+  pos: noun
+  tags: [technologie]
+
+- id: brevet
+  fr: brevet
+  en: patent
+  gender: m
+  pos: noun
+  tags: [technologie]
+
+- id: logiciel_libre
+  fr: logiciel libre
+  en: open-source software
+  gender: m
+  pos: noun
+  tags: [technologie]
+
+- id: fracture_numerique
+  fr: fracture numérique
+  en: digital divide
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: empreinte_numerique
+  fr: empreinte numérique
+  en: digital footprint
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: essor
+  fr: essor
+  en: rapid growth, boom
+  gender: m
+  pos: noun
+  tags: [technologie]
+
+- id: moderation
+  fr: modération
+  en: content moderation
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: hyperconnexion
+  fr: hyperconnexion
+  en: hyperconnectivity
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: infonuagique
+  fr: infonuagique
+  en: cloud computing (Québec)
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: exploitation
+  fr: exploitation des données
+  en: data exploitation
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: transparence
+  fr: transparence
+  en: transparency
+  gender: f
+  pos: noun
+  tags: [technologie]
+
+- id: vigilance
+  fr: vigilance
+  en: watchfulness
+  gender: f
+  pos: noun
+  tags: [technologie]
+

@@ -290,3 +290,13 @@
 - [2026-08-20] Modified: tests/test_spa_serving.py — Tests: index.html is no-cache; hashed assets are immutable
 - [2026-09-07] Modified: app/main.py — QA 740: SPA catch-all serves the app shell for frontend routes whose first segment collides with an API prefix (/vocab, /comprehension, /exam); genuinely unmatched API paths still 404 as JSON
 - [2026-09-07] Modified: tests/test_spa_serving.py — Tests: colliding SPA routes serve the shell (regression guard for 740)
+- [2026-09-07] Created: content/a1/vocab/{animals,school,house,verbs,adjectives,places,jobs,countries}.yaml — 8 new A1 decks, 160 words (animals, classroom, furniture, core verbs, basic adjectives, places around town, jobs, countries)
+- [2026-09-07] Created: content/a2/vocab/{money,nature,studies,sports,celebrations,communication,people,emergencies}.yaml — 8 new A2 decks, 160 words
+- [2026-09-07] Created: content/b1/vocab/{health,technology,arts,relationships,rights,tourism,food,mobility}.yaml — 8 new B1 decks, 160 words
+- [2026-09-07] Created: content/b2/vocab/{justice,technologie,education,medias,entreprise,psychologie,migration,histoire}.yaml — 8 new B2 decks, 160 words
+- [2026-09-07] Created: content/{a1,a2,b1,b2}/audio/*.mp3 — TTS pronunciation clips for the 640 new words (scripts/gen_audio.py, fr_CA voice)
+- [2026-09-07] Modified: web/src/VocabWord.tsx — QA 720: epicene nouns (témoin, psychologue, …) badged (m/f) not (m); QA 741: AudioButton keyed by card id so loading state can't bleed across cards
+- [2026-09-07] Modified: web/src/AudioButton.tsx — QA 741: race audio.play() against a 4s timeout so the button never sticks on "…"
+- [2026-09-07] Created: web/src/AudioButton.test.tsx — Tests: loading state always clears, even when play() never settles
+- [2026-09-07] Modified: web/src/VocabWord.test.tsx — Tests: epicene (m/f) badge
+- [2026-09-07] Created: qa/rounds/054-plan.md + qa/issues/{720,721,730,741}-*.md — QA round 054 on the vocab expansion

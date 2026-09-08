@@ -1,0 +1,138 @@
+- id: obligation
+  fr: obligation
+  en: obligation
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: recours
+  fr: recours
+  en: recourse, appeal
+  gender: m
+  pos: noun
+  tags: [rights]
+
+- id: amende
+  fr: amende
+  en: fine
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: contravention
+  fr: contravention
+  en: ticket, citation
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: litige
+  fr: litige
+  en: dispute (legal)
+  gender: m
+  pos: noun
+  tags: [rights]
+
+- id: mediation
+  fr: médiation
+  en: mediation
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: arbitrage
+  fr: arbitrage
+  en: arbitration
+  gender: m
+  pos: noun
+  tags: [rights]
+
+- id: clause
+  fr: clause
+  en: clause
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: resiliation
+  fr: résiliation
+  en: cancellation (of a contract)
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: preavis
+  fr: préavis
+  en: notice
+  gender: m
+  pos: noun
+  tags: [rights]
+
+- id: attestation
+  fr: attestation
+  en: certificate, proof
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: certificat
+  fr: certificat
+  en: certificate
+  gender: m
+  pos: noun
+  tags: [rights]
+
+- id: notaire
+  fr: notaire
+  en: notary
+  gender: m
+  pos: noun
+  tags: [rights]
+
+- id: procuration
+  fr: procuration
+  en: power of attorney
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: consentement
+  fr: consentement
+  en: consent
+  gender: m
+  pos: noun
+  tags: [rights]
+
+- id: confidentialite
+  fr: confidentialité
+  en: confidentiality
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: reclamation
+  fr: réclamation
+  en: claim, complaint
+  gender: f
+  pos: noun
+  tags: [rights]
+
+- id: delai
+  fr: délai
+  en: deadline, time limit
+  gender: m
+  pos: noun
+  tags: [rights]
+
+- id: signaler
+  fr: signaler
+  en: to report
+  pos: verb
+  tags: [rights]
+
+- id: porter_plainte
+  fr: porter plainte
+  en: to file a complaint
+  pos: phrase
+  tags: [rights]
+

@@ -1,0 +1,138 @@
+- id: auberge
+  fr: auberge
+  en: hostel, inn
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: chambre_hote
+  fr: chambre d'hôte
+  en: bed and breakfast
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: croisiere
+  fr: croisière
+  en: cruise
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: excursion
+  fr: excursion
+  en: day trip
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: escale
+  fr: escale
+  en: layover, stopover
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: decalage_horaire
+  fr: décalage horaire
+  en: jet lag
+  gender: m
+  pos: noun
+  tags: [tourism]
+
+- id: bagage
+  fr: bagage
+  en: luggage
+  gender: m
+  pos: noun
+  tags: [tourism]
+
+- id: embarquement
+  fr: embarquement
+  en: boarding
+  gender: m
+  pos: noun
+  tags: [tourism]
+
+- id: escapade
+  fr: escapade
+  en: getaway
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: depaysement
+  fr: dépaysement
+  en: change of scenery
+  gender: m
+  pos: noun
+  tags: [tourism]
+
+- id: hebergement
+  fr: hébergement
+  en: accommodation
+  gender: m
+  pos: noun
+  tags: [tourism]
+
+- id: location_voiture
+  fr: location de voiture
+  en: car rental
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: assurance_voyage
+  fr: assurance voyage
+  en: travel insurance
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: office_tourisme
+  fr: office de tourisme
+  en: tourist office
+  gender: m
+  pos: noun
+  tags: [tourism]
+
+- id: attraction
+  fr: attraction
+  en: attraction
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: belvedere
+  fr: belvédère
+  en: lookout
+  gender: m
+  pos: noun
+  tags: [tourism]
+
+- id: haute_saison
+  fr: haute saison
+  en: high season
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: hors_saison
+  fr: hors saison
+  en: off-season
+  pos: phrase
+  tags: [tourism]
+
+- id: annulation
+  fr: annulation
+  en: cancellation
+  gender: f
+  pos: noun
+  tags: [tourism]
+
+- id: sejourner
+  fr: séjourner
+  en: to stay
+  pos: verb
+  tags: [tourism]
+

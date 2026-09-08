@@ -1,0 +1,136 @@
+- id: portion
+  fr: portion
+  en: serving
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: apport
+  fr: apport
+  en: intake
+  gender: m
+  pos: noun
+  tags: [food]
+
+- id: calorie
+  fr: calorie
+  en: calorie
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: proteine
+  fr: protéine
+  en: protein
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: glucide
+  fr: glucide
+  en: carbohydrate
+  gender: m
+  pos: noun
+  tags: [food]
+
+- id: lipide
+  fr: lipide
+  en: fat (nutrient)
+  gender: m
+  pos: noun
+  tags: [food]
+
+- id: fibre
+  fr: fibre
+  en: fibre
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: vitamine
+  fr: vitamine
+  en: vitamin
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: complement
+  fr: complément alimentaire
+  en: supplement
+  gender: m
+  pos: noun
+  tags: [food]
+
+- id: regime
+  fr: régime
+  en: diet
+  gender: m
+  pos: noun
+  tags: [food]
+
+- id: grignotage
+  fr: grignotage
+  en: snacking
+  gender: m
+  pos: noun
+  tags: [food]
+
+- id: digestion
+  fr: digestion
+  en: digestion
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: intolerance
+  fr: intolérance
+  en: intolerance
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: date_peremption
+  fr: date de péremption
+  en: expiry date
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: provenance
+  fr: provenance
+  en: origin, source
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: tracabilite
+  fr: traçabilité
+  en: traceability
+  gender: f
+  pos: noun
+  tags: [food]
+
+- id: surgele
+  fr: surgelé
+  en: frozen
+  pos: adjective
+  tags: [food]
+
+- id: transforme
+  fr: transformé
+  en: processed
+  pos: adjective
+  tags: [food]
+
+- id: assaisonner
+  fr: assaisonner
+  en: to season
+  pos: verb
+  tags: [food]
+
+- id: mijoter
+  fr: mijoter
+  en: to simmer
+  pos: verb
+  tags: [food]
+
