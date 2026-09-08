@@ -1,0 +1,65 @@
+id: health-b1-02
+title: "Emergency care & recovery"
+grammar_point: "adjectives of severity: aigu, bénin, grave"
+grammar_category: "Adjectives & comparison"
+est_minutes: 8
+new_vocab: [salle_urgence, triage, civiere, ambulancier, prise_sang, vaccination, aigu, benin, grave, contagieux, immunite, posologie, physiotherapie, readaptation, convalescence, guerir, soigner]
+pass_threshold: 8.0
+exercises:
+  - id: health-b1-02.e1
+    type: match_pairs
+    pairs:
+      - [salle d'urgence, emergency room]
+      - [triage, triage]
+      - [civière, stretcher]
+      - [ambulancier, paramedic]
+      - [prise de sang, blood test]
+
+  - id: health-b1-02.e2
+    type: match_pairs
+    pairs:
+      - [aigu, acute]
+      - [bénin, mild]
+      - [grave, serious]
+      - [contagieux, contagious]
+      - [immunité, immunity]
+
+  - id: health-b1-02.e3
+    type: match_pairs
+    pairs:
+      - [posologie, dosage]
+      - [physiothérapie, physiotherapy]
+      - [réadaptation, rehabilitation]
+      - [convalescence, convalescence]
+      - [vaccination, vaccination]
+
+  - id: health-b1-02.e4
+    type: mcq
+    prompt: "A mild, non-dangerous condition is « ___ »."
+    options: ["bénin", "grave", "aigu"]
+    answer: "bénin"
+    explain: "bénin = benign/mild; its feminine is bénigne."
+
+  - id: health-b1-02.e5
+    type: mcq
+    prompt: "« la posologie » tells you…"
+    options: [how much to take, where it hurts, who to call]
+    answer: how much to take
+    explain: "la posologie = the dosage instructions."
+
+  - id: health-b1-02.e6
+    type: word_bank
+    prompt: "Build: “the doctor treats the patients”"
+    tokens: [Le, médecin, soigne, les, patients, guérit]
+    answer: [Le, médecin, soigne, les, patients]
+
+  - id: health-b1-02.e7
+    type: translate
+    prompt: "Translate: “to heal”"
+    answer: guérir
+
+  - id: health-b1-02.e8
+    type: listen_type
+    audio_ref: b1/audio/civiere.mp3
+    answer: civière
+    prompt: "Type the word you hear."

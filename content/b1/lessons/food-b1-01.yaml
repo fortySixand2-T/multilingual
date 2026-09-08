@@ -1,0 +1,65 @@
+id: food-b1-01
+title: "Nutrition & labels"
+grammar_point: "quantity expressions: assez de, trop de, peu de"
+grammar_category: "Articles & determiners"
+est_minutes: 8
+new_vocab: [portion, apport, calorie, proteine, glucide, lipide, fibre, vitamine, complement, regime, grignotage, digestion, intolerance, date_peremption, provenance, tracabilite, surgele, transforme, assaisonner, mijoter]
+pass_threshold: 8.0
+exercises:
+  - id: food-b1-01.e1
+    type: match_pairs
+    pairs:
+      - [portion, serving]
+      - [apport, intake]
+      - [calorie, calorie]
+      - [protéine, protein]
+      - [glucide, carbohydrate]
+
+  - id: food-b1-01.e2
+    type: match_pairs
+    pairs:
+      - [lipide, fat]
+      - [fibre, fibre]
+      - [vitamine, vitamin]
+      - [régime, diet]
+      - [grignotage, snacking]
+
+  - id: food-b1-01.e3
+    type: match_pairs
+    pairs:
+      - [date de péremption, expiry date]
+      - [provenance, origin]
+      - [traçabilité, traceability]
+      - [surgelé, frozen]
+      - [transformé, processed]
+
+  - id: food-b1-01.e4
+    type: mcq
+    prompt: "« Je mange ___ de sucre. » (too much)"
+    options: ["trop", "assez", "peu"]
+    answer: "trop"
+    explain: "trop de / assez de / peu de — all take de with no article."
+
+  - id: food-b1-01.e5
+    type: mcq
+    prompt: "Check this before eating something old:"
+    options: ["la date de péremption", "la provenance", "la portion"]
+    answer: "la date de péremption"
+    explain: "la date de péremption = the expiry date."
+
+  - id: food-b1-01.e6
+    type: word_bank
+    prompt: "Build: “I have a lactose intolerance”"
+    tokens: [J'ai, une, intolérance, au, lactose, régime]
+    answer: [J'ai, une, intolérance, au, lactose]
+
+  - id: food-b1-01.e7
+    type: translate
+    prompt: "Translate: “to simmer”"
+    answer: mijoter
+
+  - id: food-b1-01.e8
+    type: listen_type
+    audio_ref: b1/audio/tracabilite.mp3
+    answer: traçabilité
+    prompt: "Type the word you hear."

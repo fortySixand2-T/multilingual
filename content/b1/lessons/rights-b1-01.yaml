@@ -1,0 +1,66 @@
+id: rights-b1-01
+title: "Contracts & your rights"
+grammar_point: "formal obligation: devoir, il faut, être tenu de"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [obligation, recours, amende, contravention, litige, mediation, arbitrage, clause, resiliation, preavis, attestation, certificat, notaire, procuration, consentement, confidentialite, reclamation, delai, signaler, porter_plainte]
+pass_threshold: 8.0
+exercises:
+  - id: rights-b1-01.e1
+    type: match_pairs
+    pairs:
+      - [obligation, obligation]
+      - [recours, recourse]
+      - [amende, fine]
+      - [contravention, ticket]
+      - [litige, legal dispute]
+
+  - id: rights-b1-01.e2
+    type: match_pairs
+    pairs:
+      - [médiation, mediation]
+      - [arbitrage, arbitration]
+      - [clause, clause]
+      - [résiliation, cancellation]
+      - [préavis, notice]
+
+  - id: rights-b1-01.e3
+    type: match_pairs
+    pairs:
+      - [attestation, "proof of status"]
+      - [notaire, notary]
+      - [procuration, power of attorney]
+      - [consentement, consent]
+      - [réclamation, claim]
+
+  - id: rights-b1-01.e4
+    type: mcq
+    prompt: "To end a contract early you ask for « la ___ »."
+    options: ["résiliation", "réclamation", "médiation"]
+    answer: "résiliation"
+    explain: "la résiliation = cancellation of a contract."
+
+  - id: rights-b1-01.e5
+    type: mcq
+    prompt: "« Vous devez donner un ___ d'un mois. » (notice)"
+    options: ["préavis", "délai", "recours"]
+    answer: "préavis"
+    explain: "un préavis = advance notice; un délai = a time limit."
+
+  - id: rights-b1-01.e6
+    type: word_bank
+    prompt: "Build: “I want to file a complaint”"
+    tokens: [Je, veux, porter, plainte, signaler]
+    answer: [Je, veux, porter, plainte]
+
+  - id: rights-b1-01.e7
+    type: translate
+    prompt: "Translate: “confidentiality”"
+    answer: "la confidentialité"
+    accept: ["confidentialité"]
+
+  - id: rights-b1-01.e8
+    type: listen_type
+    audio_ref: b1/audio/procuration.mp3
+    answer: procuration
+    prompt: "Type the word you hear."

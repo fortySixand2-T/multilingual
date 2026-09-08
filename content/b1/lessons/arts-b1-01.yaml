@@ -1,0 +1,66 @@
+id: arts-b1-01
+title: "Books, film & stage"
+grammar_point: "giving an opinion: je trouve que, il s'agit de"
+grammar_category: "Expressions & communication"
+est_minutes: 8
+new_vocab: [roman, poesie, piece_theatre, scene, public, realisateur, tournage, personnage, intrigue, chanson, chanteur, orchestre, instrument, galerie, atelier, critique, billetterie, repetition, toile, danse]
+pass_threshold: 8.0
+exercises:
+  - id: arts-b1-01.e1
+    type: match_pairs
+    pairs:
+      - [roman, novel]
+      - [poésie, poetry]
+      - [pièce de théâtre, play]
+      - [scène, stage]
+      - [public, audience]
+
+  - id: arts-b1-01.e2
+    type: match_pairs
+    pairs:
+      - [réalisateur, film director]
+      - [tournage, filming]
+      - [personnage, character]
+      - [intrigue, plot]
+      - [critique, review]
+
+  - id: arts-b1-01.e3
+    type: match_pairs
+    pairs:
+      - [chanson, song]
+      - [chanteur, singer]
+      - [orchestre, orchestra]
+      - [galerie, gallery]
+      - [toile, canvas]
+
+  - id: arts-b1-01.e4
+    type: mcq
+    prompt: "« Le film ___ d'une famille à Montréal. » (is about)"
+    options: ["parle", "s'agit", "raconte que"]
+    answer: "parle"
+    explain: "Le film parle de… Careful: il s'agit de is impersonal — « il s'agit d'une famille »."
+
+  - id: arts-b1-01.e5
+    type: mcq
+    prompt: "« l'intrigue » of a novel is…"
+    options: [the plot, the cover, the author]
+    answer: the plot
+    explain: "l'intrigue = the plot."
+
+  - id: arts-b1-01.e6
+    type: word_bank
+    prompt: "Build: “I find this novel interesting”"
+    tokens: [Je, trouve, ce, roman, intéressant, toile]
+    answer: [Je, trouve, ce, roman, intéressant]
+
+  - id: arts-b1-01.e7
+    type: translate
+    prompt: "Translate: “the box office”"
+    answer: "la billetterie"
+    accept: [billetterie]
+
+  - id: arts-b1-01.e8
+    type: listen_type
+    audio_ref: b1/audio/repetition.mp3
+    answer: répétition
+    prompt: "Type the word you hear."

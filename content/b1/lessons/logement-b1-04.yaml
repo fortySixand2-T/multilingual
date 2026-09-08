@@ -1,0 +1,66 @@
+id: logement-b1-04
+title: "Problems with your apartment"
+grammar_point: "reporting a problem: il y a / il faut"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [sous_location, etat_lieux, depot_garantie, concierge, syndic, renovation, isolation, humidite, moisissure, infiltration, plomberie, electricite, climatisation, thermostat, sous_sol, rangement, expulsion, tribunal_logement]
+pass_threshold: 8.0
+exercises:
+  - id: logement-b1-04.e1
+    type: match_pairs
+    pairs:
+      - [sous-location, sublet]
+      - [état des lieux, condition report]
+      - [dépôt de garantie, security deposit]
+      - [concierge, building superintendent]
+      - [expulsion, eviction]
+
+  - id: logement-b1-04.e2
+    type: match_pairs
+    pairs:
+      - [humidité, damp]
+      - [moisissure, mould]
+      - [infiltration d'eau, water leak]
+      - [isolation, insulation]
+      - [plomberie, plumbing]
+
+  - id: logement-b1-04.e3
+    type: match_pairs
+    pairs:
+      - [climatisation, air conditioning]
+      - [thermostat, thermostat]
+      - [sous-sol, basement]
+      - [rangement, storage space]
+      - [rénovation, renovation]
+
+  - id: logement-b1-04.e4
+    type: mcq
+    prompt: "« Il y a de la ___ dans la salle de bain. » (mould)"
+    options: ["moisissure", "plomberie", "isolation"]
+    answer: "moisissure"
+    explain: "la moisissure = mould, a common rental complaint."
+
+  - id: logement-b1-04.e5
+    type: mcq
+    prompt: "In Québec, a rent dispute goes to the…"
+    options: ["Tribunal administratif du logement", "syndic", "concierge"]
+    answer: "Tribunal administratif du logement"
+    explain: "The TAL (formerly Régie du logement) handles landlord–tenant disputes."
+
+  - id: logement-b1-04.e6
+    type: word_bank
+    prompt: "Build: “the heating has to be repaired”"
+    tokens: [Il, faut, réparer, le, chauffage, thermostat]
+    answer: [Il, faut, réparer, le, chauffage]
+
+  - id: logement-b1-04.e7
+    type: translate
+    prompt: "Translate: “the security deposit”"
+    answer: "le dépôt de garantie"
+    accept: ["dépôt de garantie"]
+
+  - id: logement-b1-04.e8
+    type: listen_type
+    audio_ref: b1/audio/moisissure.mp3
+    answer: moisissure
+    prompt: "Type the word you hear."

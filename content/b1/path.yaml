@@ -60,3 +60,75 @@ units:
     icon: globe
     lessons: [immigration-b1-01, immigration-b1-02, immigration-b1-03]
     unlock: { type: all_of, requires: [b1.u9] }
+
+  - id: b1.u11
+    title: "Your immigration file"
+    icon: map
+    lessons: [immigration-b1-04]
+    unlock: { type: all_of, requires: [b1.u10] }
+
+  - id: b1.u12
+    title: "Applying and being hired"
+    icon: briefcase
+    lessons: [travail-b1-04]
+    unlock: { type: all_of, requires: [b1.u11] }
+
+  - id: b1.u13
+    title: "Apartment problems"
+    icon: home
+    lessons: [logement-b1-04]
+    unlock: { type: all_of, requires: [b1.u12] }
+
+  - id: b1.u14
+    title: "Banking & taxes"
+    icon: wallet
+    lessons: [argent-b1-04]
+    unlock: { type: all_of, requires: [b1.u13] }
+
+  - id: b1.u15
+    title: "Contracts & your rights"
+    icon: scale
+    lessons: [rights-b1-01]
+    unlock: { type: all_of, requires: [b1.u14] }
+
+  - id: b1.u16
+    title: "Relationships"
+    icon: heart
+    lessons: [relationships-b1-01]
+    unlock: { type: all_of, requires: [b1.u15] }
+
+  - id: b1.u17
+    title: "Travel & accommodation"
+    icon: plane
+    lessons: [tourism-b1-01]
+    unlock: { type: all_of, requires: [b1.u16] }
+
+  - id: b1.u18
+    title: "Nutrition & labels"
+    icon: plate
+    lessons: [food-b1-01]
+    unlock: { type: all_of, requires: [b1.u17] }
+
+  - id: b1.u19
+    title: "Driving & getting around"
+    icon: bus
+    lessons: [mobility-b1-01]
+    unlock: { type: all_of, requires: [b1.u18] }
+
+  - id: b1.u20
+    title: "Books, film & stage"
+    icon: palette
+    lessons: [arts-b1-01]
+    unlock: { type: all_of, requires: [b1.u19] }
+
+  - id: b1.u21
+    title: "Devices & the internet"
+    icon: laptop
+    lessons: [technology-b1-01]
+    unlock: { type: all_of, requires: [b1.u20] }
+
+  - id: b1.u22
+    title: "Health care"
+    icon: health
+    lessons: [health-b1-01, health-b1-02]
+    unlock: { type: all_of, requires: [b1.u21] }

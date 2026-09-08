@@ -1,0 +1,66 @@
+id: travail-b1-04
+title: "Applying and being hired"
+grammar_point: "formal register in a job application"
+grammar_category: "Expressions & communication"
+est_minutes: 8
+new_vocab: [lettre_motivation, offre_emploi, affichage_poste, periode_essai, convention_collective, heures_supplementaires, avantages_sociaux, assurance_emploi, cotisation, retraite, anciennete, mentorat, reseautage, superviseur, portfolio, entrevue, reference, probation, conge_parental, horaire_flexible]
+pass_threshold: 8.0
+exercises:
+  - id: travail-b1-04.e1
+    type: match_pairs
+    pairs:
+      - [lettre de motivation, cover letter]
+      - [offre d'emploi, job posting]
+      - [entrevue, job interview]
+      - [référence, reference]
+      - [portfolio, portfolio]
+
+  - id: travail-b1-04.e2
+    type: match_pairs
+    pairs:
+      - [convention collective, collective agreement]
+      - [heures supplémentaires, overtime]
+      - [avantages sociaux, benefits package]
+      - [assurance-emploi, employment insurance]
+      - [période d'essai, probationary period]
+
+  - id: travail-b1-04.e3
+    type: match_pairs
+    pairs:
+      - [ancienneté, seniority]
+      - [retraite, retirement]
+      - [mentorat, mentoring]
+      - [réseautage, networking]
+      - [congé parental, parental leave]
+
+  - id: travail-b1-04.e4
+    type: mcq
+    prompt: "In Québec, a job interview is « une ___ »."
+    options: ["entrevue", "entretien", "entrée"]
+    answer: "entrevue"
+    explain: "Québec uses entrevue; in France it's entretien."
+
+  - id: travail-b1-04.e5
+    type: mcq
+    prompt: "If you lose your job, you may claim…"
+    options: ["l'assurance-emploi", "la cotisation", "l'ancienneté"]
+    answer: "l'assurance-emploi"
+    explain: "l'assurance-emploi = employment insurance (EI) in Canada."
+
+  - id: travail-b1-04.e6
+    type: word_bank
+    prompt: "Build: “I'm sending you my cover letter”"
+    tokens: [Je, vous, envoie, ma, lettre, de, motivation]
+    answer: [Je, vous, envoie, ma, lettre, de, motivation]
+
+  - id: travail-b1-04.e7
+    type: translate
+    prompt: "Translate: “flexible hours”"
+    answer: "un horaire flexible"
+    accept: ["horaire flexible", "l'horaire flexible"]
+
+  - id: travail-b1-04.e8
+    type: listen_type
+    audio_ref: b1/audio/reseautage.mp3
+    answer: réseautage
+    prompt: "Type the word you hear."

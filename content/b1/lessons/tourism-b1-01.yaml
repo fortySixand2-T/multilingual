@@ -1,0 +1,66 @@
+id: tourism-b1-01
+title: "Travel & accommodation"
+grammar_point: "future with aller: je vais séjourner"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [auberge, chambre_hote, croisiere, excursion, escale, decalage_horaire, bagage, embarquement, escapade, depaysement, hebergement, location_voiture, assurance_voyage, office_tourisme, attraction, belvedere, haute_saison, hors_saison, annulation, sejourner]
+pass_threshold: 8.0
+exercises:
+  - id: tourism-b1-01.e1
+    type: match_pairs
+    pairs:
+      - [auberge, hostel]
+      - [chambre d'hôte, bed and breakfast]
+      - [hébergement, accommodation]
+      - [croisière, cruise]
+      - [excursion, day trip]
+
+  - id: tourism-b1-01.e2
+    type: match_pairs
+    pairs:
+      - [escale, layover]
+      - [décalage horaire, jet lag]
+      - [embarquement, boarding]
+      - [bagage, luggage]
+      - [annulation, cancellation]
+
+  - id: tourism-b1-01.e3
+    type: match_pairs
+    pairs:
+      - [haute saison, high season]
+      - [hors saison, off-season]
+      - [belvédère, lookout]
+      - [office de tourisme, tourist office]
+      - [location de voiture, car rental]
+
+  - id: tourism-b1-01.e4
+    type: mcq
+    prompt: "« Je vais ___ trois nuits à Québec. »"
+    options: ["séjourner", "séjour", "séjourné"]
+    answer: "séjourner"
+    explain: "aller + infinitive for the near future: je vais séjourner."
+
+  - id: tourism-b1-01.e5
+    type: mcq
+    prompt: "Travelling cheaply means going « ___ »."
+    options: ["hors saison", "haute saison", "en escale"]
+    answer: "hors saison"
+    explain: "hors saison = off-season, when prices drop."
+
+  - id: tourism-b1-01.e6
+    type: word_bank
+    prompt: "Build: “I'd like to rent a car”"
+    tokens: [Je, voudrais, louer, une, voiture, auberge]
+    answer: [Je, voudrais, louer, une, voiture]
+
+  - id: tourism-b1-01.e7
+    type: translate
+    prompt: "Translate: “travel insurance”"
+    answer: "une assurance voyage"
+    accept: ["assurance voyage", "l'assurance voyage"]
+
+  - id: tourism-b1-01.e8
+    type: listen_type
+    audio_ref: b1/audio/depaysement.mp3
+    answer: dépaysement
+    prompt: "Type the word you hear."
