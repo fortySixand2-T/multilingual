@@ -30,24 +30,46 @@ CONTENT_ROOT = Path(__file__).resolve().parents[1] / "content"
 KNOWN_CONJUGATED_ONLY = {("a1", "verbs-01"): {"vouloir"}}
 
 TARGET_LESSONS = [
-    ("a1", "house-01"), ("a1", "places-01"), ("a1", "jobs-01"),
-    ("a1", "countries-01"), ("a1", "verbs-01"), ("a1", "verbs-02"),
+    ("a1", "house-01"),
+    ("a1", "places-01"),
+    ("a1", "jobs-01"),
+    ("a1", "countries-01"),
+    ("a1", "verbs-01"),
+    ("a1", "verbs-02"),
     ("a1", "adjectives-01"),
-    ("a2", "money-a2-01"), ("a2", "nature-a2-01"), ("a2", "studies-a2-01"),
-    ("a2", "sports-a2-01"), ("a2", "communication-a2-01"),
-    ("a2", "people-a2-01"), ("a2", "emergencies-a2-01"),
-    ("a2", "travail-a2-04"), ("a2", "sante-a2-04"), ("a2", "transport-a2-04"),
-    ("b1", "immigration-b1-04"), ("b1", "travail-b1-04"),
-    ("b1", "logement-b1-04"), ("b1", "argent-b1-04"), ("b1", "rights-b1-01"),
-    ("b1", "relationships-b1-01"), ("b1", "tourism-b1-01"),
-    ("b1", "food-b1-01"), ("b1", "mobility-b1-01"), ("b1", "arts-b1-01"),
+    ("a2", "money-a2-01"),
+    ("a2", "nature-a2-01"),
+    ("a2", "studies-a2-01"),
+    ("a2", "sports-a2-01"),
+    ("a2", "communication-a2-01"),
+    ("a2", "people-a2-01"),
+    ("a2", "emergencies-a2-01"),
+    ("a2", "travail-a2-04"),
+    ("a2", "sante-a2-04"),
+    ("a2", "transport-a2-04"),
+    ("b1", "immigration-b1-04"),
+    ("b1", "travail-b1-04"),
+    ("b1", "logement-b1-04"),
+    ("b1", "argent-b1-04"),
+    ("b1", "rights-b1-01"),
+    ("b1", "relationships-b1-01"),
+    ("b1", "tourism-b1-01"),
+    ("b1", "food-b1-01"),
+    ("b1", "mobility-b1-01"),
+    ("b1", "arts-b1-01"),
     ("b1", "technology-b1-01"),
-    ("b2", "justice-b2-01"), ("b2", "technologie-b2-01"),
-    ("b2", "education-b2-01"), ("b2", "medias-b2-01"),
-    ("b2", "migration-b2-01"), ("b2", "entreprise-b2-01"),
-    ("b2", "psychologie-b2-01"), ("b2", "histoire-b2-01"),
-    ("b2", "sante-b2-04"), ("b2", "societe-b2-04"),
-    ("b2", "environnement-b2-04"), ("b2", "economie-b2-04"),
+    ("b2", "justice-b2-01"),
+    ("b2", "technologie-b2-01"),
+    ("b2", "education-b2-01"),
+    ("b2", "medias-b2-01"),
+    ("b2", "migration-b2-01"),
+    ("b2", "entreprise-b2-01"),
+    ("b2", "psychologie-b2-01"),
+    ("b2", "histoire-b2-01"),
+    ("b2", "sante-b2-04"),
+    ("b2", "societe-b2-04"),
+    ("b2", "environnement-b2-04"),
+    ("b2", "economie-b2-04"),
 ]
 
 _ARTICLES = ("le ", "la ", "les ", "l'", "un ", "une ", "des ")
@@ -64,7 +86,7 @@ def _strip_article(fr: str) -> str:
     n = _norm(fr)
     for a in _ARTICLES:
         if n.startswith(a):
-            return n[len(a):]
+            return n[len(a) :]
     return n
 
 
