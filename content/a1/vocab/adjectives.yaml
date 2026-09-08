@@ -117,3 +117,93 @@
   en: full
   pos: adjective
   tags: [adjectives]
+
+- id: important
+  fr: important
+  en: important
+  pos: adjective
+  tags: [adjectives]
+
+- id: possible
+  fr: possible
+  en: possible
+  pos: adjective
+  tags: [adjectives]
+
+- id: vrai
+  fr: vrai
+  en: "true"
+  pos: adjective
+  tags: [adjectives]
+
+- id: faux
+  fr: faux
+  en: "false"
+  pos: adjective
+  tags: [adjectives]
+
+- id: seul
+  fr: seul
+  en: alone, only
+  pos: adjective
+  tags: [adjectives]
+
+- id: autre
+  fr: autre
+  en: other
+  pos: adjective
+  tags: [adjectives]
+
+- id: premier
+  fr: premier
+  en: first
+  pos: adjective
+  tags: [adjectives]
+
+- id: dernier
+  fr: dernier
+  en: last
+  pos: adjective
+  tags: [adjectives]
+
+- id: prochain
+  fr: prochain
+  en: next
+  pos: adjective
+  tags: [adjectives]
+
+- id: libre
+  fr: libre
+  en: free, available
+  pos: adjective
+  tags: [adjectives]
+
+- id: occupe
+  fr: occupé
+  en: busy
+  pos: adjective
+  tags: [adjectives]
+
+- id: pret
+  fr: prêt
+  en: ready
+  pos: adjective
+  tags: [adjectives]
+
+- id: leger
+  fr: léger
+  en: light
+  pos: adjective
+  tags: [adjectives]
+
+- id: lourd
+  fr: lourd
+  en: heavy
+  pos: adjective
+  tags: [adjectives]
+
+- id: haut
+  fr: haut
+  en: high, tall
+  pos: adjective
+  tags: [adjectives]

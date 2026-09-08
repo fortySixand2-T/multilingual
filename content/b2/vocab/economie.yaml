@@ -123,3 +123,122 @@
   gender: m
   pos: noun
   tags: [economie]
+
+- id: recession
+  fr: récession
+  en: recession
+  gender: f
+  pos: noun
+  tags: [economie]
+
+- id: relance
+  fr: relance
+  en: economic recovery
+  gender: f
+  pos: noun
+  tags: [economie]
+
+- id: austerite
+  fr: austérité
+  en: austerity
+  gender: f
+  pos: noun
+  tags: [economie]
+
+- id: deficit
+  fr: déficit
+  en: deficit
+  gender: m
+  pos: noun
+  tags: [economie]
+
+- id: excedent
+  fr: excédent
+  en: surplus
+  gender: m
+  pos: noun
+  tags: [economie]
+
+- id: dette_publique
+  fr: dette publique
+  en: public debt
+  gender: f
+  pos: noun
+  tags: [economie]
+
+- id: pib
+  fr: PIB
+  en: GDP
+  gender: m
+  pos: noun
+  tags: [economie]
+
+- id: approvisionnement
+  fr: approvisionnement
+  en: supply
+  gender: m
+  pos: noun
+  tags: [economie]
+
+- id: speculation
+  fr: spéculation
+  en: speculation
+  gender: f
+  pos: noun
+  tags: [economie]
+
+- id: bulle_immobiliere
+  fr: bulle immobilière
+  en: housing bubble
+  gender: f
+  pos: noun
+  tags: [economie]
+
+- id: taux_directeur
+  fr: taux directeur
+  en: key interest rate
+  gender: m
+  pos: noun
+  tags: [economie]
+
+- id: banque_centrale
+  fr: banque centrale
+  en: central bank
+  gender: f
+  pos: noun
+  tags: [economie]
+
+- id: subvention
+  fr: subvention
+  en: subsidy
+  gender: f
+  pos: noun
+  tags: [economie]
+
+- id: protectionnisme
+  fr: protectionnisme
+  en: protectionism
+  gender: m
+  pos: noun
+  tags: [economie]
+
+- id: libre_echange
+  fr: libre-échange
+  en: free trade
+  gender: m
+  pos: noun
+  tags: [economie]
+
+- id: tarif_douanier
+  fr: tarif douanier
+  en: customs tariff
+  gender: m
+  pos: noun
+  tags: [economie]
+
+- id: monopole
+  fr: monopole
+  en: monopoly
+  gender: m
+  pos: noun
+  tags: [economie]

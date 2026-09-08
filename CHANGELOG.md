@@ -300,3 +300,8 @@
 - [2026-09-07] Created: web/src/AudioButton.test.tsx — Tests: loading state always clears, even when play() never settles
 - [2026-09-07] Modified: web/src/VocabWord.test.tsx — Tests: epicene (m/f) badge
 - [2026-09-07] Created: qa/rounds/054-plan.md + qa/issues/{720,721,730,741}-*.md — QA round 054 on the vocab expansion
+- [2026-09-07] Modified: content/b1/vocab/{immigration,travail,logement,argent,health}.yaml — deepened to 35–38 words each (+91): CSQ/biometrics/sponsorship, collective agreement/entrevue/réseautage, lease/eviction/mould, credit score/tax return, ER/triage/physio
+- [2026-09-07] Modified: content/b2/vocab/{travail,politique,economie,societe,environnement,sante}.yaml — deepened to 35 words each (+102) with the abstract register B2 tasks demand
+- [2026-09-07] Modified: content/a2/vocab/{travail,sante,transport}.yaml — deepened to 35 words each (+51): CV/shift work, body parts/symptoms, vehicle parts/boarding verbs
+- [2026-09-07] Modified: content/a1/vocab/{verbs,adjectives}.yaml — verbs 20→40, adjectives 20→35 (+35 highest-frequency words)
+- [2026-09-07] Created: content/{a1,a2,b1,b2}/audio/*.mp3 — TTS clips for the 279 deepening words

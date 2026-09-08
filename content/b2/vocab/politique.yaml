@@ -124,3 +124,123 @@
   gender: f
   pos: noun
   tags: [politique]
+
+- id: suffrage
+  fr: suffrage universel
+  en: universal suffrage
+  gender: m
+  pos: noun
+  tags: [politique]
+
+- id: circonscription
+  fr: circonscription
+  en: riding, constituency
+  gender: f
+  pos: noun
+  tags: [politique]
+
+- id: candidat
+  fr: candidat
+  en: candidate
+  gender: mf
+  fem: candidate
+  pos: noun
+  tags: [politique]
+
+- id: campagne_electorale
+  fr: campagne électorale
+  en: election campaign
+  gender: f
+  pos: noun
+  tags: [politique]
+
+- id: sondage
+  fr: sondage
+  en: poll
+  gender: m
+  pos: noun
+  tags: [politique]
+
+- id: coalition
+  fr: coalition
+  en: coalition
+  gender: f
+  pos: noun
+  tags: [politique]
+
+- id: opposition
+  fr: opposition
+  en: the opposition
+  gender: f
+  pos: noun
+  tags: [politique]
+
+- id: majorite
+  fr: majorité
+  en: majority
+  gender: f
+  pos: noun
+  tags: [politique]
+
+- id: minorite
+  fr: minorité
+  en: minority
+  gender: f
+  pos: noun
+  tags: [politique]
+
+- id: laicite
+  fr: laïcité
+  en: secularism
+  gender: f
+  pos: noun
+  tags: [politique]
+
+- id: federalisme
+  fr: fédéralisme
+  en: federalism
+  gender: m
+  pos: noun
+  tags: [politique]
+
+- id: province
+  fr: province
+  en: province
+  gender: f
+  pos: noun
+  tags: [politique]
+
+- id: assemblee_nationale
+  fr: Assemblée nationale
+  en: National Assembly (Québec)
+  gender: f
+  pos: noun
+  tags: [politique]
+
+- id: premier_ministre
+  fr: premier ministre
+  en: premier, prime minister
+  gender: m
+  pos: noun
+  tags: [politique]
+
+- id: ministre
+  fr: ministre
+  en: minister
+  gender: m
+  pos: noun
+  tags: [politique]
+
+- id: populisme
+  fr: populisme
+  en: populism
+  gender: m
+  pos: noun
+  tags: [politique]
+
+- id: extremisme
+  fr: extrémisme
+  en: extremism
+  gender: m
+  pos: noun
+  tags: [politique]

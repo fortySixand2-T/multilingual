@@ -123,3 +123,122 @@
   gender: f
   pos: noun
   tags: [environnement]
+
+- id: gaz_effet_serre
+  fr: gaz à effet de serre
+  en: greenhouse gas
+  gender: m
+  pos: noun
+  tags: [environnement]
+
+- id: carboneutralite
+  fr: carboneutralité
+  en: carbon neutrality
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: attenuation
+  fr: atténuation
+  en: mitigation
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: eau_potable
+  fr: eau potable
+  en: drinking water
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: bassin_versant
+  fr: bassin versant
+  en: watershed
+  gender: m
+  pos: noun
+  tags: [environnement]
+
+- id: milieu_humide
+  fr: milieu humide
+  en: wetland
+  gender: m
+  pos: noun
+  tags: [environnement]
+
+- id: aire_protegee
+  fr: aire protégée
+  en: protected area
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: reboisement
+  fr: reboisement
+  en: reforestation
+  gender: m
+  pos: noun
+  tags: [environnement]
+
+- id: energie_fossile
+  fr: énergie fossile
+  en: fossil fuel
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: hydroelectricite
+  fr: hydroélectricité
+  en: hydroelectricity
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: eolienne
+  fr: éolienne
+  en: wind turbine
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: geothermie
+  fr: géothermie
+  en: geothermal energy
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: consigne
+  fr: consigne
+  en: container deposit
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: enfouissement
+  fr: enfouissement
+  en: landfilling
+  gender: m
+  pos: noun
+  tags: [environnement]
+
+- id: valorisation
+  fr: valorisation
+  en: recovery, repurposing
+  gender: f
+  pos: noun
+  tags: [environnement]
+
+- id: ilot_chaleur
+  fr: îlot de chaleur
+  en: heat island
+  gender: m
+  pos: noun
+  tags: [environnement]
+
+- id: pergelisol
+  fr: pergélisol
+  en: permafrost
+  gender: m
+  pos: noun
+  tags: [environnement]

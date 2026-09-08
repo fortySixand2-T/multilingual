@@ -124,3 +124,122 @@
   gender: f
   pos: noun
   tags: [sante]
+
+- id: sante_publique
+  fr: santé publique
+  en: public health
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: sante_mentale
+  fr: santé mentale
+  en: mental health
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: confinement
+  fr: confinement
+  en: lockdown
+  gender: m
+  pos: noun
+  tags: [sante]
+
+- id: quarantaine
+  fr: quarantaine
+  en: quarantine
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: variant
+  fr: variant
+  en: variant
+  gender: m
+  pos: noun
+  tags: [sante]
+
+- id: immunisation
+  fr: immunisation
+  en: immunization
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: liste_attente
+  fr: liste d'attente
+  en: waiting list
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: medecin_famille
+  fr: médecin de famille
+  en: family doctor
+  gender: m
+  pos: noun
+  tags: [sante]
+
+- id: soins_domicile
+  fr: soins à domicile
+  en: home care
+  gender: m
+  pos: noun
+  tags: [sante]
+
+- id: soins_palliatifs
+  fr: soins palliatifs
+  en: palliative care
+  gender: m
+  pos: noun
+  tags: [sante]
+
+- id: aide_medicale_mourir
+  fr: aide médicale à mourir
+  en: medical assistance in dying
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: maladie_chronique
+  fr: maladie chronique
+  en: chronic illness
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: comorbidite
+  fr: comorbidité
+  en: comorbidity
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: malnutrition
+  fr: malnutrition
+  en: malnutrition
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: toxicomanie
+  fr: toxicomanie
+  en: substance addiction
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: surdose
+  fr: surdose
+  en: overdose
+  gender: f
+  pos: noun
+  tags: [sante]
+
+- id: sevrage
+  fr: sevrage
+  en: withdrawal
+  gender: m
+  pos: noun
+  tags: [sante]

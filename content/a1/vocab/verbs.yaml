@@ -117,3 +117,123 @@
   en: to write
   pos: verb
   tags: [verbs]
+
+- id: donner
+  fr: donner
+  en: to give
+  pos: verb
+  tags: [verbs]
+
+- id: trouver
+  fr: trouver
+  en: to find
+  pos: verb
+  tags: [verbs]
+
+- id: chercher
+  fr: chercher
+  en: to look for
+  pos: verb
+  tags: [verbs]
+
+- id: rester
+  fr: rester
+  en: to stay
+  pos: verb
+  tags: [verbs]
+
+- id: passer
+  fr: passer
+  en: to pass, to spend (time)
+  pos: verb
+  tags: [verbs]
+
+- id: arriver
+  fr: arriver
+  en: to arrive
+  pos: verb
+  tags: [verbs]
+
+- id: entrer
+  fr: entrer
+  en: to go in
+  pos: verb
+  tags: [verbs]
+
+- id: sortir
+  fr: sortir
+  en: to go out
+  pos: verb
+  tags: [verbs]
+
+- id: marcher
+  fr: marcher
+  en: to walk
+  pos: verb
+  tags: [verbs]
+
+- id: courir
+  fr: courir
+  en: to run
+  pos: verb
+  tags: [verbs]
+
+- id: apprendre
+  fr: apprendre
+  en: to learn
+  pos: verb
+  tags: [verbs]
+
+- id: comprendre
+  fr: comprendre
+  en: to understand
+  pos: verb
+  tags: [verbs]
+
+- id: connaitre
+  fr: connaître
+  en: to know (someone)
+  pos: verb
+  tags: [verbs]
+
+- id: croire
+  fr: croire
+  en: to believe
+  pos: verb
+  tags: [verbs]
+
+- id: sentir
+  fr: sentir
+  en: to feel, to smell
+  pos: verb
+  tags: [verbs]
+
+- id: tenir
+  fr: tenir
+  en: to hold
+  pos: verb
+  tags: [verbs]
+
+- id: attendre
+  fr: attendre
+  en: to wait
+  pos: verb
+  tags: [verbs]
+
+- id: commencer
+  fr: commencer
+  en: to start
+  pos: verb
+  tags: [verbs]
+
+- id: finir
+  fr: finir
+  en: to finish
+  pos: verb
+  tags: [verbs]
+
+- id: choisir
+  fr: choisir
+  en: to choose
+  pos: verb
+  tags: [verbs]

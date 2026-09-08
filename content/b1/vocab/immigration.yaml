@@ -125,3 +125,144 @@
   gender: m
   pos: noun
   tags: [immigration]
+
+- id: carte_residence
+  fr: carte de résidence permanente
+  en: permanent resident card
+  gender: f
+  pos: noun
+  tags: [immigration]
+
+- id: demandeur_asile
+  fr: demandeur d'asile
+  en: asylum seeker
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: recevabilite
+  fr: recevabilité
+  en: admissibility (of a file)
+  gender: f
+  pos: noun
+  tags: [immigration]
+
+- id: admissibilite
+  fr: admissibilité
+  en: eligibility
+  gender: f
+  pos: noun
+  tags: [immigration]
+
+- id: biometrie
+  fr: biométrie
+  en: biometrics
+  gender: f
+  pos: noun
+  tags: [immigration]
+
+- id: empreintes_digitales
+  fr: empreintes digitales
+  en: fingerprints
+  gender: f
+  pos: noun
+  tags: [immigration]
+
+- id: casier_judiciaire
+  fr: casier judiciaire
+  en: criminal record
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: certificat_selection
+  fr: certificat de sélection du Québec
+  en: Québec selection certificate (CSQ)
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: garant
+  fr: garant
+  en: sponsor, guarantor
+  gender: mf
+  fem: garante
+  pos: noun
+  tags: [immigration]
+
+- id: regroupement_familial
+  fr: regroupement familial
+  en: family reunification
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: travailleur_qualifie
+  fr: travailleur qualifié
+  en: skilled worker
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: equivalence_diplome
+  fr: équivalence de diplôme
+  en: credential equivalence
+  gender: f
+  pos: noun
+  tags: [immigration]
+
+- id: reconnaissance_acquis
+  fr: reconnaissance des acquis
+  en: recognition of prior learning
+  gender: f
+  pos: noun
+  tags: [immigration]
+
+- id: titre_sejour
+  fr: titre de séjour
+  en: residence permit
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: renouvellement
+  fr: renouvellement
+  en: renewal
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: expiration
+  fr: expiration
+  en: expiry
+  gender: f
+  pos: noun
+  tags: [immigration]
+
+- id: refus
+  fr: refus
+  en: refusal
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: delai_traitement
+  fr: délai de traitement
+  en: processing time
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: frais_dossier
+  fr: frais de dossier
+  en: application fee
+  gender: m
+  pos: noun
+  tags: [immigration]
+
+- id: residence_temporaire
+  fr: résidence temporaire
+  en: temporary residence
+  gender: f
+  pos: noun
+  tags: [immigration]

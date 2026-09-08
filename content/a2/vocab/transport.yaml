@@ -122,3 +122,118 @@
   gender: m
   pos: noun
   tags: [transport]
+
+- id: autobus
+  fr: autobus
+  en: bus (Québec)
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: camion
+  fr: camion
+  en: truck
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: moto
+  fr: moto
+  en: motorcycle
+  gender: f
+  pos: noun
+  tags: [transport]
+
+- id: siege
+  fr: siège
+  en: seat
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: coffre
+  fr: coffre
+  en: trunk
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: moteur
+  fr: moteur
+  en: engine
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: frein
+  fr: frein
+  en: brake
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: volant
+  fr: volant
+  en: steering wheel
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: phare
+  fr: phare
+  en: headlight
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: roue
+  fr: roue
+  en: wheel
+  gender: f
+  pos: noun
+  tags: [transport]
+
+- id: reservoir
+  fr: réservoir
+  en: tank
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: aller_retour
+  fr: aller-retour
+  en: round trip
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: aller_simple
+  fr: aller simple
+  en: one-way trip
+  gender: m
+  pos: noun
+  tags: [transport]
+
+- id: valider
+  fr: valider
+  en: to validate (a ticket)
+  pos: verb
+  tags: [transport]
+
+- id: monter
+  fr: monter
+  en: to get on, to board
+  pos: verb
+  tags: [transport]
+
+- id: descendre
+  fr: descendre
+  en: to get off
+  pos: verb
+  tags: [transport]
+
+- id: rater
+  fr: rater
+  en: to miss (a bus)
+  pos: verb
+  tags: [transport]
