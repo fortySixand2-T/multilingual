@@ -3,7 +3,7 @@ title: "Data & digital society"
 grammar_point: "abstract nouns in -ité, -isation, -ement"
 grammar_category: "Sentence structures"
 est_minutes: 8
-new_vocab: [apprentissage_automatique, biais, anonymisation, chiffrement, souverainete_numerique, obsolescence, interoperabilite, deploiement, prototype, brevet, logiciel_libre, fracture_numerique, empreinte_numerique, essor, moderation, hyperconnexion, infonuagique, exploitation, transparence, vigilance]
+new_vocab: [apprentissage_automatique, biais, anonymisation, chiffrement, souverainete_numerique, obsolescence, interoperabilite, deploiement, brevet, logiciel_libre, fracture_numerique, empreinte_numerique, essor, moderation, hyperconnexion, infonuagique, transparence]
 pass_threshold: 8.0
 exercises:
   - id: technologie-b2-01.e1

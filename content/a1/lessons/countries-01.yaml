@@ -3,7 +3,7 @@ title: "Countries"
 grammar_point: "en / au / aux + country"
 grammar_category: "Articles & determiners"
 est_minutes: 8
-new_vocab: [canada, quebec, france, belgique, suisse, maroc, algerie, tunisie, senegal, haiti, etats_unis, mexique, bresil, chine, japon, inde, allemagne, espagne, italie, angleterre]
+new_vocab: [canada, quebec, france, belgique, suisse, maroc, algerie, tunisie, senegal, etats_unis, mexique, bresil, chine, japon, inde, allemagne, espagne, angleterre]
 pass_threshold: 8.0
 exercises:
   - id: countries-01.e1

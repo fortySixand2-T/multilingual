@@ -3,7 +3,7 @@ title: "Public health"
 grammar_point: "impersonal constructions: il convient de, il importe que"
 grammar_category: "Sentence structures"
 est_minutes: 8
-new_vocab: [sante_publique, sante_mentale, confinement, quarantaine, variant, immunisation, liste_attente, medecin_famille, soins_domicile, soins_palliatifs, aide_medicale_mourir, maladie_chronique, comorbidite, malnutrition, toxicomanie, surdose, sevrage]
+new_vocab: [sante_publique, sante_mentale, confinement, quarantaine, immunisation, liste_attente, medecin_famille, soins_domicile, soins_palliatifs, maladie_chronique, comorbidite, malnutrition, toxicomanie, surdose, sevrage]
 pass_threshold: 8.0
 exercises:
   - id: sante-b2-04.e1

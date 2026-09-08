@@ -3,7 +3,7 @@ title: "Jobs"
 grammar_point: "il est / elle est + profession (no article)"
 grammar_category: "Sentence structures"
 est_minutes: 8
-new_vocab: [infirmier, policier, pompier, boulanger, cuisinier, coiffeur, facteur, chauffeur, mecanicien, electricien, plombier, avocat, ingenieur, caissier, jardinier, pharmacien, traducteur, musicien, acteur, directeur]
+new_vocab: [infirmier, policier, pompier, boulanger, cuisinier, coiffeur, facteur, mecanicien, electricien, plombier, avocat, ingenieur, caissier, jardinier, pharmacien, traducteur, musicien, acteur, directeur]
 pass_threshold: 8.0
 exercises:
   - id: jobs-01.e1

@@ -64,3 +64,12 @@ exercises:
     audio_ref: a1/audio/difficile.mp3
     answer: difficile
     prompt: "Type the adjective you hear."
+
+  - id: adjectives-01.e9
+    type: match_pairs
+    pairs:
+      - [beau, beautiful]
+      - [bon, good]
+      - [mauvais, bad]
+      - [long, long]
+      - [court, short]

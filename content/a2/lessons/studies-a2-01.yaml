@@ -3,7 +3,7 @@ title: "Studying"
 grammar_point: "réussir / échouer and -ir verbs"
 grammar_category: "Verb conjugation & tenses"
 est_minutes: 8
-new_vocab: [cours, note, bulletin, semestre, rentree, cantine, uniforme, bourse_etudes, memoriser, reviser, redoubler, reussir, echouer, inscrire, presentation, camarade, conference, laboratoire, tuteur, casier]
+new_vocab: [cours, note, bulletin, semestre, rentree, cantine, bourse_etudes, memoriser, reviser, redoubler, reussir, echouer, presentation, conference, laboratoire, tuteur, casier]
 pass_threshold: 8.0
 exercises:
   - id: studies-a2-01.e1

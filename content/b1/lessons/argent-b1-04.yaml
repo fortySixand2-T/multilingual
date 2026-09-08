@@ -3,7 +3,7 @@ title: "Banking & taxes"
 grammar_point: "numbers and rates in context"
 grammar_category: "Expressions & communication"
 est_minutes: 8
-new_vocab: [compte_epargne, interet, taux_interet, pret_bancaire, faillite, cote_credit, marge_credit, placement, fonds, courtier, succession, testament, don, declaration_revenus, credit_impot, frais_bancaires, solde, devise]
+new_vocab: [compte_epargne, interet, taux_interet, pret_bancaire, faillite, cote_credit, marge_credit, placement, fonds, courtier, succession, testament, declaration_revenus, credit_impot, frais_bancaires, solde, devise]
 pass_threshold: 8.0
 exercises:
   - id: argent-b1-04.e1

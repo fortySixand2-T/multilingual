@@ -3,7 +3,7 @@ title: "Nutrition & labels"
 grammar_point: "quantity expressions: assez de, trop de, peu de"
 grammar_category: "Articles & determiners"
 est_minutes: 8
-new_vocab: [portion, apport, calorie, proteine, glucide, lipide, fibre, vitamine, complement, regime, grignotage, digestion, intolerance, date_peremption, provenance, tracabilite, surgele, transforme, assaisonner, mijoter]
+new_vocab: [portion, apport, calorie, proteine, glucide, lipide, fibre, vitamine, regime, grignotage, intolerance, date_peremption, provenance, tracabilite, surgele, transforme, mijoter]
 pass_threshold: 8.0
 exercises:
   - id: food-b1-01.e1
