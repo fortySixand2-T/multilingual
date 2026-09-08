@@ -1,0 +1,65 @@
+id: communication-a2-01
+title: "Phone & mail"
+grammar_point: "indirect object pronouns: lui, leur"
+grammar_category: "Pronouns"
+est_minutes: 8
+new_vocab: [appel, message, texto, boite_vocale, sonner, repondre, rappeler, raccrocher, numero, lettre, enveloppe, timbre, colis, adresse, signature, conversation, discuter, expliquer, demander, remercier]
+pass_threshold: 8.0
+exercises:
+  - id: communication-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [appel, call]
+      - [texto, text message]
+      - [boîte vocale, voicemail]
+      - [numéro, number]
+      - [message, message]
+
+  - id: communication-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [répondre, to answer]
+      - [rappeler, to call back]
+      - [raccrocher, to hang up]
+      - [sonner, to ring]
+      - [remercier, to thank]
+
+  - id: communication-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [lettre, letter]
+      - [enveloppe, envelope]
+      - [timbre, stamp]
+      - [colis, parcel]
+      - [adresse, address]
+
+  - id: communication-a2-01.e4
+    type: mcq
+    prompt: "« Je ___ téléphone ce soir. » (I'll phone him)"
+    options: ["lui", "le", "leur"]
+    answer: "lui"
+    explain: "téléphoner à quelqu'un → lui (one person), leur (several)."
+
+  - id: communication-a2-01.e5
+    type: mcq
+    prompt: "« raccrocher » means…"
+    options: [to hang up, to ring, to answer]
+    answer: to hang up
+    explain: "raccrocher = to hang up the phone."
+
+  - id: communication-a2-01.e6
+    type: word_bank
+    prompt: "Build: “I'll call you back tomorrow”"
+    tokens: [Je, te, rappelle, demain, réponds]
+    answer: [Je, te, rappelle, demain]
+
+  - id: communication-a2-01.e7
+    type: translate
+    prompt: "Translate: “to explain”"
+    answer: expliquer
+
+  - id: communication-a2-01.e8
+    type: listen_type
+    audio_ref: a2/audio/enveloppe.mp3
+    answer: enveloppe
+    prompt: "Type the word you hear."

@@ -1,0 +1,66 @@
+id: studies-a2-01
+title: "Studying"
+grammar_point: "réussir / échouer and -ir verbs"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [cours, note, bulletin, semestre, rentree, cantine, uniforme, bourse_etudes, memoriser, reviser, redoubler, reussir, echouer, inscrire, presentation, camarade, conference, laboratoire, tuteur, casier]
+pass_threshold: 8.0
+exercises:
+  - id: studies-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [cours, class]
+      - [note, grade]
+      - [bulletin, report card]
+      - [semestre, semester]
+      - [rentrée, back-to-school]
+
+  - id: studies-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [réviser, to study]
+      - [mémoriser, to memorize]
+      - [réussir, to pass]
+      - [échouer, to fail]
+      - [redoubler, to repeat a year]
+
+  - id: studies-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [cantine, cafeteria]
+      - [casier, locker]
+      - [laboratoire, lab]
+      - [conférence, lecture]
+      - [tuteur, tutor]
+
+  - id: studies-a2-01.e4
+    type: mcq
+    prompt: "« J'ai ___ mon examen ! » (I passed)"
+    options: ["réussi", "échoué", "redoublé"]
+    answer: "réussi"
+    explain: "réussir = to pass/succeed; échouer = to fail."
+
+  - id: studies-a2-01.e5
+    type: mcq
+    prompt: "« une bourse d'études » is…"
+    options: [a scholarship, a bookshop, a locker]
+    answer: a scholarship
+    explain: "une bourse d'études = a scholarship."
+
+  - id: studies-a2-01.e6
+    type: word_bank
+    prompt: "Build: “I have to study tonight”"
+    tokens: [Je, dois, réviser, ce, soir, réussir]
+    answer: [Je, dois, réviser, ce, soir]
+
+  - id: studies-a2-01.e7
+    type: translate
+    prompt: "Translate: “a good grade”"
+    answer: "une bonne note"
+    accept: ["une bonne note."]
+
+  - id: studies-a2-01.e8
+    type: listen_type
+    audio_ref: a2/audio/presentation.mp3
+    answer: présentation
+    prompt: "Type the word you hear."

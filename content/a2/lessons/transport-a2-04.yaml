@@ -1,0 +1,66 @@
+id: transport-a2-04
+title: "Taking the bus & the car"
+grammar_point: "monter dans / descendre de"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [autobus, camion, moto, siege, coffre, moteur, frein, volant, phare, roue, reservoir, aller_retour, aller_simple, valider, monter, descendre, rater]
+pass_threshold: 8.0
+exercises:
+  - id: transport-a2-04.e1
+    type: match_pairs
+    pairs:
+      - [autobus, bus]
+      - [camion, truck]
+      - [moto, motorcycle]
+      - [siège, seat]
+      - [coffre, trunk]
+
+  - id: transport-a2-04.e2
+    type: match_pairs
+    pairs:
+      - [moteur, engine]
+      - [frein, brake]
+      - [volant, steering wheel]
+      - [phare, headlight]
+      - [roue, wheel]
+
+  - id: transport-a2-04.e3
+    type: match_pairs
+    pairs:
+      - [aller-retour, round trip]
+      - [aller simple, one-way trip]
+      - [valider, to validate]
+      - [monter, to get on]
+      - [descendre, to get off]
+
+  - id: transport-a2-04.e4
+    type: mcq
+    prompt: "« Je ___ dans l'autobus. » (I get on)"
+    options: ["monte", "descends", "rate"]
+    answer: "monte"
+    explain: "monter dans = to get on; descendre de = to get off."
+
+  - id: transport-a2-04.e5
+    type: mcq
+    prompt: "« J'ai ___ mon autobus. » (I missed it)"
+    options: ["raté", "validé", "monté"]
+    answer: "raté"
+    explain: "rater = to miss (a bus, a train)."
+
+  - id: transport-a2-04.e6
+    type: word_bank
+    prompt: "Build: “a round trip, please”"
+    tokens: [Un, aller-retour, s'il, vous, plaît, simple]
+    answer: [Un, aller-retour, s'il, vous, plaît]
+
+  - id: transport-a2-04.e7
+    type: translate
+    prompt: "Translate: “the steering wheel”"
+    answer: "le volant"
+    accept: [volant]
+
+  - id: transport-a2-04.e8
+    type: listen_type
+    audio_ref: a2/audio/camion.mp3
+    answer: camion
+    prompt: "Type the word you hear."

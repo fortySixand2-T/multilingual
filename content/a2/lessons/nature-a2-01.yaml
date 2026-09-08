@@ -1,0 +1,66 @@
+id: nature-a2-01
+title: "Nature & the outdoors"
+grammar_point: "à la / au / dans + place in nature"
+grammar_category: "Articles & determiners"
+est_minutes: 8
+new_vocab: [montagne, riviere, lac, mer, foret, arbre, fleur, herbe, branche, ile, colline, champ, sable, pierre, etoile, lune, sentier, randonnee, campagne, vallee]
+pass_threshold: 8.0
+exercises:
+  - id: nature-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [montagne, mountain]
+      - [rivière, river]
+      - [lac, lake]
+      - [mer, sea]
+      - [forêt, forest]
+
+  - id: nature-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [arbre, tree]
+      - [fleur, flower]
+      - [herbe, grass]
+      - [branche, branch]
+      - [île, island]
+
+  - id: nature-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [sable, sand]
+      - [pierre, stone]
+      - [étoile, star]
+      - [lune, moon]
+      - [vallée, valley]
+
+  - id: nature-a2-01.e4
+    type: mcq
+    prompt: "« Nous allons ___ montagne. »"
+    options: ["à la", "au", "aux"]
+    answer: "à la"
+    explain: "montagne is feminine → à la montagne."
+
+  - id: nature-a2-01.e5
+    type: mcq
+    prompt: "« une randonnée » is…"
+    options: [a hike, a river, a field]
+    answer: a hike
+    explain: "une randonnée = a hike; un sentier = the trail you walk on."
+
+  - id: nature-a2-01.e6
+    type: word_bank
+    prompt: "Build: “we walk in the forest”"
+    tokens: [Nous, marchons, dans, la, forêt, mer]
+    answer: [Nous, marchons, dans, la, forêt]
+
+  - id: nature-a2-01.e7
+    type: translate
+    prompt: "Translate: “the countryside”"
+    answer: "la campagne"
+    accept: [campagne]
+
+  - id: nature-a2-01.e8
+    type: listen_type
+    audio_ref: a2/audio/colline.mp3
+    answer: colline
+    prompt: "Type the word you hear."

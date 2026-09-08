@@ -1,0 +1,66 @@
+id: celebrations-a2-01
+title: "Celebrations"
+grammar_point: "wishing people well: souhaiter, fêter"
+grammar_category: "Expressions & communication"
+est_minutes: 8
+new_vocab: [fete, anniversaire, cadeau, invitation, noel, paques, jour_de_lan, saint_valentin, action_de_graces, halloween, mariage, bapteme, feux_artifice, decoration, bougie, souhaiter, feter, inviter, defile, costume]
+pass_threshold: 8.0
+exercises:
+  - id: celebrations-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [fête, party]
+      - [anniversaire, birthday]
+      - [cadeau, gift]
+      - [invitation, invitation]
+      - [mariage, wedding]
+
+  - id: celebrations-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [Noël, Christmas]
+      - [Pâques, Easter]
+      - [jour de l'An, New Year's Day]
+      - [Halloween, Halloween]
+      - [Saint-Valentin, Valentine's Day]
+
+  - id: celebrations-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [bougie, candle]
+      - [décoration, decoration]
+      - [défilé, parade]
+      - [costume, costume]
+      - [feux d'artifice, fireworks]
+
+  - id: celebrations-a2-01.e4
+    type: mcq
+    prompt: "The Canadian autumn holiday is…"
+    options: ["l'Action de grâce", "le jour de l'An", "Pâques"]
+    answer: "l'Action de grâce"
+    explain: "l'Action de grâce = Thanksgiving, in October in Canada."
+
+  - id: celebrations-a2-01.e5
+    type: mcq
+    prompt: "« Je te ___ un joyeux anniversaire ! »"
+    options: ["souhaite", "fête", "invite"]
+    answer: "souhaite"
+    explain: "souhaiter = to wish; fêter = to celebrate; inviter = to invite."
+
+  - id: celebrations-a2-01.e6
+    type: word_bank
+    prompt: "Build: “I invite you to my party”"
+    tokens: [Je, t'invite, à, ma, fête, cadeau]
+    answer: [Je, t'invite, à, ma, fête]
+
+  - id: celebrations-a2-01.e7
+    type: translate
+    prompt: "Translate: “a gift”"
+    answer: "un cadeau"
+    accept: [cadeau]
+
+  - id: celebrations-a2-01.e8
+    type: listen_type
+    audio_ref: a2/audio/bapteme.mp3
+    answer: baptême
+    prompt: "Type the word you hear."

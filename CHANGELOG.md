@@ -308,3 +308,5 @@
 - [2026-09-08] Created: content/a1/lessons/{food-04,animals-01,school-01,house-01,places-01,jobs-01,countries-01,verbs-01,verbs-02,adjectives-01,adjectives-02}.yaml — 11 A1 lessons (8 exercises each) teaching the 209 previously-untaught A1 words; A1 is now 409/409 taught
 - [2026-09-08] Modified: content/a1/path.yaml — 9 new units (a1.u13–u21) chaining off a1.u12
 - [2026-09-08] Modified: web/src/screens/Path.tsx — map all 37 authored unit icon names to emoji (only wave/coffee were mapped; every other unit rendered a generic 📘)
+- [2026-09-08] Created: content/a2/lessons/{money,nature,studies,sports,celebrations,communication,people,emergencies}-a2-01.yaml + {travail,sante,transport}-a2-04.yaml — 11 A2 lessons teaching the 211 untaught A2 words; A2 now 417/417 taught
+- [2026-09-08] Modified: content/a2/path.yaml — 11 new units (a2.u13–u23)

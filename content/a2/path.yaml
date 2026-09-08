@@ -72,3 +72,69 @@ units:
     icon: map
     lessons: [ville-a2-01, ville-a2-02, ville-a2-03]
     unlock: { type: all_of, requires: [a2.u11] }
+
+  - id: a2.u13
+    title: "Money & paying"
+    icon: wallet
+    lessons: [money-a2-01]
+    unlock: { type: all_of, requires: [a2.u12] }
+
+  - id: a2.u14
+    title: "Nature & the outdoors"
+    icon: leaf
+    lessons: [nature-a2-01]
+    unlock: { type: all_of, requires: [a2.u13] }
+
+  - id: a2.u15
+    title: "Studying"
+    icon: book
+    lessons: [studies-a2-01]
+    unlock: { type: all_of, requires: [a2.u14] }
+
+  - id: a2.u16
+    title: "Sports"
+    icon: ball
+    lessons: [sports-a2-01]
+    unlock: { type: all_of, requires: [a2.u15] }
+
+  - id: a2.u17
+    title: "Celebrations"
+    icon: smile
+    lessons: [celebrations-a2-01]
+    unlock: { type: all_of, requires: [a2.u16] }
+
+  - id: a2.u18
+    title: "Phone & mail"
+    icon: news
+    lessons: [communication-a2-01]
+    unlock: { type: all_of, requires: [a2.u17] }
+
+  - id: a2.u19
+    title: "Describing people"
+    icon: people
+    lessons: [people-a2-01]
+    unlock: { type: all_of, requires: [a2.u18] }
+
+  - id: a2.u20
+    title: "Emergencies"
+    icon: health
+    lessons: [emergencies-a2-01]
+    unlock: { type: all_of, requires: [a2.u19] }
+
+  - id: a2.u21
+    title: "Getting hired"
+    icon: briefcase
+    lessons: [travail-a2-04]
+    unlock: { type: all_of, requires: [a2.u20] }
+
+  - id: a2.u22
+    title: "Symptoms & the pharmacy"
+    icon: heart
+    lessons: [sante-a2-04]
+    unlock: { type: all_of, requires: [a2.u21] }
+
+  - id: a2.u23
+    title: "Bus & car"
+    icon: bus
+    lessons: [transport-a2-04]
+    unlock: { type: all_of, requires: [a2.u22] }
