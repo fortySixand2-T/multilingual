@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from fastapi import FastAPI, Request
@@ -74,8 +75,27 @@ def _mount_spa(app: FastAPI, api_routers: list, web_dist: Path) -> None:
         if isinstance(route, APIRoute)
     }
 
+    # A handful of frontend SPA routes (web/src/App.tsx) happen to share their
+    # first path segment with a real API prefix — e.g. the page /vocab and the
+    # API routes under /vocab/* (POST /vocab/known, /vocab/extra, …). Without
+    # this carve-out, a full-page load/refresh/deep-link of one of those pages
+    # would be misclassified as an API 404 and shown raw JSON instead of the
+    # app shell (QA #740). Every other unmatched path under an API prefix
+    # (including deeper unregistered paths like /exam/blueprints/does-not-exist,
+    # #416) still 404s as JSON below — this only exempts the exact shapes of
+    # known frontend routes, not the whole prefix.
+    _spa_prefix_collisions = [
+        re.compile(r"^vocab$"),
+        re.compile(r"^vocab/[^/]+/[^/]+$"),
+        re.compile(r"^comprehension$"),
+        re.compile(r"^comprehension/[^/]+$"),
+        re.compile(r"^exam$"),
+    ]
+
     @app.get("/{full_path:path}", include_in_schema=False, response_model=None)
     async def _spa(full_path: str) -> FileResponse | JSONResponse:
+        if any(p.match(full_path) for p in _spa_prefix_collisions):
+            return FileResponse(index_html, headers=index_headers)
         if full_path.split("/", 1)[0] in api_prefixes:
             return JSONResponse(status_code=404, content={"detail": "Not Found"})
         return FileResponse(index_html, headers=index_headers)

@@ -288,6 +288,8 @@
 - [2026-08-13] Modified: web/src/screens/Deck.test.tsx — Assert example auto-generates on flip (no "Get examples" press)
 - [2026-08-20] Modified: app/main.py — SPA cache-control: index.html served no-cache (revalidate → picks up new asset hashes each deploy); hashed /assets/* served public, immutable, 1yr via _ImmutableStaticFiles
 - [2026-08-20] Modified: tests/test_spa_serving.py — Tests: index.html is no-cache; hashed assets are immutable
+- [2026-09-07] Modified: app/main.py — QA 740: SPA catch-all serves the app shell for frontend routes whose first segment collides with an API prefix (/vocab, /comprehension, /exam); genuinely unmatched API paths still 404 as JSON
+- [2026-09-07] Modified: tests/test_spa_serving.py — Tests: colliding SPA routes serve the shell (regression guard for 740)
 - [2026-09-07] Created: content/a1/vocab/{animals,school,house,verbs,adjectives,places,jobs,countries}.yaml — 8 new A1 decks, 160 words (animals, classroom, furniture, core verbs, basic adjectives, places around town, jobs, countries)
 - [2026-09-07] Created: content/a2/vocab/{money,nature,studies,sports,celebrations,communication,people,emergencies}.yaml — 8 new A2 decks, 160 words
 - [2026-09-07] Created: content/b1/vocab/{health,technology,arts,relationships,rights,tourism,food,mobility}.yaml — 8 new B1 decks, 160 words
