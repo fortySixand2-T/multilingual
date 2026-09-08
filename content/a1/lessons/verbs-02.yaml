@@ -1,0 +1,65 @@
+id: verbs-02
+title: "More everyday verbs"
+grammar_point: "present tense: regular -er, -ir and common irregulars"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [donner, trouver, chercher, rester, passer, arriver, entrer, sortir, marcher, courir, apprendre, comprendre, connaitre, croire, sentir, tenir, attendre, commencer, finir, choisir]
+pass_threshold: 8.0
+exercises:
+  - id: verbs-02.e1
+    type: match_pairs
+    pairs:
+      - [donner, to give]
+      - [trouver, to find]
+      - [chercher, to look for]
+      - [rester, to stay]
+      - [arriver, to arrive]
+
+  - id: verbs-02.e2
+    type: match_pairs
+    pairs:
+      - [entrer, to go in]
+      - [sortir, to go out]
+      - [marcher, to walk]
+      - [courir, to run]
+      - [attendre, to wait]
+
+  - id: verbs-02.e3
+    type: match_pairs
+    pairs:
+      - [apprendre, to learn]
+      - [comprendre, to understand]
+      - [croire, to believe]
+      - [commencer, to start]
+      - [choisir, to choose]
+
+  - id: verbs-02.e4
+    type: mcq
+    prompt: "« Je ___ le bus. » (I'm waiting for the bus)"
+    options: ["attends", "attend", "attendre"]
+    answer: "attends"
+    explain: "attendre → j'attends. Note: no preposition — attendre le bus."
+
+  - id: verbs-02.e5
+    type: mcq
+    prompt: "« Nous ___ à 8 heures. » (we finish)"
+    options: ["finissons", "finons", "finis"]
+    answer: "finissons"
+    explain: "-ir verbs like finir add -iss-: nous finissons, vous finissez, ils finissent."
+
+  - id: verbs-02.e6
+    type: word_bank
+    prompt: "Build: “I don't understand”"
+    tokens: [Je, ne, comprends, pas, comprend]
+    answer: [Je, ne, comprends, pas]
+
+  - id: verbs-02.e7
+    type: translate
+    prompt: "Translate: “to look for”"
+    answer: chercher
+
+  - id: verbs-02.e8
+    type: listen_type
+    audio_ref: a1/audio/choisir.mp3
+    answer: choisir
+    prompt: "Type the verb you hear."

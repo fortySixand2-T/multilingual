@@ -1,0 +1,66 @@
+id: places-01
+title: "Places in town"
+grammar_point: "aller à: au / à la / à l'"
+grammar_category: "Articles & determiners"
+est_minutes: 8
+new_vocab: [cinema, theatre, piscine, stade, zoo, librairie, boucherie, patisserie, salon_de_coiffure, garderie, universite, epicerie, centre_commercial, station_service, clinique, camping, gymnase, depanneur, buanderie, terrain_de_jeu]
+pass_threshold: 8.0
+exercises:
+  - id: places-01.e1
+    type: match_pairs
+    pairs:
+      - [cinéma, movie theatre]
+      - [piscine, swimming pool]
+      - [stade, stadium]
+      - [librairie, bookshop]
+      - [épicerie, grocery store]
+
+  - id: places-01.e2
+    type: match_pairs
+    pairs:
+      - [boucherie, butcher's shop]
+      - [pâtisserie, pastry shop]
+      - [garderie, daycare]
+      - [université, university]
+      - [clinique, clinic]
+
+  - id: places-01.e3
+    type: match_pairs
+    pairs:
+      - [gymnase, gym]
+      - [buanderie, laundromat]
+      - [camping, campground]
+      - [théâtre, theatre]
+      - [zoo, zoo]
+
+  - id: places-01.e4
+    type: mcq
+    prompt: "In Québec, the small corner store is called…"
+    options: ["un dépanneur", "une épicerie", "un centre commercial"]
+    answer: "un dépanneur"
+    explain: "un dépanneur is the Québec word for a corner/convenience store."
+
+  - id: places-01.e5
+    type: mcq
+    prompt: "« Je vais ___ piscine. »"
+    options: ["à la", "au", "à l'"]
+    answer: "à la"
+    explain: "piscine is feminine → à la piscine. (au = à + le, à l' before a vowel.)"
+
+  - id: places-01.e6
+    type: word_bank
+    prompt: "Build: “I'm going to the movie theatre”"
+    tokens: [Je, vais, au, cinéma, la]
+    answer: [Je, vais, au, cinéma]
+
+  - id: places-01.e7
+    type: listen_type
+    audio_ref: a1/audio/depanneur.mp3
+    answer: dépanneur
+    prompt: "Type the place you hear."
+
+  - id: places-01.e8
+    type: translate
+    prompt: "Translate: “the gas station”"
+    answer: "la station-service"
+    accept: ["station-service", "la station service"]

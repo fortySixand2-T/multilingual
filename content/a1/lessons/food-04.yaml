@@ -1,0 +1,64 @@
+id: food-04
+title: "Ordering a meal"
+grammar_point: "partitive du / de la / des with food"
+grammar_category: "Articles & determiners"
+est_minutes: 8
+new_vocab: [pain, fromage, viande, legume, oeuf, poisson, pomme, poulet, riz, soupe, vin, biere, reservation, cent]
+pass_threshold: 8.0
+exercises:
+  - id: food-04.e1
+    type: match_pairs
+    pairs:
+      - [pain, bread]
+      - [fromage, cheese]
+      - [viande, meat]
+      - [légume, vegetable]
+      - [œuf, egg]
+
+  - id: food-04.e2
+    type: match_pairs
+    pairs:
+      - [poisson, fish]
+      - [poulet, chicken]
+      - [riz, rice]
+      - [soupe, soup]
+      - [pomme, apple]
+
+  - id: food-04.e3
+    type: mcq
+    prompt: "« Je voudrais ___ pain. »"
+    options: ["du", "de la", "des"]
+    answer: "du"
+    explain: "pain is masculine → du pain. (de la viande, des légumes.)"
+
+  - id: food-04.e4
+    type: mcq
+    prompt: "« Je mange ___ viande. »"
+    options: ["de la", "du", "des"]
+    answer: "de la"
+    explain: "viande is feminine → de la viande."
+
+  - id: food-04.e5
+    type: word_bank
+    prompt: "Build: “I would like a reservation”"
+    tokens: [Je, voudrais, une, réservation, un]
+    answer: [Je, voudrais, une, réservation]
+
+  - id: food-04.e6
+    type: mcq
+    prompt: "« ___ grammes de fromage, s'il vous plaît. » (100)"
+    options: ["Cent", "Cinq", "Six"]
+    answer: "Cent"
+    explain: "cent = 100."
+
+  - id: food-04.e7
+    type: translate
+    prompt: "Translate: “a glass of wine”"
+    answer: "un verre de vin"
+    accept: ["un verre de vin rouge"]
+
+  - id: food-04.e8
+    type: listen_type
+    audio_ref: a1/audio/biere.mp3
+    answer: bière
+    prompt: "Type the drink you hear."

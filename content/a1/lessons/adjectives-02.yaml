@@ -1,0 +1,66 @@
+id: adjectives-02
+title: "More describing words"
+grammar_point: "adjective position: before or after the noun"
+grammar_category: "Adjectives & comparison"
+est_minutes: 8
+new_vocab: [important, possible, vrai, faux, seul, autre, premier, dernier, prochain, libre, occupe, pret, leger, lourd, haut]
+pass_threshold: 8.0
+exercises:
+  - id: adjectives-02.e1
+    type: match_pairs
+    pairs:
+      - [important, important]
+      - [possible, possible]
+      - [vrai, "true"]
+      - [faux, "false"]
+      - [seul, alone]
+
+  - id: adjectives-02.e2
+    type: match_pairs
+    pairs:
+      - [premier, first]
+      - [dernier, last]
+      - [prochain, next]
+      - [libre, free]
+      - [occupé, busy]
+
+  - id: adjectives-02.e3
+    type: match_pairs
+    pairs:
+      - [léger, light]
+      - [lourd, heavy]
+      - [haut, high]
+      - [prêt, ready]
+      - [autre, other]
+
+  - id: adjectives-02.e4
+    type: mcq
+    prompt: "« la ___ semaine » (next week)"
+    options: ["prochaine", "prochain", "prochaines"]
+    answer: "prochaine"
+    explain: "semaine is feminine → la prochaine semaine (or la semaine prochaine)."
+
+  - id: adjectives-02.e5
+    type: mcq
+    prompt: "Which adjective goes BEFORE the noun?"
+    options: ["premier", "important", "libre"]
+    answer: "premier"
+    explain: "Short, common adjectives (premier, dernier, grand, petit, bon) go before: le premier jour."
+
+  - id: adjectives-02.e6
+    type: word_bank
+    prompt: "Build: “I am ready”"
+    tokens: [Je, suis, prêt, prête]
+    answer: [Je, suis, prêt]
+
+  - id: adjectives-02.e7
+    type: translate
+    prompt: "Translate: “it's heavy”"
+    answer: "c'est lourd"
+    accept: ["C'est lourd"]
+
+  - id: adjectives-02.e8
+    type: listen_type
+    audio_ref: a1/audio/occupe.mp3
+    answer: occupé
+    prompt: "Type the adjective you hear."

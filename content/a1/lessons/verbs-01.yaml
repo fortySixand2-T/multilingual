@@ -1,0 +1,66 @@
+id: verbs-01
+title: "Everyday verbs"
+grammar_point: "present tense: être, avoir, aller, faire"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [etre, avoir, aller, faire, parler, manger, boire, venir, prendre, voir, dire, vouloir, devoir, mettre, ouvrir, fermer, ecouter, regarder, lire, ecrire]
+pass_threshold: 8.0
+exercises:
+  - id: verbs-01.e1
+    type: match_pairs
+    pairs:
+      - [être, to be]
+      - [avoir, to have]
+      - [aller, to go]
+      - [faire, to do]
+      - [parler, to speak]
+
+  - id: verbs-01.e2
+    type: match_pairs
+    pairs:
+      - [manger, to eat]
+      - [boire, to drink]
+      - [venir, to come]
+      - [prendre, to take]
+      - [voir, to see]
+
+  - id: verbs-01.e3
+    type: match_pairs
+    pairs:
+      - [ouvrir, to open]
+      - [fermer, to close]
+      - [écouter, to listen]
+      - [lire, to read]
+      - [écrire, to write]
+
+  - id: verbs-01.e4
+    type: mcq
+    prompt: "« Je ___ étudiant. »"
+    options: ["suis", "ai", "vais"]
+    answer: "suis"
+    explain: "être → je suis. (avoir → j'ai; aller → je vais.)"
+
+  - id: verbs-01.e5
+    type: mcq
+    prompt: "« Nous ___ du café. »"
+    options: ["buvons", "boivons", "buvez"]
+    answer: "buvons"
+    explain: "boire → nous buvons."
+
+  - id: verbs-01.e6
+    type: word_bank
+    prompt: "Build: “I want to read”"
+    tokens: [Je, veux, lire, lis]
+    answer: [Je, veux, lire]
+
+  - id: verbs-01.e7
+    type: translate
+    prompt: "Translate: “she is watching”"
+    answer: "elle regarde"
+    accept: ["Elle regarde"]
+
+  - id: verbs-01.e8
+    type: listen_type
+    audio_ref: a1/audio/ecrire.mp3
+    answer: écrire
+    prompt: "Type the verb you hear."

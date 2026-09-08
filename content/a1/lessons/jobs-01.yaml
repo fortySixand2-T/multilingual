@@ -1,0 +1,66 @@
+id: jobs-01
+title: "Jobs"
+grammar_point: "il est / elle est + profession (no article)"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [infirmier, policier, pompier, boulanger, cuisinier, coiffeur, facteur, chauffeur, mecanicien, electricien, plombier, avocat, ingenieur, caissier, jardinier, pharmacien, traducteur, musicien, acteur, directeur]
+pass_threshold: 8.0
+exercises:
+  - id: jobs-01.e1
+    type: match_pairs
+    pairs:
+      - [infirmier, nurse]
+      - [policier, police officer]
+      - [pompier, firefighter]
+      - [boulanger, baker]
+      - [cuisinier, cook]
+
+  - id: jobs-01.e2
+    type: match_pairs
+    pairs:
+      - [coiffeur, hairdresser]
+      - [facteur, mail carrier]
+      - [mécanicien, mechanic]
+      - [plombier, plumber]
+      - [avocat, lawyer]
+
+  - id: jobs-01.e3
+    type: match_pairs
+    pairs:
+      - [ingénieur, engineer]
+      - [caissier, cashier]
+      - [jardinier, gardener]
+      - [musicien, musician]
+      - [acteur, actor]
+
+  - id: jobs-01.e4
+    type: mcq
+    prompt: "« Elle ___ infirmière. »"
+    options: ["est", "est une", "a"]
+    answer: "est"
+    explain: "With a profession after être, French drops the article: elle est infirmière."
+
+  - id: jobs-01.e5
+    type: mcq
+    prompt: "The feminine of « un acteur » is…"
+    options: ["une actrice", "une acteure", "une acteuse"]
+    answer: "une actrice"
+    explain: "-teur → -trice: acteur / actrice, traducteur / traductrice, directeur / directrice."
+
+  - id: jobs-01.e6
+    type: word_bank
+    prompt: "Build: “he is a pharmacist”"
+    tokens: [Il, est, pharmacien, un]
+    answer: [Il, est, pharmacien]
+
+  - id: jobs-01.e7
+    type: listen_type
+    audio_ref: a1/audio/electricien.mp3
+    answer: électricien
+    prompt: "Type the job you hear."
+
+  - id: jobs-01.e8
+    type: translate
+    prompt: "Translate: “she is a firefighter”"
+    answer: "elle est pompière"
+    accept: ["Elle est pompière", "elle est pompier"]

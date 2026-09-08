@@ -305,3 +305,6 @@
 - [2026-09-07] Modified: content/a2/vocab/{travail,sante,transport}.yaml — deepened to 35 words each (+51): CV/shift work, body parts/symptoms, vehicle parts/boarding verbs
 - [2026-09-07] Modified: content/a1/vocab/{verbs,adjectives}.yaml — verbs 20→40, adjectives 20→35 (+35 highest-frequency words)
 - [2026-09-07] Created: content/{a1,a2,b1,b2}/audio/*.mp3 — TTS clips for the 279 deepening words
+- [2026-09-08] Created: content/a1/lessons/{food-04,animals-01,school-01,house-01,places-01,jobs-01,countries-01,verbs-01,verbs-02,adjectives-01,adjectives-02}.yaml — 11 A1 lessons (8 exercises each) teaching the 209 previously-untaught A1 words; A1 is now 409/409 taught
+- [2026-09-08] Modified: content/a1/path.yaml — 9 new units (a1.u13–u21) chaining off a1.u12
+- [2026-09-08] Modified: web/src/screens/Path.tsx — map all 37 authored unit icon names to emoji (only wave/coffee were mapped; every other unit rendered a generic 📘)

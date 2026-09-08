@@ -1,0 +1,66 @@
+id: house-01
+title: "Around the house"
+grammar_point: "prepositions of place dans / sur / sous"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [chaise, armoire, tiroir, etagere, tapis, rideau, oreiller, couverture, drap, miroir, lampe, douche, baignoire, evier, frigo, placard, balcon, garage, cave, toilettes]
+pass_threshold: 8.0
+exercises:
+  - id: house-01.e1
+    type: match_pairs
+    pairs:
+      - [chaise, chair]
+      - [armoire, wardrobe]
+      - [tiroir, drawer]
+      - [étagère, shelf]
+      - [tapis, rug]
+
+  - id: house-01.e2
+    type: match_pairs
+    pairs:
+      - [rideau, curtain]
+      - [oreiller, pillow]
+      - [couverture, blanket]
+      - [miroir, mirror]
+      - [lampe, lamp]
+
+  - id: house-01.e3
+    type: match_pairs
+    pairs:
+      - [douche, shower]
+      - [frigo, fridge]
+      - [placard, cupboard]
+      - [balcon, balcony]
+      - [cave, cellar]
+
+  - id: house-01.e4
+    type: mcq
+    prompt: "« Le lait est ___ le frigo. » (in the fridge)"
+    options: [dans, sur, sous]
+    answer: dans
+    explain: "dans = in; sur = on; sous = under."
+
+  - id: house-01.e5
+    type: translate
+    prompt: "Translate: “the mirror”"
+    answer: "le miroir"
+    accept: [miroir]
+
+  - id: house-01.e6
+    type: word_bank
+    prompt: "Build: “the rug is under the chair”"
+    tokens: [le, tapis, est, sous, la, chaise, sur]
+    answer: [le, tapis, est, sous, la, chaise]
+
+  - id: house-01.e7
+    type: listen_type
+    audio_ref: a1/audio/baignoire.mp3
+    answer: baignoire
+    prompt: "Type the word you hear."
+
+  - id: house-01.e8
+    type: mcq
+    prompt: "Where do you wash dishes?"
+    options: ["l'évier", "le drap", "le garage"]
+    answer: "l'évier"
+    explain: "l'évier = the kitchen sink."

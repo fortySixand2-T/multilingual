@@ -1,0 +1,66 @@
+id: school-01
+title: "At school"
+grammar_point: "possessive mon/ma with school things"
+grammar_category: "Articles & determiners"
+est_minutes: 8
+new_vocab: [cahier, stylo, crayon, efface, regle, trousse, sac_a_dos, feuille, papier, tableau, classe, professeur, etudiant, devoirs, lecon, mot, dictionnaire, ciseaux, colle, recreation]
+pass_threshold: 8.0
+exercises:
+  - id: school-01.e1
+    type: match_pairs
+    pairs:
+      - [cahier, notebook]
+      - [stylo, pen]
+      - [crayon, pencil]
+      - [règle, ruler]
+      - [trousse, pencil case]
+
+  - id: school-01.e2
+    type: match_pairs
+    pairs:
+      - [feuille, sheet of paper]
+      - [tableau, board]
+      - [classe, classroom]
+      - [devoirs, homework]
+      - [leçon, lesson]
+
+  - id: school-01.e3
+    type: match_pairs
+    pairs:
+      - [dictionnaire, dictionary]
+      - [ciseaux, scissors]
+      - [colle, glue]
+      - [récréation, recess]
+      - [papier, paper]
+
+  - id: school-01.e4
+    type: mcq
+    prompt: "In Québec, the thing you erase pencil with is…"
+    options: ["une efface", "une gomme", "un crayon"]
+    answer: "une efface"
+    explain: "In Québec une efface = an eraser. (une gomme = chewing gum here!)"
+
+  - id: school-01.e5
+    type: translate
+    prompt: "Translate: “my backpack”"
+    answer: "mon sac à dos"
+    accept: ["mon sac-à-dos"]
+
+  - id: school-01.e6
+    type: word_bank
+    prompt: "Build: “my teacher” (female)"
+    tokens: [ma, professeure, mon, professeur]
+    answer: [ma, professeure]
+
+  - id: school-01.e7
+    type: listen_type
+    audio_ref: a1/audio/etudiant.mp3
+    answer: étudiant
+    prompt: "Type the word you hear."
+
+  - id: school-01.e8
+    type: mcq
+    prompt: "« un mot » means…"
+    options: [a word, a note, a desk]
+    answer: a word
+    explain: "un mot = a word."
