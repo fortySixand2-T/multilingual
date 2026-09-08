@@ -1,0 +1,66 @@
+id: animals-01
+title: "Animals"
+grammar_point: "definite article le/la with animals"
+grammar_category: "Articles & determiners"
+est_minutes: 8
+new_vocab: [chien, chat, oiseau, cheval, vache, cochon, mouton, poule, canard, lapin, ours, loup, renard, ecureuil, abeille, papillon, animal, ferme, chaton, chiot]
+pass_threshold: 8.0
+exercises:
+  - id: animals-01.e1
+    type: match_pairs
+    pairs:
+      - [chien, dog]
+      - [chat, cat]
+      - [oiseau, bird]
+      - [cheval, horse]
+      - [vache, cow]
+
+  - id: animals-01.e2
+    type: match_pairs
+    pairs:
+      - [lapin, rabbit]
+      - [ours, bear]
+      - [loup, wolf]
+      - [renard, fox]
+      - [écureuil, squirrel]
+
+  - id: animals-01.e3
+    type: match_pairs
+    pairs:
+      - [cochon, pig]
+      - [poule, hen]
+      - [abeille, bee]
+      - [papillon, butterfly]
+      - [ferme, farm]
+
+  - id: animals-01.e4
+    type: mcq
+    prompt: "Quel animal donne du lait ?"
+    options: ["la vache", "le chien", "le canard"]
+    answer: "la vache"
+    explain: "la vache = the cow — vache is feminine, so la vache."
+
+  - id: animals-01.e5
+    type: translate
+    prompt: "Translate: “a duck”"
+    answer: "un canard"
+    accept: [canard]
+
+  - id: animals-01.e6
+    type: word_bank
+    prompt: "Build: “the kitten”"
+    tokens: [le, chaton, chiot]
+    answer: [le, chaton]
+
+  - id: animals-01.e7
+    type: listen_type
+    audio_ref: a1/audio/mouton.mp3
+    answer: mouton
+    prompt: "Type the animal you hear."
+
+  - id: animals-01.e8
+    type: mcq
+    prompt: "« un chiot » is a baby…"
+    options: [dog, cat, horse]
+    answer: dog
+    explain: "un chiot = a puppy; un chaton = a kitten."

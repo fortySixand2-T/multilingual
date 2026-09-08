@@ -72,3 +72,57 @@ units:
     icon: body
     lessons: [corps-01, corps-02, corps-03]
     unlock: { type: all_of, requires: [a1.u11] }
+
+  - id: a1.u13
+    title: "Ordering a meal"
+    icon: plate
+    lessons: [food-04]
+    unlock: { type: all_of, requires: [a1.u12] }
+
+  - id: a1.u14
+    title: "Animals & the farm"
+    icon: paw
+    lessons: [animals-01]
+    unlock: { type: all_of, requires: [a1.u13] }
+
+  - id: a1.u15
+    title: "At school"
+    icon: book
+    lessons: [school-01]
+    unlock: { type: all_of, requires: [a1.u14] }
+
+  - id: a1.u16
+    title: "Around the house"
+    icon: house
+    lessons: [house-01]
+    unlock: { type: all_of, requires: [a1.u15] }
+
+  - id: a1.u17
+    title: "Places in town"
+    icon: city
+    lessons: [places-01]
+    unlock: { type: all_of, requires: [a1.u16] }
+
+  - id: a1.u18
+    title: "Jobs"
+    icon: briefcase
+    lessons: [jobs-01]
+    unlock: { type: all_of, requires: [a1.u17] }
+
+  - id: a1.u19
+    title: "Countries"
+    icon: globe
+    lessons: [countries-01]
+    unlock: { type: all_of, requires: [a1.u18] }
+
+  - id: a1.u20
+    title: "Everyday verbs"
+    icon: bolt
+    lessons: [verbs-01, verbs-02]
+    unlock: { type: all_of, requires: [a1.u19] }
+
+  - id: a1.u21
+    title: "Describing things"
+    icon: palette
+    lessons: [adjectives-01, adjectives-02]
+    unlock: { type: all_of, requires: [a1.u20] }

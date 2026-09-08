@@ -1,0 +1,66 @@
+id: adjectives-01
+title: "Describing things"
+grammar_point: "adjective agreement: masculine / feminine"
+grammar_category: "Adjectives & comparison"
+est_minutes: 8
+new_vocab: [grand, petit, nouveau, vieux, jeune, beau, joli, bon, mauvais, facile, difficile, long, court, fort, faible, rapide, lent, propre, sale, plein]
+pass_threshold: 8.0
+exercises:
+  - id: adjectives-01.e1
+    type: match_pairs
+    pairs:
+      - [grand, big]
+      - [petit, small]
+      - [nouveau, new]
+      - [vieux, old]
+      - [jeune, young]
+
+  - id: adjectives-01.e2
+    type: match_pairs
+    pairs:
+      - [facile, easy]
+      - [difficile, difficult]
+      - [rapide, fast]
+      - [lent, slow]
+      - [plein, full]
+
+  - id: adjectives-01.e3
+    type: match_pairs
+    pairs:
+      - [propre, clean]
+      - [sale, dirty]
+      - [fort, strong]
+      - [faible, weak]
+      - [joli, pretty]
+
+  - id: adjectives-01.e4
+    type: mcq
+    prompt: "« une ___ maison » (a big house)"
+    options: ["grande", "grand", "grands"]
+    answer: "grande"
+    explain: "maison is feminine → grande. Most adjectives add -e in the feminine."
+
+  - id: adjectives-01.e5
+    type: mcq
+    prompt: "« Ma chambre est ___. » (clean)"
+    options: ["propre", "propres", "propree"]
+    answer: "propre"
+    explain: "Adjectives already ending in -e don't change: propre, facile, rapide, jeune."
+
+  - id: adjectives-01.e6
+    type: word_bank
+    prompt: "Build: “a small cat”"
+    tokens: [un, petit, chat, petite]
+    answer: [un, petit, chat]
+
+  - id: adjectives-01.e7
+    type: translate
+    prompt: "Translate: “the old car” (une voiture)"
+    answer: "la vieille voiture"
+    accept: ["la vieille auto"]
+
+  - id: adjectives-01.e8
+    type: listen_type
+    audio_ref: a1/audio/difficile.mp3
+    answer: difficile
+    prompt: "Type the adjective you hear."
