@@ -3,7 +3,7 @@ title: "Taking the bus & the car"
 grammar_point: "monter dans / descendre de"
 grammar_category: "Sentence structures"
 est_minutes: 8
-new_vocab: [autobus, camion, moto, siege, coffre, moteur, frein, volant, phare, roue, aller_retour, aller_simple, valider, monter, descendre, rater]
+new_vocab: [autobus, camion, moto, siege, coffre, moteur, frein, volant, phare, roue, reservoir, aller_retour, aller_simple, valider, monter, descendre, rater]
 pass_threshold: 8.0
 exercises:
   - id: transport-a2-04.e1
@@ -64,3 +64,8 @@ exercises:
     audio_ref: a2/audio/camion.mp3
     answer: camion
     prompt: "Type the word you hear."
+
+  - id: transport-a2-04.e9
+    type: match_pairs
+    pairs:
+      - ["réservoir", "tank"]

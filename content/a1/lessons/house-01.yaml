@@ -3,7 +3,7 @@ title: "Around the house"
 grammar_point: "prepositions of place dans / sur / sous"
 grammar_category: "Sentence structures"
 est_minutes: 8
-new_vocab: [chaise, armoire, tiroir, etagere, tapis, rideau, oreiller, couverture, drap, miroir, lampe, douche, baignoire, evier, frigo, placard, balcon, garage, cave]
+new_vocab: [chaise, armoire, tiroir, etagere, tapis, rideau, oreiller, couverture, drap, miroir, lampe, douche, baignoire, evier, frigo, placard, balcon, garage, cave, toilettes]
 pass_threshold: 8.0
 exercises:
   - id: house-01.e1
@@ -64,3 +64,8 @@ exercises:
     options: ["l'évier", "le drap", "le garage"]
     answer: "l'évier"
     explain: "l'évier = the kitchen sink."
+
+  - id: house-01.e9
+    type: match_pairs
+    pairs:
+      - ["toilettes", "toilet, washroom"]

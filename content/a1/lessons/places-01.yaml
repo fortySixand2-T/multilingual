@@ -3,7 +3,7 @@ title: "Places in town"
 grammar_point: "aller à: au / à la / à l'"
 grammar_category: "Articles & determiners"
 est_minutes: 8
-new_vocab: [cinema, theatre, piscine, stade, zoo, librairie, boucherie, patisserie, garderie, universite, epicerie, centre_commercial, station_service, clinique, camping, gymnase, depanneur, buanderie]
+new_vocab: [cinema, theatre, piscine, stade, zoo, librairie, boucherie, patisserie, salon_de_coiffure, garderie, universite, epicerie, centre_commercial, station_service, clinique, camping, gymnase, depanneur, buanderie, terrain_de_jeu]
 pass_threshold: 8.0
 exercises:
   - id: places-01.e1
@@ -64,3 +64,9 @@ exercises:
     prompt: "Translate: “the gas station”"
     answer: "la station-service"
     accept: ["station-service", "la station service"]
+
+  - id: places-01.e9
+    type: match_pairs
+    pairs:
+      - ["salon de coiffure", "hair salon"]
+      - ["terrain de jeu", "playground"]

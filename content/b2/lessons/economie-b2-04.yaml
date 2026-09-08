@@ -3,7 +3,7 @@ title: "The economy & the state"
 grammar_point: "comparison and trends: augmenter de, baisser de, par rapport à"
 grammar_category: "Adjectives & comparison"
 est_minutes: 8
-new_vocab: [recession, relance, austerite, deficit, excedent, dette_publique, pib, bulle_immobiliere, taux_directeur, banque_centrale, subvention, protectionnisme, libre_echange, tarif_douanier, monopole]
+new_vocab: [recession, relance, austerite, deficit, excedent, dette_publique, pib, approvisionnement, speculation, bulle_immobiliere, taux_directeur, banque_centrale, subvention, protectionnisme, libre_echange, tarif_douanier, monopole]
 pass_threshold: 8.0
 exercises:
   - id: economie-b2-04.e1
@@ -64,3 +64,9 @@ exercises:
     audio_ref: b2/audio/austerite.mp3
     answer: austérité
     prompt: "Type the word you hear."
+
+  - id: economie-b2-04.e9
+    type: match_pairs
+    pairs:
+      - ["approvisionnement", "supply"]
+      - ["spéculation", "speculation"]

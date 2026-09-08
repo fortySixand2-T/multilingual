@@ -3,7 +3,7 @@ title: "Describing people"
 grammar_point: "adjective agreement with people"
 grammar_category: "Adjectives & comparison"
 est_minutes: 8
-new_vocab: [mince, gros, chauve, barbe, lunettes, gentil, poli, timide, bavard, drole, paresseux, courageux, genereux, honnete, curieux, sympathique, ami]
+new_vocab: [mince, gros, chauve, barbe, lunettes, gentil, poli, timide, bavard, drole, serieux, paresseux, courageux, genereux, honnete, patient, curieux, sympathique, ami, copain]
 pass_threshold: 8.0
 exercises:
   - id: people-a2-01.e1
@@ -64,3 +64,10 @@ exercises:
     audio_ref: a2/audio/sympathique.mp3
     answer: sympathique
     prompt: "Type the adjective you hear."
+
+  - id: people-a2-01.e9
+    type: match_pairs
+    pairs:
+      - ["sérieux", "serious"]
+      - ["patient", "patient"]
+      - ["copain", "buddy, boyfriend"]

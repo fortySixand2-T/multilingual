@@ -3,7 +3,7 @@ title: "Devices & the internet"
 grammar_point: "giving instructions with the imperative"
 grammar_category: "Verb conjugation & tenses"
 est_minutes: 8
-new_vocab: [mise_a_jour, sauvegarde, piratage, virus, navigateur, moteur_recherche, forfait, connexion, debit, imprimante, haut_parleur, chargeur, batterie, parametres, tutoriel, installer, brancher, partager]
+new_vocab: [mise_a_jour, sauvegarde, piratage, virus, navigateur, moteur_recherche, forfait, connexion, debit, wifi, imprimante, haut_parleur, chargeur, batterie, plateforme, parametres, tutoriel, installer, brancher, partager]
 pass_threshold: 8.0
 exercises:
   - id: technology-b1-01.e1
@@ -63,3 +63,9 @@ exercises:
     audio_ref: b1/audio/imprimante.mp3
     answer: imprimante
     prompt: "Type the word you hear."
+
+  - id: technology-b1-01.e9
+    type: match_pairs
+    pairs:
+      - ["wifi", "wi-fi"]
+      - ["plateforme", "platform"]

@@ -3,7 +3,7 @@ title: "Companies & finance"
 grammar_point: "cause and consequence: entraîner, provoquer, permettre de"
 grammar_category: "Logical connectors"
 est_minutes: 8
-new_vocab: [actionnaire, gouvernance, fusion, acquisition, filiale, sous_traitance, chaine_approvisionnement, marge, tresorerie, levee_fonds, jeune_pousse, actif, passif, audit, conformite, restructuration, part_marche]
+new_vocab: [actionnaire, gouvernance, strategie, fusion, acquisition, filiale, sous_traitance, chaine_approvisionnement, marge, tresorerie, levee_fonds, jeune_pousse, actif, passif, audit, conformite, restructuration, expansion, part_marche, positionnement]
 pass_threshold: 8.0
 exercises:
   - id: entreprise-b2-01.e1
@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/tresorerie.mp3
     answer: trésorerie
     prompt: "Type the word you hear."
+
+  - id: entreprise-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["stratégie", "strategy"]
+      - ["expansion", "expansion"]
+      - ["positionnement", "positioning"]

@@ -71,3 +71,10 @@ exercises:
       - [dire, to say]
       - [devoir, to have to]
       - [mettre, to put]
+
+  - id: verbs-01.e10
+    type: match_pairs
+    pairs:
+      - ["vouloir", "to want"]
+      - ["être", "to be"]
+      - ["avoir", "to have"]

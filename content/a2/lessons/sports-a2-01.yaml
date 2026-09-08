@@ -3,7 +3,7 @@ title: "Sports"
 grammar_point: "jouer à / faire de with sports"
 grammar_category: "Sentence structures"
 est_minutes: 8
-new_vocab: [soccer, hockey, tennis, natation, ski, patin, patinoire, match, entrainement, entraineur, joueur, ballon, raquette, perdre, echauffement, gymnastique, marathon, terrain]
+new_vocab: [soccer, hockey, basketball, tennis, natation, course, ski, patin, patinoire, match, entrainement, entraineur, joueur, ballon, raquette, perdre, echauffement, gymnastique, marathon, terrain]
 pass_threshold: 8.0
 exercises:
   - id: sports-a2-01.e1
@@ -63,3 +63,9 @@ exercises:
     audio_ref: a2/audio/patinoire.mp3
     answer: patinoire
     prompt: "Type the word you hear."
+
+  - id: sports-a2-01.e9
+    type: match_pairs
+    pairs:
+      - ["basketball", "basketball"]
+      - ["course", "running, race"]

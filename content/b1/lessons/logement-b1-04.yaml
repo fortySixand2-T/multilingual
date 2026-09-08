@@ -3,7 +3,7 @@ title: "Problems with your apartment"
 grammar_point: "reporting a problem: il y a / il faut"
 grammar_category: "Sentence structures"
 est_minutes: 8
-new_vocab: [sous_location, etat_lieux, depot_garantie, concierge, syndic, renovation, isolation, humidite, moisissure, infiltration, plomberie, climatisation, thermostat, sous_sol, rangement, expulsion, tribunal_logement]
+new_vocab: [sous_location, etat_lieux, depot_garantie, concierge, syndic, renovation, isolation, humidite, moisissure, infiltration, plomberie, electricite, climatisation, thermostat, sous_sol, rangement, expulsion, tribunal_logement]
 pass_threshold: 8.0
 exercises:
   - id: logement-b1-04.e1
@@ -64,3 +64,8 @@ exercises:
     audio_ref: b1/audio/moisissure.mp3
     answer: moisissure
     prompt: "Type the word you hear."
+
+  - id: logement-b1-04.e9
+    type: match_pairs
+    pairs:
+      - ["électricité", "electricity"]

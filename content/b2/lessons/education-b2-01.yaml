@@ -3,7 +3,7 @@ title: "Education debates"
 grammar_point: "expressing cause: en raison de, faute de, grâce à"
 grammar_category: "Logical connectors"
 est_minutes: 8
-new_vocab: [decrochage, assiduite, meritocratie, elitisme, vulgarisation, alternance, programme, encadrement, accompagnement, tutorat, mixite_sociale, orientation, insertion_professionnelle, savoir_faire, autodidacte, financement, exigence]
+new_vocab: [decrochage, assiduite, excellence, meritocratie, elitisme, vulgarisation, alternance, programme, evaluation, encadrement, accompagnement, tutorat, mixite_sociale, orientation, insertion_professionnelle, savoir_faire, autodidacte, financement, abandon, exigence]
 pass_threshold: 8.0
 exercises:
   - id: education-b2-01.e1
@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/meritocratie.mp3
     answer: méritocratie
     prompt: "Type the word you hear."
+
+  - id: education-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["excellence", "excellence"]
+      - ["évaluation", "assessment"]
+      - ["abandon", "withdrawal, giving up"]

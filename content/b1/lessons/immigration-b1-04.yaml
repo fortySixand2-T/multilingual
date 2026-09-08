@@ -3,7 +3,7 @@ title: "Your immigration file"
 grammar_point: "administrative vocabulary in the passive: être accepté, être refusé"
 grammar_category: "Sentence structures"
 est_minutes: 8
-new_vocab: [carte_residence, demandeur_asile, recevabilite, admissibilite, biometrie, empreintes_digitales, casier_judiciaire, certificat_selection, garant, regroupement_familial, travailleur_qualifie, reconnaissance_acquis, titre_sejour, renouvellement, expiration, refus, delai_traitement, frais_dossier, residence_temporaire]
+new_vocab: [carte_residence, demandeur_asile, recevabilite, admissibilite, biometrie, empreintes_digitales, casier_judiciaire, certificat_selection, garant, regroupement_familial, travailleur_qualifie, equivalence_diplome, reconnaissance_acquis, titre_sejour, renouvellement, expiration, refus, delai_traitement, frais_dossier, residence_temporaire]
 pass_threshold: 8.0
 exercises:
   - id: immigration-b1-04.e1
@@ -64,3 +64,8 @@ exercises:
     audio_ref: b1/audio/expiration.mp3
     answer: expiration
     prompt: "Type the word you hear."
+
+  - id: immigration-b1-04.e9
+    type: match_pairs
+    pairs:
+      - ["équivalence de diplôme", "credential equivalence"]

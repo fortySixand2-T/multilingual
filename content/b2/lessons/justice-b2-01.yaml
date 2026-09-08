@@ -3,7 +3,7 @@ title: "The courts"
 grammar_point: "the passive voice in formal writing"
 grammar_category: "Sentence structures"
 est_minutes: 8
-new_vocab: [jurisprudence, magistrat, proces, verdict, peine, presomption_innocence, plaidoyer, recidive, impunite, sanction, indemnisation, detention, reinsertion, prescription, equite, infraction, delit]
+new_vocab: [jurisprudence, magistrat, proces, verdict, peine, presomption_innocence, plaidoyer, recidive, impunite, sanction, indemnisation, detention, reinsertion, prescription, pourvoi, equite, legitimite, infraction, delit, poursuite]
 pass_threshold: 8.0
 exercises:
   - id: justice-b2-01.e1
@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/jurisprudence.mp3
     answer: jurisprudence
     prompt: "Type the word you hear."
+
+  - id: justice-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["pourvoi en cassation", "appeal to a higher court"]
+      - ["légitimité", "legitimacy"]
+      - ["poursuite judiciaire", "prosecution, lawsuit"]

@@ -314,3 +314,8 @@
 - [2026-09-08] Modified: content/b1/path.yaml — 12 new units (b1.u11–u22)
 - [2026-09-08] Created: content/b2/lessons/{actualite-b2-04,actualite-b2-05,justice,technologie,education,medias,migration,entreprise,psychologie,histoire}-b2-01.yaml + {travail,sante,societe,environnement,economie,politique}-b2-04.yaml — 16 B2 lessons teaching the 295 untaught B2 words; B2 now 475/475 taught (all four levels 1732/1732)
 - [2026-09-08] Modified: content/b2/path.yaml — 15 new units (b2.u11–u25)
+- [2026-09-08] Modified: content/b1/lessons/health-b1-01.yaml — QA 750: fix garbled mcq option ("allée aller" → "allée")
+- [2026-09-08] Modified: content/a1/lessons/food-04.yaml — QA 751: drop over-accepting translate entry ("un verre de vin rouge" for "a glass of wine")
+- [2026-09-08] Modified: web/src/screens/Review.tsx + Review.test.tsx — QA 773: re-fetch the SRS queue before showing "All caught up" (api.queue() returns a capped batch, so exhausting the local array is not proof the queue is empty)
+- [2026-09-08] Modified: content/{a1,a2,b1,b2}/lessons/*.yaml — QA 755: every new_vocab word is now shown by its lesson's own exercises, via added match_pairs (restores 1732/1732 taught coverage rather than trimming new_vocab)
+- [2026-09-08] Created: qa/rounds/055-plan.md + qa/issues/{750,751,752,753,754,755,773}-*.md — QA round 055 over the whole vocab + learn-path arc

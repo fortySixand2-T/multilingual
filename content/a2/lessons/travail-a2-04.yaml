@@ -3,7 +3,7 @@ title: "Getting hired"
 grammar_point: "postuler, embaucher — talking about hiring"
 grammar_category: "Verb conjugation & tenses"
 est_minutes: 8
-new_vocab: [cv, employe, employeur, tache, pause, conge_maladie, salaire_minimum, paie, temps_plein, temps_partiel, quart_travail, postuler, embaucher, travailler, chef_equipe, outil]
+new_vocab: [cv, employe, employeur, tache, pause, conge_maladie, salaire_minimum, paie, temps_plein, temps_partiel, quart_travail, postuler, embaucher, travailler, chef_equipe, securite_travail, outil]
 pass_threshold: 8.0
 exercises:
   - id: travail-a2-04.e1
@@ -64,3 +64,8 @@ exercises:
     audio_ref: a2/audio/employeur.mp3
     answer: employeur
     prompt: "Type the word you hear."
+
+  - id: travail-a2-04.e9
+    type: match_pairs
+    pairs:
+      - ["sécurité au travail", "workplace safety"]

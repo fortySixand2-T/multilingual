@@ -3,7 +3,7 @@ title: "Applying and being hired"
 grammar_point: "formal register in a job application"
 grammar_category: "Expressions & communication"
 est_minutes: 8
-new_vocab: [lettre_motivation, offre_emploi, periode_essai, convention_collective, heures_supplementaires, avantages_sociaux, assurance_emploi, cotisation, retraite, anciennete, mentorat, reseautage, portfolio, entrevue, reference, probation, conge_parental, horaire_flexible]
+new_vocab: [lettre_motivation, offre_emploi, affichage_poste, periode_essai, convention_collective, heures_supplementaires, avantages_sociaux, assurance_emploi, cotisation, retraite, anciennete, mentorat, reseautage, superviseur, portfolio, entrevue, reference, probation, conge_parental, horaire_flexible]
 pass_threshold: 8.0
 exercises:
   - id: travail-b1-04.e1
@@ -64,3 +64,9 @@ exercises:
     audio_ref: b1/audio/reseautage.mp3
     answer: réseautage
     prompt: "Type the word you hear."
+
+  - id: travail-b1-04.e9
+    type: match_pairs
+    pairs:
+      - ["affichage de poste", "job listing"]
+      - ["superviseur", "supervisor"]

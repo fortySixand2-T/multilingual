@@ -3,7 +3,7 @@ title: "Emergencies"
 grammar_point: "the imperative: appelez ! aidez !"
 grammar_category: "Verb conjugation & tenses"
 est_minutes: 8
-new_vocab: [accident, ambulance, blessure, blesse, secours, police, voleur, vol, incendie, alarme, danger, aider, appeler, temoin, plainte, panne, remorquage, premiers_soins, extincteur]
+new_vocab: [accident, ambulance, blessure, blesse, secours, police, voleur, vol, incendie, alarme, danger, aider, appeler, prevenir, temoin, plainte, panne, remorquage, premiers_soins, extincteur]
 pass_threshold: 8.0
 exercises:
   - id: emergencies-a2-01.e1
@@ -64,3 +64,8 @@ exercises:
     audio_ref: a2/audio/incendie.mp3
     answer: incendie
     prompt: "Type the word you hear."
+
+  - id: emergencies-a2-01.e9
+    type: match_pairs
+    pairs:
+      - ["prévenir", "to warn, to notify"]

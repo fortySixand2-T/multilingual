@@ -3,7 +3,7 @@ title: "Contracts & your rights"
 grammar_point: "formal obligation: devoir, il faut, être tenu de"
 grammar_category: "Verb conjugation & tenses"
 est_minutes: 8
-new_vocab: [obligation, recours, amende, contravention, litige, mediation, arbitrage, clause, resiliation, preavis, attestation, notaire, procuration, consentement, confidentialite, reclamation, delai, signaler, porter_plainte]
+new_vocab: [obligation, recours, amende, contravention, litige, mediation, arbitrage, clause, resiliation, preavis, attestation, certificat, notaire, procuration, consentement, confidentialite, reclamation, delai, signaler, porter_plainte]
 pass_threshold: 8.0
 exercises:
   - id: rights-b1-01.e1
@@ -64,3 +64,8 @@ exercises:
     audio_ref: b1/audio/procuration.mp3
     answer: procuration
     prompt: "Type the word you hear."
+
+  - id: rights-b1-01.e9
+    type: match_pairs
+    pairs:
+      - ["certificat", "certificate"]

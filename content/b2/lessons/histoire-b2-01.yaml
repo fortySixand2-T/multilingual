@@ -3,7 +3,7 @@ title: "History & memory"
 grammar_point: "the passé simple in written narrative (recognition)"
 grammar_category: "Verb conjugation & tenses"
 est_minutes: 8
-new_vocab: [colonisation, decolonisation, revolution, conquete, traite, referendum, monarchie, republique, empire, siecle, epoque, vestige, commemoration, memoire_collective, ancetre, chronologie, autochtone]
+new_vocab: [colonisation, decolonisation, revolution, conquete, traite, referendum, monarchie, republique, empire, siecle, epoque, vestige, archive, commemoration, memoire_collective, ancetre, chronologie, recit_national, revisionnisme, autochtone]
 pass_threshold: 8.0
 exercises:
   - id: histoire-b2-01.e1
@@ -64,3 +64,10 @@ exercises:
     audio_ref: b2/audio/chronologie.mp3
     answer: chronologie
     prompt: "Type the word you hear."
+
+  - id: histoire-b2-01.e9
+    type: match_pairs
+    pairs:
+      - ["archives", "archives"]
+      - ["récit national", "national narrative"]
+      - ["révisionnisme", "revisionism"]
