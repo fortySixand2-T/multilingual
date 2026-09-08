@@ -135,3 +135,105 @@
   pos: verb
   tags: [health]
 
+
+- id: carte_assurance
+  fr: carte d'assurance maladie
+  en: health insurance card
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: salle_urgence
+  fr: salle d'urgence
+  en: emergency room
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: triage
+  fr: triage
+  en: triage
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: civiere
+  fr: civière
+  en: stretcher, gurney
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: ambulancier
+  fr: ambulancier
+  en: paramedic
+  gender: mf
+  fem: ambulancière
+  pos: noun
+  tags: [health]
+
+- id: prise_sang
+  fr: prise de sang
+  en: blood test
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: vaccination
+  fr: vaccination
+  en: vaccination
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: aigu
+  fr: aigu
+  en: acute
+  pos: adjective
+  tags: [health]
+
+- id: benin
+  fr: bénin
+  en: benign, mild
+  pos: adjective
+  tags: [health]
+
+- id: grave
+  fr: grave
+  en: serious
+  pos: adjective
+  tags: [health]
+
+- id: contagieux
+  fr: contagieux
+  en: contagious
+  pos: adjective
+  tags: [health]
+
+- id: immunite
+  fr: immunité
+  en: immunity
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: posologie
+  fr: posologie
+  en: dosage
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: physiotherapie
+  fr: physiothérapie
+  en: physiotherapy
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: readaptation
+  fr: réadaptation
+  en: rehabilitation
+  gender: f
+  pos: noun
+  tags: [health]

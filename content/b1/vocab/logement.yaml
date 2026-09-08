@@ -122,3 +122,129 @@
   gender: f
   pos: noun
   tags: [housing]
+
+- id: sous_location
+  fr: sous-location
+  en: sublet
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: etat_lieux
+  fr: état des lieux
+  en: condition report, walkthrough
+  gender: m
+  pos: noun
+  tags: [housing]
+
+- id: depot_garantie
+  fr: dépôt de garantie
+  en: security deposit
+  gender: m
+  pos: noun
+  tags: [housing]
+
+- id: concierge
+  fr: concierge
+  en: building superintendent
+  gender: m
+  pos: noun
+  tags: [housing]
+
+- id: syndic
+  fr: syndic de copropriété
+  en: condo board manager
+  gender: m
+  pos: noun
+  tags: [housing]
+
+- id: renovation
+  fr: rénovation
+  en: renovation
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: isolation
+  fr: isolation
+  en: insulation
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: humidite
+  fr: humidité
+  en: damp, humidity
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: moisissure
+  fr: moisissure
+  en: mould
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: infiltration
+  fr: infiltration d'eau
+  en: water leak
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: plomberie
+  fr: plomberie
+  en: plumbing
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: electricite
+  fr: électricité
+  en: electricity
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: climatisation
+  fr: climatisation
+  en: air conditioning
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: thermostat
+  fr: thermostat
+  en: thermostat
+  gender: m
+  pos: noun
+  tags: [housing]
+
+- id: sous_sol
+  fr: sous-sol
+  en: basement
+  gender: m
+  pos: noun
+  tags: [housing]
+
+- id: rangement
+  fr: rangement
+  en: storage space
+  gender: m
+  pos: noun
+  tags: [housing]
+
+- id: expulsion
+  fr: expulsion
+  en: eviction
+  gender: f
+  pos: noun
+  tags: [housing]
+
+- id: tribunal_logement
+  fr: Tribunal administratif du logement
+  en: rental board (Québec)
+  gender: m
+  pos: noun
+  tags: [housing]

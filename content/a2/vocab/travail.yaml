@@ -122,3 +122,121 @@
   gender: m
   pos: noun
   tags: [work]
+
+- id: cv
+  fr: CV
+  en: résumé, CV
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: employe
+  fr: employé
+  en: employee
+  gender: mf
+  fem: employée
+  pos: noun
+  tags: [work]
+
+- id: employeur
+  fr: employeur
+  en: employer
+  gender: mf
+  fem: employeuse
+  pos: noun
+  tags: [work]
+
+- id: tache
+  fr: tâche
+  en: task
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: pause
+  fr: pause
+  en: break
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: conge_maladie
+  fr: congé de maladie
+  en: sick leave
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: salaire_minimum
+  fr: salaire minimum
+  en: minimum wage
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: paie
+  fr: paie
+  en: pay, paycheque
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: temps_plein
+  fr: temps plein
+  en: full time
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: temps_partiel
+  fr: temps partiel
+  en: part time
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: quart_travail
+  fr: quart de travail
+  en: work shift (Québec)
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: postuler
+  fr: postuler
+  en: to apply (for a job)
+  pos: verb
+  tags: [work]
+
+- id: embaucher
+  fr: embaucher
+  en: to hire
+  pos: verb
+  tags: [work]
+
+- id: travailler
+  fr: travailler
+  en: to work
+  pos: verb
+  tags: [work]
+
+- id: chef_equipe
+  fr: chef d'équipe
+  en: team lead
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: securite_travail
+  fr: sécurité au travail
+  en: workplace safety
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: outil
+  fr: outil
+  en: tool
+  gender: m
+  pos: noun
+  tags: [work]

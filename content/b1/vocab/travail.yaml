@@ -124,3 +124,144 @@
   gender: f
   pos: noun
   tags: [work]
+
+- id: lettre_motivation
+  fr: lettre de motivation
+  en: cover letter
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: offre_emploi
+  fr: offre d'emploi
+  en: job posting
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: affichage_poste
+  fr: affichage de poste
+  en: job listing
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: periode_essai
+  fr: période d'essai
+  en: probationary period
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: convention_collective
+  fr: convention collective
+  en: collective agreement
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: heures_supplementaires
+  fr: heures supplémentaires
+  en: overtime
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: avantages_sociaux
+  fr: avantages sociaux
+  en: benefits package
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: assurance_emploi
+  fr: assurance-emploi
+  en: employment insurance (Canada)
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: cotisation
+  fr: cotisation
+  en: contribution, dues
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: retraite
+  fr: retraite
+  en: retirement
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: anciennete
+  fr: ancienneté
+  en: seniority
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: mentorat
+  fr: mentorat
+  en: mentoring
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: reseautage
+  fr: réseautage
+  en: networking (Québec)
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: superviseur
+  fr: superviseur
+  en: supervisor
+  gender: mf
+  fem: superviseure
+  pos: noun
+  tags: [work]
+
+- id: portfolio
+  fr: portfolio
+  en: portfolio
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: entrevue
+  fr: entrevue
+  en: job interview (Québec)
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: reference
+  fr: référence
+  en: reference
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: probation
+  fr: probation
+  en: probation
+  gender: f
+  pos: noun
+  tags: [work]
+
+- id: conge_parental
+  fr: congé parental
+  en: parental leave
+  gender: m
+  pos: noun
+  tags: [work]
+
+- id: horaire_flexible
+  fr: horaire flexible
+  en: flexible hours
+  gender: m
+  pos: noun
+  tags: [work]

@@ -124,3 +124,130 @@
   gender: m
   pos: noun
   tags: [money]
+
+- id: compte_epargne
+  fr: compte d'épargne
+  en: savings account
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: interet
+  fr: intérêt
+  en: interest
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: taux_interet
+  fr: taux d'intérêt
+  en: interest rate
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: pret_bancaire
+  fr: prêt bancaire
+  en: bank loan
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: faillite
+  fr: faillite
+  en: bankruptcy
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: cote_credit
+  fr: cote de crédit
+  en: credit score
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: marge_credit
+  fr: marge de crédit
+  en: line of credit
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: placement
+  fr: placement
+  en: investment
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: fonds
+  fr: fonds
+  en: fund
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: courtier
+  fr: courtier
+  en: broker
+  gender: mf
+  fem: courtière
+  pos: noun
+  tags: [money]
+
+- id: succession
+  fr: succession
+  en: estate, inheritance
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: testament
+  fr: testament
+  en: will
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: don
+  fr: don
+  en: donation
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: declaration_revenus
+  fr: déclaration de revenus
+  en: tax return
+  gender: f
+  pos: noun
+  tags: [money]
+
+- id: credit_impot
+  fr: crédit d'impôt
+  en: tax credit
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: frais_bancaires
+  fr: frais bancaires
+  en: bank fees
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: solde
+  fr: solde
+  en: balance (of an account)
+  gender: m
+  pos: noun
+  tags: [money]
+
+- id: devise
+  fr: devise
+  en: currency
+  gender: f
+  pos: noun
+  tags: [money]

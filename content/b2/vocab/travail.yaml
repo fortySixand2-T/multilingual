@@ -123,3 +123,122 @@
   gender: m
   pos: noun
   tags: [travail]
+
+- id: sous_effectif
+  fr: sous-effectif
+  en: understaffing
+  gender: m
+  pos: noun
+  tags: [travail]
+
+- id: surcharge
+  fr: surcharge de travail
+  en: work overload
+  gender: f
+  pos: noun
+  tags: [travail]
+
+- id: conciliation_travail_famille
+  fr: conciliation travail-famille
+  en: work-life balance (Québec)
+  gender: f
+  pos: noun
+  tags: [travail]
+
+- id: equite_salariale
+  fr: équité salariale
+  en: pay equity
+  gender: f
+  pos: noun
+  tags: [travail]
+
+- id: plafond_verre
+  fr: plafond de verre
+  en: glass ceiling
+  gender: m
+  pos: noun
+  tags: [travail]
+
+- id: precarisation
+  fr: précarisation
+  en: growing job insecurity
+  gender: f
+  pos: noun
+  tags: [travail]
+
+- id: uberisation
+  fr: ubérisation
+  en: gig-economy shift
+  gender: f
+  pos: noun
+  tags: [travail]
+
+- id: sous_traitant
+  fr: sous-traitant
+  en: subcontractor
+  gender: m
+  pos: noun
+  tags: [travail]
+
+- id: polyvalence
+  fr: polyvalence
+  en: versatility
+  gender: f
+  pos: noun
+  tags: [travail]
+
+- id: fidelisation
+  fr: fidélisation
+  en: staff retention
+  gender: f
+  pos: noun
+  tags: [travail]
+
+- id: roulement_personnel
+  fr: roulement de personnel
+  en: staff turnover
+  gender: m
+  pos: noun
+  tags: [travail]
+
+- id: climat_travail
+  fr: climat de travail
+  en: workplace atmosphere
+  gender: m
+  pos: noun
+  tags: [travail]
+
+- id: medecine_travail
+  fr: médecine du travail
+  en: occupational health
+  gender: f
+  pos: noun
+  tags: [travail]
+
+- id: accident_travail
+  fr: accident du travail
+  en: workplace accident
+  gender: m
+  pos: noun
+  tags: [travail]
+
+- id: grief
+  fr: grief
+  en: grievance
+  gender: m
+  pos: noun
+  tags: [travail]
+
+- id: negociation_collective
+  fr: négociation collective
+  en: collective bargaining
+  gender: f
+  pos: noun
+  tags: [travail]
+
+- id: greve
+  fr: grève
+  en: strike
+  gender: f
+  pos: noun
+  tags: [travail]

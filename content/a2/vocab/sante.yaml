@@ -121,3 +121,118 @@
   gender: m
   pos: noun
   tags: [health]
+
+- id: gorge
+  fr: gorge
+  en: throat
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: estomac
+  fr: estomac
+  en: stomach
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: poumon
+  fr: poumon
+  en: lung
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: cheville
+  fr: cheville
+  en: ankle
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: poignet
+  fr: poignet
+  en: wrist
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: orteil
+  fr: orteil
+  en: toe
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: grippe
+  fr: grippe
+  en: flu
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: migraine
+  fr: migraine
+  en: migraine
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: vomir
+  fr: vomir
+  en: to vomit
+  pos: verb
+  tags: [health]
+
+- id: tousser
+  fr: tousser
+  en: to cough
+  pos: verb
+  tags: [health]
+
+- id: eternuer
+  fr: éternuer
+  en: to sneeze
+  pos: verb
+  tags: [health]
+
+- id: saigner
+  fr: saigner
+  en: to bleed
+  pos: verb
+  tags: [health]
+
+- id: pansement
+  fr: pansement
+  en: bandage
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: sirop
+  fr: sirop
+  en: cough syrup
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: comprime
+  fr: comprimé
+  en: tablet, pill
+  gender: m
+  pos: noun
+  tags: [health]
+
+- id: piqure
+  fr: piqûre
+  en: shot, sting
+  gender: f
+  pos: noun
+  tags: [health]
+
+- id: thermometre
+  fr: thermomètre
+  en: thermometer
+  gender: m
+  pos: noun
+  tags: [health]

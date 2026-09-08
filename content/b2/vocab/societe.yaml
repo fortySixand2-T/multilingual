@@ -125,3 +125,122 @@
   gender: m
   pos: noun
   tags: [societe]
+
+- id: cohesion_sociale
+  fr: cohésion sociale
+  en: social cohesion
+  gender: f
+  pos: noun
+  tags: [societe]
+
+- id: vivre_ensemble
+  fr: vivre-ensemble
+  en: living together, social harmony
+  gender: m
+  pos: noun
+  tags: [societe]
+
+- id: inclusion
+  fr: inclusion
+  en: inclusion
+  gender: f
+  pos: noun
+  tags: [societe]
+
+- id: exclusion
+  fr: exclusion
+  en: exclusion
+  gender: f
+  pos: noun
+  tags: [societe]
+
+- id: marginalisation
+  fr: marginalisation
+  en: marginalization
+  gender: f
+  pos: noun
+  tags: [societe]
+
+- id: itinerance
+  fr: itinérance
+  en: homelessness (Québec)
+  gender: f
+  pos: noun
+  tags: [societe]
+
+- id: banque_alimentaire
+  fr: banque alimentaire
+  en: food bank
+  gender: f
+  pos: noun
+  tags: [societe]
+
+- id: benevolat
+  fr: bénévolat
+  en: volunteering
+  gender: m
+  pos: noun
+  tags: [societe]
+
+- id: organisme_communautaire
+  fr: organisme communautaire
+  en: community organization
+  gender: m
+  pos: noun
+  tags: [societe]
+
+- id: filet_social
+  fr: filet social
+  en: social safety net
+  gender: m
+  pos: noun
+  tags: [societe]
+
+- id: aide_sociale
+  fr: aide sociale
+  en: welfare
+  gender: f
+  pos: noun
+  tags: [societe]
+
+- id: logement_abordable
+  fr: logement abordable
+  en: affordable housing
+  gender: m
+  pos: noun
+  tags: [societe]
+
+- id: fosse_generationnel
+  fr: fossé générationnel
+  en: generation gap
+  gender: m
+  pos: noun
+  tags: [societe]
+
+- id: individualisme
+  fr: individualisme
+  en: individualism
+  gender: m
+  pos: noun
+  tags: [societe]
+
+- id: consumerisme
+  fr: consumérisme
+  en: consumerism
+  gender: m
+  pos: noun
+  tags: [societe]
+
+- id: stigmatisation
+  fr: stigmatisation
+  en: stigmatization
+  gender: f
+  pos: noun
+  tags: [societe]
+
+- id: prejuge
+  fr: préjugé
+  en: prejudice
+  gender: m
+  pos: noun
+  tags: [societe]
