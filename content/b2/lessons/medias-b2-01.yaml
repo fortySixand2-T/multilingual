@@ -1,0 +1,66 @@
+id: medias-b2-01
+title: "Media & credibility"
+grammar_point: "reported speech: selon, d'après, il paraît que"
+grammar_category: "Expressions & communication"
+est_minutes: 8
+new_vocab: [deontologie, ligne_editoriale, redaction, la_une, editorial, chronique, enquete, verification_faits, sensationnalisme, traitement_mediatique, couverture_presse, pluralisme, independance, abonne, audimat, viralite, clivage, bulle_informationnelle, recoupement, credibilite]
+pass_threshold: 8.0
+exercises:
+  - id: medias-b2-01.e1
+    type: match_pairs
+    pairs:
+      - [déontologie, professional ethics]
+      - [ligne éditoriale, editorial stance]
+      - [rédaction, newsroom]
+      - [la une, the front page]
+      - [éditorial, editorial]
+
+  - id: medias-b2-01.e2
+    type: match_pairs
+    pairs:
+      - [enquête, investigation]
+      - [vérification des faits, fact-checking]
+      - [recoupement, cross-checking]
+      - [crédibilité, credibility]
+      - [pluralisme, pluralism]
+
+  - id: medias-b2-01.e3
+    type: match_pairs
+    pairs:
+      - [sensationnalisme, sensationalism]
+      - [bulle informationnelle, filter bubble]
+      - [viralité, virality]
+      - [clivage, polarization]
+      - [audimat, ratings]
+
+  - id: medias-b2-01.e4
+    type: mcq
+    prompt: "« ___ le journal, la réforme sera reportée. »"
+    options: ["Selon", "Malgré", "Pourtant"]
+    answer: "Selon"
+    explain: "selon / d'après = according to — the standard way to attribute a claim."
+
+  - id: medias-b2-01.e5
+    type: mcq
+    prompt: "A story that appears on « la une » is…"
+    options: [on the front page, in the opinion section, behind a paywall]
+    answer: on the front page
+    explain: "la une = the front page of a newspaper."
+
+  - id: medias-b2-01.e6
+    type: word_bank
+    prompt: "Build: “this information must be cross-checked”"
+    tokens: [Cette, information, doit, être, recoupée, une]
+    answer: [Cette, information, doit, être, recoupée]
+
+  - id: medias-b2-01.e7
+    type: translate
+    prompt: "Translate: “fact-checking”"
+    answer: "la vérification des faits"
+    accept: ["vérification des faits"]
+
+  - id: medias-b2-01.e8
+    type: listen_type
+    audio_ref: b2/audio/deontologie.mp3
+    answer: déontologie
+    prompt: "Type the word you hear."

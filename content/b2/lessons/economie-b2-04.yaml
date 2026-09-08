@@ -1,0 +1,66 @@
+id: economie-b2-04
+title: "The economy & the state"
+grammar_point: "comparison and trends: augmenter de, baisser de, par rapport à"
+grammar_category: "Adjectives & comparison"
+est_minutes: 8
+new_vocab: [recession, relance, austerite, deficit, excedent, dette_publique, pib, approvisionnement, speculation, bulle_immobiliere, taux_directeur, banque_centrale, subvention, protectionnisme, libre_echange, tarif_douanier, monopole]
+pass_threshold: 8.0
+exercises:
+  - id: economie-b2-04.e1
+    type: match_pairs
+    pairs:
+      - [récession, recession]
+      - [relance, economic recovery]
+      - [austérité, austerity]
+      - [déficit, deficit]
+      - [excédent, surplus]
+
+  - id: economie-b2-04.e2
+    type: match_pairs
+    pairs:
+      - [dette publique, public debt]
+      - [PIB, GDP]
+      - [taux directeur, key interest rate]
+      - [banque centrale, central bank]
+      - [subvention, subsidy]
+
+  - id: economie-b2-04.e3
+    type: match_pairs
+    pairs:
+      - [protectionnisme, protectionism]
+      - [libre-échange, free trade]
+      - [tarif douanier, customs tariff]
+      - [monopole, monopoly]
+      - [bulle immobilière, housing bubble]
+
+  - id: economie-b2-04.e4
+    type: mcq
+    prompt: "« Le PIB a augmenté ___ 2 % par rapport à 2025. »"
+    options: ["de", "à", "en"]
+    answer: "de"
+    explain: "augmenter de X % — the amount of change takes de."
+
+  - id: economie-b2-04.e5
+    type: mcq
+    prompt: "« le taux directeur » is set by…"
+    options: ["la banque centrale", "le gouvernement", "les actionnaires"]
+    answer: "la banque centrale"
+    explain: "The central bank sets the key rate."
+
+  - id: economie-b2-04.e6
+    type: word_bank
+    prompt: "Build: “the country is in recession”"
+    tokens: [Le, pays, est, en, récession, relance]
+    answer: [Le, pays, est, en, récession]
+
+  - id: economie-b2-04.e7
+    type: translate
+    prompt: "Translate: “free trade”"
+    answer: "le libre-échange"
+    accept: ["libre-échange"]
+
+  - id: economie-b2-04.e8
+    type: listen_type
+    audio_ref: b2/audio/austerite.mp3
+    answer: austérité
+    prompt: "Type the word you hear."

@@ -1,0 +1,66 @@
+id: migration-b2-01
+title: "Migration & belonging"
+grammar_point: "nuance with bien que, alors que, tandis que"
+grammar_category: "Logical connectors"
+est_minutes: 8
+new_vocab: [diaspora, exil, expatriation, asile, apatride, quota, regularisation, clandestinite, exode, fuite_cerveaux, acculturation, assimilation, cohabitation, deracinement, hospitalite, xenophobie, flux_migratoire, rapatriement, residence_permanente, francisation]
+pass_threshold: 8.0
+exercises:
+  - id: migration-b2-01.e1
+    type: match_pairs
+    pairs:
+      - [diaspora, diaspora]
+      - [exil, exile]
+      - [asile, asylum]
+      - [apatride, stateless person]
+      - [exode, exodus]
+
+  - id: migration-b2-01.e2
+    type: match_pairs
+    pairs:
+      - [régularisation, regularization of status]
+      - [clandestinité, living without status]
+      - [flux migratoire, migration flow]
+      - [rapatriement, repatriation]
+      - [quota, quota]
+
+  - id: migration-b2-01.e3
+    type: match_pairs
+    pairs:
+      - [déracinement, uprooting]
+      - [hospitalité, hospitality]
+      - [xénophobie, xenophobia]
+      - [acculturation, acculturation]
+      - [francisation, francization]
+
+  - id: migration-b2-01.e4
+    type: mcq
+    prompt: "In Québec, « la francisation » refers to…"
+    options: ["French-language integration programs", "getting citizenship", "a work permit"]
+    answer: "French-language integration programs"
+    explain: "la francisation = the province's French-language integration courses for newcomers."
+
+  - id: migration-b2-01.e5
+    type: mcq
+    prompt: "« ___ le débat soit vif, un consensus émerge. »"
+    options: ["Bien que", "Parce que", "Puisque"]
+    answer: "Bien que"
+    explain: "bien que takes the subjunctive and concedes a point: bien que le débat soit vif."
+
+  - id: migration-b2-01.e6
+    type: word_bank
+    prompt: "Build: “the brain drain worries the government”"
+    tokens: [La, fuite, des, cerveaux, inquiète, le, gouvernement]
+    answer: [La, fuite, des, cerveaux, inquiète, le, gouvernement]
+
+  - id: migration-b2-01.e7
+    type: translate
+    prompt: "Translate: “permanent residence”"
+    answer: "la résidence permanente"
+    accept: ["résidence permanente"]
+
+  - id: migration-b2-01.e8
+    type: listen_type
+    audio_ref: b2/audio/deracinement.mp3
+    answer: déracinement
+    prompt: "Type the word you hear."

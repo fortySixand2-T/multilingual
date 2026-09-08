@@ -1,0 +1,66 @@
+id: entreprise-b2-01
+title: "Companies & finance"
+grammar_point: "cause and consequence: entraîner, provoquer, permettre de"
+grammar_category: "Logical connectors"
+est_minutes: 8
+new_vocab: [actionnaire, gouvernance, strategie, fusion, acquisition, filiale, sous_traitance, chaine_approvisionnement, marge, tresorerie, levee_fonds, jeune_pousse, actif, passif, audit, conformite, restructuration, expansion, part_marche, positionnement]
+pass_threshold: 8.0
+exercises:
+  - id: entreprise-b2-01.e1
+    type: match_pairs
+    pairs:
+      - [actionnaire, shareholder]
+      - [gouvernance, governance]
+      - [fusion, merger]
+      - [acquisition, acquisition]
+      - [filiale, subsidiary]
+
+  - id: entreprise-b2-01.e2
+    type: match_pairs
+    pairs:
+      - [sous-traitance, outsourcing]
+      - [chaîne d'approvisionnement, supply chain]
+      - [marge, margin]
+      - [trésorerie, cash flow]
+      - [levée de fonds, fundraising round]
+
+  - id: entreprise-b2-01.e3
+    type: match_pairs
+    pairs:
+      - [jeune pousse, start-up]
+      - [audit, audit]
+      - [conformité, compliance]
+      - [part de marché, market share]
+      - [restructuration, restructuring]
+
+  - id: entreprise-b2-01.e4
+    type: mcq
+    prompt: "« La fusion a ___ des licenciements. » (led to)"
+    options: ["entraîné", "permis", "empêché"]
+    answer: "entraîné"
+    explain: "entraîner = to lead to / bring about; permettre de = to allow."
+
+  - id: entreprise-b2-01.e5
+    type: mcq
+    prompt: "In accounting, « le passif » is…"
+    options: [liabilities, assets, revenue]
+    answer: liabilities
+    explain: "l'actif = assets; le passif = liabilities."
+
+  - id: entreprise-b2-01.e6
+    type: word_bank
+    prompt: "Build: “the start-up raised funds”"
+    tokens: [La, jeune, pousse, a, levé, des, fonds]
+    answer: [La, jeune, pousse, a, levé, des, fonds]
+
+  - id: entreprise-b2-01.e7
+    type: translate
+    prompt: "Translate: “market share”"
+    answer: "la part de marché"
+    accept: ["part de marché"]
+
+  - id: entreprise-b2-01.e8
+    type: listen_type
+    audio_ref: b2/audio/tresorerie.mp3
+    answer: trésorerie
+    prompt: "Type the word you hear."

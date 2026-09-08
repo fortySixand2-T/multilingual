@@ -1,0 +1,68 @@
+id: actualite-b2-05
+title: "Reading the news II"
+grammar_point: "discourse connectors: notamment, toutefois, en raison de"
+grammar_category: "Logical connectors"
+est_minutes: 8
+new_vocab: [notamment, toutefois, effet, cas, situation, question, raison, rapport, exemple, moment, debut, fin, monde, pays, economique, societe, politique]
+pass_threshold: 8.0
+exercises:
+  - id: actualite-b2-05.e1
+    type: match_pairs
+    pairs:
+      - [notamment, notably]
+      - [toutefois, however]
+      - [en raison de, because of]
+      - [par rapport à, compared to]
+      - [par exemple, for example]
+
+  - id: actualite-b2-05.e2
+    type: match_pairs
+    pairs:
+      - [effet, effect]
+      - [cas, case]
+      - [situation, situation]
+      - [question, issue]
+      - [rapport, report]
+
+  - id: actualite-b2-05.e3
+    type: match_pairs
+    pairs:
+      - [début, beginning]
+      - [fin, end]
+      - [moment, moment]
+      - [monde, world]
+      - [pays, country]
+      - [société, society]
+      - [politique, policy]
+      - [économique, economic]
+
+  - id: actualite-b2-05.e4
+    type: mcq
+    prompt: "« Le rapport est clair ; ___, des questions demeurent. »"
+    options: ["toutefois", "notamment", "en effet"]
+    answer: "toutefois"
+    explain: "toutefois = however, introducing a contrast. notamment = notably, adding an example."
+
+  - id: actualite-b2-05.e5
+    type: mcq
+    prompt: "« en raison de » introduces…"
+    options: [a cause, a contrast, an example]
+    answer: a cause
+    explain: "en raison de = because of."
+
+  - id: actualite-b2-05.e6
+    type: word_bank
+    prompt: "Build: “several sectors, notably health”"
+    tokens: [plusieurs, secteurs, notamment, la, santé, toutefois]
+    answer: [plusieurs, secteurs, notamment, la, santé]
+
+  - id: actualite-b2-05.e7
+    type: translate
+    prompt: "Translate: “however”"
+    answer: toutefois
+
+  - id: actualite-b2-05.e8
+    type: listen_type
+    audio_ref: b2/audio/notamment.mp3
+    answer: notamment
+    prompt: "Type the word you hear."
