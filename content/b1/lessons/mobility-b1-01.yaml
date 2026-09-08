@@ -1,0 +1,66 @@
+id: mobility-b1-01
+title: "Driving & getting around"
+grammar_point: "impersonal il faut + infinitive for rules"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [stationnement, autoroute, peage, panneau, limitation, casque, deviation, chantier, correspondance, navette, trajet, titre_transport, borne_recharge, electrique, pneu, reparation, assurance_auto, conducteur, auto_partage, trottinette]
+pass_threshold: 8.0
+exercises:
+  - id: mobility-b1-01.e1
+    type: match_pairs
+    pairs:
+      - [stationnement, parking]
+      - [autoroute, highway]
+      - [péage, toll]
+      - [panneau, road sign]
+      - [limitation de vitesse, speed limit]
+
+  - id: mobility-b1-01.e2
+    type: match_pairs
+    pairs:
+      - [déviation, detour]
+      - [chantier, roadworks]
+      - [correspondance, transfer]
+      - [navette, shuttle]
+      - [trajet, route]
+
+  - id: mobility-b1-01.e3
+    type: match_pairs
+    pairs:
+      - [borne de recharge, charging station]
+      - [pneu, tire]
+      - [réparation, repair]
+      - [autopartage, car sharing]
+      - [trottinette, scooter]
+
+  - id: mobility-b1-01.e4
+    type: mcq
+    prompt: "« Il faut ___ un casque à vélo. »"
+    options: ["porter", "porte", "portez"]
+    answer: "porter"
+    explain: "il faut is always followed by the infinitive: il faut porter."
+
+  - id: mobility-b1-01.e5
+    type: mcq
+    prompt: "An electric car needs « une ___ »."
+    options: ["borne de recharge", "déviation", "correspondance"]
+    answer: "borne de recharge"
+    explain: "une borne de recharge = a charging station."
+
+  - id: mobility-b1-01.e6
+    type: word_bank
+    prompt: "Build: “parking is forbidden here”"
+    tokens: [Le, stationnement, est, interdit, ici, péage]
+    answer: [Le, stationnement, est, interdit, ici]
+
+  - id: mobility-b1-01.e7
+    type: translate
+    prompt: "Translate: “car insurance”"
+    answer: "l'assurance auto"
+    accept: ["assurance auto", "une assurance auto"]
+
+  - id: mobility-b1-01.e8
+    type: listen_type
+    audio_ref: b1/audio/deviation.mp3
+    answer: déviation
+    prompt: "Type the word you hear."

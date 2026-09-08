@@ -1,0 +1,66 @@
+id: argent-b1-04
+title: "Banking & taxes"
+grammar_point: "numbers and rates in context"
+grammar_category: "Expressions & communication"
+est_minutes: 8
+new_vocab: [compte_epargne, interet, taux_interet, pret_bancaire, faillite, cote_credit, marge_credit, placement, fonds, courtier, succession, testament, don, declaration_revenus, credit_impot, frais_bancaires, solde, devise]
+pass_threshold: 8.0
+exercises:
+  - id: argent-b1-04.e1
+    type: match_pairs
+    pairs:
+      - [compte d'épargne, savings account]
+      - [prêt bancaire, bank loan]
+      - [marge de crédit, line of credit]
+      - [cote de crédit, credit score]
+      - [frais bancaires, bank fees]
+
+  - id: argent-b1-04.e2
+    type: match_pairs
+    pairs:
+      - [taux d'intérêt, interest rate]
+      - [placement, investment]
+      - [fonds, fund]
+      - [courtier, broker]
+      - [devise, currency]
+
+  - id: argent-b1-04.e3
+    type: match_pairs
+    pairs:
+      - [déclaration de revenus, tax return]
+      - [crédit d'impôt, tax credit]
+      - [succession, estate]
+      - [testament, will]
+      - [faillite, bankruptcy]
+
+  - id: argent-b1-04.e4
+    type: mcq
+    prompt: "« Ma ___ de crédit est excellente. »"
+    options: ["cote", "marge", "devise"]
+    answer: "cote"
+    explain: "la cote de crédit = credit score; la marge de crédit = line of credit."
+
+  - id: argent-b1-04.e5
+    type: mcq
+    prompt: "In Canada you file « une ___ » every spring."
+    options: ["déclaration de revenus", "succession", "faillite"]
+    answer: "déclaration de revenus"
+    explain: "la déclaration de revenus = the annual tax return."
+
+  - id: argent-b1-04.e6
+    type: word_bank
+    prompt: "Build: “the interest rate is high”"
+    tokens: [Le, taux, d'intérêt, est, élevé, solde]
+    answer: [Le, taux, d'intérêt, est, élevé]
+
+  - id: argent-b1-04.e7
+    type: translate
+    prompt: "Translate: “a savings account”"
+    answer: "un compte d'épargne"
+    accept: ["compte d'épargne"]
+
+  - id: argent-b1-04.e8
+    type: listen_type
+    audio_ref: b1/audio/testament.mp3
+    answer: testament
+    prompt: "Type the word you hear."

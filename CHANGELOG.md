@@ -310,3 +310,5 @@
 - [2026-09-08] Modified: web/src/screens/Path.tsx — map all 37 authored unit icon names to emoji (only wave/coffee were mapped; every other unit rendered a generic 📘)
 - [2026-09-08] Created: content/a2/lessons/{money,nature,studies,sports,celebrations,communication,people,emergencies}-a2-01.yaml + {travail,sante,transport}-a2-04.yaml — 11 A2 lessons teaching the 211 untaught A2 words; A2 now 417/417 taught
 - [2026-09-08] Modified: content/a2/path.yaml — 11 new units (a2.u13–u23)
+- [2026-09-08] Created: content/b1/lessons/{immigration,travail,logement,argent}-b1-04.yaml + {rights,relationships,tourism,food,mobility,arts,technology}-b1-01.yaml + health-b1-{01,02}.yaml — 13 B1 lessons teaching the 251 untaught B1 words; B1 now 431/431 taught
+- [2026-09-08] Modified: content/b1/path.yaml — 12 new units (b1.u11–u22)

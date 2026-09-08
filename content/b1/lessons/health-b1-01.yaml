@@ -1,0 +1,66 @@
+id: health-b1-01
+title: "Seeing a doctor"
+grammar_point: "describing symptoms in the past: j'ai eu, je suis allé"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 8
+new_vocab: [consultation, diagnostic, traitement, chirurgie, analyse, radiographie, specialiste, generaliste, assurance_maladie, carte_assurance, suivi, retablissement, douleur, allergie, antibiotique, effets_secondaires, hospitalisation, consulter]
+pass_threshold: 8.0
+exercises:
+  - id: health-b1-01.e1
+    type: match_pairs
+    pairs:
+      - [consultation, appointment]
+      - [diagnostic, diagnosis]
+      - [traitement, treatment]
+      - [chirurgie, surgery]
+      - [analyse, test]
+
+  - id: health-b1-01.e2
+    type: match_pairs
+    pairs:
+      - [radiographie, X-ray]
+      - [spécialiste, specialist]
+      - [médecin généraliste, family doctor]
+      - [hospitalisation, hospital stay]
+      - [suivi, follow-up]
+
+  - id: health-b1-01.e3
+    type: match_pairs
+    pairs:
+      - [douleur, pain]
+      - [allergie, allergy]
+      - [antibiotique, antibiotic]
+      - [effets secondaires, side effects]
+      - [rétablissement, recovery]
+
+  - id: health-b1-01.e4
+    type: mcq
+    prompt: "In Québec you show your « ___ » at the clinic."
+    options: ["carte d'assurance maladie", "assurance voyage", "attestation"]
+    answer: "carte d'assurance maladie"
+    explain: "The RAMQ health card — la carte d'assurance maladie."
+
+  - id: health-b1-01.e5
+    type: mcq
+    prompt: "« Je suis ___ chez le médecin hier. »"
+    options: ["allé", "allée aller", "vais"]
+    answer: "allé"
+    explain: "aller takes être in the passé composé: je suis allé(e)."
+
+  - id: health-b1-01.e6
+    type: word_bank
+    prompt: "Build: “I have to see a specialist”"
+    tokens: [Je, dois, consulter, un, spécialiste, suivi]
+    answer: [Je, dois, consulter, un, spécialiste]
+
+  - id: health-b1-01.e7
+    type: translate
+    prompt: "Translate: “side effects”"
+    answer: "les effets secondaires"
+    accept: ["effets secondaires"]
+
+  - id: health-b1-01.e8
+    type: listen_type
+    audio_ref: b1/audio/radiographie.mp3
+    answer: radiographie
+    prompt: "Type the word you hear."

@@ -1,0 +1,66 @@
+id: immigration-b1-04
+title: "Your immigration file"
+grammar_point: "administrative vocabulary in the passive: être accepté, être refusé"
+grammar_category: "Sentence structures"
+est_minutes: 8
+new_vocab: [carte_residence, demandeur_asile, recevabilite, admissibilite, biometrie, empreintes_digitales, casier_judiciaire, certificat_selection, garant, regroupement_familial, travailleur_qualifie, equivalence_diplome, reconnaissance_acquis, titre_sejour, renouvellement, expiration, refus, delai_traitement, frais_dossier, residence_temporaire]
+pass_threshold: 8.0
+exercises:
+  - id: immigration-b1-04.e1
+    type: match_pairs
+    pairs:
+      - [carte de résidence permanente, PR card]
+      - [certificat de sélection du Québec, CSQ]
+      - [titre de séjour, residence permit]
+      - [résidence temporaire, temporary residence]
+      - [regroupement familial, family reunification]
+
+  - id: immigration-b1-04.e2
+    type: match_pairs
+    pairs:
+      - [recevabilité, admissibility]
+      - [admissibilité, eligibility]
+      - [délai de traitement, processing time]
+      - [frais de dossier, application fee]
+      - [refus, refusal]
+
+  - id: immigration-b1-04.e3
+    type: match_pairs
+    pairs:
+      - [biométrie, biometrics]
+      - [empreintes digitales, fingerprints]
+      - [casier judiciaire, criminal record]
+      - [garant, sponsor]
+      - [travailleur qualifié, skilled worker]
+
+  - id: immigration-b1-04.e4
+    type: mcq
+    prompt: "To immigrate to Québec as a skilled worker you first need a…"
+    options: ["certificat de sélection du Québec", "casier judiciaire", "titre de séjour"]
+    answer: "certificat de sélection du Québec"
+    explain: "The CSQ is Québec's selection certificate, issued before the federal PR step."
+
+  - id: immigration-b1-04.e5
+    type: mcq
+    prompt: "« Ma demande a été ___. » (refused)"
+    options: ["refusée", "refusé", "refuser"]
+    answer: "refusée"
+    explain: "demande is feminine → refusée. The passive agrees with the subject."
+
+  - id: immigration-b1-04.e6
+    type: word_bank
+    prompt: "Build: “I have to renew my permit”"
+    tokens: [Je, dois, renouveler, mon, permis, refus]
+    answer: [Je, dois, renouveler, mon, permis]
+
+  - id: immigration-b1-04.e7
+    type: translate
+    prompt: "Translate: “recognition of prior learning”"
+    answer: "la reconnaissance des acquis"
+    accept: ["reconnaissance des acquis"]
+
+  - id: immigration-b1-04.e8
+    type: listen_type
+    audio_ref: b1/audio/expiration.mp3
+    answer: expiration
+    prompt: "Type the word you hear."
