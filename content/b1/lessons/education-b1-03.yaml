@@ -2,7 +2,7 @@ id: education-b1-03
 title: "Research and learning (review)"
 grammar_point: "révision : le monde des études"
 grammar_category: "Expressions & communication"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [memoire, recherche, enseignement, enseignant, inscription, niveau, autonomie, pedagogie, savoir, etudes]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,10 @@ exercises:
       - [enseignant, teacher]
       - [recherche, research]
       - [niveau, level]
+      - ["savoir", "knowledge, know-how"]
+  - id: education-b1-03.e6
+    type: mcq
+    prompt: "« L'___ au cours de français commence en août. »"
+    options: ["inscription", "enseignement", "pédagogie"]
+    answer: "inscription"
+    explain: "l'inscription = enrolment ; l'enseignement = the teaching itself."

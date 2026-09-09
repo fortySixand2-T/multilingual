@@ -2,7 +2,7 @@ id: environnement-b1-03
 title: "Citizens & society — review"
 grammar_point: "consolidating environment vocabulary"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [planete, nature, citoyen, solidarite, biodiversite, developpement_durable, ressource, espece, transition, empreinte]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,16 @@ exercises:
       - [planète, planet]
       - [citoyen, citizen]
       - [solidarité, solidarity]
+  - id: environnement-b1-03.e6
+    type: match_pairs
+    pairs:
+      - ["biodiversité", "biodiversity"]
+      - ["développement durable", "sustainable development"]
+      - ["transition", "transition"]
+
+  - id: environnement-b1-03.e7
+    type: mcq
+    prompt: "« Réduire son ___ carbone, c'est agir pour la planète. »"
+    options: ["empreinte", "espèce", "ressource"]
+    answer: "empreinte"
+    explain: "l'empreinte carbone = the carbon footprint."

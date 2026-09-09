@@ -2,7 +2,7 @@ id: conseils-b1-03
 title: "Pros & cons — review"
 grammar_point: "consolidating advice vocabulary"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [avantage, inconvenient, hypothese, erreur, recommandation, alternative, precaution, doute, compromis, bilan]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,16 @@ exercises:
       - [avantage, advantage]
       - [inconvénient, drawback]
       - [erreur, mistake]
+  - id: conseils-b1-03.e6
+    type: match_pairs
+    pairs:
+      - ["recommandation", "recommendation"]
+      - ["alternative", "alternative"]
+      - ["précaution", "precaution"]
+
+  - id: conseils-b1-03.e7
+    type: mcq
+    prompt: "« Après discussion, ils ont trouvé un ___ acceptable pour tous. »"
+    options: ["compromis", "doute", "bilan"]
+    answer: "compromis"
+    explain: "un compromis = a compromise, accepté par les deux côtés."

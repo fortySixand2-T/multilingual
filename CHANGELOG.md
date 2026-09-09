@@ -325,3 +325,5 @@
 - [2026-09-08] Modified: content/b2/lessons/{alimentation-b2-03,culture-b2-02,environnement-b2-02,politique-b2-01,politique-b2-02,sante-b2-01,sante-b2-02,sante-b2-03,travail-b2-01,travail-b2-03,ville-b2-01,ville-b2-03}.yaml — added a contextual exercise to each so its unpracticed new_vocab word is actually taught (12 words); est_minutes 7→8
 - [2026-09-08] Modified: tests/test_vocab_coverage.py — tightened the headword matcher (no unrelated prefix matches, whole multi-word phrases required), fixed the word_bank blob join, added matcher regression tests; refreshed KNOWN_GAPS
 - [2026-09-08] Modified: content/b2/lessons/{alimentation-b2-02,culture-b2-03,politique-b2-04,ville-b2-02}.yaml — taught 4 words the loose matcher had wrongly counted as covered
+- [2026-09-09] Modified: content/b1/lessons/*.yaml (14 files) — taught the 56 unpracticed new_vocab words (generated match_pairs + one hand-written contextual exercise per lesson)
+- [2026-09-09] Modified: tests/test_vocab_coverage.py — cleared all b1 entries from KNOWN_GAPS (now 36 lessons / 184 words)

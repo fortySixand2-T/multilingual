@@ -2,7 +2,7 @@ id: medias-b1-03
 title: "Social media & opinions — review"
 grammar_point: "consolidating media vocabulary"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [reseau_social, rumeur, debat, influence, presse, reportage, censure, desinformation, audience, source]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,16 @@ exercises:
       - [rumeur, rumour]
       - [débat, debate]
       - [influence, influence]
+  - id: medias-b1-03.e6
+    type: match_pairs
+    pairs:
+      - ["réseau social", "social network"]
+      - ["presse", "the press"]
+      - ["reportage", "report, news story"]
+
+  - id: medias-b1-03.e7
+    type: mcq
+    prompt: "« Avant de partager une information, vérifie toujours la ___. »"
+    options: ["source", "censure", "audience"]
+    answer: "source"
+    explain: "la source = the source ; c'est le premier réflexe contre la désinformation."

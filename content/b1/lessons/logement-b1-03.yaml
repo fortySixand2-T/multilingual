@@ -2,7 +2,7 @@ id: logement-b1-03
 title: "Moving and ownership (review)"
 grammar_point: "révision : le logement"
 grammar_category: "Expressions & communication"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [demenagement, charges, agence_immobiliere, surface, chauffage, ameublement, emmenager, hypotheque, banlieue, copropriete]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,10 @@ exercises:
       - [déménagement, "moving house"]
       - [chauffage, heating]
       - [banlieue, suburb]
+      - ["ameublement", "furnishings"]
+  - id: logement-b1-03.e6
+    type: mcq
+    prompt: "« Pour acheter, il a dû contracter une ___ sur vingt ans. »"
+    options: ["hypothèque", "copropriété", "agence immobilière"]
+    answer: "hypothèque"
+    explain: "une hypothèque = a mortgage ; une copropriété = a condo."

@@ -2,7 +2,7 @@ id: immigration-b1-04
 title: "Your immigration file"
 grammar_point: "administrative vocabulary in the passive: être accepté, être refusé"
 grammar_category: "Sentence structures"
-est_minutes: 8
+est_minutes: 9
 new_vocab: [carte_residence, demandeur_asile, recevabilite, admissibilite, biometrie, empreintes_digitales, casier_judiciaire, certificat_selection, garant, regroupement_familial, travailleur_qualifie, equivalence_diplome, reconnaissance_acquis, titre_sejour, renouvellement, expiration, refus, delai_traitement, frais_dossier, residence_temporaire]
 pass_threshold: 8.0
 exercises:
@@ -69,3 +69,10 @@ exercises:
     type: match_pairs
     pairs:
       - ["équivalence de diplôme", "credential equivalence"]
+      - ["demandeur d'asile", "asylum seeker"]
+  - id: immigration-b1-04.e10
+    type: mcq
+    prompt: "« Sa demande a été acceptée : le ___ de son permis est confirmé. »"
+    options: ["renouvellement", "dépôt", "refus"]
+    answer: "renouvellement"
+    explain: "Le renouvellement = the renewal ; forme passive : « a été accepté »."

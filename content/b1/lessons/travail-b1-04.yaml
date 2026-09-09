@@ -2,7 +2,7 @@ id: travail-b1-04
 title: "Applying and being hired"
 grammar_point: "formal register in a job application"
 grammar_category: "Expressions & communication"
-est_minutes: 8
+est_minutes: 9
 new_vocab: [lettre_motivation, offre_emploi, affichage_poste, periode_essai, convention_collective, heures_supplementaires, avantages_sociaux, assurance_emploi, cotisation, retraite, anciennete, mentorat, reseautage, superviseur, portfolio, entrevue, reference, probation, conge_parental, horaire_flexible]
 pass_threshold: 8.0
 exercises:
@@ -70,3 +70,9 @@ exercises:
     pairs:
       - ["affichage de poste", "job listing"]
       - ["superviseur", "supervisor"]
+  - id: travail-b1-04.e10
+    type: mcq
+    prompt: "« La période de ___ dure trois mois avant la permanence. »"
+    options: ["probation", "vacances", "retraite"]
+    answer: "probation"
+    explain: "La période de probation = the probation period, au début d'un emploi."
