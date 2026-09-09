@@ -5,8 +5,8 @@ Covers:
 - 751: an over-accepting `accept` entry in food-04.e7.
 - 752/753/754: new_vocab words that were never shown in any exercise
   (adjectives-01, medias-b2-01, verbs-01, verbs-02).
-- 755: the systemic new_vocab/exercise-coverage gap across the round's new
-  lessons — every `new_vocab` id should be resolvable to a headword that
+- 755: the systemic new_vocab/exercise-coverage gap, now guarded across
+  *every* lesson at every level rather than just the round's new lessons — every `new_vocab` id should be resolvable to a headword that
   shows up somewhere in the lesson's own exercises (allowing for inflected/
   agreement forms via a stem match), since new_vocab is exactly what seeds
   SRS review cards on first lesson pass (`app.progress.api.seed_cards`).
@@ -29,48 +29,59 @@ CONTENT_ROOT = Path(__file__).resolve().parents[1] / "content"
 # literal/stemmed headword match can't detect.
 KNOWN_CONJUGATED_ONLY = {("a1", "verbs-01"): {"vouloir"}}
 
-TARGET_LESSONS = [
-    ("a1", "house-01"),
-    ("a1", "places-01"),
-    ("a1", "jobs-01"),
-    ("a1", "countries-01"),
-    ("a1", "verbs-01"),
-    ("a1", "verbs-02"),
-    ("a1", "adjectives-01"),
-    ("a2", "money-a2-01"),
-    ("a2", "nature-a2-01"),
-    ("a2", "studies-a2-01"),
-    ("a2", "sports-a2-01"),
-    ("a2", "communication-a2-01"),
-    ("a2", "people-a2-01"),
-    ("a2", "emergencies-a2-01"),
-    ("a2", "travail-a2-04"),
-    ("a2", "sante-a2-04"),
-    ("a2", "transport-a2-04"),
-    ("b1", "immigration-b1-04"),
-    ("b1", "travail-b1-04"),
-    ("b1", "logement-b1-04"),
-    ("b1", "argent-b1-04"),
-    ("b1", "rights-b1-01"),
-    ("b1", "relationships-b1-01"),
-    ("b1", "tourism-b1-01"),
-    ("b1", "food-b1-01"),
-    ("b1", "mobility-b1-01"),
-    ("b1", "arts-b1-01"),
-    ("b1", "technology-b1-01"),
-    ("b2", "justice-b2-01"),
-    ("b2", "technologie-b2-01"),
-    ("b2", "education-b2-01"),
-    ("b2", "medias-b2-01"),
-    ("b2", "migration-b2-01"),
-    ("b2", "entreprise-b2-01"),
-    ("b2", "psychologie-b2-01"),
-    ("b2", "histoire-b2-01"),
-    ("b2", "sante-b2-04"),
-    ("b2", "societe-b2-04"),
-    ("b2", "environnement-b2-04"),
-    ("b2", "economie-b2-04"),
-]
+LEVELS = ("a1", "a2", "b1", "b2")
+
+# Legacy lessons that predate the round-055 arc and still have `new_vocab` words
+# their own exercises never show. Tracked explicitly, and closed level by level
+# (see docs/legacy-lesson-coherence-plan.md). This mapping may only ever shrink:
+# `test_known_gaps_are_not_stale` fails if an entry is already fixed, and
+# `test_all_lessons_new_vocab_is_practiced_in_exercises` fails if a lesson grows
+# a gap that is not recorded here.
+KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
+    ("a1", "cafe-03"): {'chocolat_chaud', 'citron', 'croissant', 'glacon', 'limonade', 'pourboire', 'tasse', 'terrasse'},
+    ("a1", "directions-01"): {'rue'},
+    ("a1", "directions-03"): {'carrefour', 'coin', 'feu', 'nord', 'place', 'pont', 'pres', 'sud'},
+    ("a1", "family-02"): {'epouse'},
+    ("a1", "family-03"): {'bebe', 'cousin', 'cousine', 'grand_mere', 'grand_pere', 'oncle', 'parents', 'tante'},
+    ("a1", "greetings-03"): {'a_demain', 'bienvenue', 'bonne_nuit', 'desole', 'madame', 'mademoiselle', 'monsieur', 'stp'},
+    ("a1", "numbers-03"): {'cinquante', 'mille', 'quarante', 'quatorze', 'quinze', 'seize', 'treize', 'trente'},
+    ("a1", "restaurant-02"): {'banane', 'beurre', 'fruit', 'gateau', 'poivre', 'salade', 'sel', 'tomate'},
+    ("a1", "restaurant-03"): {'bon_appetit', 'chef', 'delicieux', 'fourchette', 'nappe', 'plat_du_jour', 'vegetarien'},
+    ("a1", "shopping-01"): {'carte'},
+    ("a1", "shopping-03"): {'client', 'essayer', 'gratuit', 'monnaie', 'panier', 'payer', 'recu', 'vendeur'},
+    ("a1", "time-01"): {'heure'},
+    ("a1", "time-03"): {'annee', 'hier', 'maintenant', 'minute', 'mois', 'semaine', 'soir'},
+    ("a1", "weather-01"): {'meteo', 'soleil'},
+    ("a1", "weather-03"): {'brouillard', 'ciel', 'degre', 'humide', 'mauvais_temps', 'parapluie', 'saison', 'temperature'},
+    ("a2", "cuisine-a2-01"): {'four'},
+    ("a2", "cuisine-a2-03"): {'bouillir', 'couper', 'cuire', 'eplucher', 'gouter', 'ingredient', 'poele', 'saler'},
+    ("a2", "loisirs-a2-01"): {'loisir', 'sport'},
+    ("a2", "loisirs-a2-03"): {'concert', 'dessiner', 'equipe', 'jardiner', 'peindre', 'photographie', 'voyager'},
+    ("a2", "maison-a2-03"): {'canape', 'cle', 'escalier', 'etage', 'lit', 'mur', 'toit'},
+    ("a2", "routine-a2-01"): {'se_laver', 'se_lever', 'shabiller'},
+    ("a2", "routine-a2-03"): {'dejeuner', 'diner', 'habitude', 'petit_dejeuner', 'se_brosser', 'se_depecher', 'se_doucher', 'se_reposer'},
+    ("a2", "sante-a2-01"): {'avoir_mal', 'medicament', 'sante'},
+    ("a2", "sante-a2-03"): {'bras', 'dos', 'fievre', 'ordonnance', 'pharmacie', 'pied', 'rhume', 'toux'},
+    ("a2", "sentiments-a2-01"): {'aimer', 'fatigue', 'triste'},
+    ("a2", "sentiments-a2-03"): {'ennuye', 'fier', 'inquiet', 'jaloux', 'pleurer', 'rire', 'sourire', 'surpris'},
+    ("a2", "transport-a2-01"): {'conduire'},
+    ("a2", "transport-a2-03"): {'bateau', 'essence', 'horaire', 'permis', 'quai', 'retard', 'taxi', 'train'},
+    ("a2", "travail-a2-03"): {'carriere', 'chomage', 'competence', 'contrat', 'diplome', 'entretien', 'experience', 'stage'},
+    ("a2", "vetements-a2-01"): {'chaussures', 'vetement'},
+    ("a2", "vetements-a2-03"): {'ceinture', 'couleur', 'cravate', 'echarpe', 'gant', 'pull', 'short'},
+    ("a2", "voyage-a2-01"): {'voyage'},
+    ("a2", "voyage-a2-03"): {'depart', 'douane', 'frontiere', 'guide', 'itineraire', 'sejour', 'souvenir'},
+    ("b1", "argent-b1-03"): {'decouvert', 'pouvoir_achat', 'prelevement'},
+    ("b1", "conseils-b1-03"): {'alternative', 'bilan', 'compromis', 'doute', 'precaution', 'recommandation'},
+    ("b1", "education-b1-03"): {'inscription', 'pedagogie', 'savoir'},
+    ("b1", "environnement-b1-03"): {'biodiversite', 'developpement_durable', 'empreinte', 'espece', 'ressource'},
+    ("b1", "immigration-b1-03"): {'administration', 'installation', 'naturalisation'},
+    ("b1", "logement-b1-03"): {'agence_immobiliere', 'ameublement', 'copropriete', 'hypotheque'},
+    ("b1", "medias-b1-03"): {'audience', 'censure', 'desinformation', 'presse', 'reportage', 'source'},
+    ("b1", "mode-de-vie-b1-03"): {'epanouissement', 'exercice', 'hygiene', 'sedentarite', 'surmenage', 'vitalite'},
+    ("b1", "projets-b1-03"): {'motivation', 'obstacle', 'perseverance', 'planification', 'priorite', 'progres'},
+    ("b1", "travail-b1-03"): {'avancement', 'demission', 'hierarchie', 'mutation', 'negociation', 'reconversion'},
+}
 
 _ARTICLES = ("le ", "la ", "les ", "l'", "un ", "une ", "des ")
 
@@ -170,14 +181,38 @@ def test_anchor_lessons_have_no_unpracticed_new_vocab():
         assert missing == [], f"{level}/{lesson_id} still has unpracticed new_vocab: {missing}"
 
 
-def test_round_055_lessons_new_vocab_is_practiced_in_exercises():
-    """Issue 755: across the round's new lessons, every new_vocab id should be
-    shown (verbatim or via an inflected/agreement stem) in at least one of the
-    lesson's own exercises — new_vocab seeds SRS cards on first pass, so a gap
-    here means a learner is quizzed on a word they were never shown."""
+def _iter_lessons():
+    for level in LEVELS:
+        bundle = load_content(CONTENT_ROOT, level)
+        for lesson_id, lesson in bundle.lessons.items():
+            if lesson.new_vocab:
+                yield level, lesson_id
+
+
+def test_all_lessons_new_vocab_is_practiced_in_exercises():
+    """Every lesson's `new_vocab` should be shown (verbatim or via an inflected
+    stem) in at least one of that lesson's own exercises — `new_vocab` seeds SRS
+    cards on first pass, so a gap means a learner is quizzed on a word they were
+    never taught. Known legacy gaps are carved out via KNOWN_GAPS."""
     failures = {}
-    for level, lesson_id in TARGET_LESSONS:
-        missing = _missing_words(level, lesson_id)
-        if missing:
-            failures[f"{level}/{lesson_id}"] = missing
+    for level, lesson_id in _iter_lessons():
+        missing = set(_missing_words(level, lesson_id))
+        allowed = KNOWN_GAPS.get((level, lesson_id), set())
+        unexpected = missing - allowed
+        if unexpected:
+            failures[f"{level}/{lesson_id}"] = sorted(unexpected)
     assert not failures, f"new_vocab words never shown in exercises: {failures}"
+
+
+def test_known_gaps_are_not_stale():
+    """KNOWN_GAPS may only shrink. Once a legacy lesson is fixed, its entry has
+    to be deleted, so the carve-out can never quietly outlive the defect."""
+    stale = {}
+    for (level, lesson_id), allowed in KNOWN_GAPS.items():
+        missing = set(_missing_words(level, lesson_id))
+        fixed = allowed - missing
+        if fixed:
+            stale[f"{level}/{lesson_id}"] = sorted(fixed)
+    assert not stale, (
+        "these words are now practiced -- remove them from KNOWN_GAPS: " f"{stale}"
+    )
