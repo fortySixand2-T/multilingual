@@ -99,6 +99,7 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
         "fourchette",
         "nappe",
         "plat_du_jour",
+        "serviette",
         "vegetarien",
     },
     ("a1", "shopping-01"): {"carte"},
@@ -113,7 +114,7 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
         "vendeur",
     },
     ("a1", "time-01"): {"heure"},
-    ("a1", "time-03"): {"annee", "hier", "maintenant", "minute", "mois", "semaine", "soir"},
+    ("a1", "time-03"): {"annee", "hier", "jour", "maintenant", "minute", "mois", "semaine", "soir"},
     ("a1", "weather-01"): {"meteo", "soleil"},
     ("a1", "weather-03"): {
         "brouillard",
@@ -136,6 +137,7 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
         "poele",
         "saler",
     },
+    ("a2", "emergencies-a2-01"): {"blesse"},
     ("a2", "loisirs-a2-01"): {"loisir", "sport"},
     ("a2", "loisirs-a2-03"): {
         "concert",
@@ -180,6 +182,7 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
         "sourire",
         "surpris",
     },
+    ("a2", "sports-a2-01"): {"entrainement", "patin"},
     ("a2", "transport-a2-01"): {"conduire"},
     ("a2", "transport-a2-03"): {
         "bateau",
@@ -191,6 +194,7 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
         "taxi",
         "train",
     },
+    ("a2", "travail-a2-02"): {"chercher_travail"},
     ("a2", "travail-a2-03"): {
         "carriere",
         "chomage",
@@ -204,6 +208,7 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
     ("a2", "vetements-a2-01"): {"chaussures", "vetement"},
     ("a2", "vetements-a2-03"): {
         "ceinture",
+        "chaussette",
         "couleur",
         "cravate",
         "echarpe",
@@ -211,7 +216,7 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
         "pull",
         "short",
     },
-    ("a2", "voyage-a2-01"): {"voyage"},
+    ("a2", "voyage-a2-01"): {"partir", "voyage"},
     ("a2", "voyage-a2-03"): {
         "depart",
         "douane",
@@ -230,24 +235,29 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
         "precaution",
         "recommandation",
     },
-    ("b1", "education-b1-03"): {"inscription", "pedagogie", "savoir"},
+    ("b1", "education-b1-03"): {"enseignement", "inscription", "pedagogie", "savoir"},
     ("b1", "environnement-b1-03"): {
         "biodiversite",
         "developpement_durable",
         "empreinte",
         "espece",
         "ressource",
+        "transition",
     },
     ("b1", "immigration-b1-03"): {"administration", "installation", "naturalisation"},
+    ("b1", "immigration-b1-04"): {"demandeur_asile", "renouvellement"},
     ("b1", "logement-b1-03"): {"agence_immobiliere", "ameublement", "copropriete", "hypotheque"},
+    ("b1", "logement-b1-04"): {"syndic"},
     ("b1", "medias-b1-03"): {
         "audience",
         "censure",
         "desinformation",
         "presse",
         "reportage",
+        "reseau_social",
         "source",
     },
+    ("b1", "mobility-b1-01"): {"electrique"},
     ("b1", "mode-de-vie-b1-03"): {
         "epanouissement",
         "exercice",
@@ -272,6 +282,7 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
         "negociation",
         "reconversion",
     },
+    ("b1", "travail-b1-04"): {"probation"},
 }
 
 _ARTICLES = ("le ", "la ", "les ", "l'", "un ", "une ", "des ")
@@ -301,7 +312,10 @@ def _exercise_blob(ex: Exercise) -> str:
         if ex.explain:
             parts.append(ex.explain)
     elif t == "word_bank":
-        parts = [*ex.tokens, *ex.answer, ex.prompt]
+        # the joined answer is the sentence the learner actually builds, so a
+        # multi-word headword can be matched contiguously; tokens are kept too
+        # (a distractor tile still shows the word).
+        parts = [" ".join(ex.answer), *ex.tokens, ex.prompt]
     elif t == "translate":
         parts = [ex.answer, *(ex.accept or []), ex.prompt]
     elif t == "listen_type":
@@ -312,16 +326,35 @@ def _exercise_blob(ex: Exercise) -> str:
 
 
 def _shown_in_lesson(headword_norm: str, blob_norm: str) -> bool:
-    """True if the headword (or a plausible inflected/agreement stem of it)
-    appears in the lesson's exercise text."""
-    if headword_norm in blob_norm:
-        return True
-    for cut in range(0, max(len(headword_norm) - 3, 0)):
-        stem = headword_norm[: len(headword_norm) - cut]
-        if len(stem) < 4:
+    """True if the headword appears in the lesson's exercise text, allowing for
+    inflection but not for unrelated words that merely share a prefix.
+
+    A bare prefix match is far too loose: it let *serviette* pass on "serveur",
+    *chaussette* on "chaussures", *transition* on the English prompt word
+    "translate:", and *souveraineté alimentaire* on "souvent". So:
+
+    - a multi-word headword must appear as a contiguous phrase, not just its
+      first word (*transport en commun* is not taught by showing "transport");
+    - a single word may lose at most 2 trailing characters to reach a stem, and
+      the word it matches may add at most 2 (enough for -e/-s/-es/-ez/-nt
+      agreement and common conjugations, not enough for a different lemma).
+    """
+    words = headword_norm.split()
+    if len(words) > 1:
+        pattern = r"\b" + r"\s+".join(re.escape(w) for w in words)
+        return re.search(pattern, blob_norm) is not None
+
+    # Short headwords are never trimmed (there is no stem left to speak of),
+    # but still take the plural/agreement suffix -- "ami" is shown by "amis".
+    min_stem = min(len(headword_norm), 4)
+
+    for trim in range(0, 3):
+        stem = headword_norm[: len(headword_norm) - trim]
+        if len(stem) < min_stem:
             break
-        if re.search(r"\b" + re.escape(stem), blob_norm):
-            return True
+        for m in re.finditer(r"\b" + re.escape(stem) + r"(\w*)", blob_norm):
+            if len(m.group(1)) <= 2:
+                return True
     return False
 
 
@@ -405,3 +438,54 @@ def test_known_gaps_are_not_stale():
         if fixed:
             stale[f"{level}/{lesson_id}"] = sorted(fixed)
     assert not stale, f"these words are now practiced -- remove them from KNOWN_GAPS: {stale}"
+
+
+def test_shown_in_lesson_rejects_unrelated_prefix_matches():
+    """The matcher used to accept any word sharing a 4-char prefix, so lessons
+    counted as teaching a word they never showed: `serviette` passed on
+    "serveur", `chaussette` on "chaussures", `patin` on "patinoire", and
+    `transition` / `probation` / `electrique` on the English prompt and gloss
+    text ("translate:", "probationary", "electric")."""
+    for headword, blob in [
+        ("serviette", "le serveur | waiter"),
+        ("chaussette", "chaussures | shoes"),
+        ("patin", "patinoire | skating rink"),
+        ("transition", "translate: “the climate”"),
+        ("probation", "probationary period"),
+        ("electrique", "electric"),
+        ("partir", "past participle"),
+        ("jour", "aujourdhui"),
+        ("entrainement", "entraineur | coach"),
+        ("blesse", "blessure | injury"),
+    ]:
+        assert not _shown_in_lesson(_norm(headword), _norm(blob)), (
+            f"{headword!r} should not count as shown by {blob!r}"
+        )
+
+
+def test_shown_in_lesson_still_accepts_real_inflections():
+    """Tightening the matcher must not lose genuine agreement/conjugation
+    forms, which is the whole reason it is not an equality check."""
+    for headword, blob in [
+        ("regarder", "je regarde la télé"),
+        ("ajouter", "on ajoute du sel"),
+        ("aider", "aidez-moi !"),
+        ("brancher", "branchez, puis attendez"),
+        ("compostage", "en compostant les restes"),
+        ("ami", "mes amis | my friends"),
+        ("arrivee", "il arrive demain"),
+    ]:
+        assert _shown_in_lesson(_norm(headword), _norm(blob)), (
+            f"{headword!r} should count as shown by {blob!r}"
+        )
+
+
+def test_shown_in_lesson_requires_whole_multiword_phrase():
+    """A multi-word headword is not taught by showing only its first word --
+    `transport en commun` is not covered by "transport"."""
+    assert not _shown_in_lesson(_norm("transport en commun"), _norm("transport | voirie"))
+    assert _shown_in_lesson(
+        _norm("transport en commun"), _norm("le transport en commun est frequent")
+    )
+    # word_bank answers are joined into a sentence so the phrase stays contiguous
+    assert _shown_in_lesson(_norm("beau temps"), _norm("il fait beau temps aujourdhui"))

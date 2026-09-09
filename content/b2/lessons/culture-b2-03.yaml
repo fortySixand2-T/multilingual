@@ -2,7 +2,7 @@ id: culture-b2-03
 title: "Cultural life — consequence & synthesis"
 grammar_point: "l'expression de la conséquence (si bien que, par conséquent)"
 grammar_category: "Logical connectors"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [peinture, festival, representation, mecenat, conservation, diffusion]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["représentation", "performance"]
       - ["mécénat", "patronage"]
       - ["diffusion", "broadcasting"]
+  - id: culture-b2-03.e6
+    type: mcq
+    prompt: "« Le musée a restauré ses toiles, ___ la conservation des œuvres est assurée. »"
+    options: ["par conséquent", "bien que", "à moins que"]
+    answer: "par conséquent"
+    explain: "« Par conséquent » introduit la conséquence ; la conservation = conservation, preservation."

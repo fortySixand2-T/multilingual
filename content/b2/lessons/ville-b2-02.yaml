@@ -2,7 +2,7 @@ id: ville-b2-02
 title: "Mobility & proportion"
 grammar_point: "la proportion : « plus … plus », « moins … moins »"
 grammar_category: "Adjectives & comparison"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [pieton, infrastructure, gentrification, logement_social, transport_commun, voirie]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["gentrification", "gentrification"]
       - ["voirie", "roads"]
       - ["logement social", "social housing"]
+  - id: ville-b2-02.e6
+    type: mcq
+    prompt: "« Plus le transport en commun est fréquent, moins la voirie est ___. »"
+    options: ["saturée", "saturé", "saturer"]
+    answer: "saturée"
+    explain: "Accord avec « la voirie » (féminin) ; le transport en commun = public transit."
