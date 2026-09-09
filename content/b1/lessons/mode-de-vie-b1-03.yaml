@@ -2,7 +2,7 @@ id: mode-de-vie-b1-03
 title: "Staying in shape — review"
 grammar_point: "consolidating lifestyle vocabulary"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [effort, volonte, forme, prevention, epanouissement, exercice, surmenage, hygiene, vitalite, sedentarite]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,16 @@ exercises:
       - [effort, effort]
       - [volonté, willpower]
       - [prévention, prevention]
+  - id: mode-de-vie-b1-03.e6
+    type: match_pairs
+    pairs:
+      - ["exercice", "exercise"]
+      - ["hygiène", "hygiene"]
+      - ["sédentarité", "sedentary lifestyle"]
+
+  - id: mode-de-vie-b1-03.e7
+    type: mcq
+    prompt: "« Trop de travail sans repos mène au ___. »"
+    options: ["surmenage", "épanouissement", "vitalité"]
+    answer: "surmenage"
+    explain: "le surmenage = burnout ; l'épanouissement = fulfilment, son contraire."

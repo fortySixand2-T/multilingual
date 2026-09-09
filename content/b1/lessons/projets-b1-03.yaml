@@ -2,7 +2,7 @@ id: projets-b1-03
 title: "Making decisions — review"
 grammar_point: "consolidating future-plans vocabulary"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 7
 new_vocab: [etape, decision, changement, opportunite, planification, motivation, perseverance, obstacle, progres, priorite]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,11 @@ exercises:
       - [étape, "step, stage"]
       - [décision, decision]
       - [changement, change]
+      - ["motivation", "motivation"]
+      - ["progrès", "progress"]
+  - id: projets-b1-03.e6
+    type: mcq
+    prompt: "« Malgré les obstacles, sa ___ lui a permis de réussir. »"
+    options: ["persévérance", "planification", "priorité"]
+    answer: "persévérance"
+    explain: "la persévérance = perseverance, tenir malgré les obstacles."

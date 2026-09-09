@@ -2,7 +2,7 @@ id: travail-b1-03
 title: "Work & rights — review"
 grammar_point: "consolidating work vocabulary"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [licenciement, freelance, syndicat, remuneration, mutation, hierarchie, reconversion, negociation, avancement, demission]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,16 @@ exercises:
       - [licenciement, dismissal]
       - [freelance, freelance]
       - [rémunération, pay]
+  - id: travail-b1-03.e6
+    type: match_pairs
+    pairs:
+      - ["reconversion", "career change, retraining"]
+      - ["négociation", "negotiation"]
+      - ["avancement", "advancement, progress"]
+
+  - id: travail-b1-03.e7
+    type: mcq
+    prompt: "« Il a donné sa ___ pour changer complètement de métier. »"
+    options: ["démission", "mutation", "hiérarchie"]
+    answer: "démission"
+    explain: "donner sa démission = to resign ; une mutation = a transfer."

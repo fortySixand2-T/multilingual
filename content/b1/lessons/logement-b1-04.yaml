@@ -2,7 +2,7 @@ id: logement-b1-04
 title: "Problems with your apartment"
 grammar_point: "reporting a problem: il y a / il faut"
 grammar_category: "Sentence structures"
-est_minutes: 8
+est_minutes: 9
 new_vocab: [sous_location, etat_lieux, depot_garantie, concierge, syndic, renovation, isolation, humidite, moisissure, infiltration, plomberie, electricite, climatisation, thermostat, sous_sol, rangement, expulsion, tribunal_logement]
 pass_threshold: 8.0
 exercises:
@@ -69,3 +69,9 @@ exercises:
     type: match_pairs
     pairs:
       - ["électricité", "electricity"]
+  - id: logement-b1-04.e10
+    type: mcq
+    prompt: "« Il y a une fuite dans le garage : il faut prévenir le ___. »"
+    options: ["syndic de copropriété", "propriétaire", "voisin"]
+    answer: "syndic de copropriété"
+    explain: "Le syndic de copropriété gère les parties communes de l'immeuble."

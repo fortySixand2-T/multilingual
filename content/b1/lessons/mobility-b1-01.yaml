@@ -2,7 +2,7 @@ id: mobility-b1-01
 title: "Driving & getting around"
 grammar_point: "impersonal il faut + infinitive for rules"
 grammar_category: "Sentence structures"
-est_minutes: 8
+est_minutes: 9
 new_vocab: [stationnement, autoroute, peage, panneau, limitation, casque, deviation, chantier, correspondance, navette, trajet, titre_transport, borne_recharge, electrique, pneu, reparation, assurance_auto, conducteur, auto_partage, trottinette]
 pass_threshold: 8.0
 exercises:
@@ -70,3 +70,9 @@ exercises:
     pairs:
       - ["titre de transport", "transit fare, pass"]
       - ["conducteur", "driver"]
+  - id: mobility-b1-01.e10
+    type: mcq
+    prompt: "« Pour recharger une voiture électrique, il faut ___ une borne. »"
+    options: ["utiliser", "utilise", "utilisant"]
+    answer: "utiliser"
+    explain: "« il faut » + infinitif ; une voiture électrique = an electric car."

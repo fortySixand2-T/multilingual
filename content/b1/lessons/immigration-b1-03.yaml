@@ -2,7 +2,7 @@ id: immigration-b1-03
 title: "Administrative steps (review)"
 grammar_point: "révision : l'immigration et la citoyenneté"
 grammar_category: "Expressions & communication"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [demarche, formulaire, administration, naturalisation, refugie, accueil, installation, demande, parrainage, statut]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,9 @@ exercises:
       - [formulaire, form]
       - [réfugié, refugee]
       - [statut, status]
+  - id: immigration-b1-03.e6
+    type: mcq
+    prompt: "« Après cinq ans de résidence, il a demandé la ___ canadienne. »"
+    options: ["naturalisation", "installation", "administration"]
+    answer: "naturalisation"
+    explain: "la naturalisation = becoming a citizen ; l'installation = settling in."
