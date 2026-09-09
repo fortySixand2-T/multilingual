@@ -2,7 +2,7 @@ id: politique-b2-01
 title: "Democracy & concession"
 grammar_point: "l'opposition et la concession : « malgré », « en dépit de » (+ nom)"
 grammar_category: "Logical connectors"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [democratie, justice, loi, droit, tribunal, egalite]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["loi", "law"]
       - ["tribunal", "court"]
       - ["égalité", "equality"]
+  - id: politique-b2-01.e6
+    type: mcq
+    prompt: "« En dépit de la réforme, ce ___ reste fragile. » (…this right remains fragile.)"
+    options: ["droit", "tribunal", "égalité"]
+    answer: "droit"
+    explain: "un droit = a right ; « en dépit de » + nom exprime la concession."

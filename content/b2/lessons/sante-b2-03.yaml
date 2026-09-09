@@ -2,7 +2,7 @@ id: sante-b2-03
 title: "The health system — relatives review"
 grammar_point: "relatifs composés : synthèse (« à laquelle », « pour laquelle », « dans lequel »)"
 grammar_category: "Pronouns"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [activite_physique, vieillissement, handicap, mutuelle, addiction, urgences]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["mutuelle", "health insurance"]
       - ["addiction", "addiction"]
       - ["urgences", "emergency room"]
+  - id: sante-b2-03.e6
+    type: mcq
+    prompt: "« L'activité physique ___ il s'est inscrit se pratique en groupe. » (…for which he signed up…)"
+    options: ["à laquelle", "auquel", "dans lequel"]
+    answer: "à laquelle"
+    explain: "« s'inscrire à » + nom féminin → « à laquelle » ; l'activité physique = physical activity."

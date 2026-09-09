@@ -2,7 +2,7 @@ id: sante-b2-02
 title: "Care & the pronoun « dont »"
 grammar_point: "« dont » et « ce dont » (verbes construits avec « de »)"
 grammar_category: "Pronouns"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [soignant, remede, guerison, symptome, contagion, nutrition]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["guérison", "recovery"]
       - ["symptôme", "symptom"]
       - ["nutrition", "nutrition"]
+  - id: sante-b2-02.e6
+    type: mcq
+    prompt: "« Le remède ___ elle a besoin est en rupture de stock. » (…that she needs…)"
+    options: ["dont", "que", "auquel"]
+    answer: "dont"
+    explain: "« avoir besoin de » → le relatif « dont » ; un remède = a remedy."

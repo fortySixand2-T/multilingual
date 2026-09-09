@@ -2,7 +2,7 @@ id: ville-b2-01
 title: "Urban planning & intensity"
 grammar_point: "l'intensité liée à une cause : « d'autant plus … que »"
 grammar_category: "Logical connectors"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [urbanisme, mobilite, embouteillage, peripherie, amenagement, densite]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["mobilité", "mobility"]
       - ["périphérie", "outskirts"]
       - ["densité", "density"]
+  - id: ville-b2-01.e6
+    type: mcq
+    prompt: "« L'aménagement du quartier est d'autant plus urgent ___ la population augmente. »"
+    options: ["que", "parce", "comme"]
+    answer: "que"
+    explain: "« d'autant plus … que » lie l'intensité à sa cause ; l'aménagement = development, planning."

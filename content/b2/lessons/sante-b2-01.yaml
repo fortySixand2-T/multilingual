@@ -2,7 +2,7 @@ id: sante-b2-01
 title: "Public health & relative pronouns"
 grammar_point: "les pronoms relatifs composés : auquel, à laquelle (après « à »)"
 grammar_category: "Pronouns"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [epidemie, vaccin, systeme_de_sante, obesite, esperance_de_vie, depistage]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["épidémie", "epidemic"]
       - ["dépistage", "screening"]
       - ["obésité", "obesity"]
+  - id: sante-b2-01.e6
+    type: mcq
+    prompt: "« Le système de santé ___ tous ont accès est un acquis. » (…to which everyone has access…)"
+    options: ["auquel", "à laquelle", "duquel"]
+    answer: "auquel"
+    explain: "« avoir accès à » + nom masculin → « auquel » ; le système de santé = the healthcare system."

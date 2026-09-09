@@ -320,3 +320,6 @@
 - [2026-09-08] Modified: content/{a1,a2,b1,b2}/lessons/*.yaml — QA 755: every new_vocab word is now shown by its lesson's own exercises, via added match_pairs (restores 1732/1732 taught coverage rather than trimming new_vocab)
 - [2026-09-08] Created: qa/rounds/055-plan.md + qa/issues/{750,751,752,753,754,755,773}-*.md — QA round 055 over the whole vocab + learn-path arc
 - [2026-09-08] Created: docs/legacy-lesson-coherence-plan.md — plan to close the pre-existing lesson↔vocab coherence gap (55 legacy lessons, 236 unshown new_vocab words)
+
+- [2026-09-08] Modified: tests/test_vocab_coverage.py — generalized lesson↔vocab coverage guard to every lesson at every level, with a shrinking KNOWN_GAPS carve-out for the 43 unfixed legacy lessons
+- [2026-09-08] Modified: content/b2/lessons/{alimentation-b2-03,culture-b2-02,environnement-b2-02,politique-b2-01,politique-b2-02,sante-b2-01,sante-b2-02,sante-b2-03,travail-b2-01,travail-b2-03,ville-b2-01,ville-b2-03}.yaml — added a contextual exercise to each so its unpracticed new_vocab word is actually taught (12 words); est_minutes 7→8
