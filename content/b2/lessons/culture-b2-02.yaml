@@ -2,7 +2,7 @@ id: culture-b2-02
 title: "The arts, cause & consequence"
 grammar_point: "l'expression de la cause (grâce à, en raison de)"
 grammar_category: "Logical connectors"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [tradition, identite_culturelle, heritage, chef_doeuvre, sculpture, litterature]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["identité culturelle", "cultural identity"]
       - ["sculpture", "sculpture"]
       - ["littérature", "literature"]
+  - id: culture-b2-02.e6
+    type: mcq
+    prompt: "« ___ à cet héritage culturel, la ville attire des visiteurs. » (Thanks to this cultural legacy…)"
+    options: ["Grâce", "En raison", "Malgré"]
+    answer: "Grâce"
+    explain: "« Grâce à » introduit une cause positive : l'héritage (legacy) profite à la ville."

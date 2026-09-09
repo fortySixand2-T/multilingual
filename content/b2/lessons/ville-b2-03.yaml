@@ -2,7 +2,7 @@ id: ville-b2-03
 title: "The metropolis — gradual progression"
 grammar_point: "la progression parallèle : « au fur et à mesure que »"
 grammar_category: "Logical connectors"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [metropole, etalement_urbain, rehabilitation, cyclable, congestion, espace_vert]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,8 @@ exercises:
       - ["métropole", "metropolis"]
       - ["réhabilitation", "renovation"]
       - ["espace vert", "green space"]
+  - id: ville-b2-03.e6
+    type: translate
+    prompt: "Translate: “urban sprawl”"
+    answer: "l'étalement urbain"
+    accept: ["étalement urbain", "etalement urbain", "l'etalement urbain"]

@@ -2,7 +2,7 @@ id: politique-b2-02
 title: "Elections & « avoir beau »"
 grammar_point: "la concession : « avoir beau » + infinitif"
 grammar_category: "Logical connectors"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [liberte, election, scrutin, depute, mandat, corruption]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,8 @@ exercises:
       - ["député", "MP"]
       - ["mandat", "term of office"]
       - ["corruption", "corruption"]
+  - id: politique-b2-02.e6
+    type: word_bank
+    prompt: "Build: “The law may well change, freedom remains a right.”"
+    tokens: ["la", "loi", "a", "beau", "changer", "la", "liberté", "reste", "un", "droit", "malgré"]
+    answer: ["la", "loi", "a", "beau", "changer", "la", "liberté", "reste", "un", "droit"]

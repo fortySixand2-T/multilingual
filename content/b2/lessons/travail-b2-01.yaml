@@ -2,7 +2,7 @@ id: travail-b2-01
 title: "The workplace & purpose"
 grammar_point: "l'expression du but : « pour que / afin que » + subjonctif"
 grammar_category: "Subjunctive"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [entrepreneuriat, management, recrutement, qualification, penibilite, harcelement]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["entrepreneuriat", "entrepreneurship"]
       - ["qualification", "qualification"]
       - ["harcèlement", "harassment"]
+  - id: travail-b2-01.e6
+    type: mcq
+    prompt: "« L'employeur réorganise les postes ___ la pénibilité du travail diminue. »"
+    options: ["pour que", "parce que", "malgré"]
+    answer: "pour que"
+    explain: "« pour que » + subjonctif exprime le but ; la pénibilité = the hardship of the work."

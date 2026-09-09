@@ -2,7 +2,7 @@ id: alimentation-b2-03
 title: "Responsible consumption & emphasis"
 grammar_point: "la mise en relief : « ce qui / ce que … c'est »"
 grammar_category: "Sentence structures"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [cheptel, semence, autosuffisance, etiquetage, producteur, denree]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,8 @@ exercises:
       - ["semence", "seed"]
       - ["étiquetage", "labelling"]
       - ["autosuffisance", "self-sufficiency"]
+  - id: alimentation-b2-03.e6
+    type: word_bank
+    prompt: "Build: “What worries breeders is the size of the herd.”"
+    tokens: ["ce", "qui", "inquiète", "les", "éleveurs", "c'est", "la", "taille", "du", "cheptel", "ce que"]
+    answer: ["ce", "qui", "inquiète", "les", "éleveurs", "c'est", "la", "taille", "du", "cheptel"]

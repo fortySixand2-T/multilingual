@@ -2,7 +2,7 @@ id: environnement-b2-02
 title: "Pollution & the present participle"
 grammar_point: "le participe présent (caractériser un nom, exprimer la cause)"
 grammar_category: "Sentence structures"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [pesticide, surconsommation, sobriete, extinction, pollueur, militantisme]
 pass_threshold: 8.0
 exercises:
@@ -33,3 +33,9 @@ exercises:
       - ["extinction", "extinction"]
       - ["pollueur", "polluter"]
       - ["militantisme", "activism"]
+  - id: environnement-b2-02.e6
+    type: mcq
+    prompt: "« Les ménages ___ la sobriété énergétique réduisent leur facture. »"
+    options: ["pratiquant", "pratiqué", "pratiquer"]
+    answer: "pratiquant"
+    explain: "Le participe présent « pratiquant » caractérise les ménages ; la sobriété = restraint, frugality."
