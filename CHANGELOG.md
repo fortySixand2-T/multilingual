@@ -327,3 +327,8 @@
 - [2026-09-08] Modified: content/b2/lessons/{alimentation-b2-02,culture-b2-03,politique-b2-04,ville-b2-02}.yaml — taught 4 words the loose matcher had wrongly counted as covered
 - [2026-09-09] Modified: content/b1/lessons/*.yaml (14 files) — taught the 56 unpracticed new_vocab words (generated match_pairs + one hand-written contextual exercise per lesson)
 - [2026-09-09] Modified: tests/test_vocab_coverage.py — cleared all b1 entries from KNOWN_GAPS (now 36 lessons / 184 words)
+- [2026-09-09] Created: scripts/check_content.py — single authoring validator for content/ (invariants, YAML traps, coverage matcher, KNOWN_GAPS)
+- [2026-09-09] Created: tests/test_content_invariants.py — runs the validator in CI
+- [2026-09-09] Created: .claude/skills/content-expansion/SKILL.md — skill encoding the expansion workflow
+- [2026-09-09] Created: scripts/__init__.py — make scripts importable from tests
+- [2026-09-09] Modified: tests/test_vocab_coverage.py — import the matcher and KNOWN_GAPS from the checker instead of keeping a second copy
