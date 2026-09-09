@@ -2,7 +2,7 @@ id: politique-b2-04
 title: "Elections & institutions"
 grammar_point: "hypothesis with si + imparfait"
 grammar_category: "Verb conjugation & tenses"
-est_minutes: 8
+est_minutes: 9
 new_vocab: [suffrage, circonscription, candidat, campagne_electorale, sondage, coalition, opposition, majorite, minorite, laicite, federalisme, province, assemblee_nationale, premier_ministre, ministre, populisme, extremisme]
 pass_threshold: 8.0
 exercises:
@@ -64,3 +64,9 @@ exercises:
     audio_ref: b2/audio/circonscription.mp3
     answer: circonscription
     prompt: "Type the word you hear."
+  - id: politique-b2-04.e9
+    type: mcq
+    prompt: "Le Québec est une ___ canadienne."
+    options: ["province", "circonscription", "coalition"]
+    answer: "province"
+    explain: "une province = a province ; le Québec est l'une des dix provinces canadiennes."
