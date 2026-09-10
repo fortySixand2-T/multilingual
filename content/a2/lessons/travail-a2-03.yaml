@@ -2,7 +2,7 @@ id: travail-a2-03
 title: "At work — review"
 grammar_point: "talking about work"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [entretien, contrat, experience, competence, carriere, diplome, stage, chomage]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,18 @@ exercises:
     options: [bureau, jardin, plage]
     answer: bureau
     explain: "le bureau = the office."
+  - id: travail-a2-03.e6
+    type: match_pairs
+    pairs:
+      - ["expérience", "experience"]
+      - ["compétence", "skill"]
+      - ["carrière", "career"]
+      - ["diplôme", "degree / diploma"]
+      - ["chômage", "unemployment"]
+
+  - id: travail-a2-03.e7
+    type: mcq
+    prompt: "« Après l'___, j'ai signé un contrat. »"
+    options: ["entretien", "horaire", "escalier"]
+    answer: "entretien"
+    explain: "un entretien = a job interview ; un contrat = a contract ; un stage = an internship."

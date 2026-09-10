@@ -2,7 +2,7 @@ id: sante-a2-03
 title: "At the doctor — review"
 grammar_point: "describing symptoms"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [fievre, rhume, toux, pharmacie, ordonnance, dos, bras, pied]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,17 @@ exercises:
     options: ["to be in pain", "to be hungry", "to be late"]
     answer: "to be in pain"
     explain: "avoir mal = to be in pain / to hurt."
+  - id: sante-a2-03.e6
+    type: match_pairs
+    pairs:
+      - ["rhume", "a cold"]
+      - ["dos", "back"]
+      - ["bras", "arm"]
+      - ["pied", "foot"]
+
+  - id: sante-a2-03.e7
+    type: mcq
+    prompt: "« J'ai de la ___ et je tousse depuis deux jours. »"
+    options: ["fièvre", "chance", "faim"]
+    answer: "fièvre"
+    explain: "avoir de la fièvre ; une toux = a cough ; le pharmacien lit l'ordonnance."

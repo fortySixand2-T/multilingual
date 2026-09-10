@@ -2,7 +2,7 @@ id: cuisine-a2-03
 title: "Cooking — review"
 grammar_point: "recipe instructions"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [couper, eplucher, cuire, bouillir, poele, ingredient, saler, gouter]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,17 @@ exercises:
     options: [recipe, plate, knife]
     answer: recipe
     explain: "la recette = the recipe."
+  - id: cuisine-a2-03.e6
+    type: match_pairs
+    pairs:
+      - ["cuire", "to cook / bake"]
+      - ["bouillir", "to boil"]
+      - ["poêle", "frying pan"]
+      - ["ingrédient", "ingredient"]
+      - ["goûter", "to taste"]
+
+  - id: cuisine-a2-03.e7
+    type: word_bank
+    prompt: "Build: “Peel the potatoes and cut the onions.”"
+    tokens: ["épluchez", les, pommes, de, terre, et, coupez, les, oignons, salez]
+    answer: ["épluchez", les, pommes, de, terre, et, coupez, les, oignons]

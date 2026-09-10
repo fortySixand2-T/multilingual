@@ -2,7 +2,7 @@ id: transport-a2-03
 title: "Getting around — review"
 grammar_point: "transport in context"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [train, taxi, bateau, quai, horaire, retard, essence, permis]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,17 @@ exercises:
     options: ["to drive", "to walk", "to fly"]
     answer: "to drive"
     explain: "conduire = to drive."
+  - id: transport-a2-03.e6
+    type: match_pairs
+    pairs:
+      - ["taxi", "taxi"]
+      - ["bateau", "boat"]
+      - ["horaire", "timetable"]
+      - ["essence", "fuel"]
+      - ["permis", "driving licence"]
+
+  - id: transport-a2-03.e7
+    type: word_bank
+    prompt: "Build: “The train has a ten-minute delay.”"
+    tokens: [le, train, a, un, retard, de, dix, minutes, quai]
+    answer: [le, train, a, un, retard, de, dix, minutes]

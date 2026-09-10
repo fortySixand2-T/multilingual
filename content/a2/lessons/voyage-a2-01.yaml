@@ -2,7 +2,7 @@ id: voyage-a2-01
 title: "Talking about a trip"
 grammar_point: "passé composé with avoir (j'ai visité)"
 grammar_category: "Verb conjugation & tenses"
-est_minutes: 7
+est_minutes: 8
 new_vocab: [voyage, vacances, hotel, reserver, partir]
 pass_threshold: 8.0
 exercises:
@@ -30,3 +30,9 @@ exercises:
     prompt: "Translate: “to book”"
     answer: réserver
     accept: [reserver]
+  - id: voyage-a2-01.e5
+    type: mcq
+    prompt: "« L'année dernière, j'ai fait un ___ au Québec. »"
+    options: ["voyage", "séjour", "départ"]
+    answer: "voyage"
+    explain: "Passé composé avec avoir : j'ai fait. « partir » se conjugue avec être : je suis parti."

@@ -2,7 +2,7 @@ id: transport-a2-01
 title: "Getting around"
 grammar_point: "« prendre » + transport"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 7
 new_vocab: [bus, metro, voiture, billet, conduire]
 pass_threshold: 8.0
 exercises:
@@ -31,3 +31,9 @@ exercises:
       - [bus, bus]
       - [vélo, bike]
       - [avion, plane]
+  - id: transport-a2-01.e5
+    type: mcq
+    prompt: "« Il faut un permis pour ___ une voiture. »"
+    options: ["conduire", "prendre", "marcher"]
+    answer: "conduire"
+    explain: "conduire = to drive ; on prend le bus, mais on conduit une voiture."

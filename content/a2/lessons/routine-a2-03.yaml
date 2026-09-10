@@ -2,7 +2,7 @@ id: routine-a2-03
 title: "Daily routine — review"
 grammar_point: "reflexive verbs in context"
 grammar_category: "Verb conjugation & tenses"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [se_brosser, se_doucher, petit_dejeuner, dejeuner, diner, se_reposer, se_depecher, habitude]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,18 @@ exercises:
     options: [tard, matin, dormir]
     answer: tard
     explain: "tôt = early, tard = late."
+  - id: routine-a2-03.e6
+    type: match_pairs
+    pairs:
+      - ["petit-déjeuner", "breakfast"]
+      - ["déjeuner", "lunch"]
+      - ["dîner", "dinner"]
+      - ["se dépêcher", "to hurry"]
+      - ["habitude", "habit"]
+
+  - id: routine-a2-03.e7
+    type: mcq
+    prompt: "« Le matin, je dois ___ les dents avant de partir. »"
+    options: ["se brosser", "se doucher", "se reposer"]
+    answer: "se brosser"
+    explain: "se brosser les dents = to brush your teeth ; se doucher = to shower."

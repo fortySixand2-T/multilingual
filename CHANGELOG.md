@@ -334,3 +334,5 @@
 - [2026-09-09] Modified: tests/test_vocab_coverage.py — import the matcher and KNOWN_GAPS from the checker instead of keeping a second copy
 - [2026-09-10] Modified: content/a1/lessons/*.yaml (15 files) — taught the 86 unpracticed new_vocab words (generated match_pairs + one hand-written contextual exercise per lesson)
 - [2026-09-10] Modified: scripts/check_content.py — cleared all a1 entries from KNOWN_GAPS (now 21 lessons / 98 words, a2 only)
+- [2026-09-10] Modified: content/a2/lessons/*.yaml (21 files) — taught the 98 unpracticed new_vocab words, completing the legacy coherence fix
+- [2026-09-10] Modified: scripts/check_content.py — KNOWN_GAPS is now empty; every word at every level is taught by the lesson that seeds it

@@ -28,110 +28,11 @@ from app.content.loader import load_content
 CONTENT_ROOT = Path(__file__).resolve().parents[1] / "content"
 
 # Legacy lessons whose `new_vocab` is not yet fully practiced by their own
-# exercises. This may only ever shrink -- see docs/legacy-lesson-coherence-plan.md.
-# `check_known_gaps_not_stale` fails if an entry is already fixed.
-KNOWN_GAPS: dict[tuple[str, str], set[str]] = {
-    ("a2", "cuisine-a2-01"): {"four"},
-    ("a2", "cuisine-a2-03"): {
-        "bouillir",
-        "couper",
-        "cuire",
-        "eplucher",
-        "gouter",
-        "ingredient",
-        "poele",
-        "saler",
-    },
-    ("a2", "emergencies-a2-01"): {"blesse"},
-    ("a2", "loisirs-a2-01"): {"loisir", "sport"},
-    ("a2", "loisirs-a2-03"): {
-        "concert",
-        "dessiner",
-        "equipe",
-        "jardiner",
-        "peindre",
-        "photographie",
-        "voyager",
-    },
-    ("a2", "maison-a2-03"): {"canape", "cle", "escalier", "etage", "lit", "mur", "toit"},
-    ("a2", "routine-a2-01"): {"se_laver", "se_lever", "shabiller"},
-    ("a2", "routine-a2-03"): {
-        "dejeuner",
-        "diner",
-        "habitude",
-        "petit_dejeuner",
-        "se_brosser",
-        "se_depecher",
-        "se_doucher",
-        "se_reposer",
-    },
-    ("a2", "sante-a2-01"): {"avoir_mal", "medicament", "sante"},
-    ("a2", "sante-a2-03"): {
-        "bras",
-        "dos",
-        "fievre",
-        "ordonnance",
-        "pharmacie",
-        "pied",
-        "rhume",
-        "toux",
-    },
-    ("a2", "sentiments-a2-01"): {"aimer", "fatigue", "triste"},
-    ("a2", "sentiments-a2-03"): {
-        "ennuye",
-        "fier",
-        "inquiet",
-        "jaloux",
-        "pleurer",
-        "rire",
-        "sourire",
-        "surpris",
-    },
-    ("a2", "sports-a2-01"): {"entrainement", "patin"},
-    ("a2", "transport-a2-01"): {"conduire"},
-    ("a2", "transport-a2-03"): {
-        "bateau",
-        "essence",
-        "horaire",
-        "permis",
-        "quai",
-        "retard",
-        "taxi",
-        "train",
-    },
-    ("a2", "travail-a2-02"): {"chercher_travail"},
-    ("a2", "travail-a2-03"): {
-        "carriere",
-        "chomage",
-        "competence",
-        "contrat",
-        "diplome",
-        "entretien",
-        "experience",
-        "stage",
-    },
-    ("a2", "vetements-a2-01"): {"chaussures", "vetement"},
-    ("a2", "vetements-a2-03"): {
-        "ceinture",
-        "chaussette",
-        "couleur",
-        "cravate",
-        "echarpe",
-        "gant",
-        "pull",
-        "short",
-    },
-    ("a2", "voyage-a2-01"): {"partir", "voyage"},
-    ("a2", "voyage-a2-03"): {
-        "depart",
-        "douane",
-        "frontiere",
-        "guide",
-        "itineraire",
-        "sejour",
-        "souvenir",
-    },
-}
+# exercises. Now EMPTY: every word at every level is taught by the lesson that
+# seeds it. Keep the mechanism -- a future expansion that lands against a known
+# gap can carve it out here, and `check_known_gaps_not_stale` guarantees the
+# carve-out shrinks back to nothing.
+KNOWN_GAPS: dict[tuple[str, str], set[str]] = {}
 
 # `vouloir` in a1/verbs-01 is shown only as the conjugated word_bank answer
 # "veux", which a headword match cannot see.

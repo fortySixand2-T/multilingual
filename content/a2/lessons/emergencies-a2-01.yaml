@@ -2,7 +2,7 @@ id: emergencies-a2-01
 title: "Emergencies"
 grammar_point: "the imperative: appelez ! aidez !"
 grammar_category: "Verb conjugation & tenses"
-est_minutes: 8
+est_minutes: 9
 new_vocab: [accident, ambulance, blessure, blesse, secours, police, voleur, vol, incendie, alarme, danger, aider, appeler, prevenir, temoin, plainte, panne, remorquage, premiers_soins, extincteur]
 pass_threshold: 8.0
 exercises:
@@ -69,3 +69,9 @@ exercises:
     type: match_pairs
     pairs:
       - ["prévenir", "to warn, to notify"]
+  - id: emergencies-a2-01.e10
+    type: mcq
+    prompt: "« Il est ___ : appelez une ambulance ! »"
+    options: ["blessé", "fatigué", "content"]
+    answer: "blessé"
+    explain: "blessé = injured ; « appelez ! » est un impératif d'urgence."
