@@ -2,7 +2,7 @@ id: directions-03
 title: "Directions — review"
 grammar_point: "giving directions"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 9
 new_vocab: [pres, coin, feu, pont, place, carrefour, nord, sud]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,23 @@ exercises:
     options: ["keep money", "buy bread", "catch a train"]
     answer: "keep money"
     explain: "la banque = the bank."
+  - id: directions-03.e6
+    type: match_pairs
+    pairs:
+      - ["près", "near"]
+      - ["coin", "corner"]
+      - ["pont", "bridge"]
+      - ["place", "square"]
+
+  - id: directions-03.e7
+    type: match_pairs
+    pairs:
+      - ["carrefour", "crossroads"]
+      - ["nord", "north"]
+      - ["sud", "south"]
+
+  - id: directions-03.e8
+    type: word_bank
+    prompt: "Build: “Turn left at the traffic light.”"
+    tokens: [tournez, à, gauche, au, feu, droite]
+    answer: [tournez, à, gauche, au, feu]

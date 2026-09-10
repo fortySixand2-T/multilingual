@@ -2,7 +2,7 @@ id: cafe-03
 title: "At the café — review"
 grammar_point: "ordering politely"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 8
 new_vocab: [chocolat_chaud, limonade, tasse, pourboire, croissant, terrasse, glacon, citron]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,23 @@ exercises:
       - [eau, water]
       - [bière, beer]
       - [vin, wine]
+  - id: cafe-03.e6
+    type: match_pairs
+    pairs:
+      - ["limonade", "lemonade"]
+      - ["tasse", "cup"]
+      - ["pourboire", "tip"]
+      - ["croissant", "croissant"]
+
+  - id: cafe-03.e7
+    type: match_pairs
+    pairs:
+      - ["terrasse", "terrace"]
+      - ["glaçon", "ice cube"]
+      - ["citron", "lemon"]
+
+  - id: cafe-03.e8
+    type: word_bank
+    prompt: "Build: “I would like a hot chocolate, please.”"
+    tokens: [je, voudrais, un, chocolat, chaud, "s'il", vous, "plaît", une]
+    answer: [je, voudrais, un, chocolat, chaud, "s'il", vous, "plaît"]

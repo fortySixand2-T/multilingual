@@ -2,7 +2,7 @@ id: time-01
 title: "Days and time"
 grammar_point: "days of the week (no capital in French)"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 6
 new_vocab: [lundi, mardi, aujourdhui, demain, heure]
 pass_threshold: 8.0
 exercises:
@@ -25,3 +25,9 @@ exercises:
       - [lundi, Monday]
       - [samedi, Saturday]
       - [demain, tomorrow]
+  - id: time-01.e4
+    type: mcq
+    prompt: "« Quelle ___ est-il ? » (What time is it?)"
+    options: ["heure", "minute", "semaine"]
+    answer: "heure"
+    explain: "Quelle heure est-il ? = What time is it?"

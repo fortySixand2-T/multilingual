@@ -2,7 +2,7 @@ id: shopping-03
 title: "Shopping — review"
 grammar_point: "asking the price"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 8
 new_vocab: [vendeur, client, payer, gratuit, monnaie, recu, panier, essayer]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,22 @@ exercises:
     options: [sales, prices, size]
     answer: sales
     explain: "les soldes = the sales."
+  - id: shopping-03.e6
+    type: match_pairs
+    pairs:
+      - ["vendeur", "salesperson"]
+      - ["client", "customer"]
+      - ["gratuit", "free"]
+
+  - id: shopping-03.e7
+    type: match_pairs
+    pairs:
+      - ["reçu", "receipt"]
+      - ["panier", "basket"]
+      - ["essayer", "to try on"]
+
+  - id: shopping-03.e8
+    type: word_bank
+    prompt: "Build: “I would like to pay by card.”"
+    tokens: [je, voudrais, payer, par, carte, monnaie]
+    answer: [je, voudrais, payer, par, carte]

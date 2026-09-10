@@ -2,7 +2,7 @@ id: family-03
 title: "Family — review"
 grammar_point: "talking about your family"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 8
 new_vocab: [grand_mere, grand_pere, oncle, tante, cousin, cousine, bebe, parents]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,23 @@ exercises:
     options: [wife, daughter, mother]
     answer: wife
     explain: "l'épouse = wife."
+  - id: family-03.e6
+    type: match_pairs
+    pairs:
+      - ["grand-père", "grandfather"]
+      - ["oncle", "uncle"]
+      - ["tante", "aunt"]
+      - ["cousin", "cousin (m)"]
+
+  - id: family-03.e7
+    type: match_pairs
+    pairs:
+      - ["cousine", "cousin (f)"]
+      - ["bébé", "baby"]
+      - ["parents", "parents"]
+
+  - id: family-03.e8
+    type: word_bank
+    prompt: "Build: “My grandmother lives in Quebec.”"
+    tokens: [ma, "grand-mère", habite, à, "Québec", mon]
+    answer: [ma, "grand-mère", habite, à, "Québec"]

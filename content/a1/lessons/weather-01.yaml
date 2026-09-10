@@ -2,7 +2,7 @@ id: weather-01
 title: "The weather"
 grammar_point: "« il fait… » for weather"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 6
 new_vocab: [soleil, pluie, chaud, froid, meteo]
 pass_threshold: 8.0
 exercises:
@@ -24,3 +24,9 @@ exercises:
     prompt: "Build: “It's nice out.”"
     tokens: [Il, fait, beau, froid]
     answer: [Il, fait, beau]
+  - id: weather-01.e4
+    type: mcq
+    prompt: "« La ___ annonce du soleil pour demain. » (The forecast says sun tomorrow.)"
+    options: ["météo", "saison", "température"]
+    answer: "météo"
+    explain: "la météo = the weather forecast ; il y a du soleil = it is sunny."

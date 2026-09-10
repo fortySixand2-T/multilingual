@@ -2,7 +2,7 @@ id: numbers-03
 title: "Up to one hundred"
 grammar_point: "bigger numbers"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 7
 new_vocab: [onze, douze, vingt, treize, quatorze, quinze, seize, trente, quarante, cinquante, mille]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,17 @@ exercises:
       - [douze, "12"]
       - [vingt, "20"]
       - [cent, "100"]
+  - id: numbers-03.e6
+    type: match_pairs
+    pairs:
+      - ["trente", "thirty"]
+      - ["quarante", "forty"]
+      - ["cinquante", "fifty"]
+      - ["mille", "a thousand"]
+
+  - id: numbers-03.e7
+    type: mcq
+    prompt: "« 15 = ___ »"
+    options: ["quinze", "quatorze", "seize"]
+    answer: "quinze"
+    explain: "13 treize, 14 quatorze, 15 quinze, 16 seize."

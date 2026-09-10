@@ -2,7 +2,7 @@ id: weather-03
 title: "Weather — review"
 grammar_point: "« il fait… » for weather"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 8
 new_vocab: [mauvais_temps, temperature, degre, humide, brouillard, ciel, saison, parapluie]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,23 @@ exercises:
     options: [forecast, storm, cloud]
     answer: forecast
     explain: "la météo = the weather forecast."
+  - id: weather-03.e6
+    type: match_pairs
+    pairs:
+      - ["température", "temperature"]
+      - ["degré", "degree"]
+      - ["humide", "humid"]
+      - ["brouillard", "fog"]
+
+  - id: weather-03.e7
+    type: match_pairs
+    pairs:
+      - ["ciel", "sky"]
+      - ["saison", "season"]
+      - ["parapluie", "umbrella"]
+
+  - id: weather-03.e8
+    type: word_bank
+    prompt: "Build: “It's bad weather today.”"
+    tokens: [il, fait, mauvais, temps, "aujourd'hui", beau]
+    answer: [il, fait, mauvais, temps, "aujourd'hui"]
