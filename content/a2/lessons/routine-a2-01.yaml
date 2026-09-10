@@ -2,7 +2,7 @@ id: routine-a2-01
 title: "My morning routine"
 grammar_point: "reflexive verbs (je me lève)"
 grammar_category: "Verb conjugation & tenses"
-est_minutes: 6
+est_minutes: 7
 new_vocab: [se_lever, se_laver, se_coucher, se_reveiller, shabiller]
 pass_threshold: 8.0
 exercises:
@@ -30,3 +30,9 @@ exercises:
     prompt: "Translate: “to wake up”"
     answer: "se réveiller"
     accept: [se reveiller]
+  - id: routine-a2-01.e5
+    type: mcq
+    prompt: "« Le matin, je dois ___ tôt pour aller au travail. » (to get up)"
+    options: ["se lever", "se laver", "s'habiller"]
+    answer: "se lever"
+    explain: "Verbes pronominaux : se lever, se laver, s'habiller — je me lève, je me lave, je m'habille."

@@ -2,7 +2,7 @@ id: sentiments-a2-01
 title: "Feelings & opinions"
 grammar_point: "« je pense que… »"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 6
 new_vocab: [content, triste, fatigue, aimer, penser]
 pass_threshold: 8.0
 exercises:
@@ -23,3 +23,9 @@ exercises:
     prompt: "Build: “We love music.”"
     tokens: [Nous, aimons, la, musique, déteste]
     answer: [Nous, aimons, la, musique]
+  - id: sentiments-a2-01.e4
+    type: mcq
+    prompt: "« Je pense qu'il est ___ : il n'a pas dormi. »"
+    options: ["fatigué", "content", "surpris"]
+    answer: "fatigué"
+    explain: "« je pense que » + indicatif. J'aime bien Marc, mais il est triste aujourd'hui."

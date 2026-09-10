@@ -2,7 +2,7 @@ id: sports-a2-01
 title: "Sports"
 grammar_point: "jouer à / faire de with sports"
 grammar_category: "Sentence structures"
-est_minutes: 8
+est_minutes: 9
 new_vocab: [soccer, hockey, basketball, tennis, natation, course, ski, patin, patinoire, match, entrainement, entraineur, joueur, ballon, raquette, perdre, echauffement, gymnastique, marathon, terrain]
 pass_threshold: 8.0
 exercises:
@@ -69,3 +69,9 @@ exercises:
     pairs:
       - ["basketball", "basketball"]
       - ["course", "running, race"]
+  - id: sports-a2-01.e10
+    type: mcq
+    prompt: "« Je fais du ___ à l'aréna tous les samedis. »"
+    options: ["patin", "vélo", "ski"]
+    answer: "patin"
+    explain: "faire du patin = to skate ; l'entraînement a lieu après l'école."

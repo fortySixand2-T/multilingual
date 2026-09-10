@@ -2,7 +2,7 @@ id: loisirs-a2-03
 title: "Free time — review"
 grammar_point: "« jouer / faire »"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [peindre, dessiner, voyager, jardiner, photographie, jeu, equipe, concert]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,17 @@ exercises:
     options: ["to swim", "to sing", "to play"]
     answer: "to swim"
     explain: "nager = to swim."
+  - id: loisirs-a2-03.e6
+    type: match_pairs
+    pairs:
+      - ["voyager", "to travel"]
+      - ["photographie", "photography"]
+      - ["équipe", "team"]
+      - ["concert", "concert"]
+
+  - id: loisirs-a2-03.e7
+    type: mcq
+    prompt: "« Le week-end, j'aime ___ dans le jardin. »"
+    options: ["jardiner", "peindre", "dessiner"]
+    answer: "jardiner"
+    explain: "« faire du jardinage » ou « jardiner » ; peindre et dessiner sont des arts."

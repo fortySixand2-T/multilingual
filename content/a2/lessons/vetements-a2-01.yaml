@@ -2,7 +2,7 @@ id: vetements-a2-01
 title: "Clothes"
 grammar_point: "adjective agreement (robe rouge)"
 grammar_category: "Adjectives & comparison"
-est_minutes: 5
+est_minutes: 6
 new_vocab: [vetement, manteau, robe, chaussures, porter]
 pass_threshold: 8.0
 exercises:
@@ -23,3 +23,9 @@ exercises:
     prompt: "Build: “She wears a red dress.”"
     tokens: [Elle, porte, une, robe, rouge, il]
     answer: [Elle, porte, une, robe, rouge]
+  - id: vetements-a2-01.e4
+    type: mcq
+    prompt: "« J'achète des ___ noires pour l'hiver. »"
+    options: ["chaussures", "gants", "manteaux"]
+    answer: "chaussures"
+    explain: "L'adjectif s'accorde : des chaussures noires. Un vêtement = a piece of clothing."

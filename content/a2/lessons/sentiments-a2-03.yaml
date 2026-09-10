@@ -2,7 +2,7 @@ id: sentiments-a2-03
 title: "Feelings & opinions — review"
 grammar_point: "« je pense que… »"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [inquiet, surpris, ennuye, fier, jaloux, rire, pleurer, sourire]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,18 @@ exercises:
     options: ["to hate", "to love", "to hope"]
     answer: "to hate"
     explain: "détester = to hate."
+  - id: sentiments-a2-03.e6
+    type: match_pairs
+    pairs:
+      - ["surpris", "surprised"]
+      - ["ennuyé", "bored"]
+      - ["rire", "to laugh"]
+      - ["pleurer", "to cry"]
+      - ["sourire", "to smile"]
+
+  - id: sentiments-a2-03.e7
+    type: mcq
+    prompt: "« Je pense qu'elle est ___ : elle a gagné le match. »"
+    options: ["fière", "inquiète", "jalouse"]
+    answer: "fière"
+    explain: "L'adjectif s'accorde : fier → fière, inquiet → inquiète, jaloux → jalouse."

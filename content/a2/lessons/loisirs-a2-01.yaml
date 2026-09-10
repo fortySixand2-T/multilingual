@@ -2,7 +2,7 @@ id: loisirs-a2-01
 title: "Free time"
 grammar_point: "« jouer à » vs « faire de »"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 6
 new_vocab: [loisir, sport, jouer, nager, livre]
 pass_threshold: 8.0
 exercises:
@@ -25,3 +25,9 @@ exercises:
     prompt: "Translate: “a book”"
     answer: "un livre"
     accept: [livre]
+  - id: loisirs-a2-01.e4
+    type: mcq
+    prompt: "« Je fais du ___ trois fois par semaine. »"
+    options: ["sport", "concert", "jardin"]
+    answer: "sport"
+    explain: "« faire du » + activité ; un loisir = a leisure activity."

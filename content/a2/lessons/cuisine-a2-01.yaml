@@ -2,7 +2,7 @@ id: cuisine-a2-01
 title: "Following a recipe"
 grammar_point: "the present tense for instructions"
 grammar_category: "Verb conjugation & tenses"
-est_minutes: 5
+est_minutes: 6
 new_vocab: [cuisiner, recette, four, ajouter, melanger]
 pass_threshold: 8.0
 exercises:
@@ -23,3 +23,9 @@ exercises:
     prompt: "Build: “I mix the sugar.”"
     tokens: [Je, mélange, le, sucre, ajoute]
     answer: [Je, mélange, le, sucre]
+  - id: cuisine-a2-01.e4
+    type: mcq
+    prompt: "« Préchauffez le ___ à 180 degrés. » (Preheat the oven…)"
+    options: ["four", "réfrigérateur", "placard"]
+    answer: "four"
+    explain: "un four = an oven ; « préchauffez » est un impératif d'instruction."

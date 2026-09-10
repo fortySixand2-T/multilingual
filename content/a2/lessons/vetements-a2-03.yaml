@@ -2,7 +2,7 @@ id: vetements-a2-03
 title: "Clothes — review"
 grammar_point: "adjective agreement"
 grammar_category: "Adjectives & comparison"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [pull, short, chaussette, gant, echarpe, ceinture, cravate, couleur]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,17 @@ exercises:
     options: [shoes, hat, skirt]
     answer: shoes
     explain: "les chaussures = shoes."
+  - id: vetements-a2-03.e6
+    type: match_pairs
+    pairs:
+      - ["chaussette", "sock"]
+      - ["écharpe", "scarf"]
+      - ["ceinture", "belt"]
+      - ["couleur", "colour"]
+
+  - id: vetements-a2-03.e7
+    type: mcq
+    prompt: "« Il porte une ___ bleue et des gants noirs. »"
+    options: ["cravate", "pull", "short"]
+    answer: "cravate"
+    explain: "L'adjectif s'accorde : une cravate bleue, des gants noirs."

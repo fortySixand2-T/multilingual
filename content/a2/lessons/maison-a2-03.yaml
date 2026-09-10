@@ -2,7 +2,7 @@ id: maison-a2-03
 title: "The home — review"
 grammar_point: "describing where you live"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 8
 new_vocab: [cuisine, escalier, toit, mur, cle, lit, canape, etage]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,17 @@ exercises:
     options: [rent, garden, door]
     answer: rent
     explain: "le loyer = the rent."
+  - id: maison-a2-03.e6
+    type: match_pairs
+    pairs:
+      - ["toit", "roof"]
+      - ["mur", "wall"]
+      - ["clé", "key"]
+      - ["lit", "bed"]
+      - ["canapé", "sofa"]
+
+  - id: maison-a2-03.e7
+    type: word_bank
+    prompt: "Build: “My apartment is on the third floor.”"
+    tokens: [mon, appartement, est, au, "troisième", "étage", escalier]
+    answer: [mon, appartement, est, au, "troisième", "étage"]
