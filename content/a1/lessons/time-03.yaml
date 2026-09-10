@@ -2,7 +2,7 @@ id: time-03
 title: "Days & time — review"
 grammar_point: "telling the day and time"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 8
 new_vocab: [hier, semaine, mois, annee, jour, minute, soir, maintenant]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,22 @@ exercises:
     options: [Friday, Monday, Sunday]
     answer: Friday
     explain: "vendredi = Friday."
+  - id: time-03.e6
+    type: match_pairs
+    pairs:
+      - ["semaine", "week"]
+      - ["mois", "month"]
+      - ["année", "year"]
+
+  - id: time-03.e7
+    type: match_pairs
+    pairs:
+      - ["jour", "day"]
+      - ["minute", "minute"]
+      - ["maintenant", "now"]
+
+  - id: time-03.e8
+    type: word_bank
+    prompt: "Build: “Yesterday evening, I worked.”"
+    tokens: [hier, soir, "j'ai", "travaillé", demain]
+    answer: [hier, soir, "j'ai", "travaillé"]

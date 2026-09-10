@@ -2,7 +2,7 @@ id: shopping-01
 title: "At the shop"
 grammar_point: "« combien ça coûte ? »"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 6
 new_vocab: [magasin, prix, acheter, cher, carte]
 pass_threshold: 8.0
 exercises:
@@ -24,3 +24,9 @@ exercises:
       - [magasin, shop]
       - [prix, price]
       - [argent, money]
+  - id: shopping-01.e4
+    type: mcq
+    prompt: "« Je peux payer par ___ ? » (…by card?)"
+    options: ["carte", "monnaie", "panier"]
+    answer: "carte"
+    explain: "payer par carte = to pay by card."

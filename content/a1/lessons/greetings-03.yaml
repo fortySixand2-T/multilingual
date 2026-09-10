@@ -2,7 +2,7 @@ id: greetings-03
 title: "Greetings — review"
 grammar_point: "formal vs informal"
 grammar_category: "Expressions & communication"
-est_minutes: 5
+est_minutes: 8
 new_vocab: [bienvenue, bonne_nuit, a_demain, desole, stp, monsieur, madame, mademoiselle]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,24 @@ exercises:
     options: [Enchanté, Merci, Non]
     answer: Enchanté
     explain: "Enchanté = pleased to meet you."
+  - id: greetings-03.e6
+    type: match_pairs
+    pairs:
+      - ["bienvenue", "welcome"]
+      - ["bonne nuit", "good night"]
+      - ["à demain", "see you tomorrow"]
+      - ["désolé", "sorry"]
+
+  - id: greetings-03.e7
+    type: match_pairs
+    pairs:
+      - ["s'il te plaît", "please (casual)"]
+      - ["madame", "ma'am / Mrs"]
+      - ["mademoiselle", "miss"]
+
+  - id: greetings-03.e8
+    type: mcq
+    prompt: "« ___, vous avez l'heure ? » (polite, to a man you do not know)"
+    options: ["Monsieur", "Salut", "Coucou"]
+    answer: "Monsieur"
+    explain: "« Monsieur » est formel ; « salut » et « coucou » sont familiers."

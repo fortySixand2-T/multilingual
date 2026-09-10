@@ -332,3 +332,5 @@
 - [2026-09-09] Created: .claude/skills/content-expansion/SKILL.md — skill encoding the expansion workflow
 - [2026-09-09] Created: scripts/__init__.py — make scripts importable from tests
 - [2026-09-09] Modified: tests/test_vocab_coverage.py — import the matcher and KNOWN_GAPS from the checker instead of keeping a second copy
+- [2026-09-10] Modified: content/a1/lessons/*.yaml (15 files) — taught the 86 unpracticed new_vocab words (generated match_pairs + one hand-written contextual exercise per lesson)
+- [2026-09-10] Modified: scripts/check_content.py — cleared all a1 entries from KNOWN_GAPS (now 21 lessons / 98 words, a2 only)

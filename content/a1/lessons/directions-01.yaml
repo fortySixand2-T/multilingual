@@ -2,7 +2,7 @@ id: directions-01
 title: "Asking for directions"
 grammar_point: "imperative « allez / tournez »"
 grammar_category: "Verb conjugation & tenses"
-est_minutes: 6
+est_minutes: 7
 new_vocab: [gauche, droite, tout_droit, rue, gare]
 pass_threshold: 8.0
 exercises:
@@ -30,3 +30,9 @@ exercises:
     prompt: "Translate: “the train station”"
     answer: "la gare"
     accept: [gare]
+  - id: directions-01.e5
+    type: mcq
+    prompt: "« Tournez à droite dans la ___ Principale. » (…on Main Street.)"
+    options: ["rue", "place", "pont"]
+    answer: "rue"
+    explain: "une rue = a street ; « tournez » est un impératif."

@@ -2,7 +2,7 @@ id: family-02
 title: "More family members"
 grammar_point: "possessives « mon / ma / mes »"
 grammar_category: "Articles & determiners"
-est_minutes: 5
+est_minutes: 6
 new_vocab: [fils, fille, enfant, mari, epouse]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,9 @@ exercises:
       - [fils, son]
       - [fille, daughter]
       - [mari, husband]
+  - id: family-02.e6
+    type: mcq
+    prompt: "« Voici ___ épouse, Marie. » (This is my wife, Marie.)"
+    options: ["mon", "ma", "mes"]
+    answer: "mon"
+    explain: "Devant une voyelle, « ma » devient « mon » : mon épouse (= my wife)."

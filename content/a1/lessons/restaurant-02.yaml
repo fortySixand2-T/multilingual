@@ -2,7 +2,7 @@ id: restaurant-02
 title: "The courses of a meal"
 grammar_point: "« je voudrais » + noun"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 9
 new_vocab: [table, plat, entree, dessert, boisson, beurre, sel, poivre, salade, fruit, banane, tomate, gateau]
 pass_threshold: 8.0
 exercises:
@@ -37,3 +37,23 @@ exercises:
       - [entrée, starter]
       - [plat, "main dish"]
       - [dessert, dessert]
+  - id: restaurant-02.e6
+    type: match_pairs
+    pairs:
+      - ["beurre", "butter"]
+      - ["sel", "salt"]
+      - ["poivre", "pepper"]
+      - ["fruit", "fruit"]
+
+  - id: restaurant-02.e7
+    type: match_pairs
+    pairs:
+      - ["banane", "banana"]
+      - ["tomate", "tomato"]
+      - ["gâteau", "cake"]
+
+  - id: restaurant-02.e8
+    type: word_bank
+    prompt: "Build: “I would like a salad, please.”"
+    tokens: [je, voudrais, une, salade, "s'il", vous, "plaît", un]
+    answer: [je, voudrais, une, salade, "s'il", vous, "plaît"]

@@ -2,7 +2,7 @@ id: restaurant-03
 title: "At the restaurant — review"
 grammar_point: "ordering a full meal"
 grammar_category: "Expressions & communication"
-est_minutes: 6
+est_minutes: 9
 new_vocab: [fourchette, serviette, plat_du_jour, nappe, chef, bon_appetit, delicieux, vegetarien]
 pass_threshold: 8.0
 exercises:
@@ -38,3 +38,23 @@ exercises:
       - [restaurant, restaurant]
       - [boisson, drink]
       - [réservation, reservation]
+  - id: restaurant-03.e6
+    type: match_pairs
+    pairs:
+      - ["fourchette", "fork"]
+      - ["serviette", "napkin"]
+      - ["nappe", "tablecloth"]
+
+  - id: restaurant-03.e7
+    type: match_pairs
+    pairs:
+      - ["bon appétit", "enjoy your meal"]
+      - ["délicieux", "delicious"]
+      - ["végétarien", "vegetarian"]
+
+  - id: restaurant-03.e8
+    type: mcq
+    prompt: "« Je prends le ___, s'il vous plaît. » (the dish of the day)"
+    options: ["plat du jour", "pourboire", "chef"]
+    answer: "plat du jour"
+    explain: "le plat du jour = the dish of the day ; le chef le prépare."
