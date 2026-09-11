@@ -1,0 +1,67 @@
+id: verbes-b1-03
+title: "Describing change"
+grammar_point: "décrire une évolution : augmenter, diminuer, atteindre"
+grammar_category: "Expressions & communication"
+est_minutes: 9
+new_vocab: [augmenter, diminuer, ameliorer, s_aggraver, evoluer, transformer, remplacer, reduire, developper, maintenir, atteindre, depasser, durer, manquer, prevoir, recommander, reconnaitre, preferer, resoudre, obtenir]
+pass_threshold: 8.0
+exercises:
+  - id: verbes-b1-03.e1
+    type: match_pairs
+    pairs:
+      - ["augmenter", "to increase"]
+      - ["diminuer", "to decrease"]
+      - ["améliorer", "to improve"]
+      - ["s'aggraver", "to worsen"]
+      - ["évoluer", "to evolve, to change"]
+  - id: verbes-b1-03.e2
+    type: match_pairs
+    pairs:
+      - ["transformer", "to transform"]
+      - ["remplacer", "to replace"]
+      - ["réduire", "to reduce"]
+      - ["développer", "to develop"]
+      - ["maintenir", "to maintain"]
+  - id: verbes-b1-03.e3
+    type: match_pairs
+    pairs:
+      - ["atteindre", "to reach"]
+      - ["dépasser", "to exceed, to overtake"]
+      - ["durer", "to last"]
+      - ["manquer", "to miss, to lack"]
+      - ["prévoir", "to plan, to foresee"]
+  - id: verbes-b1-03.e4
+    type: match_pairs
+    pairs:
+      - ["recommander", "to recommend"]
+      - ["reconnaître", "to acknowledge, to recognise"]
+      - ["préférer", "to prefer"]
+      - ["résoudre", "to solve"]
+      - ["obtenir", "to obtain"]
+  - id: verbes-b1-03.e5
+    type: mcq
+    prompt: "« Le loyer a ___ de 8 % cette année. »"
+    options: ["augmenté", "augmenter", "augmentant"]
+    answer: "augmenté"
+    explain: "Passé composé avec avoir : le loyer a augmenté."
+  - id: verbes-b1-03.e6
+    type: mcq
+    prompt: "« La situation s'est ___ depuis l'hiver dernier. »"
+    options: ["aggravée", "aggravé", "aggraver"]
+    answer: "aggravée"
+    explain: "Pronominal : « la situation » est féminin, donc s'est aggravée."
+  - id: verbes-b1-03.e7
+    type: word_bank
+    prompt: "Build: “The number of students has reached a record.”"
+    tokens: [le, nombre, "d'étudiants", a, atteint, un, record, "dépassé"]
+    answer: [le, nombre, "d'étudiants", a, atteint, un, record]
+  - id: verbes-b1-03.e8
+    type: translate
+    prompt: "Translate: “to improve”"
+    answer: "améliorer"
+    accept: ["ameliorer", "s'améliorer"]
+  - id: verbes-b1-03.e9
+    type: listen_type
+    audio_ref: b1/audio/diminuer.mp3
+    answer: "diminuer"
+    prompt: "Type the verb you hear."
