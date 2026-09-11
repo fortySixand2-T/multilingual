@@ -137,13 +137,23 @@ before investigating.
 
 ## Deploying
 
-Content changes need a redeploy to reach the box:
+Content changes need a redeploy to reach the box. It listens on **:9000**, and
+the compose file publishes it to loopback only.
 
 ```bash
 ssh rohith@10.0.0.54
-cd ~/projects/multilingual && git pull
+cd ~/projects/multilingual && git status --short   # see note below
+git pull --ff-only
 docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d --build
+curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:9000/health
 ```
 
-Back the DB up first. The box carries an **uncommitted `docker-compose.yml`**
-LAN-Ollama tweak — check `git status` there before pulling.
+The box carries an **uncommitted `docker-compose.yml`** LAN-Ollama tweak, so
+check `git status` there before pulling and never `git checkout` that file.
+
+Follow the deploy checklist in the `verify` skill — back the DB up first,
+confirm the port rather than assuming it, and check a count that should have
+moved (exercises, vocab) alongside one that should **not** (user rows,
+completions, SRS cards).
+
+A content-only deploy is a **level 0** deploy: deterministic checks, no agents.

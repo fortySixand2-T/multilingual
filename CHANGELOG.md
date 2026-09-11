@@ -337,3 +337,5 @@
 - [2026-09-10] Modified: content/a2/lessons/*.yaml (21 files) — taught the 98 unpracticed new_vocab words, completing the legacy coherence fix
 - [2026-09-10] Modified: scripts/check_content.py — KNOWN_GAPS is now empty; every word at every level is taught by the lesson that seeds it
 - [2026-09-10] Created: .claude/skills/verify/SKILL.md — tiered verification skill (deterministic → API probe → UI → full QA loop) with routing rules from the qa/issues backlog
+- [2026-09-10] Modified: .claude/skills/verify/SKILL.md — level is chosen from the diff, not the occasion; added a deploy checklist (port, backup, moved/unmoved counts)
+- [2026-09-10] Modified: .claude/skills/content-expansion/SKILL.md — deploy section names the :9000 port and defers to the verify checklist
