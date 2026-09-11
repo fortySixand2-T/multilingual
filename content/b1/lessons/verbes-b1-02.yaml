@@ -59,7 +59,7 @@ exercises:
     type: translate
     prompt: "Translate: “to complain”"
     answer: "se plaindre"
-    accept: ["plaindre", "se plaindre de"]
+    accept: ["se plaindre de"]
   - id: verbes-b1-02.e9
     type: listen_type
     audio_ref: b1/audio/se_debrouiller.mp3

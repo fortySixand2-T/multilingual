@@ -59,7 +59,6 @@ exercises:
     type: translate
     prompt: "Translate: “to manage to” (succeed in doing)"
     answer: "arriver à"
-    accept: ["arriver"]
   - id: verbes-b1-01.e9
     type: listen_type
     audio_ref: b1/audio/hesiter.mp3
