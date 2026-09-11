@@ -1,0 +1,67 @@
+id: verbes-b2-01
+title: "Verbs + preposition"
+grammar_point: "verbe + préposition : « à » ou « de »"
+grammar_category: "Sentence structures"
+est_minutes: 9
+new_vocab: [s_attendre_a, tenir_compte, faire_face, renoncer, contribuer, aboutir, veiller, recourir, se_heurter, parvenir, beneficier, se_passer_de, temoigner, relever_de, souffrir, se_douter, s_inspirer, priver, convaincre, se_charger]
+pass_threshold: 8.0
+exercises:
+  - id: verbes-b2-01.e1
+    type: match_pairs
+    pairs:
+      - ["s'attendre à", "to expect"]
+      - ["tenir compte de", "to take into account"]
+      - ["faire face à", "to face, to cope with"]
+      - ["renoncer à", "to give up, to renounce"]
+      - ["contribuer à", "to contribute to"]
+  - id: verbes-b2-01.e2
+    type: match_pairs
+    pairs:
+      - ["aboutir à", "to lead to, to result in"]
+      - ["veiller à", "to ensure, to see to it"]
+      - ["recourir à", "to resort to"]
+      - ["se heurter à", "to come up against"]
+      - ["parvenir à", "to manage to, to reach"]
+  - id: verbes-b2-01.e3
+    type: match_pairs
+    pairs:
+      - ["bénéficier de", "to benefit from"]
+      - ["se passer de", "to do without"]
+      - ["témoigner de", "to testify to, to be evidence of"]
+      - ["relever de", "to fall under, to be a matter for"]
+      - ["souffrir de", "to suffer from"]
+  - id: verbes-b2-01.e4
+    type: match_pairs
+    pairs:
+      - ["se douter de", "to suspect"]
+      - ["s'inspirer de", "to draw inspiration from"]
+      - ["priver de", "to deprive of"]
+      - ["convaincre de", "to convince of"]
+      - ["se charger de", "to take responsibility for"]
+  - id: verbes-b2-01.e5
+    type: mcq
+    prompt: "« Les autorités doivent faire face ___ une pénurie de logements. »"
+    options: ["à", "de", "en"]
+    answer: "à"
+    explain: "faire face « à » quelque chose ; la préposition fait partie du verbe."
+  - id: verbes-b2-01.e6
+    type: mcq
+    prompt: "« Ce dossier relève ___ la compétence provinciale. »"
+    options: ["de", "à", "sur"]
+    answer: "de"
+    explain: "relever « de » = to fall under ; à comparer avec « veiller à »."
+  - id: verbes-b2-01.e7
+    type: word_bank
+    prompt: "Build: “We must take the residents' opinion into account.”"
+    tokens: [il, faut, tenir, compte, de, "l'avis", des, "résidents", à]
+    answer: [il, faut, tenir, compte, de, "l'avis", des, "résidents"]
+  - id: verbes-b2-01.e8
+    type: translate
+    prompt: "Translate: “to benefit from”"
+    answer: "bénéficier de"
+    accept: ["beneficier de", "bénéficier", "beneficier"]
+  - id: verbes-b2-01.e9
+    type: listen_type
+    audio_ref: b2/audio/renoncer.mp3
+    answer: "renoncer à"
+    prompt: "Type the verb you hear, with its preposition."

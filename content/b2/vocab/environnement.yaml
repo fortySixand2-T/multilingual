@@ -22,7 +22,7 @@
 - id: renouvelable
   fr: renouvelable
   en: renewable
-  pos: adj
+  pos: adjective
   tags: [environnement]
 
 - id: durabilite

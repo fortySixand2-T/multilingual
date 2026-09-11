@@ -1,0 +1,67 @@
+id: verbes-b2-02
+title: "Verbs that take the subjunctive"
+grammar_point: "le subjonctif après les verbes de volonté, de doute et d'émotion"
+grammar_category: "Subjunctive"
+est_minutes: 9
+new_vocab: [exiger, redouter, douter, craindre, regretter, admettre, concevoir, envisager, deplorer, juger, soutenir, nier, contester, approuver, reprocher, se_rejouir, supposer, valoir_mieux, importer, s_etonner]
+pass_threshold: 8.0
+exercises:
+  - id: verbes-b2-02.e1
+    type: match_pairs
+    pairs:
+      - ["exiger", "to demand"]
+      - ["redouter", "to dread"]
+      - ["douter", "to doubt"]
+      - ["craindre", "to fear"]
+      - ["regretter", "to regret"]
+  - id: verbes-b2-02.e2
+    type: match_pairs
+    pairs:
+      - ["admettre", "to admit"]
+      - ["concevoir", "to conceive, to imagine"]
+      - ["envisager", "to envisage, to consider"]
+      - ["déplorer", "to deplore"]
+      - ["juger", "to judge, to deem"]
+  - id: verbes-b2-02.e3
+    type: match_pairs
+    pairs:
+      - ["soutenir", "to maintain, to support"]
+      - ["nier", "to deny"]
+      - ["contester", "to contest, to challenge"]
+      - ["approuver", "to approve"]
+      - ["reprocher", "to reproach, to hold against"]
+  - id: verbes-b2-02.e4
+    type: match_pairs
+    pairs:
+      - ["se réjouir", "to be delighted"]
+      - ["supposer", "to suppose"]
+      - ["valoir mieux", "to be better (il vaut mieux)"]
+      - ["importer", "to matter (il importe que)"]
+      - ["s'étonner", "to be surprised (that)"]
+  - id: verbes-b2-02.e5
+    type: mcq
+    prompt: "« Je doute qu'il ___ le délai. »"
+    options: ["respecte", "respectera", "respectait"]
+    answer: "respecte"
+    explain: "« douter que » + subjonctif → respecte."
+  - id: verbes-b2-02.e6
+    type: mcq
+    prompt: "« Il vaut mieux que nous ___ prudents. »"
+    options: ["soyons", "sommes", "serons"]
+    answer: "soyons"
+    explain: "« il vaut mieux que » + subjonctif → que nous soyons."
+  - id: verbes-b2-02.e7
+    type: word_bank
+    prompt: "Build: “I fear that the decision may be contested.”"
+    tokens: [je, crains, que, la, "décision", ne, soit, "contestée", est]
+    answer: [je, crains, que, la, "décision", ne, soit, "contestée"]
+  - id: verbes-b2-02.e8
+    type: translate
+    prompt: "Translate: “to deny”"
+    answer: "nier"
+    accept: ["nier quelque chose"]
+  - id: verbes-b2-02.e9
+    type: listen_type
+    audio_ref: b2/audio/craindre.mp3
+    answer: "craindre"
+    prompt: "Type the verb you hear."

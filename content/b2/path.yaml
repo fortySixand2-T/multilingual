@@ -150,3 +150,21 @@ units:
     icon: target
     lessons: [politique-b2-04]
     unlock: { type: all_of, requires: [b2.u24] }
+
+  - id: b2.u26
+    title: "Verbs & prepositions"
+    icon: bolt
+    lessons: [verbes-b2-01]
+    unlock: { type: all_of, requires: [b2.u25] }
+
+  - id: b2.u27
+    title: "Doubt, will & emotion"
+    icon: bulb
+    lessons: [verbes-b2-02]
+    unlock: { type: all_of, requires: [b2.u26] }
+
+  - id: b2.u28
+    title: "Building an argument"
+    icon: scale
+    lessons: [verbes-b2-03]
+    unlock: { type: all_of, requires: [b2.u27] }

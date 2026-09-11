@@ -339,3 +339,9 @@
 - [2026-09-10] Created: .claude/skills/verify/SKILL.md — tiered verification skill (deterministic → API probe → UI → full QA loop) with routing rules from the qa/issues backlog
 - [2026-09-10] Modified: .claude/skills/verify/SKILL.md — level is chosen from the diff, not the occasion; added a deploy checklist (port, backup, moved/unmoved counts)
 - [2026-09-10] Modified: .claude/skills/content-expansion/SKILL.md — deploy section names the :9000 port and defers to the verify checklist
+- [2026-09-10] Created: content/b2/vocab/verbes.yaml — 60 B2 verbs and verbal locutions (verbe+préposition, subjonctif, argumentation); b2 had 0 verbs
+- [2026-09-10] Created: content/b2/lessons/verbes-b2-0{1,2,3}.yaml — 3 lessons teaching the 60 verbs
+- [2026-09-10] Modified: content/b2/path.yaml — units b2.u26–u28 chained onto b2.u25
+- [2026-09-10] Created: content/b2/audio/*.mp3 — 60 clips via scripts/gen_audio.py
+- [2026-09-10] Modified: content/b2/vocab/{environnement,alimentation,sciences,ville}.yaml — pos adj → adjective
+- [2026-09-10] Modified: scripts/check_content.py — KNOWN_POS rule

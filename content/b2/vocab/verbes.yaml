@@ -1,0 +1,368 @@
+# B2 verbs and verbal locutions — the productive half of the level.
+# The other b2 decks are thematic nouns; these are what you conjugate to *use*
+# them in Expression orale/écrite. Grouped by the construction they demand:
+# verb + preposition, verbs governing the subjunctive, and the verbs of analysis
+# an argued essay or monologue is built from.
+
+# --- verbe + préposition (à / de) ---
+- id: s_attendre_a
+  fr: s'attendre à
+  en: to expect
+  pos: verb
+  tags: [verbes]
+
+- id: tenir_compte
+  fr: tenir compte de
+  en: to take into account
+  pos: verb
+  tags: [verbes]
+
+- id: faire_face
+  fr: faire face à
+  en: to face, to cope with
+  pos: verb
+  tags: [verbes]
+
+- id: renoncer
+  fr: renoncer à
+  en: to give up, to renounce
+  pos: verb
+  tags: [verbes]
+
+- id: contribuer
+  fr: contribuer à
+  en: to contribute to
+  pos: verb
+  tags: [verbes]
+
+- id: aboutir
+  fr: aboutir à
+  en: to lead to, to result in
+  pos: verb
+  tags: [verbes]
+
+- id: veiller
+  fr: veiller à
+  en: to ensure, to see to it
+  pos: verb
+  tags: [verbes]
+
+- id: recourir
+  fr: recourir à
+  en: to resort to
+  pos: verb
+  tags: [verbes]
+
+- id: se_heurter
+  fr: se heurter à
+  en: to come up against
+  pos: verb
+  tags: [verbes]
+
+- id: parvenir
+  fr: parvenir à
+  en: to manage to, to reach
+  pos: verb
+  tags: [verbes]
+
+- id: beneficier
+  fr: bénéficier de
+  en: to benefit from
+  pos: verb
+  tags: [verbes]
+
+- id: se_passer_de
+  fr: se passer de
+  en: to do without
+  pos: verb
+  tags: [verbes]
+
+- id: temoigner
+  fr: témoigner de
+  en: to testify to, to be evidence of
+  pos: verb
+  tags: [verbes]
+
+- id: relever_de
+  fr: relever de
+  en: to fall under, to be a matter for
+  pos: verb
+  tags: [verbes]
+
+- id: souffrir
+  fr: souffrir de
+  en: to suffer from
+  pos: verb
+  tags: [verbes]
+
+- id: se_douter
+  fr: se douter de
+  en: to suspect
+  pos: verb
+  tags: [verbes]
+
+- id: s_inspirer
+  fr: s'inspirer de
+  en: to draw inspiration from
+  pos: verb
+  tags: [verbes]
+
+- id: priver
+  fr: priver de
+  en: to deprive of
+  pos: verb
+  tags: [verbes]
+
+- id: convaincre
+  fr: convaincre de
+  en: to convince of
+  pos: verb
+  tags: [verbes]
+
+- id: se_charger
+  fr: se charger de
+  en: to take responsibility for
+  pos: verb
+  tags: [verbes]
+
+# --- verbes suivis du subjonctif (volonté, doute, émotion) ---
+- id: s_etonner
+  fr: s'étonner
+  en: to be surprised (that)
+  pos: verb
+  tags: [verbes]
+
+- id: exiger
+  fr: exiger
+  en: to demand
+  pos: verb
+  tags: [verbes]
+
+- id: redouter
+  fr: redouter
+  en: to dread
+  pos: verb
+  tags: [verbes]
+
+- id: douter
+  fr: douter
+  en: to doubt
+  pos: verb
+  tags: [verbes]
+
+- id: craindre
+  fr: craindre
+  en: to fear
+  pos: verb
+  tags: [verbes]
+
+- id: regretter
+  fr: regretter
+  en: to regret
+  pos: verb
+  tags: [verbes]
+
+- id: admettre
+  fr: admettre
+  en: to admit
+  pos: verb
+  tags: [verbes]
+
+- id: concevoir
+  fr: concevoir
+  en: to conceive, to imagine
+  pos: verb
+  tags: [verbes]
+
+- id: envisager
+  fr: envisager
+  en: to envisage, to consider
+  pos: verb
+  tags: [verbes]
+
+- id: deplorer
+  fr: déplorer
+  en: to deplore
+  pos: verb
+  tags: [verbes]
+
+- id: juger
+  fr: juger
+  en: to judge, to deem
+  pos: verb
+  tags: [verbes]
+
+- id: soutenir
+  fr: soutenir
+  en: to maintain, to support
+  pos: verb
+  tags: [verbes]
+
+- id: nier
+  fr: nier
+  en: to deny
+  pos: verb
+  tags: [verbes]
+
+- id: contester
+  fr: contester
+  en: to contest, to challenge
+  pos: verb
+  tags: [verbes]
+
+- id: approuver
+  fr: approuver
+  en: to approve
+  pos: verb
+  tags: [verbes]
+
+- id: reprocher
+  fr: reprocher
+  en: to reproach, to hold against
+  pos: verb
+  tags: [verbes]
+
+- id: se_rejouir
+  fr: se réjouir
+  en: to be delighted
+  pos: verb
+  tags: [verbes]
+
+- id: supposer
+  fr: supposer
+  en: to suppose
+  pos: verb
+  tags: [verbes]
+
+- id: valoir_mieux
+  fr: valoir mieux
+  en: to be better (il vaut mieux)
+  pos: verb
+  tags: [verbes]
+
+- id: importer
+  fr: importer
+  en: to matter (il importe que)
+  pos: verb
+  tags: [verbes]
+
+# --- verbes de l'analyse et de l'argumentation ---
+- id: mettre_en_oeuvre
+  fr: mettre en œuvre
+  en: to implement
+  pos: verb
+  tags: [verbes]
+
+- id: souligner
+  fr: souligner
+  en: to underline, to stress
+  pos: verb
+  tags: [verbes]
+
+- id: constater
+  fr: constater
+  en: to note, to observe
+  pos: verb
+  tags: [verbes]
+
+- id: demontrer
+  fr: démontrer
+  en: to demonstrate
+  pos: verb
+  tags: [verbes]
+
+- id: illustrer
+  fr: illustrer
+  en: to illustrate
+  pos: verb
+  tags: [verbes]
+
+- id: nuancer
+  fr: nuancer
+  en: to qualify, to nuance
+  pos: verb
+  tags: [verbes]
+
+- id: resumer
+  fr: résumer
+  en: to summarise
+  pos: verb
+  tags: [verbes]
+
+- id: enoncer
+  fr: énoncer
+  en: to state, to set out
+  pos: verb
+  tags: [verbes]
+
+- id: s_averer
+  fr: s'avérer
+  en: to prove to be, to turn out
+  pos: verb
+  tags: [verbes]
+
+- id: decouler
+  fr: découler de
+  en: to stem from, to follow from
+  pos: verb
+  tags: [verbes]
+
+- id: entrainer_consequence
+  fr: entraîner
+  en: to bring about, to lead to
+  pos: verb
+  tags: [verbes]
+
+- id: susciter
+  fr: susciter
+  en: to arouse, to generate
+  pos: verb
+  tags: [verbes]
+
+- id: accentuer
+  fr: accentuer
+  en: to accentuate, to sharpen
+  pos: verb
+  tags: [verbes]
+
+- id: attenuer
+  fr: atténuer
+  en: to mitigate, to soften
+  pos: verb
+  tags: [verbes]
+
+- id: remettre_en_cause
+  fr: remettre en cause
+  en: to call into question
+  pos: verb
+  tags: [verbes]
+
+- id: mettre_en_evidence
+  fr: mettre en évidence
+  en: to highlight, to bring out
+  pos: verb
+  tags: [verbes]
+
+- id: prendre_position
+  fr: prendre position
+  en: to take a stand
+  pos: verb
+  tags: [verbes]
+
+- id: trancher
+  fr: trancher
+  en: to settle, to decide
+  pos: verb
+  tags: [verbes]
+
+- id: concilier
+  fr: concilier
+  en: to reconcile, to balance
+  pos: verb
+  tags: [verbes]
+
+- id: preconiser
+  fr: préconiser
+  en: to recommend, to advocate
+  pos: verb
+  tags: [verbes]

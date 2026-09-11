@@ -37,7 +37,7 @@
 - id: bio
   fr: bio
   en: "organic"
-  pos: adj
+  pos: adjective
   tags: [alimentation]
 
 - id: circuit_court
