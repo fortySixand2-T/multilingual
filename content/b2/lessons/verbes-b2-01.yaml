@@ -59,7 +59,7 @@ exercises:
     type: translate
     prompt: "Translate: “to benefit from”"
     answer: "bénéficier de"
-    accept: ["beneficier de", "bénéficier", "beneficier"]
+    accept: ["beneficier de"]
   - id: verbes-b2-01.e9
     type: listen_type
     audio_ref: b2/audio/renoncer.mp3
