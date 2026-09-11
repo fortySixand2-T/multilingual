@@ -10,17 +10,41 @@ full QA loop is five agent stages; most changes do not need it, and running it
 where a deterministic check would do has actively caused harm here (see
 *When the loop hurts*).
 
-## Choose the level from the change surface
+## Choose the level from the diff, not from the occasion
 
-| changed | level | what runs | agents |
+Compute the change surface first — for a deploy, that is everything not yet on
+the target:
+
+```bash
+git diff --name-only <deployed-sha>..HEAD    # deploying
+git diff --name-only main...HEAD             # a branch
+```
+
+| the diff touches | level | what runs | agents |
 |---|---|---|---|
-| `content/**` only | **0** | `check_content.py`, pytest, ruff | none |
+| `content/**`, docs, skills, tests only | **0** | `check_content.py`, pytest, ruff | none |
 | backend, API, schema, auth | **1** | level 0 + adversarial API probe | 1 |
 | `web/**` | **2** | level 0 + e2e + UI persona pass | 1–2 |
-| release, deploy, cross-cutting refactor | **3** | the full loop | 5+ |
+| several of the above at once, or a refactor cutting across them | **3** | the full loop | 5+ |
 
 When two apply, take the higher. Level 0 always runs — it is the floor, not an
 alternative.
+
+**A deploy is not itself a level.** Shipping does not change what could break;
+the diff does. A deploy whose diff is content-only is a level 0 deploy, and
+saying so is a complete answer — deploying ten content PRs at once does not add
+up to a reason to run five agents. What a deploy *does* add is the operational
+checklist below, at every level.
+
+### Deploy checklist (any level)
+
+1. verify at the level the diff calls for, on the commit you are shipping
+2. back the database up first
+3. check the target for uncommitted local changes before pulling
+4. confirm the published port from `docker compose ps` — do not assume it
+5. after the rebuild: health, an auth-gated route, and a deep SPA route
+6. compare a number that *should* have moved against the source of truth, and
+   one that should **not** (user rows) against its pre-deploy value
 
 ## Level 0 — deterministic (no agents)
 
