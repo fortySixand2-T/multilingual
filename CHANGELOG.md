@@ -345,3 +345,7 @@
 - [2026-09-10] Created: content/b2/audio/*.mp3 — 60 clips via scripts/gen_audio.py
 - [2026-09-10] Modified: content/b2/vocab/{environnement,alimentation,sciences,ville}.yaml — pos adj → adjective
 - [2026-09-10] Modified: scripts/check_content.py — KNOWN_POS rule
+- [2026-09-10] Created: content/b1/vocab/verbs.yaml — 60 B1 verbs (verbe+infinitif, pronominaux/démarches, évolution, récit); b1 had 13 verbs
+- [2026-09-10] Created: content/b1/lessons/verbes-b1-0{1,2,3}.yaml — 3 lessons teaching the 60 verbs
+- [2026-09-10] Modified: content/b1/path.yaml — units b1.u23–u25 chained onto b1.u22
+- [2026-09-10] Created: content/b1/audio/*.mp3 — 60 clips via scripts/gen_audio.py

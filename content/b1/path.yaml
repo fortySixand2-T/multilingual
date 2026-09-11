@@ -132,3 +132,21 @@ units:
     icon: health
     lessons: [health-b1-01, health-b1-02]
     unlock: { type: all_of, requires: [b1.u21] }
+
+  - id: b1.u23
+    title: "Verbs & infinitives"
+    icon: bolt
+    lessons: [verbes-b1-01]
+    unlock: { type: all_of, requires: [b1.u22] }
+
+  - id: b1.u24
+    title: "Everyday procedures"
+    icon: wave
+    lessons: [verbes-b1-02]
+    unlock: { type: all_of, requires: [b1.u23] }
+
+  - id: b1.u25
+    title: "Describing change"
+    icon: chart
+    lessons: [verbes-b1-03]
+    unlock: { type: all_of, requires: [b1.u24] }

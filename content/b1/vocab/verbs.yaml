@@ -1,0 +1,375 @@
+# B1 verbs — the productive half of the level.
+# b1 had 408 nouns and 13 verbs. These sit between a2's everyday actions
+# (manger, travailler) and b2's argument verbs (nuancer, s'avérer): the
+# constructions that carry a request, a procedure or a narrative.
+#
+# Where the bare verb is already taught at a1/a2 (commencer, essayer, finir),
+# the B1 entry is the CONSTRUCTION — the preposition before the infinitive —
+# and its gloss says so, so the card is not a near-duplicate of the a1 one.
+
+# --- verbe + infinitif (à / de) ---
+- id: commencer_a
+  fr: commencer à
+  en: to start to (+ infinitive)
+  pos: verb
+  tags: [verbs]
+
+- id: se_mettre_a
+  fr: se mettre à
+  en: to begin, to take up
+  pos: verb
+  tags: [verbs]
+
+- id: hesiter
+  fr: hésiter à
+  en: to hesitate to
+  pos: verb
+  tags: [verbs]
+
+- id: chercher_a
+  fr: chercher à
+  en: to seek to (+ infinitive)
+  pos: verb
+  tags: [verbs]
+
+- id: apprendre_a
+  fr: apprendre à
+  en: to learn to (+ infinitive)
+  pos: verb
+  tags: [verbs]
+
+- id: arriver_a
+  fr: arriver à
+  en: to manage to (+ infinitive)
+  pos: verb
+  tags: [verbs]
+
+- id: continuer_a
+  fr: continuer à
+  en: to carry on
+  pos: verb
+  tags: [verbs]
+
+- id: aider_a
+  fr: aider à
+  en: to help to (+ infinitive)
+  pos: verb
+  tags: [verbs]
+
+- id: essayer_de
+  fr: essayer de
+  en: to try to (+ infinitive)
+  pos: verb
+  tags: [verbs]
+
+- id: decider_de
+  fr: décider de
+  en: to decide to
+  pos: verb
+  tags: [verbs]
+
+- id: accepter
+  fr: accepter de
+  en: to agree to
+  pos: verb
+  tags: [verbs]
+
+- id: refuser
+  fr: refuser de
+  en: to refuse to
+  pos: verb
+  tags: [verbs]
+
+- id: oublier
+  fr: oublier de
+  en: to forget to
+  pos: verb
+  tags: [verbs]
+
+- id: eviter
+  fr: éviter de
+  en: to avoid
+  pos: verb
+  tags: [verbs]
+
+- id: choisir_de
+  fr: choisir de
+  en: to choose to
+  pos: verb
+  tags: [verbs]
+
+- id: permettre
+  fr: permettre de
+  en: to allow to
+  pos: verb
+  tags: [verbs]
+
+- id: promettre
+  fr: promettre de
+  en: to promise to
+  pos: verb
+  tags: [verbs]
+
+- id: proposer
+  fr: proposer de
+  en: to offer to
+  pos: verb
+  tags: [verbs]
+
+- id: risquer
+  fr: risquer de
+  en: to be likely to
+  pos: verb
+  tags: [verbs]
+
+- id: finir_de
+  fr: finir de
+  en: to finish doing (+ infinitive)
+  pos: verb
+  tags: [verbs]
+
+
+# --- verbes pronominaux et démarches ---
+- id: s_inscrire
+  fr: s'inscrire
+  en: to register, to sign up
+  pos: verb
+  tags: [verbs]
+
+- id: se_renseigner
+  fr: se renseigner
+  en: to find out, to enquire
+  pos: verb
+  tags: [verbs]
+
+- id: se_plaindre
+  fr: se plaindre
+  en: to complain
+  pos: verb
+  tags: [verbs]
+
+- id: se_debrouiller
+  fr: se débrouiller
+  en: to manage, to cope
+  pos: verb
+  tags: [verbs]
+
+- id: s_occuper
+  fr: s'occuper de
+  en: to take care of
+  pos: verb
+  tags: [verbs]
+
+- id: se_rendre_compte
+  fr: se rendre compte
+  en: to realise
+  pos: verb
+  tags: [verbs]
+
+- id: s_habituer
+  fr: s'habituer à
+  en: to get used to
+  pos: verb
+  tags: [verbs]
+
+- id: se_souvenir
+  fr: se souvenir de
+  en: to remember
+  pos: verb
+  tags: [verbs]
+
+- id: se_mefier
+  fr: se méfier de
+  en: to be wary of
+  pos: verb
+  tags: [verbs]
+
+- id: s_excuser
+  fr: s'excuser
+  en: to apologise
+  pos: verb
+  tags: [verbs]
+
+- id: demenager
+  fr: déménager
+  en: to move house
+  pos: verb
+  tags: [verbs]
+
+- id: regler
+  fr: régler
+  en: to settle, to pay
+  pos: verb
+  tags: [verbs]
+
+- id: remplir
+  fr: remplir
+  en: to fill in (a form)
+  pos: verb
+  tags: [verbs]
+
+- id: joindre
+  fr: joindre
+  en: to reach, to get hold of
+  pos: verb
+  tags: [verbs]
+
+- id: louer
+  fr: louer
+  en: to rent
+  pos: verb
+  tags: [verbs]
+
+
+# --- décrire une évolution ---
+- id: augmenter
+  fr: augmenter
+  en: to increase
+  pos: verb
+  tags: [verbs]
+
+- id: diminuer
+  fr: diminuer
+  en: to decrease
+  pos: verb
+  tags: [verbs]
+
+- id: ameliorer
+  fr: améliorer
+  en: to improve
+  pos: verb
+  tags: [verbs]
+
+- id: s_aggraver
+  fr: s'aggraver
+  en: to worsen
+  pos: verb
+  tags: [verbs]
+
+- id: evoluer
+  fr: évoluer
+  en: to evolve, to change
+  pos: verb
+  tags: [verbs]
+
+- id: transformer
+  fr: transformer
+  en: to transform
+  pos: verb
+  tags: [verbs]
+
+- id: remplacer
+  fr: remplacer
+  en: to replace
+  pos: verb
+  tags: [verbs]
+
+- id: reduire
+  fr: réduire
+  en: to reduce
+  pos: verb
+  tags: [verbs]
+
+- id: developper
+  fr: développer
+  en: to develop
+  pos: verb
+  tags: [verbs]
+
+- id: maintenir
+  fr: maintenir
+  en: to maintain
+  pos: verb
+  tags: [verbs]
+
+- id: atteindre
+  fr: atteindre
+  en: to reach
+  pos: verb
+  tags: [verbs]
+
+- id: depasser
+  fr: dépasser
+  en: to exceed, to overtake
+  pos: verb
+  tags: [verbs]
+
+- id: durer
+  fr: durer
+  en: to last
+  pos: verb
+  tags: [verbs]
+
+- id: manquer
+  fr: manquer
+  en: to miss, to lack
+  pos: verb
+  tags: [verbs]
+
+- id: prevoir
+  fr: prévoir
+  en: to plan, to foresee
+  pos: verb
+  tags: [verbs]
+
+
+# --- raconter, conseiller, conclure ---
+- id: raconter
+  fr: raconter
+  en: to tell, to recount
+  pos: verb
+  tags: [verbs]
+
+- id: decrire
+  fr: décrire
+  en: to describe
+  pos: verb
+  tags: [verbs]
+
+- id: comparer
+  fr: comparer
+  en: to compare
+  pos: verb
+  tags: [verbs]
+
+- id: remarquer
+  fr: remarquer
+  en: to notice
+  pos: verb
+  tags: [verbs]
+
+- id: conseiller
+  fr: conseiller
+  en: to advise
+  pos: verb
+  tags: [verbs]
+
+- id: recommander
+  fr: recommander
+  en: to recommend
+  pos: verb
+  tags: [verbs]
+
+- id: reconnaitre
+  fr: reconnaître
+  en: to acknowledge, to recognise
+  pos: verb
+  tags: [verbs]
+
+- id: preferer
+  fr: préférer
+  en: to prefer
+  pos: verb
+  tags: [verbs]
+
+- id: resoudre
+  fr: résoudre
+  en: to solve
+  pos: verb
+  tags: [verbs]
+
+- id: obtenir
+  fr: obtenir
+  en: to obtain
+  pos: verb
+  tags: [verbs]

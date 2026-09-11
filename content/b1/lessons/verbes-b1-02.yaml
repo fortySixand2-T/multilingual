@@ -1,0 +1,67 @@
+id: verbes-b1-02
+title: "Procedures & recounting"
+grammar_point: "les verbes pronominaux dans les démarches quotidiennes"
+grammar_category: "Verb conjugation & tenses"
+est_minutes: 9
+new_vocab: [s_inscrire, se_renseigner, se_plaindre, se_debrouiller, s_occuper, se_rendre_compte, s_habituer, se_souvenir, se_mefier, s_excuser, demenager, regler, remplir, joindre, louer, raconter, decrire, comparer, remarquer, conseiller]
+pass_threshold: 8.0
+exercises:
+  - id: verbes-b1-02.e1
+    type: match_pairs
+    pairs:
+      - ["s'inscrire", "to register, to sign up"]
+      - ["se renseigner", "to find out, to enquire"]
+      - ["se plaindre", "to complain"]
+      - ["se débrouiller", "to manage, to cope"]
+      - ["s'occuper de", "to take care of"]
+  - id: verbes-b1-02.e2
+    type: match_pairs
+    pairs:
+      - ["se rendre compte", "to realise"]
+      - ["s'habituer à", "to get used to"]
+      - ["se souvenir de", "to remember"]
+      - ["se méfier de", "to be wary of"]
+      - ["s'excuser", "to apologise"]
+  - id: verbes-b1-02.e3
+    type: match_pairs
+    pairs:
+      - ["déménager", "to move house"]
+      - ["régler", "to settle, to pay"]
+      - ["remplir", "to fill in (a form)"]
+      - ["joindre", "to reach, to get hold of"]
+      - ["louer", "to rent"]
+  - id: verbes-b1-02.e4
+    type: match_pairs
+    pairs:
+      - ["raconter", "to tell, to recount"]
+      - ["décrire", "to describe"]
+      - ["comparer", "to compare"]
+      - ["remarquer", "to notice"]
+      - ["conseiller", "to advise"]
+  - id: verbes-b1-02.e5
+    type: mcq
+    prompt: "« Je me suis ___ auprès de la mairie avant de déposer le dossier. »"
+    options: ["renseigné", "renseigner", "renseigne"]
+    answer: "renseigné"
+    explain: "Passé composé d'un verbe pronominal : je me suis renseigné(e)."
+  - id: verbes-b1-02.e6
+    type: mcq
+    prompt: "« Il faut ___ ce formulaire avant vendredi. »"
+    options: ["remplir", "rempli", "remplissant"]
+    answer: "remplir"
+    explain: "remplir un formulaire = to fill in a form ; « il faut » + infinitif."
+  - id: verbes-b1-02.e7
+    type: word_bank
+    prompt: "Build: “I realised that I had forgotten the document.”"
+    tokens: [je, me, suis, rendu, compte, que, "j'avais", "oublié", le, document, de]
+    answer: [je, me, suis, rendu, compte, que, "j'avais", "oublié", le, document]
+  - id: verbes-b1-02.e8
+    type: translate
+    prompt: "Translate: “to complain”"
+    answer: "se plaindre"
+    accept: ["plaindre", "se plaindre de"]
+  - id: verbes-b1-02.e9
+    type: listen_type
+    audio_ref: b1/audio/se_debrouiller.mp3
+    answer: "se débrouiller"
+    prompt: "Type the verb you hear."

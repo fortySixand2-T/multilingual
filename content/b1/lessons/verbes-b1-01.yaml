@@ -1,0 +1,67 @@
+id: verbes-b1-01
+title: "Verbs + infinitive"
+grammar_point: "verbe + infinitif : « à » ou « de »"
+grammar_category: "Sentence structures"
+est_minutes: 9
+new_vocab: [commencer_a, se_mettre_a, hesiter, chercher_a, apprendre_a, arriver_a, continuer_a, aider_a, essayer_de, decider_de, accepter, refuser, oublier, eviter, choisir_de, permettre, promettre, proposer, risquer, finir_de]
+pass_threshold: 8.0
+exercises:
+  - id: verbes-b1-01.e1
+    type: match_pairs
+    pairs:
+      - ["commencer à", "to start to (+ infinitive)"]
+      - ["se mettre à", "to begin, to take up"]
+      - ["hésiter à", "to hesitate to"]
+      - ["chercher à", "to seek to (+ infinitive)"]
+      - ["apprendre à", "to learn to (+ infinitive)"]
+  - id: verbes-b1-01.e2
+    type: match_pairs
+    pairs:
+      - ["arriver à", "to manage to (+ infinitive)"]
+      - ["continuer à", "to carry on"]
+      - ["aider à", "to help to (+ infinitive)"]
+      - ["essayer de", "to try to (+ infinitive)"]
+      - ["décider de", "to decide to"]
+  - id: verbes-b1-01.e3
+    type: match_pairs
+    pairs:
+      - ["accepter de", "to agree to"]
+      - ["refuser de", "to refuse to"]
+      - ["oublier de", "to forget to"]
+      - ["éviter de", "to avoid"]
+      - ["choisir de", "to choose to"]
+  - id: verbes-b1-01.e4
+    type: match_pairs
+    pairs:
+      - ["permettre de", "to allow to"]
+      - ["promettre de", "to promise to"]
+      - ["proposer de", "to offer to"]
+      - ["risquer de", "to be likely to"]
+      - ["finir de", "to finish doing (+ infinitive)"]
+  - id: verbes-b1-01.e5
+    type: mcq
+    prompt: "« J'ai commencé ___ apprendre le français en 2024. »"
+    options: ["à", "de", "pour"]
+    answer: "à"
+    explain: "commencer « à » + infinitif. La préposition dépend du verbe, pas du sens."
+  - id: verbes-b1-01.e6
+    type: mcq
+    prompt: "« Il a décidé ___ changer de travail. »"
+    options: ["de", "à", "en"]
+    answer: "de"
+    explain: "décider « de » + infinitif ; comparez avec « hésiter à »."
+  - id: verbes-b1-01.e7
+    type: word_bank
+    prompt: "Build: “I'm trying to finish this report.”"
+    tokens: ["j'essaie", de, finir, ce, rapport, à]
+    answer: ["j'essaie", de, finir, ce, rapport]
+  - id: verbes-b1-01.e8
+    type: translate
+    prompt: "Translate: “to manage to” (succeed in doing)"
+    answer: "arriver à"
+    accept: ["arriver"]
+  - id: verbes-b1-01.e9
+    type: listen_type
+    audio_ref: b1/audio/hesiter.mp3
+    answer: "hésiter à"
+    prompt: "Type the verb you hear, with its preposition."
