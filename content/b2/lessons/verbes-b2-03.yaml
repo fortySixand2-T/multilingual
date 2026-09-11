@@ -1,0 +1,67 @@
+id: verbes-b2-03
+title: "The verbs of argument"
+grammar_point: "les verbes de l'argumentation : appuyer, nuancer, conclure"
+grammar_category: "Expressions & communication"
+est_minutes: 9
+new_vocab: [mettre_en_oeuvre, souligner, constater, demontrer, illustrer, nuancer, resumer, enoncer, s_averer, decouler, entrainer_consequence, susciter, accentuer, attenuer, remettre_en_cause, mettre_en_evidence, prendre_position, trancher, concilier, preconiser]
+pass_threshold: 8.0
+exercises:
+  - id: verbes-b2-03.e1
+    type: match_pairs
+    pairs:
+      - ["mettre en œuvre", "to implement"]
+      - ["souligner", "to underline, to stress"]
+      - ["constater", "to note, to observe"]
+      - ["démontrer", "to demonstrate"]
+      - ["illustrer", "to illustrate"]
+  - id: verbes-b2-03.e2
+    type: match_pairs
+    pairs:
+      - ["nuancer", "to qualify, to nuance"]
+      - ["résumer", "to summarise"]
+      - ["énoncer", "to state, to set out"]
+      - ["s'avérer", "to prove to be, to turn out"]
+      - ["découler de", "to stem from, to follow from"]
+  - id: verbes-b2-03.e3
+    type: match_pairs
+    pairs:
+      - ["entraîner", "to bring about, to lead to"]
+      - ["susciter", "to arouse, to generate"]
+      - ["accentuer", "to accentuate, to sharpen"]
+      - ["atténuer", "to mitigate, to soften"]
+      - ["remettre en cause", "to call into question"]
+  - id: verbes-b2-03.e4
+    type: match_pairs
+    pairs:
+      - ["mettre en évidence", "to highlight, to bring out"]
+      - ["prendre position", "to take a stand"]
+      - ["trancher", "to settle, to decide"]
+      - ["concilier", "to reconcile, to balance"]
+      - ["préconiser", "to recommend, to advocate"]
+  - id: verbes-b2-03.e5
+    type: mcq
+    prompt: "« Cette mesure ___ des inégalités nouvelles. »"
+    options: ["entraîne", "entraînant", "entraîner"]
+    answer: "entraîne"
+    explain: "entraîner = to bring about ; ici au présent de l'indicatif."
+  - id: verbes-b2-03.e6
+    type: mcq
+    prompt: "« Il convient de ___ ce constat : la situation varie selon les régions. »"
+    options: ["nuancer", "trancher", "résumer"]
+    answer: "nuancer"
+    explain: "nuancer = to qualify a claim ; trancher = to settle it definitively."
+  - id: verbes-b2-03.e7
+    type: word_bank
+    prompt: "Build: “The report highlights a worrying trend.”"
+    tokens: [le, rapport, met, en, "évidence", une, tendance, "inquiétante", de]
+    answer: [le, rapport, met, en, "évidence", une, tendance, "inquiétante"]
+  - id: verbes-b2-03.e8
+    type: translate
+    prompt: "Translate: “to implement”"
+    answer: "mettre en œuvre"
+    accept: ["mettre en oeuvre"]
+  - id: verbes-b2-03.e9
+    type: listen_type
+    audio_ref: b2/audio/souligner.mp3
+    answer: "souligner"
+    prompt: "Type the verb you hear."

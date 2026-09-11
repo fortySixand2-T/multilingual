@@ -8,7 +8,7 @@
 - id: numerique
   fr: numérique
   en: "digital"
-  pos: adj
+  pos: adjective
   tags: [sciences]
 
 - id: donnee

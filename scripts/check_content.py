@@ -38,6 +38,10 @@ KNOWN_GAPS: dict[tuple[str, str], set[str]] = {}
 # "veux", which a headword match cannot see.
 KNOWN_CONJUGATED_ONLY = {("a1", "verbs-01"): {"vouloir"}}
 
+# One spelling per part of speech. `adj` vs `adjective` drifted in four entries
+# before this was checked.
+KNOWN_POS = {"noun", "verb", "adjective", "adverb", "numeral", "phrase", "interjection"}
+
 _ARTICLES = ("le ", "la ", "les ", "l'", "un ", "une ", "des ")
 
 
@@ -150,6 +154,8 @@ def check_vocab_fields(level, bundle, report):
         for field in ("fr", "en"):
             if not isinstance(getattr(w, field), str) or not getattr(w, field).strip():
                 report(f"{level}/{vid}: {field} is not a non-empty string")
+        if w.pos not in KNOWN_POS:
+            report(f"{level}/{vid}: pos {w.pos!r} is not one of {sorted(KNOWN_POS)}")
         if not getattr(w, "tags", None):
             report(f"{level}/{vid}: no tags — it will not appear under any deck")
         if getattr(w, "gender", None) == "mf" and not getattr(w, "fem", None):
