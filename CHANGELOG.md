@@ -359,3 +359,9 @@
 - [2026-09-12] Modified: web/src/api.ts, web/src/screens/Speaking.tsx — render English gloss + "What you could say" clues; label section C as "Conversation"
 - [2026-09-12] Modified: tests/test_speaking_topics.py — section C framing, A1 English support, b1/b2 stay French-only
 - [2026-09-12] Fixed: web/e2e/specs/vocab-deck.spec.ts — pronunciation-button assertion used a strict locator, but an `mf` card renders two 🔊 buttons and the deck shuffles (~6.6% of a1 cards) — use .first()
+- [2026-09-12] Created: migrations/versions/0021_speech_reply_en.py — cache an on-demand English subtitle on a speech turn
+- [2026-09-12] Modified: app/speech/tables.py — SpeechTurn.reply_en; app/speech/examiner.py — authored English for the canned openers (canned_opener_en)
+- [2026-09-12] Modified: app/speech/api.py — POST /speech/turn/{id}/translate (on-demand, cached, billed once, 404 across users); /speech/history returns reply_en
+- [2026-09-12] Modified: app/config/ai_routing.yaml, ai_routing.ollama.yaml — speech_translate profile (cached)
+- [2026-09-12] Modified: web/src/api.ts, web/src/screens/Speaking.tsx — Subtitle component: "Show English" per examiner turn
+- [2026-09-12] Modified: tests/test_speech.py — canned subtitle is authored/free, generated subtitle translated once then cached, cross-user 404

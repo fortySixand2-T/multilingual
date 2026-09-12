@@ -95,6 +95,9 @@ export type SpeechHistoryTurn = {
   transcript: string;
   reply_text: string;
   reply_audio_url: string | null;
+  // Set only once the learner has asked for the subtitle (or for a canned
+  // opener, whose English is authored) — subtitles are on demand.
+  reply_en?: string | null;
 };
 export type SpeakingTopic = {
   id: string;
@@ -525,6 +528,13 @@ export const api = {
     }),
 
   speechHistory: () => req<{ turns: SpeechHistoryTurn[] }>("/speech/history"),
+  // English subtitle for one examiner line, fetched when the learner asks for it.
+  // Cached server-side on the turn, so toggling it again costs nothing.
+  speechTranslate: (turnId: number) =>
+    req<{ reply_en: string; cached?: boolean; over_budget?: boolean }>(
+      `/speech/turn/${turnId}/translate`,
+      { method: "POST" }
+    ),
   speechStatus: () => req<{ available: boolean }>("/speech/status"),
   speakingTopics: (level: string, section?: "A" | "B") =>
     req<{ topics: SpeakingTopic[] }>(

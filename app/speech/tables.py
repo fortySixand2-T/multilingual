@@ -37,5 +37,8 @@ class SpeechTurn(Base):
     reply_audio_key: Mapped[str | None] = mapped_column(
         String(128), nullable=True
     )  # TTS in storage
+    # On-demand English subtitle for `reply_text`, filled the first time the
+    # learner asks for it and reused afterwards so a line is billed once.
+    reply_en: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime)
     # NOTE: deliberately no column for the uploaded audio — R10.

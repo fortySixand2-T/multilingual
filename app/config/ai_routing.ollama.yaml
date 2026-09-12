@@ -65,3 +65,11 @@ profiles:
   pairwise_judge:
     capability: llm
     primary: "ollama/${OLLAMA_MODEL}"
+
+  # On-demand English subtitle for one examiner line. Cached: the same French
+  # sentence always translates the same way, and turns are re-read often.
+  speech_translate:
+    capability: llm
+    primary: "ollama/${OLLAMA_MODEL}"
+    cache: true
+    cache_ttl: 86400
