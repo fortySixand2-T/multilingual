@@ -486,7 +486,7 @@ function TopicPicker({
       <div className="card" style={{ marginTop: 12, borderLeft: "4px solid var(--accent, #2e7d5b)" }}>
         <div className="btn-row" style={{ justifyContent: "space-between", alignItems: "baseline" }}>
           <div className="muted" style={{ fontSize: 12 }}>
-            Topic · Section {topic.section}
+            {topic.section === "C" ? "Conversation" : `Topic · Section ${topic.section}`}
           </div>
           <button className="link-btn" onClick={() => onPick(null)} disabled={disabled}>
             Change topic
@@ -494,12 +494,32 @@ function TopicPicker({
         </div>
         <div style={{ fontWeight: 700, marginTop: 2 }}>{topic.title}</div>
         <div style={{ whiteSpace: "pre-line", marginTop: 4 }}>{topic.prompt}</div>
-        {topic.points.length > 0 && (
-          <ul className="muted" style={{ fontSize: 13, marginTop: 8, paddingLeft: 18 }}>
-            {topic.points.map((p, i) => (
-              <li key={i}>{p}</li>
-            ))}
-          </ul>
+        {topic.prompt_en && (
+          <div className="muted" style={{ fontSize: 13, marginTop: 4, fontStyle: "italic" }}>
+            {topic.prompt_en}
+          </div>
+        )}
+        {/* Clues in English where they're authored (a1/a2): a beginner can't read a
+            French hint about what to say next — that's the thing they're learning. */}
+        {(topic.points_en?.length ?? 0) > 0 ? (
+          <>
+            <div className="muted" style={{ fontSize: 12, marginTop: 8, fontWeight: 600 }}>
+              What you could say
+            </div>
+            <ul style={{ fontSize: 13, marginTop: 4, paddingLeft: 18 }}>
+              {topic.points_en!.map((p, i) => (
+                <li key={i} style={{ marginBottom: 2 }}>{p}</li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          topic.points.length > 0 && (
+            <ul className="muted" style={{ fontSize: 13, marginTop: 8, paddingLeft: 18 }}>
+              {topic.points.map((p, i) => (
+                <li key={i}>{p}</li>
+              ))}
+            </ul>
+          )
         )}
       </div>
     );
@@ -520,7 +540,9 @@ function TopicPicker({
             disabled={disabled}
             title={t.prompt}
           >
-            <span className="muted" style={{ fontSize: 11 }}>Section {t.section}</span>
+            <span className="muted" style={{ fontSize: 11 }}>
+              {t.section === "C" ? "Conversation" : `Section ${t.section}`}
+            </span>
             <br />
             {t.title}
           </button>

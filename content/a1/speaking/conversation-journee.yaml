@@ -1,0 +1,17 @@
+id: speak-a1-c-journee
+level: a1
+section: C
+title: "Votre journée"
+prompt: |
+  Racontez une journée normale : le matin, l'après-midi et le soir.
+prompt_en: "Talk through an ordinary day: morning, afternoon and evening."
+points:
+  - "à quelle heure vous vous levez"
+  - "ce que vous faites le matin"
+  - "votre repas préféré de la journée"
+  - "ce que vous faites le soir"
+points_en:
+  - "Say what time you get up — « je me lève à… »"
+  - "Describe your morning in two or three steps"
+  - "Say which meal you like best and what you eat"
+  - "Say what you do to relax in the evening"

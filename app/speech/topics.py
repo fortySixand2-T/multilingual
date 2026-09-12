@@ -34,12 +34,19 @@ class SpeakingTopic(BaseModel):
     model_config = ConfigDict(extra="forbid")
     id: str
     level: str
-    section: Literal["A", "B"]
+    # "A"/"B" are the two TEF Expression Orale sections. "C" is an everyday
+    # conversation — not an exam task at all: at A1 a learner needs to chat about
+    # their family or order a coffee long before they can argue a position.
+    section: Literal["A", "B", "C"]
     title: str
     prompt: str  # the French task statement shown to the learner
     # Angles the learner can develop — shown as hints and blended into the
     # examiner framing so follow-ups push toward these.
     points: list[str] = []
+    # English support for the lower levels: a beginner cannot read a French hint
+    # about what to say next. Optional — b1/b2 stay French-only on purpose.
+    prompt_en: str = ""
+    points_en: list[str] = []
 
 
 def load_topics(content_root: str | Path, level: str) -> dict[str, SpeakingTopic]:
@@ -56,6 +63,17 @@ def framing(topic: SpeakingTopic) -> str:
     correctly."""
     points = ", ".join(topic.points)
     hint = f" Encourage them to cover: {points}." if points else ""
+    if topic.section == "C":
+        return (
+            "\n\n## Today's conversation\n"
+            f"You and the learner are having an everyday conversation: «{topic.prompt}». "
+            "This is NOT an exam task — be a warm, patient conversation partner, not an "
+            "examiner. YOU open and keep it going: ask one short, simple question at a "
+            "time, react to what they say before asking the next one, and keep your own "
+            "turns to one or two short sentences. If they stall or go quiet, offer them "
+            "two simple options to choose between rather than repeating the question."
+            f"{hint}"
+        )
     if topic.section == "A":
         return (
             "\n\n## Today's task (TEF Expression Orale — Section A: obtenir des informations)\n"

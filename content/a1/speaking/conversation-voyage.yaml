@@ -1,0 +1,18 @@
+id: speak-a1-c-voyage
+level: a1
+section: C
+title: "Planifier un voyage"
+prompt: |
+  Vous préparez un voyage avec un ami. Dites où vous voulez aller, quand, et
+  ce que vous voulez y faire.
+prompt_en: "You're planning a trip with a friend. Say where you want to go, when, and what you want to do there."
+points:
+  - "la destination et pourquoi"
+  - "la date et la durée"
+  - "comment y aller"
+  - "deux choses à faire sur place"
+points_en:
+  - "Name the place and say why you want to go"
+  - "Say when you'd leave and how long you'd stay"
+  - "Say how you'd travel — plane, train, car"
+  - "Name two things you want to do there"
