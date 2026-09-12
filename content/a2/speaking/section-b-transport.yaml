@@ -1,0 +1,12 @@
+id: speak-a2-b-transport
+level: a2
+section: B
+title: "Train ou voiture ?"
+prompt: |
+  « Pour partir en vacances, vaut-il mieux prendre le train ou la voiture ? »
+  Donnez votre opinion et répondez aux objections.
+points:
+  - "le prix du trajet"
+  - "la durée et la fatigue"
+  - "la liberté une fois sur place"
+  - "l'environnement"

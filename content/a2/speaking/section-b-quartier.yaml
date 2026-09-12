@@ -1,0 +1,12 @@
+id: speak-a2-b-quartier
+level: a2
+section: B
+title: "Convaincre un ami de déménager près de chez vous"
+prompt: |
+  Un ami cherche un logement. Convainquez-le de venir habiter dans votre
+  quartier plutôt qu'ailleurs.
+points:
+  - "les transports et les commerces"
+  - "le loyer dans le quartier"
+  - "le calme ou l'animation"
+  - "être voisins"

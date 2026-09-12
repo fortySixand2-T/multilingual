@@ -1,0 +1,13 @@
+id: speak-b2-a-reconversion
+level: b2
+section: A
+title: "Se renseigner sur une reconversion"
+prompt: |
+  Vous envisagez une reconversion professionnelle. Vous appelez un conseiller
+  en évolution professionnelle pour obtenir les informations dont vous avez besoin
+  avant de vous engager.
+points:
+  - "les dispositifs auxquels vous pouvez recourir"
+  - "ce que le financement permet de couvrir"
+  - "les délais à prévoir"
+  - "ce dont dépend l'acceptation du dossier"

@@ -1,0 +1,12 @@
+id: speak-b1-a-logement
+level: b1
+section: A
+title: "Appeler une agence immobilière"
+prompt: |
+  Vous avez vu une annonce pour un appartement. Téléphonez à l'agence pour vous
+  renseigner avant de visiter, et obtenez toutes les informations utiles.
+points:
+  - "se renseigner sur le loyer et les charges"
+  - "les documents à remplir pour le dossier"
+  - "comment régler le dépôt de garantie"
+  - "fixer une date de visite"

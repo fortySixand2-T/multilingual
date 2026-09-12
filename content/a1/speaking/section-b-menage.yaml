@@ -1,0 +1,12 @@
+id: speak-a1-b-menage
+level: a1
+section: B
+title: "Partager les tâches à la maison"
+prompt: |
+  Votre colocataire ne fait jamais le ménage. Expliquez-lui pourquoi c'est un
+  problème et proposez une solution simple.
+points:
+  - "les tâches à partager"
+  - "un jour par semaine"
+  - "ce que vous faites déjà"
+  - "une solution acceptable"

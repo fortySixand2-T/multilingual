@@ -24,6 +24,7 @@ import unicodedata
 from pathlib import Path
 
 from app.content.loader import load_content
+from app.speech.topics import load_topics
 
 CONTENT_ROOT = Path(__file__).resolve().parents[1] / "content"
 
@@ -199,6 +200,24 @@ def check_known_gaps_not_stale(level, bundle, report):
             report(f"{level}/{lid}: now practiced, remove from KNOWN_GAPS: {sorted(fixed)}")
 
 
+def check_speaking_covers_both_sections(level, bundle, report):
+    """Every TEF candidate sits both Expression orale sections, so every level
+    needs both: A = obtain information, B = argue a position. a1/a2 once had
+    only A and b1/b2 only B, so half the exam was unpractisable at every level.
+    """
+    topics = load_topics(CONTENT_ROOT, level)
+    for section, what in (("A", "obtain information"), ("B", "argue a position")):
+        if not [t for t in topics.values() if t.section == section]:
+            report(f"{level}: no Section {section} speaking topic ({what})")
+    for t in topics.values():
+        for pt in t.points:
+            if not isinstance(pt, str):
+                report(
+                    f"{level}/{t.id}: a `points` entry parsed as {type(pt).__name__}, "
+                    "not a string — an unquoted ' : ' makes YAML build a mapping"
+                )
+
+
 def check_path_covers_lessons(level, bundle, report):
     """A lesson missing from path.yaml is unreachable in the Learn tab."""
     in_path = {lid for unit in bundle.path.units for lid in unit.lessons}
@@ -213,6 +232,7 @@ RULES = [
     check_every_word_is_taught,
     check_new_vocab_is_practiced,
     check_known_gaps_not_stale,
+    check_speaking_covers_both_sections,
     check_path_covers_lessons,
 ]
 

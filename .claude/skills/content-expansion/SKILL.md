@@ -42,7 +42,9 @@ gives a readable answer where the loader gives a nested Pydantic error.
    hand-made. Regenerate with `python scripts/gen_audio.py <level>`.
 6. **Every vocab word has `tags`** — a word with no tag appears under no deck.
 7. **Every lesson is referenced by a `path.yaml` unit.**
-8. `gender: mf` requires a genuinely different `fem` spelling. Epicene nouns
+8. **Every level has both speaking sections** — A (obtain information) and
+   B (argue a position). Every TEF candidate sits both.
+9. `gender: mf` requires a genuinely different `fem` spelling. Epicene nouns
    (*témoin*, *psychologue*) have no schema slot — the UI handles them via
    `EPICENE_IDS` in `web/src/VocabWord.tsx`.
 
@@ -56,10 +58,14 @@ en: true                              # BOOLEAN, not the string "true" (gloss of
 - [vrai, true]                        # same, nested inside match_pairs
 - [alternance, co-op, work-study]     # unquoted comma -> a 3-ITEM pair
 tokens: [on, off, yes, no]            # word_bank tiles that are YAML booleans
+points:
+  - s'inscrire : les délais           # colon-space -> a MAPPING, not a string
 ```
 
-**Rule: quote every flow-list value containing a comma, and every value that is
-a YAML boolean token** (`true/false/yes/no/on/off`).
+**Rule: quote any YAML scalar that contains a comma or a colon-space, and every
+value that is a YAML boolean token** (`true/false/yes/no/on/off`). This applies
+to block sequences (`points:`) exactly as much as to flow lists — the colon
+variant was found the first time a `points:` list was authored with one.
 
 ## Adding vocabulary
 

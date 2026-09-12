@@ -1,0 +1,12 @@
+id: speak-b2-a-facture
+level: b2
+section: A
+title: "Contester une facture"
+prompt: |
+  Votre facture d'électricité a doublé sans explication. Vous appelez le service
+  client pour comprendre et obtenir une régularisation.
+points:
+  - "faire préciser le détail de la facture"
+  - "ce qui pourrait expliquer la hausse"
+  - "ce dont vous avez besoin comme preuve écrite"
+  - "obtenir un engagement daté"

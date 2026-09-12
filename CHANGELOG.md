@@ -350,3 +350,6 @@
 - [2026-09-10] Created: content/b1/lessons/verbes-b1-0{1,2,3}.yaml — 3 lessons teaching the 60 verbs
 - [2026-09-10] Modified: content/b1/path.yaml — units b1.u23–u25 chained onto b1.u22
 - [2026-09-10] Created: content/b1/audio/*.mp3 — 60 clips via scripts/gen_audio.py
+- [2026-09-11] Created: content/{a1,a2,b1,b2}/speaking/*.yaml — 16 new speaking topics so every level has both TEF sections (A obtain-information, B argue); 8 → 24 total
+- [2026-09-11] Modified: scripts/check_content.py — check_speaking_covers_both_sections (both sections per level; points entries must be strings)
+- [2026-09-11] Modified: .claude/skills/content-expansion/SKILL.md — colon-space YAML trap + the both-sections invariant

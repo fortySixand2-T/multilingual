@@ -1,0 +1,13 @@
+id: speak-a2-a-bibliotheque
+level: a2
+section: A
+title: "S'inscrire à la bibliothèque"
+prompt: |
+  Vous voulez vous inscrire à la bibliothèque municipale. Posez des questions à
+  l'accueil pour connaître les conditions d'inscription et le fonctionnement des
+  emprunts.
+points:
+  - "les documents nécessaires"
+  - "le prix de la carte"
+  - "le nombre de livres empruntables"
+  - "les horaires d'ouverture"

@@ -1,0 +1,12 @@
+id: speak-a1-b-sport
+level: a1
+section: B
+title: "Proposer de faire du sport ensemble"
+prompt: |
+  Vous voulez faire du sport avec un ami. Il n'a pas envie. Convainquez-le de
+  venir avec vous.
+points:
+  - "le sport et le lieu"
+  - "le jour et l'heure"
+  - "c'est bon pour la santé"
+  - "ce n'est pas cher"
