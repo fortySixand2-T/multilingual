@@ -644,3 +644,57 @@ def test_session_id_scopes_history_and_persists_on_turn():
             ).scalar_one()
 
     assert _run(get_turn()).session_id == "sess-204"
+
+
+def test_canned_opener_subtitle_is_authored_and_never_calls_the_llm():
+    """The free-conversation opener is fixed text, so its English is authored:
+    the subtitle appears instantly and costs nothing. BoomRouter raises if the
+    LLM is touched."""
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=340, router=BoomRouter())
+    opened = client.post("/speech/opener", data={"mode": "conversation", "session_id": "s-sub"})
+    turn_id = opened.json()["turn_id"]
+
+    r = client.post(f"/speech/turn/{turn_id}/translate")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["cached"] is True
+    assert "talk about" in body["reply_en"].lower()
+
+    # History carries it too, so reopening the conversation shows it with no press.
+    hist = client.get("/speech/history").json()["turns"]
+    assert hist[0]["reply_en"] == body["reply_en"]
+
+
+def test_turn_subtitle_is_translated_once_then_cached():
+    """A generated reply is translated on demand and stored on the turn, so the
+    second press bills nothing."""
+    router = FakeRouter()
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=341, router=router)
+    turn = client.post(
+        "/speech/turn",
+        data={"mode": "conversation", "session_id": "s-t"},
+        files={"audio": ("a.webm", b"x" * 64, "audio/webm")},
+    )
+    turn_id = turn.json()["turn_id"]
+    before = len(router.calls)
+
+    first = client.post(f"/speech/turn/{turn_id}/translate").json()
+    assert first["cached"] is False
+    assert first["reply_en"]
+    assert len(router.calls) == before + 1
+    assert router.calls[-1]["profile"] == "speech_translate"
+
+    second = client.post(f"/speech/turn/{turn_id}/translate").json()
+    assert second["cached"] is True
+    assert second["reply_en"] == first["reply_en"]
+    assert len(router.calls) == before + 1, "a cached subtitle must not call the LLM again"
+
+
+def test_subtitle_of_another_users_turn_is_404():
+    """Turns are per-user; a subtitle must not leak one learner's conversation."""
+    client_a, _ = _client(stt=FakeSTT(), tts=None, uid=342)
+    opened = client_a.post("/speech/opener", data={"mode": "conversation", "session_id": "s-a"})
+    turn_id = opened.json()["turn_id"]
+
+    client_b, _ = _client(stt=FakeSTT(), tts=None, uid=343)
+    assert client_b.post(f"/speech/turn/{turn_id}/translate").status_code == 404

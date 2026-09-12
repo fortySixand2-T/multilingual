@@ -61,6 +61,27 @@ _CANNED_OPENERS = {
 }
 
 
+# The canned openers are fixed text, so their English is authored rather than
+# translated: the opener's subtitle costs nothing and appears instantly.
+_CANNED_OPENERS_EN = {
+    "conversation": (
+        "Hello! I'm glad to be chatting with you today. What would you like to talk about?"
+    ),
+    "examiner": (
+        "Hello! We're going to do a bit of conversation in French. "
+        "To start, could you introduce yourself in a few words?"
+    ),
+}
+
+
+def canned_opener_en(text: str) -> str:
+    """The authored English for a canned opener, or "" if `text` isn't one."""
+    for mode, fr in _CANNED_OPENERS.items():
+        if fr == text:
+            return _CANNED_OPENERS_EN[mode]
+    return ""
+
+
 def canned_opener(mode: str) -> tuple[str, str]:
     """(canonical_mode, greeting) for a free-conversation opener. Unknown modes fall
     back to the examiner greeting. The canonical mode keys the shared audio cache so

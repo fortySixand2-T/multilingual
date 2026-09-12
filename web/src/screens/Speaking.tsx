@@ -11,7 +11,13 @@ import {
 import { useSlowRate } from "../speed";
 import { useLevel } from "../level";
 
-type Turn = { transcript: string; reply_text: string; reply_audio_url: string | null };
+type Turn = {
+  transcript: string;
+  reply_text: string;
+  reply_audio_url: string | null;
+  turn_id?: number;
+  reply_en?: string | null;
+};
 
 export default function Speaking() {
   const { level } = useLevel();
@@ -47,7 +53,15 @@ export default function Speaking() {
   useEffect(() => {
     api.speechHistory()
       .then((r) =>
-        setTurns(r.turns.map((t) => ({ transcript: t.transcript, reply_text: t.reply_text, reply_audio_url: t.reply_audio_url })))
+        setTurns(
+          r.turns.map((t) => ({
+            transcript: t.transcript,
+            reply_text: t.reply_text,
+            reply_audio_url: t.reply_audio_url,
+            turn_id: t.turn_id,
+            reply_en: t.reply_en ?? null,
+          }))
+        )
       )
       .catch((e) => setError(e.message))
       .finally(() => setHistoryLoaded(true));
@@ -96,7 +110,14 @@ export default function Speaking() {
       try {
         const res = await postSpeechOpener(mode, topic?.id, sessionId);
         if (cancelled || res.over_budget || !res.reply_text) return;
-        setTurns([{ transcript: "", reply_text: res.reply_text, reply_audio_url: res.reply_audio_url ?? null }]);
+        setTurns([
+          {
+            transcript: "",
+            reply_text: res.reply_text,
+            reply_audio_url: res.reply_audio_url ?? null,
+            turn_id: res.turn_id,
+          },
+        ]);
         if (res.reply_audio_url) void autoplay(res.reply_audio_url);
       } catch {
         // Opener is best-effort — fall back to the empty-state hint, and allow a
@@ -118,7 +139,15 @@ export default function Speaking() {
         setError("You've reached today's speaking-practice limit. Try again tomorrow.");
         return;
       }
-      setTurns((t) => [...t, { transcript: res.transcript, reply_text: res.reply_text ?? "", reply_audio_url: res.reply_audio_url ?? null }]);
+      setTurns((t) => [
+        ...t,
+        {
+          transcript: res.transcript,
+          reply_text: res.reply_text ?? "",
+          reply_audio_url: res.reply_audio_url ?? null,
+          turn_id: res.turn_id,
+        },
+      ]);
       setSessionTurns((n) => n + 1);
     } catch (e: any) {
       setError(
@@ -236,6 +265,15 @@ export default function Speaking() {
             <div className="card">
               <div className="muted" style={{ fontSize: 12 }}>Examiner</div>
               <div>{t.reply_text}</div>
+              <Subtitle
+                turnId={t.turn_id}
+                replyEn={t.reply_en}
+                onTranslated={(en) =>
+                  setTurns((prev) =>
+                    prev.map((x, xi) => (xi === i ? { ...x, reply_en: en } : x))
+                  )
+                }
+              />
               {t.reply_audio_url && <PlayButton url={t.reply_audio_url} />}
             </div>
           </div>
@@ -591,5 +629,70 @@ function PlayButton({ url }: { url: string }) {
         🐢
       </button>
     </>
+  );
+}
+
+// On-demand English for one examiner line. Subtitles are opt-in per turn rather
+// than always-on: translating every reply would double the LLM work on the
+// slowest interaction in the app. Once fetched the server caches it on the turn,
+// so re-opening a conversation shows it immediately and costs nothing.
+function Subtitle({
+  turnId,
+  replyEn,
+  onTranslated,
+}: {
+  turnId?: number;
+  replyEn?: string | null;
+  onTranslated: (en: string) => void;
+}) {
+  const [shown, setShown] = useState(Boolean(replyEn));
+  const [loading, setLoading] = useState(false);
+  const [failed, setFailed] = useState("");
+
+  // A turn that arrived already translated (history, or a canned opener) shows
+  // its English without anyone pressing anything.
+  useEffect(() => {
+    if (replyEn) setShown(true);
+  }, [replyEn]);
+
+  if (turnId === undefined) return null;
+
+  const reveal = async () => {
+    if (replyEn) return setShown(true);
+    setLoading(true);
+    setFailed("");
+    try {
+      const r = await api.speechTranslate(turnId);
+      if (r.over_budget) setFailed("Daily speaking budget reached — no English right now.");
+      else {
+        onTranslated(r.reply_en);
+        setShown(true);
+      }
+    } catch {
+      setFailed("Couldn't load the English just now.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (shown && replyEn) {
+    return (
+      <div style={{ marginTop: 4 }}>
+        <div className="muted" style={{ fontSize: 13, fontStyle: "italic" }}>{replyEn}</div>
+        <button className="link-btn" style={{ fontSize: 12 }} onClick={() => setShown(false)}>
+          Hide English
+        </button>
+      </div>
+    );
+  }
+  return (
+    <div style={{ marginTop: 4 }}>
+      <button className="link-btn" style={{ fontSize: 12 }} onClick={reveal} disabled={loading}>
+        {loading ? "Translating…" : "Show English"}
+      </button>
+      {failed && (
+        <div className="muted" style={{ fontSize: 12 }}>{failed}</div>
+      )}
+    </div>
   );
 }

@@ -95,3 +95,12 @@ profiles:
     capability: llm
     primary: "anthropic/claude-sonnet-4-6"
     fallback: "anthropic/claude-opus-4-8"
+
+  # On-demand English subtitle for one examiner line. Cached: the same French
+  # sentence always translates the same way, and turns are re-read often.
+  speech_translate:
+    capability: llm
+    primary: "openrouter/z-ai/glm-4.6"
+    fallback: "anthropic/claude-haiku-4-5"
+    cache: true
+    cache_ttl: 86400

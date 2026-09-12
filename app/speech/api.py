@@ -8,6 +8,7 @@ discarded — never written to disk or DB (R10).
 
 from __future__ import annotations
 
+import functools
 from datetime import UTC, date, datetime
 
 import anyio
@@ -31,7 +32,12 @@ from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
 from app.config.settings import Settings, get_settings
 from app.db.session import get_session
-from app.speech.examiner import SpeakingExaminer, SpeechNotConfigured, canned_opener
+from app.speech.examiner import (
+    SpeakingExaminer,
+    SpeechNotConfigured,
+    canned_opener,
+    canned_opener_en,
+)
 from app.speech.tables import SpeakingTopicRow, SpeechTurn
 from app.speech.topics import SpeakingTopic, framing
 from app.speech.vocab_review import extract_review_words, resolve_new_words, resolve_to_vocab
@@ -435,7 +441,78 @@ async def speech_history(
                 "transcript": t.transcript,
                 "reply_text": t.reply_text,
                 "reply_audio_url": f"/speech/audio/{t.id}" if t.reply_audio_key else None,
+                # Present only once the learner has asked for it (or for a canned
+                # opener, whose English is authored) — subtitles are on demand.
+                "reply_en": t.reply_en or canned_opener_en(t.reply_text) or None,
             }
             for t in rows
         ]
     }
+
+
+_TRANSLATE_SYSTEM = (
+    "You translate one line of French into natural English for a language learner.\n"
+    "Rules: output ONLY the English translation — no quotes, no notes, no French, "
+    "no preamble. Keep it one line. Match the register: a friendly spoken line stays "
+    "friendly and spoken, not formal prose."
+)
+
+
+@router.post("/turn/{turn_id}/translate")
+async def speech_turn_translate(
+    turn_id: int,
+    session: AsyncSession = Depends(get_session),
+    user: User = Depends(get_current_user),
+    ai_router: AIRouter = Depends(get_ai_router),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """English subtitle for one examiner line, on demand.
+
+    On demand rather than always-on: translating every turn would double the LLM
+    work on the slowest interaction in the app. The result is cached on the row,
+    so a line is translated (and billed) once however often it is toggled, and a
+    canned opener never costs anything at all — its English is authored.
+    """
+    from app.ai.interfaces import Msg
+
+    turn = (
+        await session.execute(
+            select(SpeechTurn).where(SpeechTurn.id == turn_id, SpeechTurn.user_id == user.id)
+        )
+    ).scalar_one_or_none()
+    if turn is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "no such turn")
+
+    if turn.reply_en:
+        return {"reply_en": turn.reply_en, "cached": True}
+    authored = canned_opener_en(turn.reply_text)
+    if authored:
+        return {"reply_en": authored, "cached": True}
+    if not turn.reply_text.strip():
+        return {"reply_en": "", "cached": True}
+
+    # Same daily ledger as a spoken turn: past the budget, say so rather than bill on.
+    used = await tokens_used_today(session, user.id, "speaking", date.today())
+    if used >= settings.speaking_daily_token_budget:
+        return {"reply_en": "", "over_budget": True}
+
+    result = await anyio.to_thread.run_sync(
+        functools.partial(
+            ai_router.run,
+            "speech_translate",
+            system=_TRANSLATE_SYSTEM,
+            messages=[Msg(role="user", content=turn.reply_text)],
+            max_tokens=300,
+        )
+    )
+    await add_usage(
+        session,
+        user.id,
+        "speaking",
+        result.usage.input_tokens,
+        result.usage.output_tokens,
+        date.today(),
+    )
+    turn.reply_en = result.text.strip()
+    await session.commit()
+    return {"reply_en": turn.reply_en, "cached": False}
