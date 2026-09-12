@@ -1,0 +1,17 @@
+id: speak-a1-c-famille
+level: a1
+section: C
+title: "Parler de votre famille"
+prompt: |
+  Décrivez votre famille : qui sont-ils, où habitent-ils, comment sont-ils ?
+prompt_en: "Describe your family: who they are, where they live, what they're like."
+points:
+  - "combien vous êtes dans la famille"
+  - "qui habite où"
+  - "l'âge et le travail de chacun"
+  - "une personne dont vous êtes proche"
+points_en:
+  - "Say how many people are in your family"
+  - "Say who lives where — « ma sœur habite à… »"
+  - "Give an age or a job for one or two of them"
+  - "Pick one person you're close to and say why"

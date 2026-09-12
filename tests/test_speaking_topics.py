@@ -19,6 +19,7 @@ from app.main import create_app
 from app.speech.topics import SpeakingTopic, framing, load_topics, sync_topics
 from app.users.models import Base
 
+CONTENT_ROOT = Path(__file__).resolve().parents[1] / "content"
 _DB = f"sqlite+aiosqlite:///{tempfile.mkdtemp()}/topics.db"
 _engine = create_async_engine(_DB)
 _Session = async_sessionmaker(_engine, expire_on_commit=False)
@@ -238,3 +239,42 @@ def test_unknown_topic_id_is_ignored_not_an_error():
     )
     assert r.status_code == 200
     assert "Today's task" not in router.calls[0]["system"]
+
+
+def test_section_c_framing_is_a_conversation_not_an_exam():
+    """A1 learners need to chat before they can sit a TEF task, so section "C"
+    topics drop the exam framing entirely and make the examiner a patient
+    conversation partner that opens and keeps the conversation going."""
+    t = SpeakingTopic(
+        id="t-c",
+        level="a1",
+        section="C",
+        title="Commander un café",
+        prompt="Vous entrez dans un café.",
+        points=["dire bonjour"],
+    )
+    f = framing(t)
+    assert "Expression Orale" not in f, "a conversation topic should carry no exam framing"
+    assert "not an exam task" in f.lower() or "NOT an exam task" in f
+    assert "Vous entrez dans un café." in f
+    assert "dire bonjour" in f  # points still steer the examiner
+
+
+def test_a1_conversation_topics_carry_english_support():
+    """The clue a beginner needs ("what could I say next?") is useless in French —
+    that is the very thing they cannot read yet."""
+    topics = load_topics(CONTENT_ROOT, "a1")
+    conv = [t for t in topics.values() if t.section == "C"]
+    assert len(conv) >= 5, "a1 should offer everyday conversation topics"
+    for t in conv:
+        assert t.prompt_en, f"{t.id}: no English gloss of the task"
+        assert t.points_en, f"{t.id}: no English clues"
+        assert len(t.points_en) == len(t.points), f"{t.id}: clue lists out of step"
+
+
+def test_upper_levels_stay_french_only():
+    """b1/b2 deliberately carry no English support — at that level the French
+    prompt is the practice."""
+    for level in ("b1", "b2"):
+        for t in load_topics(CONTENT_ROOT, level).values():
+            assert not t.points_en, f"{t.id}: unexpected English clues at {level}"

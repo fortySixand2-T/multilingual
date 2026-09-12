@@ -90,6 +90,9 @@ async def list_topics(
                 "title": r.data["title"],
                 "prompt": r.data["prompt"],
                 "points": r.data.get("points", []),
+                # English support for the lower levels; empty at b1/b2 by design.
+                "prompt_en": r.data.get("prompt_en", ""),
+                "points_en": r.data.get("points_en", []),
             }
             for r in rows
         ]

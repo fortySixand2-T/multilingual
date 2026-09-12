@@ -98,10 +98,15 @@ export type SpeechHistoryTurn = {
 };
 export type SpeakingTopic = {
   id: string;
-  section: "A" | "B";
+  // "A"/"B" are the TEF Expression Orale sections; "C" is an everyday
+  // conversation (no exam framing) — what a beginner actually needs first.
+  section: "A" | "B" | "C";
   title: string;
   prompt: string;
   points: string[];
+  // English gloss + clues, authored for the lower levels. Empty at b1/b2.
+  prompt_en?: string;
+  points_en?: string[];
 };
 // A word the examiner flagged from a conversation, offered for the review deck.
 export type VocabCandidate = {

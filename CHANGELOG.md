@@ -353,3 +353,8 @@
 - [2026-09-11] Created: content/{a1,a2,b1,b2}/speaking/*.yaml — 16 new speaking topics so every level has both TEF sections (A obtain-information, B argue); 8 → 24 total
 - [2026-09-11] Modified: scripts/check_content.py — check_speaking_covers_both_sections (both sections per level; points entries must be strings)
 - [2026-09-11] Modified: .claude/skills/content-expansion/SKILL.md — colon-space YAML trap + the both-sections invariant
+- [2026-09-12] Created: content/a1/speaking/conversation-*.yaml — 5 everyday A1 conversation topics (section C) with English task glosses and English clues
+- [2026-09-12] Modified: app/speech/topics.py — section "C" (everyday conversation, no exam framing) + prompt_en/points_en; conversation framing for the examiner
+- [2026-09-12] Modified: app/speech/api.py — /speech/topics returns prompt_en/points_en
+- [2026-09-12] Modified: web/src/api.ts, web/src/screens/Speaking.tsx — render English gloss + "What you could say" clues; label section C as "Conversation"
+- [2026-09-12] Modified: tests/test_speaking_topics.py — section C framing, A1 English support, b1/b2 stay French-only

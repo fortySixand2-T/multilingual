@@ -1,0 +1,17 @@
+id: speak-a1-c-cafe
+level: a1
+section: C
+title: "Commander un café"
+prompt: |
+  Vous entrez dans un café. Commandez une boisson, demandez le prix et payez.
+prompt_en: "You walk into a café. Order a drink, ask the price, and pay."
+points:
+  - "dire bonjour au serveur"
+  - "commander avec « je voudrais… »"
+  - "demander le prix"
+  - "dire merci et payer"
+points_en:
+  - "Greet the server first — in French you always say bonjour"
+  - "Order with « je voudrais… » (I would like…)"
+  - "Ask how much it costs: « c'est combien ? »"
+  - "Say whether you're paying by card or cash"

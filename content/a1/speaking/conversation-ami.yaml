@@ -1,0 +1,18 @@
+id: speak-a1-c-ami
+level: a1
+section: C
+title: "Retrouver un ami"
+prompt: |
+  Vous rencontrez un ami que vous n'avez pas vu depuis longtemps. Saluez-le,
+  demandez de ses nouvelles et parlez un peu de vous.
+prompt_en: "You bump into a friend you haven't seen in a while. Say hello, ask how they are, and talk a little about yourself."
+points:
+  - "dire bonjour et demander « ça va ? »"
+  - "dire ce que vous faites en ce moment"
+  - "poser une question à votre ami"
+  - "proposer de se revoir"
+points_en:
+  - "Say hello and ask how they're doing"
+  - "Say what you're up to these days — work, studies, where you live"
+  - "Ask them a question back — don't only answer"
+  - "Suggest meeting up again, and say when"
