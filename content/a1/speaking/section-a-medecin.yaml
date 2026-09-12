@@ -1,0 +1,13 @@
+id: speak-a1-a-medecin
+level: a1
+section: A
+title: "Prendre rendez-vous chez le médecin"
+prompt: |
+  Vous voulez prendre rendez-vous chez le médecin. Téléphonez au cabinet et
+  posez des questions pour connaître les horaires, l'adresse et les documents à
+  apporter.
+points:
+  - "les jours et les heures possibles"
+  - "l'adresse du cabinet"
+  - "les documents à apporter"
+  - "le prix de la consultation"

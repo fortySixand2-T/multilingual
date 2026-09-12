@@ -1,0 +1,12 @@
+id: speak-b1-a-formation
+level: b1
+section: A
+title: "S'inscrire à une formation"
+prompt: |
+  Vous voulez vous inscrire à une formation professionnelle. Appelez l'organisme
+  pour obtenir les informations nécessaires avant de décider.
+points:
+  - "s'inscrire : les délais et les conditions"
+  - "le contenu et la durée"
+  - "comment joindre un conseiller"
+  - "ce que la formation permet d'obtenir"

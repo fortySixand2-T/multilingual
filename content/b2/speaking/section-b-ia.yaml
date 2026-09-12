@@ -1,0 +1,12 @@
+id: speak-b2-b-ia
+level: b2
+section: B
+title: "L'intelligence artificielle au travail"
+prompt: |
+  « L'intelligence artificielle au travail : menace ou opportunité ? »
+  Développez une position nuancée, en tenant compte des arguments adverses.
+points:
+  - "les métiers que l'automatisation risque de transformer"
+  - "ce qu'il faudrait mettre en œuvre pour accompagner la transition"
+  - "nuancer : les gains de productivité réels"
+  - "ce dont dépend une adoption acceptable"

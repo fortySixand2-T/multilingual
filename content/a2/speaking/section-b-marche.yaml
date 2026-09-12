@@ -1,0 +1,12 @@
+id: speak-a2-b-marche
+level: a2
+section: B
+title: "Marché ou supermarché ?"
+prompt: |
+  « Vaut-il mieux faire ses courses au marché ou au supermarché ? »
+  Donnez votre avis et défendez-le avec des exemples concrets.
+points:
+  - "le prix des produits"
+  - "la qualité et la fraîcheur"
+  - "le temps que ça prend"
+  - "le contact avec les commerçants"

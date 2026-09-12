@@ -1,0 +1,12 @@
+id: speak-b1-a-probleme
+level: b1
+section: A
+title: "Signaler un problème au propriétaire"
+prompt: |
+  Le chauffage de votre logement ne fonctionne plus depuis une semaine. Appelez
+  le propriétaire pour signaler le problème et obtenir une réparation.
+points:
+  - "décrire précisément le problème"
+  - "depuis quand la situation s'est aggravée"
+  - "se plaindre sans être agressif"
+  - "obtenir une date d'intervention"

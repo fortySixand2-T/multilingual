@@ -1,0 +1,12 @@
+id: speak-a1-b-cinema
+level: a1
+section: B
+title: "Convaincre un ami d'aller au cinéma"
+prompt: |
+  Votre ami préfère rester à la maison ce soir. Convainquez-le d'aller au cinéma
+  avec vous. Donnez au moins deux raisons simples.
+points:
+  - "le film et l'horaire"
+  - "le prix du billet"
+  - "sortir plutôt que rester seul"
+  - "comment y aller"

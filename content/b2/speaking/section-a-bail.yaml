@@ -1,0 +1,12 @@
+id: speak-b2-a-bail
+level: b2
+section: A
+title: "Négocier les conditions d'un bail"
+prompt: |
+  Vous négociez le renouvellement de votre bail. Appelez le syndic pour discuter
+  des conditions et obtenir des engagements précis.
+points:
+  - "ce qui relève du propriétaire et du locataire"
+  - "les travaux à mettre en œuvre"
+  - "la révision du loyer et ce qui la justifie"
+  - "les délais dont il faut tenir compte"
