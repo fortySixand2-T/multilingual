@@ -24,7 +24,12 @@ test("known counter persists across a reload", async ({ page }) => {
 
 test("a card offers a pronunciation button", async ({ page }) => {
   await page.goto("/vocab/a1/all");
-  await expect(page.getByRole("button", { name: "🔊" })).toBeVisible();
+  // `.first()` matters: an `mf` card (ami/amie — 27 of a1's 409) renders TWO
+  // 🔊 buttons, masculine and feminine, and the deck shuffles. A strict
+  // locator therefore failed on ~6.6% of runs with "resolved to 2 elements".
+  // The claim under test is that a pronunciation button is offered, not that
+  // exactly one is.
+  await expect(page.getByRole("button", { name: "🔊" }).first()).toBeVisible();
 });
 
 test("add to review surfaces a due card in the Review queue", async ({ page }) => {
