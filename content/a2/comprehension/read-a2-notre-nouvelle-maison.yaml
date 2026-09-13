@@ -1,0 +1,38 @@
+id: read-a2-notre-nouvelle-maison
+level: a2
+skill: reading
+title: "Notre nouvelle maison"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Nous avons acheté une maison. La porte est rouge et le toit est gris. Au premier
+  étage, il y a deux chambres, avec un lit dans chaque chambre. La salle de bain
+  est à côté. En bas, le salon est grand : il y a un canapé devant la fenêtre. Les
+  murs sont blancs. Nous devons acheter d'autres meubles. L'escalier est vieux.
+  Hier, j'ai perdu ma clé : je l'ai cherchée avec la main dans mon sac pendant dix
+  minutes !
+questions:
+  - id: read-a2-notre-nouvelle-maison.q1
+    prompt: "Qu'est-ce qu'il y a au premier étage ?"
+    options:
+      - "Deux chambres et la salle de bain"
+      - "Le salon et la cuisine"
+      - "Un canapé et une fenêtre"
+    answer: "Deux chambres et la salle de bain"
+    explain: "« Au premier étage, il y a deux chambres… La salle de bain est à côté. »"
+  - id: read-a2-notre-nouvelle-maison.q2
+    prompt: "Où est le canapé ?"
+    options:
+      - "Devant la fenêtre"
+      - "Dans la chambre"
+      - "À côté de l'escalier"
+    answer: "Devant la fenêtre"
+    explain: "« il y a un canapé devant la fenêtre »."
+  - id: read-a2-notre-nouvelle-maison.q3
+    prompt: "Qu'est-ce que la personne a perdu hier ?"
+    options:
+      - "Sa clé"
+      - "Son sac"
+      - "Un meuble"
+    answer: "Sa clé"
+    explain: "« Hier, j'ai perdu ma clé »."

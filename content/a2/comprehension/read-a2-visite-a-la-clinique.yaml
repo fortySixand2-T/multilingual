@@ -1,0 +1,37 @@
+id: read-a2-visite-a-la-clinique
+level: a2
+skill: reading
+title: "Une visite à la clinique"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Julie ne va pas bien. Elle a un rhume et une toux. Elle prend un rendez-vous à la
+  clinique. Le médecin regarde sa gorge et écoute ses poumons. Depuis hier, elle
+  commence à avoir mal au dos, au bras et au pied droit. Elle a aussi mal à
+  l'estomac. Le médecin regarde sa main gauche. Il dit que sa santé est bonne.
+  Julie passe à la pharmacie avant de rentrer.
+questions:
+  - id: read-a2-visite-a-la-clinique.q1
+    prompt: "Qu'est-ce que Julie a ?"
+    options:
+      - "Un rhume et une toux"
+      - "Une grippe"
+      - "Une migraine"
+    answer: "Un rhume et une toux"
+    explain: "« Elle a un rhume et une toux. »"
+  - id: read-a2-visite-a-la-clinique.q2
+    prompt: "Qu'est-ce que le médecin écoute ?"
+    options:
+      - "Ses poumons"
+      - "Son estomac"
+      - "Son dos"
+    answer: "Ses poumons"
+    explain: "« Le médecin regarde sa gorge et écoute ses poumons. »"
+  - id: read-a2-visite-a-la-clinique.q3
+    prompt: "Où va Julie avant de rentrer ?"
+    options:
+      - "À la pharmacie"
+      - "Au bureau"
+      - "Chez sa mère"
+    answer: "À la pharmacie"
+    explain: "« Julie passe à la pharmacie avant de rentrer. »"

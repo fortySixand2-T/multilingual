@@ -1,0 +1,38 @@
+id: read-a2-mes-voisins
+level: a2
+skill: reading
+title: "Mes voisins"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Monsieur Roy est grand et mince. Il porte des lunettes et une barbe blanche. Il
+  est très poli et toujours honnête. Sa femme est un peu grosse, mais très
+  sympathique. Elle est bavarde : elle parle à tout le monde ! Leur fils est timide
+  et sérieux. Il est aussi curieux : il pose beaucoup de questions. Mon copain dit
+  qu'il est paresseux, mais ce n'est pas vrai. Leur fille est drôle, courageuse et
+  généreuse.
+questions:
+  - id: read-a2-mes-voisins.q1
+    prompt: "Comment est Monsieur Roy ?"
+    options:
+      - "Grand et mince, avec des lunettes et une barbe"
+      - "Petit et gros"
+      - "Jeune et timide"
+    answer: "Grand et mince, avec des lunettes et une barbe"
+    explain: "« Monsieur Roy est grand et mince. Il porte des lunettes et une barbe blanche. »"
+  - id: read-a2-mes-voisins.q2
+    prompt: "Pourquoi dit-on que sa femme est bavarde ?"
+    options:
+      - "Elle parle à tout le monde"
+      - "Elle pose beaucoup de questions"
+      - "Elle est très polie"
+    answer: "Elle parle à tout le monde"
+    explain: "« Elle est bavarde : elle parle à tout le monde ! »"
+  - id: read-a2-mes-voisins.q3
+    prompt: "Que pense l'auteur quand son copain dit que le fils est paresseux ?"
+    options:
+      - "Que ce n'est pas vrai"
+      - "Qu'il a raison"
+      - "Que le fils est timide"
+    answer: "Que ce n'est pas vrai"
+    explain: "« Mon copain dit qu'il est paresseux, mais ce n'est pas vrai. »"

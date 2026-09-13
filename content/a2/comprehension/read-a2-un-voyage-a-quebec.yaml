@@ -1,0 +1,37 @@
+id: read-a2-un-voyage-a-quebec
+level: a2
+skill: reading
+title: "Un voyage à Québec"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Pour nos vacances, nous préparons un itinéraire. Nous passons la frontière et
+  nous arrêtons à la douane. Notre séjour dure une semaine. Un guide nous montre la
+  vieille ville et l'église. J'achète un petit souvenir pour ma mère.
+  Dans notre quartier, tout est proche : la poste, la bibliothèque, le supermarché
+  et la boulangerie. Le commissariat est à côté de l'école.
+questions:
+  - id: read-a2-un-voyage-a-quebec.q1
+    prompt: "Combien de temps dure le séjour ?"
+    options:
+      - "Une semaine"
+      - "Deux jours"
+      - "Un mois"
+    answer: "Une semaine"
+    explain: "« Notre séjour dure une semaine. »"
+  - id: read-a2-un-voyage-a-quebec.q2
+    prompt: "Que montre le guide ?"
+    options:
+      - "La vieille ville et l'église"
+      - "La douane"
+      - "La bibliothèque"
+    answer: "La vieille ville et l'église"
+    explain: "« Un guide nous montre la vieille ville et l'église. »"
+  - id: read-a2-un-voyage-a-quebec.q3
+    prompt: "Qu'est-ce qui est à côté de l'école ?"
+    options:
+      - "Le commissariat"
+      - "La poste"
+      - "La boulangerie"
+    answer: "Le commissariat"
+    explain: "« Le commissariat est à côté de l'école. »"

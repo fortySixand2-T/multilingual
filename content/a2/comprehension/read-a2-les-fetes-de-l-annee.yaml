@@ -1,0 +1,40 @@
+id: read-a2-les-fetes-de-l-annee
+level: a2
+skill: reading
+title: "Les fêtes de l'année"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Au Québec, on fête beaucoup. En décembre, il y a Noël, et le premier janvier, le
+  jour de l'An. En février, c'est la Saint-Valentin. Au printemps, il y a Pâques.
+  En octobre, les enfants portent un costume pour l'Halloween. En novembre, c'est
+  l'Action de grâce. Il y a aussi un grand défilé en été, avec des feux d'artifice
+  le soir. Pour l'anniversaire de ma fille, j'envoie une invitation à ses amis. Je
+  vais inviter vingt personnes. Nous mettons une décoration et une bougie sur le
+  gâteau. Le mois prochain, il y a le mariage de mon frère et le baptême de mon
+  neveu.
+questions:
+  - id: read-a2-les-fetes-de-l-annee.q1
+    prompt: "Que portent les enfants en octobre ?"
+    options:
+      - "Un costume"
+      - "Une décoration"
+      - "Un uniforme"
+    answer: "Un costume"
+    explain: "« les enfants portent un costume pour l'Halloween »."
+  - id: read-a2-les-fetes-de-l-annee.q2
+    prompt: "Combien de personnes seront invitées à l'anniversaire ?"
+    options:
+      - "Vingt"
+      - "Dix"
+      - "Trente"
+    answer: "Vingt"
+    explain: "« Je vais inviter vingt personnes. »"
+  - id: read-a2-les-fetes-de-l-annee.q3
+    prompt: "Qu'est-ce qu'il y a le mois prochain ?"
+    options:
+      - "Un mariage et un baptême"
+      - "Un défilé et des feux d'artifice"
+      - "Pâques"
+    answer: "Un mariage et un baptême"
+    explain: "« il y a le mariage de mon frère et le baptême de mon neveu »."

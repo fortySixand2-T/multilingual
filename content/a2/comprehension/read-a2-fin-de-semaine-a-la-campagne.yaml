@@ -1,0 +1,38 @@
+id: read-a2-fin-de-semaine-a-la-campagne
+level: a2
+skill: reading
+title: "Une fin de semaine à la campagne"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Nous partons à la campagne. La maison est près d'un lac, entre une colline et une
+  petite montagne. Nous faisons une randonnée sur un sentier dans la forêt. Mon
+  fils ramasse une pierre et une branche. Dans le champ, l'herbe est haute et il y
+  a beaucoup de fleurs. En bas, la vallée est verte. Au bord du lac, il y a du
+  sable, et au milieu, une petite île. Le soir, nous regardons la lune et les
+  étoiles.
+questions:
+  - id: read-a2-fin-de-semaine-a-la-campagne.q1
+    prompt: "Où est la maison ?"
+    options:
+      - "Près d'un lac, entre une colline et une montagne"
+      - "Dans la forêt"
+      - "Sur une île"
+    answer: "Près d'un lac, entre une colline et une montagne"
+    explain: "« La maison est près d'un lac, entre une colline et une petite montagne. »"
+  - id: read-a2-fin-de-semaine-a-la-campagne.q2
+    prompt: "Que ramasse le fils ?"
+    options:
+      - "Une pierre et une branche"
+      - "Des fleurs"
+      - "Du sable"
+    answer: "Une pierre et une branche"
+    explain: "« Mon fils ramasse une pierre et une branche. »"
+  - id: read-a2-fin-de-semaine-a-la-campagne.q3
+    prompt: "Que regardent-ils le soir ?"
+    options:
+      - "La lune et les étoiles"
+      - "Le lac"
+      - "La vallée"
+    answer: "La lune et les étoiles"
+    explain: "« Le soir, nous regardons la lune et les étoiles. »"
