@@ -1,0 +1,66 @@
+id: read-b2-press-trust
+level: b2
+skill: reading
+title: "À qui se fier encore ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Un titre choc, un partage, puis un démenti que personne ne lira. La viralité a ses
+  règles, et elles ne sont pas celles du journalisme.
+  Dans une rédaction, la vérification des faits n'a rien de spectaculaire. Elle
+  consiste à multiplier les sources, à pratiquer le recoupement, à accepter de publier
+  plus tard qu'un concurrent. Une enquête sérieuse coûte cher et se vend mal ; le
+  sensationnalisme, lui, remplit la une sans effort. L'audimat récompense rarement la
+  prudence.
+  La question du financement suit aussitôt. Un journal qui dépend de quelques
+  annonceurs défend difficilement son indépendance ; un média porté par ses abonnés
+  doit, lui, éviter de ne leur dire que ce qu'ils veulent entendre. Une ligne
+  éditoriale s'assume et ne se cache pas : un éditorial signé vaut mieux qu'un
+  traitement médiatique orienté qui ne dit pas son nom. Une chronique d'opinion n'est
+  pas une information, et la déontologie consiste d'abord à ne pas confondre les deux.
+  Reste le lecteur. Enfermé dans sa bulle informationnelle, il finit par prendre le
+  clivage pour la réalité. Le pluralisme ne se décrète pas depuis une salle de
+  rédaction : il suppose que quelqu'un, en face, accepte encore de lire ce qui le
+  dérange. La crédibilité d'une couverture de presse se mesure là, et nulle part
+  ailleurs.
+questions:
+  - id: read-b2-press-trust.q1
+    prompt: "En quoi consiste la vérification des faits, selon le texte ?"
+    options:
+      - "Multiplier les sources, pratiquer le recoupement, accepter de publier plus tard"
+      - "Publier avant les concurrents pour marquer des points"
+      - "Confier l'article à un chroniqueur d'opinion"
+    answer: "Multiplier les sources, pratiquer le recoupement, accepter de publier plus tard"
+    explain: "« Elle consiste à multiplier les sources, à pratiquer le recoupement, à accepter de publier plus tard qu'un concurrent »."
+  - id: read-b2-press-trust.q2
+    prompt: "Quel avantage le sensationnalisme a-t-il sur l'enquête ?"
+    options:
+      - "Il remplit la une sans effort, alors qu'une enquête coûte cher et se vend mal"
+      - "Il exige un travail de recoupement plus rigoureux"
+      - "Il fait systématiquement baisser l'audimat"
+    answer: "Il remplit la une sans effort, alors qu'une enquête coûte cher et se vend mal"
+    explain: "« Une enquête sérieuse coûte cher et se vend mal ; le sensationnalisme, lui, remplit la une sans effort »."
+  - id: read-b2-press-trust.q3
+    prompt: "Quel risque le texte associe-t-il à un média porté par ses abonnés ?"
+    options:
+      - "Ne leur dire que ce qu'ils veulent entendre"
+      - "Perdre toute ligne éditoriale"
+      - "Dépendre entièrement de quelques annonceurs"
+    answer: "Ne leur dire que ce qu'ils veulent entendre"
+    explain: "« doit, lui, éviter de ne leur dire que ce qu'ils veulent entendre »."
+  - id: read-b2-press-trust.q4
+    prompt: "En quoi consiste d'abord la déontologie, d'après le texte ?"
+    options:
+      - "Ne pas confondre une chronique d'opinion et une information"
+      - "Refuser tout éditorial signé"
+      - "Publier uniquement ce qui devient viral"
+    answer: "Ne pas confondre une chronique d'opinion et une information"
+    explain: "« Une chronique d'opinion n'est pas une information, et la déontologie consiste d'abord à ne pas confondre les deux »."
+  - id: read-b2-press-trust.q5
+    prompt: "Que suppose le pluralisme, selon la conclusion ?"
+    options:
+      - "Que le lecteur accepte encore de lire ce qui le dérange"
+      - "Qu'une salle de rédaction le décrète"
+      - "Que chaque bulle informationnelle ait son propre journal"
+    answer: "Que le lecteur accepte encore de lire ce qui le dérange"
+    explain: "« il suppose que quelqu'un, en face, accepte encore de lire ce qui le dérange »."

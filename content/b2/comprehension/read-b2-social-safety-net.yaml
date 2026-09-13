@@ -1,0 +1,67 @@
+id: read-b2-social-safety-net
+level: b2
+skill: reading
+title: "Le filet social suffit-il encore ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  On parle beaucoup de vivre-ensemble. On mesure moins souvent ce qui l'empêche.
+  Commençons par le visible. L'itinérance n'est plus un phénomène de grand centre-ville :
+  elle touche des villes moyennes qui ne s'y attendaient pas. Le manque de logement
+  abordable en est la cause la mieux documentée. Derrière, la file d'attente d'une
+  banque alimentaire s'allonge, et l'on y croise désormais des personnes qui
+  travaillent.
+  Le filet social existe pourtant. L'aide sociale, le bénévolat quotidien de milliers
+  de personnes, le travail d'un organisme communautaire de quartier amortissent une
+  partie du choc. Mais un amortisseur n'est pas une solution : il évite la chute sans
+  corriger la pente. La fracture sociale s'élargit partout où l'on se contente de
+  gérer l'urgence.
+  Vient ensuite ce qui se voit moins. La discrimination à l'embauche ne s'annonce
+  jamais ; elle se déduit de statistiques que peu d'entreprises acceptent de publier.
+  Le préjugé précède, la stigmatisation suit, et la marginalisation achève le travail.
+  L'exclusion n'est presque jamais une décision : c'est une accumulation.
+  Faut-il alors se payer de mots ? La diversité affichée ne vaut rien sans inclusion
+  réelle, et la tolérance reste un minimum, jamais un idéal. La cohésion sociale se
+  construit quand une revendication trouve enfin un interlocuteur — autrement dit
+  quand la mobilisation sert à quelque chose.
+questions:
+  - id: read-b2-social-safety-net.q1
+    prompt: "Que dit le texte de l'itinérance ?"
+    options:
+      - "Elle touche désormais des villes moyennes qui ne s'y attendaient pas"
+      - "Elle reste limitée aux grands centres-villes"
+      - "Elle recule grâce au logement abordable"
+    answer: "Elle touche désormais des villes moyennes qui ne s'y attendaient pas"
+    explain: "« elle touche des villes moyennes qui ne s'y attendaient pas »."
+  - id: read-b2-social-safety-net.q2
+    prompt: "Qui croise-t-on désormais à la file d'attente d'une banque alimentaire ?"
+    options:
+      - "Des personnes qui travaillent"
+      - "Uniquement des personnes sans domicile"
+      - "Surtout des étudiants étrangers"
+    answer: "Des personnes qui travaillent"
+    explain: "« l'on y croise désormais des personnes qui travaillent »."
+  - id: read-b2-social-safety-net.q3
+    prompt: "Quelle limite l'auteur voit-il au filet social ?"
+    options:
+      - "Un amortisseur évite la chute sans corriger la pente"
+      - "Il coûte trop cher aux contribuables"
+      - "Il repose uniquement sur l'aide sociale"
+    answer: "Un amortisseur évite la chute sans corriger la pente"
+    explain: "« un amortisseur n'est pas une solution : il évite la chute sans corriger la pente »."
+  - id: read-b2-social-safety-net.q4
+    prompt: "Comment le texte décrit-il l'enchaînement qui mène à l'exclusion ?"
+    options:
+      - "Le préjugé précède, la stigmatisation suit, la marginalisation achève"
+      - "L'exclusion est décidée d'emblée par l'employeur"
+      - "La marginalisation précède tout préjugé"
+    answer: "Le préjugé précède, la stigmatisation suit, la marginalisation achève"
+    explain: "« Le préjugé précède, la stigmatisation suit, et la marginalisation achève le travail »."
+  - id: read-b2-social-safety-net.q5
+    prompt: "Que faut-il, selon la conclusion, pour construire la cohésion sociale ?"
+    options:
+      - "Qu'une revendication trouve un interlocuteur et que la mobilisation serve à quelque chose"
+      - "Qu'on affiche davantage la diversité"
+      - "Que la tolérance devienne l'idéal à atteindre"
+    answer: "Qu'une revendication trouve un interlocuteur et que la mobilisation serve à quelque chose"
+    explain: "« La cohésion sociale se construit quand une revendication trouve enfin un interlocuteur »."

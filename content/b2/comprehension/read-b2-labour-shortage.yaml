@@ -1,0 +1,67 @@
+id: read-b2-labour-shortage
+level: b2
+skill: reading
+title: "La pénurie de main-d'œuvre renverse-t-elle le rapport de force ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Pendant des décennies, l'employeur choisissait. La pénurie de main-d'œuvre a
+  renversé l'équation, au moins dans certains secteurs.
+  Les symptômes se ressemblent partout. Un sous-effectif chronique impose une
+  surcharge de travail à ceux qui restent ; l'absentéisme grimpe, le roulement de
+  personnel s'accélère, et chaque départ coûte plus cher que l'augmentation qu'on
+  avait refusée. Le rendement finit par baisser alors même que l'on exige davantage.
+  Les directions répondent souvent par une prime. C'est le réflexe le plus simple, et
+  rarement le plus efficace. Les enquêtes le montrent : la fidélisation dépend d'abord
+  du climat de travail et de la reconnaissance quotidienne, deux choses qu'aucun
+  budget ne produit à lui seul. Un management qui ne sait accorder qu'un congé
+  supplémentaire ne retiendra personne longtemps.
+  D'autres leviers existent. La conciliation travail-famille pèse lourd dans le choix
+  d'un poste, surtout chez les jeunes cadres. La polyvalence, souvent présentée comme
+  une exigence, peut aussi devenir un atout lorsqu'elle s'accompagne d'une
+  qualification réellement reconnue. Quant à la mobilité professionnelle, elle
+  n'effraie plus : changer d'employeur n'est plus vu comme un échec.
+  Reste l'argument de la compétitivité, brandi dès qu'une revendication devient
+  concrète. Il n'est pas illégitime. Mais une organisation qui perd un quart de son
+  personnel chaque année n'est compétitive nulle part.
+questions:
+  - id: read-b2-labour-shortage.q1
+    prompt: "Quels symptômes le texte associe-t-il au sous-effectif ?"
+    options:
+      - "Surcharge de travail, absentéisme en hausse et roulement de personnel accéléré"
+      - "Une baisse immédiate des salaires"
+      - "Une réduction volontaire des horaires par les employés"
+    answer: "Surcharge de travail, absentéisme en hausse et roulement de personnel accéléré"
+    explain: "« impose une surcharge de travail… l'absentéisme grimpe, le roulement de personnel s'accélère »."
+  - id: read-b2-labour-shortage.q2
+    prompt: "Que pense l'auteur du recours à une prime ?"
+    options:
+      - "C'est le réflexe le plus simple, et rarement le plus efficace"
+      - "C'est la seule solution qui fonctionne durablement"
+      - "C'est une pratique désormais interdite"
+    answer: "C'est le réflexe le plus simple, et rarement le plus efficace"
+    explain: "« C'est le réflexe le plus simple, et rarement le plus efficace »."
+  - id: read-b2-labour-shortage.q3
+    prompt: "De quoi dépend d'abord la fidélisation, selon les enquêtes citées ?"
+    options:
+      - "Du climat de travail et de la reconnaissance quotidienne"
+      - "Du montant du budget consacré aux primes"
+      - "De la durée des congés accordés"
+    answer: "Du climat de travail et de la reconnaissance quotidienne"
+    explain: "« la fidélisation dépend d'abord du climat de travail et de la reconnaissance quotidienne »."
+  - id: read-b2-labour-shortage.q4
+    prompt: "À quelle condition la polyvalence devient-elle un atout ?"
+    options:
+      - "Lorsqu'elle s'accompagne d'une qualification réellement reconnue"
+      - "Lorsqu'elle remplace toute mobilité professionnelle"
+      - "Lorsqu'elle est imposée sans contrepartie"
+    answer: "Lorsqu'elle s'accompagne d'une qualification réellement reconnue"
+    explain: "« peut aussi devenir un atout lorsqu'elle s'accompagne d'une qualification réellement reconnue »."
+  - id: read-b2-labour-shortage.q5
+    prompt: "Comment l'auteur répond-il à l'argument de la compétitivité ?"
+    options:
+      - "Il l'admet, mais rappelle qu'une organisation qui perd un quart de son personnel n'est compétitive nulle part"
+      - "Il le rejette comme totalement illégitime"
+      - "Il estime que la compétitivité prime sur toute revendication"
+    answer: "Il l'admet, mais rappelle qu'une organisation qui perd un quart de son personnel n'est compétitive nulle part"
+    explain: "« Il n'est pas illégitime. Mais une organisation qui perd un quart de son personnel chaque année n'est compétitive nulle part »."

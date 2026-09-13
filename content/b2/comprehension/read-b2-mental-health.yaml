@@ -1,0 +1,69 @@
+id: read-b2-mental-health
+level: b2
+skill: reading
+title: "Parler de santé mentale, mais avec quels mots ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Longtemps, celui qui souffrait d'anxiété se taisait. Aujourd'hui, on en parle —
+  parfois trop vite, et avec des mots approximatifs.
+  Premier malentendu : le vocabulaire. Un trouble n'est pas une émotion passagère, et
+  une phobie n'est pas une simple peur. La dépression, elle, ne découle pas d'un
+  manque de volonté : elle s'avère souvent résistante aux conseils les mieux
+  intentionnés. Le déni, chez le patient comme dans son entourage, retarde encore le
+  premier rendez-vous chez un psychologue.
+  Deuxième malentendu : l'épuisement professionnel. On le présente volontiers comme
+  une fragilité individuelle, alors qu'il relève surtout de l'organisation du
+  travail. La charge mentale, invisible et permanente, en constitue la part la plus
+  mal reconnue. Constater qu'un salarié craque n'apprend rien sans remettre en cause
+  ce qui l'a mené là.
+  Faut-il pour autant tout attendre de la thérapie ? Les spécialistes préconisent
+  plutôt une combinaison. La pleine conscience atténue certains symptômes sans les
+  supprimer ; l'estime de soi se reconstruit lentement ; l'adaptation à un traumatisme
+  demande du temps, et parfois davantage.
+  Reste la résilience, mot devenu suspect à force d'être employé. Il ne désigne pas la
+  capacité à tout encaisser seul. Il suppose au contraire un entourage capable
+  d'empathie, une perception juste de ce que l'autre traverse, et la conscience que
+  nos comportements les plus automatiques échappent en partie à notre volonté — cet
+  inconscient dont on parle si peu.
+questions:
+  - id: read-b2-mental-health.q1
+    prompt: "Quel premier malentendu le texte dénonce-t-il ?"
+    options:
+      - "L'usage approximatif du vocabulaire : un trouble n'est pas une émotion passagère"
+      - "Le coût trop élevé des consultations"
+      - "Le manque de psychologues dans les régions"
+    answer: "L'usage approximatif du vocabulaire : un trouble n'est pas une émotion passagère"
+    explain: "« Premier malentendu : le vocabulaire. Un trouble n'est pas une émotion passagère »."
+  - id: read-b2-mental-health.q2
+    prompt: "Comment le texte présente-t-il l'épuisement professionnel ?"
+    options:
+      - "Comme relevant de l'organisation du travail, et non d'une fragilité individuelle"
+      - "Comme un trouble purement génétique"
+      - "Comme une conséquence directe de la thérapie"
+    answer: "Comme relevant de l'organisation du travail, et non d'une fragilité individuelle"
+    explain: "« On le présente volontiers comme une fragilité individuelle, alors qu'il relève surtout de l'organisation du travail »."
+  - id: read-b2-mental-health.q3
+    prompt: "Que retarde le déni, selon le texte ?"
+    options:
+      - "Le premier rendez-vous chez un psychologue"
+      - "La reconnaissance de la charge mentale par l'employeur"
+      - "La publication des résultats d'une thérapie"
+    answer: "Le premier rendez-vous chez un psychologue"
+    explain: "« Le déni… retarde encore le premier rendez-vous chez un psychologue »."
+  - id: read-b2-mental-health.q4
+    prompt: "Que disent les spécialistes de la pleine conscience ?"
+    options:
+      - "Elle atténue certains symptômes sans les supprimer"
+      - "Elle remplace avantageusement toute thérapie"
+      - "Elle aggrave l'anxiété dans la plupart des cas"
+    answer: "Elle atténue certains symptômes sans les supprimer"
+    explain: "« La pleine conscience atténue certains symptômes sans les supprimer »."
+  - id: read-b2-mental-health.q5
+    prompt: "Comment le texte définit-il la résilience ?"
+    options:
+      - "Non la capacité à tout encaisser seul, mais un entourage capable d'empathie"
+      - "Une force innée que l'on possède ou non"
+      - "Le refus de parler de son traumatisme"
+    answer: "Non la capacité à tout encaisser seul, mais un entourage capable d'empathie"
+    explain: "« Il ne désigne pas la capacité à tout encaisser seul. Il suppose au contraire un entourage capable d'empathie »."

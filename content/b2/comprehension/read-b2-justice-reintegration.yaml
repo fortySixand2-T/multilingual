@@ -1,0 +1,66 @@
+id: read-b2-justice-reintegration
+level: b2
+skill: reading
+title: "Punir ou réinsérer ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Après chaque procès très médiatisé, la même question revient : la peine prononcée
+  était-elle à la hauteur ? Le verdict satisfait rarement tout le monde, et le débat
+  glisse aussitôt vers la récidive.
+  Les partisans de la fermeté avancent un raisonnement simple. Une sanction faible
+  crée un sentiment d'impunité ; la détention, elle, protège au moins la société
+  pendant sa durée. Ils ajoutent que la prescription trop courte de certains délits
+  empêche de juger des affaires pourtant graves.
+  Leurs adversaires ne contestent pas la nécessité de punir, mais l'efficacité de la
+  seule prison. Les études sur la réinsertion montrent qu'un condamné accompagné à sa
+  sortie récidive nettement moins. Un magistrat expérimenté le dira sans détour : une
+  infraction commise à vingt ans ne dit pas tout d'une vie.
+  Entre les deux, la jurisprudence avance prudemment. Elle rappelle que la
+  présomption d'innocence n'est pas un privilège mais une condition de légitimité, et
+  qu'un pourvoi en cassation sert précisément à corriger l'erreur. Le plaidoyer d'un
+  avocat n'a pas d'autre fonction.
+  Il reste les victimes. L'indemnisation, quand elle arrive, arrive tard, et aucune
+  poursuite judiciaire ne répare tout. L'équité, ici, n'est pas un slogan : c'est le
+  seul critère qui tienne.
+questions:
+  - id: read-b2-justice-reintegration.q1
+    prompt: "Vers quoi le débat glisse-t-il après un procès médiatisé ?"
+    options:
+      - "Vers la question de la récidive"
+      - "Vers le coût des tribunaux"
+      - "Vers la formation des avocats"
+    answer: "Vers la question de la récidive"
+    explain: "« le débat glisse aussitôt vers la récidive »."
+  - id: read-b2-justice-reintegration.q2
+    prompt: "Quel argument avancent les partisans de la fermeté ?"
+    options:
+      - "Une sanction faible crée un sentiment d'impunité"
+      - "La détention empêche toute réinsertion"
+      - "La prescription est toujours trop longue"
+    answer: "Une sanction faible crée un sentiment d'impunité"
+    explain: "« Une sanction faible crée un sentiment d'impunité »."
+  - id: read-b2-justice-reintegration.q3
+    prompt: "Que montrent les études sur la réinsertion ?"
+    options:
+      - "Un condamné accompagné à sa sortie récidive nettement moins"
+      - "La prison suffit à éviter la récidive"
+      - "L'accompagnement n'a aucun effet mesurable"
+    answer: "Un condamné accompagné à sa sortie récidive nettement moins"
+    explain: "« un condamné accompagné à sa sortie récidive nettement moins »."
+  - id: read-b2-justice-reintegration.q4
+    prompt: "À quoi sert la présomption d'innocence, selon le texte ?"
+    options:
+      - "Elle est une condition de légitimité, et non un privilège"
+      - "Elle protège surtout les magistrats"
+      - "Elle remplace le pourvoi en cassation"
+    answer: "Elle est une condition de légitimité, et non un privilège"
+    explain: "« la présomption d'innocence n'est pas un privilège mais une condition de légitimité »."
+  - id: read-b2-justice-reintegration.q5
+    prompt: "Que dit le texte de l'indemnisation des victimes ?"
+    options:
+      - "Elle arrive tard et aucune poursuite judiciaire ne répare tout"
+      - "Elle règle intégralement le préjudice"
+      - "Elle est versée avant le verdict"
+    answer: "Elle arrive tard et aucune poursuite judiciaire ne répare tout"
+    explain: "« L'indemnisation, quand elle arrive, arrive tard, et aucune poursuite judiciaire ne répare tout »."

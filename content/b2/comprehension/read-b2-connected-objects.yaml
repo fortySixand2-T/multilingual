@@ -1,0 +1,66 @@
+id: read-b2-connected-objects
+level: b2
+skill: reading
+title: "L'objet connecté en sait-il trop ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Une montre compte nos pas, un thermostat apprend nos habitudes, une enceinte attend
+  qu'on lui parle. Chaque objet connecté rend un service réel ; ensemble, ils
+  dessinent une surveillance douce que personne n'a vraiment choisie.
+  Les industriels invoquent la découverte et l'expérimentation : on ne saurait,
+  disent-ils, brider une technologie avant d'en connaître les usages. L'argument se
+  défend. Il ignore pourtant que la fiabilité d'un capteur ne garantit rien quant à
+  l'usage des données qu'il produit. En robotique comme ailleurs, le problème n'est
+  presque jamais l'appareil ; c'est ce que l'on branche derrière.
+  Vient ensuite la question de la vie privée. Un historique de déplacements en dit
+  plus long qu'un dossier médical, et la cybersécurité de ces appareils reste, pour
+  beaucoup, le maillon faible : mot de passe d'usine, mises à jour abandonnées au bout
+  de deux ans. L'opinion publique s'en inquiète par à-coups, au rythme des fuites
+  rendues publiques.
+  Reste un effet plus discret. La dépendance à ces assistants s'installe sans
+  manipulation particulière : on cesse simplement de savoir faire sans eux. Certains y
+  voient l'aboutissement d'un consumérisme ordinaire, d'autres le prolongement d'un
+  individualisme confortable. Dans les deux cas, la question n'est pas de débrancher,
+  mais de décider ce que l'on accepte de déléguer.
+questions:
+  - id: read-b2-connected-objects.q1
+    prompt: "Que dessinent ensemble les objets connectés, selon le texte ?"
+    options:
+      - "Une surveillance douce que personne n'a vraiment choisie"
+      - "Un service qui ne rend jamais rien d'utile"
+      - "Une protection renforcée de la vie privée"
+    answer: "Une surveillance douce que personne n'a vraiment choisie"
+    explain: "« ils dessinent une surveillance douce que personne n'a vraiment choisie »."
+  - id: read-b2-connected-objects.q2
+    prompt: "Quelle faiblesse l'auteur trouve-t-il à l'argument des industriels ?"
+    options:
+      - "La fiabilité d'un capteur ne garantit rien quant à l'usage des données"
+      - "L'expérimentation est toujours inutile"
+      - "La découverte scientifique doit être interdite"
+    answer: "La fiabilité d'un capteur ne garantit rien quant à l'usage des données"
+    explain: "« la fiabilité d'un capteur ne garantit rien quant à l'usage des données qu'il produit »."
+  - id: read-b2-connected-objects.q3
+    prompt: "Pourquoi la cybersécurité de ces appareils est-elle le maillon faible ?"
+    options:
+      - "Mots de passe d'usine et mises à jour abandonnées au bout de deux ans"
+      - "Les appareils ne sont jamais connectés à internet"
+      - "Les fabricants publient trop souvent leurs correctifs"
+    answer: "Mots de passe d'usine et mises à jour abandonnées au bout de deux ans"
+    explain: "« mot de passe d'usine, mises à jour abandonnées au bout de deux ans »."
+  - id: read-b2-connected-objects.q4
+    prompt: "Comment s'installe la dépendance à ces assistants ?"
+    options:
+      - "Sans manipulation particulière : on cesse simplement de savoir faire sans eux"
+      - "À la suite d'une campagne publicitaire agressive"
+      - "Par une obligation légale"
+    answer: "Sans manipulation particulière : on cesse simplement de savoir faire sans eux"
+    explain: "« La dépendance à ces assistants s'installe sans manipulation particulière »."
+  - id: read-b2-connected-objects.q5
+    prompt: "Quelle est la question finale posée par le texte ?"
+    options:
+      - "Décider ce que l'on accepte de déléguer, plutôt que de débrancher"
+      - "Savoir quel appareil acheter en premier"
+      - "Choisir entre consumérisme et robotique"
+    answer: "Décider ce que l'on accepte de déléguer, plutôt que de débrancher"
+    explain: "« la question n'est pas de débrancher, mais de décider ce que l'on accepte de déléguer »."
