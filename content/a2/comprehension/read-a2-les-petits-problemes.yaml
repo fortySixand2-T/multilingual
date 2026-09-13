@@ -1,0 +1,37 @@
+id: read-a2-les-petits-problemes
+level: a2
+skill: reading
+title: "Les petits problèmes de l'hiver"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  En hiver, beaucoup de gens ont la grippe. On commence à tousser et à éternuer. Un
+  sirop aide un peu. Si vous avez très chaud, prenez un thermomètre. Ma sœur a
+  souvent une migraine. Mon frère est tombé : il s'est fait mal à la cheville et au
+  poignet, et son orteil saigne un peu. Nous mettons un pansement. À la clinique,
+  l'infirmière donne une piqûre. Après, il ne faut pas vomir : il faut se reposer.
+questions:
+  - id: read-a2-les-petits-problemes.q1
+    prompt: "Que fait-on quand on a la grippe ?"
+    options:
+      - "On commence à tousser et à éternuer"
+      - "On prend un pansement"
+      - "On va à l'hôpital"
+    answer: "On commence à tousser et à éternuer"
+    explain: "« On commence à tousser et à éternuer. »"
+  - id: read-a2-les-petits-problemes.q2
+    prompt: "Qu'est-ce que le frère s'est fait mal ?"
+    options:
+      - "La cheville et le poignet"
+      - "Le dos et le bras"
+      - "La gorge"
+    answer: "La cheville et le poignet"
+    explain: "« il s'est fait mal à la cheville et au poignet »."
+  - id: read-a2-les-petits-problemes.q3
+    prompt: "Que donne l'infirmière à la clinique ?"
+    options:
+      - "Une piqûre"
+      - "Un sirop"
+      - "Un thermomètre"
+    answer: "Une piqûre"
+    explain: "« l'infirmière donne une piqûre »."

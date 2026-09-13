@@ -1,0 +1,39 @@
+id: read-a2-le-semestre-de-lea
+level: a2
+skill: reading
+title: "Le semestre de Léa"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Léa doit s'inscrire à quatre cours ce semestre. Elle a reçu une bourse d'études.
+  Chaque matin, elle laisse son manteau dans son casier. Son école demande un
+  uniforme. À midi, elle mange à la cantine avec un camarade de classe.
+  L'après-midi, elle travaille au laboratoire. Pour réussir, elle doit réviser et
+  mémoriser beaucoup de mots. Un tuteur l'aide le mercredi. La semaine prochaine,
+  elle a une présentation et une conférence. Si elle échoue, elle va redoubler.
+  Elle attend son bulletin et sa note avec un peu de peur.
+questions:
+  - id: read-a2-le-semestre-de-lea.q1
+    prompt: "Où Léa mange-t-elle à midi ?"
+    options:
+      - "À la cantine"
+      - "Au laboratoire"
+      - "Chez elle"
+    answer: "À la cantine"
+    explain: "« À midi, elle mange à la cantine avec un camarade de classe. »"
+  - id: read-a2-le-semestre-de-lea.q2
+    prompt: "Que doit-elle faire pour réussir ?"
+    options:
+      - "Réviser et mémoriser beaucoup de mots"
+      - "Changer de cours"
+      - "Demander une bourse d'études"
+    answer: "Réviser et mémoriser beaucoup de mots"
+    explain: "« Pour réussir, elle doit réviser et mémoriser beaucoup de mots. »"
+  - id: read-a2-le-semestre-de-lea.q3
+    prompt: "Que se passe-t-il si elle échoue ?"
+    options:
+      - "Elle va redoubler"
+      - "Elle perd son casier"
+      - "Elle change d'école"
+    answer: "Elle va redoubler"
+    explain: "« Si elle échoue, elle va redoubler. »"

@@ -1,0 +1,38 @@
+id: read-a2-la-recette-de-ma-mere
+level: a2
+skill: reading
+title: "La recette de ma mère"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Ma mère a une recette simple. D'abord, il faut éplucher les légumes. Ensuite,
+  mettre de l'eau dans une casserole et faire bouillir. Il faut saler un peu. Les
+  autres ingrédients vont au four pendant vingt minutes. Après, on goûte. Enfin, on
+  met tout dans une assiette, avec une cuillère.
+  Le soir, chacun a son loisir. Mon père aime chanter. Ma sœur préfère peindre ou
+  dessiner. Moi, je fais de la photographie. Samedi, nous allons à un concert.
+questions:
+  - id: read-a2-la-recette-de-ma-mere.q1
+    prompt: "Que faut-il faire d'abord ?"
+    options:
+      - "Éplucher les légumes"
+      - "Faire bouillir l'eau"
+      - "Saler"
+    answer: "Éplucher les légumes"
+    explain: "« D'abord, il faut éplucher les légumes. »"
+  - id: read-a2-la-recette-de-ma-mere.q2
+    prompt: "Combien de temps les ingrédients restent-ils au four ?"
+    options:
+      - "Vingt minutes"
+      - "Dix minutes"
+      - "Une heure"
+    answer: "Vingt minutes"
+    explain: "« Les autres ingrédients vont au four pendant vingt minutes. »"
+  - id: read-a2-la-recette-de-ma-mere.q3
+    prompt: "Quel est le loisir de la sœur ?"
+    options:
+      - "Peindre ou dessiner"
+      - "Chanter"
+      - "La photographie"
+    answer: "Peindre ou dessiner"
+    explain: "« Ma sœur préfère peindre ou dessiner. »"

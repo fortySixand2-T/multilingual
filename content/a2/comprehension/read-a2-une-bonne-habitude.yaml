@@ -1,0 +1,40 @@
+id: read-a2-une-bonne-habitude
+level: a2
+skill: reading
+title: "Une bonne habitude"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Pour bien commencer la journée, il faut se lever tôt. Il ne faut pas se coucher
+  tard, et il ne faut pas se réveiller à midi. Après se lever, il faut se laver ou
+  se doucher, puis se brosser les dents. Ensuite, s'habiller vite et se dépêcher
+  pour l'autobus. Mon frère déteste le matin : il préfère dormir. Il est souvent
+  ennuyé et inquiet. Moi, je suis fier de ma nouvelle habitude. Ma sœur est
+  jalouse ! Elle a peur d'être en retard. Quand elle est surprise, elle aime rire ;
+  quand elle est triste, elle commence à pleurer. Mais ce matin, elle a un beau
+  sourire.
+questions:
+  - id: read-a2-une-bonne-habitude.q1
+    prompt: "Que faut-il faire pour bien commencer la journée ?"
+    options:
+      - "Se lever tôt"
+      - "Se coucher tard"
+      - "Se réveiller à midi"
+    answer: "Se lever tôt"
+    explain: "« Pour bien commencer la journée, il faut se lever tôt. »"
+  - id: read-a2-une-bonne-habitude.q2
+    prompt: "Que préfère le frère ?"
+    options:
+      - "Dormir"
+      - "Se doucher tôt"
+      - "Prendre l'autobus"
+    answer: "Dormir"
+    explain: "« Mon frère déteste le matin : il préfère dormir. »"
+  - id: read-a2-une-bonne-habitude.q3
+    prompt: "De quoi la sœur a-t-elle peur ?"
+    options:
+      - "D'être en retard"
+      - "De se lever tôt"
+      - "De l'autobus"
+    answer: "D'être en retard"
+    explain: "« Elle a peur d'être en retard. »"

@@ -441,3 +441,18 @@
 - [2026-09-13] Created: content/a1/comprehension/listen-a1-au-musee.yaml — A1 listening set at a museum (completes `verbs`)
 - [2026-09-13] Created: content/a1/audio/listen-a1-*.mp3 — TTS build artifacts for the 8 new listening scripts
 - [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['a1'] from 80 to 95
+- [2026-09-13] Created: content/a2/comprehension/read-a2-chercher-un-emploi.yaml — A2 reading set on a job search (`work`)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-les-regles-de-l-usine.yaml — A2 reading set on workplace rules (completes `work`)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-visite-a-la-clinique.yaml — A2 reading set at the clinic (`health`)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-les-petits-problemes.yaml — A2 reading set on winter ailments (completes `health`)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-le-semestre-de-lea.yaml — A2 reading set on a school term (covers the whole `studies` theme)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-les-fetes-de-l-annee.yaml — A2 reading set on holidays (covers the whole `celebrations` theme)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-le-club-de-sport.yaml — A2 reading set on sports (covers the whole `sports` theme)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-fin-de-semaine-a-la-campagne.yaml — A2 reading set on the countryside (covers the whole `nature` theme)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-mes-voisins.yaml — A2 reading set describing neighbours (covers the whole `people` theme)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-faire-sa-valise.yaml — A2 reading set on packing (covers the whole `clothes` theme)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-notre-nouvelle-maison.yaml — A2 reading set on a new house (covers the whole `home` theme)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-une-bonne-habitude.yaml — A2 reading set on daily routine (`routine` + `feelings`)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-la-recette-de-ma-mere.yaml — A2 reading set on a recipe (`cooking` + `hobbies`)
+- [2026-09-13] Created: content/a2/comprehension/read-a2-un-voyage-a-quebec.yaml — A2 reading set on a trip (`travel` + `services`)
+- [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['a2'] from 25 to 80

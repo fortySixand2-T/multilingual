@@ -1,0 +1,39 @@
+id: read-a2-le-club-de-sport
+level: a2
+skill: reading
+title: "Le club de sport"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Mon fils joue au soccer et au hockey. Sa sœur préfère le basketball et la
+  natation. Le samedi, il y a un match sur le terrain près de l'école. Avant le
+  match, l'entraîneur demande un échauffement. L'entraînement dure une heure. Si
+  l'équipe va perdre, ce n'est pas grave. En hiver, nous allons à la patinoire avec
+  nos patins, ou nous faisons du ski. Ma femme fait de la gymnastique et prépare un
+  marathon. Moi, je fais de la course. Pour le tennis, il faut une raquette ; pour
+  le soccer, un ballon.
+questions:
+  - id: read-a2-le-club-de-sport.q1
+    prompt: "Que demande l'entraîneur avant le match ?"
+    options:
+      - "Un échauffement"
+      - "Une heure d'entraînement"
+      - "Un ballon neuf"
+    answer: "Un échauffement"
+    explain: "« Avant le match, l'entraîneur demande un échauffement. »"
+  - id: read-a2-le-club-de-sport.q2
+    prompt: "Que fait la famille en hiver ?"
+    options:
+      - "Elle va à la patinoire ou fait du ski"
+      - "Elle joue au basketball"
+      - "Elle fait de la natation"
+    answer: "Elle va à la patinoire ou fait du ski"
+    explain: "« nous allons à la patinoire avec nos patins, ou nous faisons du ski »."
+  - id: read-a2-le-club-de-sport.q3
+    prompt: "Que prépare la femme ?"
+    options:
+      - "Un marathon"
+      - "Une course de ski"
+      - "Un match de soccer"
+    answer: "Un marathon"
+    explain: "« Ma femme fait de la gymnastique et prépare un marathon. »"

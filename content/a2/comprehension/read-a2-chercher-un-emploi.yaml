@@ -1,0 +1,37 @@
+id: read-a2-chercher-un-emploi
+level: a2
+skill: reading
+title: "Chercher un emploi"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Marc veut chercher un travail. Il a un diplôme en informatique et une bonne
+  compétence en anglais. Après six mois de chômage, il envoie son CV à une grande
+  entreprise. On l'appelle pour un entretien. Le patron le reçoit dans son bureau.
+  Après la réunion, il propose un contrat : d'abord un stage de trois mois. Marc va
+  gagner moins au début, mais c'est un bon début de carrière. Il accepte l'emploi.
+questions:
+  - id: read-a2-chercher-un-emploi.q1
+    prompt: "Depuis combien de temps Marc est-il au chômage ?"
+    options:
+      - "Six mois"
+      - "Trois mois"
+      - "Un an"
+    answer: "Six mois"
+    explain: "« Après six mois de chômage, il envoie son CV »."
+  - id: read-a2-chercher-un-emploi.q2
+    prompt: "Que propose le patron après la réunion ?"
+    options:
+      - "Un contrat, avec d'abord un stage de trois mois"
+      - "Un deuxième entretien"
+      - "Un emploi à l'étranger"
+    answer: "Un contrat, avec d'abord un stage de trois mois"
+    explain: "« il propose un contrat : d'abord un stage de trois mois »."
+  - id: read-a2-chercher-un-emploi.q3
+    prompt: "Pourquoi Marc accepte-t-il ?"
+    options:
+      - "C'est un bon début de carrière"
+      - "Il va gagner beaucoup d'argent"
+      - "Le bureau est près de chez lui"
+    answer: "C'est un bon début de carrière"
+    explain: "« c'est un bon début de carrière »."

@@ -1,0 +1,36 @@
+id: read-a2-faire-sa-valise
+level: a2
+skill: reading
+title: "Faire sa valise"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Pour le voyage, je mets une chemise, un pantalon et une veste dans ma valise. Ma
+  femme prend une robe et une jupe. En hiver, il faut porter un pull, une écharpe
+  et des gants. Un chapeau aussi. En été, un short et des chaussettes légères
+  suffisent. Pour le mariage, mon frère met une cravate et une ceinture noire.
+questions:
+  - id: read-a2-faire-sa-valise.q1
+    prompt: "Que met la personne dans sa valise ?"
+    options:
+      - "Une chemise, un pantalon et une veste"
+      - "Une robe et une jupe"
+      - "Un short et des chaussettes"
+    answer: "Une chemise, un pantalon et une veste"
+    explain: "« je mets une chemise, un pantalon et une veste dans ma valise »."
+  - id: read-a2-faire-sa-valise.q2
+    prompt: "Que faut-il porter en hiver ?"
+    options:
+      - "Un pull, une écharpe et des gants"
+      - "Un short et des chaussettes légères"
+      - "Une cravate"
+    answer: "Un pull, une écharpe et des gants"
+    explain: "« En hiver, il faut porter un pull, une écharpe et des gants. »"
+  - id: read-a2-faire-sa-valise.q3
+    prompt: "Que met le frère pour le mariage ?"
+    options:
+      - "Une cravate et une ceinture noire"
+      - "Un chapeau"
+      - "Une veste"
+    answer: "Une cravate et une ceinture noire"
+    explain: "« mon frère met une cravate et une ceinture noire »."

@@ -1,0 +1,38 @@
+id: read-a2-les-regles-de-l-usine
+level: a2
+skill: reading
+title: "Les règles de l'usine"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Dans notre usine, chaque employé reçoit un horaire. Mon quart de travail commence
+  à sept heures et je travaille à temps plein. Le chef d'équipe explique les tâches
+  du jour. Nous avons une pause de trente minutes. L'employeur donne un outil à
+  chaque personne et parle souvent de la sécurité au travail. La paie arrive toutes
+  les deux semaines ; elle est au-dessus du salaire minimum. Si je suis malade, je
+  prends un congé de maladie. L'usine va embaucher dix personnes en mai.
+questions:
+  - id: read-a2-les-regles-de-l-usine.q1
+    prompt: "Qui explique les tâches du jour ?"
+    options:
+      - "Le chef d'équipe"
+      - "L'employeur"
+      - "Un autre employé"
+    answer: "Le chef d'équipe"
+    explain: "« Le chef d'équipe explique les tâches du jour. »"
+  - id: read-a2-les-regles-de-l-usine.q2
+    prompt: "Que dit le texte sur la paie ?"
+    options:
+      - "Elle arrive toutes les deux semaines et dépasse le salaire minimum"
+      - "Elle arrive chaque mois"
+      - "Elle est égale au salaire minimum"
+    answer: "Elle arrive toutes les deux semaines et dépasse le salaire minimum"
+    explain: "« La paie arrive toutes les deux semaines ; elle est au-dessus du salaire minimum. »"
+  - id: read-a2-les-regles-de-l-usine.q3
+    prompt: "Que va faire l'usine en mai ?"
+    options:
+      - "Embaucher dix personnes"
+      - "Fermer deux semaines"
+      - "Changer les horaires"
+    answer: "Embaucher dix personnes"
+    explain: "« L'usine va embaucher dix personnes en mai. »"
