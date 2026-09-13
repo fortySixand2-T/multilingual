@@ -1,0 +1,57 @@
+id: read-b1-hors-saison
+level: b1
+skill: reading
+title: "Partir hors saison"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Voyager hors saison coûte moins cher, mais demande un peu d'organisation.
+  Commençons par l'hébergement. En haute saison, il faut réserver des mois à
+  l'avance. Hors saison, on trouve facilement une auberge de jeunesse ou une chambre
+  d'hôte à bon prix. Attention cependant : certains endroits ferment complètement.
+  Vérifiez toujours les dates avant de payer.
+  Le transport aussi change. Les vols sont moins chers, mais ils font plus souvent
+  une escale. À l'aéroport, l'embarquement commence plus tôt qu'on ne le croit.
+  Après un long trajet, le décalage horaire se fait sentir pendant deux ou trois
+  jours. Prévoyez un bagage léger : vous marcherez plus que vous ne le pensez.
+  Sur place, passez d'abord à l'office de tourisme. On vous indiquera quelle
+  attraction reste ouverte, quel belvédère mérite le détour, et si une excursion en
+  bateau ou une petite croisière est encore possible. Une location de voiture peut
+  être utile si les autobus circulent moins souvent.
+  Dernier conseil : prenez une assurance voyage. Une annulation arrive vite, et une
+  escapade de trois jours peut coûter cher si vous tombez malade. Séjourner à
+  l'étranger sans assurance, c'est le seul vrai risque du voyage. Le dépaysement,
+  lui, est garanti.
+questions:
+  - id: read-b1-hors-saison.q1
+    prompt: "Quel avantage le texte voit-il à l'hébergement hors saison ?"
+    options:
+      - "On trouve facilement une auberge ou une chambre d'hôte à bon prix"
+      - "Tous les établissements restent ouverts"
+      - "Il faut réserver des mois à l'avance"
+    answer: "On trouve facilement une auberge ou une chambre d'hôte à bon prix"
+    explain: "« Hors saison, on trouve facilement une auberge de jeunesse ou une chambre d'hôte à bon prix »."
+  - id: read-b1-hors-saison.q2
+    prompt: "Quel inconvénient le texte signale-t-il pour les vols moins chers ?"
+    options:
+      - "Ils font plus souvent une escale"
+      - "Ils ne permettent aucun bagage"
+      - "Ils partent uniquement en haute saison"
+    answer: "Ils font plus souvent une escale"
+    explain: "« Les vols sont moins chers, mais ils font plus souvent une escale »."
+  - id: read-b1-hors-saison.q3
+    prompt: "Pourquoi passer à l'office de tourisme en arrivant ?"
+    options:
+      - "Pour savoir quelle attraction reste ouverte et quelle excursion est possible"
+      - "Pour acheter une assurance voyage obligatoire"
+      - "Pour réserver le vol du retour"
+    answer: "Pour savoir quelle attraction reste ouverte et quelle excursion est possible"
+    explain: "« On vous indiquera quelle attraction reste ouverte, quel belvédère mérite le détour, et si une excursion en bateau ou une petite croisière est encore possible »."
+  - id: read-b1-hors-saison.q4
+    prompt: "Quel est, selon l'auteur, le seul vrai risque du voyage ?"
+    options:
+      - "Séjourner à l'étranger sans assurance voyage"
+      - "Le décalage horaire"
+      - "Une location de voiture trop chère"
+    answer: "Séjourner à l'étranger sans assurance voyage"
+    explain: "« Séjourner à l'étranger sans assurance, c'est le seul vrai risque du voyage »."

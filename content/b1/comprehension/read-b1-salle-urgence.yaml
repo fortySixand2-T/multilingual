@@ -1,0 +1,56 @@
+id: read-b1-salle-urgence
+level: b1
+skill: reading
+title: "Ce qui se passe vraiment à l'urgence"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Beaucoup de gens arrivent à la salle d'urgence en pensant qu'on les verra dans
+  l'ordre d'arrivée. Ce n'est pas ainsi que cela fonctionne.
+  À l'entrée, une infirmière fait le triage. Elle évalue la gravité : un cas aigu
+  passe avant un cas moins grave, même si celui-ci attend depuis trois heures. Une
+  personne amenée sur une civière par un ambulancier n'a pas doublé la file ; son
+  état l'exigeait.
+  On vous fera peut-être une prise de sang avant même de vous installer. Si votre
+  état est jugé contagieux, on vous placera à part : ce n'est pas une punition,
+  c'est la règle.
+  Une hospitalisation n'est pas toujours nécessaire. Quand elle l'est, elle est plus
+  courte qu'avant : après une chirurgie, on rentre souvent chez soi le jour même. La
+  convalescence se fait à la maison, et le rétablissement dépend beaucoup de ce que
+  vous ferez ensuite. La physiothérapie et la réadaptation ne sont pas des extras :
+  elles évitent une deuxième opération.
+  Un dernier mot : la vaccination reste le moyen le plus simple de construire une
+  immunité. Elle vide les salles d'attente.
+questions:
+  - id: read-b1-salle-urgence.q1
+    prompt: "Dans quel ordre les patients sont-ils vus à l'urgence ?"
+    options:
+      - "Selon le triage : un cas aigu passe avant un cas moins grave"
+      - "Strictement dans l'ordre d'arrivée"
+      - "Selon l'heure du rendez-vous pris à l'avance"
+    answer: "Selon le triage : un cas aigu passe avant un cas moins grave"
+    explain: "« une infirmière fait le triage… un cas aigu passe avant un cas moins grave »."
+  - id: read-b1-salle-urgence.q2
+    prompt: "Pourquoi place-t-on à part un patient jugé contagieux ?"
+    options:
+      - "Ce n'est pas une punition, c'est la règle"
+      - "Pour le faire attendre plus longtemps"
+      - "Pour éviter de lui faire une prise de sang"
+    answer: "Ce n'est pas une punition, c'est la règle"
+    explain: "« ce n'est pas une punition, c'est la règle »."
+  - id: read-b1-salle-urgence.q3
+    prompt: "Que dit le texte de la durée d'une hospitalisation après une chirurgie ?"
+    options:
+      - "Elle est plus courte qu'avant : on rentre souvent chez soi le jour même"
+      - "Elle dure toujours plusieurs semaines"
+      - "Elle remplace la convalescence à la maison"
+    answer: "Elle est plus courte qu'avant : on rentre souvent chez soi le jour même"
+    explain: "« après une chirurgie, on rentre souvent chez soi le jour même »."
+  - id: read-b1-salle-urgence.q4
+    prompt: "Comment le texte présente-t-il la physiothérapie et la réadaptation ?"
+    options:
+      - "Ce ne sont pas des extras : elles évitent une deuxième opération"
+      - "Ce sont des soins réservés aux cas graves"
+      - "Elles remplacent le rétablissement à domicile"
+    answer: "Ce ne sont pas des extras : elles évitent une deuxième opération"
+    explain: "« La physiothérapie et la réadaptation ne sont pas des extras : elles évitent une deuxième opération »."

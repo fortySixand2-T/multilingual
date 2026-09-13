@@ -1,0 +1,57 @@
+id: read-b1-mettre-de-l-ordre
+level: b1
+skill: reading
+title: "Mettre de l'ordre dans ses finances"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  On remet toujours ses finances à plus tard. Une matinée suffit pourtant à y voir
+  clair.
+  Première étape : la planification. Notez vos revenus, vos dépenses fixes, et ce
+  qui reste. Fixez une priorité, une seule, pour les six prochains mois. La
+  motivation baisse toujours après trois semaines ; c'est la persévérance qui fait
+  la différence, pas l'enthousiasme du début.
+  Regardez ensuite ce qui coûte sans se voir : les frais bancaires prélevés chaque
+  mois, le virement automatique oublié depuis deux ans, la marge de crédit utilisée
+  comme un compte courant. Vérifiez votre cote de crédit une fois par année, car
+  elle décide du taux d'intérêt qu'on vous offrira pour un prêt bancaire.
+  Si vous épargnez, apprenez la différence entre épargner et investir. Un placement
+  peut baisser. Un courtier peut vous conseiller, mais il est payé pour cela.
+  Méfiez-vous de tout rendement promis dans une devise que vous ne connaissez pas.
+  Pensez enfin au long terme. Votre déclaration de revenus contient souvent un
+  crédit d'impôt que vous oubliez de demander. Un testament évite à votre famille
+  une succession compliquée. Et si un obstacle sérieux arrive — une faillite, par
+  exemple — parlez-en tôt : les vrais progrès viennent toujours de là.
+questions:
+  - id: read-b1-mettre-de-l-ordre.q1
+    prompt: "Qu'est-ce qui fait la différence, selon le texte ?"
+    options:
+      - "La persévérance, pas l'enthousiasme du début"
+      - "Le montant des revenus"
+      - "Le nombre de priorités fixées"
+    answer: "La persévérance, pas l'enthousiasme du début"
+    explain: "« c'est la persévérance qui fait la différence, pas l'enthousiasme du début »."
+  - id: read-b1-mettre-de-l-ordre.q2
+    prompt: "Pourquoi vérifier sa cote de crédit chaque année ?"
+    options:
+      - "Elle décide du taux d'intérêt offert pour un prêt bancaire"
+      - "Elle supprime les frais bancaires"
+      - "Elle remplace la déclaration de revenus"
+    answer: "Elle décide du taux d'intérêt offert pour un prêt bancaire"
+    explain: "« elle décide du taux d'intérêt qu'on vous offrira pour un prêt bancaire »."
+  - id: read-b1-mettre-de-l-ordre.q3
+    prompt: "Que dit le texte à propos d'un courtier ?"
+    options:
+      - "Il peut conseiller, mais il est payé pour cela"
+      - "Il garantit le rendement d'un placement"
+      - "Il gère la succession d'une famille"
+    answer: "Il peut conseiller, mais il est payé pour cela"
+    explain: "« Un courtier peut vous conseiller, mais il est payé pour cela »."
+  - id: read-b1-mettre-de-l-ordre.q4
+    prompt: "Que conseille l'auteur si un obstacle sérieux arrive ?"
+    options:
+      - "En parler tôt"
+      - "Attendre que la situation se règle seule"
+      - "Changer de devise"
+    answer: "En parler tôt"
+    explain: "« si un obstacle sérieux arrive — une faillite, par exemple — parlez-en tôt »."

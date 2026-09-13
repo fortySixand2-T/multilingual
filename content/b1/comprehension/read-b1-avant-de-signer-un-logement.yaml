@@ -1,0 +1,57 @@
+id: read-b1-avant-de-signer-un-logement
+level: b1
+skill: reading
+title: "Avant de signer pour un logement"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Visiter un logement prend vingt minutes. Y vivre prend des années. Voici ce qu'il
+  faut regarder.
+  D'abord l'état du bâtiment. Cherchez les traces d'humidité au bas des murs,
+  surtout au sous-sol : une moisissure se nettoie, une infiltration d'eau revient.
+  Ouvrez les robinets pour juger la plomberie. Vérifiez l'isolation en hiver et la
+  climatisation en été ; demandez aussi qui règle le thermostat.
+  Ensuite les questions d'argent. En copropriété, renseignez-vous sur les travaux
+  prévus : le syndic de copropriété peut voter une rénovation coûteuse après votre
+  arrivée. Si vous achetez, comparez les offres d'hypothèque plutôt que d'accepter
+  la première. En banlieue, le loyer baisse mais le transport monte.
+  Au moment de signer, faites l'état des lieux sérieusement, photos à l'appui. C'est
+  lui qui décidera si vous récupérez votre dépôt de garantie. Notez le nom du
+  concierge et la façon de le joindre.
+  Deux situations à connaître. Une sous-location doit être autorisée par écrit,
+  sinon elle se retourne contre vous. Et une expulsion ne se décide pas par un
+  simple message : elle passe par le Tribunal administratif du logement.
+  Le reste — l'ameublement, le rangement — s'arrange toujours.
+questions:
+  - id: read-b1-avant-de-signer-un-logement.q1
+    prompt: "Quelle différence le texte fait-il entre moisissure et infiltration d'eau ?"
+    options:
+      - "Une moisissure se nettoie, une infiltration d'eau revient"
+      - "Les deux disparaissent après une rénovation"
+      - "L'infiltration d'eau ne touche jamais le sous-sol"
+    answer: "Une moisissure se nettoie, une infiltration d'eau revient"
+    explain: "« une moisissure se nettoie, une infiltration d'eau revient »."
+  - id: read-b1-avant-de-signer-un-logement.q2
+    prompt: "Quel risque le texte signale-t-il en copropriété ?"
+    options:
+      - "Le syndic peut voter une rénovation coûteuse après votre arrivée"
+      - "Le concierge peut changer le thermostat"
+      - "L'hypothèque augmente automatiquement"
+    answer: "Le syndic peut voter une rénovation coûteuse après votre arrivée"
+    explain: "« le syndic de copropriété peut voter une rénovation coûteuse après votre arrivée »."
+  - id: read-b1-avant-de-signer-un-logement.q3
+    prompt: "Pourquoi faire l'état des lieux sérieusement ?"
+    options:
+      - "C'est lui qui décidera si vous récupérez votre dépôt de garantie"
+      - "Il remplace le contrat de sous-location"
+      - "Il fixe le montant du loyer"
+    answer: "C'est lui qui décidera si vous récupérez votre dépôt de garantie"
+    explain: "« C'est lui qui décidera si vous récupérez votre dépôt de garantie »."
+  - id: read-b1-avant-de-signer-un-logement.q4
+    prompt: "Comment une expulsion se décide-t-elle ?"
+    options:
+      - "Elle passe par le Tribunal administratif du logement"
+      - "Par un simple message du propriétaire"
+      - "Par une décision du concierge"
+    answer: "Elle passe par le Tribunal administratif du logement"
+    explain: "« une expulsion ne se décide pas par un simple message : elle passe par le Tribunal administratif du logement »."

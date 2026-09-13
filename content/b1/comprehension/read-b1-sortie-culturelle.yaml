@@ -1,0 +1,58 @@
+id: read-b1-sortie-culturelle
+level: b1
+skill: reading
+title: "Une sortie culturelle sans se ruiner"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  On croit souvent que sortir coûte cher. Cela dépend surtout du moment où l'on
+  réserve.
+  Commençons par le théâtre. Une pièce de théâtre coûte moins cher en semaine, et la
+  billetterie propose parfois des places de dernière minute. Certains théâtres
+  ouvrent même une répétition au public : on voit les comédiens travailler, se
+  tromper, recommencer. C'est souvent plus intéressant que le spectacle terminé.
+  Côté musique, un orchestre local demande rarement le prix d'une grande salle. Si
+  vous jouez d'un instrument, vous entendrez des choses que les autres ne remarquent
+  pas. Une chanson bien écrite tient sans décor, et un bon chanteur n'a pas besoin
+  d'un grand micro.
+  Les arts visuels sont les moins chers de tous. Une galerie de quartier est
+  gratuite. Un atelier ouvert vous laisse parler à quelqu'un qui peint : demandez
+  pourquoi cette toile est restée inachevée, vous apprendrez plus qu'en lisant dix
+  critiques.
+  Enfin, le cinéma et la littérature. Un réalisateur raconte volontiers son tournage
+  lors des projections spéciales. Un roman coûte le prix d'un café, un recueil de
+  poésie encore moins : suivez l'intrigue, mais regardez surtout comment un
+  personnage change. La danse, elle, ne demande qu'une scène et de la curiosité.
+questions:
+  - id: read-b1-sortie-culturelle.q1
+    prompt: "Pourquoi assister à une répétition, selon le texte ?"
+    options:
+      - "On voit les comédiens travailler, se tromper et recommencer"
+      - "Les places y sont toujours gratuites"
+      - "Le spectacle y dure plus longtemps"
+    answer: "On voit les comédiens travailler, se tromper et recommencer"
+    explain: "« on voit les comédiens travailler, se tromper, recommencer. C'est souvent plus intéressant que le spectacle terminé »."
+  - id: read-b1-sortie-culturelle.q2
+    prompt: "Quel avantage le texte donne-t-il à qui joue d'un instrument ?"
+    options:
+      - "Il entend des choses que les autres ne remarquent pas"
+      - "Il entre gratuitement à l'orchestre"
+      - "Il peut monter sur scène"
+    answer: "Il entend des choses que les autres ne remarquent pas"
+    explain: "« Si vous jouez d'un instrument, vous entendrez des choses que les autres ne remarquent pas »."
+  - id: read-b1-sortie-culturelle.q3
+    prompt: "Que conseille le texte dans un atelier ouvert ?"
+    options:
+      - "Demander pourquoi une toile est restée inachevée"
+      - "Acheter une toile avant de partir"
+      - "Lire dix critiques avant d'entrer"
+    answer: "Demander pourquoi une toile est restée inachevée"
+    explain: "« demandez pourquoi cette toile est restée inachevée, vous apprendrez plus qu'en lisant dix critiques »."
+  - id: read-b1-sortie-culturelle.q4
+    prompt: "Que faut-il regarder surtout en lisant un roman, d'après l'auteur ?"
+    options:
+      - "Comment un personnage change"
+      - "La longueur de l'intrigue"
+      - "Le nom du réalisateur"
+    answer: "Comment un personnage change"
+    explain: "« suivez l'intrigue, mais regardez surtout comment un personnage change »."
