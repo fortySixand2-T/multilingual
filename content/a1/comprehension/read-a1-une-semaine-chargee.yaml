@@ -1,0 +1,37 @@
+id: read-a1-une-semaine-chargee
+level: a1
+skill: reading
+title: "Une semaine chargée"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Lundi, je laisse mon fils à la garderie. Mardi, j'ai un cours à l'université.
+  Mercredi, je vais au salon de coiffure. Jeudi, je fais du sport au gymnase.
+  Vendredi, je lave mes vêtements à la buanderie. Samedi, je dois aller à la
+  clinique. Avant de partir, je m'arrête à la station-service. Dimanche, les
+  enfants jouent au terrain de jeu. En été, nous allons au camping.
+questions:
+  - id: read-a1-une-semaine-chargee.q1
+    prompt: "Où va la personne le mardi ?"
+    options:
+      - "À l'université"
+      - "À la garderie"
+      - "Au gymnase"
+    answer: "À l'université"
+    explain: "« Mardi, j'ai un cours à l'université. »"
+  - id: read-a1-une-semaine-chargee.q2
+    prompt: "Que fait-elle le vendredi ?"
+    options:
+      - "Elle lave ses vêtements à la buanderie"
+      - "Elle va au salon de coiffure"
+      - "Elle va à la clinique"
+    answer: "Elle lave ses vêtements à la buanderie"
+    explain: "« Vendredi, je lave mes vêtements à la buanderie. »"
+  - id: read-a1-une-semaine-chargee.q3
+    prompt: "Où jouent les enfants le dimanche ?"
+    options:
+      - "Au terrain de jeu"
+      - "Au camping"
+      - "Au gymnase"
+    answer: "Au terrain de jeu"
+    explain: "« Dimanche, les enfants jouent au terrain de jeu. »"

@@ -1,0 +1,37 @@
+id: read-a1-le-demenagement
+level: a1
+skill: reading
+title: "Le déménagement"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  C'est mon dernier jour dans cet appartement. Le prochain est plus haut : au
+  cinquième étage. Mes boîtes sont pleines. Une boîte est légère, l'autre est très
+  lourde. Le sol est sale : je dois nettoyer. Mon ami est occupé aujourd'hui, alors
+  je suis seul. Est-ce possible de tout faire en un jour ? Ce n'est pas vrai, c'est
+  faux : il faut deux jours. C'est important de commencer tôt.
+questions:
+  - id: read-a1-le-demenagement.q1
+    prompt: "À quel étage est le prochain appartement ?"
+    options:
+      - "Au cinquième"
+      - "Au premier"
+      - "Au deuxième"
+    answer: "Au cinquième"
+    explain: "« Le prochain est plus haut : au cinquième étage. »"
+  - id: read-a1-le-demenagement.q2
+    prompt: "Pourquoi la personne est-elle seule ?"
+    options:
+      - "Son ami est occupé aujourd'hui"
+      - "Son ami est malade"
+      - "Elle préfère être seule"
+    answer: "Son ami est occupé aujourd'hui"
+    explain: "« Mon ami est occupé aujourd'hui, alors je suis seul. »"
+  - id: read-a1-le-demenagement.q3
+    prompt: "Combien de jours faut-il pour tout faire ?"
+    options:
+      - "Deux jours"
+      - "Un jour"
+      - "Trois jours"
+    answer: "Deux jours"
+    explain: "« il faut deux jours »."

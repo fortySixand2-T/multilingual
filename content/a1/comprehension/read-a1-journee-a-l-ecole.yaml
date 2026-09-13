@@ -1,0 +1,36 @@
+id: read-a1-journee-a-l-ecole
+level: a1
+skill: reading
+title: "Une journée à l'école"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  La classe commence à huit heures. Le professeur écrit la leçon au tableau. Chaque
+  étudiant copie les mots dans son cahier. Quand je ne comprends pas un mot, je
+  cherche dans le dictionnaire. À dix heures, c'est la récréation : nous sortons
+  dans la cour. L'après-midi, nous avons des devoirs pour demain.
+questions:
+  - id: read-a1-journee-a-l-ecole.q1
+    prompt: "Où le professeur écrit-il la leçon ?"
+    options:
+      - "Au tableau"
+      - "Dans le cahier"
+      - "Dans le dictionnaire"
+    answer: "Au tableau"
+    explain: "« Le professeur écrit la leçon au tableau. »"
+  - id: read-a1-journee-a-l-ecole.q2
+    prompt: "Que fait la personne quand elle ne comprend pas un mot ?"
+    options:
+      - "Elle cherche dans le dictionnaire"
+      - "Elle demande au professeur"
+      - "Elle copie le mot au tableau"
+    answer: "Elle cherche dans le dictionnaire"
+    explain: "« je cherche dans le dictionnaire »."
+  - id: read-a1-journee-a-l-ecole.q3
+    prompt: "Qu'est-ce qu'il y a à dix heures ?"
+    options:
+      - "La récréation"
+      - "Les devoirs"
+      - "La leçon"
+    answer: "La récréation"
+    explain: "« À dix heures, c'est la récréation »."

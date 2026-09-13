@@ -1,0 +1,36 @@
+id: read-a1-dans-mon-sac-a-dos
+level: a1
+skill: reading
+title: "Dans mon sac à dos"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  J'ai un sac à dos bleu. Dedans, il y a une trousse. Dans la trousse, il y a un
+  stylo, un crayon, une efface et une règle. J'ai aussi un cahier et des feuilles
+  de papier. Pour le cours d'arts, j'apporte des ciseaux et de la colle. Mon sac
+  est lourd le lundi !
+questions:
+  - id: read-a1-dans-mon-sac-a-dos.q1
+    prompt: "Qu'est-ce qu'il y a dans la trousse ?"
+    options:
+      - "Un stylo, un crayon, une efface et une règle"
+      - "Un cahier et des feuilles"
+      - "Des ciseaux et de la colle"
+    answer: "Un stylo, un crayon, une efface et une règle"
+    explain: "« il y a un stylo, un crayon, une efface et une règle »."
+  - id: read-a1-dans-mon-sac-a-dos.q2
+    prompt: "Qu'est-ce que la personne apporte pour le cours d'arts ?"
+    options:
+      - "Des ciseaux et de la colle"
+      - "Une règle"
+      - "Un dictionnaire"
+    answer: "Des ciseaux et de la colle"
+    explain: "« Pour le cours d'arts, j'apporte des ciseaux et de la colle. »"
+  - id: read-a1-dans-mon-sac-a-dos.q3
+    prompt: "Comment est le sac le lundi ?"
+    options:
+      - "Il est lourd"
+      - "Il est vide"
+      - "Il est petit"
+    answer: "Il est lourd"
+    explain: "« Mon sac est lourd le lundi ! »"

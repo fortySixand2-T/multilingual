@@ -1,0 +1,37 @@
+id: read-a1-la-meteo-de-la-semaine
+level: a1
+skill: reading
+title: "La météo de la semaine"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Lundi, il fait beau temps : le ciel est bleu et il n'y a pas de nuage. La
+  température monte à vingt degrés. Mardi, il y a du brouillard le matin.
+  Mercredi, c'est le mauvais temps : prenez un parapluie ! Jeudi soir, il y a un
+  orage. L'air est très humide. C'est normal : à cette saison, le temps change
+  vite.
+questions:
+  - id: read-a1-la-meteo-de-la-semaine.q1
+    prompt: "Quel temps fait-il lundi ?"
+    options:
+      - "Il fait beau temps, sans nuage"
+      - "Il y a du brouillard"
+      - "Il y a un orage"
+    answer: "Il fait beau temps, sans nuage"
+    explain: "« il fait beau temps : le ciel est bleu et il n'y a pas de nuage »."
+  - id: read-a1-la-meteo-de-la-semaine.q2
+    prompt: "Que faut-il prendre mercredi ?"
+    options:
+      - "Un parapluie"
+      - "Un chapeau"
+      - "Un manteau"
+    answer: "Un parapluie"
+    explain: "« Mercredi, c'est le mauvais temps : prenez un parapluie ! »"
+  - id: read-a1-la-meteo-de-la-semaine.q3
+    prompt: "Quelle est la température lundi ?"
+    options:
+      - "Vingt degrés"
+      - "Dix degrés"
+      - "Trente degrés"
+    answer: "Vingt degrés"
+    explain: "« La température monte à vingt degrés. »"

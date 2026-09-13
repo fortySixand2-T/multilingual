@@ -1,0 +1,37 @@
+id: read-a1-notre-appartement
+level: a1
+skill: reading
+title: "Notre appartement"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Nous avons deux chambres. Sur mon lit, il y a un oreiller, un drap et une
+  couverture chaude. La salle de bains est petite : il y a une douche, mais il n'y
+  a pas de baignoire. Les toilettes sont à côté. Dans la cuisine, l'évier est sous
+  la fenêtre et le frigo est grand. Nous gardons les vélos dans le garage. Les
+  vieilles boîtes sont à la cave.
+questions:
+  - id: read-a1-notre-appartement.q1
+    prompt: "Qu'est-ce qu'il y a sur le lit ?"
+    options:
+      - "Un oreiller, un drap et une couverture"
+      - "Un tapis et un rideau"
+      - "Une lampe et un miroir"
+    answer: "Un oreiller, un drap et une couverture"
+    explain: "« il y a un oreiller, un drap et une couverture chaude »."
+  - id: read-a1-notre-appartement.q2
+    prompt: "Qu'est-ce qu'il n'y a pas dans la salle de bains ?"
+    options:
+      - "Une baignoire"
+      - "Une douche"
+      - "Un évier"
+    answer: "Une baignoire"
+    explain: "« il y a une douche, mais il n'y a pas de baignoire »."
+  - id: read-a1-notre-appartement.q3
+    prompt: "Où sont les vélos ?"
+    options:
+      - "Dans le garage"
+      - "À la cave"
+      - "Dans la cuisine"
+    answer: "Dans le garage"
+    explain: "« Nous gardons les vélos dans le garage. »"

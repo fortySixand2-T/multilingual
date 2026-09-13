@@ -1,0 +1,36 @@
+id: read-a1-a-la-ferme
+level: a1
+skill: reading
+title: "À la ferme"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Mon oncle a une ferme. Il y a un cheval brun, trois vaches et deux cochons. Les
+  moutons sont dans le champ. Un canard nage dans l'eau. Mon oncle dit qu'un renard
+  vient parfois la nuit. Dans la forêt, il y a un loup et même un ours, mais je
+  n'ai jamais vu ces animaux.
+questions:
+  - id: read-a1-a-la-ferme.q1
+    prompt: "Combien de cochons y a-t-il ?"
+    options:
+      - "Deux"
+      - "Trois"
+      - "Un"
+    answer: "Deux"
+    explain: "« trois vaches et deux cochons »."
+  - id: read-a1-a-la-ferme.q2
+    prompt: "Où sont les moutons ?"
+    options:
+      - "Dans le champ"
+      - "Dans la forêt"
+      - "Dans l'eau"
+    answer: "Dans le champ"
+    explain: "« Les moutons sont dans le champ. »"
+  - id: read-a1-a-la-ferme.q3
+    prompt: "Qu'est-ce qui vient parfois la nuit ?"
+    options:
+      - "Un renard"
+      - "Un loup"
+      - "Un ours"
+    answer: "Un renard"
+    explain: "« un renard vient parfois la nuit »."

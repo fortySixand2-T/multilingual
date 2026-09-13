@@ -1,0 +1,37 @@
+id: read-a1-qui-travaille-dans-ma-rue
+level: a1
+skill: reading
+title: "Qui travaille dans ma rue ?"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Le matin, le boulanger ouvre son magasin. Le facteur apporte les lettres. Un
+  policier passe en voiture. Le chauffeur de l'autobus attend les enfants. Quand il
+  y a un problème d'eau, nous appelons le plombier. Quand il y a un problème de
+  lumière, c'est l'électricien. Le mécanicien répare les voitures et le coiffeur
+  coupe les cheveux. Le pompier, lui, vient rarement.
+questions:
+  - id: read-a1-qui-travaille-dans-ma-rue.q1
+    prompt: "Qui apporte les lettres ?"
+    options:
+      - "Le facteur"
+      - "Le policier"
+      - "Le boulanger"
+    answer: "Le facteur"
+    explain: "« Le facteur apporte les lettres. »"
+  - id: read-a1-qui-travaille-dans-ma-rue.q2
+    prompt: "Qui appelle-t-on quand il y a un problème d'eau ?"
+    options:
+      - "Le plombier"
+      - "L'électricien"
+      - "Le mécanicien"
+    answer: "Le plombier"
+    explain: "« Quand il y a un problème d'eau, nous appelons le plombier. »"
+  - id: read-a1-qui-travaille-dans-ma-rue.q3
+    prompt: "Que fait le coiffeur ?"
+    options:
+      - "Il coupe les cheveux"
+      - "Il répare les voitures"
+      - "Il ouvre son magasin le matin"
+    answer: "Il coupe les cheveux"
+    explain: "« le coiffeur coupe les cheveux »."

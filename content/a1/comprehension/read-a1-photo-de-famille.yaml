@@ -1,0 +1,37 @@
+id: read-a1-photo-de-famille
+level: a1
+skill: reading
+title: "Une photo de famille"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Sur la photo, il y a mes parents. Mon père tient un bébé : c'est ma petite sœur.
+  À gauche, ma grand-mère porte une robe bleue et mon grand-père un chapeau. Mon
+  oncle et ma tante sont derrière. Devant, il y a mon cousin et ma cousine. Mon
+  frère et son épouse arrivent avec leur fils et leur fille. Tous les enfants
+  rient.
+questions:
+  - id: read-a1-photo-de-famille.q1
+    prompt: "Qui tient le bébé ?"
+    options:
+      - "Le père"
+      - "La grand-mère"
+      - "La tante"
+    answer: "Le père"
+    explain: "« Mon père tient un bébé »."
+  - id: read-a1-photo-de-famille.q2
+    prompt: "Que porte la grand-mère ?"
+    options:
+      - "Une robe bleue"
+      - "Un chapeau"
+      - "Un manteau"
+    answer: "Une robe bleue"
+    explain: "« ma grand-mère porte une robe bleue »."
+  - id: read-a1-photo-de-famille.q3
+    prompt: "Avec qui arrive le frère ?"
+    options:
+      - "Avec son épouse, son fils et sa fille"
+      - "Avec son oncle et sa tante"
+      - "Avec ses cousins"
+    answer: "Avec son épouse, son fils et sa fille"
+    explain: "« Mon frère et son épouse arrivent avec leur fils et leur fille. »"
