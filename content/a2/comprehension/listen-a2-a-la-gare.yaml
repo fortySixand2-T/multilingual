@@ -1,0 +1,41 @@
+id: listen-a2-a-la-gare
+level: a2
+skill: listening
+title: "À la gare"
+time_limit_seconds: 110
+audio_ref: a2/audio/listen-a2-a-la-gare.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Bonjour, je voudrais un billet pour Montréal. Aller simple ou aller-retour ?
+  Aller-retour, s'il vous plaît. Le train part du quai numéro trois, mais il y a un
+  retard de vingt minutes. Et l'autobus ? Il est parti. Vous l'avez raté. Le
+  prochain est dans une heure. Je peux prendre un taxi ? C'est cher. Il y a aussi
+  un bateau, mais pas en hiver. N'oubliez pas de valider votre billet avant de
+  monter. L'avion, lui, coûte trop cher pour moi.
+questions:
+  - id: listen-a2-a-la-gare.q1
+    prompt: "Quel billet la personne achète-t-elle ?"
+    options:
+      - "Un aller-retour"
+      - "Un aller simple"
+      - "Un billet d'avion"
+    answer: "Un aller-retour"
+    explain: "« Aller-retour, s'il vous plaît. »"
+  - id: listen-a2-a-la-gare.q2
+    prompt: "Pourquoi ne peut-elle pas prendre l'autobus ?"
+    options:
+      - "Elle l'a raté"
+      - "Il coûte trop cher"
+      - "Il ne roule pas en hiver"
+    answer: "Elle l'a raté"
+    explain: "« Il est parti. Vous l'avez raté. »"
+  - id: listen-a2-a-la-gare.q3
+    prompt: "Que faut-il faire avant de monter ?"
+    options:
+      - "Valider son billet"
+      - "Aller au quai numéro trois"
+      - "Payer le taxi"
+    answer: "Valider son billet"
+    explain: "« N'oubliez pas de valider votre billet avant de monter. »"

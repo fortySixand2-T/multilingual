@@ -50,7 +50,7 @@ KNOWN_POS = {"noun", "verb", "adjective", "adverb", "numeral", "phrase", "interj
 # value rounded down to a multiple of 5, and `check_comprehension_covers_vocab`
 # refuses to let a level sit 5+ points above its floor -- so coverage ratchets
 # up and can never silently regress when the bank next grows.
-MIN_COMPREHENSION_COVERAGE = {"a1": 95, "a2": 80, "b1": 90, "b2": 90}
+MIN_COMPREHENSION_COVERAGE = {"a1": 95, "a2": 100, "b1": 90, "b2": 90}
 
 _ARTICLES = ("le ", "la ", "les ", "l'", "un ", "une ", "des ")
 

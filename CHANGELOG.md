@@ -456,3 +456,11 @@
 - [2026-09-13] Created: content/a2/comprehension/read-a2-la-recette-de-ma-mere.yaml — A2 reading set on a recipe (`cooking` + `hobbies`)
 - [2026-09-13] Created: content/a2/comprehension/read-a2-un-voyage-a-quebec.yaml — A2 reading set on a trip (`travel` + `services`)
 - [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['a2'] from 25 to 80
+- [2026-09-13] Created: content/a2/comprehension/listen-a2-a-la-gare.yaml — A2 listening set at the station (`transport`)
+- [2026-09-13] Created: content/a2/comprehension/listen-a2-chez-le-garagiste.yaml — A2 listening set at the garage (completes `transport`)
+- [2026-09-13] Created: content/a2/comprehension/listen-a2-a-la-banque.yaml — A2 listening set at the bank (covers the whole `money` theme)
+- [2026-09-13] Created: content/a2/comprehension/listen-a2-un-accident-dans-la-rue.yaml — A2 listening set on an emergency (covers the whole `emergencies` theme)
+- [2026-09-13] Created: content/a2/comprehension/listen-a2-au-telephone-et-a-la-poste.yaml — A2 listening set on phone/post (covers the whole `communication` theme)
+- [2026-09-13] Created: content/a2/comprehension/listen-a2-probleme-d-ordinateur.yaml — A2 listening set on a computer problem (covers the whole `tech` theme)
+- [2026-09-13] Created: content/a2/audio/listen-a2-*.mp3 — TTS build artifacts for the 6 new listening scripts
+- [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['a2'] from 80 to 100

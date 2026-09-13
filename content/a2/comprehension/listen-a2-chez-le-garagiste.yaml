@@ -1,0 +1,40 @@
+id: listen-a2-chez-le-garagiste
+level: a2
+skill: listening
+title: "Chez le garagiste"
+time_limit_seconds: 110
+audio_ref: a2/audio/listen-a2-chez-le-garagiste.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Bonjour, ma voiture fait un bruit. Vous avez votre permis ? Oui, le voici. Bon.
+  Le moteur est correct, mais le frein de gauche est vieux. La roue avant aussi. Un phare ne marche plus. Le volant, lui, tourne bien. Le réservoir est presque vide : mettez de l'essence avant
+  de conduire. Je regarde dans le coffre ? Oui, et sous le siège. Mon frère a un
+  camion et une moto, mais moi, je préfère une petite voiture. C'est plus facile à
+  conduire en ville.
+questions:
+  - id: listen-a2-chez-le-garagiste.q1
+    prompt: "Qu'est-ce qui est vieux ?"
+    options:
+      - "Le frein de gauche"
+      - "Le moteur"
+      - "Le coffre"
+    answer: "Le frein de gauche"
+    explain: "« Le moteur est correct, mais le frein de gauche est vieux. »"
+  - id: listen-a2-chez-le-garagiste.q2
+    prompt: "Que faut-il faire avant de conduire ?"
+    options:
+      - "Mettre de l'essence"
+      - "Changer la roue"
+      - "Réparer le phare"
+    answer: "Mettre de l'essence"
+    explain: "« Le réservoir est presque vide : mettez de l'essence avant de conduire. »"
+  - id: listen-a2-chez-le-garagiste.q3
+    prompt: "Que préfère le client ?"
+    options:
+      - "Une petite voiture"
+      - "Un camion"
+      - "Une moto"
+    answer: "Une petite voiture"
+    explain: "« moi, je préfère une petite voiture »."
