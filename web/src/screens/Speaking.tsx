@@ -265,15 +265,19 @@ export default function Speaking() {
             <div className="card">
               <div className="muted" style={{ fontSize: 12 }}>Examiner</div>
               <div>{t.reply_text}</div>
-              <Subtitle
-                turnId={t.turn_id}
-                replyEn={t.reply_en}
-                onTranslated={(en) =>
-                  setTurns((prev) =>
-                    prev.map((x, xi) => (xi === i ? { ...x, reply_en: en } : x))
-                  )
-                }
-              />
+              {/* Nothing to translate for a blank examiner reply — don't offer a
+                  button that can only ever come back empty. */}
+              {t.reply_text?.trim() && (
+                <Subtitle
+                  turnId={t.turn_id}
+                  replyEn={t.reply_en}
+                  onTranslated={(en) =>
+                    setTurns((prev) =>
+                      prev.map((x, xi) => (xi === i ? { ...x, reply_en: en } : x))
+                    )
+                  }
+                />
+              )}
               {t.reply_audio_url && <PlayButton url={t.reply_audio_url} />}
             </div>
           </div>
@@ -664,6 +668,7 @@ function Subtitle({
     try {
       const r = await api.speechTranslate(turnId);
       if (r.over_budget) setFailed("Daily speaking budget reached — no English right now.");
+      else if (!r.reply_en) setFailed("Nothing to translate for this turn.");
       else {
         onTranslated(r.reply_en);
         setShown(true);
