@@ -1,0 +1,38 @@
+id: listen-a1-l-inscription
+level: a1
+skill: listening
+title: "L'inscription au cours"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-a1-l-inscription.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Quel est votre numéro ? C'est le six, sept, neuf, onze. Et votre adresse ? Douze,
+  rue Sainte-Marie, appartement treize. Merci. Le cours commence à seize heures. Le
+  prix est de cinquante dollars. Et pour l'année ? Mille dollars.
+questions:
+  - id: listen-a1-l-inscription.q1
+    prompt: "À quel appartement habite la personne ?"
+    options:
+      - "Treize"
+      - "Douze"
+      - "Onze"
+    answer: "Treize"
+    explain: "« appartement treize »."
+  - id: listen-a1-l-inscription.q2
+    prompt: "À quelle heure commence le cours ?"
+    options:
+      - "À seize heures"
+      - "À six heures"
+      - "À neuf heures"
+    answer: "À seize heures"
+    explain: "« Le cours commence à seize heures. »"
+  - id: listen-a1-l-inscription.q3
+    prompt: "Combien coûte l'année ?"
+    options:
+      - "Mille dollars"
+      - "Cinquante dollars"
+      - "Treize dollars"
+    answer: "Mille dollars"
+    explain: "« Mille dollars. »"

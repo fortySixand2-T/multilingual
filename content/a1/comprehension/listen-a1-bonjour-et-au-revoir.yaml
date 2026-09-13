@@ -1,0 +1,39 @@
+id: listen-a1-bonjour-et-au-revoir
+level: a1
+skill: listening
+title: "Bonjour et au revoir"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-a1-bonjour-et-au-revoir.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Coucou ! Ça va ? Oui, ça va bien, merci. Bienvenue dans notre classe. Voici
+  monsieur Tremblay et mademoiselle Roy. Enchanté ! Excusez-moi, je suis en retard.
+  Désolé. Ce n'est pas grave. Merci beaucoup. De rien. Pardon, je dois partir. Au
+  revoir ! Bonne nuit !
+questions:
+  - id: listen-a1-bonjour-et-au-revoir.q1
+    prompt: "Que dit-on à la nouvelle personne ?"
+    options:
+      - "Bienvenue dans notre classe"
+      - "Bonne nuit"
+      - "De rien"
+    answer: "Bienvenue dans notre classe"
+    explain: "« Bienvenue dans notre classe. »"
+  - id: listen-a1-bonjour-et-au-revoir.q2
+    prompt: "Pourquoi la personne dit-elle « désolé » ?"
+    options:
+      - "Elle est en retard"
+      - "Elle part tôt"
+      - "Elle ne comprend pas"
+    answer: "Elle est en retard"
+    explain: "« Excusez-moi, je suis en retard. Désolé. »"
+  - id: listen-a1-bonjour-et-au-revoir.q3
+    prompt: "Que répond-on à « merci beaucoup » ?"
+    options:
+      - "De rien"
+      - "Enchanté"
+      - "Coucou"
+    answer: "De rien"
+    explain: "« Merci beaucoup. De rien. »"

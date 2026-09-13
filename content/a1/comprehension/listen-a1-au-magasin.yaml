@@ -1,0 +1,39 @@
+id: listen-a1-au-magasin
+level: a1
+skill: listening
+title: "Au magasin"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-a1-au-magasin.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Excusez-moi, où est le magasin ? Continuez vers le nord, puis au carrefour, allez
+  vers le sud. Ce n'est pas ici. Merci ! Bonjour, je peux essayer ce manteau ? Bien
+  sûr. Mettez vos achats dans le panier. Voici la monnaie et votre reçu. Hier
+  aussi, il y avait beaucoup de monde. Oui, chaque année, en décembre.
+questions:
+  - id: listen-a1-au-magasin.q1
+    prompt: "Quel chemin faut-il prendre ?"
+    options:
+      - "Vers le nord, puis vers le sud au carrefour"
+      - "Toujours vers le nord"
+      - "Rester ici"
+    answer: "Vers le nord, puis vers le sud au carrefour"
+    explain: "« Continuez vers le nord, puis au carrefour, allez vers le sud. »"
+  - id: listen-a1-au-magasin.q2
+    prompt: "Que demande le client ?"
+    options:
+      - "Essayer un manteau"
+      - "Payer avec de la monnaie"
+      - "Un panier"
+    answer: "Essayer un manteau"
+    explain: "« je peux essayer ce manteau ? »"
+  - id: listen-a1-au-magasin.q3
+    prompt: "Quand y a-t-il beaucoup de monde ?"
+    options:
+      - "Chaque année en décembre"
+      - "Seulement hier"
+      - "Le matin"
+    answer: "Chaque année en décembre"
+    explain: "« Oui, chaque année, en décembre. »"

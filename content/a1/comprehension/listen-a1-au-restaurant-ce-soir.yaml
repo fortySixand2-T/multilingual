@@ -1,0 +1,40 @@
+id: listen-a1-au-restaurant-ce-soir
+level: a1
+skill: listening
+title: "Au restaurant ce soir"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-a1-au-restaurant-ce-soir.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Bonsoir, j'ai une réservation pour deux personnes. Très bien. Votre table est
+  prête. La nappe est propre, et voici une serviette. Il manque une fourchette,
+  s'il vous plaît. Pardon ! Voici. Le plat du jour est un poulet du chef. Je suis
+  végétarien. Alors je vous propose des légumes. Bon appétit ! Merci, c'est
+  délicieux.
+questions:
+  - id: listen-a1-au-restaurant-ce-soir.q1
+    prompt: "Pour combien de personnes est la réservation ?"
+    options:
+      - "Deux"
+      - "Trois"
+      - "Une"
+    answer: "Deux"
+    explain: "« j'ai une réservation pour deux personnes »."
+  - id: listen-a1-au-restaurant-ce-soir.q2
+    prompt: "Qu'est-ce qui manque sur la table ?"
+    options:
+      - "Une fourchette"
+      - "Une serviette"
+      - "Une nappe"
+    answer: "Une fourchette"
+    explain: "« Il manque une fourchette, s'il vous plaît. »"
+  - id: listen-a1-au-restaurant-ce-soir.q3
+    prompt: "Pourquoi le client ne prend-il pas le plat du jour ?"
+    options:
+      - "Il est végétarien"
+      - "Il n'aime pas le chef"
+      - "Il n'a pas faim"
+    answer: "Il est végétarien"
+    explain: "« Je suis végétarien. »"
