@@ -50,7 +50,7 @@ questions:
     answer: "La francisation, bien plus que les diplômes"
     explain: "« La francisation conditionne l'accès à l'emploi bien plus que les diplômes »."
   - id: read-b2-migration-welcome.q4
-    prompt: "Que proposent les partisans de la cohabitation ?"
+    prompt: "Qu'envisagent les partisans de la cohabitation ?"
     options:
       - "De refuser le choix entre assimilation et acculturation, au profit d'un chemin à deux sens"
       - "D'imposer une assimilation rapide"

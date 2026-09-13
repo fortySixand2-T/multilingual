@@ -1,0 +1,56 @@
+id: listen-b2-addiction-crisis
+level: b2
+skill: listening
+title: "Dépendances : sortir du tout-répressif"
+time_limit_seconds: 180
+audio_ref: b2/audio/listen-b2-addiction-crisis.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Nous poursuivons avec Karim Belkacem, intervenant en toxicomanie. Karim, les
+  chiffres de surdose inquiètent. Ils devraient. Derrière chaque surdose, il y a une
+  addiction qu'on n'a pas traitée à temps, et souvent un problème de santé mentale
+  jamais pris en charge. Le sevrage, seul, suffit-il ? Jamais. Sans accompagnement,
+  la rechute est la règle. Et cette épidémie de surdoses a ceci de particulier
+  qu'elle touche tous les milieux. On a beaucoup comparé cette crise à celle du
+  virus. La comparaison a ses limites. Pendant la pandémie, on a accepté le
+  confinement, la quarantaine, on a suivi chaque variant, on a organisé
+  l'immunisation de masse. Le vaccin a fonctionné parce qu'on a financé la campagne.
+  Ici, on finance surtout la répression. Autre chose ? Oui. La malnutrition et
+  l'obésité relèvent de la même logique : on traite les comorbidités une à une au
+  lieu de s'attaquer aux conditions de vie. On raisonne comme si la contagion était
+  le seul risque collectif.
+questions:
+  - id: listen-b2-addiction-crisis.q1
+    prompt: "Que trouve-t-on derrière chaque surdose, selon Karim ?"
+    options:
+      - "Une addiction non traitée à temps et souvent un problème de santé mentale"
+      - "Un simple accident isolé"
+      - "Un manque d'information du public"
+    answer: "Une addiction non traitée à temps et souvent un problème de santé mentale"
+    explain: "« il y a une addiction qu'on n'a pas traitée à temps, et souvent un problème de santé mentale jamais pris en charge »."
+  - id: listen-b2-addiction-crisis.q2
+    prompt: "Que dit-il du sevrage pratiqué seul ?"
+    options:
+      - "Il ne suffit jamais : sans accompagnement, la rechute est la règle"
+      - "Il règle l'essentiel des cas"
+      - "Il est désormais interdit"
+    answer: "Il ne suffit jamais : sans accompagnement, la rechute est la règle"
+    explain: "« Jamais. Sans accompagnement, la rechute est la règle »."
+  - id: listen-b2-addiction-crisis.q3
+    prompt: "Quelle différence établit-il avec la pandémie ?"
+    options:
+      - "On a financé la campagne d'immunisation ; ici, on finance surtout la répression"
+      - "La pandémie n'a jamais touché tous les milieux"
+      - "Le confinement a coûté moins cher que la répression"
+    answer: "On a financé la campagne d'immunisation ; ici, on finance surtout la répression"
+    explain: "« Le vaccin a fonctionné parce qu'on a financé la campagne. Ici, on finance surtout la répression »."
+  - id: listen-b2-addiction-crisis.q4
+    prompt: "Que déplore-t-il dans la façon de traiter l'obésité et la malnutrition ?"
+    options:
+      - "On traite les comorbidités une à une au lieu de s'attaquer aux conditions de vie"
+      - "On les confond avec la toxicomanie"
+      - "On les considère comme contagieuses"
+    answer: "On traite les comorbidités une à une au lieu de s'attaquer aux conditions de vie"
+    explain: "« on traite les comorbidités une à une au lieu de s'attaquer aux conditions de vie »."

@@ -6,7 +6,7 @@ time_limit_seconds: 360
 pass_threshold: 0.6
 passage: |
   Une montre compte nos pas, un thermostat apprend nos habitudes, une enceinte attend
-  qu'on lui parle. Chaque objet connecté rend un service réel ; ensemble, ils
+  qu'on lui parle. Chaque objet connecté rend un service réel, et l'on peine à en concevoir un qui ne dise rien de nous ; ensemble, ils
   dessinent une surveillance douce que personne n'a vraiment choisie.
   Les industriels invoquent la découverte et l'expérimentation : on ne saurait,
   disent-ils, brider une technologie avant d'en connaître les usages. L'argument se
@@ -33,7 +33,7 @@ questions:
     answer: "Une surveillance douce que personne n'a vraiment choisie"
     explain: "« ils dessinent une surveillance douce que personne n'a vraiment choisie »."
   - id: read-b2-connected-objects.q2
-    prompt: "Quelle faiblesse l'auteur trouve-t-il à l'argument des industriels ?"
+    prompt: "Que met en évidence l'auteur pour affaiblir l'argument des industriels ?"
     options:
       - "La fiabilité d'un capteur ne garantit rien quant à l'usage des données"
       - "L'expérimentation est toujours inutile"

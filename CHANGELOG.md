@@ -379,3 +379,14 @@
 - [2026-09-12] Created: content/b2/comprehension/read-b2-labour-shortage.yaml — B2 reading set on labour shortage (18 `travail` words)
 - [2026-09-12] Created: content/b2/comprehension/read-b2-social-safety-net.yaml — B2 reading set on the social safety net (20 `societe` words)
 - [2026-09-12] Created: content/b2/comprehension/read-b2-connected-objects.yaml — B2 reading set on connected devices (completes the `sciences` theme)
+- [2026-09-12] Created: content/b2/comprehension/listen-b2-health-access.yaml — B2 listening set on healthcare access
+- [2026-09-12] Created: content/b2/comprehension/listen-b2-addiction-crisis.yaml — B2 listening set on addiction and public health
+- [2026-09-12] Created: content/b2/comprehension/listen-b2-energy-mix.yaml — B2 listening set on the energy transition
+- [2026-09-12] Created: content/b2/comprehension/listen-b2-territory-water.yaml — B2 listening set on land, water and waste
+- [2026-09-12] Created: content/b2/comprehension/listen-b2-economy-brief.yaml — B2 listening set on inflation, debt and trade
+- [2026-09-12] Created: content/b2/comprehension/listen-b2-election-watch.yaml — B2 listening set on an election campaign
+- [2026-09-12] Created: content/b2/comprehension/listen-b2-union-bargaining.yaml — B2 listening set on collective bargaining
+- [2026-09-12] Created: content/b2/comprehension/listen-b2-feeding-the-city.yaml — B2 listening set on urbanism and food supply
+- [2026-09-12] Created: content/b2/comprehension/listen-b2-exhibition-debate.yaml — B2 listening set on culture and free expression
+- [2026-09-12] Created: content/b2/audio/listen-b2-*.mp3 — TTS build artifacts for the 9 new listening scripts
+- [2026-09-12] Modified: content/b2/comprehension/read-b2-*.yaml — question stems reworded to TEF-style attitude verbs (déplorer, craindre, admettre, envisager, se réjouir, regretter, énoncer, démontrer, mettre en évidence)

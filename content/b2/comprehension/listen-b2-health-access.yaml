@@ -1,0 +1,56 @@
+id: listen-b2-health-access
+level: b2
+skill: listening
+title: "Trouver un médecin, attendre son tour"
+time_limit_seconds: 180
+audio_ref: b2/audio/listen-b2-health-access.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Bonjour à tous. Notre système de santé tient-il encore debout ? Question à la
+  docteure Hélène Roy. Docteure, commençons par la liste d'attente. Elle s'allonge,
+  c'est indéniable. Un patient sans médecin de famille finit aux urgences, où il
+  coûte dix fois plus cher. Mais l'attente n'est pas le seul indicateur :
+  l'espérance de vie continue de progresser, et le dépistage précoce sauve des vies
+  chaque semaine. Que faudrait-il changer ? Déplacer le soin vers le domicile. Les
+  soins à domicile coûtent moins cher et conviennent mieux à une maladie chronique.
+  Même chose pour les soins palliatifs, et pour l'aide médicale à mourir : mourir à
+  l'hôpital n'a rien d'une fatalité. Et la santé publique ? C'est l'angle mort. On
+  ne veille guère à financer la prévention. On attend le remède et la guérison plutôt que
+  d'éviter la maladie. Un dernier mot ? Oui : cessons de croire qu'une mutuelle
+  privée réglera le problème. Elle déplace la file d'attente, elle ne la raccourcit
+  pas. Et une personne en situation de handicap, elle, attend toujours.
+questions:
+  - id: listen-b2-health-access.q1
+    prompt: "Pourquoi un patient sans médecin de famille pose-t-il problème ?"
+    options:
+      - "Il finit aux urgences, où il coûte dix fois plus cher"
+      - "Il renonce définitivement à se soigner"
+      - "Il doit souscrire une mutuelle privée obligatoire"
+    answer: "Il finit aux urgences, où il coûte dix fois plus cher"
+    explain: "« Un patient sans médecin de famille finit aux urgences, où il coûte dix fois plus cher »."
+  - id: listen-b2-health-access.q2
+    prompt: "De quel progrès la docteure se réjouit-elle ?"
+    options:
+      - "L'espérance de vie progresse et le dépistage précoce sauve des vies"
+      - "La liste d'attente se raccourcit chaque année"
+      - "Le nombre de médecins de famille a doublé"
+    answer: "L'espérance de vie progresse et le dépistage précoce sauve des vies"
+    explain: "« l'espérance de vie continue de progresser, et le dépistage précoce sauve des vies »."
+  - id: listen-b2-health-access.q3
+    prompt: "Que propose-t-elle pour une maladie chronique ?"
+    options:
+      - "Déplacer le soin vers le domicile"
+      - "Prolonger les séjours à l'hôpital"
+      - "Réserver les soins palliatifs aux cas graves"
+    answer: "Déplacer le soin vers le domicile"
+    explain: "« Déplacer le soin vers le domicile. Les soins à domicile… conviennent mieux à une maladie chronique »."
+  - id: listen-b2-health-access.q4
+    prompt: "Que pense-t-elle d'une mutuelle privée ?"
+    options:
+      - "Elle déplace la file d'attente sans la raccourcir"
+      - "Elle réglerait l'essentiel du problème"
+      - "Elle ferait baisser le coût des urgences"
+    answer: "Elle déplace la file d'attente sans la raccourcir"
+    explain: "« Elle déplace la file d'attente, elle ne la raccourcit pas »."
