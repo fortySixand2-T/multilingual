@@ -1,0 +1,56 @@
+id: listen-b2-territory-water
+level: b2
+skill: listening
+title: "Le territoire encaisse les chocs"
+time_limit_seconds: 180
+audio_ref: b2/audio/listen-b2-territory-water.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Notre invité du jour, le biologiste Marc Lavoie, revient d'une tournée dans le
+  nord. Marc, qu'avez-vous observé ? Le pergélisol dégèle plus vite que prévu, et
+  cela déstabilise des routes entières. Plus au sud, l'alternance entre sécheresse
+  et inondation abîme chaque année les mêmes terres. Le bassin versant ne retient
+  plus rien là où le milieu humide a été asséché. La déforestation est-elle en cause
+  ? En partie. Le reboisement aide, mais il ne remplace pas une aire protégée bien
+  gérée. Et chaque extinction d'espèce nous coûte plus cher que ce que l'on économise
+  en coupant. L'eau potable est-elle menacée ? Localement, oui. En ville, l'îlot de
+  chaleur accentue encore tout. Que peut faire un citoyen ? Moins que ce qu'on lui
+  raconte, mais pas rien. Le compostage réduit l'enfouissement. La consigne
+  fonctionne partout où on l'applique sérieusement. La valorisation des matières a
+  fait des progrès réels. Et le militantisme, lui, a obtenu plus de lois que la
+  bonne volonté individuelle.
+questions:
+  - id: listen-b2-territory-water.q1
+    prompt: "Qu'a observé Marc Lavoie dans le nord ?"
+    options:
+      - "Le pergélisol dégèle plus vite que prévu et déstabilise des routes"
+      - "Le reboisement y a déjà tout réparé"
+      - "L'eau potable y est désormais abondante"
+    answer: "Le pergélisol dégèle plus vite que prévu et déstabilise des routes"
+    explain: "« Le pergélisol dégèle plus vite que prévu, et cela déstabilise des routes entières »."
+  - id: listen-b2-territory-water.q2
+    prompt: "Pourquoi le bassin versant ne retient-il plus rien ?"
+    options:
+      - "Parce que le milieu humide a été asséché"
+      - "Parce que l'îlot de chaleur s'est déplacé"
+      - "Parce que la consigne n'est pas appliquée"
+    answer: "Parce que le milieu humide a été asséché"
+    explain: "« Le bassin versant ne retient plus rien là où le milieu humide a été asséché »."
+  - id: listen-b2-territory-water.q3
+    prompt: "Que dit-il du reboisement ?"
+    options:
+      - "Il aide, mais ne remplace pas une aire protégée bien gérée"
+      - "Il compense entièrement la déforestation"
+      - "Il provoque l'extinction d'espèces"
+    answer: "Il aide, mais ne remplace pas une aire protégée bien gérée"
+    explain: "« Le reboisement aide, mais il ne remplace pas une aire protégée bien gérée »."
+  - id: listen-b2-territory-water.q4
+    prompt: "Quelle conclusion tire-t-il sur l'action citoyenne ?"
+    options:
+      - "Elle compte, mais le militantisme a obtenu plus de lois que la bonne volonté individuelle"
+      - "Elle ne sert strictement à rien"
+      - "Elle suffit à remplacer toute réglementation"
+    answer: "Elle compte, mais le militantisme a obtenu plus de lois que la bonne volonté individuelle"
+    explain: "« Moins que ce qu'on lui raconte, mais pas rien… le militantisme a obtenu plus de lois que la bonne volonté individuelle »."

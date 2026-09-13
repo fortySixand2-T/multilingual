@@ -1,0 +1,56 @@
+id: listen-b2-election-watch
+level: b2
+skill: listening
+title: "Ce qu'il faut surveiller pendant la campagne"
+time_limit_seconds: 240
+audio_ref: b2/audio/listen-b2-election-watch.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Analyse politique avec la politologue Claire Dubois. Claire, la campagne
+  électorale commence. Que faut-il surveiller ? Le sondage national, surtout pas. Ce
+  qui décide, c'est la circonscription : un candidat peut perdre en voix et gagner
+  en sièges. Notre scrutin n'est pas proportionnel, et c'est un choix, pas un
+  accident. Un gouvernement minoritaire est-il probable ? Très. Et une minorité
+  n'est pas une catastrophe : elle oblige à une coalition, donc à négocier. Un
+  mandat obtenu avec trente-cinq pour cent des voix mérite un peu de modestie. Les
+  grands thèmes ? La laïcité reviendra, comme à chaque cycle. Le fédéralisme aussi :
+  ce que l'Assemblée nationale vote dans la province et ce qu'Ottawa impose ensuite.
+  On verra le premier ministre promettre, ses partisans approuver sans nuance, et tel ministre corriger trois jours plus
+  tard. Et le populisme ? Il prospère quand plus personne ne croit au suffrage
+  universel. La frontière avec l'extrémisme est mince, et on la franchit lentement.
+  La constitution, elle, ne protège que ceux qui la lisent.
+questions:
+  - id: listen-b2-election-watch.q1
+    prompt: "Que faut-il surveiller, selon Claire, plutôt que le sondage national ?"
+    options:
+      - "La circonscription, car on peut perdre en voix et gagner en sièges"
+      - "Le montant des dépenses de campagne"
+      - "Le nombre de débats télévisés"
+    answer: "La circonscription, car on peut perdre en voix et gagner en sièges"
+    explain: "« Ce qui décide, c'est la circonscription : un candidat peut perdre en voix et gagner en sièges »."
+  - id: listen-b2-election-watch.q2
+    prompt: "Comment juge-t-elle un gouvernement minoritaire ?"
+    options:
+      - "Ce n'est pas une catastrophe : cela oblige à une coalition, donc à négocier"
+      - "C'est le pire scénario possible"
+      - "Cela rend le scrutin proportionnel"
+    answer: "Ce n'est pas une catastrophe : cela oblige à une coalition, donc à négocier"
+    explain: "« une minorité n'est pas une catastrophe : elle oblige à une coalition, donc à négocier »."
+  - id: listen-b2-election-watch.q3
+    prompt: "Quels grands thèmes annonce-t-elle ?"
+    options:
+      - "La laïcité et le fédéralisme"
+      - "Uniquement la réforme du scrutin"
+      - "La constitution et rien d'autre"
+    answer: "La laïcité et le fédéralisme"
+    explain: "« La laïcité reviendra, comme à chaque cycle. Le fédéralisme aussi »."
+  - id: listen-b2-election-watch.q4
+    prompt: "Quand le populisme prospère-t-il, d'après elle ?"
+    options:
+      - "Quand plus personne ne croit au suffrage universel"
+      - "Quand la coalition gouverne trop longtemps"
+      - "Quand les sondages sont trop nombreux"
+    answer: "Quand plus personne ne croit au suffrage universel"
+    explain: "« Il prospère quand plus personne ne croit au suffrage universel »."

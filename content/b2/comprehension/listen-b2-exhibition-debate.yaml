@@ -1,0 +1,56 @@
+id: listen-b2-exhibition-debate
+level: b2
+skill: listening
+title: "Une exposition qui dérange"
+time_limit_seconds: 240
+audio_ref: b2/audio/listen-b2-exhibition-debate.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Culture et société. Le conservateur Julien Roy nous rejoint. Julien, votre
+  exposition fait polémique depuis le début. Elle devait déranger ; toutefois, pas
+  de cette manière. Nous présentons une sculpture contemporaine juste à côté d'une
+  peinture du dix-septième siècle. Un groupe de visiteurs y voit une insulte à notre
+  héritage ; d'autres, la meilleure représentation possible de ce qu'est une
+  tradition vivante. Est-ce un chef-d'œuvre ? Ce n'est pas à moi de le dire. Ce qui
+  m'intéresse, c'est le moment où quelqu'un s'arrête. Un militant nous a demandé de
+  retirer une œuvre. Nous avons refusé. La liberté d'expression n'a de valeur que si
+  elle protège aussi ce qui déplaît. Et l'identité culturelle dans tout cela ? On
+  l'invoque surtout pour fermer la discussion. Le témoignage d'un visiteur âgé m'a
+  frappé : il ne comprenait pas l'œuvre, mais il tenait à ce que sa petite-fille la
+  voie. Voilà un fossé générationnel qui se traverse. Le civisme, c'est aussi cela.
+  Notre diffusion en ligne commence la semaine prochaine.
+questions:
+  - id: listen-b2-exhibition-debate.q1
+    prompt: "Comment Julien décrit-il la réaction du public ?"
+    options:
+      - "Certains y voient une insulte à l'héritage, d'autres une tradition vivante"
+      - "Tout le monde a salué l'exposition"
+      - "Personne n'est venu la voir"
+    answer: "Certains y voient une insulte à l'héritage, d'autres une tradition vivante"
+    explain: "« Un groupe de visiteurs y voit une insulte à notre héritage ; d'autres, la meilleure représentation possible de ce qu'est une tradition vivante »."
+  - id: listen-b2-exhibition-debate.q2
+    prompt: "Pourquoi a-t-il refusé de retirer une œuvre ?"
+    options:
+      - "La liberté d'expression n'a de valeur que si elle protège ce qui déplaît"
+      - "Le militant n'avait pas rempli le bon formulaire"
+      - "L'œuvre était trop lourde à déplacer"
+    answer: "La liberté d'expression n'a de valeur que si elle protège ce qui déplaît"
+    explain: "« La liberté d'expression n'a de valeur que si elle protège aussi ce qui déplaît »."
+  - id: listen-b2-exhibition-debate.q3
+    prompt: "Que dit-il de l'identité culturelle ?"
+    options:
+      - "On l'invoque surtout pour fermer la discussion"
+      - "Elle justifie le retrait de certaines œuvres"
+      - "Elle ne concerne que les œuvres anciennes"
+    answer: "On l'invoque surtout pour fermer la discussion"
+    explain: "« On l'invoque surtout pour fermer la discussion »."
+  - id: listen-b2-exhibition-debate.q4
+    prompt: "Pourquoi le témoignage du visiteur âgé l'a-t-il frappé ?"
+    options:
+      - "Il ne comprenait pas l'œuvre mais tenait à ce que sa petite-fille la voie"
+      - "Il a exigé le remboursement de son billet"
+      - "Il connaissait déjà toute l'exposition"
+    answer: "Il ne comprenait pas l'œuvre mais tenait à ce que sa petite-fille la voie"
+    explain: "« il ne comprenait pas l'œuvre, mais il tenait à ce que sa petite-fille la voie »."

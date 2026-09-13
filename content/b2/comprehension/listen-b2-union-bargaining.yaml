@@ -1,0 +1,56 @@
+id: listen-b2-union-bargaining
+level: b2
+skill: listening
+title: "Négocier quand le travail change de forme"
+time_limit_seconds: 240
+audio_ref: b2/audio/listen-b2-union-bargaining.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Nous recevons Nathalie Côté, conseillère syndicale. Nathalie, on annonce le déclin
+  du syndicalisme. On l'annonce depuis quarante ans. Ce qui a changé, c'est le
+  terrain : la précarisation et l'ubérisation ont créé des travailleurs que nos
+  structures ne rejoignent pas. Difficile de préparer une négociation collective
+  quand chacun est officiellement à son compte. On leur vend de l'entrepreneuriat ;
+  ils héritent surtout du risque. Que défendez-vous en priorité ? Trois choses.
+  L'équité salariale, parce que l'écart persiste même à poste égal. Le plafond de
+  verre, parce qu'il ne se voit que dans les statistiques. Et la pénibilité, grande
+  oubliée des conventions : un dos abîmé à cinquante ans, personne ne l'appelle un
+  accident du travail. La médecine du travail joue-t-elle son rôle ? Mal, faute de
+  moyens. Elle constate, elle ne prévient pas. Et le harcèlement ? Un grief déposé
+  aboutit rarement tout seul. C'est pour cela que la grève reste un outil : pas le
+  premier, mais le seul qui change vraiment le rapport de force.
+questions:
+  - id: listen-b2-union-bargaining.q1
+    prompt: "Qu'est-ce qui a changé, selon Nathalie ?"
+    options:
+      - "Le terrain : la précarisation et l'ubérisation créent des travailleurs hors des structures"
+      - "Le nombre de conventions signées chaque année"
+      - "La durée légale du travail"
+    answer: "Le terrain : la précarisation et l'ubérisation créent des travailleurs hors des structures"
+    explain: "« la précarisation et l'ubérisation ont créé des travailleurs que nos structures ne rejoignent pas »."
+  - id: listen-b2-union-bargaining.q2
+    prompt: "Que dit-elle de l'entrepreneuriat vendu à ces travailleurs ?"
+    options:
+      - "Ils héritent surtout du risque"
+      - "Il leur garantit une meilleure protection"
+      - "Il facilite la négociation collective"
+    answer: "Ils héritent surtout du risque"
+    explain: "« On leur vend de l'entrepreneuriat ; ils héritent surtout du risque »."
+  - id: listen-b2-union-bargaining.q3
+    prompt: "Que regrette-t-elle au sujet de la pénibilité ?"
+    options:
+      - "C'est la grande oubliée des conventions : un dos abîmé n'est pas traité comme un accident du travail"
+      - "Elle est déjà bien couverte par la médecine du travail"
+      - "Elle concerne uniquement les cadres"
+    answer: "C'est la grande oubliée des conventions : un dos abîmé n'est pas traité comme un accident du travail"
+    explain: "« Et la pénibilité, grande oubliée des conventions : un dos abîmé à cinquante ans, personne ne l'appelle un accident du travail »."
+  - id: listen-b2-union-bargaining.q4
+    prompt: "Quelle place accorde-t-elle à la grève ?"
+    options:
+      - "Pas le premier outil, mais le seul qui change vraiment le rapport de force"
+      - "Le tout premier réflexe à avoir"
+      - "Un moyen désormais inutile"
+    answer: "Pas le premier outil, mais le seul qui change vraiment le rapport de force"
+    explain: "« la grève reste un outil : pas le premier, mais le seul qui change vraiment le rapport de force »."

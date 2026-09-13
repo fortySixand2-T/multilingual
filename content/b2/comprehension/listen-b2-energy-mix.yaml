@@ -1,0 +1,55 @@
+id: listen-b2-energy-mix
+level: b2
+skill: listening
+title: "Une seule technologie ne suffira pas"
+time_limit_seconds: 180
+audio_ref: b2/audio/listen-b2-energy-mix.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Bienvenue dans notre chronique énergie. Avec nous, l'ingénieure Sophie Tremblay.
+  Sophie, la carboneutralité pour 2050, est-ce réaliste ? À condition de cesser de
+  croire qu'une seule technologie suffira. L'hydroélectricité nous donne une base
+  solide, l'éolienne la complète bien, la géothermie reste très sous-utilisée.
+  Chaque source renouvelable a ses limites. Faut-il donc tout miser sur l'énergie
+  verte ? Non, et c'est le malentendu principal. Remplacer une énergie fossile par
+  une autre source sans réduire la demande ne change pas grand-chose. La sobriété
+  n'est pas un gros mot : c'est le levier le moins cher dont nous disposons. Et les
+  gaz à effet de serre ? Ils baissent, mais beaucoup trop lentement, faute de mesures que l'on accepte de mettre en œuvre. L'atténuation
+  coûte aujourd'hui bien moins cher que l'adaptation que nous paierons demain. Et le
+  pollueur, lui, paie-t-il vraiment ? Rarement le vrai prix. Tant que ce sera le
+  cas, chaque calcul restera faussé.
+questions:
+  - id: listen-b2-energy-mix.q1
+    prompt: "À quelle condition la carboneutralité est-elle réaliste, selon Sophie ?"
+    options:
+      - "À condition de cesser de croire qu'une seule technologie suffira"
+      - "À condition de miser uniquement sur l'hydroélectricité"
+      - "À condition d'abandonner la géothermie"
+    answer: "À condition de cesser de croire qu'une seule technologie suffira"
+    explain: "« À condition de cesser de croire qu'une seule technologie suffira »."
+  - id: listen-b2-energy-mix.q2
+    prompt: "Quel est, selon elle, le malentendu principal ?"
+    options:
+      - "Croire qu'il suffit de remplacer une énergie fossile sans réduire la demande"
+      - "Penser que l'éolienne coûte trop cher"
+      - "Croire que la géothermie est déjà utilisée partout"
+    answer: "Croire qu'il suffit de remplacer une énergie fossile sans réduire la demande"
+    explain: "« Remplacer une énergie fossile par une autre source sans réduire la demande ne change pas grand-chose »."
+  - id: listen-b2-energy-mix.q3
+    prompt: "Comment présente-t-elle la sobriété ?"
+    options:
+      - "Comme le levier le moins cher dont nous disposons"
+      - "Comme une contrainte inutile"
+      - "Comme une solution réservée aux entreprises"
+    answer: "Comme le levier le moins cher dont nous disposons"
+    explain: "« c'est le levier le moins cher dont nous disposons »."
+  - id: listen-b2-energy-mix.q4
+    prompt: "Que dit-elle du pollueur ?"
+    options:
+      - "Il paie rarement le vrai prix, ce qui fausse chaque calcul"
+      - "Il paie désormais l'intégralité des coûts"
+      - "Il finance l'essentiel de l'atténuation"
+    answer: "Il paie rarement le vrai prix, ce qui fausse chaque calcul"
+    explain: "« Rarement le vrai prix. Tant que ce sera le cas, chaque calcul restera faussé »."

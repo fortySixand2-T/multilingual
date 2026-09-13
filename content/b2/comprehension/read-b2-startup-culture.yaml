@@ -51,7 +51,7 @@ questions:
     answer: "Une croissance très rapide s'accompagne rarement d'un audit sérieux et d'une vraie conformité"
     explain: "« n'a souvent ni audit sérieux ni véritable conformité »."
   - id: read-b2-startup-culture.q4
-    prompt: "Que reproche l'auteur à la sous-traitance ?"
+    prompt: "Que déplore l'auteur à propos de la sous-traitance ?"
     options:
       - "Elle permet d'aller vite mais dilue la responsabilité"
       - "Elle coûte toujours plus cher qu'un recrutement"

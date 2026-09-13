@@ -5,7 +5,7 @@ title: "À qui se fier encore ?"
 time_limit_seconds: 360
 pass_threshold: 0.6
 passage: |
-  Un titre choc, un partage, puis un démenti que personne ne lira. La viralité a ses
+  Un titre choc, un partage, puis un démenti que personne ne lira. Rien ne convainc de revenir en arrière. La viralité a ses
   règles, et elles ne sont pas celles du journalisme.
   Dans une rédaction, la vérification des faits n'a rien de spectaculaire. Elle
   consiste à multiplier les sources, à pratiquer le recoupement, à accepter de publier
@@ -41,7 +41,7 @@ questions:
     answer: "Il remplit la une sans effort, alors qu'une enquête coûte cher et se vend mal"
     explain: "« Une enquête sérieuse coûte cher et se vend mal ; le sensationnalisme, lui, remplit la une sans effort »."
   - id: read-b2-press-trust.q3
-    prompt: "Quel risque le texte associe-t-il à un média porté par ses abonnés ?"
+    prompt: "Que craint le texte pour un média porté par ses abonnés ?"
     options:
       - "Ne leur dire que ce qu'ils veulent entendre"
       - "Perdre toute ligne éditoriale"

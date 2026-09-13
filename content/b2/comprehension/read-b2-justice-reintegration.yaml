@@ -41,7 +41,7 @@ questions:
     answer: "Une sanction faible crée un sentiment d'impunité"
     explain: "« Une sanction faible crée un sentiment d'impunité »."
   - id: read-b2-justice-reintegration.q3
-    prompt: "Que montrent les études sur la réinsertion ?"
+    prompt: "Que démontrent les études sur la réinsertion ?"
     options:
       - "Un condamné accompagné à sa sortie récidive nettement moins"
       - "La prison suffit à éviter la récidive"

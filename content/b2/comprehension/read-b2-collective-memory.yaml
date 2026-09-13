@@ -21,7 +21,7 @@ passage: |
   Restent les symboles. Faut-il déboulonner une statue, conserver un vestige,
   organiser une commémoration ? Le passage d'une monarchie à une république, l'issue
   d'un référendum, la trace d'une révolution : chaque société tranche à sa manière.
-  Nos ancêtres n'ont pas laissé de mode d'emploi. La mémoire collective se discute ;
+  Nos ancêtres n'ont pas laissé de mode d'emploi, et l'on s'étonne encore que chaque génération rouvre le dossier. La mémoire collective se discute ;
   c'est peut-être sa seule définition solide.
 questions:
   - id: read-b2-collective-memory.q1
@@ -49,7 +49,7 @@ questions:
     answer: "Longtemps absents, ils y figurent désormais, parfois en quelques lignes"
     explain: "« longtemps absents des manuels, y figurent désormais — parfois en quelques lignes seulement »."
   - id: read-b2-collective-memory.q4
-    prompt: "Quelle distinction les historiens établissent-ils ?"
+    prompt: "Quelle distinction les historiens énoncent-ils ?"
     options:
       - "Relire les sources est le travail normal de la discipline ; nier des faits établis est du révisionnisme"
       - "Toute relecture du passé constitue du révisionnisme"

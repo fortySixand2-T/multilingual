@@ -7,7 +7,7 @@ pass_threshold: 0.6
 passage: |
   Longtemps, celui qui souffrait d'anxiété se taisait. Aujourd'hui, on en parle —
   parfois trop vite, et avec des mots approximatifs.
-  Premier malentendu : le vocabulaire. Un trouble n'est pas une émotion passagère, et
+  Premier malentendu : le vocabulaire. Un exemple illustre bien ce glissement. Un trouble n'est pas une émotion passagère, et
   une phobie n'est pas une simple peur. La dépression, elle, ne découle pas d'un
   manque de volonté : elle s'avère souvent résistante aux conseils les mieux
   intentionnés. Le déni, chez le patient comme dans son entourage, retarde encore le
@@ -34,7 +34,7 @@ questions:
       - "Le coût trop élevé des consultations"
       - "Le manque de psychologues dans les régions"
     answer: "L'usage approximatif du vocabulaire : un trouble n'est pas une émotion passagère"
-    explain: "« Premier malentendu : le vocabulaire. Un trouble n'est pas une émotion passagère »."
+    explain: "« Premier malentendu : le vocabulaire. Un exemple illustre bien ce glissement. Un trouble n'est pas une émotion passagère »."
   - id: read-b2-mental-health.q2
     prompt: "Comment le texte présente-t-il l'épuisement professionnel ?"
     options:

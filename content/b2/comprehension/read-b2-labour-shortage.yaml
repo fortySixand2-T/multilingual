@@ -58,7 +58,7 @@ questions:
     answer: "Lorsqu'elle s'accompagne d'une qualification réellement reconnue"
     explain: "« peut aussi devenir un atout lorsqu'elle s'accompagne d'une qualification réellement reconnue »."
   - id: read-b2-labour-shortage.q5
-    prompt: "Comment l'auteur répond-il à l'argument de la compétitivité ?"
+    prompt: "Qu'admet l'auteur au sujet de la compétitivité ?"
     options:
       - "Il l'admet, mais rappelle qu'une organisation qui perd un quart de son personnel n'est compétitive nulle part"
       - "Il le rejette comme totalement illégitime"

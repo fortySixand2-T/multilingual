@@ -1,0 +1,58 @@
+id: listen-b2-feeding-the-city
+level: b2
+skill: listening
+title: "Construire et nourrir la ville"
+time_limit_seconds: 240
+audio_ref: b2/audio/listen-b2-feeding-the-city.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Table ronde aujourd'hui, avec l'urbaniste Yann Girard et l'agronome Rita Sanchez.
+  Yann, on construit toujours plus loin. L'étalement urbain reste la solution
+  paresseuse. Chaque nouveau quartier périphérique ajoute de la congestion, coûte
+  cher en infrastructures et laisse peu d'espace vert. Un bon urbanisme densifie
+  sans expulser : la réhabilitation d'un immeuble ancien vaut souvent mieux qu'une
+  démolition. Et la gentrification ? C'est le risque, oui. Sans logement social
+  prévu dès le départ, on améliore un quartier pour ceux qui n'y habitent pas
+  encore. Le transport en commun décide du reste. Rita, et l'alimentation dans tout
+  cela ? Une ville ne sera jamais autosuffisante. Mais l'autosuffisance régionale,
+  elle, est atteignable. Notre filière est courte sur le papier et longue en
+  réalité. Concrètement ? S'inspirer de ce qui marche ailleurs, protéger les terres proches, soutenir un élevage de petite
+  taille plutôt qu'un cheptel industriel, garantir qu'une récolte trouve preneur. Et
+  la malbouffe ? Elle gagne parce qu'elle est bon marché. Un étiquetage clair aide,
+  mais une denrée saine trop chère reste inaccessible. La souveraineté alimentaire
+  commence là, pas dans les discours sur le terroir.
+questions:
+  - id: listen-b2-feeding-the-city.q1
+    prompt: "Que reproche Yann à l'étalement urbain ?"
+    options:
+      - "Il ajoute de la congestion, coûte cher et laisse peu d'espace vert"
+      - "Il densifie trop les quartiers centraux"
+      - "Il empêche toute réhabilitation d'immeuble"
+    answer: "Il ajoute de la congestion, coûte cher et laisse peu d'espace vert"
+    explain: "« Chaque nouveau quartier périphérique ajoute de la congestion, coûte cher en infrastructures et laisse peu d'espace vert »."
+  - id: listen-b2-feeding-the-city.q2
+    prompt: "Comment éviter la gentrification, selon lui ?"
+    options:
+      - "Prévoir du logement social dès le départ"
+      - "Interdire toute densification"
+      - "Supprimer le transport en commun du quartier"
+    answer: "Prévoir du logement social dès le départ"
+    explain: "« Sans logement social prévu dès le départ, on améliore un quartier pour ceux qui n'y habitent pas encore »."
+  - id: listen-b2-feeding-the-city.q3
+    prompt: "Que dit Rita de l'autosuffisance ?"
+    options:
+      - "Une ville ne le sera jamais, mais l'autosuffisance régionale est atteignable"
+      - "Chaque ville peut se nourrir seule"
+      - "L'autosuffisance n'a aucun intérêt"
+    answer: "Une ville ne le sera jamais, mais l'autosuffisance régionale est atteignable"
+    explain: "« Une ville ne sera jamais autosuffisante. Mais l'autosuffisance régionale, elle, est atteignable »."
+  - id: listen-b2-feeding-the-city.q4
+    prompt: "Pourquoi l'étiquetage ne suffit-il pas contre la malbouffe ?"
+    options:
+      - "Parce qu'une denrée saine trop chère reste inaccessible"
+      - "Parce que personne ne sait lire une étiquette"
+      - "Parce que le terroir est mal défini"
+    answer: "Parce qu'une denrée saine trop chère reste inaccessible"
+    explain: "« Un étiquetage clair aide, mais une denrée saine trop chère reste inaccessible »."

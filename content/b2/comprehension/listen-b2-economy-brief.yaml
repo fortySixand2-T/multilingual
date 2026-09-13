@@ -1,0 +1,59 @@
+id: listen-b2-economy-brief
+level: b2
+skill: listening
+title: "Inflation, dette : de quoi parle-t-on vraiment ?"
+time_limit_seconds: 240
+audio_ref: b2/audio/listen-b2-economy-brief.mp3
+accent: qc
+allow_replay: false
+pass_threshold: 0.6
+script: |
+  Chronique économique. Avec nous, l'économiste Pierre Nadeau. Pierre, l'inflation
+  recule enfin. Elle recule, mais le mal est fait. Quand la banque centrale relève
+  son taux directeur pour la freiner, elle ralentit aussi l'investissement et pousse
+  parfois l'économie vers la récession. C'est un remède amer. Et la dette publique ?
+  On en parle mal. Un déficit n'est pas une faute morale : tout dépend de ce qu'il
+  finance. Emprunter pour une infrastructure utile, ce n'est pas emprunter pour une
+  promesse électorale. Et un excédent affiché juste avant un vote ne prouve rien. Ce
+  qui compte, c'est le rapport au PIB, jamais le montant brut. L'austérité, alors ?
+  Elle réduit le déficit à court terme et la croissance à long terme. Et les ménages
+  ? Leur endettement reste le vrai point faible, surtout après des années de bulle
+  immobilière nourrie par la spéculation. La rentabilité d'un logement ne devrait
+  jamais tenir lieu de politique du logement. Un dernier mot sur le commerce
+  extérieur ? Le libre-échange a fait baisser les prix ; le retour du tarif douanier
+  les fait remonter. Notre exportation dépend de marchés que nous ne contrôlons pas,
+  et notre importation d'un monopole ou deux. Une subvention bien ciblée vaut mieux
+  qu'un discours sur la souveraineté.
+questions:
+  - id: listen-b2-economy-brief.q1
+    prompt: "Quel effet secondaire Pierre attribue-t-il à la hausse du taux directeur ?"
+    options:
+      - "Elle ralentit l'investissement et pousse parfois vers la récession"
+      - "Elle fait immédiatement disparaître la dette publique"
+      - "Elle augmente la rentabilité des logements"
+    answer: "Elle ralentit l'investissement et pousse parfois vers la récession"
+    explain: "« elle ralentit aussi l'investissement et pousse parfois l'économie vers la récession »."
+  - id: listen-b2-economy-brief.q2
+    prompt: "Comment faut-il juger un déficit, selon lui ?"
+    options:
+      - "D'après ce qu'il finance et son rapport au PIB, pas son montant brut"
+      - "D'après son seul montant en dollars"
+      - "D'après l'excédent affiché l'année précédente"
+    answer: "D'après ce qu'il finance et son rapport au PIB, pas son montant brut"
+    explain: "« tout dépend de ce qu'il finance… c'est le rapport au PIB, jamais le montant brut »."
+  - id: listen-b2-economy-brief.q3
+    prompt: "Que reproche-t-il à l'austérité ?"
+    options:
+      - "Elle réduit le déficit à court terme et la croissance à long terme"
+      - "Elle fait exploser l'inflation immédiatement"
+      - "Elle profite uniquement à la banque centrale"
+    answer: "Elle réduit le déficit à court terme et la croissance à long terme"
+    explain: "« Elle réduit le déficit à court terme et la croissance à long terme »."
+  - id: listen-b2-economy-brief.q4
+    prompt: "Que dit-il du commerce extérieur ?"
+    options:
+      - "Le libre-échange a fait baisser les prix, le tarif douanier les fait remonter"
+      - "L'exportation ne dépend que de décisions nationales"
+      - "Le monopole fait toujours baisser les prix"
+    answer: "Le libre-échange a fait baisser les prix, le tarif douanier les fait remonter"
+    explain: "« Le libre-échange a fait baisser les prix ; le retour du tarif douanier les fait remonter »."
