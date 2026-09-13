@@ -21,7 +21,7 @@ passage: |
   quels effets secondaires sont normaux et lesquels doivent vous faire rappeler la
   clinique. Se soigner correctement prend quelques jours de plus, mais on finit par
   guérir. S'arrêter au premier mieux, c'est recommencer deux semaines plus tard.
-  Un dernier réflexe : consulter tôt coûte moins cher que consulter tard.
+  Un dernier réflexe : une douleur qui s'aggrave se consulte tôt, et consulter tôt coûte moins cher que consulter tard.
 questions:
   - id: read-b1-preparer-sa-consultation.q1
     prompt: "Sur quoi un médecin généraliste s'appuie-t-il pour poser un diagnostic ?"

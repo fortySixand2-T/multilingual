@@ -1,0 +1,52 @@
+id: listen-b1-ce-qui-fait-tenir-un-couple
+level: b1
+skill: listening
+title: "Ce qui fait tenir un couple"
+time_limit_seconds: 150
+audio_ref: b1/audio/listen-b1-ce-qui-fait-tenir-un-couple.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Notre invitée, la médiatrice familiale Anne Leblanc. Anne, qu'est-ce qui fait
+  tenir un couple ? Pas l'absence de conflits. Se disputer n'est pas le problème ; les gens qui ne se disputent jamais s'écoutent rarement. Ce qui compte, c'est la complicité et le soutien, surtout
+  quand l'un des deux va mal. La jalousie, elle, est un signal ? Souvent, oui, mais
+  pas celui qu'on croit : elle parle de soi plus que de l'autre. Et les malentendus
+  ? Presque tous viennent d'une chose non dite. Un malentendu répété devient une
+  rupture. Que dire à quelqu'un qui hésite ? Des fiançailles ne règlent rien, un
+  divorce non plus. Être célibataire n'est pas une salle d'attente. Et la
+  belle-famille ? C'est le sujet qu'on n'aborde jamais avant et qui revient toujours
+  après. Parlez-en tôt avec votre conjoint. S'excuser ne coûte rien. Une réconciliation reste possible, mais elle demande deux personnes. L'amitié, d'ailleurs, obéit aux mêmes règles.
+questions:
+  - id: listen-b1-ce-qui-fait-tenir-un-couple.q1
+    prompt: "Que pense Anne des couples qui ne se disputent jamais ?"
+    options:
+      - "Ils s'écoutent rarement"
+      - "Ce sont les plus solides"
+      - "Ils finissent tous par un divorce"
+    answer: "Ils s'écoutent rarement"
+    explain: "« Les gens qui ne se disputent jamais s'écoutent rarement »."
+  - id: listen-b1-ce-qui-fait-tenir-un-couple.q2
+    prompt: "Que dit-elle de la jalousie ?"
+    options:
+      - "Elle parle de soi plus que de l'autre"
+      - "Elle prouve l'attachement"
+      - "Elle annonce toujours une rupture"
+    answer: "Elle parle de soi plus que de l'autre"
+    explain: "« elle parle de soi plus que de l'autre »."
+  - id: listen-b1-ce-qui-fait-tenir-un-couple.q3
+    prompt: "D'où viennent presque tous les malentendus, selon elle ?"
+    options:
+      - "D'une chose non dite"
+      - "De la belle-famille"
+      - "D'un manque d'argent"
+    answer: "D'une chose non dite"
+    explain: "« Presque tous viennent d'une chose non dite »."
+  - id: listen-b1-ce-qui-fait-tenir-un-couple.q4
+    prompt: "Que dit-elle de la réconciliation ?"
+    options:
+      - "Elle reste possible, mais demande deux personnes"
+      - "Elle suit toujours des fiançailles"
+      - "Elle est impossible après un malentendu"
+    answer: "Elle reste possible, mais demande deux personnes"
+    explain: "« Une réconciliation reste possible, mais elle demande deux personnes »."
