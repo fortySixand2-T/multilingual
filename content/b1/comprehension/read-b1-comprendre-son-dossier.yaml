@@ -1,0 +1,58 @@
+id: read-b1-comprendre-son-dossier
+level: b1
+skill: reading
+title: "Comprendre son dossier d'immigration"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Un dossier d'immigration se perd rarement. Il se retarde, presque toujours pour la
+  même raison : un document manquant.
+  Commençons par les mots. L'admissibilité dit si vous avez le droit de déposer ; la
+  recevabilité dit si votre dossier est complet. Un dossier recevable peut être
+  refusé plus tard ; un dossier irrecevable ne sera même pas lu.
+  Les voies sont nombreuses. Un travailleur qualifié passe par un programme
+  économique, et au Québec par le certificat de sélection du Québec. Le
+  regroupement familial et le parrainage suivent d'autres règles. Un demandeur
+  d'asile ou un réfugié relève d'un tout autre processus, plus long et plus encadré.
+  Viennent les formalités. On vous convoquera pour la biométrie et vos empreintes
+  digitales. On vérifiera votre casier judiciaire. Si vous avez étudié à l'étranger,
+  demandez tôt une équivalence de diplôme ou une reconnaissance des acquis : cela
+  prend des mois.
+  Surveillez enfin les dates. Un titre de séjour ou une résidence temporaire a une
+  expiration ; le renouvellement se demande avant, jamais après. Les frais de
+  dossier ne sont pas remboursés en cas de refus. Et le délai de traitement affiché
+  est une moyenne, pas une promesse. La carte de résidence permanente, elle, arrive
+  au bout de ce chemin.
+questions:
+  - id: read-b1-comprendre-son-dossier.q1
+    prompt: "Quelle différence le texte fait-il entre admissibilité et recevabilité ?"
+    options:
+      - "L'admissibilité dit si vous avez le droit de déposer, la recevabilité si le dossier est complet"
+      - "Les deux mots veulent dire la même chose"
+      - "La recevabilité concerne uniquement les réfugiés"
+    answer: "L'admissibilité dit si vous avez le droit de déposer, la recevabilité si le dossier est complet"
+    explain: "« L'admissibilité dit si vous avez le droit de déposer ; la recevabilité dit si votre dossier est complet »."
+  - id: read-b1-comprendre-son-dossier.q2
+    prompt: "Pourquoi demander tôt une équivalence de diplôme ?"
+    options:
+      - "Parce que cela prend des mois"
+      - "Parce que c'est gratuit la première année"
+      - "Parce que la biométrie l'exige"
+    answer: "Parce que cela prend des mois"
+    explain: "« demandez tôt une équivalence de diplôme ou une reconnaissance des acquis : cela prend des mois »."
+  - id: read-b1-comprendre-son-dossier.q3
+    prompt: "Quand faut-il demander le renouvellement d'un titre de séjour ?"
+    options:
+      - "Avant l'expiration, jamais après"
+      - "Dans le mois qui suit l'expiration"
+      - "Au moment du dépôt du premier dossier"
+    answer: "Avant l'expiration, jamais après"
+    explain: "« le renouvellement se demande avant, jamais après »."
+  - id: read-b1-comprendre-son-dossier.q4
+    prompt: "Que dit le texte du délai de traitement affiché ?"
+    options:
+      - "C'est une moyenne, pas une promesse"
+      - "Il est garanti par la loi"
+      - "Il ne s'applique qu'au parrainage"
+    answer: "C'est une moyenne, pas une promesse"
+    explain: "« le délai de traitement affiché est une moyenne, pas une promesse »."

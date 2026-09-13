@@ -1,0 +1,57 @@
+id: read-b1-preparer-sa-consultation
+level: b1
+skill: reading
+title: "Préparer sa consultation"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Une consultation dure rarement plus de quinze minutes. Autant la préparer.
+  Notez d'abord vos symptômes et depuis quand ils durent. Si vous avez une douleur,
+  essayez de la décrire : où, à quel moment, à quel point. Un médecin généraliste
+  pose un diagnostic à partir de ce que vous dites autant qu'à partir de ce qu'il
+  observe.
+  Apportez votre carte d'assurance maladie. Sans elle, la visite vous sera facturée,
+  même si votre assurance maladie est valide. Pensez aussi à la liste de vos
+  médicaments : une allergie non signalée peut transformer un problème bénin en
+  urgence.
+  Le médecin demandera peut-être une analyse de sang ou une radiographie. Ce n'est
+  pas inquiétant : c'est souvent ce qui permet d'éviter un traitement inutile. Un
+  antibiotique, par exemple, n'agit pas contre un virus.
+  Si on vous prescrit un médicament, lisez la posologie et respectez-la. Demandez
+  quels effets secondaires sont normaux et lesquels doivent vous faire rappeler la
+  clinique. Se soigner correctement prend quelques jours de plus, mais on finit par
+  guérir. S'arrêter au premier mieux, c'est recommencer deux semaines plus tard.
+  Un dernier réflexe : consulter tôt coûte moins cher que consulter tard.
+questions:
+  - id: read-b1-preparer-sa-consultation.q1
+    prompt: "Sur quoi un médecin généraliste s'appuie-t-il pour poser un diagnostic ?"
+    options:
+      - "Sur ce que le patient dit autant que sur ce qu'il observe"
+      - "Uniquement sur une radiographie"
+      - "Uniquement sur la liste des médicaments"
+    answer: "Sur ce que le patient dit autant que sur ce qu'il observe"
+    explain: "« pose un diagnostic à partir de ce que vous dites autant qu'à partir de ce qu'il observe »."
+  - id: read-b1-preparer-sa-consultation.q2
+    prompt: "Pourquoi faut-il signaler une allergie ?"
+    options:
+      - "Parce qu'une allergie non signalée peut transformer un problème bénin en urgence"
+      - "Parce que cela réduit le prix de la consultation"
+      - "Parce que le médecin ne peut pas prescrire sans cela"
+    answer: "Parce qu'une allergie non signalée peut transformer un problème bénin en urgence"
+    explain: "« une allergie non signalée peut transformer un problème bénin en urgence »."
+  - id: read-b1-preparer-sa-consultation.q3
+    prompt: "Pourquoi une analyse ou une radiographie n'est-elle pas inquiétante ?"
+    options:
+      - "C'est souvent ce qui permet d'éviter un traitement inutile"
+      - "Cela remplace toujours un antibiotique"
+      - "Cela raccourcit la consultation"
+    answer: "C'est souvent ce qui permet d'éviter un traitement inutile"
+    explain: "« c'est souvent ce qui permet d'éviter un traitement inutile »."
+  - id: read-b1-preparer-sa-consultation.q4
+    prompt: "Que se passe-t-il si l'on arrête un traitement au premier mieux ?"
+    options:
+      - "On recommence deux semaines plus tard"
+      - "On guérit plus vite"
+      - "Les effets secondaires disparaissent"
+    answer: "On recommence deux semaines plus tard"
+    explain: "« S'arrêter au premier mieux, c'est recommencer deux semaines plus tard »."

@@ -1,0 +1,59 @@
+id: read-b1-chercher-un-emploi
+level: b1
+skill: reading
+title: "Chercher un emploi autrement"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Répondre à une offre d'emploi ne suffit plus. Beaucoup de postes se remplissent
+  avant même l'affichage de poste.
+  D'où l'importance du réseautage. Parler à quelqu'un qui fait déjà le métier vous
+  apprendra en vingt minutes ce qu'une annonce ne dira jamais. Le mentorat va plus
+  loin : une personne expérimentée vous relit, vous corrige, vous présente. Cela
+  s'obtient en demandant, simplement.
+  Votre lettre de motivation doit répondre à une seule question : pourquoi vous,
+  pour ce poste-là ? Un portfolio, quand le métier s'y prête, vaut mieux qu'une page
+  de plus. Préparez aussi vos références : prévenez-les avant qu'on les appelle.
+  En entrevue, on évalue autant votre façon de travailler avec les autres que vos
+  compétences. Renseignez-vous sur la hiérarchie de l'entreprise et sur le rôle
+  exact du superviseur : c'est avec lui que vous passerez vos journées.
+  Le poste obtenu, la période d'essai commence. Pendant cette probation, on vous
+  observe, mais vous observez aussi. Si le travail ne correspond pas à ce qu'on vous
+  a promis, dites-le tôt.
+  Deux derniers mots. La négociation ne porte pas que sur le salaire : l'horaire et
+  la formation comptent autant. Et une reconversion n'est pas un échec — devenir
+  freelance après dix ans comme salarié non plus. L'avancement ne suit pas toujours
+  une ligne droite.
+questions:
+  - id: read-b1-chercher-un-emploi.q1
+    prompt: "Pourquoi le réseautage est-il important, selon le texte ?"
+    options:
+      - "Beaucoup de postes se remplissent avant l'affichage de poste"
+      - "Il remplace complètement la lettre de motivation"
+      - "Il garantit une période d'essai plus courte"
+    answer: "Beaucoup de postes se remplissent avant l'affichage de poste"
+    explain: "« Beaucoup de postes se remplissent avant même l'affichage de poste. D'où l'importance du réseautage »."
+  - id: read-b1-chercher-un-emploi.q2
+    prompt: "À quelle question la lettre de motivation doit-elle répondre ?"
+    options:
+      - "Pourquoi vous, pour ce poste-là"
+      - "Combien vous voulez gagner"
+      - "Quand vous pouvez commencer"
+    answer: "Pourquoi vous, pour ce poste-là"
+    explain: "« doit répondre à une seule question : pourquoi vous, pour ce poste-là ? »."
+  - id: read-b1-chercher-un-emploi.q3
+    prompt: "Que conseille le texte au sujet de la période d'essai ?"
+    options:
+      - "On vous observe, mais vous observez aussi : dites tôt si le poste ne correspond pas"
+      - "Il ne faut rien dire avant la fin de la probation"
+      - "Elle sert uniquement à fixer le salaire"
+    answer: "On vous observe, mais vous observez aussi : dites tôt si le poste ne correspond pas"
+    explain: "« on vous observe, mais vous observez aussi. Si le travail ne correspond pas à ce qu'on vous a promis, dites-le tôt »."
+  - id: read-b1-chercher-un-emploi.q4
+    prompt: "Sur quoi porte la négociation, d'après l'auteur ?"
+    options:
+      - "Pas seulement le salaire : l'horaire et la formation comptent autant"
+      - "Uniquement le salaire"
+      - "Uniquement la durée de la probation"
+    answer: "Pas seulement le salaire : l'horaire et la formation comptent autant"
+    explain: "« La négociation ne porte pas que sur le salaire : l'horaire et la formation comptent autant »."

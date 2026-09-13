@@ -1,0 +1,59 @@
+id: read-b1-regler-un-desaccord
+level: b1
+skill: reading
+title: "Régler un désaccord sans aller au tribunal"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Un désaccord finit rarement devant un juge. La plupart se règlent avant, à
+  condition de connaître quelques mots.
+  Commencez par relire le contrat. Chaque clause compte, surtout celles qui
+  concernent la résiliation et le préavis. Un contrat signé crée une obligation des
+  deux côtés : on ne peut pas partir du jour au lendemain parce qu'on n'est plus
+  satisfait.
+  Si le problème persiste, envoyez une réclamation écrite. Gardez une copie, notez
+  la date : le délai de réponse commence à ce moment-là. Une attestation ou un
+  certificat peut vous être demandé ; fournissez-le rapidement.
+  Viennent ensuite les recours. La médiation coûte peu et se fait en quelques
+  semaines : une personne neutre aide les deux parties à s'entendre. L'arbitrage va
+  plus loin, car la décision s'impose. Le tribunal, lui, reste long et cher.
+  Quelques précautions. Ne donnez jamais de procuration à quelqu'un que vous ne
+  connaissez pas. Vérifiez auprès d'un notaire avant de signer un acte important.
+  Votre consentement doit être libre, et la confidentialité de vos documents
+  respectée.
+  Enfin, si vous êtes victime d'une fraude, il faut le signaler et parfois porter
+  plainte. Une amende ou une contravention se conteste aussi, mais dans le délai
+  prévu, jamais après. Un litige mal suivi se perd d'avance.
+questions:
+  - id: read-b1-regler-un-desaccord.q1
+    prompt: "Quelles clauses le texte conseille-t-il de relire en priorité ?"
+    options:
+      - "Celles qui concernent la résiliation et le préavis"
+      - "Celles qui concernent le prix uniquement"
+      - "Celles qui concernent la confidentialité"
+    answer: "Celles qui concernent la résiliation et le préavis"
+    explain: "« Chaque clause compte, surtout celles qui concernent la résiliation et le préavis »."
+  - id: read-b1-regler-un-desaccord.q2
+    prompt: "Pourquoi faut-il noter la date d'une réclamation écrite ?"
+    options:
+      - "Parce que le délai de réponse commence à ce moment-là"
+      - "Parce qu'une réclamation expire au bout d'un jour"
+      - "Parce que le notaire l'exige"
+    answer: "Parce que le délai de réponse commence à ce moment-là"
+    explain: "« notez la date : le délai de réponse commence à ce moment-là »."
+  - id: read-b1-regler-un-desaccord.q3
+    prompt: "Quelle différence le texte fait-il entre la médiation et l'arbitrage ?"
+    options:
+      - "La médiation aide les parties à s'entendre ; en arbitrage, la décision s'impose"
+      - "L'arbitrage est gratuit, la médiation est payante"
+      - "La médiation se passe toujours au tribunal"
+    answer: "La médiation aide les parties à s'entendre ; en arbitrage, la décision s'impose"
+    explain: "« une personne neutre aide les deux parties à s'entendre. L'arbitrage va plus loin, car la décision s'impose »."
+  - id: read-b1-regler-un-desaccord.q4
+    prompt: "Que dit le texte sur la contestation d'une amende ?"
+    options:
+      - "Elle se conteste dans le délai prévu, jamais après"
+      - "Elle ne se conteste jamais"
+      - "Elle se conteste à n'importe quel moment"
+    answer: "Elle se conteste dans le délai prévu, jamais après"
+    explain: "« Une amende ou une contravention se conteste aussi, mais dans le délai prévu, jamais après »."

@@ -392,3 +392,14 @@
 - [2026-09-12] Modified: content/b2/comprehension/read-b2-*.yaml — question stems reworded to TEF-style attitude verbs (déplorer, craindre, admettre, envisager, se réjouir, regretter, énoncer, démontrer, mettre en évidence)
 - [2026-09-13] Modified: scripts/check_content.py — added check_comprehension_covers_vocab + MIN_COMPREHENSION_COVERAGE, a ratcheting per-level floor on how much of a vocab bank its comprehension library uses
 - [2026-09-13] Modified: .claude/skills/content-expansion/SKILL.md — documented the coverage floor and added an "Adding comprehension sets" section
+- [2026-09-13] Created: content/b1/comprehension/read-b1-hors-saison.yaml — B1 reading set on off-season travel (covers the whole `tourism` theme)
+- [2026-09-13] Created: content/b1/comprehension/read-b1-lire-une-etiquette.yaml — B1 reading set on food labels (covers the whole `food` theme)
+- [2026-09-13] Created: content/b1/comprehension/read-b1-preparer-sa-consultation.yaml — B1 reading set on preparing a doctor's visit (`health`)
+- [2026-09-13] Created: content/b1/comprehension/read-b1-salle-urgence.yaml — B1 reading set on the emergency room (completes `health`)
+- [2026-09-13] Created: content/b1/comprehension/read-b1-regler-un-desaccord.yaml — B1 reading set on dispute resolution (covers the whole `rights` theme)
+- [2026-09-13] Created: content/b1/comprehension/read-b1-sortie-culturelle.yaml — B1 reading set on cultural outings (covers the whole `arts` theme)
+- [2026-09-13] Created: content/b1/comprehension/read-b1-chercher-un-emploi.yaml — B1 reading set on job hunting (`work`)
+- [2026-09-13] Created: content/b1/comprehension/read-b1-avant-de-signer-un-logement.yaml — B1 reading set on renting/buying (covers the whole `housing` theme)
+- [2026-09-13] Created: content/b1/comprehension/read-b1-comprendre-son-dossier.yaml — B1 reading set on immigration files (covers the whole `immigration` theme)
+- [2026-09-13] Created: content/b1/comprehension/read-b1-mettre-de-l-ordre.yaml — B1 reading set on personal finances (covers `money` + `plans`)
+- [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['b1'] from 30 to 70

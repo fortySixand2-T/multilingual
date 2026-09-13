@@ -1,0 +1,57 @@
+id: read-b1-lire-une-etiquette
+level: b1
+skill: reading
+title: "Savoir lire une étiquette"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Savoir lire une étiquette change beaucoup de choses.
+  Regardez d'abord la portion indiquée. Les calories affichées correspondent
+  rarement à ce que l'on mange vraiment. Un apport de trois cents calories pour une
+  portion de trente grammes, cela paraît raisonnable — jusqu'au moment où l'on vide
+  le paquet.
+  Viennent ensuite les trois grandes familles : les protéines, les glucides et les
+  lipides. Aucune n'est mauvaise en soi ; ce qui compte, c'est l'équilibre. Les
+  fibres, elles, aident la digestion et calment le grignotage entre les repas. Une
+  vitamine prise en complément alimentaire ne remplacera jamais un fruit.
+  Vérifiez aussi la date de péremption et la provenance. La traçabilité d'un produit
+  surgelé est souvent meilleure que celle d'un produit frais vendu en vrac. Un
+  aliment transformé n'est pas forcément mauvais, mais plus la liste d'ingrédients
+  est longue, plus il faut se méfier.
+  Enfin, un mot sur les régimes. Suivre un régime strict sans raison médicale
+  fonctionne rarement. Si vous avez une intolérance, parlez-en à un professionnel.
+  Pour le reste, apprenez à assaisonner simplement et à laisser mijoter : cela coûte
+  moins cher et fait plus plaisir.
+questions:
+  - id: read-b1-lire-une-etiquette.q1
+    prompt: "Pourquoi faut-il regarder la portion indiquée ?"
+    options:
+      - "Parce que les calories affichées correspondent rarement à ce qu'on mange vraiment"
+      - "Parce que la portion indique la date de péremption"
+      - "Parce qu'elle remplace la liste des ingrédients"
+    answer: "Parce que les calories affichées correspondent rarement à ce qu'on mange vraiment"
+    explain: "« Les calories affichées correspondent rarement à ce que l'on mange vraiment »."
+  - id: read-b1-lire-une-etiquette.q2
+    prompt: "Que dit le texte des protéines, des glucides et des lipides ?"
+    options:
+      - "Aucune famille n'est mauvaise en soi : ce qui compte, c'est l'équilibre"
+      - "Il faut supprimer les lipides"
+      - "Seules les protéines sont utiles"
+    answer: "Aucune famille n'est mauvaise en soi : ce qui compte, c'est l'équilibre"
+    explain: "« Aucune n'est mauvaise en soi ; ce qui compte, c'est l'équilibre »."
+  - id: read-b1-lire-une-etiquette.q3
+    prompt: "Que dit le texte de la traçabilité d'un produit surgelé ?"
+    options:
+      - "Elle est souvent meilleure que celle d'un produit frais vendu en vrac"
+      - "Elle n'existe pas pour les surgelés"
+      - "Elle dépend uniquement du prix"
+    answer: "Elle est souvent meilleure que celle d'un produit frais vendu en vrac"
+    explain: "« La traçabilité d'un produit surgelé est souvent meilleure que celle d'un produit frais vendu en vrac »."
+  - id: read-b1-lire-une-etiquette.q4
+    prompt: "Que conseille l'auteur à propos des régimes ?"
+    options:
+      - "Un régime strict sans raison médicale fonctionne rarement"
+      - "Il faut suivre un régime strict toute l'année"
+      - "Une intolérance se règle seule avec le temps"
+    answer: "Un régime strict sans raison médicale fonctionne rarement"
+    explain: "« Suivre un régime strict sans raison médicale fonctionne rarement »."
