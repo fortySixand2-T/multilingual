@@ -1,0 +1,35 @@
+id: read-a1-couleurs-de-la-ville
+level: a1
+skill: reading
+title: "Les couleurs de la ville"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Sur la place, les maisons sont jaunes et roses. Le pont est gris. Au feu rouge,
+  les voitures attendent. Une dame porte un manteau marron et un sac violet. Un
+  enfant a un ballon blanc. Le ciel est bleu clair le matin et bleu foncé le soir.
+questions:
+  - id: read-a1-couleurs-de-la-ville.q1
+    prompt: "De quelle couleur sont les maisons de la place ?"
+    options:
+      - "Jaunes et roses"
+      - "Grises"
+      - "Marron et violettes"
+    answer: "Jaunes et roses"
+    explain: "« Sur la place, les maisons sont jaunes et roses. »"
+  - id: read-a1-couleurs-de-la-ville.q2
+    prompt: "Que porte la dame ?"
+    options:
+      - "Un manteau marron et un sac violet"
+      - "Un ballon blanc"
+      - "Une robe rose"
+    answer: "Un manteau marron et un sac violet"
+    explain: "« Une dame porte un manteau marron et un sac violet. »"
+  - id: read-a1-couleurs-de-la-ville.q3
+    prompt: "Comment est le ciel le soir ?"
+    options:
+      - "Bleu foncé"
+      - "Bleu clair"
+      - "Gris"
+    answer: "Bleu foncé"
+    explain: "« Le ciel est bleu clair le matin et bleu foncé le soir. »"

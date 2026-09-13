@@ -1,0 +1,37 @@
+id: read-a1-les-metiers-de-ma-famille
+level: a1
+skill: reading
+title: "Les métiers de ma famille"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Ma mère est ingénieure. Mon père est jardinier. Ma sœur travaille comme caissière
+  au supermarché. Mon cousin est avocat. Ma tante est pharmacienne. Mon oncle est
+  traducteur : il parle quatre langues. Mon grand-père était musicien. Et mon
+  voisin est acteur au théâtre. Le directeur de mon école dit que tous les métiers
+  sont importants.
+questions:
+  - id: read-a1-les-metiers-de-ma-famille.q1
+    prompt: "Quel est le métier du père ?"
+    options:
+      - "Jardinier"
+      - "Ingénieur"
+      - "Avocat"
+    answer: "Jardinier"
+    explain: "« Mon père est jardinier. »"
+  - id: read-a1-les-metiers-de-ma-famille.q2
+    prompt: "Pourquoi l'oncle est-il traducteur ?"
+    options:
+      - "Il parle quatre langues"
+      - "Il travaille au théâtre"
+      - "Il était musicien"
+    answer: "Il parle quatre langues"
+    explain: "« Mon oncle est traducteur : il parle quatre langues. »"
+  - id: read-a1-les-metiers-de-ma-famille.q3
+    prompt: "Que dit le directeur de l'école ?"
+    options:
+      - "Que tous les métiers sont importants"
+      - "Qu'il faut être ingénieur"
+      - "Que le théâtre est difficile"
+    answer: "Que tous les métiers sont importants"
+    explain: "« Le directeur de mon école dit que tous les métiers sont importants. »"

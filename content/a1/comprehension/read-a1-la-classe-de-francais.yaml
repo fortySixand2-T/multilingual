@@ -1,0 +1,38 @@
+id: read-a1-la-classe-de-francais
+level: a1
+skill: reading
+title: "La classe de français"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Dans ma classe, nous venons de partout. Amina arrive du Maroc et Sofia, de
+  l'Algérie. Karim est né en Tunisie. Awa vient du Sénégal et Marie, d'Haïti. Paulo
+  arrive du Brésil et Diego, du Mexique. Wei vient de la Chine, Yuki du Japon et
+  Priya de l'Inde. Hans est allemand : il arrive de l'Allemagne. Emma vient de
+  l'Angleterre et Luc, de la Belgique. Moi, je viens de la France, et nous habitons
+  tous au Canada. Deux étudiants arrivent des États-Unis la semaine prochaine.
+questions:
+  - id: read-a1-la-classe-de-francais.q1
+    prompt: "D'où vient Awa ?"
+    options:
+      - "Du Sénégal"
+      - "D'Haïti"
+      - "Du Maroc"
+    answer: "Du Sénégal"
+    explain: "« Awa vient du Sénégal »."
+  - id: read-a1-la-classe-de-francais.q2
+    prompt: "Où habitent tous les étudiants maintenant ?"
+    options:
+      - "Au Canada"
+      - "En France"
+      - "En Belgique"
+    answer: "Au Canada"
+    explain: "« nous habitons tous au Canada »."
+  - id: read-a1-la-classe-de-francais.q3
+    prompt: "Qui arrive la semaine prochaine ?"
+    options:
+      - "Deux étudiants des États-Unis"
+      - "Un étudiant du Japon"
+      - "Une étudiante de l'Inde"
+    answer: "Deux étudiants des États-Unis"
+    explain: "« Deux étudiants arrivent des États-Unis la semaine prochaine. »"

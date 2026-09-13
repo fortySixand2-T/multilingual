@@ -1,0 +1,37 @@
+id: read-a1-ma-chambre
+level: a1
+skill: reading
+title: "Ma chambre"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Dans ma chambre, il y a un lit et une chaise. À côté du lit, il y a une petite
+  lampe. Mes vêtements sont dans l'armoire. Mes chaussettes sont dans le tiroir.
+  Mes livres sont sur l'étagère. Il y a un tapis bleu sur le sol et un rideau blanc
+  à la fenêtre. Le miroir est derrière la porte. Le placard est petit. J'aime lire
+  sur le balcon.
+questions:
+  - id: read-a1-ma-chambre.q1
+    prompt: "Où sont les vêtements ?"
+    options:
+      - "Dans l'armoire"
+      - "Dans le tiroir"
+      - "Sur l'étagère"
+    answer: "Dans l'armoire"
+    explain: "« Mes vêtements sont dans l'armoire. »"
+  - id: read-a1-ma-chambre.q2
+    prompt: "Qu'est-ce qu'il y a à la fenêtre ?"
+    options:
+      - "Un rideau blanc"
+      - "Un tapis bleu"
+      - "Un miroir"
+    answer: "Un rideau blanc"
+    explain: "« un rideau blanc à la fenêtre »."
+  - id: read-a1-ma-chambre.q3
+    prompt: "Où est-ce que la personne aime lire ?"
+    options:
+      - "Sur le balcon"
+      - "Dans le placard"
+      - "Sur la chaise"
+    answer: "Sur le balcon"
+    explain: "« J'aime lire sur le balcon. »"

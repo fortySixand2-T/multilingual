@@ -1,0 +1,37 @@
+id: read-a1-mon-quartier
+level: a1
+skill: reading
+title: "Mon quartier"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  J'habite dans un quartier agréable. Il y a une piscine et un stade près de chez
+  moi. Le samedi, je vais au théâtre ou au zoo avec mes enfants. Pour les livres,
+  il y a une librairie. Pour la viande, il y a une boucherie, et pour les gâteaux,
+  une pâtisserie. L'épicerie est ouverte tous les jours. Le dépanneur ferme à
+  minuit. Le centre commercial est un peu loin.
+questions:
+  - id: read-a1-mon-quartier.q1
+    prompt: "Où va la personne le samedi ?"
+    options:
+      - "Au théâtre ou au zoo"
+      - "À la piscine"
+      - "Au centre commercial"
+    answer: "Au théâtre ou au zoo"
+    explain: "« Le samedi, je vais au théâtre ou au zoo avec mes enfants. »"
+  - id: read-a1-mon-quartier.q2
+    prompt: "Où achète-t-on les gâteaux ?"
+    options:
+      - "À la pâtisserie"
+      - "À la boucherie"
+      - "À la librairie"
+    answer: "À la pâtisserie"
+    explain: "« pour les gâteaux, une pâtisserie »."
+  - id: read-a1-mon-quartier.q3
+    prompt: "À quelle heure ferme le dépanneur ?"
+    options:
+      - "À minuit"
+      - "À midi"
+      - "Il ne ferme jamais"
+    answer: "À minuit"
+    explain: "« Le dépanneur ferme à minuit. »"

@@ -413,3 +413,21 @@
 - [2026-09-13] Modified: scripts/check_content.py — added check_explain_quotes_are_real; raised MIN_COMPREHENSION_COVERAGE['b1'] to 90
 - [2026-09-13] Modified: content/b2/comprehension/*.yaml — corrected 7 explain fields that used guillemets but paraphrased the passage
 - [2026-09-13] Modified: .claude/skills/content-expansion/SKILL.md — documented the explain-quote promise and the conjugation trap
+- [2026-09-13] Created: content/a1/comprehension/read-a1-ma-chambre.yaml — A1 reading set on a bedroom (`house`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-notre-appartement.yaml — A1 reading set on an apartment (completes `house`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-mon-quartier.yaml — A1 reading set on neighbourhood shops (`places`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-une-semaine-chargee.yaml — A1 reading set on a weekly schedule (completes `places`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-dans-mon-sac-a-dos.yaml — A1 reading set on school supplies (`school`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-journee-a-l-ecole.yaml — A1 reading set on a school day (completes `school`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-les-animaux-du-parc.yaml — A1 reading set on park animals (`animals`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-a-la-ferme.yaml — A1 reading set on farm animals (completes `animals`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-qui-travaille-dans-ma-rue.yaml — A1 reading set on trades (`jobs`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-les-metiers-de-ma-famille.yaml — A1 reading set on family jobs (completes `jobs`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-la-classe-de-francais.yaml — A1 reading set on nationalities (covers the whole `countries` theme)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-chez-le-medecin.yaml — A1 reading set at the doctor's (covers the whole `body` theme)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-photo-de-famille.yaml — A1 reading set on a family photo (covers the whole `family` theme)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-la-meteo-de-la-semaine.yaml — A1 reading set on the weather (covers the whole `weather` theme)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-couleurs-de-la-ville.yaml — A1 reading set on colours in the city (`colours` + `city`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-deux-appartements.yaml — A1 reading set comparing flats (`adjectives`)
+- [2026-09-13] Created: content/a1/comprehension/read-a1-le-demenagement.yaml — A1 reading set on moving day (completes `adjectives`)
+- [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['a1'] from 30 to 80

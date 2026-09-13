@@ -1,0 +1,36 @@
+id: read-a1-les-animaux-du-parc
+level: a1
+skill: reading
+title: "Les animaux du parc"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Dans le parc, je vois souvent un chien avec son chiot. Un chat noir dort sous
+  l'arbre avec son chaton. Il y a un oiseau sur la branche. Un lapin blanc mange de
+  l'herbe. Un écureuil monte très vite. Au printemps, une abeille visite les fleurs
+  et un papillon jaune passe près de moi.
+questions:
+  - id: read-a1-les-animaux-du-parc.q1
+    prompt: "Avec qui dort le chat noir ?"
+    options:
+      - "Avec son chaton"
+      - "Avec le chiot"
+      - "Avec le lapin"
+    answer: "Avec son chaton"
+    explain: "« Un chat noir dort sous l'arbre avec son chaton. »"
+  - id: read-a1-les-animaux-du-parc.q2
+    prompt: "De quelle couleur est le lapin ?"
+    options:
+      - "Blanc"
+      - "Noir"
+      - "Jaune"
+    answer: "Blanc"
+    explain: "« Un lapin blanc mange de l'herbe. »"
+  - id: read-a1-les-animaux-du-parc.q3
+    prompt: "Que fait l'abeille au printemps ?"
+    options:
+      - "Elle visite les fleurs"
+      - "Elle monte dans l'arbre"
+      - "Elle mange de l'herbe"
+    answer: "Elle visite les fleurs"
+    explain: "« une abeille visite les fleurs »."

@@ -1,0 +1,36 @@
+id: read-a1-chez-le-medecin
+level: a1
+skill: reading
+title: "Chez le médecin"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Le médecin regarde mon visage. « Ouvrez la bouche », dit-il. Il regarde mes
+  dents. Il regarde aussi mes yeux, mon nez et mon oreille gauche. Il écoute mon
+  cœur. J'ai mal à l'épaule et au genou. J'ai aussi un petit problème à un doigt.
+  Le médecin dit que ma peau est en bonne santé. Mes cheveux aussi !
+questions:
+  - id: read-a1-chez-le-medecin.q1
+    prompt: "Qu'est-ce que le médecin écoute ?"
+    options:
+      - "Le cœur"
+      - "Les dents"
+      - "La peau"
+    answer: "Le cœur"
+    explain: "« Il écoute mon cœur. »"
+  - id: read-a1-chez-le-medecin.q2
+    prompt: "Où la personne a-t-elle mal ?"
+    options:
+      - "À l'épaule et au genou"
+      - "Au nez et à la bouche"
+      - "Aux yeux"
+    answer: "À l'épaule et au genou"
+    explain: "« J'ai mal à l'épaule et au genou. »"
+  - id: read-a1-chez-le-medecin.q3
+    prompt: "Que dit le médecin sur la peau ?"
+    options:
+      - "Elle est en bonne santé"
+      - "Elle a un problème"
+      - "Il ne la regarde pas"
+    answer: "Elle est en bonne santé"
+    explain: "« Le médecin dit que ma peau est en bonne santé. »"

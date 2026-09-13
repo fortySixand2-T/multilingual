@@ -1,0 +1,37 @@
+id: read-a1-deux-appartements
+level: a1
+skill: reading
+title: "Deux appartements"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Le premier appartement est grand et propre. Il est dans un vieux bâtiment, mais
+  la cuisine est nouvelle. Le chemin pour aller au travail est court et facile. Le
+  deuxième est joli mais petit. Le bâtiment est jeune. Le chemin est long et
+  difficile : l'autobus est lent, jamais rapide. Le wifi est faible, pas fort. Ce
+  n'est pas un mauvais appartement, mais je préfère le premier.
+questions:
+  - id: read-a1-deux-appartements.q1
+    prompt: "Comment est le premier appartement ?"
+    options:
+      - "Grand et propre"
+      - "Joli mais petit"
+      - "Nouveau et cher"
+    answer: "Grand et propre"
+    explain: "« Le premier appartement est grand et propre. »"
+  - id: read-a1-deux-appartements.q2
+    prompt: "Comment est le chemin du deuxième appartement ?"
+    options:
+      - "Long et difficile"
+      - "Court et facile"
+      - "Rapide"
+    answer: "Long et difficile"
+    explain: "« Le chemin est long et difficile »."
+  - id: read-a1-deux-appartements.q3
+    prompt: "Quel appartement la personne préfère-t-elle ?"
+    options:
+      - "Le premier"
+      - "Le deuxième"
+      - "Aucun des deux"
+    answer: "Le premier"
+    explain: "« je préfère le premier »."
