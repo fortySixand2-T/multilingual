@@ -44,7 +44,12 @@ gives a readable answer where the loader gives a nested Pydantic error.
 7. **Every lesson is referenced by a `path.yaml` unit.**
 8. **Every level has both speaking sections** — A (obtain information) and
    B (argue a position). Every TEF candidate sits both.
-9. `gender: mf` requires a genuinely different `fem` spelling. Epicene nouns
+9. **The comprehension library keeps using the bank.** `MIN_COMPREHENSION_COVERAGE`
+   holds a per-level floor for how much of a level's vocabulary its passages and
+   scripts actually use; the rule also fails when a level sits 5+ points *above*
+   its floor, so an improvement must be locked in rather than left to erode.
+   Growing a bank without growing the comprehension library will trip it.
+10. `gender: mf` requires a genuinely different `fem` spelling. Epicene nouns
    (*témoin*, *psychologue*) have no schema slot — the UI handles them via
    `EPICENE_IDS` in `web/src/VocabWord.tsx`.
 
@@ -85,6 +90,30 @@ Then: `python scripts/gen_audio.py <level>` → **wire every new word into a
 lesson's `new_vocab`** (invariant 4) → give it an exercise (invariant 3).
 
 Do not cap deck size arbitrarily. Depth belongs where the theme justifies it.
+
+## Adding comprehension sets
+
+`content/<lvl>/comprehension/*.yaml` is a **flat per-level library** — no
+`path.yaml` wiring, no unlock chain — so sets are the lowest-risk content to
+add. `skill: reading` needs a `passage`; `skill: listening` needs an `audio_ref`
+plus the `script` that `gen_audio.py` speaks.
+
+**Author the passage from the theme file, not around a topic.** Open
+`content/<lvl>/vocab/<theme>.yaml`, write a text that uses those words, and
+coverage becomes a property of the text instead of something to chase
+afterwards. A ~200-word B2 passage carries a 20-word theme comfortably.
+
+Two traps the measurement will catch but the prose hides:
+
+- **Plurals break multi-word headwords.** `des parts de marché` does not match
+  `part de marché`; write the singular somewhere.
+- **Opinion and reporting verbs** (*craindre, déplorer, admettre, envisager,
+  se réjouir*) do not belong in a passage — they belong in the **question stem**,
+  which is how TEF phrases them. A learner who cannot parse *"Que déplore
+  l'auteur ?"* cannot answer however well they understood the text.
+
+Editing a listening `script` after generating audio needs the mp3 **deleted**
+first — `gen_audio.py` only fills in what is missing.
 
 ## Adding or extending lessons
 
