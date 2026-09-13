@@ -390,3 +390,5 @@
 - [2026-09-12] Created: content/b2/comprehension/listen-b2-exhibition-debate.yaml — B2 listening set on culture and free expression
 - [2026-09-12] Created: content/b2/audio/listen-b2-*.mp3 — TTS build artifacts for the 9 new listening scripts
 - [2026-09-12] Modified: content/b2/comprehension/read-b2-*.yaml — question stems reworded to TEF-style attitude verbs (déplorer, craindre, admettre, envisager, se réjouir, regretter, énoncer, démontrer, mettre en évidence)
+- [2026-09-13] Modified: scripts/check_content.py — added check_comprehension_covers_vocab + MIN_COMPREHENSION_COVERAGE, a ratcheting per-level floor on how much of a vocab bank its comprehension library uses
+- [2026-09-13] Modified: .claude/skills/content-expansion/SKILL.md — documented the coverage floor and added an "Adding comprehension sets" section

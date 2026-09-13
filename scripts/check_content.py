@@ -23,6 +23,7 @@ import sys
 import unicodedata
 from pathlib import Path
 
+from app.comprehension.loader import load_sets
 from app.content.loader import load_content
 from app.speech.topics import load_topics
 
@@ -42,6 +43,14 @@ KNOWN_CONJUGATED_ONLY = {("a1", "verbs-01"): {"vouloir"}}
 # One spelling per part of speech. `adj` vs `adjective` drifted in four entries
 # before this was checked.
 KNOWN_POS = {"noun", "verb", "adjective", "adverb", "numeral", "phrase", "interjection"}
+
+# Floor, in percent, for how much of a level's vocab bank its comprehension
+# passages actually use. A word the learner only ever meets on a deck tile and
+# in a drill is recognised, never read in context. These are set to the achieved
+# value rounded down to a multiple of 5, and `check_comprehension_covers_vocab`
+# refuses to let a level sit 5+ points above its floor -- so coverage ratchets
+# up and can never silently regress when the bank next grows.
+MIN_COMPREHENSION_COVERAGE = {"a1": 30, "a2": 25, "b1": 30, "b2": 90}
 
 _ARTICLES = ("le ", "la ", "les ", "l'", "un ", "une ", "des ")
 
@@ -225,6 +234,43 @@ def check_path_covers_lessons(level, bundle, report):
         report(f"{level}/{lid}: not referenced by any path unit — unreachable")
 
 
+def comprehension_blob(level: str) -> str:
+    """Everything a learner reads or hears in a level's comprehension sets."""
+    parts: list[str] = []
+    for s in load_sets(CONTENT_ROOT, level).values():
+        parts.append(s.passage or s.script or "")
+        for q in s.questions:
+            parts += [q.prompt, *q.options, q.explain]
+    return norm(" ".join(parts))
+
+
+def check_comprehension_covers_vocab(level, bundle, report):
+    """Vocabulary the comprehension library never uses is vocabulary the learner
+    only ever recognises. b2 once had the largest bank and the thinnest library:
+    21% coverage, with five whole themes (100 words) never once in a passage.
+
+    Headword matching undercounts verbs -- `craindre` in the text as *craint* is
+    invisible here -- so the floor is deliberately a floor, not a target.
+    """
+    floor = MIN_COMPREHENSION_COVERAGE.get(level)
+    if floor is None:
+        return
+    blob = comprehension_blob(level)
+    words = list(bundle.vocab.values())
+    hit = sum(1 for w in words if shown_in_lesson(norm(strip_article(w.fr)), blob))
+    pct = 100 * hit // len(words)
+    if pct < floor:
+        report(
+            f"{level}: comprehension uses {hit}/{len(words)} = {pct}% of the vocab bank, "
+            f"below the {floor}% floor — add sets, or author them from the theme files"
+        )
+    elif pct >= floor + 5:
+        report(
+            f"{level}: comprehension coverage is now {pct}% — raise "
+            f"MIN_COMPREHENSION_COVERAGE[{level!r}] to {pct // 5 * 5} to lock it in"
+        )
+
+
 RULES = [
     check_exercise_shapes,
     check_vocab_fields,
@@ -234,6 +280,7 @@ RULES = [
     check_known_gaps_not_stale,
     check_speaking_covers_both_sections,
     check_path_covers_lessons,
+    check_comprehension_covers_vocab,
 ]
 
 
