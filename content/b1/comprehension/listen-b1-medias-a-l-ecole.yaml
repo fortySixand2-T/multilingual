@@ -1,0 +1,55 @@
+id: listen-b1-medias-a-l-ecole
+level: b1
+skill: listening
+title: "Faut-il enseigner les médias à l'école ?"
+time_limit_seconds: 150
+audio_ref: b1/audio/listen-b1-medias-a-l-ecole.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Notre émission reçoit aujourd'hui le professeur Marc Aubry, de la faculté des
+  sciences de l'éducation. Professeur, faut-il enseigner les médias à l'école ?
+  C'est même devenu urgent. La désinformation ne se combat pas par la censure, mais
+  par l'enseignement. Une bonne pédagogie ne donne pas de réponses : elle apprend à
+  formuler une hypothèse et à la vérifier. Concrètement ? On prend un reportage, on
+  cherche la source, on note ce qui manque. Les élèves comprennent vite qu'un réseau
+  social cherche l'audience, pas l'exactitude. La presse aussi, parfois. Et l'erreur
+  ? Elle fait partie du travail. Un élève qui a un doute a déjà progressé. Notre
+  suggestion aux parents : discutez d'une conséquence plutôt que d'interdire.
+  L'alternative, c'est l'écran en cachette. Votre bilan ? Positif. Le but n'est pas
+  de former des experts. L'ambition est plus simple : qu'ils sachent quand ils ne
+  savent pas.
+questions:
+  - id: listen-b1-medias-a-l-ecole.q1
+    prompt: "Comment combattre la désinformation, selon le professeur ?"
+    options:
+      - "Par l'enseignement, pas par la censure"
+      - "Par la censure des réseaux sociaux"
+      - "En interdisant les écrans à l'école"
+    answer: "Par l'enseignement, pas par la censure"
+    explain: "« La désinformation ne se combat pas par la censure, mais par l'enseignement »."
+  - id: listen-b1-medias-a-l-ecole.q2
+    prompt: "Qu'apprend une bonne pédagogie, d'après lui ?"
+    options:
+      - "À formuler une hypothèse et à la vérifier"
+      - "À retenir les bonnes réponses"
+      - "À éviter tout doute"
+    answer: "À formuler une hypothèse et à la vérifier"
+    explain: "« elle apprend à formuler une hypothèse et à la vérifier »."
+  - id: listen-b1-medias-a-l-ecole.q3
+    prompt: "Que comprennent vite les élèves à propos d'un réseau social ?"
+    options:
+      - "Qu'il cherche l'audience, pas l'exactitude"
+      - "Qu'il vérifie chaque reportage"
+      - "Qu'il remplace la presse"
+    answer: "Qu'il cherche l'audience, pas l'exactitude"
+    explain: "« un réseau social cherche l'audience, pas l'exactitude »."
+  - id: listen-b1-medias-a-l-ecole.q4
+    prompt: "Quelle suggestion fait-il aux parents ?"
+    options:
+      - "Discuter d'une conséquence plutôt que d'interdire"
+      - "Interdire l'écran complètement"
+      - "Laisser les enfants décider seuls"
+    answer: "Discuter d'une conséquence plutôt que d'interdire"
+    explain: "« discutez d'une conséquence plutôt que d'interdire. L'alternative, c'est l'écran en cachette »."

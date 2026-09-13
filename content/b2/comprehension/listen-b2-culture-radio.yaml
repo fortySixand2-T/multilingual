@@ -46,7 +46,7 @@ questions:
       - "La gratuité plaît à tout le monde"
       - "Les jeunes ne vont jamais au musée"
     answer: "La culture a un coût : artistes, conservation, entretien"
-    explain: "« la culture a un coût… payer les artistes, la conservation des œuvres et l'entretien des lieux »."
+    explain: "« la culture a un coût… quelqu'un paie les artistes, la conservation des œuvres et l'entretien des lieux »."
   - id: listen-b2-culture-radio.q4
     prompt: "Quelle est l'idée finale de la chronique ?"
     options:

@@ -46,7 +46,7 @@ questions:
       - "Une forte hausse des salaires industriels"
       - "La fin de toute concurrence"
     answer: "La suppression de nombreux emplois industriels"
-    explain: "« la délocalisation des usines… a supprimé de nombreux emplois industriels »."
+    explain: "« la délocalisation des usines… a en effet supprimé de nombreux emplois industriels »."
   - id: read-b2-globalization.q4
     prompt: "Que dit le texte à propos de la richesse créée ?"
     options:

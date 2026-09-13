@@ -1,0 +1,54 @@
+id: listen-b1-vos-droits-au-travail
+level: b1
+skill: listening
+title: "Vos droits au travail"
+time_limit_seconds: 150
+audio_ref: b1/audio/listen-b1-vos-droits-au-travail.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Vos droits au travail, avec le conseiller Luc Fournier. Luc, on m'offre une
+  mutation. Dois-je accepter ? Vérifiez d'abord votre convention collective : elle
+  dit ce qui peut vous être imposé et ce qui ne peut pas. Regardez aussi votre
+  ancienneté, car elle vous suit rarement telle quelle. Et si je refuse ? Un refus
+  n'est pas une démission. Attention : démissionner vous prive de l'assurance-emploi,
+  alors qu'un licenciement, non. C'est la différence que les gens découvrent trop
+  tard. Que négocier, alors ? Pas seulement le salaire. Les avantages sociaux,
+  l'horaire flexible, le congé parental valent parfois davantage. Et les heures
+  supplémentaires ? Elles se paient ou se reprennent ; vérifiez laquelle des deux
+  s'applique chez vous. Un poste évolue, et un employeur ne peut pas promettre de le faire sans rien changer. Un employeur qui parle sans cesse de productivité mais
+  oublie vos cotisations mérite une question directe. Posez-la par écrit.
+questions:
+  - id: listen-b1-vos-droits-au-travail.q1
+    prompt: "Que faut-il vérifier d'abord avant d'accepter une mutation ?"
+    options:
+      - "La convention collective, qui dit ce qui peut être imposé"
+      - "Le montant des heures supplémentaires"
+      - "La date du prochain congé parental"
+    answer: "La convention collective, qui dit ce qui peut être imposé"
+    explain: "« Vérifiez d'abord votre convention collective : elle dit ce qui peut vous être imposé et ce qui ne peut pas »."
+  - id: listen-b1-vos-droits-au-travail.q2
+    prompt: "Quelle différence Luc souligne-t-il entre démission et licenciement ?"
+    options:
+      - "Démissionner prive de l'assurance-emploi, un licenciement non"
+      - "Les deux donnent droit à l'assurance-emploi"
+      - "Un licenciement fait perdre toute l'ancienneté"
+    answer: "Démissionner prive de l'assurance-emploi, un licenciement non"
+    explain: "« démissionner vous prive de l'assurance-emploi, alors qu'un licenciement, non »."
+  - id: listen-b1-vos-droits-au-travail.q3
+    prompt: "Que conseille-t-il de négocier, en plus du salaire ?"
+    options:
+      - "Les avantages sociaux, l'horaire flexible et le congé parental"
+      - "Uniquement l'ancienneté"
+      - "Uniquement la durée de la mutation"
+    answer: "Les avantages sociaux, l'horaire flexible et le congé parental"
+    explain: "« Les avantages sociaux, l'horaire flexible, le congé parental valent parfois davantage »."
+  - id: listen-b1-vos-droits-au-travail.q4
+    prompt: "Comment poser une question à un employeur qui oublie vos cotisations ?"
+    options:
+      - "Par écrit"
+      - "Uniquement par téléphone"
+      - "Par l'intermédiaire d'un collègue"
+    answer: "Par écrit"
+    explain: "« mérite une question directe. Posez-la par écrit »."

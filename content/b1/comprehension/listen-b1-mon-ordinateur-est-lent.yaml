@@ -1,0 +1,55 @@
+id: listen-b1-mon-ordinateur-est-lent
+level: b1
+skill: listening
+title: "Mon ordinateur est lent"
+time_limit_seconds: 150
+audio_ref: b1/audio/listen-b1-mon-ordinateur-est-lent.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Chronique techno, avec Samir. Samir, mon ordinateur est lent. Par quoi commencer ?
+  Par les paramètres. Regardez ce qui démarre tout seul, et faites la mise à jour
+  que vous repoussez depuis trois mois. Ensuite, videz l'historique du navigateur.
+  Et la connexion ? Testez le débit avant d'accuser votre forfait. Souvent le
+  problème vient du wifi, pas du fournisseur : éloignez la borne du micro-ondes,
+  vous allez rire, mais ça marche. Un mot sur la sécurité ? Un seul : la sauvegarde.
+  Un piratage, un café renversé, c'est la même perte. Copiez vos fichiers ailleurs,
+  aujourd'hui. Et pour le reste ? Une imprimante qui ne répond plus, un haut-parleur
+  muet : neuf fois sur dix, il suffit de débrancher, d'attendre, puis de brancher à
+  nouveau. Si la batterie tient dix minutes, changez-la plutôt que l'appareil. Et
+  avant d'appeler quelqu'un, essayez de vous débrouiller. Cherchez un tutoriel : votre moteur de recherche
+  connaît déjà votre problème.
+questions:
+  - id: listen-b1-mon-ordinateur-est-lent.q1
+    prompt: "Par quoi Samir conseille-t-il de commencer ?"
+    options:
+      - "Par les paramètres et la mise à jour repoussée depuis trois mois"
+      - "Par le changement de la batterie"
+      - "Par l'achat d'un nouvel ordinateur"
+    answer: "Par les paramètres et la mise à jour repoussée depuis trois mois"
+    explain: "« Par les paramètres. Regardez ce qui démarre tout seul, et faites la mise à jour que vous repoussez depuis trois mois »."
+  - id: listen-b1-mon-ordinateur-est-lent.q2
+    prompt: "Que faut-il faire avant d'accuser son forfait ?"
+    options:
+      - "Tester le débit, car le problème vient souvent du wifi"
+      - "Changer de fournisseur immédiatement"
+      - "Vider l'historique du navigateur"
+    answer: "Tester le débit, car le problème vient souvent du wifi"
+    explain: "« Testez le débit avant d'accuser votre forfait. Souvent le problème vient du wifi, pas du fournisseur »."
+  - id: listen-b1-mon-ordinateur-est-lent.q3
+    prompt: "Pourquoi insiste-t-il sur la sauvegarde ?"
+    options:
+      - "Un piratage et un café renversé causent la même perte"
+      - "Elle accélère la connexion"
+      - "Elle remplace la mise à jour"
+    answer: "Un piratage et un café renversé causent la même perte"
+    explain: "« Un piratage, un café renversé, c'est la même perte »."
+  - id: listen-b1-mon-ordinateur-est-lent.q4
+    prompt: "Que conseille-t-il avant d'appeler quelqu'un ?"
+    options:
+      - "Chercher un tutoriel, car le moteur de recherche connaît déjà le problème"
+      - "Débrancher l'imprimante définitivement"
+      - "Remplacer le haut-parleur"
+    answer: "Chercher un tutoriel, car le moteur de recherche connaît déjà le problème"
+    explain: "« Cherchez un tutoriel : votre moteur de recherche connaît déjà votre problème »"

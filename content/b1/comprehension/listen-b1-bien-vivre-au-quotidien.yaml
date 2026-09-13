@@ -1,0 +1,54 @@
+id: listen-b1-bien-vivre-au-quotidien
+level: b1
+skill: listening
+title: "Bien vivre au quotidien"
+time_limit_seconds: 150
+audio_ref: b1/audio/listen-b1-bien-vivre-au-quotidien.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Bien vivre, avec la docteure Fatima Haddad. Docteure, par quoi commencer ? Par la
+  sédentarité. Ce n'est pas le manque de sport qui nous fatigue, c'est de rester
+  assis huit heures. Un exercice court, tous les jours, vaut mieux qu'une heure le
+  samedi. Et l'alimentation ? Même logique : régulière plutôt que parfaite. Avec une
+  bonne hygiène de sommeil, c'est ce qui rend la vitalité. La prévention coûte
+  toujours moins cher que le traitement. Le surmenage, vous le voyez souvent ? De
+  plus en plus. Et il ne se soigne pas par des vacances : il se soigne en changeant
+  ce qui l'a produit. L'épanouissement n'est pas un luxe. Vous faites un lien avec
+  l'environnement ? Direct. Marcher, manger local, moins gaspiller : c'est bon pour
+  vous et pour la planète. Le climat, la biodiversité, la ressource en eau — cette
+  transition-là commence dans une cuisine. C'est cela, le développement durable.
+questions:
+  - id: listen-b1-bien-vivre-au-quotidien.q1
+    prompt: "Qu'est-ce qui nous fatigue, selon la docteure ?"
+    options:
+      - "Rester assis huit heures, plus que le manque de sport"
+      - "Faire une heure de sport le samedi"
+      - "Manger trop souvent"
+    answer: "Rester assis huit heures, plus que le manque de sport"
+    explain: "« Ce n'est pas le manque de sport qui nous fatigue, c'est de rester assis huit heures »."
+  - id: listen-b1-bien-vivre-au-quotidien.q2
+    prompt: "Comment décrit-elle une bonne alimentation ?"
+    options:
+      - "Régulière plutôt que parfaite"
+      - "Parfaite chaque jour"
+      - "Réservée aux sportifs"
+    answer: "Régulière plutôt que parfaite"
+    explain: "« Même logique : régulière plutôt que parfaite »."
+  - id: listen-b1-bien-vivre-au-quotidien.q3
+    prompt: "Comment se soigne le surmenage, d'après elle ?"
+    options:
+      - "En changeant ce qui l'a produit, pas par des vacances"
+      - "Par deux semaines de repos complet"
+      - "Par davantage d'exercice"
+    answer: "En changeant ce qui l'a produit, pas par des vacances"
+    explain: "« il ne se soigne pas par des vacances : il se soigne en changeant ce qui l'a produit »."
+  - id: listen-b1-bien-vivre-au-quotidien.q4
+    prompt: "Quel lien fait-elle avec l'environnement ?"
+    options:
+      - "Marcher, manger local et moins gaspiller est bon pour soi et pour la planète"
+      - "L'environnement ne concerne pas la santé"
+      - "Le développement durable commence dans les usines"
+    answer: "Marcher, manger local et moins gaspiller est bon pour soi et pour la planète"
+    explain: "« Marcher, manger local, moins gaspiller : c'est bon pour vous et pour la planète »."

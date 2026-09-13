@@ -103,10 +103,18 @@ plus the `script` that `gen_audio.py` speaks.
 coverage becomes a property of the text instead of something to chase
 afterwards. A ~200-word B2 passage carries a 20-word theme comfortably.
 
-Two traps the measurement will catch but the prose hides:
+**Guillemets in an `explain` are a promise.** `« … »` says the passage contains
+those words. Eight had quietly drifted into paraphrase — a dropped `, lui,`, a
+reworded clause — which teaches the learner to hunt for words the text does not
+contain. `check_explain_quotes_are_real` now compares them, allowing only what a
+quotation may legitimately change: an `…` between pieces, an `[insertion]`,
+typographic apostrophes, and the final punctuation.
 
-- **Plurals break multi-word headwords.** `des parts de marché` does not match
-  `part de marché`; write the singular somewhere.
+Three traps the measurement will catch but the prose hides:
+
+- **Plurals and conjugation break multi-word headwords.** `des parts de marché`
+  does not match `part de marché`, and `se disputent` does not match
+  `se disputer`; write the bare form somewhere.
 - **Opinion and reporting verbs** (*craindre, déplorer, admettre, envisager,
   se réjouir*) do not belong in a passage — they belong in the **question stem**,
   which is how TEF phrases them. A learner who cannot parse *"Que déplore

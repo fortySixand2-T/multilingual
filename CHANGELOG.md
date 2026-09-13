@@ -403,3 +403,13 @@
 - [2026-09-13] Created: content/b1/comprehension/read-b1-comprendre-son-dossier.yaml — B1 reading set on immigration files (covers the whole `immigration` theme)
 - [2026-09-13] Created: content/b1/comprehension/read-b1-mettre-de-l-ordre.yaml — B1 reading set on personal finances (covers `money` + `plans`)
 - [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['b1'] from 30 to 70
+- [2026-09-13] Created: content/b1/comprehension/listen-b1-info-transport.yaml — B1 listening set on traffic and transit (covers the whole `mobility` theme)
+- [2026-09-13] Created: content/b1/comprehension/listen-b1-mon-ordinateur-est-lent.yaml — B1 listening set on tech troubleshooting (covers the whole `technology` theme)
+- [2026-09-13] Created: content/b1/comprehension/listen-b1-ce-qui-fait-tenir-un-couple.yaml — B1 listening set on relationships (covers the whole `relationships` theme)
+- [2026-09-13] Created: content/b1/comprehension/listen-b1-vos-droits-au-travail.yaml — B1 listening set on workplace rights (completes `work`)
+- [2026-09-13] Created: content/b1/comprehension/listen-b1-bien-vivre-au-quotidien.yaml — B1 listening set on healthy living (completes `lifestyle` + `environment`)
+- [2026-09-13] Created: content/b1/comprehension/listen-b1-medias-a-l-ecole.yaml — B1 listening set on media literacy (completes `media`, `advice`, `education`, `future`)
+- [2026-09-13] Created: content/b1/audio/listen-b1-*.mp3 — TTS build artifacts for the 6 new listening scripts
+- [2026-09-13] Modified: scripts/check_content.py — added check_explain_quotes_are_real; raised MIN_COMPREHENSION_COVERAGE['b1'] to 90
+- [2026-09-13] Modified: content/b2/comprehension/*.yaml — corrected 7 explain fields that used guillemets but paraphrased the passage
+- [2026-09-13] Modified: .claude/skills/content-expansion/SKILL.md — documented the explain-quote promise and the conjugation trap

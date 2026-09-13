@@ -49,7 +49,7 @@ questions:
       - "La créativité des travailleurs"
       - "La disparition des algorithmes"
     answer: "L'absence de formation continue de qualité"
-    explain: "« Sans cet effort [de formation], la technologie risque d'accroître les inégalités »."
+    explain: "« Sans cet effort, la technologie risque d'accroître les inégalités »."
   - id: read-b2-ai-workplace.q4
     prompt: "Comment le texte oppose-t-il les entreprises entre elles ?"
     options:
@@ -65,4 +65,4 @@ questions:
       - "Elle est une menace certaine pour l'humanité"
       - "Elle est une promesse de progrès garantie"
     answer: "Son effet dépendra des choix humains, sociaux et politiques"
-    explain: "« elle est ce que nous déciderons d'en faire » ; « l'avenir… dépendra des choix politiques et sociaux »."
+    explain: "« l'avenir ne dépendra pas de la machine elle-même, mais des choix politiques et sociaux que nous ferons » ; « elle est ce que nous déciderons d'en faire »."

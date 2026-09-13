@@ -50,7 +50,7 @@ KNOWN_POS = {"noun", "verb", "adjective", "adverb", "numeral", "phrase", "interj
 # value rounded down to a multiple of 5, and `check_comprehension_covers_vocab`
 # refuses to let a level sit 5+ points above its floor -- so coverage ratchets
 # up and can never silently regress when the bank next grows.
-MIN_COMPREHENSION_COVERAGE = {"a1": 30, "a2": 25, "b1": 70, "b2": 90}
+MIN_COMPREHENSION_COVERAGE = {"a1": 30, "a2": 25, "b1": 90, "b2": 90}
 
 _ARTICLES = ("le ", "la ", "les ", "l'", "un ", "une ", "des ")
 
@@ -244,6 +244,32 @@ def comprehension_blob(level: str) -> str:
     return norm(" ".join(parts))
 
 
+def _canon_quote(s: str) -> str:
+    """Compare quoted text to passage text ignoring what a quote may legitimately
+    change: typographic apostrophes, an editorial [insertion], whitespace, and the
+    punctuation a quotation ends on."""
+    s = s.replace("\u2019", "'").replace("\u2018", "'")
+    s = re.sub(r"\[[^\]]*\]", "", s)
+    return re.sub(r"\s+", " ", norm(s)).strip().strip(" .,;:!?")
+
+
+def check_explain_quotes_are_real(level, bundle, report):
+    """Guillemets in an `explain` promise a quotation from the passage. Eight had
+    drifted into paraphrase -- a dropped « , lui, », a reworded clause -- which
+    teaches the learner to look for words the text does not contain. An ellipsis
+    (…) splits a quote into pieces that must each appear."""
+    for cset in load_sets(CONTENT_ROOT, level).values():
+        body = _canon_quote(cset.passage or cset.script or "")
+        for q in cset.questions:
+            for frag in re.findall(r"\u00ab\s*(.+?)\s*\u00bb", q.explain or ""):
+                for piece in (_canon_quote(x) for x in frag.split("\u2026")):
+                    if piece and piece not in body:
+                        report(
+                            f"{level}/{q.id}: explain quotes «{piece[:60]}» "
+                            "but the passage does not say that"
+                        )
+
+
 def check_comprehension_covers_vocab(level, bundle, report):
     """Vocabulary the comprehension library never uses is vocabulary the learner
     only ever recognises. b2 once had the largest bank and the thinnest library:
@@ -281,6 +307,7 @@ RULES = [
     check_speaking_covers_both_sections,
     check_path_covers_lessons,
     check_comprehension_covers_vocab,
+    check_explain_quotes_are_real,
 ]
 
 

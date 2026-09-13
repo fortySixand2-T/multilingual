@@ -1,0 +1,55 @@
+id: listen-b1-info-transport
+level: b1
+skill: listening
+title: "Info-transport du matin"
+time_limit_seconds: 150
+audio_ref: b1/audio/listen-b1-info-transport.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Info-transport, avec Julie Morin. Julie, que faut-il savoir ce matin ? D'abord, un
+  chantier sur l'autoroute : une déviation est en place jusqu'à vendredi.
+  Ralentissez : dépasser la limitation de vitesse y coûte cher, elle descend à cinquante. Et le transport en
+  commun ? La correspondance vers le centre-ville se fait maintenant par une navette
+  gratuite. Gardez quand même votre titre de transport, on le vérifie. Un conseil
+  pour les automobilistes ? Vérifiez vos pneus avant le premier gel, et relisez
+  votre assurance auto : beaucoup de conducteurs ignorent ce qu'elle couvre
+  vraiment. Le stationnement au centre reste cher ; l'autopartage revient souvent
+  moins cher qu'une voiture. Et le péage ? Inchangé. Pour ceux qui roulent en
+  électrique, une nouvelle borne de recharge s'ajoute cette semaine. Enfin, à trottinette
+  comme à vélo : le casque n'est pas obligatoire partout, mais l'hôpital, lui, ne
+  fait pas de différence.
+questions:
+  - id: listen-b1-info-transport.q1
+    prompt: "Que se passe-t-il sur l'autoroute ?"
+    options:
+      - "Un chantier, avec une déviation jusqu'à vendredi"
+      - "Une navette gratuite remplace les voitures"
+      - "Le péage a augmenté"
+    answer: "Un chantier, avec une déviation jusqu'à vendredi"
+    explain: "« un chantier sur l'autoroute : une déviation est en place jusqu'à vendredi »."
+  - id: listen-b1-info-transport.q2
+    prompt: "Que faut-il garder malgré la navette gratuite ?"
+    options:
+      - "Son titre de transport, car il est vérifié"
+      - "Son casque de vélo"
+      - "Son assurance auto"
+    answer: "Son titre de transport, car il est vérifié"
+    explain: "« Gardez quand même votre titre de transport, on le vérifie »."
+  - id: listen-b1-info-transport.q3
+    prompt: "Que dit Julie du stationnement au centre-ville ?"
+    options:
+      - "Il reste cher ; l'autopartage revient souvent moins cher qu'une voiture"
+      - "Il est devenu gratuit cette semaine"
+      - "Il est réservé aux voitures électriques"
+    answer: "Il reste cher ; l'autopartage revient souvent moins cher qu'une voiture"
+    explain: "« Le stationnement au centre reste cher ; l'autopartage revient souvent moins cher qu'une voiture »."
+  - id: listen-b1-info-transport.q4
+    prompt: "Que dit-elle à propos du casque ?"
+    options:
+      - "Il n'est pas obligatoire partout, mais l'hôpital ne fait pas de différence"
+      - "Il est désormais obligatoire à trottinette"
+      - "Il est fourni avec l'autopartage"
+    answer: "Il n'est pas obligatoire partout, mais l'hôpital ne fait pas de différence"
+    explain: "« le casque n'est pas obligatoire partout, mais l'hôpital, lui, ne fait pas de différence »."

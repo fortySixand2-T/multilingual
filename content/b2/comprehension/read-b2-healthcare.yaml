@@ -28,7 +28,7 @@ questions:
       - "La fermeture de toutes les pharmacies"
       - "La disparition complète des maladies"
     answer: "Des systèmes de santé sous pression : plus de malades, moins de soignants"
-    explain: "« le vieillissement… entraîne une hausse des maladies chroniques, tandis que le nombre de soignants ne suit pas »."
+    explain: "« le vieillissement… entraîne une hausse des maladies chroniques, tandis que le nombre de soignants, lui, ne suit pas »."
   - id: read-b2-healthcare.q2
     prompt: "Pourquoi la prévention est-elle présentée comme essentielle ?"
     options:
