@@ -365,3 +365,6 @@
 - [2026-09-12] Modified: app/config/ai_routing.yaml, ai_routing.ollama.yaml — speech_translate profile (cached)
 - [2026-09-12] Modified: web/src/api.ts, web/src/screens/Speaking.tsx — Subtitle component: "Show English" per examiner turn
 - [2026-09-12] Modified: tests/test_speech.py — canned subtitle is authored/free, generated subtitle translated once then cached, cross-user 404
+- [2026-09-12] Fixed: web/src/screens/Speaking.tsx — qa-820: "Show English" no longer renders for a turn with blank reply_text, and reveal() shows "Nothing to translate for this turn." instead of silently doing nothing when translate returns an empty reply_en
+- [2026-09-12] Modified: web/src/screens/Speaking.test.tsx — regression tests for qa-820 (no button on blank reply, no-content message on empty reply_en)
+- [2026-09-12] Modified: qa/issues/820-speaking-show-english-dead-button-empty-reply.md — status: done, added Fix notes

@@ -18,6 +18,7 @@ vi.mock("../api", () => ({
     speechLastSession: vi.fn(),
     speechVocabReview: vi.fn(),
     personalAddFromWord: vi.fn(),
+    speechTranslate: vi.fn(),
   },
   postSpeechOpener: vi.fn(),
   fetchAudioUrl: vi.fn().mockResolvedValue("blob:audio"),
@@ -165,5 +166,44 @@ describe("Speaking examiner opener (agent speaks first)", () => {
     await waitFor(() => expect(api.speakingTopics).toHaveBeenCalledWith("a2"));
     // Level change resets the session, so the examiner opens the new conversation.
     await waitFor(() => expect(postSpeechOpener).toHaveBeenCalledTimes(2));
+  });
+});
+
+// Regression test for qa-820: a turn with a blank examiner reply used to still
+// render a "Show English" button that silently did nothing when clicked
+// (backend returns {"reply_en": "", "cached": true}, HTTP 200 — not an error).
+describe("Speaking subtitle with a blank examiner reply (qa-820)", () => {
+  beforeEach(() => {
+    vi.mocked(api.speechStatus).mockResolvedValue({ available: true });
+  });
+
+  it("does not render Show English for a turn with no reply_text", async () => {
+    vi.mocked(api.speechHistory).mockResolvedValue({
+      turns: [
+        { turn_id: 2, mode: "conversation", transcript: "test transcript", reply_text: "", reply_audio_url: null },
+      ],
+    });
+    renderSpeaking();
+
+    expect(await screen.findByText("test transcript")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /show english/i })).not.toBeInTheDocument();
+  });
+
+  it("shows a no-content message instead of silently doing nothing when translate returns an empty reply_en", async () => {
+    vi.mocked(api.speechHistory).mockResolvedValue({
+      turns: [
+        { turn_id: 3, mode: "conversation", transcript: "Bonjour", reply_text: "...", reply_audio_url: null },
+      ],
+    });
+    vi.mocked(api.speechTranslate).mockResolvedValue({ reply_en: "", cached: true });
+    const { default: userEvent } = await import("@testing-library/user-event");
+    renderSpeaking();
+
+    const showBtn = await screen.findByRole("button", { name: /show english/i });
+    await userEvent.setup().click(showBtn);
+
+    expect(await screen.findByText(/nothing to translate for this turn/i)).toBeInTheDocument();
+    // The button must not silently re-render with zero feedback.
+    expect(screen.getByRole("button", { name: /show english/i })).toBeInTheDocument();
   });
 });
