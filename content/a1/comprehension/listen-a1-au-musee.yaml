@@ -1,0 +1,39 @@
+id: listen-a1-au-musee
+level: a1
+skill: listening
+title: "Au musée"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-a1-au-musee.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Tu veux voir l'exposition ? Oui ! Je voudrais voir les photos. Tu peux dire à
+  Marie de venir ? Elle va donner son billet à son frère. Tu connais ce peintre ?
+  Non. Je ne peux pas connaître tout le monde ! Je vais tenir ton sac. Tu veux
+  sentir ce parfum ? Je vais croire que tu aimes tout ici !
+questions:
+  - id: listen-a1-au-musee.q1
+    prompt: "Qu'est-ce que la personne voudrait voir ?"
+    options:
+      - "Les photos"
+      - "Le parfum"
+      - "Le billet"
+    answer: "Les photos"
+    explain: "« Je voudrais voir les photos. »"
+  - id: listen-a1-au-musee.q2
+    prompt: "À qui Marie va-t-elle donner son billet ?"
+    options:
+      - "À son frère"
+      - "Au peintre"
+      - "À personne"
+    answer: "À son frère"
+    explain: "« Elle va donner son billet à son frère. »"
+  - id: listen-a1-au-musee.q3
+    prompt: "Connaît-elle le peintre ?"
+    options:
+      - "Non, elle ne le connaît pas"
+      - "Oui, très bien"
+      - "C'est son frère"
+    answer: "Non, elle ne le connaît pas"
+    explain: "« Tu connais ce peintre ? Non. »"

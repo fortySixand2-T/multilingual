@@ -1,0 +1,39 @@
+id: listen-a1-ce-soir
+level: a1
+skill: listening
+title: "Qu'est-ce qu'on fait ce soir ?"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-a1-ce-soir.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Qu'est-ce que tu veux faire ce soir ? Je veux sortir. Et toi ? Je préfère rester
+  à la maison. Je dois finir mon travail. On peut marcher un peu après ? D'accord.
+  Je vais mettre mon manteau. Tu veux boire quelque chose avant ? Oui, je vais
+  avoir soif.
+questions:
+  - id: listen-a1-ce-soir.q1
+    prompt: "Que préfère la deuxième personne ?"
+    options:
+      - "Rester à la maison"
+      - "Sortir"
+      - "Marcher tout de suite"
+    answer: "Rester à la maison"
+    explain: "« Je préfère rester à la maison. »"
+  - id: listen-a1-ce-soir.q2
+    prompt: "Pourquoi ne veut-elle pas sortir maintenant ?"
+    options:
+      - "Elle doit finir son travail"
+      - "Elle a froid"
+      - "Elle n'a pas de manteau"
+    answer: "Elle doit finir son travail"
+    explain: "« Je dois finir mon travail. »"
+  - id: listen-a1-ce-soir.q3
+    prompt: "Que va-t-elle mettre ?"
+    options:
+      - "Son manteau"
+      - "Ses chaussures"
+      - "Son chapeau"
+    answer: "Son manteau"
+    explain: "« Je vais mettre mon manteau. »"

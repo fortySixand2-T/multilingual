@@ -1,0 +1,38 @@
+id: listen-a1-la-liste-des-courses
+level: a1
+skill: listening
+title: "La liste des courses"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-a1-la-liste-des-courses.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Qu'est-ce qu'on achète ? Du pain, du beurre et six œufs. Et pour la salade ? Une
+  tomate et un citron. Du sel et du poivre aussi. On prend un fruit ? Oui, une
+  banane pour les enfants.
+questions:
+  - id: listen-a1-la-liste-des-courses.q1
+    prompt: "Combien d'œufs achètent-ils ?"
+    options:
+      - "Six"
+      - "Deux"
+      - "Douze"
+    answer: "Six"
+    explain: "« Du pain, du beurre et six œufs. »"
+  - id: listen-a1-la-liste-des-courses.q2
+    prompt: "Qu'est-ce qu'ils prennent pour la salade ?"
+    options:
+      - "Une tomate et un citron"
+      - "Du pain et du beurre"
+      - "Une banane"
+    answer: "Une tomate et un citron"
+    explain: "« Une tomate et un citron. »"
+  - id: listen-a1-la-liste-des-courses.q3
+    prompt: "Pour qui est la banane ?"
+    options:
+      - "Pour les enfants"
+      - "Pour la salade"
+      - "Pour le voisin"
+    answer: "Pour les enfants"
+    explain: "« une banane pour les enfants »."

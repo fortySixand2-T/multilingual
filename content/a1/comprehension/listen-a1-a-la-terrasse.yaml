@@ -1,0 +1,39 @@
+id: listen-a1-a-la-terrasse
+level: a1
+skill: listening
+title: "À la terrasse"
+time_limit_seconds: 90
+audio_ref: a1/audio/listen-a1-a-la-terrasse.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.5
+script: |
+  Bonjour ! On peut s'asseoir à la terrasse ? Oui, bien sûr. Une tasse de café avec
+  du lait pour moi. Et pour moi, un chocolat chaud. Et pour le petit, une limonade.
+  Pas de bière aujourd'hui ? Non, merci. L'addition, s'il vous plaît. Voici le
+  pourboire.
+questions:
+  - id: listen-a1-a-la-terrasse.q1
+    prompt: "Où veulent-ils s'asseoir ?"
+    options:
+      - "À la terrasse"
+      - "Près de la porte"
+      - "Au comptoir"
+    answer: "À la terrasse"
+    explain: "« On peut s'asseoir à la terrasse ? »"
+  - id: listen-a1-a-la-terrasse.q2
+    prompt: "Qu'est-ce que le petit prend ?"
+    options:
+      - "Une limonade"
+      - "Un chocolat chaud"
+      - "Un café avec du lait"
+    answer: "Une limonade"
+    explain: "« Et pour le petit, une limonade. »"
+  - id: listen-a1-a-la-terrasse.q3
+    prompt: "Que laisse la personne à la fin ?"
+    options:
+      - "Le pourboire"
+      - "Une tasse"
+      - "Une bière"
+    answer: "Le pourboire"
+    explain: "« Voici le pourboire. »"

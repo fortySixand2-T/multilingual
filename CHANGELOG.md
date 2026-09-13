@@ -431,3 +431,13 @@
 - [2026-09-13] Created: content/a1/comprehension/read-a1-deux-appartements.yaml — A1 reading set comparing flats (`adjectives`)
 - [2026-09-13] Created: content/a1/comprehension/read-a1-le-demenagement.yaml — A1 reading set on moving day (completes `adjectives`)
 - [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['a1'] from 30 to 80
+- [2026-09-13] Created: content/a1/comprehension/listen-a1-a-la-terrasse.yaml — A1 listening set at a café terrace (`cafe` + `drink`)
+- [2026-09-13] Created: content/a1/comprehension/listen-a1-au-restaurant-ce-soir.yaml — A1 listening set at a restaurant (completes `restaurant`)
+- [2026-09-13] Created: content/a1/comprehension/listen-a1-la-liste-des-courses.yaml — A1 listening set on a shopping list (completes `food`)
+- [2026-09-13] Created: content/a1/comprehension/listen-a1-l-inscription.yaml — A1 listening set on course sign-up (completes `numbers` + `time`)
+- [2026-09-13] Created: content/a1/comprehension/listen-a1-bonjour-et-au-revoir.yaml — A1 listening set on greetings (completes `greeting` + `politeness`)
+- [2026-09-13] Created: content/a1/comprehension/listen-a1-au-magasin.yaml — A1 listening set at a shop (completes `shopping` + `directions`)
+- [2026-09-13] Created: content/a1/comprehension/listen-a1-ce-soir.yaml — A1 listening set on evening plans (`verbs` via modal + infinitive)
+- [2026-09-13] Created: content/a1/comprehension/listen-a1-au-musee.yaml — A1 listening set at a museum (completes `verbs`)
+- [2026-09-13] Created: content/a1/audio/listen-a1-*.mp3 — TTS build artifacts for the 8 new listening scripts
+- [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['a1'] from 80 to 95
