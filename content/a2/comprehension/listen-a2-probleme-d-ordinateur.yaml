@@ -1,0 +1,40 @@
+id: listen-a2-probleme-d-ordinateur
+level: a2
+skill: listening
+title: "Un problème d'ordinateur"
+time_limit_seconds: 110
+audio_ref: a2/audio/listen-a2-probleme-d-ordinateur.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Mon ordinateur ne marche plus. L'écran est noir. Le clavier répond ? Non, rien.
+  Et internet ? Le réseau est correct chez moi. Vous connaissez votre mot de passe
+  ? Oui, je l'ai écrit. Bon. Il faut télécharger une nouvelle application. Allez
+  sur le site web de l'entreprise. Je peux garder mon fichier ? Oui, il reste sur
+  l'ordinateur. Et après ? Après, tout va bien marcher.
+questions:
+  - id: listen-a2-probleme-d-ordinateur.q1
+    prompt: "Quel est le problème ?"
+    options:
+      - "L'écran est noir et le clavier ne répond pas"
+      - "Le réseau ne marche pas"
+      - "Le mot de passe est perdu"
+    answer: "L'écran est noir et le clavier ne répond pas"
+    explain: "« L'écran est noir. Le clavier répond ? Non, rien. »"
+  - id: listen-a2-probleme-d-ordinateur.q2
+    prompt: "Que faut-il faire ?"
+    options:
+      - "Télécharger une nouvelle application"
+      - "Changer le clavier"
+      - "Appeler l'entreprise"
+    answer: "Télécharger une nouvelle application"
+    explain: "« Il faut télécharger une nouvelle application. »"
+  - id: listen-a2-probleme-d-ordinateur.q3
+    prompt: "Que devient le fichier ?"
+    options:
+      - "Il reste sur l'ordinateur"
+      - "Il est perdu"
+      - "Il va sur le site web"
+    answer: "Il reste sur l'ordinateur"
+    explain: "« Oui, il reste sur l'ordinateur. »"

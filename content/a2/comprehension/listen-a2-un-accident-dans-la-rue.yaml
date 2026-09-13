@@ -1,0 +1,41 @@
+id: listen-a2-un-accident-dans-la-rue
+level: a2
+skill: listening
+title: "Un accident dans la rue"
+time_limit_seconds: 110
+audio_ref: a2/audio/listen-a2-un-accident-dans-la-rue.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Vite, appelez les secours ! Il y a un blessé. Une ambulance arrive dans cinq
+  minutes. Sa blessure au bras saigne. Je connais les premiers soins. Attention,
+  il y a du danger : je sens un incendie dans la voiture. Prenez l'extincteur !
+  L'alarme sonne déjà. Un témoin dit qu'un voleur est parti en courant. Il faut
+  prévenir la police et faire une plainte. Et la voiture ? Elle est en panne. Il
+  faut appeler un remorquage.
+questions:
+  - id: listen-a2-un-accident-dans-la-rue.q1
+    prompt: "Dans combien de temps arrive l'ambulance ?"
+    options:
+      - "Cinq minutes"
+      - "Dix minutes"
+      - "Une heure"
+    answer: "Cinq minutes"
+    explain: "« Une ambulance arrive dans cinq minutes. »"
+  - id: listen-a2-un-accident-dans-la-rue.q2
+    prompt: "Que dit le témoin ?"
+    options:
+      - "Qu'un voleur est parti en courant"
+      - "Qu'il n'y a pas de blessé"
+      - "Que l'alarme ne sonne pas"
+    answer: "Qu'un voleur est parti en courant"
+    explain: "« Un témoin dit qu'un voleur est parti en courant. »"
+  - id: listen-a2-un-accident-dans-la-rue.q3
+    prompt: "Que faut-il faire pour la voiture ?"
+    options:
+      - "Appeler un remorquage"
+      - "Prendre l'extincteur"
+      - "Faire une plainte"
+    answer: "Appeler un remorquage"
+    explain: "« Elle est en panne. Il faut appeler un remorquage. »"
