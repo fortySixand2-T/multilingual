@@ -1,0 +1,67 @@
+id: read-b2-school-dropout
+level: b2
+skill: reading
+title: "Le décrochage scolaire : à qui la faute ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Le décrochage scolaire n'est presque jamais un coup de tête. Il s'installe
+  lentement, derrière une assiduité qui s'effrite et des évaluations de plus en plus
+  mauvaises. Quand l'abandon devient officiel, la décision était prise depuis
+  longtemps.
+  On accuse volontiers le programme, jugé trop théorique. L'argument n'est pas faux :
+  sans vulgarisation, certaines matières restent inaccessibles. Mais il explique mal
+  pourquoi le phénomène frappe surtout les établissements où la mixité sociale est la
+  plus faible. L'exigence, à elle seule, ne décourage personne ; l'exigence sans
+  encadrement, si.
+  D'où l'intérêt porté à l'accompagnement. Le tutorat entre élèves, mieux financé
+  depuis quelques années, donne des résultats mesurables. L'alternance, elle,
+  réconcilie une partie des jeunes avec l'école en montrant à quoi mène un
+  savoir-faire concret. Encore faut-il que l'orientation ne serve pas à écarter
+  discrètement les élèves les plus fragiles.
+  Le débat de fond reste celui de la méritocratie. Faut-il viser l'excellence, quitte
+  à basculer dans l'élitisme ? Les défenseurs du système rappellent qu'un autodidacte
+  réussit parfois brillamment. Leurs adversaires répondent que l'insertion
+  professionnelle dépend aujourd'hui du diplôme bien plus que du talent. Le
+  financement suivra le camp qui remportera ce débat.
+questions:
+  - id: read-b2-school-dropout.q1
+    prompt: "Comment le décrochage scolaire s'installe-t-il ?"
+    options:
+      - "Lentement, derrière une assiduité qui s'effrite et de mauvaises évaluations"
+      - "Brutalement, à la suite d'un seul incident"
+      - "Uniquement après un changement d'établissement"
+    answer: "Lentement, derrière une assiduité qui s'effrite et de mauvaises évaluations"
+    explain: "« Il s'installe lentement, derrière une assiduité qui s'effrite et des évaluations de plus en plus mauvaises »."
+  - id: read-b2-school-dropout.q2
+    prompt: "Quelle nuance le texte apporte-t-il au sujet de l'exigence ?"
+    options:
+      - "C'est l'exigence sans encadrement, et non l'exigence seule, qui décourage"
+      - "Toute exigence élevée provoque l'abandon"
+      - "L'exigence n'a aucun effet sur les élèves"
+    answer: "C'est l'exigence sans encadrement, et non l'exigence seule, qui décourage"
+    explain: "« L'exigence, à elle seule, ne décourage personne ; l'exigence sans encadrement, si »."
+  - id: read-b2-school-dropout.q3
+    prompt: "Quel bénéfice le texte attribue-t-il à l'alternance ?"
+    options:
+      - "Elle montre aux jeunes à quoi mène un savoir-faire concret"
+      - "Elle supprime toute évaluation"
+      - "Elle remplace complètement le tutorat"
+    answer: "Elle montre aux jeunes à quoi mène un savoir-faire concret"
+    explain: "« en montrant à quoi mène un savoir-faire concret »."
+  - id: read-b2-school-dropout.q4
+    prompt: "Quel risque le texte associe-t-il à l'orientation ?"
+    options:
+      - "Qu'elle serve à écarter discrètement les élèves les plus fragiles"
+      - "Qu'elle coûte trop cher aux familles"
+      - "Qu'elle soit décidée par les élèves eux-mêmes"
+    answer: "Qu'elle serve à écarter discrètement les élèves les plus fragiles"
+    explain: "« Encore faut-il que l'orientation ne serve pas à écarter discrètement les élèves les plus fragiles »."
+  - id: read-b2-school-dropout.q5
+    prompt: "Que répondent les adversaires de la méritocratie ?"
+    options:
+      - "Que l'insertion professionnelle dépend du diplôme plus que du talent"
+      - "Qu'un autodidacte réussit toujours mieux"
+      - "Que l'excellence doit rester le seul objectif"
+    answer: "Que l'insertion professionnelle dépend du diplôme plus que du talent"
+    explain: "« l'insertion professionnelle dépend aujourd'hui du diplôme bien plus que du talent »."

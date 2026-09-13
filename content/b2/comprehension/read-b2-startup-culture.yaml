@@ -1,0 +1,68 @@
+id: read-b2-startup-culture
+level: b2
+skill: reading
+title: "La croissance à tout prix : le mirage des jeunes pousses"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Chaque semaine, une jeune pousse annonce une levée de fonds spectaculaire. Les
+  actionnaires applaudissent, la presse salue une stratégie audacieuse, et
+  l'entreprise promet de gagner rapidement une part de marché décisive. Pourtant, quelques
+  mois plus tard, la même société annonce parfois une restructuration. Comment
+  expliquer un tel retournement ?
+  Le premier piège tient à la confusion entre croissance et solidité. Une expansion
+  rapide gonfle le chiffre d'affaires, mais elle épuise la trésorerie : il faut
+  recruter, ouvrir des filiales, financer une chaîne d'approvisionnement de plus en
+  plus longue. Tant que la marge reste faible, chaque nouveau client coûte de
+  l'argent. Le passif s'alourdit pendant que les actifs réels, eux, progressent
+  lentement.
+  Le second piège est celui de la gouvernance. Une jeune entreprise qui double de
+  taille chaque année n'a souvent ni audit sérieux ni véritable conformité. La
+  sous-traitance permet d'aller vite, mais elle dilue la responsabilité. Lorsqu'un
+  investisseur exige enfin des comptes, les fragilités apparaissent d'un coup.
+  Faut-il pour autant condamner ce modèle ? Certains dirigeants rappellent qu'une
+  fusion ou une acquisition bien menée peut sauver une société prometteuse. D'autres
+  plaident pour un positionnement plus modeste : croître moins vite, mais
+  durablement. Entre les deux, une certitude demeure : la vitesse ne remplace jamais
+  la discipline.
+questions:
+  - id: read-b2-startup-culture.q1
+    prompt: "Quel paradoxe le texte décrit-il dès l'introduction ?"
+    options:
+      - "Des sociétés saluées pour leur levée de fonds annoncent ensuite une restructuration"
+      - "Les jeunes pousses refusent désormais tout investisseur"
+      - "La presse ignore complètement les jeunes entreprises"
+    answer: "Des sociétés saluées pour leur levée de fonds annoncent ensuite une restructuration"
+    explain: "« la même société annonce parfois une restructuration »."
+  - id: read-b2-startup-culture.q2
+    prompt: "Pourquoi une expansion rapide fragilise-t-elle l'entreprise ?"
+    options:
+      - "Elle épuise la trésorerie tant que la marge reste faible"
+      - "Elle fait automatiquement fuir les actionnaires"
+      - "Elle réduit mécaniquement les parts de marché"
+    answer: "Elle épuise la trésorerie tant que la marge reste faible"
+    explain: "« elle épuise la trésorerie… Tant que la marge reste faible, chaque nouveau client coûte de l'argent »."
+  - id: read-b2-startup-culture.q3
+    prompt: "Quel problème de gouvernance le texte souligne-t-il ?"
+    options:
+      - "Une croissance très rapide s'accompagne rarement d'un audit sérieux et d'une vraie conformité"
+      - "Les dirigeants sont remplacés chaque année"
+      - "La gouvernance est imposée par l'État"
+    answer: "Une croissance très rapide s'accompagne rarement d'un audit sérieux et d'une vraie conformité"
+    explain: "« n'a souvent ni audit sérieux ni véritable conformité »."
+  - id: read-b2-startup-culture.q4
+    prompt: "Que reproche l'auteur à la sous-traitance ?"
+    options:
+      - "Elle permet d'aller vite mais dilue la responsabilité"
+      - "Elle coûte toujours plus cher qu'un recrutement"
+      - "Elle est interdite aux jeunes entreprises"
+    answer: "Elle permet d'aller vite mais dilue la responsabilité"
+    explain: "« La sous-traitance permet d'aller vite, mais elle dilue la responsabilité »."
+  - id: read-b2-startup-culture.q5
+    prompt: "Sur quelle idée le texte se referme-t-il ?"
+    options:
+      - "La vitesse ne remplace jamais la discipline"
+      - "Toute fusion mène à l'échec"
+      - "Il faut renoncer à toute croissance"
+    answer: "La vitesse ne remplace jamais la discipline"
+    explain: "« la vitesse ne remplace jamais la discipline »."

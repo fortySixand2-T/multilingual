@@ -1,0 +1,67 @@
+id: read-b2-migration-welcome
+level: b2
+skill: reading
+title: "Accueillir : entre principes et réalités"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Aucun pays n'échappe aujourd'hui aux flux migratoires. Les raisons du départ
+  varient — l'exil forcé, l'expatriation choisie, la demande d'asile — mais le
+  déracinement, lui, se ressemble partout.
+  Les chiffres nourrissent le débat public. Certains réclament un quota strict,
+  d'autres une régularisation large de ceux qui vivent déjà dans la clandestinité.
+  Les premiers redoutent un exode incontrôlé ; les seconds rappellent qu'un apatride
+  privé de statut ne disparaît pas, il devient seulement invisible. Le rapatriement,
+  souvent présenté comme une solution simple, se heurte à la réalité des pays
+  d'origine.
+  Une fois l'accueil décidé, tout commence. La francisation conditionne l'accès à
+  l'emploi bien plus que les diplômes. La résidence permanente, elle, change le
+  rapport au temps : on cesse de vivre en sursis. Les communautés issues de la
+  diaspora jouent alors un rôle d'amortisseur que l'État sous-estime largement.
+  Reste le mot qui fâche. Faut-il viser l'assimilation ou se contenter d'une
+  acculturation progressive ? Les partisans de la cohabitation refusent ce choix et
+  parlent d'un chemin à deux sens. Tous s'accordent au moins sur un point : la
+  xénophobie prospère là où l'hospitalité n'est jamais organisée. Quant à la fuite
+  des cerveaux, elle rappelle que le pays de départ paie lui aussi le prix du
+  mouvement.
+questions:
+  - id: read-b2-migration-welcome.q1
+    prompt: "Qu'est-ce qui, selon le texte, se ressemble partout ?"
+    options:
+      - "Le déracinement, quelles que soient les raisons du départ"
+      - "La durée des démarches administratives"
+      - "Le nombre de demandes d'asile déposées"
+    answer: "Le déracinement, quelles que soient les raisons du départ"
+    explain: "« Les raisons du départ varient… mais le déracinement, lui, se ressemble partout »."
+  - id: read-b2-migration-welcome.q2
+    prompt: "Que répondent les partisans de la régularisation à ceux qui réclament un quota strict ?"
+    options:
+      - "Qu'un apatride privé de statut ne disparaît pas, il devient invisible"
+      - "Que l'exode est un phénomène imaginaire"
+      - "Que le rapatriement règle tous les cas"
+    answer: "Qu'un apatride privé de statut ne disparaît pas, il devient invisible"
+    explain: "« un apatride privé de statut ne disparaît pas, il devient seulement invisible »."
+  - id: read-b2-migration-welcome.q3
+    prompt: "Qu'est-ce qui conditionne le plus l'accès à l'emploi, d'après le texte ?"
+    options:
+      - "La francisation, bien plus que les diplômes"
+      - "La résidence permanente, à elle seule"
+      - "L'appartenance à une diaspora"
+    answer: "La francisation, bien plus que les diplômes"
+    explain: "« La francisation conditionne l'accès à l'emploi bien plus que les diplômes »."
+  - id: read-b2-migration-welcome.q4
+    prompt: "Que proposent les partisans de la cohabitation ?"
+    options:
+      - "De refuser le choix entre assimilation et acculturation, au profit d'un chemin à deux sens"
+      - "D'imposer une assimilation rapide"
+      - "De suspendre tout accueil pendant dix ans"
+    answer: "De refuser le choix entre assimilation et acculturation, au profit d'un chemin à deux sens"
+    explain: "« Les partisans de la cohabitation refusent ce choix et parlent d'un chemin à deux sens »."
+  - id: read-b2-migration-welcome.q5
+    prompt: "Que rappelle la fuite des cerveaux ?"
+    options:
+      - "Que le pays de départ paie lui aussi le prix du mouvement"
+      - "Que l'hospitalité coûte trop cher"
+      - "Que la xénophobie recule d'elle-même"
+    answer: "Que le pays de départ paie lui aussi le prix du mouvement"
+    explain: "« elle rappelle que le pays de départ paie lui aussi le prix du mouvement »."

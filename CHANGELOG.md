@@ -368,3 +368,14 @@
 - [2026-09-12] Fixed: web/src/screens/Speaking.tsx — qa-820: "Show English" no longer renders for a turn with blank reply_text, and reveal() shows "Nothing to translate for this turn." instead of silently doing nothing when translate returns an empty reply_en
 - [2026-09-12] Modified: web/src/screens/Speaking.test.tsx — regression tests for qa-820 (no button on blank reply, no-content message on empty reply_en)
 - [2026-09-12] Modified: qa/issues/820-speaking-show-english-dead-button-empty-reply.md — status: done, added Fix notes
+- [2026-09-12] Created: content/b2/comprehension/read-b2-startup-culture.yaml — B2 reading set on start-up growth (covers the whole `entreprise` theme)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-digital-divide.yaml — B2 reading set on the digital divide (covers the whole `technologie` theme)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-school-dropout.yaml — B2 reading set on school dropout (covers the whole `education` theme)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-migration-welcome.yaml — B2 reading set on migration policy (covers the whole `migration` theme)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-justice-reintegration.yaml — B2 reading set on punishment vs reintegration (covers the whole `justice` theme)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-mental-health.yaml — B2 reading set on mental-health vocabulary (covers the whole `psychologie` theme)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-collective-memory.yaml — B2 reading set on collective memory (covers the whole `histoire` theme)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-press-trust.yaml — B2 reading set on trust in the press (covers the whole `medias` theme)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-labour-shortage.yaml — B2 reading set on labour shortage (18 `travail` words)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-social-safety-net.yaml — B2 reading set on the social safety net (20 `societe` words)
+- [2026-09-12] Created: content/b2/comprehension/read-b2-connected-objects.yaml — B2 reading set on connected devices (completes the `sciences` theme)

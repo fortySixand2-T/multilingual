@@ -1,0 +1,67 @@
+id: read-b2-digital-divide
+level: b2
+skill: reading
+title: "La fracture numérique se creuse-t-elle ?"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  L'essor du numérique devait rapprocher les citoyens. Il a aussi creusé une
+  fracture numérique que l'on avait longtemps sous-estimée. Se connecter ne suffit
+  pas : encore faut-il comprendre ce que l'on fait de nos données.
+  Prenons l'exploitation des données. Chaque service gratuit vit de notre empreinte
+  numérique. L'anonymisation est présentée comme une garantie, mais elle reste
+  imparfaite ; seul un chiffrement solide protège réellement les échanges. Les
+  entreprises invoquent volontiers la transparence, rarement l'interopérabilité, qui
+  permettrait pourtant de changer de fournisseur sans tout perdre.
+  Vient ensuite la question des algorithmes. Un système d'apprentissage automatique
+  reproduit les biais des données qu'on lui donne. Son déploiement à grande échelle
+  transforme une erreur isolée en injustice systématique. La modération des contenus
+  pose le même problème : confiée à des machines, elle devient opaque.
+  D'autres inquiétudes sont plus matérielles. L'obsolescence programmée oblige à
+  racheter des appareils encore utilisables. L'infonuagique concentre nos fichiers
+  chez quelques acteurs étrangers, ce qui relance le débat sur la souveraineté
+  numérique. Face à cela, les défenseurs du logiciel libre rappellent qu'un brevet
+  protège son propriétaire, jamais l'utilisateur.
+  Reste l'hyperconnexion, cette impression de ne jamais pouvoir s'arrêter. Aucun
+  prototype, aucune loi ne la réglera seule : elle exige surtout de la vigilance.
+questions:
+  - id: read-b2-digital-divide.q1
+    prompt: "Pourquoi, selon le texte, se connecter ne suffit-il pas ?"
+    options:
+      - "Il faut aussi comprendre ce que l'on fait de nos données"
+      - "Le réseau est trop lent dans la plupart des régions"
+      - "Les appareils coûtent trop cher"
+    answer: "Il faut aussi comprendre ce que l'on fait de nos données"
+    explain: "« encore faut-il comprendre ce que l'on fait de nos données »."
+  - id: read-b2-digital-divide.q2
+    prompt: "Que dit le texte de l'anonymisation ?"
+    options:
+      - "Présentée comme une garantie, elle reste imparfaite"
+      - "Elle protège mieux que le chiffrement"
+      - "Elle est désormais obligatoire partout"
+    answer: "Présentée comme une garantie, elle reste imparfaite"
+    explain: "« L'anonymisation est présentée comme une garantie, mais elle reste imparfaite »."
+  - id: read-b2-digital-divide.q3
+    prompt: "Pourquoi le déploiement d'un apprentissage automatique est-il risqué ?"
+    options:
+      - "Il transforme les biais des données en injustice systématique"
+      - "Il ralentit fortement les services en ligne"
+      - "Il rend le chiffrement inutile"
+    answer: "Il transforme les biais des données en injustice systématique"
+    explain: "« reproduit les biais… Son déploiement à grande échelle transforme une erreur isolée en injustice systématique »."
+  - id: read-b2-digital-divide.q4
+    prompt: "Quel argument avancent les défenseurs du logiciel libre ?"
+    options:
+      - "Un brevet protège son propriétaire, jamais l'utilisateur"
+      - "L'infonuagique garantit la souveraineté numérique"
+      - "L'obsolescence programmée n'existe pas"
+    answer: "Un brevet protège son propriétaire, jamais l'utilisateur"
+    explain: "« un brevet protège son propriétaire, jamais l'utilisateur »."
+  - id: read-b2-digital-divide.q5
+    prompt: "Que conclut le texte à propos de l'hyperconnexion ?"
+    options:
+      - "Aucune loi ne la réglera seule : elle exige de la vigilance"
+      - "Un prototype récent l'a déjà résolue"
+      - "Elle disparaîtra avec la fin de la fracture numérique"
+    answer: "Aucune loi ne la réglera seule : elle exige de la vigilance"
+    explain: "« Aucun prototype, aucune loi ne la réglera seule : elle exige surtout de la vigilance »."
