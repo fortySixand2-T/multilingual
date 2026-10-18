@@ -1,0 +1,614 @@
+{
+  "meta": {
+    "date": "2026-10-17",
+    "purpose": "Baseline speaking-latency benchmark before migrating Whisper STT from CPU to GPU",
+    "box": "rohith@10.0.0.54",
+    "repo": "~/projects/multilingual",
+    "containers": [
+      "multilingual-app-1",
+      "multilingual-ollama-1"
+    ],
+    "public_url": "https://rohith-alienware-17-r4.tail592ffa.ts.net",
+    "test_account": "latency-bot (disposable, created via /auth/signup)"
+  },
+  "scenario_A_network_only": {
+    "note": "Network-only probes, no STT/LLM/TTS, re-measured at report-writing time (2026-10-18T06:02Z) since original A numbers were not persisted to a file. Earlier in the session (prior to compaction) the Funnel path showed much higher and more variable TLS handshake costs (~2-5s fresh conn, ~1.1-1.9s reused) and upload throughput proxy of ~64-92 KB/s; the re-measurement below reflects a quieter moment and should NOT be read as a config change, only as path variance.",
+    "ping_rtt_ms": {
+      "min": 15.072,
+      "avg": 17.37,
+      "max": 22.825,
+      "stddev": 2.793
+    },
+    "fresh_connection_curl_timing_s": [
+      {
+        "run": 1,
+        "dns": 0.004123,
+        "connect": 0.017954,
+        "tls": 0.165739,
+        "ttfb": 0.213355,
+        "total": 0.213508
+      },
+      {
+        "run": 2,
+        "dns": 0.003504,
+        "connect": 0.02082,
+        "tls": 0.115176,
+        "ttfb": 0.157937,
+        "total": 0.174995
+      },
+      {
+        "run": 3,
+        "dns": 0.004511,
+        "connect": 0.020966,
+        "tls": 0.140447,
+        "ttfb": 0.19821,
+        "total": 0.198634
+      }
+    ],
+    "reused_connection_curl_timing_s": [
+      {
+        "run": 1,
+        "connect": 0.016206,
+        "tls": 0.215434,
+        "ttfb": 0.270006,
+        "total": 0.276937
+      },
+      {
+        "run": 2,
+        "connect": 0.0,
+        "tls": 0.0,
+        "ttfb": 0.028338,
+        "total": 0.02842
+      },
+      {
+        "run": 3,
+        "connect": 0.0,
+        "tls": 0.0,
+        "ttfb": 0.045103,
+        "total": 0.045174
+      }
+    ],
+    "upload_throughput_proxy": {
+      "bytes": 259232,
+      "speed_Bps": 1068117,
+      "total_s": 0.2427,
+      "note": "POST of medium.wav fixture to /speech/turn without auth; measures raw transport, not app processing"
+    },
+    "caveat": "Mac's own Tailscale-adjacent connection to ingress-sfo-01.tailscale.com observed active via lsof despite `tailscale status` reporting stopped; may not reflect a fully clean home-network client path."
+  },
+  "scenario_B_full_turn_internet": {
+    "short": [
+      {
+        "run": 0,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 12.1022,
+        "reply_text_len": 116,
+        "audio_url": "/speech/audio/76",
+        "audio_first_fetch_s": 9.5334,
+        "audio_http": 200,
+        "audio_bytes": 289160,
+        "audio_cached_fetch_s": 2.8593,
+        "sum_text_plus_audio_s": 21.6356
+      },
+      {
+        "run": 1,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 8.1236,
+        "reply_text_len": 131,
+        "audio_url": "/speech/audio/77",
+        "audio_first_fetch_s": 8.3979,
+        "audio_http": 200,
+        "audio_bytes": 355324,
+        "audio_cached_fetch_s": 15.431,
+        "sum_text_plus_audio_s": 16.5215
+      },
+      {
+        "run": 2,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 19.8073,
+        "reply_text_len": 84,
+        "audio_url": "/speech/audio/78",
+        "audio_first_fetch_s": 20.5181,
+        "audio_http": 200,
+        "audio_bytes": 225160,
+        "audio_cached_fetch_s": 10.5874,
+        "sum_text_plus_audio_s": 40.3254
+      },
+      {
+        "run": 3,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 12.6695,
+        "reply_text_len": 84,
+        "audio_url": "/speech/audio/79",
+        "audio_first_fetch_s": 21.5246,
+        "audio_http": 200,
+        "audio_bytes": 232840,
+        "audio_cached_fetch_s": 8.3042,
+        "sum_text_plus_audio_s": 34.1941
+      },
+      {
+        "run": 4,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 12.3443,
+        "reply_text_len": 82,
+        "audio_url": "/speech/audio/80",
+        "audio_first_fetch_s": 26.2309,
+        "audio_http": 200,
+        "audio_bytes": 228232,
+        "audio_cached_fetch_s": 7.0918,
+        "sum_text_plus_audio_s": 38.5752
+      }
+    ],
+    "medium": [
+      {
+        "run": 0,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 4.8457,
+        "reply_text_len": 240,
+        "audio_url": "/speech/audio/81",
+        "audio_first_fetch_s": 1.6731,
+        "audio_http": 200,
+        "audio_bytes": 601084,
+        "audio_cached_fetch_s": 0.4018,
+        "sum_text_plus_audio_s": 6.5187
+      },
+      {
+        "run": 1,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 4.2194,
+        "reply_text_len": 200,
+        "audio_url": "/speech/audio/82",
+        "audio_first_fetch_s": 2.1065,
+        "audio_http": 200,
+        "audio_bytes": 477576,
+        "audio_cached_fetch_s": 0.6499,
+        "sum_text_plus_audio_s": 6.3259
+      },
+      {
+        "run": 2,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 4.1478,
+        "reply_text_len": 188,
+        "audio_url": "/speech/audio/83",
+        "audio_first_fetch_s": 5.4186,
+        "audio_http": 200,
+        "audio_bytes": 439804,
+        "audio_cached_fetch_s": 0.5559,
+        "sum_text_plus_audio_s": 9.5664
+      },
+      {
+        "run": 3,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 4.7117,
+        "reply_text_len": 230,
+        "audio_url": "/speech/audio/84",
+        "audio_first_fetch_s": 1.5121,
+        "audio_http": 200,
+        "audio_bytes": 556540,
+        "audio_cached_fetch_s": 0.3122,
+        "sum_text_plus_audio_s": 6.2238
+      },
+      {
+        "run": 4,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 3.7984,
+        "reply_text_len": 158,
+        "audio_url": "/speech/audio/85",
+        "audio_first_fetch_s": 3.1971,
+        "audio_http": 200,
+        "audio_bytes": 404988,
+        "audio_cached_fetch_s": 0.5477,
+        "sum_text_plus_audio_s": 6.9955
+      }
+    ],
+    "long": [
+      {
+        "run": 0,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 65.1912,
+        "reply_text_len": 332,
+        "audio_url": "/speech/audio/86",
+        "audio_first_fetch_s": 24.2334,
+        "audio_http": 200,
+        "audio_bytes": 743932,
+        "audio_cached_fetch_s": 22.5846,
+        "sum_text_plus_audio_s": 89.4246
+      },
+      {
+        "run": 1,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 33.6469,
+        "reply_text_len": 244,
+        "audio_url": "/speech/audio/87",
+        "audio_first_fetch_s": 22.1643,
+        "audio_http": 200,
+        "audio_bytes": 588284,
+        "audio_cached_fetch_s": 24.3885,
+        "sum_text_plus_audio_s": 55.8112
+      },
+      {
+        "run": 2,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 49.121,
+        "reply_text_len": 190,
+        "audio_url": "/speech/audio/88",
+        "audio_first_fetch_s": 17.4455,
+        "audio_http": 200,
+        "audio_bytes": 460796,
+        "audio_cached_fetch_s": 17.0459,
+        "sum_text_plus_audio_s": 66.5665
+      },
+      {
+        "run": 3,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 35.0263,
+        "reply_text_len": 277,
+        "audio_url": "/speech/audio/89",
+        "audio_first_fetch_s": 29.2767,
+        "audio_http": 200,
+        "audio_bytes": 649724,
+        "audio_cached_fetch_s": 21.0471,
+        "sum_text_plus_audio_s": 64.303
+      },
+      {
+        "run": 4,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 26.9972,
+        "reply_text_len": 164,
+        "audio_url": "/speech/audio/90",
+        "audio_first_fetch_s": 30.1599,
+        "audio_http": 200,
+        "audio_bytes": 404872,
+        "audio_cached_fetch_s": 10.6772,
+        "sum_text_plus_audio_s": 57.1571
+      }
+    ]
+  },
+  "scenario_C_full_turn_loopback": {
+    "short": [
+      {
+        "label": "short_loopback",
+        "run": 0,
+        "http": 200,
+        "turn_total_s": 3.9115,
+        "audio_url": "/speech/audio/92",
+        "audio_fetch_s": "1.1986"
+      },
+      {
+        "label": "short_loopback",
+        "run": 1,
+        "http": 200,
+        "turn_total_s": 3.9035,
+        "audio_url": "/speech/audio/93",
+        "audio_fetch_s": "0.8588"
+      },
+      {
+        "label": "short_loopback",
+        "run": 2,
+        "http": 200,
+        "turn_total_s": 3.9585,
+        "audio_url": "/speech/audio/94",
+        "audio_fetch_s": "0.7898"
+      },
+      {
+        "label": "short_loopback",
+        "run": 3,
+        "http": 200,
+        "turn_total_s": 4.1649,
+        "audio_url": "/speech/audio/95",
+        "audio_fetch_s": "1.2402"
+      },
+      {
+        "label": "short_loopback",
+        "run": 4,
+        "http": 200,
+        "turn_total_s": 7.0239,
+        "audio_url": "/speech/audio/96",
+        "audio_fetch_s": "1.1346"
+      }
+    ],
+    "long": [
+      {
+        "label": "long_loopback",
+        "run": 0,
+        "http": 200,
+        "turn_total_s": 5.8349,
+        "audio_url": "/speech/audio/97",
+        "audio_fetch_s": "1.0944"
+      },
+      {
+        "label": "long_loopback",
+        "run": 1,
+        "http": 200,
+        "turn_total_s": 5.224,
+        "audio_url": "/speech/audio/98",
+        "audio_fetch_s": "0.7372"
+      },
+      {
+        "label": "long_loopback",
+        "run": 2,
+        "http": 200,
+        "turn_total_s": 4.4108,
+        "audio_url": "",
+        "audio_fetch_s": ""
+      },
+      {
+        "label": "long_loopback",
+        "run": 3,
+        "http": 200,
+        "turn_total_s": 4.5504,
+        "audio_url": "/speech/audio/100",
+        "audio_fetch_s": "0.7679"
+      },
+      {
+        "label": "long_loopback",
+        "run": 4,
+        "http": 200,
+        "turn_total_s": 4.4942,
+        "audio_url": "/speech/audio/101",
+        "audio_fetch_s": "0.7974"
+      }
+    ],
+    "medium": "SKIPPED to conserve speaking-turn budget (cap ~40 turns for the whole run); short+long loopback already bracket the behavior"
+  },
+  "scenario_D_per_stage_compute": {
+    "stt": {
+      "short": {
+        "times_s": [
+          1.4723,
+          1.7351,
+          1.7612,
+          2.2124,
+          2.48
+        ],
+        "median_s": 1.7612,
+        "min_s": 1.4723,
+        "max_s": 2.48,
+        "transcript_sample": "Bonjour, je m'appelle Marie."
+      },
+      "medium": {
+        "times_s": [
+          1.6736,
+          1.6878,
+          1.6932,
+          1.6958,
+          2.3081
+        ],
+        "median_s": 1.6932,
+        "min_s": 1.6736,
+        "max_s": 2.3081,
+        "transcript_sample": "Je pense que les transports en commun sont importants pour r\u00e9duire la pollution dans les grandes villes."
+      },
+      "long": {
+        "times_s": [
+          3.4738,
+          3.7903,
+          3.9743,
+          3.9854,
+          4.2529
+        ],
+        "median_s": 3.9743,
+        "min_s": 3.4738,
+        "max_s": 4.2529,
+        "transcript_sample": "Pendant mes vacances dites, j'ai visite plusieurs r\u00e9gions de la France avec ma famille et nous  avons d\u00e9couvert des paysages magnifiques, go\u00fbts d'un cuisine local d\u00e9cieux, et rencontre  des gens tr\u00e8s "
+      }
+    },
+    "llm": [
+      {
+        "msg_idx": 0,
+        "rep": 0,
+        "ttft_s": 0.0924,
+        "total_s": 5.4032,
+        "eval_count": 91,
+        "tok_per_s": 16.99,
+        "reply_len": 334
+      },
+      {
+        "msg_idx": 0,
+        "rep": 1,
+        "ttft_s": 0.1867,
+        "total_s": 1.9732,
+        "eval_count": 34,
+        "tok_per_s": 18.86,
+        "reply_len": 135
+      },
+      {
+        "msg_idx": 0,
+        "rep": 2,
+        "ttft_s": 0.1026,
+        "total_s": 1.1242,
+        "eval_count": 25,
+        "tok_per_s": 23.56,
+        "reply_len": 91
+      },
+      {
+        "msg_idx": 1,
+        "rep": 0,
+        "ttft_s": 0.1442,
+        "total_s": 2.3615,
+        "eval_count": 54,
+        "tok_per_s": 24.09,
+        "reply_len": 234
+      },
+      {
+        "msg_idx": 1,
+        "rep": 1,
+        "ttft_s": 0.0752,
+        "total_s": 2.0857,
+        "eval_count": 49,
+        "tok_per_s": 23.92,
+        "reply_len": 223
+      },
+      {
+        "msg_idx": 1,
+        "rep": 2,
+        "ttft_s": 0.0782,
+        "total_s": 2.8659,
+        "eval_count": 67,
+        "tok_per_s": 23.71,
+        "reply_len": 285
+      }
+    ],
+    "tts": {
+      "short_reply": {
+        "times_s": [
+          0.4542,
+          0.5695,
+          0.585,
+          0.6016,
+          0.6298
+        ],
+        "median_s": 0.585,
+        "min_s": 0.4542,
+        "max_s": 0.6298,
+        "wav_bytes": 105748
+      },
+      "medium_reply": {
+        "times_s": [
+          0.8103,
+          0.8234,
+          0.942,
+          1.0205,
+          1.126
+        ],
+        "median_s": 0.942,
+        "min_s": 0.8103,
+        "max_s": 1.126,
+        "wav_bytes": 301844
+      }
+    }
+  },
+  "scenario_E_opener": {
+    "canned_no_topic": [
+      {
+        "run": 0,
+        "http": 200,
+        "total_s": 9.0305,
+        "topic": false,
+        "reply_text_len": 125
+      },
+      {
+        "run": 1,
+        "http": 200,
+        "total_s": 1.4235,
+        "topic": false,
+        "reply_text_len": 125
+      },
+      {
+        "run": 2,
+        "http": 200,
+        "total_s": 1.5239,
+        "topic": false,
+        "reply_text_len": 125
+      },
+      {
+        "run": 3,
+        "http": 200,
+        "total_s": 1.4298,
+        "topic": false,
+        "reply_text_len": 125
+      },
+      {
+        "run": 4,
+        "http": 200,
+        "total_s": 1.4726,
+        "topic": false,
+        "reply_text_len": 125
+      }
+    ],
+    "topic_framed": [
+      {
+        "run": 0,
+        "http": 200,
+        "total_s": 10.1142,
+        "topic": true,
+        "reply_text_len": 173
+      },
+      {
+        "run": 1,
+        "http": 200,
+        "total_s": 3.7565,
+        "topic": true,
+        "reply_text_len": 168
+      },
+      {
+        "run": 2,
+        "http": 200,
+        "total_s": 3.0246,
+        "topic": true,
+        "reply_text_len": 180
+      }
+    ]
+  },
+  "scenario_F_concurrency": {
+    "concurrency": 3,
+    "fixture": "short",
+    "wall_s": 6.832,
+    "runs": [
+      {
+        "run": 1,
+        "http": 200,
+        "total_s": 5.3639
+      },
+      {
+        "run": 2,
+        "http": 200,
+        "total_s": 6.7889
+      },
+      {
+        "run": 3,
+        "http": 200,
+        "total_s": 6.1187
+      }
+    ],
+    "solo_loopback_baseline_median_s": 3.96
+  },
+  "config_snapshot": {
+    "captured_at": "2026-10-18T06:02Z (re-verified identical to original capture earlier in session)",
+    "WHISPER_MODEL": "small",
+    "STT_BACKEND": "faster-whisper",
+    "WHISPER_DEVICE": "unset -> defaults to cpu (app/config/settings.py)",
+    "WHISPER_COMPUTE_TYPE": "unset -> defaults to int8",
+    "OLLAMA_MODEL": "qwen2.5:7b-instruct-q4_K_M",
+    "OLLAMA_KEEP_ALIVE": "-1 (resident)",
+    "piper_voice": "fr_FR-upmc-medium.onnx",
+    "nvidia_smi_gpu": {
+      "name": "NVIDIA GeForce GTX 1070",
+      "memory_total_MiB": 8192,
+      "memory_used_MiB": 5245,
+      "memory_free_MiB": 2861
+    },
+    "ollama_ps": [
+      {
+        "name": "qwen2.5:7b-instruct-q4_K_M",
+        "size_GB": 6.0,
+        "processor": "100% GPU",
+        "until": "Forever"
+      }
+    ],
+    "free_m": {
+      "mem_total_MiB": 31964,
+      "mem_used_MiB": 12321,
+      "mem_free_MiB": 4811,
+      "swap_used_MiB": 283
+    },
+    "app_container_gpu_passthrough": "NONE - docker inspect DeviceRequests == [] for multilingual-app-1; docker-compose.gpu.yml only grants GPU reservation to the `ollama` service",
+    "ctranslate2_cuda_device_count": 0,
+    "faster_whisper_adapter_fallback": "FasterWhisperAdapter falls back to cpu/int8 automatically if a non-cpu device init fails (app/ai/adapters/faster_whisper_adapter.py) - fail-safe, not fail-crash"
+  }
+}

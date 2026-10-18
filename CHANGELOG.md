@@ -483,3 +483,5 @@
 - [2026-10-17] Modified: docker-compose.gpu.yml — app container gets the GPU, WHISPER_DEVICE=cuda, WHISPER_COMPUTE_TYPE=int8 (Pascal-friendly)
 - [2026-10-17] Modified: docker-compose.yml, app/config/settings.py — comments for the GPU STT path
 - [2026-10-17] Modified: tests/test_speech_speed.py — CUDA fallback + stays-on-GPU tests
+- [2026-10-17] Created: bench/reports/speaking-latency-2026-10-17-baseline.md, bench/results/latency-2026-10-17-baseline.json — baseline speaking latency (Whisper on CPU) from the latency-tester agent
+- [2026-10-17] Created: bench/latency/fixtures/{short,medium,long}.wav — Piper-voiced learner utterances for latency runs
