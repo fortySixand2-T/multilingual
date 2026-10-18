@@ -485,3 +485,5 @@
 - [2026-10-17] Modified: tests/test_speech_speed.py — CUDA fallback + stays-on-GPU tests
 - [2026-10-17] Created: bench/reports/speaking-latency-2026-10-17-baseline.md, bench/results/latency-2026-10-17-baseline.json — baseline speaking latency (Whisper on CPU) from the latency-tester agent
 - [2026-10-17] Created: bench/latency/fixtures/{short,medium,long}.wav — Piper-voiced learner utterances for latency runs
+- [2026-10-18] Created: bench/results/latency-2026-10-18-gpu.json — raw speaking-latency samples + before/after summary with Whisper STT on the GTX 1070 (cuda int8)
+- [2026-10-18] Created: bench/reports/speaking-latency-2026-10-18-gpu.md — GPU-STT latency report: before/after vs the CPU baseline, waterfall, what's left (LLM)
