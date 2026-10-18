@@ -8,8 +8,11 @@ worker thread.
 from __future__ import annotations
 
 import io
+import logging
 
 from app.ai.interfaces import Transcript
+
+log = logging.getLogger(__name__)
 
 
 class FasterWhisperAdapter:
@@ -20,7 +23,28 @@ class FasterWhisperAdapter:
     ) -> None:
         from faster_whisper import WhisperModel  # lazy: heavy dep only when used
 
-        self._model = WhisperModel(model, device=device, compute_type=compute_type)
+        try:
+            self._model = WhisperModel(model, device=device, compute_type=compute_type)
+            # One silent decode at boot: loads the CUDA kernels (cuBLAS/cuDNN) now, so a
+            # missing library fails here and the first learner turn isn't the cold one.
+            self._warm_up()
+        except Exception as e:  # noqa: BLE001 — no GPU / CUDA libs: speaking must still work
+            if device == "cpu":
+                raise
+            log.warning("whisper on %s failed (%s); falling back to CPU int8", device, e)
+            device, compute_type = "cpu", "int8"
+            self._model = WhisperModel(model, device=device, compute_type=compute_type)
+        self.device = device
+        log.info("whisper %s on %s (%s)", model, device, compute_type)
+
+    def _warm_up(self) -> None:
+        import numpy as np
+
+        # vad_filter off, or the silence is stripped and nothing is actually decoded
+        segments, _ = self._model.transcribe(
+            np.zeros(16000, dtype=np.float32), language="fr", vad_filter=False
+        )
+        list(segments)
 
     def transcribe(self, *, audio: bytes, lang: str = "fr") -> Transcript:
         from app.ai.errors import TranscriptionError

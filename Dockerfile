@@ -49,6 +49,15 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 RUN uv sync --no-dev --frozen --no-install-project
 
+# Optional CUDA runtime for faster-whisper on a GPU box (docker-compose.gpu.yml sets
+# WHISPER_CUDA=1). ctranslate2 4.x needs cuBLAS 12 + cuDNN 9; the pip wheels ship them
+# (~1 GB), so the CPU-only image stays slim. The driver comes from the host.
+ARG WHISPER_CUDA=0
+RUN if [ "$WHISPER_CUDA" = "1" ]; then \
+      uv pip install --python /app/.venv/bin/python nvidia-cublas-cu12 "nvidia-cudnn-cu12==9.*"; \
+    fi
+ENV LD_LIBRARY_PATH=/app/.venv/lib/python3.12/site-packages/nvidia/cublas/lib:/app/.venv/lib/python3.12/site-packages/nvidia/cudnn/lib
+
 # Bake the faster-whisper 'small' model into HF_HOME so it's present at boot
 # (no runtime download). Doubles as a build-time smoke test of the CPU int8 stack.
 RUN /app/.venv/bin/python -c "from faster_whisper import WhisperModel; WhisperModel('small', device='cpu', compute_type='int8')"

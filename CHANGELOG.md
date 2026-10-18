@@ -478,3 +478,8 @@
 - [2026-10-17] Created: web/src/screens/Exam.test.tsx — grouping + DELF run-through unit tests
 - [2026-10-17] Modified: web/e2e/global-setup.ts, web/e2e/specs/exam.spec.ts — sync the tef folder; TEF + DELF end-to-end flows
 - [2026-10-17] Created: .claude/agents/latency-tester.md — subagent that measures listen → think → speak latency over the internet vs. box loopback and writes bench/reports/
+- [2026-10-17] Modified: app/ai/adapters/faster_whisper_adapter.py — boot warm-up decode (loads CUDA kernels / avoids a cold first turn); falls back to CPU int8 if the GPU can't start
+- [2026-10-17] Modified: Dockerfile — optional `WHISPER_CUDA=1` build arg installs cuBLAS 12 + cuDNN 9 wheels for ctranslate2; LD_LIBRARY_PATH points at them
+- [2026-10-17] Modified: docker-compose.gpu.yml — app container gets the GPU, WHISPER_DEVICE=cuda, WHISPER_COMPUTE_TYPE=int8 (Pascal-friendly)
+- [2026-10-17] Modified: docker-compose.yml, app/config/settings.py — comments for the GPU STT path
+- [2026-10-17] Modified: tests/test_speech_speed.py — CUDA fallback + stays-on-GPU tests

@@ -16,8 +16,8 @@ services:
       - OLLAMA_BASE_URL=http://ollama:11434
       - STORAGE_BACKEND=local
       - DATABASE_URL=sqlite+aiosqlite:///./data/tef.db
-      # Speech stack (self-host): STT on CPU int8 (GPU stays free for the resident
-      # LLM); TTS via the Piper binary + voice baked into the image.
+      # Speech stack (self-host): STT on CPU int8 here; docker-compose.gpu.yml moves
+      # it to the GPU next to the LLM. TTS via the Piper binary + voice in the image.
       - STT_BACKEND=faster-whisper
       - TTS_BACKEND=piper
       - WHISPER_MODEL=small
