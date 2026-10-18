@@ -15,7 +15,7 @@ import app.progress.models  # noqa: F401
 from app.api.auth import get_current_user
 from app.db.session import get_session
 from app.exam.api import EXAM_XP
-from app.exam.clb import aggregate_report, clb_from_fraction
+from app.exam.clb import aggregate_report, clb_from_fraction, delf_points, delf_report
 from app.exam.loader import ExamError, _check_references, load_blueprints
 from app.exam.models import ExamBlueprint, ExamSection
 from app.exam.sync import sync_blueprints
@@ -76,6 +76,22 @@ def test_aggregate_overall_is_floor_across_skills():
     assert rep2["overall"] == 7 and rep2["target_met"] is True
 
 
+def test_delf_points_round_to_half_points():
+    assert delf_points(1.0) == 25 and delf_points(0.0) == 0
+    assert delf_points(0.7) == 17.5
+    assert delf_points(0.63) == 16.0  # 15.75 -> nearest half point
+    assert delf_points(2.0) == 25  # clamped
+
+
+def test_delf_report_needs_50_and_5_per_section():
+    ok = delf_report({"listening": 12, "reading": 13, "writing": 12.5, "speaking": 12.5})
+    assert ok["total"] == 50 and ok["max"] == 100 and ok["passed"] is True
+    # 60/100 overall, but one épreuve under the 5/25 floor fails the diploma
+    floor = delf_report({"listening": 20, "reading": 20, "writing": 16, "speaking": 4})
+    assert floor["total"] == 60 and floor["passed"] is False
+    assert "estimate" in delf_report({"reading": 1})["note"].lower()
+
+
 # --- blueprint schema / loader ------------------------------------------------
 
 
@@ -88,7 +104,7 @@ def test_loads_example_blueprint():
 
 def test_section_requires_matching_refs():
     with pytest.raises(ValidationError):
-        ExamSection(skill="reading", time_limit_seconds=60)  # missing comprehension_set_id
+        ExamSection(skill="reading", time_limit_seconds=60)  # missing comprehension_set_ids
     with pytest.raises(ValidationError):
         ExamSection(skill="writing", time_limit_seconds=60)  # missing writing_task_ids
 
@@ -102,12 +118,52 @@ def _bp(section: ExamSection) -> dict[str, ExamBlueprint]:
 
 def test_loads_three_blueprints_per_level():
     for lvl, last in (("a1", "mock-3"), ("a2", "a2-mock-3")):
-        bps = load_blueprints(CONTENT_ROOT, lvl)
-        assert len(bps) == 3 and last in bps
+        bps = [b for b in load_blueprints(CONTENT_ROOT, lvl).values() if b.format == "tef"]
+        assert len(bps) == 3 and last in {b.id for b in bps}
+
+
+def test_delf_a1_mocks_follow_the_delf_structure():
+    delf = [b for b in load_blueprints(CONTENT_ROOT, "a1").values() if b.format == "delf"]
+    assert len(delf) == 3
+    for bp in delf:
+        assert [s.skill for s in bp.sections] == ["listening", "reading", "writing", "speaking"]
+        # 4 documents per comprehension test; 3-part speaking (interview, cards, role-play)
+        assert all(len(s.comprehension_set_ids) == 4 for s in bp.sections[:2])
+        assert len(bp.sections[3].speaking_prompts) == 3
+    # no document is reused across the three épreuves
+    ids = [i for bp in delf for s in bp.sections for i in s.comprehension_set_ids]
+    assert len(ids) == len(set(ids))
+
+
+def test_tef_mock_spans_levels():
+    bps = load_blueprints(CONTENT_ROOT, "tef")
+    reading = next(s for s in bps["tef-1"].sections if s.skill == "reading")
+    # one exam for everyone: the reading test climbs from A1 to B2 material
+    assert reading.comprehension_set_ids[0] == "read-sms"  # a1
+    assert reading.comprehension_set_ids[-1].startswith("read-b2-")
+
+
+def test_delf_mock_cannot_live_in_tef_folder(tmp_path):
+    (tmp_path / "tef" / "exam").mkdir(parents=True)
+    (tmp_path / "tef" / "exam" / "x.yaml").write_text(
+        "id: x\nlevel: tef\nformat: delf\ntitle: t\n"
+        "sections: [{skill: speaking, time_limit_seconds: 60, speaking_prompts: [p]}]\n"
+    )
+    with pytest.raises(ExamError, match="per level"):
+        load_blueprints(tmp_path, "tef")
+
+
+def test_tef_folder_resolves_refs_across_levels():
+    sec = ExamSection(
+        skill="reading",
+        time_limit_seconds=60,
+        comprehension_set_ids=["read-sms", "read-b2-democracy"],
+    )
+    _check_references(_bp(sec), CONTENT_ROOT, "tef")  # no error: both levels are in scope
 
 
 def test_dangling_comprehension_ref_fails():
-    sec = ExamSection(skill="reading", time_limit_seconds=60, comprehension_set_id="nope-xyz")
+    sec = ExamSection(skill="reading", time_limit_seconds=60, comprehension_set_ids=["nope-xyz"])
     with pytest.raises(ExamError, match="nope-xyz"):
         _check_references(_bp(sec), CONTENT_ROOT, "a1")
 
@@ -115,7 +171,7 @@ def test_dangling_comprehension_ref_fails():
 def test_comprehension_skill_mismatch_fails():
     # listen-greet-01 is a listening set; using it in a reading section must fail
     sec = ExamSection(
-        skill="reading", time_limit_seconds=60, comprehension_set_id="listen-greet-01"
+        skill="reading", time_limit_seconds=60, comprehension_set_ids=["listen-greet-01"]
     )
     with pytest.raises(ExamError, match="listening set"):
         _check_references(_bp(sec), CONTENT_ROOT, "a1")
@@ -139,7 +195,8 @@ def test_cross_level_writing_ref_fails():
 
 def test_full_mock_start_sections_finish_history():
     bps = client.get("/exam/blueprints", params={"level": "a1"}).json()["blueprints"]
-    assert bps[0]["id"] == "mock-1" and bps[0]["sections"] == 4
+    mock = next(b for b in bps if b["id"] == "mock-1")
+    assert mock["sections"] == 4 and mock["format"] == "tef"
 
     aid = client.post("/exam/start", json={"blueprint_id": "mock-1"}).json()["attempt_id"]
 
@@ -405,3 +462,25 @@ def test_get_attempt_includes_finished_at():
     hist = client.get("/exam/history").json()["attempts"]
     match = [a for a in hist if a["attempt_id"] == aid][0]
     assert match["finished_at"] == detail["finished_at"]
+
+
+def test_delf_mock_scores_out_of_25_and_stays_out_of_readiness():
+    with _acting_as(9003):
+        aid = client.post("/exam/start", json={"blueprint_id": "delf-a1-1"}).json()["attempt_id"]
+        r = client.post(
+            f"/exam/{aid}/section", json={"skill": "reading", "correct": 7, "total": 10}
+        )
+        assert r.json()["score"] == 17.5 and r.json()["clb"] is None
+        client.post(f"/exam/{aid}/section", json={"skill": "listening", "correct": 4, "total": 10})
+        # writing/speaking are graded on the DELF grid: a /25 score, not a CLB band
+        bad = client.post(f"/exam/{aid}/section", json={"skill": "writing", "clb_estimate": 7})
+        assert bad.status_code == 422
+        too_high = client.post(f"/exam/{aid}/section", json={"skill": "writing", "score": 26})
+        assert too_high.status_code == 422
+        client.post(f"/exam/{aid}/section", json={"skill": "writing", "score": 15.25})
+        client.post(f"/exam/{aid}/section", json={"skill": "speaking", "score": 4})
+        rep = client.post(f"/exam/{aid}/finish").json()["report"]
+        assert rep["format"] == "delf" and rep["per_skill"]["writing"] == 15.5
+        assert rep["total"] == 47 and rep["passed"] is False
+        # DELF points aren't CLB bands, so the TEF readiness card ignores the attempt
+        assert client.get("/exam/readiness").json()["attempts"] == 0

@@ -1,14 +1,14 @@
 id: mock-2
 level: a1
-title: "TEF Canada mock — A1 practice (2)"
+title: "Level practice — A1 (2)"
 # Second blueprint, composed of the newer everyday-life sets.
 sections:
   - skill: reading
     time_limit_seconds: 3600
-    comprehension_set_id: read-email-invite
+    comprehension_set_ids: [read-email-invite]
   - skill: listening
     time_limit_seconds: 2400
-    comprehension_set_id: listen-announcement
+    comprehension_set_ids: [listen-announcement]
   - skill: writing
     time_limit_seconds: 3600
     writing_task_ids: [write-a-email-resa, write-b-city-country]

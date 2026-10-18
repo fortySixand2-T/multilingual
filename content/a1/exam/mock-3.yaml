@@ -1,14 +1,14 @@
 id: mock-3
 level: a1
-title: "TEF Canada mock — A1 practice (3)"
+title: "Level practice — A1 (3)"
 # Third blueprint — everyday errands & seasons, exercising the newer writing tasks.
 sections:
   - skill: reading
     time_limit_seconds: 3600
-    comprehension_set_id: read-schedule
+    comprehension_set_ids: [read-schedule]
   - skill: listening
     time_limit_seconds: 2400
-    comprehension_set_id: listen-shopping
+    comprehension_set_ids: [listen-shopping]
   - skill: writing
     time_limit_seconds: 3600
     writing_task_ids: [write-a-shopping, write-b-seasons]

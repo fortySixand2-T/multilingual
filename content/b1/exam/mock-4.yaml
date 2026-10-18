@@ -1,14 +1,14 @@
 id: b1-mock-4
 level: b1
-title: "TEF Canada mock — B1 practice (éducation & logement)"
+title: "Level practice — B1 (éducation & logement)"
 # Timing approximates the real exam structure (scaled for practice).
 sections:
   - skill: reading
     time_limit_seconds: 3600
-    comprehension_set_id: read-b1-university-enrolment
+    comprehension_set_ids: [read-b1-university-enrolment]
   - skill: listening
     time_limit_seconds: 2400
-    comprehension_set_id: listen-b1-landlord-message
+    comprehension_set_ids: [listen-b1-landlord-message]
   - skill: writing
     time_limit_seconds: 3600
     writing_task_ids: [write-b1-rental-issue, write-b1-education]

@@ -1,0 +1,31 @@
+id: tef-1
+level: tef
+format: tef
+title: "TEF Canada — examen blanc 1"
+# The real TEF Canada is one exam for everyone: each comprehension test climbs from
+# A1 to B2+ difficulty and the result is a CLB band per skill. Timings and volumes
+# follow the official format — CO 40 min (~40 questions), CE 60 min (~40 questions),
+# EE 60 min (section A ~80 words + section B ~200 words), EO 15 min (A 5 min + B 10 min).
+sections:
+  - skill: listening
+    time_limit_seconds: 2400
+    comprehension_set_ids:
+      [listen-intro, listen-announcement,
+       listen-a2-a-la-gare, listen-a2-radio-ad, listen-a2-doctor,
+       listen-b1-info-transport, listen-b1-consumer-podcast, listen-b1-citizenship-info,
+       listen-b2-economy-brief, listen-b2-media-interview, listen-b2-health-access]
+  - skill: reading
+    time_limit_seconds: 3600
+    comprehension_set_ids:
+      [read-sms, read-schedule,
+       read-a2-email-hotel, read-a2-jobad, read-a2-forum,
+       read-b1-community-library, read-b1-city-or-country, read-b1-gig-economy,
+       read-b2-ai-workplace, read-b2-democracy, read-b2-healthcare]
+  - skill: writing
+    time_limit_seconds: 3600
+    writing_task_ids: [write-b1-rental-issue, write-b1-immigration]
+  - skill: speaking
+    time_limit_seconds: 900
+    speaking_prompts:
+      - "Section A (5 min) — obtenir des informations : vous voyez une annonce pour un cours de cuisine du soir dans votre quartier. Vous appelez pour vous renseigner. Posez une dizaine de questions (horaires, prix, niveau, matériel, inscription…)."
+      - "Section B (10 min) — convaincre : un ami hésite à s'installer au Canada pour son travail. Présentez-lui les avantages et répondez à ses objections pour le convaincre de venir."

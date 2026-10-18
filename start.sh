@@ -10,7 +10,8 @@ case "$cmd" in
                  uv run python -m app.assessment.sync "$lvl"
                  uv run python -m app.speech.topics "$lvl"
                  uv run python -m app.exam.sync "$lvl"
-               done ;;
+               done
+               uv run python -m app.exam.sync tef ;;  # cross-level TEF mock
   test)        uv run pytest -q ;;
   lint)        uv run ruff check . ;;
   fmt)         uv run ruff format . ;;

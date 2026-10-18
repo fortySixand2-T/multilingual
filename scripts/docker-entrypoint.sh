@@ -18,6 +18,8 @@ for lvl in "${LEVELS[@]}"; do
   "$VENV/python" -m app.speech.topics "$lvl"
   "$VENV/python" -m app.exam.sync "$lvl"
 done
+# The TEF Canada mock spans every level, so it syncs once, after them.
+"$VENV/python" -m app.exam.sync tef
 
 echo "[entrypoint] starting uvicorn on :9000"
 exec "$VENV/uvicorn" app.main:app --host 0.0.0.0 --port 9000
