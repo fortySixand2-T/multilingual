@@ -464,3 +464,17 @@
 - [2026-09-13] Created: content/a2/comprehension/listen-a2-probleme-d-ordinateur.yaml — A2 listening set on a computer problem (covers the whole `tech` theme)
 - [2026-09-13] Created: content/a2/audio/listen-a2-*.mp3 — TTS build artifacts for the 6 new listening scripts
 - [2026-09-13] Modified: scripts/check_content.py — raised MIN_COMPREHENSION_COVERAGE['a2'] from 80 to 100
+- [2026-10-17] Modified: app/exam/models.py — blueprint `format: tef|delf`; sections take `comprehension_set_ids` (several documents per test)
+- [2026-10-17] Modified: app/exam/loader.py — `content/tef/exam` holds the cross-level TEF Canada mock (refs resolve across all levels); DELF mocks rejected there
+- [2026-10-17] Modified: app/exam/clb.py — DELF scoring: points /25 per section (half-point, halves up), pass = 50/100 and ≥ 5/25 each
+- [2026-10-17] Modified: app/exam/api.py — DELF sections record a /25 score, finish builds a DELF report, readiness counts TEF/CLB mocks only, blueprint list exposes `format`
+- [2026-10-17] Modified: scripts/docker-entrypoint.sh, start.sh — also sync the `tef` exam folder
+- [2026-10-17] Created: content/tef/exam/tef-1.yaml — TEF Canada mock: CO 40 min / CE 60 min climbing A1→B2, EE A+B 60 min, EO A+B 15 min
+- [2026-10-17] Created: content/a1/exam/delf-1.yaml, delf-2.yaml, delf-3.yaml — DELF A1 mocks: 4 épreuves /25, 4 documents each, 3-part oral (entretien, échange, dialogue simulé)
+- [2026-10-17] Modified: content/{a1,a2,b1,b2}/exam/mock-*.yaml — `comprehension_set_ids` list; retitled "Level practice" (not a real TEF, which spans levels)
+- [2026-10-17] Modified: tests/test_exam.py, tests/test_all_levels.py — multi-document sections, DELF scoring/API, TEF folder, readiness excludes DELF
+- [2026-10-17] Modified: web/src/api.ts — exam `format`, `comprehension_set_ids`, DELF report + /25 section score types
+- [2026-10-17] Modified: web/src/screens/Exam.tsx — groups TEF Canada / DELF <level> / Level practice; link per document, speaking tasks shown, /25 inputs and pass/fail report for DELF
+- [2026-10-17] Created: web/src/screens/Exam.test.tsx — grouping + DELF run-through unit tests
+- [2026-10-17] Modified: web/e2e/global-setup.ts, web/e2e/specs/exam.spec.ts — sync the tef folder; TEF + DELF end-to-end flows
+- [2026-10-17] Created: .claude/agents/latency-tester.md — subagent that measures listen → think → speak latency over the internet vs. box loopback and writes bench/reports/
