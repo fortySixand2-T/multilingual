@@ -1,0 +1,23 @@
+id: delf-a1-1
+level: a1
+format: delf
+title: "DELF A1 — épreuve 1 (messages & annonces)"
+# DELF A1 structure: 4 sections /25 each, 50/100 to pass and at least 5/25 per section.
+# Collective tests 1 h 20 (listening ~20 min, reading 30, writing 30); speaking is
+# 10 min preparation + 5–7 min with the examiner.
+sections:
+  - skill: listening
+    time_limit_seconds: 1200
+    comprehension_set_ids: [listen-phone-msg, listen-announcement, listen-time, listen-a1-au-restaurant-ce-soir]
+  - skill: reading
+    time_limit_seconds: 1800
+    comprehension_set_ids: [read-ad-apartment, read-notice-library, read-jobad, read-email-invite]
+  - skill: writing
+    time_limit_seconds: 1800
+    writing_task_ids: [write-a-invite]
+  - skill: speaking
+    time_limit_seconds: 1020
+    speaking_prompts:
+      - "Entretien dirigé (1 min) : l'examinateur vous pose des questions sur vous — votre nom, votre nationalité, votre famille, votre travail, vos loisirs. Répondez simplement."
+      - "Échange d'informations (2 min) : vous voulez connaître l'examinateur. Posez-lui des questions avec ces mots : Prénom ? · Travail ? · Famille ? · Adresse ? · Sport ? · Week-end ?"
+      - "Dialogue simulé (2 min) — À la boulangerie. Vous achetez le petit-déjeuner pour votre famille. L'examinateur est le vendeur. Prix : baguette 1,20 € · croissant 1,10 € · pain au chocolat 1,30 € · jus d'orange 2,50 €. Demandez les prix, dites la quantité, puis payez. N'oubliez pas de saluer et d'être poli."

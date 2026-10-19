@@ -1,14 +1,14 @@
 id: mock-1
 level: a1
-title: "TEF Canada mock — A1 practice"
+title: "Level practice — A1"
 # Timing approximates the real exam structure (scaled for practice).
 sections:
   - skill: reading
     time_limit_seconds: 3600
-    comprehension_set_id: read-cafe-01
+    comprehension_set_ids: [read-cafe-01]
   - skill: listening
     time_limit_seconds: 2400
-    comprehension_set_id: listen-greet-01
+    comprehension_set_ids: [listen-greet-01]
   - skill: writing
     time_limit_seconds: 3600
     writing_task_ids: [write-a-invite, write-b-opinion]

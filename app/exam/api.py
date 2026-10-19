@@ -1,9 +1,10 @@
 """Exam simulation API: start a timed mock, record each section's outcome, finish
-with an aggregate per-skill CLB report, and review history.
+with an aggregate report, and review history.
 
 Composition only — section outcomes (comprehension correct/total, writing/speaking
-CLB) are produced by the existing modules and reported here; the exam computes the
-CLB profile. The report is an estimate, never an official score.
+CLB or DELF points) are produced by the existing modules and reported here; the exam
+computes the report: a per-skill CLB profile for TEF mocks, a /100 pass/fail for
+DELF mocks. The report is an estimate, never an official score.
 """
 
 from __future__ import annotations
@@ -18,7 +19,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
 from app.db.session import get_session
-from app.exam.clb import aggregate_report, clb_from_fraction
+from app.exam.clb import (
+    DELF_SECTION_MAX,
+    aggregate_report,
+    clb_from_fraction,
+    delf_points,
+    delf_report,
+    half_point,
+)
 from app.exam.models import Skill
 from app.exam.tables import ExamAttempt, ExamBlueprintRow
 from app.progress.models import UserProgress
@@ -38,7 +46,8 @@ class SectionResultBody(BaseModel):
     skill: Skill
     correct: int | None = None  # reading / listening
     total: int | None = None
-    clb_estimate: int | None = None  # writing / speaking
+    clb_estimate: int | None = None  # writing / speaking (TEF)
+    score: float | None = None  # writing / speaking (DELF), points /25
 
 
 async def _owned_attempt(session: AsyncSession, attempt_id: int, user_id: int) -> ExamAttempt:
@@ -67,7 +76,12 @@ async def list_blueprints(
     )
     return {
         "blueprints": [
-            {"id": r.id, "title": r.data["title"], "sections": len(r.data["sections"])}
+            {
+                "id": r.id,
+                "title": r.data["title"],
+                "format": r.data.get("format", "tef"),
+                "sections": len(r.data["sections"]),
+            }
             for r in rows
         ]
     }
@@ -150,6 +164,7 @@ async def record_section(
     attempt = await _owned_attempt(session, attempt_id, user.id)
     if attempt.status != "in_progress":
         raise HTTPException(status.HTTP_409_CONFLICT, "attempt already finished")
+    delf = _is_delf(await _blueprint_data(session, attempt.blueprint_id))
 
     if body.skill in ("reading", "listening"):
         if body.correct is None or not body.total:
@@ -158,13 +173,23 @@ async def record_section(
             raise HTTPException(
                 status.HTTP_422_UNPROCESSABLE_ENTITY, "need 0 <= correct <= total and total > 0"
             )
-        clb = clb_from_fraction(body.correct / body.total)
         detail = {"correct": body.correct, "total": body.total}
+        fraction = body.correct / body.total
+        result = {"score": delf_points(fraction)} if delf else {"clb": clb_from_fraction(fraction)}
+    elif delf:
+        if body.score is None:
+            raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "need score")
+        if not 0 <= body.score <= DELF_SECTION_MAX:
+            raise HTTPException(
+                status.HTTP_422_UNPROCESSABLE_ENTITY, f"need 0 <= score <= {DELF_SECTION_MAX}"
+            )
+        result = {"score": half_point(body.score)}
+        detail = {"score": result["score"]}
     else:
         if body.clb_estimate is None:
             raise HTTPException(status.HTTP_422_UNPROCESSABLE_ENTITY, "need clb_estimate")
-        clb = max(1, min(12, body.clb_estimate))
-        detail = {"clb_estimate": clb}
+        result = {"clb": max(1, min(12, body.clb_estimate))}
+        detail = {"clb_estimate": result["clb"]}
 
     # Patch just this skill's key with an atomic json_set instead of overwriting the whole
     # JSON blob — a read-modify-write here loses concurrent sections for *other* skills
@@ -176,18 +201,27 @@ async def record_section(
             sections=func.json_set(
                 ExamAttempt.sections,
                 f"$.{body.skill}",
-                func.json(json.dumps({"clb": clb, "detail": detail})),
+                func.json(json.dumps({**result, "detail": detail})),
             )
         )
     )
     await session.commit()
     await session.refresh(attempt)
-    return {"skill": body.skill, "clb": clb, "recorded": sorted(attempt.sections)}
+    return {
+        "skill": body.skill,
+        "clb": result.get("clb"),
+        "score": result.get("score"),
+        "recorded": sorted(attempt.sections),
+    }
 
 
-async def _required_skills(session: AsyncSession, blueprint_id: str) -> list[str]:
+async def _blueprint_data(session: AsyncSession, blueprint_id: str) -> dict:
     bp = await session.get(ExamBlueprintRow, blueprint_id)
-    return [s["skill"] for s in (bp.data["sections"] if bp else [])]
+    return bp.data if bp else {"sections": []}
+
+
+def _is_delf(bp_data: dict) -> bool:
+    return bp_data.get("format") == "delf"
 
 
 @router.post("/{attempt_id}/finish")
@@ -206,7 +240,8 @@ async def finish(
             "streak": prog.streak if prog else 0,
         }
 
-    required = await _required_skills(session, attempt.blueprint_id)
+    bp_data = await _blueprint_data(session, attempt.blueprint_id)
+    required = [s["skill"] for s in bp_data["sections"]]
     missing = [s for s in required if s not in attempt.sections]
     if missing:
         # No score until the test is complete.
@@ -215,8 +250,10 @@ async def finish(
             f"finish all sections first — missing: {', '.join(missing)}",
         )
 
-    per_skill = {skill: data["clb"] for skill, data in attempt.sections.items()}
-    report = aggregate_report(per_skill)
+    if _is_delf(bp_data):
+        report = delf_report({skill: d["score"] for skill, d in attempt.sections.items()})
+    else:
+        report = aggregate_report({skill: d["clb"] for skill, d in attempt.sections.items()})
     now = datetime.now(UTC).replace(tzinfo=None)
 
     # Atomic status transition: only the first concurrent request that flips
@@ -306,6 +343,8 @@ async def readiness(
     )
 
     series: dict[str, list[int]] = {}
+    # DELF points aren't CLB bands — readiness tracks the TEF/CLB mocks only.
+    rows = [a for a in rows if (a.clb_report or {}).get("format") != "delf"]
     for attempt in rows:
         per_skill = (attempt.clb_report or {}).get("per_skill") or {}
         for skill, clb in per_skill.items():

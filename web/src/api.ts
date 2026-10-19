@@ -332,30 +332,50 @@ export type WritingGrade = {
 export type ExamSection = {
   skill: "reading" | "listening" | "writing" | "speaking";
   time_limit_seconds: number;
-  comprehension_set_id?: string | null;
+  comprehension_set_ids?: string[];
   writing_task_ids?: string[];
   speaking_prompts?: string[];
 };
-export type ExamBlueprint = { id: string; level: string; title: string; sections: ExamSection[] };
-export type ExamBlueprintSummary = { id: string; title: string; sections: number };
+// "tef": one cross-level TEF Canada exam scored in CLB bands; "delf": a per-level
+// DELF diploma mock scored /25 per section.
+export type ExamFormat = "tef" | "delf";
+export type ExamBlueprint = {
+  id: string;
+  level: string;
+  title: string;
+  format?: ExamFormat;
+  sections: ExamSection[];
+};
+export type ExamBlueprintSummary = { id: string; title: string; sections: number; format?: ExamFormat };
 export type ClbReport = {
+  format?: "tef";
   per_skill: Record<string, number>;
   overall: number | null;
   target_met: boolean;
   note: string;
 };
+export type DelfReport = {
+  format: "delf";
+  per_skill: Record<string, number>;
+  total: number;
+  max: number;
+  passed: boolean;
+  note: string;
+};
+export type ExamReport = ClbReport | DelfReport;
 export type ExamSectionResult = {
   skill: ExamSection["skill"];
   correct?: number;
   total?: number;
   clb_estimate?: number;
+  score?: number; // DELF writing/speaking, points /25
 };
 export type ExamAttemptSummary = {
   attempt_id: number;
   blueprint_id: string;
   level: string;
   status: string;
-  clb_report: ClbReport | null;
+  clb_report: ExamReport | null;
   started_at: string;
   finished_at: string | null;
 };
@@ -583,15 +603,15 @@ export const api = {
       status: string;
       recorded: string[];
       remaining: string[];
-      clb_report: ClbReport | null;
+      clb_report: ExamReport | null;
     }>(`/exam/attempts/${attemptId}`),
   examSection: (attemptId: number, body: ExamSectionResult) =>
-    req<{ skill: string; clb: number; recorded: string[] }>(`/exam/${attemptId}/section`, {
+    req<{ skill: string; clb: number | null; score: number | null; recorded: string[] }>(`/exam/${attemptId}/section`, {
       method: "POST",
       body: JSON.stringify(body),
     }),
   examFinish: (attemptId: number) =>
-    req<{ attempt_id: number; report: ClbReport; xp: number; streak: number }>(
+    req<{ attempt_id: number; report: ExamReport; xp: number; streak: number }>(
       `/exam/${attemptId}/finish`,
       { method: "POST" },
     ),

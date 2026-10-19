@@ -52,4 +52,6 @@ export default function globalSetup() {
       run(`${PYTHON} -m ${m} ${level}`);
     }
   }
+  // The TEF Canada mock is one cross-level exam, synced on its own (like start.sh).
+  run(`${PYTHON} -m app.exam.sync tef`);
 }

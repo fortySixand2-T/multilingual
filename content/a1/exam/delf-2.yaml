@@ -1,0 +1,23 @@
+id: delf-a1-2
+level: a1
+format: delf
+title: "DELF A1 — épreuve 2 (sorties & déplacements)"
+# DELF A1 structure: 4 sections /25 each, 50/100 to pass and at least 5/25 per section.
+# Collective tests 1 h 20 (listening ~20 min, reading 30, writing 30); speaking is
+# 10 min preparation + 5–7 min with the examiner.
+sections:
+  - skill: listening
+    time_limit_seconds: 1200
+    comprehension_set_ids: [listen-a1-ce-soir, listen-directions, listen-a1-l-inscription, listen-shopping]
+  - skill: reading
+    time_limit_seconds: 1800
+    comprehension_set_ids: [read-menu, read-schedule, read-sms, read-postcard]
+  - skill: writing
+    time_limit_seconds: 1800
+    writing_task_ids: [write-a-email-resa]
+  - skill: speaking
+    time_limit_seconds: 1020
+    speaking_prompts:
+      - "Entretien dirigé (1 min) : l'examinateur vous pose des questions sur vous — votre nom, votre nationalité, votre famille, votre travail, vos loisirs. Répondez simplement."
+      - "Échange d'informations (2 min) : vous voulez connaître l'examinateur. Posez-lui des questions avec ces mots : Nationalité ? · Ville ? · Langues ? · Musique ? · Voiture ? · Vacances ?"
+      - "Dialogue simulé (2 min) — À la gare. Vous voulez partir en week-end. L'examinateur est l'employé de la gare. Trains : Lyon 8 h 10 (45 €) · Lille 9 h 30 (38 €) · Nantes 11 h 05 (52 €). Demandez les horaires et les prix, choisissez un train, achetez votre billet. N'oubliez pas de saluer et d'être poli."

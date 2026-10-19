@@ -1,14 +1,14 @@
 id: b1-mock-2
 level: b1
-title: "TEF Canada mock — B1 practice (environnement & médias)"
+title: "Level practice — B1 (environnement & médias)"
 # Timing approximates the real exam structure (scaled for practice).
 sections:
   - skill: reading
     time_limit_seconds: 3600
-    comprehension_set_id: read-b1-environment-blog
+    comprehension_set_ids: [read-b1-environment-blog]
   - skill: listening
     time_limit_seconds: 2400
-    comprehension_set_id: listen-b1-radio-news
+    comprehension_set_ids: [listen-b1-radio-news]
   - skill: writing
     time_limit_seconds: 3600
     writing_task_ids: [write-b1-remote-request, write-b1-environment]

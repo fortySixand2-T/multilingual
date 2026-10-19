@@ -1,0 +1,23 @@
+id: delf-a1-3
+level: a1
+format: delf
+title: "DELF A1 — épreuve 3 (santé, ville & courses)"
+# DELF A1 structure: 4 sections /25 each, 50/100 to pass and at least 5/25 per section.
+# Collective tests 1 h 20 (listening ~20 min, reading 30, writing 30); speaking is
+# 10 min preparation + 5–7 min with the examiner.
+sections:
+  - skill: listening
+    time_limit_seconds: 1200
+    comprehension_set_ids: [listen-weather, listen-a1-la-liste-des-courses, listen-a1-au-magasin, listen-a1-au-musee]
+  - skill: reading
+    time_limit_seconds: 1800
+    comprehension_set_ids: [read-a1-chez-le-medecin, read-a1-une-semaine-chargee, read-a1-mon-quartier, read-a1-deux-appartements]
+  - skill: writing
+    time_limit_seconds: 1800
+    writing_task_ids: [write-a-note]
+  - skill: speaking
+    time_limit_seconds: 1020
+    speaking_prompts:
+      - "Entretien dirigé (1 min) : l'examinateur vous pose des questions sur vous — votre nom, votre nationalité, votre famille, votre travail, vos loisirs. Répondez simplement."
+      - "Échange d'informations (2 min) : vous voulez connaître l'examinateur. Posez-lui des questions avec ces mots : Âge ? · Enfants ? · Appartement ? · Cuisine ? · Animaux ? · Matin ?"
+      - "Dialogue simulé (2 min) — Au marché. Vous achetez des fruits et des légumes. L'examinateur est le vendeur. Prix : pommes 2,40 € le kilo · tomates 3 € le kilo · salade 1 € pièce · fromage 4,50 €. Demandez les prix, choisissez les quantités, puis payez. N'oubliez pas de saluer et d'être poli."

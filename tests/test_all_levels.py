@@ -46,8 +46,8 @@ def test_level_loads_and_cross_references(level):
     # exam sections must reference content that actually exists at this level
     for bp in blueprints.values():
         for sec in bp.sections:
-            if sec.comprehension_set_id:
-                assert sec.comprehension_set_id in sets, f"{bp.id}: bad set ref"
+            for set_id in sec.comprehension_set_ids:
+                assert set_id in sets, f"{bp.id}: bad set ref"
             for tid in sec.writing_task_ids:
                 assert tid in tasks, f"{bp.id}: bad writing ref {tid}"
 
