@@ -487,3 +487,4 @@
 - [2026-10-17] Created: bench/latency/fixtures/{short,medium,long}.wav — Piper-voiced learner utterances for latency runs
 - [2026-10-18] Created: bench/results/latency-2026-10-18-gpu.json — raw speaking-latency samples + before/after summary with Whisper STT on the GTX 1070 (cuda int8)
 - [2026-10-18] Created: bench/reports/speaking-latency-2026-10-18-gpu.md — GPU-STT latency report: before/after vs the CPU baseline, waterfall, what's left (LLM)
+- [2026-10-19] Modified: CHANGELOG.md — merged main (squashed #117) into perf/whisper-gpu; kept the GPU STT entries
