@@ -1,0 +1,1176 @@
+{
+  "meta": {
+    "date": "2026-10-18",
+    "purpose": "Re-measure speaking latency after moving Whisper STT to the GTX 1070 (cuda int8); same fixtures, scripts and run counts as latency-2026-10-17-baseline.json",
+    "box": "rohith@10.0.0.54",
+    "repo": "~/projects/multilingual",
+    "deployed_commit": "07e4d09",
+    "containers": [
+      "multilingual-app-1",
+      "multilingual-ollama-1"
+    ],
+    "public_url": "https://rohith-alienware-17-r4.tail592ffa.ts.net",
+    "test_account": "latency-bot (id 6), same account as baseline",
+    "baseline": "bench/results/latency-2026-10-17-baseline.json",
+    "turns_used": 33,
+    "llm_openers_used": 3
+  },
+  "scenario_A_network_only": {
+    "ping_rtt_ms": {
+      "min": 12.745,
+      "avg": 17.009,
+      "max": 23.495,
+      "stddev": 3.655
+    },
+    "fresh_connection_curl_timing_s": [
+      {
+        "run": 1,
+        "dns": 0.003588,
+        "connect": 0.021968,
+        "tls": 0.252824,
+        "ttfb": 0.329888,
+        "total": 0.339316
+      },
+      {
+        "run": 2,
+        "dns": 0.004499,
+        "connect": 0.018149,
+        "tls": 0.210916,
+        "ttfb": 0.299069,
+        "total": 0.299295
+      },
+      {
+        "run": 3,
+        "dns": 0.003596,
+        "connect": 0.013533,
+        "tls": 0.220794,
+        "ttfb": 0.306175,
+        "total": 0.306449
+      }
+    ],
+    "reused_connection_curl_timing_s": [
+      {
+        "run": 1,
+        "dns": 0.004373,
+        "connect": 0.014719,
+        "tls": 0.237574,
+        "ttfb": 0.312637,
+        "total": 0.317053
+      },
+      {
+        "run": 2,
+        "dns": 4.3e-05,
+        "connect": 0.0,
+        "tls": 0.0,
+        "ttfb": 0.084307,
+        "total": 0.084775
+      },
+      {
+        "run": 3,
+        "dns": 4.4e-05,
+        "connect": 0.0,
+        "tls": 0.0,
+        "ttfb": 0.076498,
+        "total": 0.076813
+      }
+    ],
+    "upload_throughput_proxy": {
+      "bytes": 259232,
+      "speed_Bps": 435299,
+      "total_s": 0.5955,
+      "note": "POST of medium.wav to /speech/turn without auth; raw transport, not app processing"
+    }
+  },
+  "scenario_B_full_turn_internet": {
+    "short": [
+      {
+        "run": 0,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 3.6411,
+        "reply_text_len": 223,
+        "audio_url": "/speech/audio/113",
+        "audio_first_fetch_s": 1.3512,
+        "audio_http": 200,
+        "audio_bytes": 509436,
+        "audio_cached_fetch_s": 0.336,
+        "sum_text_plus_audio_s": 4.9923
+      },
+      {
+        "run": 1,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 4.0436,
+        "reply_text_len": 281,
+        "audio_url": "/speech/audio/114",
+        "audio_first_fetch_s": 2.0148,
+        "audio_http": 200,
+        "audio_bytes": 713840,
+        "audio_cached_fetch_s": 0.4659,
+        "sum_text_plus_audio_s": 6.0584
+      },
+      {
+        "run": 2,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 2.4627,
+        "reply_text_len": 170,
+        "audio_url": "/speech/audio/115",
+        "audio_first_fetch_s": 1.2337,
+        "audio_http": 200,
+        "audio_bytes": 437244,
+        "audio_cached_fetch_s": 0.4486,
+        "sum_text_plus_audio_s": 3.6964
+      },
+      {
+        "run": 3,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 2.2766,
+        "reply_text_len": 133,
+        "audio_url": "/speech/audio/116",
+        "audio_first_fetch_s": 1.2811,
+        "audio_http": 200,
+        "audio_bytes": 358908,
+        "audio_cached_fetch_s": 0.5327,
+        "sum_text_plus_audio_s": 3.5577
+      },
+      {
+        "run": 4,
+        "label": "short_internet",
+        "http": 200,
+        "turn_total_s": 1.9101,
+        "reply_text_len": 99,
+        "audio_url": "/speech/audio/117",
+        "audio_first_fetch_s": 1.3908,
+        "audio_http": 200,
+        "audio_bytes": 398216,
+        "audio_cached_fetch_s": 0.8109,
+        "sum_text_plus_audio_s": 3.301
+      }
+    ],
+    "medium": [
+      {
+        "run": 0,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 4.2842,
+        "reply_text_len": 284,
+        "audio_url": "/speech/audio/118",
+        "audio_first_fetch_s": 1.9767,
+        "audio_http": 200,
+        "audio_bytes": 695920,
+        "audio_cached_fetch_s": 0.6603,
+        "sum_text_plus_audio_s": 6.2609
+      },
+      {
+        "run": 1,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 3.253,
+        "reply_text_len": 214,
+        "audio_url": "/speech/audio/119",
+        "audio_first_fetch_s": 1.4632,
+        "audio_http": 200,
+        "audio_bytes": 544252,
+        "audio_cached_fetch_s": 0.5249,
+        "sum_text_plus_audio_s": 4.7162
+      },
+      {
+        "run": 2,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 3.4383,
+        "reply_text_len": 251,
+        "audio_url": "/speech/audio/120",
+        "audio_first_fetch_s": 1.7348,
+        "audio_http": 200,
+        "audio_bytes": 613884,
+        "audio_cached_fetch_s": 0.8958,
+        "sum_text_plus_audio_s": 5.1732
+      },
+      {
+        "run": 3,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 3.8229,
+        "reply_text_len": 285,
+        "audio_url": "/speech/audio/121",
+        "audio_first_fetch_s": 2.9189,
+        "audio_http": 200,
+        "audio_bytes": 687728,
+        "audio_cached_fetch_s": 0.9404,
+        "sum_text_plus_audio_s": 6.7418
+      },
+      {
+        "run": 4,
+        "label": "medium_internet",
+        "http": 200,
+        "turn_total_s": 4.2924,
+        "reply_text_len": 324,
+        "audio_url": "/speech/audio/122",
+        "audio_first_fetch_s": 2.2675,
+        "audio_http": 200,
+        "audio_bytes": 780400,
+        "audio_cached_fetch_s": 0.6749,
+        "sum_text_plus_audio_s": 6.5599
+      }
+    ],
+    "long": [
+      {
+        "run": 0,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 4.3024,
+        "reply_text_len": 272,
+        "audio_url": "/speech/audio/123",
+        "audio_first_fetch_s": 1.5564,
+        "audio_http": 200,
+        "audio_bytes": 634364,
+        "audio_cached_fetch_s": 0.4666,
+        "sum_text_plus_audio_s": 5.8588
+      },
+      {
+        "run": 1,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 3.3761,
+        "reply_text_len": 169,
+        "audio_url": "/speech/audio/124",
+        "audio_first_fetch_s": 1.2106,
+        "audio_http": 200,
+        "audio_bytes": 403336,
+        "audio_cached_fetch_s": 0.3032,
+        "sum_text_plus_audio_s": 4.5867
+      },
+      {
+        "run": 2,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 3.6928,
+        "reply_text_len": 183,
+        "audio_url": "/speech/audio/125",
+        "audio_first_fetch_s": 1.2109,
+        "audio_http": 200,
+        "audio_bytes": 440828,
+        "audio_cached_fetch_s": 0.452,
+        "sum_text_plus_audio_s": 4.9037
+      },
+      {
+        "run": 3,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 3.6761,
+        "reply_text_len": 178,
+        "audio_url": "/speech/audio/126",
+        "audio_first_fetch_s": 1.2682,
+        "audio_http": 200,
+        "audio_bytes": 424444,
+        "audio_cached_fetch_s": 0.618,
+        "sum_text_plus_audio_s": 4.9443
+      },
+      {
+        "run": 4,
+        "label": "long_internet",
+        "http": 200,
+        "turn_total_s": 3.2225,
+        "reply_text_len": 122,
+        "audio_url": "/speech/audio/127",
+        "audio_first_fetch_s": 1.2422,
+        "audio_http": 200,
+        "audio_bytes": 344968,
+        "audio_cached_fetch_s": 0.6407,
+        "sum_text_plus_audio_s": 4.4647
+      }
+    ]
+  },
+  "scenario_C_full_turn_loopback": {
+    "short": [
+      {
+        "label": "short_loopback",
+        "run": 0,
+        "http": 200,
+        "turn_total_s": 1.8652,
+        "audio_url": "/speech/audio/128",
+        "audio_fetch_s": 0.6899,
+        "sum_text_plus_audio_s": 2.5551
+      },
+      {
+        "label": "short_loopback",
+        "run": 1,
+        "http": 200,
+        "turn_total_s": 1.3679,
+        "audio_url": "/speech/audio/129",
+        "audio_fetch_s": 0.5755,
+        "sum_text_plus_audio_s": 1.9434
+      },
+      {
+        "label": "short_loopback",
+        "run": 2,
+        "http": 200,
+        "turn_total_s": 1.7896,
+        "audio_url": "/speech/audio/130",
+        "audio_fetch_s": 0.6575,
+        "sum_text_plus_audio_s": 2.4471
+      },
+      {
+        "label": "short_loopback",
+        "run": 3,
+        "http": 200,
+        "turn_total_s": 1.7861,
+        "audio_url": "/speech/audio/131",
+        "audio_fetch_s": 0.68834,
+        "audio_fetch_recovered_later": true,
+        "sum_text_plus_audio_s": 2.4744
+      },
+      {
+        "label": "short_loopback",
+        "run": 4,
+        "http": 200,
+        "turn_total_s": 1.36,
+        "audio_url": "/speech/audio/132",
+        "audio_fetch_s": 0.592,
+        "sum_text_plus_audio_s": 1.952
+      }
+    ],
+    "medium": [
+      {
+        "label": "medium_loopback",
+        "run": 0,
+        "http": 200,
+        "turn_total_s": 2.4455,
+        "audio_url": "/speech/audio/133",
+        "audio_fetch_s": 0.8089,
+        "sum_text_plus_audio_s": 3.2544
+      },
+      {
+        "label": "medium_loopback",
+        "run": 1,
+        "http": 200,
+        "turn_total_s": 2.7066,
+        "audio_url": "/speech/audio/134",
+        "audio_fetch_s": 1.1452,
+        "sum_text_plus_audio_s": 3.8518
+      },
+      {
+        "label": "medium_loopback",
+        "run": 2,
+        "http": 200,
+        "turn_total_s": 3.2183,
+        "audio_url": "/speech/audio/135",
+        "audio_fetch_s": 1.0262,
+        "sum_text_plus_audio_s": 4.2445
+      },
+      {
+        "label": "medium_loopback",
+        "run": 3,
+        "http": 200,
+        "turn_total_s": 2.4097,
+        "audio_url": "/speech/audio/136",
+        "audio_fetch_s": 0.8317,
+        "sum_text_plus_audio_s": 3.2414
+      },
+      {
+        "label": "medium_loopback",
+        "run": 4,
+        "http": 200,
+        "turn_total_s": 2.162,
+        "audio_url": "/speech/audio/137",
+        "audio_fetch_s": 0.7806,
+        "sum_text_plus_audio_s": 2.9426
+      }
+    ],
+    "long": [
+      {
+        "label": "long_loopback",
+        "run": 0,
+        "http": 200,
+        "turn_total_s": 4.2113,
+        "audio_url": "/speech/audio/138",
+        "audio_fetch_s": 1.222104,
+        "audio_fetch_recovered_later": true,
+        "sum_text_plus_audio_s": 5.4334
+      },
+      {
+        "label": "long_loopback",
+        "run": 1,
+        "http": 200,
+        "turn_total_s": 3.5686,
+        "audio_url": "/speech/audio/139",
+        "audio_fetch_s": 1.019362,
+        "audio_fetch_recovered_later": true,
+        "sum_text_plus_audio_s": 4.588
+      },
+      {
+        "label": "long_loopback",
+        "run": 2,
+        "http": 200,
+        "turn_total_s": 2.8042,
+        "audio_url": "/speech/audio/140",
+        "audio_fetch_s": 1.0775,
+        "sum_text_plus_audio_s": 3.8817
+      },
+      {
+        "label": "long_loopback",
+        "run": 3,
+        "http": 200,
+        "turn_total_s": 2.8082,
+        "audio_url": "/speech/audio/141",
+        "audio_fetch_s": 0.848028,
+        "audio_fetch_recovered_later": true,
+        "sum_text_plus_audio_s": 3.6562
+      },
+      {
+        "label": "long_loopback",
+        "run": 4,
+        "http": 200,
+        "turn_total_s": 4.4053,
+        "audio_url": "/speech/audio/142",
+        "audio_fetch_s": 1.154569,
+        "audio_fetch_recovered_later": true,
+        "sum_text_plus_audio_s": 5.5599
+      }
+    ]
+  },
+  "scenario_D_per_stage_compute": {
+    "stt_device": "cuda",
+    "stt": {
+      "short": {
+        "times_s": [
+          0.2162,
+          0.2214,
+          0.2249,
+          0.2253,
+          0.2583
+        ],
+        "median_s": 0.2249,
+        "min_s": 0.2162,
+        "max_s": 0.2583,
+        "transcript_sample": "Bonjour, je m'appelle Marie."
+      },
+      "medium": {
+        "times_s": [
+          0.2973,
+          0.2987,
+          0.3021,
+          0.3036,
+          0.3152
+        ],
+        "median_s": 0.3021,
+        "min_s": 0.2973,
+        "max_s": 0.3152,
+        "transcript_sample": "Je pense que les transports en commun sont importants pour réduire la pollution dans les grandes villes."
+      },
+      "long": {
+        "times_s": [
+          0.5698,
+          0.5703,
+          0.5721,
+          0.5742,
+          0.5754
+        ],
+        "median_s": 0.5721,
+        "min_s": 0.5698,
+        "max_s": 0.5754,
+        "transcript_sample": "Pendant mes vacances dites, j'ai visite plusieurs régions de la France avec ma famille  et nous avons découvert des paysages magnifiques,  goûts d'un cuisine local décieux et rencontre des gens très c"
+      }
+    },
+    "llm": [
+      {
+        "msg_idx": 0,
+        "rep": 0,
+        "ttft_s": 0.0753,
+        "total_s": 2.9619,
+        "eval_count": 70,
+        "tok_per_s": 23.95,
+        "reply_len": 261
+      },
+      {
+        "msg_idx": 0,
+        "rep": 1,
+        "ttft_s": 0.0783,
+        "total_s": 2.4339,
+        "eval_count": 57,
+        "tok_per_s": 23.8,
+        "reply_len": 223
+      },
+      {
+        "msg_idx": 0,
+        "rep": 2,
+        "ttft_s": 0.0808,
+        "total_s": 1.0431,
+        "eval_count": 24,
+        "tok_per_s": 23.96,
+        "reply_len": 89
+      },
+      {
+        "msg_idx": 1,
+        "rep": 0,
+        "ttft_s": 0.1757,
+        "total_s": 1.851,
+        "eval_count": 41,
+        "tok_per_s": 24.11,
+        "reply_len": 180
+      },
+      {
+        "msg_idx": 1,
+        "rep": 1,
+        "ttft_s": 0.0794,
+        "total_s": 2.256,
+        "eval_count": 53,
+        "tok_per_s": 23.91,
+        "reply_len": 215
+      },
+      {
+        "msg_idx": 1,
+        "rep": 2,
+        "ttft_s": 0.0793,
+        "total_s": 2.4614,
+        "eval_count": 58,
+        "tok_per_s": 23.95,
+        "reply_len": 217
+      }
+    ],
+    "tts": {
+      "short_reply": {
+        "times_s": [
+          0.3838,
+          0.389,
+          0.3967,
+          0.4255,
+          0.427
+        ],
+        "median_s": 0.3967,
+        "min_s": 0.3838,
+        "max_s": 0.427,
+        "wav_bytes": 102676
+      },
+      "medium_reply": {
+        "times_s": [
+          0.6177,
+          0.6953,
+          0.7303,
+          0.7673,
+          0.7728
+        ],
+        "median_s": 0.7303,
+        "min_s": 0.6177,
+        "max_s": 0.7728,
+        "wav_bytes": 305940
+      }
+    }
+  },
+  "scenario_E_opener": {
+    "canned_no_topic": [
+      {
+        "run": 0,
+        "http": 200,
+        "total_s": 0.4706,
+        "topic": false,
+        "reply_text_len": 125
+      },
+      {
+        "run": 1,
+        "http": 200,
+        "total_s": 0.0974,
+        "topic": false,
+        "reply_text_len": 125
+      },
+      {
+        "run": 2,
+        "http": 200,
+        "total_s": 0.0926,
+        "topic": false,
+        "reply_text_len": 125
+      },
+      {
+        "run": 3,
+        "http": 200,
+        "total_s": 0.0942,
+        "topic": false,
+        "reply_text_len": 125
+      },
+      {
+        "run": 4,
+        "http": 200,
+        "total_s": 0.126,
+        "topic": false,
+        "reply_text_len": 125
+      }
+    ],
+    "topic_framed": [
+      {
+        "run": 0,
+        "http": 200,
+        "total_s": 2.4883,
+        "topic": true,
+        "reply_text_len": 166
+      },
+      {
+        "run": 1,
+        "http": 200,
+        "total_s": 2.0234,
+        "topic": true,
+        "reply_text_len": 166
+      },
+      {
+        "run": 2,
+        "http": 200,
+        "total_s": 1.5343,
+        "topic": true,
+        "reply_text_len": 98
+      }
+    ]
+  },
+  "scenario_F_concurrency": {
+    "concurrency": 3,
+    "fixture": "short",
+    "path": "loopback",
+    "wall_s": 3.4014,
+    "runs": [
+      {
+        "run": 1,
+        "http": 200,
+        "total_s": 3.3327
+      },
+      {
+        "run": 2,
+        "http": 200,
+        "total_s": 2.4642
+      },
+      {
+        "run": 3,
+        "http": 200,
+        "total_s": 2.415
+      }
+    ]
+  },
+  "config_snapshot": {
+    "captured_at": "2026-10-18T22:10Z (before and after the run; identical)",
+    "STT_BACKEND": "faster-whisper",
+    "WHISPER_MODEL": "small",
+    "WHISPER_DEVICE": "cuda",
+    "WHISPER_COMPUTE_TYPE": "int8",
+    "stt_device_reported_by_adapter": "cuda",
+    "ctranslate2": {
+      "version": "4.8.1",
+      "cuda_device_count": 1
+    },
+    "OLLAMA_MODEL": "qwen2.5:7b-instruct-q4_K_M",
+    "OLLAMA_KEEP_ALIVE": "-1",
+    "EXAMINER_MAX_TOKENS": "unset -> 220 default (as baseline)",
+    "piper_voice": "/app/voices/fr_FR-upmc-medium.onnx",
+    "app_container_DeviceRequests": [
+      {
+        "Driver": "nvidia",
+        "Count": -1,
+        "Capabilities": [
+          [
+            "gpu"
+          ]
+        ]
+      }
+    ],
+    "nvidia_smi_idle": {
+      "memory_total_MiB": 8192,
+      "memory_used_MiB": 5633,
+      "memory_free_MiB": 2473,
+      "per_process_MiB": {
+        "ollama": 5232,
+        "app python (whisper small)": 388
+      }
+    },
+    "nvidia_smi_peak_during_D": {
+      "memory_used_MiB": 6149,
+      "util_pct_max": 94,
+      "note": "includes a second probe WhisperModel (~390-500 MiB) loaded by the stage bench"
+    },
+    "ollama_ps": [
+      {
+        "name": "qwen2.5:7b-instruct-q4_K_M",
+        "size_GB": 6.0,
+        "processor": "100% GPU",
+        "until": "Forever"
+      }
+    ],
+    "free_m": {
+      "mem_total_MiB": 31964,
+      "mem_used_MiB": 13131,
+      "mem_free_MiB": 1232,
+      "available_MiB": 18082
+    },
+    "app_container_nproc": 8
+  },
+  "before_after_summary": {
+    "compute_stages": {
+      "stt_short": {
+        "before": {
+          "n": 5,
+          "median": 1.761,
+          "p90": 2.48,
+          "min": 1.472,
+          "max": 2.48
+        },
+        "after": {
+          "n": 5,
+          "median": 0.225,
+          "p90": 0.258,
+          "min": 0.216,
+          "max": 0.258
+        }
+      },
+      "stt_medium": {
+        "before": {
+          "n": 5,
+          "median": 1.693,
+          "p90": 2.308,
+          "min": 1.674,
+          "max": 2.308
+        },
+        "after": {
+          "n": 5,
+          "median": 0.302,
+          "p90": 0.315,
+          "min": 0.297,
+          "max": 0.315
+        }
+      },
+      "stt_long": {
+        "before": {
+          "n": 5,
+          "median": 3.974,
+          "p90": 4.253,
+          "min": 3.474,
+          "max": 4.253
+        },
+        "after": {
+          "n": 5,
+          "median": 0.572,
+          "p90": 0.575,
+          "min": 0.57,
+          "max": 0.575
+        }
+      },
+      "llm_ttft": {
+        "before": {
+          "n": 6,
+          "median": 0.098,
+          "p90": 0.144,
+          "min": 0.075,
+          "max": 0.187
+        },
+        "after": {
+          "n": 6,
+          "median": 0.079,
+          "p90": 0.081,
+          "min": 0.075,
+          "max": 0.176
+        }
+      },
+      "llm_total": {
+        "before": {
+          "n": 6,
+          "median": 2.224,
+          "p90": 2.866,
+          "min": 1.124,
+          "max": 5.403
+        },
+        "after": {
+          "n": 6,
+          "median": 2.345,
+          "p90": 2.461,
+          "min": 1.043,
+          "max": 2.962
+        }
+      },
+      "llm_tok_per_s": {
+        "before": {
+          "n": 6,
+          "median": 23.635,
+          "p90": 23.92,
+          "min": 16.99,
+          "max": 24.09
+        },
+        "after": {
+          "n": 6,
+          "median": 23.95,
+          "p90": 23.96,
+          "min": 23.8,
+          "max": 24.11
+        }
+      },
+      "llm_eval_count": {
+        "before": {
+          "n": 6,
+          "median": 51.5,
+          "p90": 67.0,
+          "min": 25.0,
+          "max": 91.0
+        },
+        "after": {
+          "n": 6,
+          "median": 55.0,
+          "p90": 58.0,
+          "min": 24.0,
+          "max": 70.0
+        }
+      },
+      "tts_short_reply": {
+        "before": {
+          "n": 5,
+          "median": 0.585,
+          "p90": 0.63,
+          "min": 0.454,
+          "max": 0.63
+        },
+        "after": {
+          "n": 5,
+          "median": 0.397,
+          "p90": 0.427,
+          "min": 0.384,
+          "max": 0.427
+        }
+      },
+      "tts_medium_reply": {
+        "before": {
+          "n": 5,
+          "median": 0.942,
+          "p90": 1.126,
+          "min": 0.81,
+          "max": 1.126
+        },
+        "after": {
+          "n": 5,
+          "median": 0.73,
+          "p90": 0.773,
+          "min": 0.618,
+          "max": 0.773
+        }
+      }
+    },
+    "loopback": {
+      "short_text": {
+        "before": {
+          "n": 5,
+          "median": 3.958,
+          "p90": 7.024,
+          "min": 3.904,
+          "max": 7.024
+        },
+        "after": {
+          "n": 5,
+          "median": 1.786,
+          "p90": 1.865,
+          "min": 1.36,
+          "max": 1.865
+        }
+      },
+      "short_fetch": {
+        "before": {
+          "n": 5,
+          "median": 1.135,
+          "p90": 1.24,
+          "min": 0.79,
+          "max": 1.24
+        },
+        "after": {
+          "n": 5,
+          "median": 0.657,
+          "p90": 0.69,
+          "min": 0.576,
+          "max": 0.69
+        }
+      },
+      "short_audio": {
+        "before": {
+          "n": 5,
+          "median": 5.11,
+          "p90": 8.159,
+          "min": 4.748,
+          "max": 8.159
+        },
+        "after": {
+          "n": 5,
+          "median": 2.447,
+          "p90": 2.555,
+          "min": 1.943,
+          "max": 2.555
+        }
+      },
+      "medium_text": {
+        "before": null,
+        "after": {
+          "n": 5,
+          "median": 2.446,
+          "p90": 3.218,
+          "min": 2.162,
+          "max": 3.218
+        }
+      },
+      "medium_fetch": {
+        "before": null,
+        "after": {
+          "n": 5,
+          "median": 0.832,
+          "p90": 1.145,
+          "min": 0.781,
+          "max": 1.145
+        }
+      },
+      "medium_audio": {
+        "before": null,
+        "after": {
+          "n": 5,
+          "median": 3.254,
+          "p90": 4.245,
+          "min": 2.943,
+          "max": 4.245
+        }
+      },
+      "long_text": {
+        "before": {
+          "n": 5,
+          "median": 4.55,
+          "p90": 5.835,
+          "min": 4.411,
+          "max": 5.835
+        },
+        "after": {
+          "n": 5,
+          "median": 3.569,
+          "p90": 4.405,
+          "min": 2.804,
+          "max": 4.405
+        }
+      },
+      "long_fetch": {
+        "before": {
+          "n": 4,
+          "median": 0.783,
+          "p90": 1.094,
+          "min": 0.737,
+          "max": 1.094
+        },
+        "after": {
+          "n": 5,
+          "median": 1.077,
+          "p90": 1.222,
+          "min": 0.848,
+          "max": 1.222
+        }
+      },
+      "long_audio": {
+        "before": {
+          "n": 4,
+          "median": 5.64,
+          "p90": 6.929,
+          "min": 5.292,
+          "max": 6.929
+        },
+        "after": {
+          "n": 5,
+          "median": 4.588,
+          "p90": 5.56,
+          "min": 3.656,
+          "max": 5.56
+        }
+      }
+    },
+    "internet": {
+      "short_text": {
+        "before": {
+          "n": 5,
+          "median": 12.344,
+          "p90": 19.807,
+          "min": 8.124,
+          "max": 19.807
+        },
+        "after": {
+          "n": 5,
+          "median": 2.463,
+          "p90": 4.044,
+          "min": 1.91,
+          "max": 4.044
+        }
+      },
+      "short_fetch": {
+        "before": {
+          "n": 5,
+          "median": 20.518,
+          "p90": 26.231,
+          "min": 8.398,
+          "max": 26.231
+        },
+        "after": {
+          "n": 5,
+          "median": 1.351,
+          "p90": 2.015,
+          "min": 1.234,
+          "max": 2.015
+        }
+      },
+      "short_audio": {
+        "before": {
+          "n": 5,
+          "median": 34.194,
+          "p90": 40.325,
+          "min": 16.521,
+          "max": 40.325
+        },
+        "after": {
+          "n": 5,
+          "median": 3.696,
+          "p90": 6.058,
+          "min": 3.301,
+          "max": 6.058
+        }
+      },
+      "medium_text": {
+        "before": {
+          "n": 5,
+          "median": 4.219,
+          "p90": 4.846,
+          "min": 3.798,
+          "max": 4.846
+        },
+        "after": {
+          "n": 5,
+          "median": 3.823,
+          "p90": 4.292,
+          "min": 3.253,
+          "max": 4.292
+        }
+      },
+      "medium_fetch": {
+        "before": {
+          "n": 5,
+          "median": 2.107,
+          "p90": 5.419,
+          "min": 1.512,
+          "max": 5.419
+        },
+        "after": {
+          "n": 5,
+          "median": 1.977,
+          "p90": 2.919,
+          "min": 1.463,
+          "max": 2.919
+        }
+      },
+      "medium_audio": {
+        "before": {
+          "n": 5,
+          "median": 6.519,
+          "p90": 9.566,
+          "min": 6.224,
+          "max": 9.566
+        },
+        "after": {
+          "n": 5,
+          "median": 6.261,
+          "p90": 6.742,
+          "min": 4.716,
+          "max": 6.742
+        }
+      },
+      "long_text": {
+        "before": {
+          "n": 5,
+          "median": 35.026,
+          "p90": 65.191,
+          "min": 26.997,
+          "max": 65.191
+        },
+        "after": {
+          "n": 5,
+          "median": 3.676,
+          "p90": 4.302,
+          "min": 3.223,
+          "max": 4.302
+        }
+      },
+      "long_fetch": {
+        "before": {
+          "n": 5,
+          "median": 24.233,
+          "p90": 30.16,
+          "min": 17.445,
+          "max": 30.16
+        },
+        "after": {
+          "n": 5,
+          "median": 1.242,
+          "p90": 1.556,
+          "min": 1.211,
+          "max": 1.556
+        }
+      },
+      "long_audio": {
+        "before": {
+          "n": 5,
+          "median": 64.303,
+          "p90": 89.425,
+          "min": 55.811,
+          "max": 89.425
+        },
+        "after": {
+          "n": 5,
+          "median": 4.904,
+          "p90": 5.859,
+          "min": 4.465,
+          "max": 5.859
+        }
+      }
+    },
+    "opener": {
+      "canned_no_topic": {
+        "before": {
+          "n": 5,
+          "median": 1.473,
+          "p90": 9.03,
+          "min": 1.423,
+          "max": 9.03
+        },
+        "after": {
+          "n": 5,
+          "median": 0.097,
+          "p90": 0.471,
+          "min": 0.093,
+          "max": 0.471
+        }
+      },
+      "topic_framed": {
+        "before": {
+          "n": 3,
+          "median": 3.756,
+          "p90": 10.114,
+          "min": 3.025,
+          "max": 10.114
+        },
+        "after": {
+          "n": 3,
+          "median": 2.023,
+          "p90": 2.488,
+          "min": 1.534,
+          "max": 2.488
+        }
+      },
+      "canned_no_topic_warm": {
+        "before": {
+          "n": 4,
+          "median": 1.451,
+          "p90": 1.524,
+          "min": 1.423,
+          "max": 1.524
+        },
+        "after": {
+          "n": 4,
+          "median": 0.096,
+          "p90": 0.126,
+          "min": 0.093,
+          "max": 0.126
+        }
+      }
+    }
+  }
+}

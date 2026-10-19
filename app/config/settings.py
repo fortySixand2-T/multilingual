@@ -52,9 +52,10 @@ class Settings(BaseSettings):
     tts_backend: str = "disabled"  # disabled | piper
     whisper_model: str = "large-v3"
     # STT is the main speaking-latency cost. Defaults keep the current CPU/int8
-    # behavior; on a box with a GPU set whisper_device=cuda (compute_type
-    # float16 or int8_float16) for a large speedup, or drop whisper_model to
-    # small/medium to trade a little accuracy for speed on CPU.
+    # behavior; on a box with a GPU set whisper_device=cuda for a large speedup
+    # (compute_type int8 on Pascal/GTX 10xx, whose fp16 is crippled; float16 or
+    # int8_float16 on newer cards), or drop whisper_model to small/medium to trade
+    # a little accuracy for speed on CPU. A failed CUDA start falls back to CPU.
     whisper_device: str = "cpu"  # cpu | cuda
     whisper_compute_type: str = "int8"  # int8 | float16 | int8_float16 | float32
     piper_voice: str = ""  # path to a Piper .onnx voice model

@@ -60,6 +60,43 @@ def test_build_stt_forwards_device_and_compute_type(monkeypatch):
     assert captured == {"model": "small", "device": "cuda", "compute_type": "float16"}
 
 
+def _stub_whisper_model(monkeypatch, *, cuda_works: bool) -> list:
+    """Stand in for faster_whisper.WhisperModel; records each (device, compute_type)."""
+    import sys
+
+    loads = []
+
+    class _Model:
+        def __init__(self, model, *, device, compute_type):
+            loads.append((device, compute_type))
+            self.device = device
+
+        def transcribe(self, audio, **kw):
+            if self.device == "cuda" and not cuda_works:
+                raise RuntimeError("Library libcublas.so.12 is not found")
+            return iter([]), None
+
+    monkeypatch.setitem(sys.modules, "faster_whisper", SimpleNamespace(WhisperModel=_Model))
+    return loads
+
+
+def test_whisper_falls_back_to_cpu_when_cuda_cant_start(monkeypatch):
+    from app.ai.adapters.faster_whisper_adapter import FasterWhisperAdapter
+
+    loads = _stub_whisper_model(monkeypatch, cuda_works=False)
+    stt = FasterWhisperAdapter(model="small", device="cuda", compute_type="int8")
+    # the boot warm-up hit the missing CUDA lib, so speaking still works — on CPU
+    assert stt.device == "cpu" and loads == [("cuda", "int8"), ("cpu", "int8")]
+
+
+def test_whisper_stays_on_gpu_when_cuda_works(monkeypatch):
+    from app.ai.adapters.faster_whisper_adapter import FasterWhisperAdapter
+
+    loads = _stub_whisper_model(monkeypatch, cuda_works=True)
+    stt = FasterWhisperAdapter(model="small", device="cuda", compute_type="int8")
+    assert stt.device == "cuda" and loads == [("cuda", "int8")]
+
+
 def test_build_stt_disabled_returns_none():
     assert build_stt(SimpleNamespace(stt_backend="disabled")) is None
 
