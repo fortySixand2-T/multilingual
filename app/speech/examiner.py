@@ -46,8 +46,8 @@ _OPENER_CUE = "[The learner just opened the session and is ready. Greet them and
 
 # Free-conversation openers (no topic picked) are the same every time, so they're
 # canned rather than generated: no LLM call, nothing billed, and the synthesized
-# audio is cached once per mode and shared across sessions. Topic openers still go
-# through the LLM (examiner.opener) since they're framed around the picked task.
+# audio is cached once and shared across sessions. Topic openers are authored per
+# topic (SpeakingTopic.openers); a topic without any falls back to examiner.opener.
 # Plain TTS-safe French prose: one greeting + one question, no markup/emoji.
 _CANNED_OPENERS = {
     "conversation": (
@@ -82,12 +82,10 @@ def canned_opener_en(text: str) -> str:
     return ""
 
 
-def canned_opener(mode: str) -> tuple[str, str]:
-    """(canonical_mode, greeting) for a free-conversation opener. Unknown modes fall
-    back to the examiner greeting. The canonical mode keys the shared audio cache so
-    every session's canned opener reuses one synthesized clip."""
-    canon = mode if mode in _CANNED_OPENERS else "examiner"
-    return canon, _CANNED_OPENERS[canon]
+def canned_opener(mode: str) -> str:
+    """The free-conversation greeting for `mode`; unknown modes fall back to the
+    examiner greeting."""
+    return _CANNED_OPENERS.get(mode, _CANNED_OPENERS["examiner"])
 
 
 class SpeechNotConfigured(Exception):

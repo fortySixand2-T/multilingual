@@ -30,6 +30,12 @@ class TopicError(Exception):
     pass
 
 
+class TopicOpener(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    fr: str  # plain TTS-safe French: one greeting/role line + one question
+    en: str  # authored subtitle, so the opener never needs a translation call
+
+
 class SpeakingTopic(BaseModel):
     model_config = ConfigDict(extra="forbid")
     id: str
@@ -47,6 +53,10 @@ class SpeakingTopic(BaseModel):
     # about what to say next. Optional — b1/b2 stay French-only on purpose.
     prompt_en: str = ""
     points_en: list[str] = []
+    # Authored opening lines. When present, the session opens with one picked at
+    # random (pre-voiced, no LLM call: ~0.1 s instead of ~2 s); several variants keep
+    # repeat sessions from feeling canned. Absent -> the LLM writes the opener.
+    openers: list[TopicOpener] = []
 
 
 def load_topics(content_root: str | Path, level: str) -> dict[str, SpeakingTopic]:

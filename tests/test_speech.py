@@ -169,7 +169,9 @@ def _client(*, stt=None, tts=None, uid=99, router=None):
     return TestClient(app), storage
 
 
-def _add_topic(tid, *, level="a1", section="A", title="T", prompt="Parlez-en", points=None):
+def _add_topic(
+    tid, *, level="a1", section="A", title="T", prompt="Parlez-en", points=None, openers=None
+):
     async def go():
         async with _Session() as s:
             s.add(
@@ -184,6 +186,7 @@ def _add_topic(tid, *, level="a1", section="A", title="T", prompt="Parlez-en", p
                         "title": title,
                         "prompt": prompt,
                         "points": points or [],
+                        "openers": openers or [],
                     },
                 )
             )
@@ -307,6 +310,41 @@ def test_free_conversation_opener_is_canned_and_never_calls_the_llm():
     audio = client.get(b1["reply_audio_url"])
     assert audio.status_code == 200 and audio.content == b"RIFFfakewavbytes"
     assert tts.calls == 1  # serving the cached clip doesn't re-synthesize
+
+
+_OPENERS = [
+    {"fr": "Bonjour, club de sport. Je peux vous aider ?", "en": "Hello, sports club. Can I help?"},
+    {
+        "fr": "Bonjour ! Qu'est-ce que vous voulez savoir ?",
+        "en": "Hello! What would you like to know?",
+    },
+]
+
+
+def test_authored_topic_opener_never_calls_the_llm_and_carries_its_english():
+    """A topic with authored openers opens instantly: a fresh variant is picked (no
+    LLM, nothing billed), its clip is voiced once per line and reused, and its English
+    is stored on the turn so the subtitle is free."""
+    tts = FakeTTS()
+    client, _ = _client(stt=FakeSTT(), tts=tts, uid=319, router=BoomRouter())
+    _add_topic("t-op-319", openers=_OPENERS)
+    bodies = [
+        client.post(
+            "/speech/opener",
+            data={"mode": "examiner", "topic_id": "t-op-319", "session_id": f"s{i}"},
+        ).json()
+        for i in range(12)
+    ]
+    texts = [b["reply_text"] for b in bodies]
+    assert set(texts) == {o["fr"] for o in _OPENERS}
+    # Never the line this learner heard last session (with 2 variants: alternates).
+    assert all(a != b for a, b in zip(texts, texts[1:], strict=False))
+    for b in bodies:
+        client.get(b["reply_audio_url"])
+    assert tts.calls == 2  # one synthesis per distinct line, then cached
+    hist = client.get("/speech/history").json()["turns"]
+    en = {o["fr"]: o["en"] for o in _OPENERS}
+    assert all(t["reply_en"] == en[t["reply_text"]] for t in hist)
 
 
 def test_canned_opener_persists_empty_transcript_turn():
