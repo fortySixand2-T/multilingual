@@ -81,4 +81,54 @@ describe("MyDeck — add a word", () => {
     expect(await screen.findByText(/Daily word-lookup limit reached/)).toBeInTheDocument();
     expect(api.personalAdd).not.toHaveBeenCalled();
   });
+
+  it("says a course word is already in reviews instead of offering Add", async () => {
+    const user = userEvent.setup();
+    vi.mocked(api.personalPreview).mockResolvedValue({
+      enrichment: { fr: "la boulangerie", en: "bakery", pos: "noun", gender: "f", ipa: "", gender_source: "course" },
+      in_course: "a1",
+    });
+
+    renderMyDeck();
+    await user.type(await screen.findByPlaceholderText(/épanouissement/), "boulangerie");
+    await user.click(screen.getByRole("button", { name: "Look up" }));
+
+    expect(await screen.findByText(/Already in your course vocab \(A1\)/)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Add to my deck" })).not.toBeInTheDocument();
+  });
+
+  it("shows why a lookup failed, in the add panel", async () => {
+    const user = userEvent.setup();
+    vi.mocked(api.personalPreview).mockRejectedValue(new Error("Couldn't find a meaning for “zxq”"));
+
+    renderMyDeck();
+    await user.type(await screen.findByPlaceholderText(/épanouissement/), "zxq");
+    await user.click(screen.getByRole("button", { name: "Look up" }));
+
+    expect(await screen.findByText(/Couldn't find a meaning/)).toBeInTheDocument();
+  });
+
+  it("lets the learner correct the meaning before adding", async () => {
+    const user = userEvent.setup();
+    vi.mocked(api.personalPreview).mockResolvedValue({
+      enrichment: { fr: "paquet", en: "packet", pos: "noun", gender: "m", ipa: "pakˈɛ", gender_source: "table", audio_url: "/vocab/personal/lookup-audio/paquet" },
+    });
+    vi.mocked(api.personalAdd).mockResolvedValue({
+      card: { card_key: "uv:paquet", fr: "paquet", en: "parcel", gender: "m", pos: "noun", ipa: "pakˈɛ", source: "manual", audio_url: "/vocab/personal/audio/uv:paquet" },
+      added: true,
+      review_seeded: true,
+    });
+
+    renderMyDeck();
+    await user.type(await screen.findByPlaceholderText(/épanouissement/), "paquet");
+    await user.click(screen.getByRole("button", { name: "Look up" }));
+
+    const meaning = await screen.findByDisplayValue("packet");
+    await user.clear(meaning);
+    await user.type(meaning, "parcel");
+    await user.click(screen.getByRole("button", { name: "Add to my deck" }));
+
+    expect(api.personalAdd).toHaveBeenCalledWith(expect.objectContaining({ fr: "paquet", en: "parcel" }));
+    expect(await screen.findByText(/Added “paquet”/)).toBeInTheDocument();
+  });
 });

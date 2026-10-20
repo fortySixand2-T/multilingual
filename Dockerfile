@@ -37,11 +37,16 @@ RUN curl -fsSL -o /tmp/piper.tar.gz \
 # French Piper voice (fr_FR-upmc-medium, ~63 MB). -L follows the HF CDN redirect.
 # Piper has no Canadian (fr_CA) voice; upmc is a clearer fr_FR voice than siwis
 # (default speaker 0 = "jessica"). See VOICES.md — all French voices are fr_FR.
+# siwis is fetched too, for isolated words (My deck): upmc garbles single words.
 RUN mkdir -p /app/voices \
     && curl -fsSL -o /app/voices/fr_FR-upmc-medium.onnx \
       https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/upmc/medium/fr_FR-upmc-medium.onnx \
     && curl -fsSL -o /app/voices/fr_FR-upmc-medium.onnx.json \
-      https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/upmc/medium/fr_FR-upmc-medium.onnx.json
+      https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/upmc/medium/fr_FR-upmc-medium.onnx.json \
+    && curl -fsSL -o /app/voices/fr_FR-siwis-medium.onnx \
+      https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/siwis/medium/fr_FR-siwis-medium.onnx \
+    && curl -fsSL -o /app/voices/fr_FR-siwis-medium.onnx.json \
+      https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/siwis/medium/fr_FR-siwis-medium.onnx.json
 
 WORKDIR /app
 # Dependency layer (cached until the lock changes). --no-install-project: install

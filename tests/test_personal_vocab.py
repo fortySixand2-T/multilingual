@@ -143,7 +143,7 @@ def test_preview_enriches_without_writing():
     # "silence" is in the seed gender table as masculine — table beats the model's junk 'x'
     assert enr["gender"] == "m" and enr["gender_source"] == "table"
     assert router.calls == ["vocab_enrich"]
-    # preview is read-only: nothing persisted
+    # preview stores no card (only the shared lookup cache)
     assert client.get("/vocab/personal").json()["cards"] == []
 
 
@@ -407,3 +407,93 @@ def test_personal_audio_synthesizes_once_and_caches():
 def test_personal_audio_unknown_card_is_404():
     client, _ = _client(uid=11, tts=FakeTTS())
     assert client.get("/vocab/personal/audio/uv:nope").status_code == 404
+
+
+# --- durable shared lookup cache ------------------------------------------------
+
+
+class FakePiper(FakeTTS):
+    """A TTS that, like Piper, also reports the IPA it voiced."""
+
+    def synthesize_ipa(self, *, text, voice=""):
+        self.calls += 1
+        return b"RIFFpiper-" + text.encode("utf-8"), "pakˈɛ"
+
+
+def test_lookup_is_cached_across_users_case_and_accents():
+    router = FakeRouter({"en": "peanut", "pos": "noun", "gender": "f", "ipa": "pəˈnæt"})
+    tts = FakePiper()
+    client, storage = _client(uid=31, router=router, tts=tts)
+    first = client.post("/vocab/personal/preview", json={"word": "cacahuète"}).json()["enrichment"]
+    # IPA comes from Piper's phonemes, not the LLM's English guess
+    assert first["en"] == "peanut" and first["ipa"] == "pakˈɛ"
+    assert storage.objects["vocablookup/cacahuete.wav"].startswith(b"RIFFpiper-")
+
+    # another user, different case, no accent: served from the DB — no LLM, no TTS
+    other, _ = _client(uid=32, router=router, tts=tts)
+    again = other.post("/vocab/personal/preview", json={"word": "Cacahuete"}).json()["enrichment"]
+    assert again == first
+    assert router.calls == ["vocab_enrich"] and tts.calls == 1
+
+
+def test_failed_lookup_is_not_cached_and_says_why():
+    client, _ = _client(uid=33, router=FakeRouter({"en": "", "pos": ""}))
+    r = client.post("/vocab/personal/preview", json={"word": "zxqwv"})
+    assert r.status_code == 422 and "check the spelling" in r.json()["detail"]
+    # a later good answer is used, not a cached failure
+    ok, _ = _client(uid=33, router=FakeRouter({"en": "thing", "pos": "noun"}))
+    assert ok.post("/vocab/personal/preview", json={"word": "zxqwv"}).json()["enrichment"]["en"]
+
+
+def test_lookup_audio_is_served_and_reused_by_the_added_card():
+    tts = FakePiper()
+    client, storage = _client(uid=34, router=FakeRouter({"en": "parcel", "pos": "noun"}), tts=tts)
+    enr = client.post("/vocab/personal/preview", json={"word": "colis"}).json()["enrichment"]
+    assert client.get(enr["audio_url"]).content.startswith(b"RIFFpiper-colis")
+
+    card = client.post("/vocab/personal", json={"fr": enr["fr"], "en": enr["en"]}).json()["card"]
+    audio = client.get(card["audio_url"])
+    # the card plays the lookup's clip immediately — no second synthesis
+    assert audio.content.startswith(b"RIFFpiper-colis") and tts.calls == 1
+
+
+def test_preview_of_a_course_word_skips_the_llm():
+    from app.content.tables import ContentVocab
+
+    async def seed():
+        async with _Session() as s:
+            data = {"fr": "la boulangerie", "en": "bakery", "gender": "f", "audio": "a1/b.mp3"}
+            s.add(ContentVocab(id="boulangerie", level="a1", data=data))
+            await s.commit()
+
+    _run(seed())
+    router = FakeRouter({"en": "x"})
+    client, _ = _client(uid=35, router=router)
+    r = client.post("/vocab/personal/preview", json={"word": "Boulangerie"}).json()
+    assert r["in_course"] == "a1" and r["enrichment"]["en"] == "bakery"
+    assert r["enrichment"]["audio_url"] == "/content/audio/a1/b.mp3"
+    assert router.calls == []
+
+
+def test_word_voice_prefers_siwis_and_falls_back_when_missing(tmp_path):
+    from app.config.settings import Settings
+
+    siwis = tmp_path / "siwis.onnx"
+    s = Settings(piper_voice="upmc.onnx", piper_word_voice=str(siwis))
+    assert s.word_voice == "upmc.onnx"  # not installed (e.g. local dev) -> sentence voice
+    siwis.write_bytes(b"onnx")
+    assert s.word_voice == str(siwis)
+
+
+def test_piper_reads_ipa_from_debug_log(monkeypatch):
+    import subprocess
+
+    from app.ai.adapters.piper_adapter import PiperAdapter
+
+    def fake_run(cmd, **kw):
+        assert "--debug" in cmd
+        log = "[piper] [debug] Converting 5 phoneme(s) to ids: pakˈɛ\n".encode()
+        return subprocess.CompletedProcess(cmd, 0, stdout=b"RIFF", stderr=log)
+
+    monkeypatch.setattr(subprocess, "run", fake_run)
+    assert PiperAdapter(voice_model="v.onnx").synthesize_ipa(text="paquet") == (b"RIFF", "pakˈɛ")

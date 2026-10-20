@@ -115,3 +115,23 @@ class VocabExtra(Base):
     )
 
     __table_args__ = (UniqueConstraint("user_id", "card_key", name="uq_vocabextra_user_card"),)
+
+
+class VocabLookup(Base):
+    """Shared, durable cache of My-deck word lookups — one row per word, for everyone.
+    A word's meaning/gender/IPA and its pronunciation clip don't depend on who asked, so
+    the first lookup pays the LLM + TTS cost and every later one (any user, any restart)
+    is a free DB read. Keyed by the ASCII slug so "Ordinateur"/"ordinateur" and
+    "cacahuète"/"cacahuete" share a row. Only successful lookups are stored."""
+
+    __tablename__ = "vocab_lookup"
+
+    slug: Mapped[str] = mapped_column(String(64), primary_key=True)
+    fr: Mapped[str] = mapped_column(String(128))
+    en: Mapped[str] = mapped_column(String(255))
+    gender: Mapped[str] = mapped_column(String(2), default="")
+    pos: Mapped[str] = mapped_column(String(16), default="")
+    ipa: Mapped[str] = mapped_column(String(64), default="")
+    gender_source: Mapped[str] = mapped_column(String(16), default="")
+    audio_key: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())

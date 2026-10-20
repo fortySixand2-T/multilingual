@@ -58,6 +58,10 @@ def _clean(text: str) -> str:
     return " ".join(text.split())
 
 
+# `--debug` logs each phonemized line as "Converting 5 phoneme(s) to ids: pakˈɛ".
+_PHONEMES = re.compile(r"Converting \d+ phoneme\(s\) to ids: (.+)")
+
+
 class PiperAdapter:
     name = "piper"
 
@@ -66,11 +70,20 @@ class PiperAdapter:
         self._bin = piper_bin
 
     def synthesize(self, *, text: str, voice: str = "", lang: str = "fr") -> bytes:
-        model = voice or self._voice
-        proc = subprocess.run(
-            [self._bin, "--model", model, "--output_file", "-"],
+        return self._run(text, voice).stdout  # WAV bytes (one file — see _clean)
+
+    def synthesize_ipa(self, *, text: str, voice: str = "") -> tuple[bytes, str]:
+        """WAV plus the IPA Piper actually voiced (eSpeak's French phonemes, read from
+        its --debug log). Far more reliable than asking the LLM for IPA, and free —
+        it's the same synthesis run."""
+        proc = self._run(text, voice, "--debug")
+        ipa = " ".join(_PHONEMES.findall(proc.stderr.decode("utf-8", "replace")))
+        return proc.stdout, ipa.replace("-", "")  # eSpeak marks clitics "sə- debʁujˈe"
+
+    def _run(self, text: str, voice: str, *flags: str) -> subprocess.CompletedProcess:
+        return subprocess.run(
+            [self._bin, "--model", voice or self._voice, "--output_file", "-", *flags],
             input=_clean(text).encode("utf-8"),
             capture_output=True,
             check=True,
         )
-        return proc.stdout  # WAV bytes (one file — see _clean)
