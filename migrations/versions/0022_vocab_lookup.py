@@ -6,6 +6,9 @@ Create Date: 2026-10-19
 
 One row per word (keyed by ASCII slug), shared across users: meaning, gender, IPA and
 the pronunciation clip's storage key. Repeat lookups skip the LLM and TTS entirely.
+
+Also forgets personal cards' cached clips: they were voiced with upmc, which garbles
+single words; they re-synthesize on next play with the clearer word voice (siwis).
 """
 
 from __future__ import annotations
@@ -32,6 +35,7 @@ def upgrade() -> None:
         sa.Column("audio_key", sa.String(length=128), nullable=True),
         sa.Column("created_at", sa.DateTime(), server_default=sa.func.now(), nullable=False),
     )
+    op.execute("UPDATE user_vocab SET audio_key = NULL")
 
 
 def downgrade() -> None:

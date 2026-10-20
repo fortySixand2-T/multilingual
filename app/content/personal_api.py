@@ -90,7 +90,7 @@ async def _lookup(
         getattr(request.app.state, "tts", None),
         storage,
         word,
-        voice=settings.piper_voice,
+        voice=settings.word_voice,
         table=_GENDER_TABLE,
     )
     if llm is not None:
@@ -295,7 +295,7 @@ async def _serve_audio(
     if tts is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "no audio available")
     data = await anyio.to_thread.run_sync(
-        lambda: tts.synthesize(text=row.fr, voice=settings.piper_voice, lang="fr")
+        lambda: tts.synthesize(text=row.fr, voice=settings.word_voice, lang="fr")
     )
     await anyio.to_thread.run_sync(lambda: storage.put(key, data, "audio/wav"))
     row.audio_key = key

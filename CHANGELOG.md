@@ -495,3 +495,5 @@
 - [2026-10-19] Modified: app/content/personal_api.py — preview/from-word use cached lookup; course words short-circuit (in_course); lookup-audio endpoint; added cards reuse the lookup clip; clearer failure message
 - [2026-10-19] Modified: web/src/screens/MyDeck.tsx, web/src/api.ts — explicit 'Add a word to my deck' panel: steps, loading text, inline errors, 🔊 before adding, editable meaning, added confirmation, course-word notice
 - [2026-10-19] Modified: tests/test_personal_vocab.py, web/src/screens/MyDeck.test.tsx — lookup cache, Piper IPA, audio reuse, course shortcut, UI flows
+- [2026-10-19] Modified: app/config/settings.py, Dockerfile, app/content/personal_api.py — My-deck words voiced with siwis (Whisper A/B: 18/24 single words intelligible vs 5/24 for upmc); upmc kept for Speaking sentences
+- [2026-10-19] Modified: migrations/versions/0022_vocab_lookup.py — clear personal cards' old upmc clips so they re-synthesize with the word voice

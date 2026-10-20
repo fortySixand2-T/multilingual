@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from functools import lru_cache
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -59,6 +60,10 @@ class Settings(BaseSettings):
     whisper_device: str = "cpu"  # cpu | cuda
     whisper_compute_type: str = "int8"  # int8 | float16 | int8_float16 | float32
     piper_voice: str = ""  # path to a Piper .onnx voice model
+    # Voice for isolated words (My-deck lookups/cards). upmc reads sentences well but
+    # garbles single words (Whisper recognized 5/24 test words vs 18/24 for siwis), so
+    # words get their own voice; falls back to piper_voice when the file isn't there.
+    piper_word_voice: str = "/app/voices/fr_FR-siwis-medium.onnx"
     # Cap the examiner reply length: replies are 2–4 sentences, so a tight cap
     # cuts generation time (esp. local Ollama) without truncating real answers.
     examiner_max_tokens: int = 220
@@ -80,6 +85,10 @@ class Settings(BaseSettings):
     @property
     def invite_code_set(self) -> set[str]:
         return {c.strip() for c in self.invite_codes.split(",") if c.strip()}
+
+    @property
+    def word_voice(self) -> str:
+        return self.piper_word_voice if os.path.isfile(self.piper_word_voice) else self.piper_voice
 
 
 @lru_cache

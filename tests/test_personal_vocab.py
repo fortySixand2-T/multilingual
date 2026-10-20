@@ -475,6 +475,16 @@ def test_preview_of_a_course_word_skips_the_llm():
     assert router.calls == []
 
 
+def test_word_voice_prefers_siwis_and_falls_back_when_missing(tmp_path):
+    from app.config.settings import Settings
+
+    siwis = tmp_path / "siwis.onnx"
+    s = Settings(piper_voice="upmc.onnx", piper_word_voice=str(siwis))
+    assert s.word_voice == "upmc.onnx"  # not installed (e.g. local dev) -> sentence voice
+    siwis.write_bytes(b"onnx")
+    assert s.word_voice == str(siwis)
+
+
 def test_piper_reads_ipa_from_debug_log(monkeypatch):
     import subprocess
 
