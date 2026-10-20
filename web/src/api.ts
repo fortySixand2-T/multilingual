@@ -226,7 +226,8 @@ export type DueCard = {
 // A card in the "hardest for you" deck (Slice 2), ranked by FSRS difficulty.
 export type HardCard = { card_key: string; difficulty: number; due: string; vocab: ReviewVocab | null };
 
-// A dictionary enrichment (Slice D) previewed before adding a personal card.
+// A word lookup previewed before adding a personal card. Cached server-side, so a
+// repeat lookup is instant; `audio_url` plays the pronunciation before adding.
 export type PersonalEnrichment = {
   fr: string;
   en: string;
@@ -234,6 +235,7 @@ export type PersonalEnrichment = {
   gender: string;
   ipa: string;
   gender_source: string;
+  audio_url?: string | null;
 };
 export type WordForm = { label: string; fr: string };
 export type WordExample = { fr: string; en: string };
@@ -473,7 +475,7 @@ export const api = {
 
   // Personal decks (Slice E): preview a word's dictionary entry, add it, list "My deck".
   personalPreview: (word: string) =>
-    req<{ enrichment: PersonalEnrichment | null; over_budget?: boolean }>(
+    req<{ enrichment: PersonalEnrichment | null; over_budget?: boolean; in_course?: string }>(
       "/vocab/personal/preview",
       { method: "POST", body: JSON.stringify({ word }) }
     ),

@@ -488,3 +488,10 @@
 - [2026-10-18] Created: bench/results/latency-2026-10-18-gpu.json — raw speaking-latency samples + before/after summary with Whisper STT on the GTX 1070 (cuda int8)
 - [2026-10-18] Created: bench/reports/speaking-latency-2026-10-18-gpu.md — GPU-STT latency report: before/after vs the CPU baseline, waterfall, what's left (LLM)
 - [2026-10-19] Modified: CHANGELOG.md — merged main (squashed #117) into perf/whisper-gpu; kept the GPU STT entries
+- [2026-10-19] Created: app/content/lookup.py — durable shared My-deck word-lookup cache (meaning + Piper IPA + audio), one LLM call per word ever
+- [2026-10-19] Created: migrations/versions/0022_vocab_lookup.py — vocab_lookup table
+- [2026-10-19] Modified: app/content/tables.py — VocabLookup model
+- [2026-10-19] Modified: app/ai/adapters/piper_adapter.py — synthesize_ipa: WAV + eSpeak French IPA from --debug log (replaces LLM IPA guesses)
+- [2026-10-19] Modified: app/content/personal_api.py — preview/from-word use cached lookup; course words short-circuit (in_course); lookup-audio endpoint; added cards reuse the lookup clip; clearer failure message
+- [2026-10-19] Modified: web/src/screens/MyDeck.tsx, web/src/api.ts — explicit 'Add a word to my deck' panel: steps, loading text, inline errors, 🔊 before adding, editable meaning, added confirmation, course-word notice
+- [2026-10-19] Modified: tests/test_personal_vocab.py, web/src/screens/MyDeck.test.tsx — lookup cache, Piper IPA, audio reuse, course shortcut, UI flows
