@@ -10,3 +10,10 @@ points:
   - "ce qui pourrait expliquer la hausse"
   - "ce dont vous avez besoin comme preuve écrite"
   - "obtenir un engagement daté"
+openers:
+  - fr: "Service client, bonjour. Je m'appelle Claire, que puis-je faire pour vous ?"
+    en: "Customer service, hello. My name is Claire, what can I do for you?"
+  - fr: "Bonjour, service client électricité. Pouvez-vous m'indiquer la raison de votre appel ?"
+    en: "Hello, electricity customer service. Could you tell me why you're calling?"
+  - fr: "Bonjour et merci de votre patience. Je vous écoute, quel est le problème avec votre facture ?"
+    en: "Hello and thank you for waiting. I'm listening, what's the problem with your bill?"

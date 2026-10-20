@@ -11,3 +11,10 @@ points:
   - "l'adresse du cabinet"
   - "les documents à apporter"
   - "le prix de la consultation"
+openers:
+  - fr: "Allô, cabinet médical, bonjour ! Je vous écoute."
+    en: "Hello, doctor's office, good morning! I'm listening."
+  - fr: "Cabinet du docteur Martin, bonjour. Qu'est-ce que je peux faire pour vous ?"
+    en: "Doctor Martin's office, hello. What can I do for you?"
+  - fr: "Allô, bonjour ! Ici le cabinet médical. Vous voulez un rendez-vous ?"
+    en: "Hello! This is the doctor's office. Would you like an appointment?"

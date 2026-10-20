@@ -10,3 +10,10 @@ points:
   - "les documents à remplir pour le dossier"
   - "comment régler le dépôt de garantie"
   - "fixer une date de visite"
+openers:
+  - fr: "Agence Saint-Michel, bonjour ! Vous appelez pour une de nos annonces ?"
+    en: "Saint-Michel agency, hello! Are you calling about one of our listings?"
+  - fr: "Bonjour, agence immobilière, je vous écoute. Quel appartement vous intéresse ?"
+    en: "Hello, estate agency, I'm listening. Which flat are you interested in?"
+  - fr: "Allô, bonjour ! Vous avez vu une annonce chez nous ? Je peux vous renseigner."
+    en: "Hello! Did you see one of our listings? I can give you the details."

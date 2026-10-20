@@ -11,3 +11,10 @@ points:
   - "ce que le financement permet de couvrir"
   - "les délais à prévoir"
   - "ce dont dépend l'acceptation du dossier"
+openers:
+  - fr: "Bonjour, je suis conseillère en évolution professionnelle. Vous envisagez une reconversion, c'est bien cela ? Je vous écoute."
+    en: "Hello, I'm a career development adviser. You're considering a career change, is that right? I'm listening."
+  - fr: "Bonjour ! Merci de votre appel. Quelles questions avez-vous sur votre projet de reconversion ?"
+    en: "Hello! Thank you for calling. What questions do you have about your career-change plans?"
+  - fr: "Bonjour. Changer de métier est une grande décision. Par quoi souhaitez-vous commencer ?"
+    en: "Hello. Changing careers is a big decision. Where would you like to start?"

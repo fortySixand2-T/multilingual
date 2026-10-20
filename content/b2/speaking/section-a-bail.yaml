@@ -10,3 +10,10 @@ points:
   - "les travaux à mettre en œuvre"
   - "la révision du loyer et ce qui la justifie"
   - "les délais dont il faut tenir compte"
+openers:
+  - fr: "Cabinet Lefèvre, gestion immobilière, bonjour. Vous appelez au sujet du renouvellement de votre bail ?"
+    en: "Lefèvre property management, hello. Are you calling about renewing your lease?"
+  - fr: "Bonjour, service de gestion locative, je vous écoute. Votre bail arrive bientôt à échéance, c'est bien cela ?"
+    en: "Hello, lettings management, I'm listening. Your lease is ending soon, is that right?"
+  - fr: "Bonjour. Je vous préviens, les loyers du quartier ont beaucoup augmenté cette année. Que souhaitiez-vous discuter ?"
+    en: "Hello. I should warn you, rents in the area have gone up a lot this year. What did you want to discuss?"

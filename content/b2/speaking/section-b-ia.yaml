@@ -10,3 +10,10 @@ points:
   - "ce qu'il faudrait mettre en œuvre pour accompagner la transition"
   - "nuancer : les gains de productivité réels"
   - "ce dont dépend une adoption acceptable"
+openers:
+  - fr: "Bonjour ! L'intelligence artificielle au travail : menace ou opportunité ? J'aimerais connaître votre position."
+    en: "Hello! Artificial intelligence at work: threat or opportunity? I'd like to know your position."
+  - fr: "Bonjour ! On entend souvent que l'intelligence artificielle va supprimer des millions d'emplois. Partagez-vous cette inquiétude ?"
+    en: "Hello! We often hear that AI will wipe out millions of jobs. Do you share that concern?"
+  - fr: "Bonjour ! Certains voient l'intelligence artificielle comme un assistant précieux, d'autres comme un concurrent. Et vous, de quel côté êtes-vous ?"
+    en: "Hello! Some see AI as a valuable assistant, others as a competitor. Which side are you on?"

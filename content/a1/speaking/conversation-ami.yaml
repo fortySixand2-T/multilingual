@@ -16,3 +16,10 @@ points_en:
   - "Say what you're up to these days — work, studies, where you live"
   - "Ask them a question back — don't only answer"
   - "Suggest meeting up again, and say when"
+openers:
+  - fr: "Oh, salut ! Ça fait longtemps ! Comment ça va ?"
+    en: "Oh, hi! It's been ages! How are you?"
+  - fr: "Bonjour ! Quelle surprise ! Tu vas bien ?"
+    en: "Hello! What a surprise! Are you well?"
+  - fr: "Salut, c'est toi ! Je suis content de te voir. Quoi de neuf ?"
+    en: "Hi, it's you! I'm happy to see you. What's new?"

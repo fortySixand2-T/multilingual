@@ -10,3 +10,10 @@ points:
   - "le contenu et la durée"
   - "comment joindre un conseiller"
   - "ce que la formation permet d'obtenir"
+openers:
+  - fr: "Bonjour, centre de formation professionnelle, je vous écoute. En quoi puis-je vous aider ?"
+    en: "Hello, vocational training centre, I'm listening. How can I help you?"
+  - fr: "Bonjour ! Vous appelez au sujet de nos formations ? Je suis à votre disposition pour répondre à vos questions."
+    en: "Hello! Are you calling about our training courses? I'm happy to answer your questions."
+  - fr: "Organisme de formation, bonjour. Que souhaitez-vous savoir ?"
+    en: "Training provider, hello. What would you like to know?"

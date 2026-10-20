@@ -9,6 +9,8 @@ discarded — never written to disk or DB (R10).
 from __future__ import annotations
 
 import functools
+import hashlib
+import random
 from datetime import UTC, date, datetime
 
 import anyio
@@ -238,14 +240,23 @@ async def speech_opener(
     if stt is None:
         raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "speech is not configured")
 
-    system_extra = ""
+    topic = None
     if topic_id:
         row = await session.get(SpeakingTopicRow, topic_id)
         if row is not None:
-            system_extra = framing(SpeakingTopic.model_validate(row.data))
+            topic = SpeakingTopic.model_validate(row.data)
 
-    if system_extra:
-        # Topic opener: framed around the picked task, so it's worth an LLM call
+    reply_en = None
+    if topic is not None and topic.openers:
+        # Authored topic opener: like the free-conversation greeting — no LLM, nothing
+        # billed, pre-voiced audio, authored English. A random variant per session.
+        opener = random.choice(topic.openers)
+        reply_text, reply_en = opener.fr, opener.en
+        reply_audio_key = await _canned_audio_key(
+            storage, tts, reply_text, voice=settings.piper_voice
+        )
+    elif topic is not None:
+        # Topic without authored openers: the LLM writes one framed around the task,
         # billed against the daily ledger.
         examiner = SpeakingExaminer(stt, tts, ai_router)
         result = await examiner.opener(
@@ -254,7 +265,7 @@ async def speech_opener(
             mode=mode,
             daily_budget=settings.speaking_daily_token_budget,
             voice=settings.piper_voice,
-            system_extra=system_extra,
+            system_extra=framing(topic),
             max_tokens=settings.examiner_max_tokens,
             want_audio=False,  # lazy: synthesized on demand by GET /speech/audio
         )
@@ -264,10 +275,10 @@ async def speech_opener(
         reply_audio_key = None
     else:
         # Free conversation: a canned greeting — no LLM, nothing billed. Its audio is
-        # synthesized once per mode and reused across every session's opener.
-        canon_mode, reply_text = canned_opener(mode)
+        # synthesized once and reused across every session's opener.
+        reply_text = canned_opener(mode)
         reply_audio_key = await _canned_audio_key(
-            storage, tts, canon_mode, reply_text, voice=settings.piper_voice
+            storage, tts, reply_text, voice=settings.piper_voice
         )
 
     turn = SpeechTurn(
@@ -276,6 +287,7 @@ async def speech_opener(
         mode=mode,
         transcript="",  # opener has no learner utterance
         reply_text=reply_text,
+        reply_en=reply_en,
         reply_audio_key=reply_audio_key,
         created_at=datetime.now(UTC).replace(tzinfo=None),
     )
@@ -291,14 +303,13 @@ async def speech_opener(
     }
 
 
-async def _canned_audio_key(
-    storage: ObjectStorage, tts, mode: str, text: str, *, voice: str
-) -> str | None:
-    """Storage key for a canned opener's audio, synthesizing it once per mode and
-    reusing the cached clip on every later session. None when TTS is unconfigured."""
+async def _canned_audio_key(storage: ObjectStorage, tts, text: str, *, voice: str) -> str | None:
+    """Storage key for a canned opener's audio, synthesizing it once and reusing the
+    cached clip on every later session. Keyed by (voice, text) so editing an authored
+    line or switching voice re-voices it. None when TTS is unconfigured."""
     if tts is None or not text.strip():
         return None
-    key = f"speech/canned-{mode}.wav"
+    key = f"speech/canned-{hashlib.sha1(f'{voice}|{text}'.encode()).hexdigest()[:16]}.wav"
 
     def _work() -> str:
         try:

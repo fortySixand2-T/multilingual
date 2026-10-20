@@ -15,3 +15,10 @@ points_en:
   - "Say who lives where — « ma sœur habite à… »"
   - "Give an age or a job for one or two of them"
   - "Pick one person you're close to and say why"
+openers:
+  - fr: "Bonjour ! Aujourd'hui, on parle de votre famille. Vous avez des frères ou des sœurs ?"
+    en: "Hello! Today we're talking about your family. Do you have any brothers or sisters?"
+  - fr: "Bonjour ! Parlons de votre famille. Vous habitez avec qui ?"
+    en: "Hello! Let's talk about your family. Who do you live with?"
+  - fr: "Bonjour ! J'aimerais connaître votre famille. Votre famille est grande ou petite ?"
+    en: "Hello! I'd like to hear about your family. Is your family big or small?"

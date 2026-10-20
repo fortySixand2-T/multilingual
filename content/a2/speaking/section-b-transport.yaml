@@ -10,3 +10,10 @@ points:
   - "la durée et la fatigue"
   - "la liberté une fois sur place"
   - "l'environnement"
+openers:
+  - fr: "Bonjour ! Pour partir en vacances, vous préférez le train ou la voiture ? Pourquoi ?"
+    en: "Hello! For going on holiday, do you prefer the train or the car? Why?"
+  - fr: "Bonjour ! Moi, je pars toujours en voiture, on est plus libre. Et vous, quel est votre avis ?"
+    en: "Hello! I always go by car, you have more freedom. What's your view?"
+  - fr: "Bonjour ! On dit que le train est plus écologique, mais il coûte cher. Qu'en pensez-vous ?"
+    en: "Hello! People say the train is greener, but it's expensive. What do you think?"

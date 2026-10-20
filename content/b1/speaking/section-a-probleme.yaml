@@ -10,3 +10,10 @@ points:
   - "depuis quand la situation s'est aggravée"
   - "se plaindre sans être agressif"
   - "obtenir une date d'intervention"
+openers:
+  - fr: "Allô, oui ? Ah, bonjour ! Vous avez un souci dans l'appartement ?"
+    en: "Hello? Ah, hello! Is there a problem in the flat?"
+  - fr: "Bonjour, ici monsieur Durand. Je vous écoute, qu'est-ce qui ne va pas ?"
+    en: "Hello, this is Mr Durand. I'm listening, what's wrong?"
+  - fr: "Allô, bonjour ! Je suis un peu pressé, mais dites-moi, qu'est-ce qui se passe ?"
+    en: "Hello! I'm in a bit of a hurry, but tell me, what's going on?"

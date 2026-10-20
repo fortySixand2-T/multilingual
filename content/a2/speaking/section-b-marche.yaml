@@ -10,3 +10,10 @@ points:
   - "la qualité et la fraîcheur"
   - "le temps que ça prend"
   - "le contact avec les commerçants"
+openers:
+  - fr: "Bonjour ! Une question de tous les jours : vous préférez faire vos courses au marché ou au supermarché ? Pourquoi ?"
+    en: "Hello! An everyday question: do you prefer shopping at the market or the supermarket? Why?"
+  - fr: "Bonjour ! Moi, je vais toujours au supermarché, c'est plus pratique. Et vous, qu'en pensez-vous ?"
+    en: "Hello! I always go to the supermarket, it's more convenient. What do you think?"
+  - fr: "Bonjour ! On dit que le marché, c'est meilleur mais plus cher. Vous êtes d'accord ?"
+    en: "Hello! People say the market is better but more expensive. Do you agree?"

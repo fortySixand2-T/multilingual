@@ -11,3 +11,10 @@ points:
   - le nombre de personnes
   - le prix du menu
   - une question sur les plats
+openers:
+  - fr: "Restaurant Le Petit Jardin, bonjour ! Je peux vous aider ?"
+    en: "Le Petit Jardin restaurant, hello! Can I help you?"
+  - fr: "Bonjour, bienvenue au restaurant ! Vous voulez réserver une table ?"
+    en: "Hello, welcome to the restaurant! Would you like to book a table?"
+  - fr: "Bonjour ! Ici le restaurant Chez Paul. Qu'est-ce que vous désirez ?"
+    en: "Hello! This is Chez Paul restaurant. What would you like?"

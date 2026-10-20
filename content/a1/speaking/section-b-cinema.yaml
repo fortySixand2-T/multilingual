@@ -10,3 +10,10 @@ points:
   - "le prix du billet"
   - "sortir plutôt que rester seul"
   - "comment y aller"
+openers:
+  - fr: "Salut ! Ce soir, je veux rester à la maison. Je suis fatigué. Pourquoi tu veux aller au cinéma ?"
+    en: "Hi! Tonight I want to stay home. I'm tired. Why do you want to go to the cinema?"
+  - fr: "Le cinéma ce soir ? Non, je préfère regarder la télé à la maison. Pourquoi sortir ?"
+    en: "The cinema tonight? No, I'd rather watch TV at home. Why go out?"
+  - fr: "Salut ! Tu veux aller au cinéma ? Mais c'est cher, et il fait froid dehors. Pourquoi c'est une bonne idée ?"
+    en: "Hi! You want to go to the cinema? But it's expensive, and it's cold outside. Why is it a good idea?"

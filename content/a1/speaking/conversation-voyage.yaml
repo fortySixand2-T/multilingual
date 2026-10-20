@@ -16,3 +16,10 @@ points_en:
   - "Say when you'd leave and how long you'd stay"
   - "Say how you'd travel — plane, train, car"
   - "Name two things you want to do there"
+openers:
+  - fr: "Salut ! Alors, on part en voyage ensemble ? Où est-ce que tu veux aller ?"
+    en: "Hi! So, are we going on a trip together? Where do you want to go?"
+  - fr: "Salut ! J'ai envie de partir en vacances avec toi. Tu préfères la mer ou la montagne ?"
+    en: "Hi! I feel like going on holiday with you. Do you prefer the sea or the mountains?"
+  - fr: "Salut ! On prépare notre voyage ? Tu veux partir quand ?"
+    en: "Hi! Shall we plan our trip? When do you want to go?"

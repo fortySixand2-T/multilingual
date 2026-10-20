@@ -11,3 +11,10 @@ points:
   - le quartier et les transports
   - le nombre de pièces
   - la date de disponibilité
+openers:
+  - fr: "Agence Immo Centre, bonjour ! Que puis-je faire pour vous ?"
+    en: "Immo Centre agency, hello! What can I do for you?"
+  - fr: "Allô, bonjour ! Agence immobilière du Parc, je vous écoute."
+    en: "Hello! Parc estate agency, I'm listening."
+  - fr: "Bonjour, agence de location ! Vous appelez pour un appartement ?"
+    en: "Hello, rental agency! Are you calling about a flat?"

@@ -11,3 +11,10 @@ points:
   - le prix de l'inscription
   - le matériel nécessaire
   - le niveau demandé
+openers:
+  - fr: "Bonjour, club de sport, secrétariat. Je peux vous aider ?"
+    en: "Hello, sports club, front desk. Can I help you?"
+  - fr: "Bonjour et bienvenue au centre sportif ! Qu'est-ce que vous voulez savoir ?"
+    en: "Hello and welcome to the sports centre! What would you like to know?"
+  - fr: "Bonjour ! Vous voulez des informations sur nos cours ? Je vous écoute."
+    en: "Hello! Would you like information about our classes? I'm listening."

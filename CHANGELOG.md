@@ -497,3 +497,8 @@
 - [2026-10-19] Modified: tests/test_personal_vocab.py, web/src/screens/MyDeck.test.tsx — lookup cache, Piper IPA, audio reuse, course shortcut, UI flows
 - [2026-10-19] Modified: app/config/settings.py, Dockerfile, app/content/personal_api.py — My-deck words voiced with siwis (Whisper A/B: 18/24 single words intelligible vs 5/24 for upmc); upmc kept for Speaking sentences
 - [2026-10-19] Modified: migrations/versions/0022_vocab_lookup.py — clear personal cards' old upmc clips so they re-synthesize with the word voice
+- [2026-10-19] Modified: app/speech/topics.py — SpeakingTopic gains authored `openers` (fr/en variants)
+- [2026-10-19] Modified: app/speech/api.py — topic openers use a random authored variant (no LLM, pre-voiced, authored English); canned audio keyed by voice+text hash
+- [2026-10-19] Modified: app/speech/examiner.py — canned_opener returns just the greeting
+- [2026-10-19] Modified: content/{a1,a2,b1,b2}/speaking/*.yaml — 3 authored openers (French + English) for each of the 29 topics
+- [2026-10-19] Modified: tests/test_speech.py, tests/test_speaking_topics.py — authored-opener path + every topic has ≥3 openers
