@@ -18,3 +18,7 @@ openers:
     en: "Hello, welcome to the restaurant! Would you like to book a table?"
   - fr: "Bonjour ! Ici le restaurant Chez Paul. Qu'est-ce que vous désirez ?"
     en: "Hello! This is Chez Paul restaurant. What would you like?"
+  - fr: "Allô, oui ? Restaurant La Bonne Table. Je vous écoute !"
+    en: "Hello, yes? La Bonne Table restaurant. I'm listening!"
+  - fr: "Bonsoir, et bienvenue ! C'est pour une réservation ?"
+    en: "Good evening, and welcome! Is it for a booking?"

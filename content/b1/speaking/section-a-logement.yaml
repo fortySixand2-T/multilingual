@@ -17,3 +17,7 @@ openers:
     en: "Hello, estate agency, I'm listening. Which flat are you interested in?"
   - fr: "Allô, bonjour ! Vous avez vu une annonce chez nous ? Je peux vous renseigner."
     en: "Hello! Did you see one of our listings? I can give you the details."
+  - fr: "Oui, allô ? Ah, c'est pour l'appartement du centre-ville ? Il a beaucoup de succès !"
+    en: "Yes, hello? Ah, is it about the flat in the town centre? It's very popular!"
+  - fr: "Bonsoir, agence immobilière. Que puis-je vous dire sur ce logement ?"
+    en: "Good evening, estate agency. What can I tell you about this property?"

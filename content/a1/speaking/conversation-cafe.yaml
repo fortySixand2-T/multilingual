@@ -22,3 +22,7 @@ openers:
     en: "Hello! What can I get you?"
   - fr: "Bonjour, asseyez-vous ! Je vous sers quelque chose ?"
     en: "Hello, take a seat! Can I get you something?"
+  - fr: "Bonsoir ! Une table pour vous ? Qu'est-ce que je vous apporte ?"
+    en: "Good evening! A table for you? What can I bring you?"
+  - fr: "Salut ! Un café, un thé, un chocolat chaud ? Qu'est-ce qui vous fait plaisir ?"
+    en: "Hi! A coffee, a tea, a hot chocolate? What would you like?"

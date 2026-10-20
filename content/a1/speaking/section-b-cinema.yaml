@@ -17,3 +17,7 @@ openers:
     en: "The cinema tonight? No, I'd rather watch TV at home. Why go out?"
   - fr: "Salut ! Tu veux aller au cinéma ? Mais c'est cher, et il fait froid dehors. Pourquoi c'est une bonne idée ?"
     en: "Hi! You want to go to the cinema? But it's expensive, and it's cold outside. Why is it a good idea?"
+  - fr: "Oh non, pas ce soir ! Il y a un bon film à la télé. Pourquoi tu veux sortir ?"
+    en: "Oh no, not tonight! There's a good film on TV. Why do you want to go out?"
+  - fr: "Le cinéma ? Bof, je n'ai pas envie. Donne-moi une bonne raison !"
+    en: "The cinema? Meh, I don't feel like it. Give me a good reason!"

@@ -17,3 +17,7 @@ openers:
     en: "Hello! I always go to the supermarket, it's more convenient. What do you think?"
   - fr: "Bonjour ! On dit que le marché, c'est meilleur mais plus cher. Vous êtes d'accord ?"
     en: "Hello! People say the market is better but more expensive. Do you agree?"
+  - fr: "Moi, je trouve le marché trop cher et pas pratique. Vous n'êtes pas d'accord, je pense ?"
+    en: "I find the market too expensive and not convenient. You don't agree, I think?"
+  - fr: "Bonsoir ! Le samedi matin, vous allez où pour faire vos courses ? Et pourquoi ?"
+    en: "Good evening! On Saturday mornings, where do you go to do your shopping? And why?"

@@ -22,3 +22,7 @@ openers:
     en: "Hello! Let's talk about your family. Who do you live with?"
   - fr: "Bonjour ! J'aimerais connaître votre famille. Votre famille est grande ou petite ?"
     en: "Hello! I'd like to hear about your family. Is your family big or small?"
+  - fr: "Enchanté ! Parlez-moi un peu de votre famille. Vous avez des enfants ?"
+    en: "Nice to meet you! Tell me a little about your family. Do you have children?"
+  - fr: "Salut ! Aujourd'hui, le sujet, c'est la famille. Où habitent vos parents ?"
+    en: "Hi! Today's topic is family. Where do your parents live?"

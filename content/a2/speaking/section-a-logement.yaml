@@ -18,3 +18,7 @@ openers:
     en: "Hello! Parc estate agency, I'm listening."
   - fr: "Bonjour, agence de location ! Vous appelez pour un appartement ?"
     en: "Hello, rental agency! Are you calling about a flat?"
+  - fr: "Oui, bonjour ! Vous avez vu une de nos annonces ? Je vous écoute."
+    en: "Yes, hello! Did you see one of our listings? I'm listening."
+  - fr: "Agence immobilière, j'écoute. Vous cherchez à louer ou à acheter ?"
+    en: "Estate agency, I'm listening. Are you looking to rent or to buy?"

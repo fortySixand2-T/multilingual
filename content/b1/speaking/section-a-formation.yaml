@@ -17,3 +17,7 @@ openers:
     en: "Hello! Are you calling about our training courses? I'm happy to answer your questions."
   - fr: "Organisme de formation, bonjour. Que souhaitez-vous savoir ?"
     en: "Training provider, hello. What would you like to know?"
+  - fr: "Oui, bonjour ! Vous souhaitez des renseignements sur une de nos formations ? Je vous écoute."
+    en: "Yes, hello! Would you like information about one of our courses? I'm listening."
+  - fr: "Bonjour, service des inscriptions. Vous êtes salarié ou demandeur d'emploi ? Ça peut changer beaucoup de choses."
+    en: "Hello, admissions office. Are you employed or a jobseeker? It can change quite a lot."

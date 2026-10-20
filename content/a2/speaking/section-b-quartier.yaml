@@ -17,3 +17,7 @@ openers:
     en: "Hi! Your neighbourhood? I don't know, I'd rather live near work. Why near you?"
   - fr: "Salut ! Je dois déménager le mois prochain. Tu penses que ton quartier est bien pour moi ?"
     en: "Hi! I have to move next month. Do you think your neighbourhood would suit me?"
+  - fr: "Ton quartier ? Il est un peu loin du centre, non ? Pourquoi tu l'aimes ?"
+    en: "Your neighbourhood? It's a bit far from the centre, isn't it? Why do you like it?"
+  - fr: "Coucou ! J'hésite entre deux quartiers. Tu peux m'aider à choisir ?"
+    en: "Hey! I'm hesitating between two neighbourhoods. Can you help me choose?"

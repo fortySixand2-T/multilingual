@@ -17,3 +17,7 @@ openers:
     en: "Hello, electricity customer service. Could you tell me why you're calling?"
   - fr: "Bonjour et merci de votre patience. Je vous écoute, quel est le problème avec votre facture ?"
     en: "Hello and thank you for waiting. I'm listening, what's the problem with your bill?"
+  - fr: "Service réclamations, bonjour. Pourriez-vous me donner votre numéro client et m'expliquer la situation ?"
+    en: "Complaints department, hello. Could you give me your customer number and explain the situation?"
+  - fr: "Oui, je vous écoute. Il s'agit d'une facture, c'est bien cela ?"
+    en: "Yes, I'm listening. It's about a bill, is that right?"

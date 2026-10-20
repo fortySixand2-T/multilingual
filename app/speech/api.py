@@ -249,8 +249,18 @@ async def speech_opener(
     reply_en = None
     if topic is not None and topic.openers:
         # Authored topic opener: like the free-conversation greeting — no LLM, nothing
-        # billed, pre-voiced audio, authored English. A random variant per session.
-        opener = random.choice(topic.openers)
+        # billed, pre-voiced audio, authored English. A random variant per session,
+        # never the one this learner heard last time on this topic.
+        last = await session.scalar(
+            select(SpeechTurn.reply_text)
+            .where(
+                SpeechTurn.user_id == user.id,
+                SpeechTurn.reply_text.in_([o.fr for o in topic.openers]),
+            )
+            .order_by(SpeechTurn.id.desc())
+            .limit(1)
+        )
+        opener = random.choice([o for o in topic.openers if o.fr != last] or topic.openers)
         reply_text, reply_en = opener.fr, opener.en
         reply_audio_key = await _canned_audio_key(
             storage, tts, reply_text, voice=settings.piper_voice

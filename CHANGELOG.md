@@ -502,3 +502,7 @@
 - [2026-10-19] Modified: app/speech/examiner.py — canned_opener returns just the greeting
 - [2026-10-19] Modified: content/{a1,a2,b1,b2}/speaking/*.yaml — 3 authored openers (French + English) for each of the 29 topics
 - [2026-10-19] Modified: tests/test_speech.py, tests/test_speaking_topics.py — authored-opener path + every topic has ≥3 openers
+- [2026-10-19] Modified: app/speech/api.py — topic opener never repeats the variant this learner heard last
+- [2026-10-19] Modified: content/{a1,a2,b1,b2}/speaking/*.yaml — 5 authored openers per topic (was 3), varied greetings, vous except friend role-plays
+- [2026-10-19] Modified: tests/test_speech.py, tests/test_speaking_topics.py — no back-to-back repeat; ≥5 openers per topic
+- [2026-10-19] Created: bench/reports/speaking-staleness-2026-10-19.md — measured staleness of live LLM openers/turns (272 samples) and quality issues

@@ -18,3 +18,7 @@ openers:
     en: "Doctor Martin's office, hello. What can I do for you?"
   - fr: "Allô, bonjour ! Ici le cabinet médical. Vous voulez un rendez-vous ?"
     en: "Hello! This is the doctor's office. Would you like an appointment?"
+  - fr: "Oui, allô ? Ici le secrétariat du médecin. Je peux vous aider ?"
+    en: "Yes, hello? This is the doctor's office. Can I help you?"
+  - fr: "Cabinet médical, j'écoute. C'est pour quoi ?"
+    en: "Doctor's office, I'm listening. What is it about?"

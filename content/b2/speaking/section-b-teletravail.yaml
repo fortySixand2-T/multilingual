@@ -17,3 +17,7 @@ openers:
     en: "Hello! In recent years remote working has become widespread. In your view, is it progress?"
   - fr: "Bonjour ! Certaines entreprises demandent à leurs salariés de revenir au bureau. Les comprenez-vous ?"
     en: "Hello! Some companies are asking staff to come back to the office. Do you understand why?"
+  - fr: "Mon patron dit que le télétravail tue l'esprit d'équipe. Partagez-vous son avis ?"
+    en: "My boss says remote working kills team spirit. Do you share his view?"
+  - fr: "Bonsoir ! Si vous pouviez choisir, travailleriez-vous chez vous ou au bureau ? Et pourquoi ?"
+    en: "Good evening! If you could choose, would you work from home or at the office? And why?"

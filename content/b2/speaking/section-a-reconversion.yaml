@@ -18,3 +18,7 @@ openers:
     en: "Hello! Thank you for calling. What questions do you have about your career-change plans?"
   - fr: "Bonjour. Changer de métier est une grande décision. Par quoi souhaitez-vous commencer ?"
     en: "Hello. Changing careers is a big decision. Where would you like to start?"
+  - fr: "Conseil en évolution professionnelle, bonjour. Vous m'appelez pour faire le point sur votre projet ?"
+    en: "Career development advice, hello. Are you calling to take stock of your plans?"
+  - fr: "Bonsoir ! Beaucoup de personnes hésitent avant de changer de voie. Qu'est-ce qui vous amène ?"
+    en: "Good evening! Many people hesitate before changing paths. What brings you here?"

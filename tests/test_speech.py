@@ -322,8 +322,8 @@ _OPENERS = [
 
 
 def test_authored_topic_opener_never_calls_the_llm_and_carries_its_english():
-    """A topic with authored openers opens instantly: a variant is picked (no LLM,
-    nothing billed), its clip is voiced once per line and reused, and its English
+    """A topic with authored openers opens instantly: a fresh variant is picked (no
+    LLM, nothing billed), its clip is voiced once per line and reused, and its English
     is stored on the turn so the subtitle is free."""
     tts = FakeTTS()
     client, _ = _client(stt=FakeSTT(), tts=tts, uid=319, router=BoomRouter())
@@ -335,8 +335,10 @@ def test_authored_topic_opener_never_calls_the_llm_and_carries_its_english():
         ).json()
         for i in range(12)
     ]
-    texts = {b["reply_text"] for b in bodies}
-    assert texts <= {o["fr"] for o in _OPENERS} and len(texts) == 2  # varies per session
+    texts = [b["reply_text"] for b in bodies]
+    assert set(texts) == {o["fr"] for o in _OPENERS}
+    # Never the line this learner heard last session (with 2 variants: alternates).
+    assert all(a != b for a, b in zip(texts, texts[1:], strict=False))
     for b in bodies:
         client.get(b["reply_audio_url"])
     assert tts.calls == 2  # one synthesis per distinct line, then cached

@@ -17,3 +17,7 @@ openers:
     en: "Hi! The cleaning? Oh, I don't have time this week. Why is it important?"
   - fr: "Bonjour ! Tu as l'air fâché. Qu'est-ce qui ne va pas ?"
     en: "Hello! You look annoyed. What's wrong?"
+  - fr: "Coucou ! Je suis un peu occupé. C'est important ?"
+    en: "Hey! I'm a bit busy. Is it important?"
+  - fr: "Ah, tu es là ! Tu veux parler de la cuisine ? Moi, je trouve qu'elle est propre."
+    en: "Ah, you're here! You want to talk about the kitchen? I think it's clean."

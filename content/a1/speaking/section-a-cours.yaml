@@ -18,3 +18,7 @@ openers:
     en: "Hello and welcome to the sports centre! What would you like to know?"
   - fr: "Bonjour ! Vous voulez des informations sur nos cours ? Je vous écoute."
     en: "Hello! Would you like information about our classes? I'm listening."
+  - fr: "Bonsoir, accueil du club ! Vous cherchez un cours de sport ?"
+    en: "Good evening, club reception! Are you looking for a sports class?"
+  - fr: "Oui, bonjour ! Secrétariat des cours de sport. Posez-moi vos questions."
+    en: "Yes, hello! Sports classes office. Ask me your questions."

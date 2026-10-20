@@ -22,3 +22,7 @@ openers:
     en: "Hello! Tell me about an ordinary day. What do you do in the morning?"
   - fr: "Bonjour ! Je voudrais connaître votre journée. Vous travaillez ou vous étudiez ?"
     en: "Hello! I'd like to hear about your day. Do you work or study?"
+  - fr: "Salut ! Une petite question : qu'est-ce que vous mangez le matin ?"
+    en: "Hi! A little question: what do you eat in the morning?"
+  - fr: "Bonsoir ! Votre journée commence tôt ou tard ?"
+    en: "Good evening! Does your day start early or late?"
