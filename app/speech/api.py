@@ -16,6 +16,7 @@ from datetime import UTC, date, datetime
 import anyio
 from fastapi import (
     APIRouter,
+    BackgroundTasks,
     Depends,
     File,
     Form,
@@ -25,7 +26,7 @@ from fastapi import (
     UploadFile,
     status,
 )
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.errors import TranscriptionError
@@ -49,7 +50,13 @@ from app.users.models import User
 
 router = APIRouter(prefix="/speech", tags=["speech"])
 
-_HISTORY_TURNS = 3  # how many prior turns to feed back as conversation context
+# Conversation context fed back to the examiner: the whole session, append-only, so
+# Ollama reuses its prompt cache and only reads the newest turn (~0.1 s). A sliding
+# window shifts the prompt every turn and re-reads it all (~0.45 s at 3 turns on the
+# 1070). Past the cap the oldest turns go a block at a time, so the cache breaks once
+# per block instead of every turn. See bench/reports/speaking-history-2026-10-24.md.
+_HISTORY_MAX_TURNS = 16
+_HISTORY_TRIM_BLOCK = 8
 _MAX_AUDIO_BYTES = 10 * 1024 * 1024  # 10 MB — a spoken turn is seconds of audio, not this
 
 
@@ -61,13 +68,12 @@ async def _recent_history(session: AsyncSession, user_id: int, session_id: str =
     # starts fresh — prior-topic turns don't bleed into the examiner's context.
     if session_id:
         q = q.where(SpeechTurn.session_id == session_id)
-    rows = (
-        (await session.execute(q.order_by(SpeechTurn.id.desc()).limit(_HISTORY_TURNS)))
-        .scalars()
-        .all()
-    )
+    n = await session.scalar(select(func.count()).select_from(q.subquery()))
+    over = n - _HISTORY_MAX_TURNS
+    cut = 0 if over <= 0 else ((over - 1) // _HISTORY_TRIM_BLOCK + 1) * _HISTORY_TRIM_BLOCK
+    rows = (await session.execute(q.order_by(SpeechTurn.id).offset(cut))).scalars().all()
     msgs: list[Msg] = []
-    for turn in reversed(rows):  # oldest first
+    for turn in rows:  # oldest first
         # Opener turns have no learner utterance (empty transcript) — feed back only
         # the assistant's greeting so the examiner remembers it already spoke,
         # without a blank "user" message polluting the context.
@@ -220,6 +226,7 @@ async def speech_turn(
 @router.post("/opener")
 async def speech_opener(
     request: Request,
+    background: BackgroundTasks,
     mode: str = Form("examiner"),
     topic_id: str = Form(""),
     session_id: str = Form(""),
@@ -305,6 +312,14 @@ async def speech_opener(
     await session.flush()
     reply_audio_url = f"/speech/audio/{turn.id}" if tts is not None and reply_text.strip() else None
     await session.commit()
+    # After the response is sent: prime the model's prompt cache for turn 1 while the
+    # learner listens to the opener.
+    background.add_task(
+        SpeakingExaminer(stt, tts, ai_router).warm,
+        mode=mode,
+        system_extra=framing(topic) if topic is not None else "",
+        opener_text=reply_text,
+    )
     return {
         "turn_id": turn.id,
         "over_budget": False,

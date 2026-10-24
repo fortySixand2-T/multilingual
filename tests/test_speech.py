@@ -66,7 +66,7 @@ class FakeRouter:
         self.calls = []
 
     def run(self, profile, *, system, messages, **kw):
-        self.calls.append({"profile": profile, "system": system, "messages": messages})
+        self.calls.append({"profile": profile, "system": system, "messages": messages, **kw})
         return LLMResult(
             text="Très bien ! Et qu'est-ce que vous aimez boire le matin ?",
             provider="ollama",
@@ -253,6 +253,57 @@ def test_history_grows_and_feeds_back():
     hist = client.get("/speech/history").json()["turns"]
     assert len(hist) == 2
     assert all(t["transcript"] for t in hist)
+
+
+def test_history_keeps_the_whole_session_then_trims_in_blocks():
+    """Append-only context lets Ollama reuse its prompt cache; past 16 turns the
+    oldest go 8 at a time (cache breaks once per block, not every turn)."""
+    router = FakeRouter()
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=101, router=router)
+    sent = []
+    for _ in range(21):
+        client.post(
+            "/speech/turn",
+            data={"session_id": "s-long"},
+            files={"audio": ("a.wav", b"x", "audio/wav")},
+        )
+        sent.append(len(router.calls[-1]["messages"]) // 2)  # prior turns fed back
+    assert sent[:17] == list(range(17))  # whole session up to the cap
+    assert sent[17:] == [9, 10, 11, 12]  # turn 18 drops the oldest 8, then grows again
+
+
+class _LocalRouter(FakeRouter):
+    def __init__(self, primary):
+        super().__init__()
+        self._primary = primary
+
+    def primary(self, profile):
+        return self._primary
+
+
+def test_opener_warms_the_local_model_with_turn_ones_prefix():
+    router = _LocalRouter("ollama/qwen2.5:7b")
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=102, router=router)
+    _add_topic("t-warm", openers=[{"fr": "Bonjour !", "en": "Hello!"}])
+    client.post("/speech/opener", data={"topic_id": "t-warm", "session_id": "s-w"})
+    (warm,) = router.calls  # the authored opener itself made no call
+    assert warm["max_tokens"] == 1
+    assert [(m.role, m.content) for m in warm["messages"]] == [("assistant", "Bonjour !")]
+    client.post(
+        "/speech/turn",
+        data={"topic_id": "t-warm", "session_id": "s-w"},
+        files={"audio": ("a.wav", b"x", "audio/wav")},
+    )
+    turn = router.calls[-1]
+    assert turn["system"] == warm["system"]  # same prefix -> cache hit on turn 1
+    assert turn["messages"][0].content == "Bonjour !"
+
+
+def test_opener_does_not_warm_a_hosted_model():
+    router = _LocalRouter("anthropic/claude-sonnet-5")
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=103, router=router)
+    client.post("/speech/opener", data={"mode": "conversation", "session_id": "s-h"})
+    assert router.calls == []  # would bill a hosted provider for nothing
 
 
 def test_speech_disabled_returns_503():

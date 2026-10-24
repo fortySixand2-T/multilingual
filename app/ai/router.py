@@ -64,6 +64,10 @@ class AIRouter:
     def profiles(self) -> list[str]:
         return sorted(self._profiles)
 
+    def primary(self, profile_name: str) -> str:
+        """The profile's primary target, e.g. "ollama/qwen2.5:7b-instruct-q4_K_M"."""
+        return self._profiles[profile_name].primary
+
     @staticmethod
     def _cache_key(profile_name: str, target: str, *, system, messages, temperature, max_tokens):
         payload = json.dumps(

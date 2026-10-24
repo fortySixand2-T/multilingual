@@ -165,6 +165,24 @@ class SpeakingExaminer:
             False, transcript.text, reply.text, reply_audio, reply.provider, reply.model
         )
 
+    def warm(self, *, mode: str, system_extra: str, opener_text: str) -> None:
+        """Pre-read a fresh session's prompt into the local model's prompt cache, so the
+        first spoken turn doesn't pay the ~1 s cold prefill of the system prompt (GTX
+        1070 reads ~460 tok/s). Sends exactly the prefix turn 1 will send — system +
+        the opener as the first assistant message — and generates a single token.
+        Best-effort and local-only: a hosted provider would bill for it."""
+        try:
+            if not self._router.primary(_PROFILE).startswith("ollama/"):
+                return
+            self._router.run(
+                _PROFILE,
+                system=self.system_prompt(mode) + system_extra,
+                messages=[Msg("assistant", opener_text)],
+                max_tokens=1,
+            )
+        except Exception:  # a failed warm-up only costs the old cold-prefill latency
+            pass
+
     async def opener(
         self,
         session: AsyncSession,

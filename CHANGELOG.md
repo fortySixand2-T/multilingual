@@ -506,3 +506,9 @@
 - [2026-10-19] Modified: content/{a1,a2,b1,b2}/speaking/*.yaml — 5 authored openers per topic (was 3), varied greetings, vous except friend role-plays
 - [2026-10-19] Modified: tests/test_speech.py, tests/test_speaking_topics.py — no back-to-back repeat; ≥5 openers per topic
 - [2026-10-19] Created: bench/reports/speaking-staleness-2026-10-19.md — measured staleness of live LLM openers/turns (272 samples) and quality issues
+- [2026-10-24] Modified: app/speech/api.py — examiner history is the whole session (≤16 turns, trimmed 8 at a time) so Ollama's prefix cache hits; opener schedules a background warm-up
+- [2026-10-24] Modified: app/speech/examiner.py — SpeakingExaminer.warm: 1-token local-only call that pre-reads turn 1's prompt prefix
+- [2026-10-24] Modified: app/ai/router.py — AIRouter.primary(profile) exposes a profile's primary target
+- [2026-10-24] Modified: app/ai/adapters/ollama_adapter.py — Qwen models use /api/generate raw with client-rendered ChatML, skipping /api/chat's history re-tokenizing (~0.8 s at 16 turns)
+- [2026-10-24] Modified: tests/test_speech.py, tests/test_json_format.py — block-trimmed history, warm-up local-only and prefix-matching, ChatML rendering
+- [2026-10-24] Created: bench/reports/speaking-history-2026-10-24.md — live bench: mean turn 2.43 s → 2.04 s, turn-1 prefill 1.20 s → 0.10 s
