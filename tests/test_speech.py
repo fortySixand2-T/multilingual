@@ -66,7 +66,7 @@ class FakeRouter:
         self.calls = []
 
     def run(self, profile, *, system, messages, **kw):
-        self.calls.append({"profile": profile, "system": system, "messages": messages})
+        self.calls.append({"profile": profile, "system": system, "messages": messages, **kw})
         return LLMResult(
             text="Très bien ! Et qu'est-ce que vous aimez boire le matin ?",
             provider="ollama",
@@ -169,7 +169,9 @@ def _client(*, stt=None, tts=None, uid=99, router=None):
     return TestClient(app), storage
 
 
-def _add_topic(tid, *, level="a1", section="A", title="T", prompt="Parlez-en", points=None):
+def _add_topic(
+    tid, *, level="a1", section="A", title="T", prompt="Parlez-en", points=None, openers=None
+):
     async def go():
         async with _Session() as s:
             s.add(
@@ -184,6 +186,7 @@ def _add_topic(tid, *, level="a1", section="A", title="T", prompt="Parlez-en", p
                         "title": title,
                         "prompt": prompt,
                         "points": points or [],
+                        "openers": openers or [],
                     },
                 )
             )
@@ -252,6 +255,57 @@ def test_history_grows_and_feeds_back():
     assert all(t["transcript"] for t in hist)
 
 
+def test_history_keeps_the_whole_session_then_trims_in_blocks():
+    """Append-only context lets Ollama reuse its prompt cache; past 16 turns the
+    oldest go 8 at a time (cache breaks once per block, not every turn)."""
+    router = FakeRouter()
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=101, router=router)
+    sent = []
+    for _ in range(21):
+        client.post(
+            "/speech/turn",
+            data={"session_id": "s-long"},
+            files={"audio": ("a.wav", b"x", "audio/wav")},
+        )
+        sent.append(len(router.calls[-1]["messages"]) // 2)  # prior turns fed back
+    assert sent[:17] == list(range(17))  # whole session up to the cap
+    assert sent[17:] == [9, 10, 11, 12]  # turn 18 drops the oldest 8, then grows again
+
+
+class _LocalRouter(FakeRouter):
+    def __init__(self, primary):
+        super().__init__()
+        self._primary = primary
+
+    def primary(self, profile):
+        return self._primary
+
+
+def test_opener_warms_the_local_model_with_turn_ones_prefix():
+    router = _LocalRouter("ollama/qwen2.5:7b")
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=102, router=router)
+    _add_topic("t-warm", openers=[{"fr": "Bonjour !", "en": "Hello!"}])
+    client.post("/speech/opener", data={"topic_id": "t-warm", "session_id": "s-w"})
+    (warm,) = router.calls  # the authored opener itself made no call
+    assert warm["max_tokens"] == 1
+    assert [(m.role, m.content) for m in warm["messages"]] == [("assistant", "Bonjour !")]
+    client.post(
+        "/speech/turn",
+        data={"topic_id": "t-warm", "session_id": "s-w"},
+        files={"audio": ("a.wav", b"x", "audio/wav")},
+    )
+    turn = router.calls[-1]
+    assert turn["system"] == warm["system"]  # same prefix -> cache hit on turn 1
+    assert turn["messages"][0].content == "Bonjour !"
+
+
+def test_opener_does_not_warm_a_hosted_model():
+    router = _LocalRouter("anthropic/claude-sonnet-5")
+    client, _ = _client(stt=FakeSTT(), tts=None, uid=103, router=router)
+    client.post("/speech/opener", data={"mode": "conversation", "session_id": "s-h"})
+    assert router.calls == []  # would bill a hosted provider for nothing
+
+
 def test_speech_disabled_returns_503():
     client, _ = _client(stt=None, tts=None)
     r = client.post("/speech/turn", files={"audio": ("a.wav", b"x", "audio/wav")})
@@ -307,6 +361,41 @@ def test_free_conversation_opener_is_canned_and_never_calls_the_llm():
     audio = client.get(b1["reply_audio_url"])
     assert audio.status_code == 200 and audio.content == b"RIFFfakewavbytes"
     assert tts.calls == 1  # serving the cached clip doesn't re-synthesize
+
+
+_OPENERS = [
+    {"fr": "Bonjour, club de sport. Je peux vous aider ?", "en": "Hello, sports club. Can I help?"},
+    {
+        "fr": "Bonjour ! Qu'est-ce que vous voulez savoir ?",
+        "en": "Hello! What would you like to know?",
+    },
+]
+
+
+def test_authored_topic_opener_never_calls_the_llm_and_carries_its_english():
+    """A topic with authored openers opens instantly: a fresh variant is picked (no
+    LLM, nothing billed), its clip is voiced once per line and reused, and its English
+    is stored on the turn so the subtitle is free."""
+    tts = FakeTTS()
+    client, _ = _client(stt=FakeSTT(), tts=tts, uid=319, router=BoomRouter())
+    _add_topic("t-op-319", openers=_OPENERS)
+    bodies = [
+        client.post(
+            "/speech/opener",
+            data={"mode": "examiner", "topic_id": "t-op-319", "session_id": f"s{i}"},
+        ).json()
+        for i in range(12)
+    ]
+    texts = [b["reply_text"] for b in bodies]
+    assert set(texts) == {o["fr"] for o in _OPENERS}
+    # Never the line this learner heard last session (with 2 variants: alternates).
+    assert all(a != b for a, b in zip(texts, texts[1:], strict=False))
+    for b in bodies:
+        client.get(b["reply_audio_url"])
+    assert tts.calls == 2  # one synthesis per distinct line, then cached
+    hist = client.get("/speech/history").json()["turns"]
+    en = {o["fr"]: o["en"] for o in _OPENERS}
+    assert all(t["reply_en"] == en[t["reply_text"]] for t in hist)
 
 
 def test_canned_opener_persists_empty_transcript_turn():

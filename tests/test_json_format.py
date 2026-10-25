@@ -74,6 +74,34 @@ def test_ollama_adapter_sends_format(monkeypatch):
     assert "format" not in captured
 
 
+def test_ollama_adapter_renders_chatml_for_qwen(monkeypatch):
+    """Qwen goes to /api/generate raw: /api/chat's per-request history re-tokenizing
+    grows with session length (~0.8 s at 16 turns on the 1070)."""
+    captured = {}
+
+    def fake_post(url, json, timeout):
+        captured.update(json, url=url)
+        return SimpleNamespace(
+            raise_for_status=lambda: None,
+            json=lambda: {"response": "{}", "prompt_eval_count": 1, "eval_count": 1},
+        )
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    out = OllamaAdapter().complete(
+        system="s",
+        messages=[Msg("assistant", "Bonjour"), Msg("user", "x")],
+        model="qwen2.5:7b",
+        format="json",
+    )
+    assert out.text == "{}"
+    assert captured["url"].endswith("/api/generate") and captured["raw"] is True
+    assert captured["format"] == "json" and "messages" not in captured
+    assert captured["prompt"] == (
+        "<|im_start|>system\ns<|im_end|>\n<|im_start|>assistant\nBonjour<|im_end|>\n"
+        "<|im_start|>user\nx<|im_end|>\n<|im_start|>assistant\n"
+    )
+
+
 def test_litellm_adapter_maps_format_to_response_format(monkeypatch):
     captured = {}
 

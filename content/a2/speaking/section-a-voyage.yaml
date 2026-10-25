@@ -11,3 +11,14 @@ points:
   - le prix et les réductions
   - les correspondances
   - les bagages autorisés
+openers:
+  - fr: "Bonjour, bienvenue au guichet ! Où souhaitez-vous aller ?"
+    en: "Hello, welcome to the ticket office! Where would you like to go?"
+  - fr: "Bonjour ! Je peux vous aider pour votre voyage ? Je vous écoute."
+    en: "Hello! Can I help you with your journey? I'm listening."
+  - fr: "Bonjour, guichet de la gare. Qu'est-ce que je peux faire pour vous aujourd'hui ?"
+    en: "Hello, station ticket office. What can I do for you today?"
+  - fr: "Au suivant, s'il vous plaît ! Bonjour, c'est pour quel trajet ?"
+    en: "Next, please! Hello, which journey is it for?"
+  - fr: "Bonsoir ! Billets de train, je vous écoute. Vous partez quand ?"
+    en: "Good evening! Train tickets, I'm listening. When are you leaving?"

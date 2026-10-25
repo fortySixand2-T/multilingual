@@ -96,6 +96,14 @@ def test_framing_differs_by_section_and_includes_prompt_and_points():
     assert a != b
 
 
+def test_every_authored_topic_has_opener_variants():
+    """Each topic ships several openers so repeat sessions don't open identically."""
+    for level in ("a1", "a2", "b1", "b2"):
+        for t in load_topics(CONTENT_ROOT, level).values():
+            assert len(t.openers) >= 5, t.id
+            assert all(o.fr.strip() and o.en.strip() for o in t.openers), t.id
+
+
 # --- sync + HTTP --------------------------------------------------------------
 
 

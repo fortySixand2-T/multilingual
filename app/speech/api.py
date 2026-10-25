@@ -9,11 +9,14 @@ discarded — never written to disk or DB (R10).
 from __future__ import annotations
 
 import functools
+import hashlib
+import random
 from datetime import UTC, date, datetime
 
 import anyio
 from fastapi import (
     APIRouter,
+    BackgroundTasks,
     Depends,
     File,
     Form,
@@ -23,7 +26,7 @@ from fastapi import (
     UploadFile,
     status,
 )
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.errors import TranscriptionError
@@ -47,7 +50,13 @@ from app.users.models import User
 
 router = APIRouter(prefix="/speech", tags=["speech"])
 
-_HISTORY_TURNS = 3  # how many prior turns to feed back as conversation context
+# Conversation context fed back to the examiner: the whole session, append-only, so
+# Ollama reuses its prompt cache and only reads the newest turn (~0.1 s). A sliding
+# window shifts the prompt every turn and re-reads it all (~0.45 s at 3 turns on the
+# 1070). Past the cap the oldest turns go a block at a time, so the cache breaks once
+# per block instead of every turn. See bench/reports/speaking-history-2026-10-24.md.
+_HISTORY_MAX_TURNS = 16
+_HISTORY_TRIM_BLOCK = 8
 _MAX_AUDIO_BYTES = 10 * 1024 * 1024  # 10 MB — a spoken turn is seconds of audio, not this
 
 
@@ -59,13 +68,12 @@ async def _recent_history(session: AsyncSession, user_id: int, session_id: str =
     # starts fresh — prior-topic turns don't bleed into the examiner's context.
     if session_id:
         q = q.where(SpeechTurn.session_id == session_id)
-    rows = (
-        (await session.execute(q.order_by(SpeechTurn.id.desc()).limit(_HISTORY_TURNS)))
-        .scalars()
-        .all()
-    )
+    n = await session.scalar(select(func.count()).select_from(q.subquery()))
+    over = n - _HISTORY_MAX_TURNS
+    cut = 0 if over <= 0 else ((over - 1) // _HISTORY_TRIM_BLOCK + 1) * _HISTORY_TRIM_BLOCK
+    rows = (await session.execute(q.order_by(SpeechTurn.id).offset(cut))).scalars().all()
     msgs: list[Msg] = []
-    for turn in reversed(rows):  # oldest first
+    for turn in rows:  # oldest first
         # Opener turns have no learner utterance (empty transcript) — feed back only
         # the assistant's greeting so the examiner remembers it already spoke,
         # without a blank "user" message polluting the context.
@@ -218,6 +226,7 @@ async def speech_turn(
 @router.post("/opener")
 async def speech_opener(
     request: Request,
+    background: BackgroundTasks,
     mode: str = Form("examiner"),
     topic_id: str = Form(""),
     session_id: str = Form(""),
@@ -238,14 +247,33 @@ async def speech_opener(
     if stt is None:
         raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "speech is not configured")
 
-    system_extra = ""
+    topic = None
     if topic_id:
         row = await session.get(SpeakingTopicRow, topic_id)
         if row is not None:
-            system_extra = framing(SpeakingTopic.model_validate(row.data))
+            topic = SpeakingTopic.model_validate(row.data)
 
-    if system_extra:
-        # Topic opener: framed around the picked task, so it's worth an LLM call
+    reply_en = None
+    if topic is not None and topic.openers:
+        # Authored topic opener: like the free-conversation greeting — no LLM, nothing
+        # billed, pre-voiced audio, authored English. A random variant per session,
+        # never the one this learner heard last time on this topic.
+        last = await session.scalar(
+            select(SpeechTurn.reply_text)
+            .where(
+                SpeechTurn.user_id == user.id,
+                SpeechTurn.reply_text.in_([o.fr for o in topic.openers]),
+            )
+            .order_by(SpeechTurn.id.desc())
+            .limit(1)
+        )
+        opener = random.choice([o for o in topic.openers if o.fr != last] or topic.openers)
+        reply_text, reply_en = opener.fr, opener.en
+        reply_audio_key = await _canned_audio_key(
+            storage, tts, reply_text, voice=settings.piper_voice
+        )
+    elif topic is not None:
+        # Topic without authored openers: the LLM writes one framed around the task,
         # billed against the daily ledger.
         examiner = SpeakingExaminer(stt, tts, ai_router)
         result = await examiner.opener(
@@ -254,7 +282,7 @@ async def speech_opener(
             mode=mode,
             daily_budget=settings.speaking_daily_token_budget,
             voice=settings.piper_voice,
-            system_extra=system_extra,
+            system_extra=framing(topic),
             max_tokens=settings.examiner_max_tokens,
             want_audio=False,  # lazy: synthesized on demand by GET /speech/audio
         )
@@ -264,10 +292,10 @@ async def speech_opener(
         reply_audio_key = None
     else:
         # Free conversation: a canned greeting — no LLM, nothing billed. Its audio is
-        # synthesized once per mode and reused across every session's opener.
-        canon_mode, reply_text = canned_opener(mode)
+        # synthesized once and reused across every session's opener.
+        reply_text = canned_opener(mode)
         reply_audio_key = await _canned_audio_key(
-            storage, tts, canon_mode, reply_text, voice=settings.piper_voice
+            storage, tts, reply_text, voice=settings.piper_voice
         )
 
     turn = SpeechTurn(
@@ -276,6 +304,7 @@ async def speech_opener(
         mode=mode,
         transcript="",  # opener has no learner utterance
         reply_text=reply_text,
+        reply_en=reply_en,
         reply_audio_key=reply_audio_key,
         created_at=datetime.now(UTC).replace(tzinfo=None),
     )
@@ -283,6 +312,14 @@ async def speech_opener(
     await session.flush()
     reply_audio_url = f"/speech/audio/{turn.id}" if tts is not None and reply_text.strip() else None
     await session.commit()
+    # After the response is sent: prime the model's prompt cache for turn 1 while the
+    # learner listens to the opener.
+    background.add_task(
+        SpeakingExaminer(stt, tts, ai_router).warm,
+        mode=mode,
+        system_extra=framing(topic) if topic is not None else "",
+        opener_text=reply_text,
+    )
     return {
         "turn_id": turn.id,
         "over_budget": False,
@@ -291,14 +328,13 @@ async def speech_opener(
     }
 
 
-async def _canned_audio_key(
-    storage: ObjectStorage, tts, mode: str, text: str, *, voice: str
-) -> str | None:
-    """Storage key for a canned opener's audio, synthesizing it once per mode and
-    reusing the cached clip on every later session. None when TTS is unconfigured."""
+async def _canned_audio_key(storage: ObjectStorage, tts, text: str, *, voice: str) -> str | None:
+    """Storage key for a canned opener's audio, synthesizing it once and reusing the
+    cached clip on every later session. Keyed by (voice, text) so editing an authored
+    line or switching voice re-voices it. None when TTS is unconfigured."""
     if tts is None or not text.strip():
         return None
-    key = f"speech/canned-{mode}.wav"
+    key = f"speech/canned-{hashlib.sha1(f'{voice}|{text}'.encode()).hexdigest()[:16]}.wav"
 
     def _work() -> str:
         try:
