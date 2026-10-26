@@ -546,3 +546,5 @@
 - [2026-10-25] Created: qa/issues/867-writing-grader-mis-cited-corrections-pass-filter.md — H6 confirmed: 3 corrections cite a curated-but-wrong reference key (or fix text that wasn't actually wrong) and still pass the filter
 - [2026-10-25] Created: qa/issues/868-personal-vocab-stale-ipa-never-corrected.md — H7 confirmed via standalone script: _serve_audio's `row.ipa = row.ipa or ipa[:64]` never overwrites a stale pre-fix IPA even with a working TTS
 - [2026-10-26] Modified: qa/rounds/059-plan.md — filled in round 059 outcome: 7 issues filed (850-853, 866-868) against PR #121's own new code, 6 validated+fixed, 1 (867) deferred; verdict SHIP
+- [2026-10-26] Modified: app/content/forms.py — reflexive passé composé rewrite also strips an existing être auxiliary (no 'je me suis suis levé'; idempotent on read)
+- [2026-10-26] Modified: tests/test_forms.py — regression test for already-correct reflexive passé composé

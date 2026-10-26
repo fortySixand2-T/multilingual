@@ -249,6 +249,9 @@ def test_reflexive_passe_compose_uses_etre_and_restores_clitic():
     assert _forms([{"label": "passé composé", "fr": "j'ai amusé"}], "s'amuser", "verb") == [
         "je me suis amusé"
     ]
+    # an already-correct reply (or a stored row tidied before) is left as is
+    correct = [{"label": "passé composé", "fr": "je me suis levé"}]
+    assert F.tidy_forms(correct, "se lever", "verb") == correct
     # other tenses for reflexive verbs are untouched by the être rewrite
     assert _forms([{"label": "présent", "fr": "je me dépêche"}], "se dépêcher", "verb") == [
         "je me dépêche"

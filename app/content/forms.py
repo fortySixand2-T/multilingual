@@ -153,10 +153,12 @@ def _reflexive_passe_compose(fr: str, lemma: str) -> str:
     m = re.match(r"(je|j'|tu|il|elle|on|nous|vous|ils|elles)\b\s*", fr, re.IGNORECASE)
     subject = m.group(1).lower() if m else "je"
     rest = fr[m.end() :] if m else fr
-    # Strip a leading "ai"/"a"/"as"/"avons"/"avez"/"ont" (any avoir form the model used)
-    # and any reflexive clitic already present, leaving just the past participle.
-    rest = re.sub(r"^(?:ai|as|a|avons|avez|ont)\b\s*", "", rest, flags=re.IGNORECASE)
+    # Strip any reflexive clitic already present, then the auxiliary the model used
+    # (avoir, or an already-correct être), leaving just the past participle — so a
+    # correct "je me suis levé" (or a row tidied earlier) passes through unchanged.
     rest = re.sub(r"^(?:me|m'|te|t'|se|s'|nous|vous)\b\s*", "", rest, flags=re.IGNORECASE)
+    aux = r"^(?:ai|as|a|avons|avez|ont|suis|es|est|sommes|êtes|sont)\b\s*"
+    rest = re.sub(aux, "", rest, flags=re.IGNORECASE)
     participle = rest.strip()
     clitic = {
         "je": "me",
