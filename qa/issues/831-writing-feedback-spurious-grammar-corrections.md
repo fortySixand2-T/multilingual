@@ -4,7 +4,7 @@ title: writing_feedback flags already-correct French as an error and "corrects" 
 severity: medium
 area: writing
 persona: edge-case-breaker
-status: deferred
+status: fixed
 found: 2026-10-25
 ---
 
@@ -107,3 +107,22 @@ mark down.
   pre-existing writing-grader prompt defect would be scope creep — it
   belongs in its own round against `writing_grader.md`, as the PM proposes.
 - Final verdict: deferred
+
+## Fix
+- Branch `fix/llm-content-quality`. Measured on the box: the invented "corrections" on
+  correct French almost all come back with an empty `reference`, while real errors cite
+  a curated rule. So `parse_feedback` (`app/assessment/grader.py`) keeps only corrections
+  citing a key in `GRAMMAR_REFERENCES` whose correction differs from the excerpt; the
+  prompt gains an "only genuine errors / `[]` is the expected answer for a correct text"
+  paragraph and an `elision` key (je ai → j'ai was a real error with no rule to cite).
+  Malformed correction items are skipped instead of failing the whole grade
+  (2 of ~32 bench grades failed that way).
+- Bench (3 correct texts incl. both QA phrases + 1 text with 5 known errors, ×2):
+  spurious corrections 12 → 4, useful real corrections kept 6/6. Not shipped because
+  they didn't help: telling the model uncited corrections are discarded (it then cites
+  a rule for its rewrites), a second correct-text anchor, and a judge-only verifier
+  pass (kept 7/22 fakes, lost 6/22 real, +2.3 s).
+- Residual: a rewrite the model tags with a (wrong) rule still gets through, e.g.
+  "remercier de → pour" once in 4 bench grades. Fully fixing that needs a stronger
+  grader model.
+- Tests: `tests/test_assessment.py` (filter + prompt/key list stay in sync).

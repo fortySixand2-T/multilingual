@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import functools
 import json
+import re
 
 import anyio
 
@@ -46,16 +47,95 @@ _FORMS_SYSTEM = (
     "Each `label` is a short English tag for the form; each `fr` is the French form.\n"
     "Follow the part of speech:\n"
     "- noun: two entries — {label:'singular', fr:'<article> <word>'} and "
-    "{label:'plural', fr:'<article> <plural>'}, using the correct definite article "
-    "(le/la/l'/les) for the given gender.\n"
+    "{label:'plural', fr:'les <plural>'}, using the correct definite article "
+    "(le/la/l') for the given gender.\n"
     "- verb (give the infinitive's conjugation, 1st person singular 'je' unless the "
     "verb is impersonal): four entries labelled 'présent', 'passé composé', 'futur', "
-    "'imparfait'.\n"
-    "- adjective: four entries labelled 'masculine', 'feminine', 'masculine plural', "
-    "'feminine plural'.\n"
-    "Return between 2 and 4 entries. Keep each `fr` to just the form (plus its article "
-    "or subject pronoun where asked). No explanations."
+    "'imparfait', each with its subject pronoun (e.g. 'j'ai mangé').\n"
+    "- adjective: two entries labelled 'masculine' and 'feminine', each the bare "
+    "singular adjective with NO article, e.g. heureux / heureuse.\n"
+    "Keep each `fr` to just the form (plus its article or subject pronoun where "
+    "asked). No explanations."
 )
+
+# The small local model slips on agreement and elision ("un intéressante",
+# "ce ébouriffant", "je aime"), so whatever a rule can decide is decided here
+# rather than by the model: the adjective's masculine form and plurals, and l'/j'.
+_DETERMINERS = ("le ", "la ", "les ", "l'", "un ", "une ", "des ", "ce ", "cet ", "cette ", "ces ")
+_AL_PLURAL_S = {"banal", "bancal", "fatal", "final", "natal", "naval", "glacial", "idéal"}
+
+
+def _bare(fr: str) -> str:
+    """Drop any determiner the model put in front of an adjective."""
+    low = fr.lower()
+    for d in _DETERMINERS:
+        if low.startswith(d):
+            return fr[len(d) :].strip()
+    return fr
+
+
+def _adjective_plural(w: str, *, feminine: bool) -> str:
+    if w.endswith(("s", "x")):
+        return w
+    if not feminine and w.endswith("eau"):
+        return w + "x"
+    if not feminine and w.endswith("al") and w.lower() not in _AL_PLURAL_S:
+        return w[:-2] + "aux"
+    return w + "s"
+
+
+def _adjective_forms(forms: list[dict], lemma: str) -> list[dict]:
+    """The headword is the masculine singular; the model only supplies the feminine."""
+    by_label = {f["label"].lower(): _bare(f["fr"]) for f in forms}
+    fem = by_label.get("feminine") or lemma
+    masc = lemma
+    if fem == lemma and by_label.get("masculine"):  # headword was given in the feminine
+        masc = by_label["masculine"]
+    return [
+        {"label": "masculine", "fr": masc},
+        {"label": "feminine", "fr": fem},
+        {"label": "masculine plural", "fr": _adjective_plural(masc, feminine=False)},
+        {"label": "feminine plural", "fr": _adjective_plural(fem, feminine=True)},
+    ]
+
+
+_ELIDABLE = re.compile(r"\b(je|me|te|se|le|la) (?=[aeiouyàâäéèêëîïôöûüœ])", re.IGNORECASE)
+_ELIDABLE_H = re.compile(r"\b(je|me|te|se) (?=h)", re.IGNORECASE)
+# Common verbs with h aspiré, which don't elide (je hais, je me hâte).
+_H_ASPIRE_VERBS = ("haïr", "hacher", "hanter", "harceler", "hâter", "hausser", "heurter")
+_SUBJECT = re.compile(r"(je |j'|tu |il |elle |on |nous |vous |ils |elles )", re.IGNORECASE)
+
+
+def _elide(fr: str, *, before_h: bool = False) -> str:
+    """'le arbre' -> "l'arbre", 'je aime' -> "j'aime". A noun's h is left to the model
+    (l'homme but le héros); a verb's h elides unless the verb is h aspiré."""
+    fr = _ELIDABLE.sub(lambda m: m.group(1)[0] + "'", fr)
+    return _ELIDABLE_H.sub(lambda m: m.group(1)[0] + "'", fr) if before_h else fr
+
+
+def _verb_form(fr: str, lemma: str) -> str:
+    if not _SUBJECT.match(fr) and not lemma.startswith(("se ", "s'")):
+        fr = "je " + fr  # the model often drops the pronoun: 'ai mangé'
+    return _elide(fr, before_h=not lemma.lower().startswith(_H_ASPIRE_VERBS))
+
+
+def _noun_form(fr: str) -> str:
+    head, _, rest = fr.partition(" ")
+    definite = {"un": "le", "une": "la", "des": "les"}.get(head.lower())
+    return _elide(f"{definite} {rest}" if definite and rest else fr)
+
+
+def tidy_forms(forms: list[dict], fr: str, pos: str) -> list[dict]:
+    """Rule-fix a forms list. Also applied on read, so forms stored before these rules
+    existed are served corrected without rewriting the row."""
+    lemma = strip_leading_article(fr)
+    forms = [{"label": f["label"], "fr": f["fr"].replace("’", "'")} for f in forms]
+    # Qwen occasionally lapses into Chinese mid-form ("j'吃"); Latin script ends < U+0250.
+    forms = [f for f in forms if all(ord(c) < 0x250 for c in f["fr"])]
+    if pos == "adjective":
+        return _adjective_forms(forms, lemma) if forms else []
+    fix = (lambda fr: _verb_form(fr, lemma)) if pos == "verb" else _noun_form
+    return [{"label": f["label"], "fr": fix(f["fr"])} for f in forms]
 
 
 def _parse_forms(text: str) -> list[dict]:
@@ -95,10 +175,11 @@ async def generate_forms(
             _FORMS_PROFILE,
             system=_FORMS_SYSTEM,
             messages=[Msg("user", prompt)],
+            temperature=0.0,  # reference data: most-likely form, not variety
             max_tokens=max_tokens,
         )
     )
-    return _parse_forms(result.text), result
+    return tidy_forms(_parse_forms(result.text), lemma, pos), result
 
 
 # --- examples -----------------------------------------------------------------

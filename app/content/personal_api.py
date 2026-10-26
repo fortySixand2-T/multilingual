@@ -26,7 +26,7 @@ from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
 from app.config.settings import Settings, get_settings
 from app.content.enrich import GenderTable
-from app.content.lookup import cached_lookup, fresh_lookup, lookup_payload
+from app.content.lookup import cached_lookup, fresh_lookup, lookup_payload, voice_with_ipa
 from app.content.personal import (
     EmptyLemmaError,
     add_personal,
@@ -283,7 +283,8 @@ async def _serve_audio(
     key: str,
 ) -> Response:
     """Serve `row`'s stored clip, or synthesize `row.fr` once, store it at `key`, and
-    remember it on the row (lazy TTS, same pattern as GET /speech/audio)."""
+    remember it on the row (lazy TTS, same pattern as GET /speech/audio). A row with
+    no IPA yet (looked up while TTS was down) gets the IPA that run voiced."""
     if row.audio_key:
         try:
             data = await anyio.to_thread.run_sync(lambda: storage.get(row.audio_key))
@@ -294,10 +295,11 @@ async def _serve_audio(
     tts = request.app.state.tts
     if tts is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "no audio available")
-    data = await anyio.to_thread.run_sync(
-        lambda: tts.synthesize(text=row.fr, voice=settings.word_voice, lang="fr")
+    data, ipa = await anyio.to_thread.run_sync(
+        lambda: voice_with_ipa(tts, row.fr, settings.word_voice)
     )
     await anyio.to_thread.run_sync(lambda: storage.put(key, data, "audio/wav"))
     row.audio_key = key
+    row.ipa = row.ipa or ipa[:64]
     await session.commit()
     return Response(content=data, media_type="audio/wav")

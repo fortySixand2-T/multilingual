@@ -436,6 +436,22 @@ def test_lookup_is_cached_across_users_case_and_accents():
     assert router.calls == ["vocab_enrich"] and tts.calls == 1
 
 
+def test_without_tts_card_has_no_llm_ipa_until_first_voiced():
+    """QA 832: with TTS down, the LLM's English-shaped IPA ("hɒrəbəl") used to land on
+    the card. Now there's no IPA until Piper voices the word on first play."""
+    llm = {"en": "hair-raising", "pos": "adjective", "gender": "", "ipa": "ɪbʊrɪfænt"}
+    router = FakeRouter(llm)
+    client, _ = _client(uid=35, router=router, tts=None)
+    card = client.post("/vocab/personal/from-word", json={"word": "ébouriffant"}).json()["card"]
+    assert card["ipa"] == ""
+    assert client.get("/vocab/personal/audio/uv:ebouriffant").status_code == 404  # no TTS
+
+    voiced, _ = _client(uid=35, router=router, tts=FakePiper())
+    assert voiced.get("/vocab/personal/audio/uv:ebouriffant").status_code == 200
+    (card,) = voiced.get("/vocab/personal").json()["cards"]
+    assert card["ipa"] == "pakˈɛ"  # what Piper voiced
+
+
 def test_failed_lookup_is_not_cached_and_says_why():
     client, _ = _client(uid=33, router=FakeRouter({"en": "", "pos": ""}))
     r = client.post("/vocab/personal/preview", json={"word": "zxqwv"})

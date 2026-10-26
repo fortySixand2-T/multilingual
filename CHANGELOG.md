@@ -519,3 +519,13 @@
 - [2026-10-25] Created: qa/issues/831-writing-feedback-spurious-grammar-corrections.md — QA round 058 finding: writing feedback flags correct French as wrong
 - [2026-10-25] Created: qa/issues/832-from-word-ipa-english-phonetics-for-french-words.md — QA round 058 finding: from-word IPA returns English phonetics for French words
 - [2026-10-25] Modified: qa/rounds/058-plan.md — filled in round 058 outcome: every PR #120 hypothesis refuted (no regression), 3 pre-existing content-quality issues deferred, verdict SHIP
+- [2026-10-25] Modified: app/content/enrich.py — QA 832: enrichment no longer asks the LLM for IPA (it gave English phonetics)
+- [2026-10-25] Modified: app/content/lookup.py — QA 832: IPA only from Piper/eSpeak via public voice_with_ipa; no LLM fallback
+- [2026-10-25] Modified: app/content/personal_api.py — QA 832: first voicing fills a card's missing IPA
+- [2026-10-25] Modified: app/content/forms.py — QA 830: bare adjective m/f + rule plurals, l'/j' elision, pronoun restore, temp 0; public tidy_forms
+- [2026-10-25] Modified: app/content/vocab_extra_api.py — QA 830: stored forms are tidied on read (no user-row rewrite)
+- [2026-10-25] Modified: app/assessment/prompts/writing_grader.md — QA 831: only flag genuine errors; add `elision` reference
+- [2026-10-25] Modified: app/assessment/grader.py — QA 831: drop uncited/no-op/malformed corrections (GRAMMAR_REFERENCES)
+- [2026-10-25] Modified: app/assessment/models.py — InlineCorrection.explanation defaults to "" so one sloppy item can't fail a grade
+- [2026-10-25] Modified: tests/test_forms.py, tests/test_assessment.py, tests/test_enrich.py, tests/test_personal_vocab.py — regression tests for QA 830–832
+- [2026-10-25] Modified: qa/issues/830-*.md, 831-*.md, 832-*.md — marked fixed with measured box results

@@ -25,7 +25,7 @@ from app.ai.router import AIRouter
 from app.api.auth import get_current_user
 from app.api.deps import get_ai_router
 from app.config.settings import Settings, get_settings
-from app.content.forms import generate_examples, generate_forms, merge_examples
+from app.content.forms import generate_examples, generate_forms, merge_examples, tidy_forms
 from app.content.vocab_extra import get_extra, get_or_create_extra, resolve_card_meta
 from app.db.session import get_session
 from app.usage.service import add_usage, tokens_used_today
@@ -45,6 +45,12 @@ async def _require_card(session: AsyncSession, user_id: int, card_key: str):
     return meta
 
 
+def _stored_forms(row, meta) -> list[dict] | None:
+    if row is None or row.forms is None:
+        return None
+    return tidy_forms(row.forms, meta.fr, meta.pos)
+
+
 @router.post("/extra")
 async def read_extra(
     body: CardBody,
@@ -54,10 +60,10 @@ async def read_extra(
     """Stored extras for a card, without generating anything (free). The client calls
     this when the study panel opens to show already-generated forms and past example
     sentences. `forms: null` means "never generated" so the UI can then request them."""
-    await _require_card(session, user.id, body.card_key)
+    meta = await _require_card(session, user.id, body.card_key)
     row = await get_extra(session, user.id, body.card_key)
     return {
-        "forms": row.forms if row else None,
+        "forms": _stored_forms(row, meta),
         "examples": (row.examples if row else None) or [],
     }
 
@@ -77,7 +83,7 @@ async def card_forms(
     row = await get_extra(session, user.id, body.card_key)
     if row is not None and row.forms is not None:
         # already generated (even []) — free, no model call
-        return {"forms": row.forms, "cached": True}
+        return {"forms": _stored_forms(row, meta), "cached": True}
 
     used = await tokens_used_today(session, user.id, "vocab", date.today())
     if used >= settings.vocab_daily_token_budget:

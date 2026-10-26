@@ -1,12 +1,12 @@
 """Dictionary enrichment: turn a bare French word into a review-ready vocab record.
 
 Slice D of the vocab-decks plan (docs/anki-vocab-plan.md). Given a lemma like
-"ordinateur", produce {en, pos, gender, ipa} so it can become a personal-deck card
+"ordinateur", produce {en, pos, gender} so it can become a personal-deck card
 (Slice E) or clean up a bulk import (scripts/import_anki.py). Two layers, decoupled
 so each is testable on its own:
 
   1. `propose` — one cheap LLM pass (`vocab_enrich` profile, strict JSON) proposes
-     en / pos / gender / ipa. Runs the router in a worker thread; empty word → no call.
+     en / pos / gender. Runs the router in a worker thread; empty word → no call.
   2. `resolve_gender` — a DETERMINISTIC backstop that overrides the model's gender
      guess. A local model gets French noun gender wrong often enough that we don't
      trust it when we have a better signal:
@@ -150,11 +150,11 @@ _ENRICH_SYSTEM = (
     "You are a French-English lexicographer. For the given French word, return a "
     "concise dictionary entry as STRICT JSON only, no prose:\n"
     '{"en": "...", "pos": "noun|verb|adjective|adverb|preposition|phrase", '
-    '"gender": "m|f|mf|", "ipa": "..."}\n'
+    '"gender": "m|f|mf|"}\n'
     "Rules: `en` is a short gloss (a few words, no article). `pos` is the part of "
     "speech. `gender` is the grammatical gender for NOUNS only (m, f, or mf when both "
     'a masculine and feminine form exist like ami/amie); use "" for anything that is '
-    "not a noun. `ipa` is the IPA pronunciation without slashes. If unsure of gender, "
+    "not a noun. If unsure of gender, "
     'use "".'
 )
 
@@ -176,14 +176,12 @@ def _parse_enrichment(text: str) -> dict:
     en = data.get("en")
     pos = data.get("pos")
     gender = data.get("gender")
-    ipa = data.get("ipa")
     pos = pos.strip().lower() if isinstance(pos, str) else ""
     gender = gender.strip() if isinstance(gender, str) else ""
     return {
         "en": en.strip() if isinstance(en, str) else "",
         "pos": pos if pos in _POS_VALUES else "",
         "gender": gender if gender in ("m", "f", "mf") else "",
-        "ipa": ipa.strip().strip("/[]") if isinstance(ipa, str) else "",
     }
 
 
@@ -193,7 +191,6 @@ class Enrichment:
     en: str
     pos: str
     gender: str  # "" | m | f | mf
-    ipa: str
     gender_source: str  # "table" | "suffix" | "llm" | ""  (provenance / confidence)
 
 
@@ -215,7 +212,7 @@ async def propose(router, word: str, *, max_tokens: int = 128) -> tuple[dict, LL
 async def enrich(
     router, word: str, *, table: GenderTable | None = None, max_tokens: int = 128
 ) -> tuple[Enrichment | None, LLMResult | None]:
-    """Full enrichment for a bare French word: LLM gloss/pos/ipa + deterministic
+    """Full enrichment for a bare French word: LLM gloss/pos + deterministic
     gender backstop. Returns (Enrichment, llm_result); (None, None) for empty input."""
     lemma = strip_leading_article(word)
     if not lemma:
@@ -230,7 +227,6 @@ async def enrich(
             en=entry.get("en", ""),
             pos=entry.get("pos", ""),
             gender=gender,
-            ipa=entry.get("ipa", ""),
             gender_source=source,
         ),
         result,
