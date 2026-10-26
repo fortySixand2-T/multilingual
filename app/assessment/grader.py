@@ -59,8 +59,37 @@ def extract_json(text: str) -> dict:
         raise GradingError(f"invalid JSON from model: {e}") from e
 
 
+# The curated grammar points the prompt lets a correction cite (R4).
+GRAMMAR_REFERENCES = {
+    "accord-sujet-verbe",
+    "accord-genre-nombre",
+    "temps-passe",
+    "prepositions",
+    "pronoms",
+    "ordre-des-mots",
+    "orthographe",
+    "elision",
+}
+
+
+def _is_genuine(c) -> bool:
+    """Measured on the box's 7B model: real errors come back citing a curated rule,
+    while the "corrections" it invents on correct French (synonyms, rephrasings,
+    "adaptées à" -> "pour") almost all cite none. So no rule, no correction."""
+    return c.reference in GRAMMAR_REFERENCES and c.correction.strip() != c.excerpt.strip()
+
+
 def parse_feedback(text: str) -> WritingFeedback:
-    return WritingFeedback.model_validate(extract_json(text))
+    data = extract_json(text)
+    # one malformed correction (no excerpt) shouldn't fail the whole grade
+    raw = data.get("corrections")
+    if isinstance(raw, list):
+        data["corrections"] = [
+            c for c in raw if isinstance(c, dict) and c.get("excerpt") and c.get("correction")
+        ]
+    fb = WritingFeedback.model_validate(data)
+    fb.corrections = [c for c in fb.corrections if _is_genuine(c)]
+    return fb
 
 
 class WritingGrader:

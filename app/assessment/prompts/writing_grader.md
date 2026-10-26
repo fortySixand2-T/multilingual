@@ -22,7 +22,14 @@ score.
 
 ## Inline corrections (cite a grammar reference — R4)
 
-For each notable error, return a correction with the learner's `excerpt`, the
+Only flag **genuine errors** — something a French teacher would mark wrong. Never
+"correct" French that is already correct to suggest a synonym, a style you prefer,
+another tense, or a different preposition where the learner's is also standard.
+Before adding a correction, check that the excerpt really breaks a rule from the
+list below; if it doesn't, leave it out. A correct text gets `"corrections": []` —
+that is the expected answer, not a failure to find something.
+
+For each genuine error, return a correction with the learner's `excerpt`, the
 `correction`, a short `explanation`, and a `reference` — a grammar point from this
 curated list (use the key verbatim, or "" if none applies):
 
@@ -33,6 +40,7 @@ curated list (use the key verbatim, or "" if none applies):
 - `pronoms` — pronoun use (COD/COI, y, en)
 - `ordre-des-mots` — word order
 - `orthographe` — spelling/accents
+- `elision` — elision and contraction (je ai → j'ai, de le → du)
 
 Do not invent grammar rules or references outside this list. If unsure, leave
 `reference` empty rather than guess.

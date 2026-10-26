@@ -4,7 +4,9 @@ A lookup's result — meaning, gender, IPA and a pronunciation clip — is the s
 every learner, so it's computed once and kept: the first lookup of a word pays one LLM
 call (meaning/pos/gender) plus one Piper run (audio + IPA); every later lookup, by
 anyone and across restarts, is a single DB read. IPA comes from Piper's own eSpeak
-phonemes rather than the LLM, which often guessed English IPA ("vélo" -> /ˈbiːsɪkl/).
+phonemes, never the LLM, which often guessed English IPA ("vélo" -> /ˈbiːsɪkl/,
+"horrible" -> /hɒrəbəl/). Without a TTS backend a word has no IPA until its clip is
+first voiced (personal_api._serve_audio fills it in then).
 """
 
 from __future__ import annotations
@@ -55,16 +57,15 @@ async def fresh_lookup(
         en=result.en,
         gender=result.gender,
         pos=result.pos,
-        ipa=result.ipa[:64],
         gender_source=result.gender_source,
     )
     if tts is not None:
         try:
-            wav, ipa = await anyio.to_thread.run_sync(lambda: _voice(tts, result.fr, voice))
+            wav, ipa = await anyio.to_thread.run_sync(lambda: voice_with_ipa(tts, result.fr, voice))
             key = f"vocablookup/{slug}.wav"
             await anyio.to_thread.run_sync(lambda: storage.put(key, wav, "audio/wav"))
             row.audio_key = key
-            row.ipa = (ipa or row.ipa)[:64]
+            row.ipa = ipa[:64]
         except Exception:
             log.warning("lookup audio failed for %r; served lazily instead", word, exc_info=True)
     row = await session.merge(row)  # merge: a concurrent lookup of the same word is fine
@@ -72,7 +73,8 @@ async def fresh_lookup(
     return row, llm
 
 
-def _voice(tts, text: str, voice: str) -> tuple[bytes, str]:
+def voice_with_ipa(tts, text: str, voice: str) -> tuple[bytes, str]:
+    """WAV plus the French IPA the TTS voiced ("" for a backend that can't report it)."""
     if hasattr(tts, "synthesize_ipa"):
         return tts.synthesize_ipa(text=text, voice=voice)
     return tts.synthesize(text=text, voice=voice, lang="fr"), ""

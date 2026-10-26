@@ -4,7 +4,7 @@ title: vocab/personal/from-word returns English-phonetics IPA for French words
 severity: medium
 area: content
 persona: edge-case-breaker
-status: deferred
+status: fixed
 found: 2026-10-25
 ---
 
@@ -104,3 +104,11 @@ but at least French-shaped).
   `vocab_enrich` prompt — on this would be gating on an unrelated,
   already-mitigated-by-design issue.
 - Final verdict: deferred
+
+## Fix
+- Branch `fix/llm-content-quality`. The LLM no longer supplies IPA at all
+  (`app/content/enrich.py`: `ipa` removed from the prompt/parse/`Enrichment`). IPA
+  comes only from Piper's eSpeak phonemizer, via `voice_with_ipa` in `lookup.py`;
+  with no TTS backend a card has no IPA until it is first voiced, when
+  `_serve_audio` fills it in. Live box rows checked: none carry LLM IPA.
+- Tests: `tests/test_personal_vocab.py::test_without_tts_card_has_no_llm_ipa_until_first_voiced`.

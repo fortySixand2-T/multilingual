@@ -85,6 +85,80 @@ def test_generate_forms_passes_gender_for_noun():
     assert "Gender: m" in router.last_prompt
 
 
+# --- generate_forms: rule-based agreement/elision (QA 830) --------------------
+
+
+def _forms(payload, word, pos, gender=""):
+    out, _ = _run(F.generate_forms(FakeRouter({"forms": payload}), word, pos, gender))
+    return [f["fr"] for f in out]
+
+
+def test_adjective_forms_are_bare_with_rule_plurals():
+    # the QA repro: an article that disagrees with the form it sits on
+    got = _forms(
+        [
+            {"label": "masculine", "fr": "un intéressante"},
+            {"label": "feminine", "fr": "une intéressante"},
+        ],
+        "intéressant",
+        "adjective",
+    )
+    assert got == ["intéressant", "intéressante", "intéressants", "intéressantes"]
+
+    def adj(lemma, feminine):
+        return _forms([{"label": "feminine", "fr": feminine}], lemma, "adjective")
+
+    assert adj("ébouriffant", "cette ébouriffante")[:2] == ["ébouriffant", "ébouriffante"]
+    assert adj("beau", "belle") == ["beau", "belle", "beaux", "belles"]
+    assert adj("national", "nationale")[2] == "nationaux"
+    assert adj("heureux", "heureuse")[2] == "heureux"
+    assert _forms([], "facile", "adjective") == []  # nothing from the model -> nothing invented
+
+
+def test_tidy_forms_corrects_stored_rows_on_read():
+    stored = [
+        {"label": "masculine", "fr": "un intéressante"},
+        {"label": "feminine", "fr": "une intéressante"},
+        {"label": "masculine plural", "fr": "des intéressants"},
+        {"label": "feminine plural", "fr": "des intéressantes"},
+    ]
+    fixed = F.tidy_forms(stored, "intéressant", "adjective")
+    assert [f["fr"] for f in fixed] == [
+        "intéressant",
+        "intéressante",
+        "intéressants",
+        "intéressantes",
+    ]
+    assert F.tidy_forms(fixed, "intéressant", "adjective") == fixed  # idempotent
+    noun = [{"label": "singular", "fr": "un enseignant"}]
+    assert F.tidy_forms(noun, "enseignant", "noun")[0]["fr"] == "l'enseignant"
+
+
+def test_noun_and_verb_forms_elide():
+    assert _forms(
+        [{"label": "singular", "fr": "le arbre"}, {"label": "plural", "fr": "des arbres"}],
+        "arbre",
+        "noun",
+        "m",
+    ) == ["l'arbre", "les arbres"]
+    assert _forms([{"label": "singular", "fr": "le héros"}], "héros", "noun", "m") == ["le héros"]
+    assert _forms(
+        [
+            {"label": "présent", "fr": "je habite"},
+            {"label": "passé composé", "fr": "ai habité"},  # dropped pronoun restored
+            {"label": "futur", "fr": "j’habiterai"},
+        ],
+        "habiter",
+        "verb",
+    ) == ["j'habite", "j'ai habité", "j'habiterai"]
+    assert _forms([{"label": "présent", "fr": "je hais"}], "haïr", "verb") == ["je hais"]
+    assert _forms([{"label": "présent", "fr": "je me amuse"}], "s'amuser", "verb") == ["je m'amuse"]
+
+
+def test_forms_drop_non_latin_script():
+    assert _forms([{"label": "présent", "fr": "j'吃"}], "manger", "verb") == []
+
+
 # --- generate_examples: variety knobs ----------------------------------------
 
 

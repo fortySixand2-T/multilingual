@@ -4,7 +4,7 @@ title: /vocab/forms LLM output has adjective agreement/elision errors (valid JSO
 severity: medium
 area: content
 persona: edge-case-breaker
-status: deferred
+status: fixed
 found: 2026-10-25
 ---
 
@@ -113,3 +113,19 @@ Full response, `uv:interessant`:
   ships. Blocking an unrelated speaking-latency PR on it would conflate
   scopes and violate the "fix only what's actually an issue" default.
 - Final verdict: deferred
+
+## Fix
+- Branch `fix/llm-content-quality`. `app/content/forms.py`: the model now only supplies
+  what a rule can't (an adjective's feminine, a verb's conjugation, a noun's plural);
+  `tidy_forms` decides the rest — adjective masculine = the headword, articles/determiners
+  stripped, plurals by rule (-s/-x unchanged, -eau +x, -al → -aux except banal/final/…);
+  le/la/je/me/te/se elide before a vowel (verbs also before h unless h aspiré); a dropped
+  `je` is restored; un/une/des on nouns → le/la/les; stray non-Latin script dropped.
+  Forms run at temperature 0. `tidy_forms` is also applied on read in
+  `vocab_extra_api.py`, so forms stored before the fix are served corrected without
+  rewriting user rows.
+- Measured on the box (qwen2.5 7B, 38 hand-checked words × 2): exact-match forms
+  32/76 → 64/76. Every adjective agreement/elision error is gone; the 12 left are the
+  7B model's own conjugation/irregular-plural mistakes (venir → "j'ai venu",
+  œil → "les œils", gros → "grande"), not agreement/elision.
+- Tests: `tests/test_forms.py` (QA repro + stored-row correction + idempotence).

@@ -2,6 +2,7 @@
 
 import asyncio
 import json
+import re
 import tempfile
 from datetime import date
 from pathlib import Path
@@ -18,7 +19,13 @@ from app.ai.interfaces import LLMResult
 from app.api.auth import get_current_user
 from app.api.deps import get_ai_router
 from app.assessment.calibration import agreement, load_calibration
-from app.assessment.grader import GradingError, WritingGrader, extract_json, parse_feedback
+from app.assessment.grader import (
+    GRAMMAR_REFERENCES,
+    GradingError,
+    WritingGrader,
+    extract_json,
+    parse_feedback,
+)
 from app.assessment.loader import WritingError, load_tasks
 from app.assessment.models import WritingFeedback, WritingTask
 from app.assessment.sync import sync_tasks
@@ -117,6 +124,38 @@ def test_extract_json_raises_on_garbage():
 def test_parse_feedback_valid():
     fb = parse_feedback("```json\n" + json.dumps(_GOOD) + "\n```")
     assert fb.clb_estimate == 7 and fb.corrections[0].reference == "prepositions"
+
+
+def test_parse_feedback_drops_uncited_noop_and_malformed_corrections():
+    """QA 831: the 7B grader "corrects" correct French (synonyms, rephrasings) and
+    those come back citing no curated rule; real errors cite one."""
+    good = _GOOD["corrections"][0]
+    payload = _GOOD | {
+        "corrections": [
+            good,
+            {
+                "excerpt": "adaptées à la circulation",
+                "correction": "adaptées pour la circulation",
+                "explanation": "Use 'pour'.",
+                "reference": "",
+            },
+            {"excerpt": "très intéressante", "correction": "très intéressante", "reference": "x"},
+            {"excerpt": "très intéressante", "correction": "très intéressant", "reference": "?"},
+            {"correction": "no excerpt", "reference": "orthographe"},
+            {"excerpt": "je ai", "correction": "j'ai", "reference": "elision"},  # no explanation
+        ]
+    }
+    fb = parse_feedback(json.dumps(payload))
+    assert [c.correction for c in fb.corrections] == ["au parc", "j'ai"]
+
+
+def test_grammar_references_match_the_prompt():
+    prompt = (
+        Path(__file__).resolve().parents[1] / "app/assessment/prompts/writing_grader.md"
+    ).read_text()
+    section = prompt.split("## Inline corrections")[1].split("## Output schema")[0]
+    listed = set(re.findall(r"^- `([a-z-]+)` — ", section, re.M))
+    assert listed == GRAMMAR_REFERENCES
 
 
 # --- grader -------------------------------------------------------------------

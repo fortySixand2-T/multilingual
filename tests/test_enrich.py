@@ -129,12 +129,12 @@ def test_resolve_gender_unresolved():
 def test_parse_enrichment_tolerates_fences_and_bad_pos():
     text = '```json\n{"en": "computer", "pos": "Noun", "gender": "m", "ipa": "/ɔʁdinatœʁ/"}\n```'
     d = E._parse_enrichment(text)
-    assert d == {"en": "computer", "pos": "noun", "gender": "m", "ipa": "ɔʁdinatœʁ"}
+    assert d == {"en": "computer", "pos": "noun", "gender": "m"}  # IPA comes from Piper
 
 
 def test_parse_enrichment_drops_junk():
     d = E._parse_enrichment('{"en": "x", "pos": "gibberish", "gender": "z", "ipa": 5}')
-    assert d == {"en": "x", "pos": "", "gender": "", "ipa": ""}
+    assert d == {"en": "x", "pos": "", "gender": ""}
     assert E._parse_enrichment("not json") == {}
 
 
@@ -154,7 +154,6 @@ def test_enrich_overrides_model_gender_with_table():
     assert result.en == "silence"
     assert result.pos == "noun"
     assert (result.gender, result.gender_source) == ("m", "table")
-    assert result.ipa == "silɑ̃s"
     assert router.calls[0]["profile"] == "vocab_enrich"
     assert llm is not None  # usage returned for billing
 

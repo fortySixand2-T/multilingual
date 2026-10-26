@@ -31,8 +31,8 @@ class InlineCorrection(BaseModel):
     model_config = ConfigDict(extra="ignore")
     excerpt: str
     correction: str
-    explanation: str
-    reference: str = ""  # cited grammar reference (R4)
+    explanation: str = ""  # the model occasionally omits it; don't fail the whole grade
+    reference: str = ""  # cited grammar reference (R4); uncited ones are dropped
 
 
 class CriterionScore(BaseModel):
