@@ -283,8 +283,11 @@ async def _serve_audio(
     key: str,
 ) -> Response:
     """Serve `row`'s stored clip, or synthesize `row.fr` once, store it at `key`, and
-    remember it on the row (lazy TTS, same pattern as GET /speech/audio). A row with
-    no IPA yet (looked up while TTS was down) gets the IPA that run voiced."""
+    remember it on the row (lazy TTS, same pattern as GET /speech/audio). `row.ipa` is
+    unconditionally overwritten with whatever IPA this synthesis run produced — whether
+    the row had no IPA yet (looked up while TTS was down) or a stale/wrong one (e.g. an
+    old LLM-guessed IPA from before QA 832), matching the sibling
+    `lookup.py::fresh_lookup` path's unconditional overwrite."""
     if row.audio_key:
         try:
             data = await anyio.to_thread.run_sync(lambda: storage.get(row.audio_key))
@@ -300,6 +303,7 @@ async def _serve_audio(
     )
     await anyio.to_thread.run_sync(lambda: storage.put(key, data, "audio/wav"))
     row.audio_key = key
-    row.ipa = row.ipa or ipa[:64]
+    if ipa:
+        row.ipa = ipa[:64]  # unconditional: replaces any stale/wrong IPA (QA 868)
     await session.commit()
     return Response(content=data, media_type="audio/wav")

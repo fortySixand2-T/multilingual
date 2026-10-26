@@ -149,6 +149,24 @@ def test_parse_feedback_drops_uncited_noop_and_malformed_corrections():
     assert [c.correction for c in fb.corrections] == ["au parc", "j'ai"]
 
 
+def test_genuine_lexical_correction_survives_the_filter():
+    """QA 866: a genuine word-choice error (false friend, wrong word for the concept)
+    citing the new `choix-lexical` key must not be dropped like the invented
+    synonym-swap corrections 831 was designed to filter out."""
+    payload = _GOOD | {
+        "corrections": [
+            {
+                "excerpt": "Nous manquons de monnaie",
+                "correction": "Nous manquons d'argent",
+                "explanation": "'monnaie' means change/currency, not money.",
+                "reference": "choix-lexical",
+            }
+        ]
+    }
+    fb = parse_feedback(json.dumps(payload))
+    assert [c.reference for c in fb.corrections] == ["choix-lexical"]
+
+
 def test_grammar_references_match_the_prompt():
     prompt = (
         Path(__file__).resolve().parents[1] / "app/assessment/prompts/writing_grader.md"

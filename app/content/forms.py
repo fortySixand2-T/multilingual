@@ -63,6 +63,10 @@ _FORMS_SYSTEM = (
 # rather than by the model: the adjective's masculine form and plurals, and l'/j'.
 _DETERMINERS = ("le ", "la ", "les ", "l'", "un ", "une ", "des ", "ce ", "cet ", "cette ", "ces ")
 _AL_PLURAL_S = {"banal", "bancal", "fatal", "final", "natal", "naval", "glacial", "idéal"}
+# Invariable adjectives (mostly colors/borrowed words): never take a feminine -e or a
+# plural -s, in any of the four slots (QA 851). "un pull marron", "une veste marron",
+# "des yeux marron", "des vestes marron".
+_INVARIABLE_ADJECTIVES = {"marron", "chic", "sympa", "super", "orange", "kaki", "turquoise"}
 
 
 def _bare(fr: str) -> str:
@@ -86,6 +90,13 @@ def _adjective_plural(w: str, *, feminine: bool) -> str:
 
 def _adjective_forms(forms: list[dict], lemma: str) -> list[dict]:
     """The headword is the masculine singular; the model only supplies the feminine."""
+    if lemma.lower() in _INVARIABLE_ADJECTIVES:
+        return [
+            {"label": "masculine", "fr": lemma},
+            {"label": "feminine", "fr": lemma},
+            {"label": "masculine plural", "fr": lemma},
+            {"label": "feminine plural", "fr": lemma},
+        ]
     by_label = {f["label"].lower(): _bare(f["fr"]) for f in forms}
     fem = by_label.get("feminine") or lemma
     masc = lemma
@@ -104,6 +115,23 @@ _ELIDABLE_H = re.compile(r"\b(je|me|te|se) (?=h)", re.IGNORECASE)
 # Common verbs with h aspiré, which don't elide (je hais, je me hâte).
 _H_ASPIRE_VERBS = ("haïr", "hacher", "hanter", "harceler", "hâter", "hausser", "heurter")
 _SUBJECT = re.compile(r"(je |j'|tu |il |elle |on |nous |vous |ils |elles )", re.IGNORECASE)
+# Impersonal verbs only ever take "il" as subject — never "je" (QA 850).
+_IMPERSONAL_VERBS = ("pleuvoir", "neiger", "falloir", "geler", "s'agir", "grêler", "tonner")
+# Reflexive verbs whose passé composé needs être + an agreeing reflexive clitic, not the
+# model's frequent "j'ai <participe>" default (QA 853).
+_PASSE_COMPOSE = "passé composé"
+_ETRE_PRESENT = {
+    "je": "suis",
+    "j'": "suis",
+    "tu": "es",
+    "il": "est",
+    "elle": "est",
+    "on": "est",
+    "nous": "sommes",
+    "vous": "êtes",
+    "ils": "sont",
+    "elles": "sont",
+}
 
 
 def _elide(fr: str, *, before_h: bool = False) -> str:
@@ -113,10 +141,73 @@ def _elide(fr: str, *, before_h: bool = False) -> str:
     return _ELIDABLE_H.sub(lambda m: m.group(1)[0] + "'", fr) if before_h else fr
 
 
-def _verb_form(fr: str, lemma: str) -> str:
-    if not _SUBJECT.match(fr) and not lemma.startswith(("se ", "s'")):
+def _is_reflexive(lemma: str) -> bool:
+    return lemma.startswith(("se ", "s'"))
+
+
+def _reflexive_passe_compose(fr: str, lemma: str) -> str:
+    """Rewrite a reflexive verb's passé composé to être + agreeing clitic + participle.
+    The small model's frequent reply drops the clitic and defaults to avoir
+    ("j'ai levé" instead of "je me suis levé") — 100% rule-decidable, so fixed here
+    rather than trusted from the model."""
+    m = re.match(r"(je|j'|tu|il|elle|on|nous|vous|ils|elles)\b\s*", fr, re.IGNORECASE)
+    subject = m.group(1).lower() if m else "je"
+    rest = fr[m.end() :] if m else fr
+    # Strip a leading "ai"/"a"/"as"/"avons"/"avez"/"ont" (any avoir form the model used)
+    # and any reflexive clitic already present, leaving just the past participle.
+    rest = re.sub(r"^(?:ai|as|a|avons|avez|ont)\b\s*", "", rest, flags=re.IGNORECASE)
+    rest = re.sub(r"^(?:me|m'|te|t'|se|s'|nous|vous)\b\s*", "", rest, flags=re.IGNORECASE)
+    participle = rest.strip()
+    clitic = {
+        "je": "me",
+        "j'": "me",
+        "tu": "te",
+        "il": "se",
+        "elle": "se",
+        "on": "se",
+        "nous": "nous",
+        "vous": "vous",
+        "ils": "se",
+        "elles": "se",
+    }[subject]
+    etre = _ETRE_PRESENT[subject]
+    subject_word = "je" if subject == "j'" else subject
+    out = f"{subject_word} {clitic} {etre} {participle}"
+    return _elide(out)
+
+
+def _verb_form(fr: str, lemma: str, label: str = "") -> str:
+    is_impersonal = lemma.lower().startswith(_IMPERSONAL_VERBS)
+    if not is_impersonal and _is_reflexive(lemma) and label.lower() == _PASSE_COMPOSE:
+        fr = _reflexive_passe_compose(fr, lemma)
+    elif not _SUBJECT.match(fr) and not _is_reflexive(lemma) and not is_impersonal:
         fr = "je " + fr  # the model often drops the pronoun: 'ai mangé'
+    fr = _restore_complement(fr, lemma)
     return _elide(fr, before_h=not lemma.lower().startswith(_H_ASPIRE_VERBS))
+
+
+def _restore_complement(fr: str, lemma: str) -> str:
+    """A multi-word "avoir X" headword ("avoir faim", "avoir besoin de") is a fixed
+    idiom whose complement the small model often drops, collapsing to bare "avoir"
+    conjugations (QA 852). Re-append the complement when missing — but only check
+    whether the reply already contains it (not a blind substring-absence check), so a
+    reply that already has a *partial* complement ("j'ai besoin" for "avoir besoin de")
+    isn't given a duplicated tail ("j'ai besoin besoin de").
+    Scoped to "avoir X" idioms only — a reflexive lemma's second word is the verb
+    itself ("se laver"), not a fixed complement, so it must not go through this path."""
+    head, _, complement = lemma.partition(" ")
+    if not complement or head.lower() != "avoir":
+        return fr
+    low = fr.lower().rstrip()
+    comp_low = complement.lower()
+    if low.endswith(comp_low) or comp_low in low:
+        return fr
+    # Guard against a partial-complement overlap: if the reply already ends with a
+    # leading prefix of the complement's first word, don't append the whole thing.
+    first_word = comp_low.split(" ", 1)[0]
+    if low.endswith(first_word):
+        return fr
+    return f"{fr} {complement}"
 
 
 def _noun_form(fr: str) -> str:
@@ -134,8 +225,9 @@ def tidy_forms(forms: list[dict], fr: str, pos: str) -> list[dict]:
     forms = [f for f in forms if all(ord(c) < 0x250 for c in f["fr"])]
     if pos == "adjective":
         return _adjective_forms(forms, lemma) if forms else []
-    fix = (lambda fr: _verb_form(fr, lemma)) if pos == "verb" else _noun_form
-    return [{"label": f["label"], "fr": fix(f["fr"])} for f in forms]
+    if pos == "verb":
+        return [{"label": f["label"], "fr": _verb_form(f["fr"], lemma, f["label"])} for f in forms]
+    return [{"label": f["label"], "fr": _noun_form(f["fr"])} for f in forms]
 
 
 def _parse_forms(text: str) -> list[dict]:

@@ -41,6 +41,8 @@ curated list (use the key verbatim, or "" if none applies):
 - `ordre-des-mots` — word order
 - `orthographe` — spelling/accents
 - `elision` — elision and contraction (je ai → j'ai, de le → du)
+- `choix-lexical` — wrong word for the intended concept, false friend, or wrong
+  register (e.g. "monnaie" for "money", "assister à" for "address/tackle")
 
 Do not invent grammar rules or references outside this list. If unsure, leave
 `reference` empty rather than guess.

@@ -452,6 +452,28 @@ def test_without_tts_card_has_no_llm_ipa_until_first_voiced():
     assert card["ipa"] == "pakˈɛ"  # what Piper voiced
 
 
+def test_stale_ipa_is_overwritten_on_next_voicing():
+    """QA 868: a card added before the 832 fix (or otherwise carrying a stale/wrong
+    IPA) must have it replaced, not permanently skipped, once a working TTS voices it
+    — matching lookup.py::fresh_lookup's unconditional overwrite."""
+    router = FakeRouter({"en": "hair-raising", "pos": "adjective", "gender": "", "ipa": ""})
+    client, _ = _client(uid=36, router=router, tts=None)
+    client.post("/vocab/personal/from-word", json={"word": "horrible"})
+
+    async def poison():
+        async with _Session() as s:
+            row = await s.scalar(select(UserVocab).where(UserVocab.card_key == "uv:horrible"))
+            row.ipa = "hɒrəbəl"  # stale, LLM-guessed English-shaped IPA
+            await s.commit()
+
+    _run(poison())
+
+    voiced, _ = _client(uid=36, router=router, tts=FakePiper())
+    assert voiced.get("/vocab/personal/audio/uv:horrible").status_code == 200
+    (card,) = voiced.get("/vocab/personal").json()["cards"]
+    assert card["ipa"] == "pakˈɛ"  # overwritten with what Piper actually voiced
+
+
 def test_failed_lookup_is_not_cached_and_says_why():
     client, _ = _client(uid=33, router=FakeRouter({"en": "", "pos": ""}))
     r = client.post("/vocab/personal/preview", json={"word": "zxqwv"})
