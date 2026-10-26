@@ -69,6 +69,7 @@ GRAMMAR_REFERENCES = {
     "ordre-des-mots",
     "orthographe",
     "elision",
+    "choix-lexical",
 }
 
 

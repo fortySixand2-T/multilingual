@@ -159,6 +159,105 @@ def test_forms_drop_non_latin_script():
     assert _forms([{"label": "présent", "fr": "j'吃"}], "manger", "verb") == []
 
 
+# --- generate_forms: impersonal verbs never get a "je" rescue (QA 850) --------
+
+
+def test_impersonal_verbs_keep_il_not_je():
+    assert _forms(
+        [
+            {"label": "présent", "fr": "pleut"},
+            {"label": "passé composé", "fr": "a plu"},
+            {"label": "futur", "fr": "pleuvra"},
+            {"label": "imparfait", "fr": "pleuvait"},
+        ],
+        "pleuvoir",
+        "verb",
+    ) == ["pleut", "a plu", "pleuvra", "pleuvait"]
+    assert _forms([{"label": "présent", "fr": "neige"}], "neiger", "verb") == ["neige"]
+    # a model reply that already includes "il" is untouched either way
+    assert _forms([{"label": "présent", "fr": "il faut"}], "falloir", "verb") == ["il faut"]
+
+
+# --- generate_forms: invariable adjectives never take -e/-s (QA 851) ---------
+
+
+def test_invariable_adjective_never_gets_a_fabricated_plural_or_feminine():
+    got = _forms(
+        [
+            {"label": "masculine", "fr": "marron"},
+            {"label": "feminine", "fr": "marronne"},
+        ],
+        "marron",
+        "adjective",
+    )
+    assert got == ["marron", "marron", "marron", "marron"]
+    # a regular adjective is unaffected by the invariable-word check
+    assert _forms([{"label": "feminine", "fr": "heureuse"}], "heureux", "adjective") == [
+        "heureux",
+        "heureuse",
+        "heureux",
+        "heureuses",
+    ]
+
+
+# --- generate_forms: "avoir X" idioms keep their complement (QA 852) ---------
+
+
+def test_avoir_idiom_keeps_its_complement():
+    got = _forms(
+        [
+            {"label": "présent", "fr": "j'ai"},
+            {"label": "passé composé", "fr": "j'ai eu"},
+            {"label": "futur", "fr": "j'aurai"},
+            {"label": "imparfait", "fr": "j'avais"},
+        ],
+        "avoir faim",
+        "verb",
+    )
+    assert got == ["j'ai faim", "j'ai eu faim", "j'aurai faim", "j'avais faim"]
+    got2 = _forms([{"label": "présent", "fr": "j'ai"}], "avoir besoin de", "verb")
+    assert got2 == ["j'ai besoin de"]
+
+
+def test_avoir_idiom_partial_complement_overlap_not_duplicated():
+    # a reply that already has a partial complement must not get the full one
+    # appended again ("j'ai besoin besoin de")
+    got = _forms([{"label": "présent", "fr": "j'ai besoin"}], "avoir besoin de", "verb")
+    assert got == ["j'ai besoin"]
+
+
+def test_reflexive_lemma_second_word_is_not_treated_as_a_complement():
+    # "se laver" must not have "laver" appended as if it were a fixed complement
+    assert _forms([{"label": "présent", "fr": "je me lave"}], "se laver", "verb") == ["je me lave"]
+
+
+# --- generate_forms: reflexive passé composé uses être + clitic (QA 853) -----
+
+
+def test_reflexive_passe_compose_uses_etre_and_restores_clitic():
+    got = _forms(
+        [
+            {"label": "présent", "fr": "je me lève"},
+            {"label": "passé composé", "fr": "j'ai levé"},
+            {"label": "futur", "fr": "je me lèverai"},
+            {"label": "imparfait", "fr": "je me levais"},
+        ],
+        "se lever",
+        "verb",
+    )
+    assert got == ["je me lève", "je me suis levé", "je me lèverai", "je me levais"]
+    assert _forms([{"label": "passé composé", "fr": "j'ai amusé"}], "s'amuser", "verb") == [
+        "je me suis amusé"
+    ]
+    # an already-correct reply (or a stored row tidied before) is left as is
+    correct = [{"label": "passé composé", "fr": "je me suis levé"}]
+    assert F.tidy_forms(correct, "se lever", "verb") == correct
+    # other tenses for reflexive verbs are untouched by the être rewrite
+    assert _forms([{"label": "présent", "fr": "je me dépêche"}], "se dépêcher", "verb") == [
+        "je me dépêche"
+    ]
+
+
 # --- generate_examples: variety knobs ----------------------------------------
 
 
