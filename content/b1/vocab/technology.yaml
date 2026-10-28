@@ -1,5 +1,6 @@
 - id: mise_a_jour
   fr: mise à jour
+  ipa: miz a ʒuʁ
   en: update
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: sauvegarde
   fr: sauvegarde
+  ipa: sovəɡaʁd
   en: backup
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: piratage
   fr: piratage
+  ipa: piʁataʒ
   en: hacking
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: virus
   fr: virus
+  ipa: viʁys
   en: virus
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: navigateur
   fr: navigateur
+  ipa: naviɡatœʁ
   en: browser
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: moteur_recherche
   fr: moteur de recherche
+  ipa: motœʁ də ʁəʃɛʁʃ
   en: search engine
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: forfait
   fr: forfait
+  ipa: fɔʁfɛ
   en: plan, package
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: connexion
   fr: connexion
+  ipa: konɛksjɔ̃
   en: connection
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: debit
   fr: débit
+  ipa: debi
   en: bandwidth, speed
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: wifi
   fr: wifi
+  ipa: wifi
   en: wi-fi
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: imprimante
   fr: imprimante
+  ipa: ɛ̃pʁimɑ̃t
   en: printer
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: haut_parleur
   fr: haut-parleur
+  ipa: opaʁlœʁ
   en: speaker
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: chargeur
   fr: chargeur
+  ipa: ʃaʁʒœʁ
   en: charger
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: batterie
   fr: batterie
+  ipa: batəʁi
   en: battery
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: plateforme
   fr: plateforme
+  ipa: platəfɔʁm
   en: platform
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: parametres
   fr: paramètres
+  ipa: paʁamɛtʁ
   en: settings
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: tutoriel
   fr: tutoriel
+  ipa: tytoʁjɛl
   en: tutorial
   gender: m
   pos: noun
@@ -119,18 +136,21 @@
 
 - id: installer
   fr: installer
+  ipa: ɛ̃stale
   en: to install
   pos: verb
   tags: [technology]
 
 - id: brancher
   fr: brancher
+  ipa: bʁɑ̃ʃe
   en: to plug in
   pos: verb
   tags: [technology]
 
 - id: partager
   fr: partager
+  ipa: paʁtaʒe
   en: to share
   pos: verb
   tags: [technology]

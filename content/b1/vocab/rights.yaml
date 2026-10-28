@@ -1,5 +1,6 @@
 - id: obligation
   fr: obligation
+  ipa: obliɡasjɔ̃
   en: obligation
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: recours
   fr: recours
+  ipa: ʁəkuʁ
   en: recourse, appeal
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: amende
   fr: amende
+  ipa: amɑ̃d
   en: fine
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: contravention
   fr: contravention
+  ipa: kɔ̃tʁavɑ̃sjɔ̃
   en: ticket, citation
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: litige
   fr: litige
+  ipa: litiʒ
   en: dispute (legal)
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: mediation
   fr: médiation
+  ipa: medjasjɔ̃
   en: mediation
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: arbitrage
   fr: arbitrage
+  ipa: aʁbitʁaʒ
   en: arbitration
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: clause
   fr: clause
+  ipa: kloz
   en: clause
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: resiliation
   fr: résiliation
+  ipa: ʁeziljasjɔ̃
   en: cancellation (of a contract)
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: preavis
   fr: préavis
+  ipa: pʁeavi
   en: notice
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: attestation
   fr: attestation
+  ipa: atɛstasjɔ̃
   en: certificate, proof
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: certificat
   fr: certificat
+  ipa: sɛʁtifika
   en: certificate
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: notaire
   fr: notaire
+  ipa: notɛʁ
   en: notary
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: procuration
   fr: procuration
+  ipa: pʁokyʁasjɔ̃
   en: power of attorney
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: consentement
   fr: consentement
+  ipa: kɔ̃sɑ̃təmɑ̃
   en: consent
   gender: m
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: confidentialite
   fr: confidentialité
+  ipa: kɔ̃fidɑ̃sjalite
   en: confidentiality
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: reclamation
   fr: réclamation
+  ipa: ʁeklamasjɔ̃
   en: claim, complaint
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: delai
   fr: délai
+  ipa: delɛ
   en: deadline, time limit
   gender: m
   pos: noun
@@ -126,12 +144,14 @@
 
 - id: signaler
   fr: signaler
+  ipa: siɲale
   en: to report
   pos: verb
   tags: [rights]
 
 - id: porter_plainte
   fr: porter plainte
+  ipa: poʁte plɛ̃t
   en: to file a complaint
   pos: phrase
   tags: [rights]

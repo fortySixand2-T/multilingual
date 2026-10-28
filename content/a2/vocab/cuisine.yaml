@@ -1,11 +1,13 @@
 - id: cuisiner
   fr: cuisiner
+  ipa: kɥizine
   en: "to cook"
   pos: verb
   tags: [cooking]
 
 - id: recette
   fr: recette
+  ipa: ʁəsɛt
   en: recipe
   gender: f
   pos: noun
@@ -13,6 +15,7 @@
 
 - id: casserole
   fr: casserole
+  ipa: kasəʁɔl
   en: saucepan
   gender: f
   pos: noun
@@ -20,6 +23,7 @@
 
 - id: four
   fr: four
+  ipa: fuʁ
   en: oven
   gender: m
   pos: noun
@@ -27,6 +31,7 @@
 
 - id: couteau
   fr: couteau
+  ipa: kuto
   en: knife
   gender: m
   pos: noun
@@ -34,6 +39,7 @@
 
 - id: assiette
   fr: assiette
+  ipa: asjɛt
   en: plate
   gender: f
   pos: noun
@@ -41,6 +47,7 @@
 
 - id: verre
   fr: verre
+  ipa: vɛʁ
   en: glass
   gender: m
   pos: noun
@@ -48,6 +55,7 @@
 
 - id: cuillere
   fr: cuillère
+  ipa: kɥijɛʁ
   en: spoon
   gender: f
   pos: noun
@@ -55,42 +63,49 @@
 
 - id: ajouter
   fr: ajouter
+  ipa: aʒute
   en: "to add"
   pos: verb
   tags: [cooking]
 
 - id: melanger
   fr: mélanger
+  ipa: melɑ̃ʒe
   en: "to mix"
   pos: verb
   tags: [cooking]
 
 - id: couper
   fr: couper
+  ipa: kupe
   en: "to cut"
   pos: verb
   tags: [cooking]
 
 - id: eplucher
   fr: éplucher
+  ipa: eplyʃe
   en: "to peel"
   pos: verb
   tags: [cooking]
 
 - id: cuire
   fr: cuire
+  ipa: kɥiʁ
   en: "to cook / bake"
   pos: verb
   tags: [cooking]
 
 - id: bouillir
   fr: bouillir
+  ipa: bujiʁ
   en: "to boil"
   pos: verb
   tags: [cooking]
 
 - id: poele
   fr: poêle
+  ipa: pwal
   en: "frying pan"
   gender: f
   pos: noun
@@ -98,6 +113,7 @@
 
 - id: ingredient
   fr: ingrédient
+  ipa: ɛ̃ɡʁedjɑ̃
   en: ingredient
   gender: m
   pos: noun
@@ -105,12 +121,14 @@
 
 - id: saler
   fr: saler
+  ipa: sale
   en: "to add salt"
   pos: verb
   tags: [cooking]
 
 - id: gouter
   fr: goûter
+  ipa: ɡute
   en: "to taste"
   pos: verb
   tags: [cooking]

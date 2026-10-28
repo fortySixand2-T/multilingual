@@ -1,21 +1,26 @@
 - id: chien
   fr: chien
+  ipa: ʃjɛ̃
   en: dog
   gender: mf
   fem: chienne
+  fem_ipa: ʃjɛn
   pos: noun
   tags: [animals]
 
 - id: chat
   fr: chat
+  ipa: ʃa
   en: cat
   gender: mf
   fem: chatte
+  fem_ipa: ʃat
   pos: noun
   tags: [animals]
 
 - id: oiseau
   fr: oiseau
+  ipa: wazo
   en: bird
   gender: m
   pos: noun
@@ -23,6 +28,7 @@
 
 - id: cheval
   fr: cheval
+  ipa: ʃəval
   en: horse
   gender: m
   pos: noun
@@ -30,6 +36,7 @@
 
 - id: vache
   fr: vache
+  ipa: vaʃ
   en: cow
   gender: f
   pos: noun
@@ -37,6 +44,7 @@
 
 - id: cochon
   fr: cochon
+  ipa: koʃɔ̃
   en: pig
   gender: m
   pos: noun
@@ -44,6 +52,7 @@
 
 - id: mouton
   fr: mouton
+  ipa: mutɔ̃
   en: sheep
   gender: m
   pos: noun
@@ -51,6 +60,7 @@
 
 - id: poule
   fr: poule
+  ipa: pul
   en: hen
   gender: f
   pos: noun
@@ -58,6 +68,7 @@
 
 - id: canard
   fr: canard
+  ipa: kanaʁ
   en: duck
   gender: m
   pos: noun
@@ -65,6 +76,7 @@
 
 - id: lapin
   fr: lapin
+  ipa: lapɛ̃
   en: rabbit
   gender: m
   pos: noun
@@ -72,6 +84,7 @@
 
 - id: ours
   fr: ours
+  ipa: uʁs
   en: bear
   gender: m
   pos: noun
@@ -79,6 +92,7 @@
 
 - id: loup
   fr: loup
+  ipa: lu
   en: wolf
   gender: m
   pos: noun
@@ -86,6 +100,7 @@
 
 - id: renard
   fr: renard
+  ipa: ʁənaʁ
   en: fox
   gender: m
   pos: noun
@@ -93,6 +108,7 @@
 
 - id: ecureuil
   fr: écureuil
+  ipa: ekyʁœj
   en: squirrel
   gender: m
   pos: noun
@@ -100,6 +116,7 @@
 
 - id: abeille
   fr: abeille
+  ipa: abɛj
   en: bee
   gender: f
   pos: noun
@@ -107,6 +124,7 @@
 
 - id: papillon
   fr: papillon
+  ipa: papijɔ̃
   en: butterfly
   gender: m
   pos: noun
@@ -114,6 +132,7 @@
 
 - id: animal
   fr: animal
+  ipa: animal
   en: animal
   gender: m
   pos: noun
@@ -121,6 +140,7 @@
 
 - id: ferme
   fr: ferme
+  ipa: fɛʁm
   en: farm
   gender: f
   pos: noun
@@ -128,6 +148,7 @@
 
 - id: chaton
   fr: chaton
+  ipa: ʃatɔ̃
   en: kitten
   gender: m
   pos: noun
@@ -135,6 +156,7 @@
 
 - id: chiot
   fr: chiot
+  ipa: ʃjo
   en: puppy
   gender: m
   pos: noun

@@ -1,5 +1,6 @@
 - id: environnement
   fr: environnement
+  ipa: ɑ̃viʁɔnəmɑ̃
   en: environment
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: pollution
   fr: pollution
+  ipa: polysjɔ̃
   en: pollution
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: climat
   fr: climat
+  ipa: klima
   en: climate
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: rechauffement
   fr: réchauffement
+  ipa: ʁeʃofmɑ̃
   en: "warming (climate)"
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: recyclage
   fr: recyclage
+  ipa: ʁəsiklaʒ
   en: recycling
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: dechet
   fr: déchet
+  ipa: deʃɛ
   en: "waste, rubbish"
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: planete
   fr: planète
+  ipa: planɛt
   en: planet
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: nature
   fr: nature
+  ipa: natyʁ
   en: nature
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: consommation
   fr: consommation
+  ipa: kɔ̃somasjɔ̃
   en: consumption
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: gaspillage
   fr: gaspillage
+  ipa: ɡaspijaʒ
   en: "waste, squandering"
   gender: m
   pos: noun
@@ -70,14 +80,17 @@
 
 - id: citoyen
   fr: citoyen
+  ipa: sitwajɛ̃
   en: citizen
   gender: mf
   fem: citoyenne
+  fem_ipa: sitwajɛn
   pos: noun
   tags: [environment]
 
 - id: solidarite
   fr: solidarité
+  ipa: solidaʁite
   en: solidarity
   gender: f
   pos: noun
@@ -85,6 +98,7 @@
 
 - id: biodiversite
   fr: biodiversité
+  ipa: bjodivɛʁsite
   en: biodiversity
   gender: f
   pos: noun
@@ -92,6 +106,7 @@
 
 - id: developpement_durable
   fr: développement durable
+  ipa: devəlɔpəmɑ̃ dyʁabl
   en: "sustainable development"
   gender: m
   pos: noun
@@ -99,6 +114,7 @@
 
 - id: ressource
   fr: ressource
+  ipa: ʁəsuʁs
   en: resource
   gender: f
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: espece
   fr: espèce
+  ipa: ɛspɛs
   en: "species"
   gender: f
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: transition
   fr: transition
+  ipa: tʁɑ̃zisjɔ̃
   en: transition
   gender: f
   pos: noun
@@ -120,6 +138,7 @@
 
 - id: empreinte
   fr: empreinte
+  ipa: ɑ̃pʁɛ̃t
   en: "footprint (carbon)"
   gender: f
   pos: noun

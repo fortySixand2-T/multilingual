@@ -1,5 +1,6 @@
 - id: loisir
   fr: loisir
+  ipa: lwaziʁ
   en: "leisure activity"
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: sport
   fr: sport
+  ipa: spɔʁ
   en: sport
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: musique
   fr: musique
+  ipa: myzik
   en: music
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: film
   fr: film
+  ipa: film
   en: film
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: livre
   fr: livre
+  ipa: livʁ
   en: book
   gender: m
   pos: noun
@@ -35,30 +40,35 @@
 
 - id: jouer
   fr: jouer
+  ipa: ʒwe
   en: "to play"
   pos: verb
   tags: [hobbies]
 
 - id: nager
   fr: nager
+  ipa: naʒe
   en: "to swim"
   pos: verb
   tags: [hobbies]
 
 - id: danser
   fr: danser
+  ipa: dɑ̃se
   en: "to dance"
   pos: verb
   tags: [hobbies]
 
 - id: chanter
   fr: chanter
+  ipa: ʃɑ̃te
   en: "to sing"
   pos: verb
   tags: [hobbies]
 
 - id: promenade
   fr: promenade
+  ipa: pʁɔmnad
   en: walk
   gender: f
   pos: noun
@@ -66,30 +76,35 @@
 
 - id: peindre
   fr: peindre
+  ipa: pɛ̃dʁ
   en: "to paint"
   pos: verb
   tags: [hobbies]
 
 - id: dessiner
   fr: dessiner
+  ipa: desine
   en: "to draw"
   pos: verb
   tags: [hobbies]
 
 - id: voyager
   fr: voyager
+  ipa: vwajaʒe
   en: "to travel"
   pos: verb
   tags: [hobbies]
 
 - id: jardiner
   fr: jardiner
+  ipa: ʒaʁdine
   en: "to garden"
   pos: verb
   tags: [hobbies]
 
 - id: photographie
   fr: photographie
+  ipa: fotoɡʁafi
   en: photography
   gender: f
   pos: noun
@@ -97,6 +112,7 @@
 
 - id: jeu
   fr: jeu
+  ipa: ʒø
   en: game
   gender: m
   pos: noun
@@ -104,6 +120,7 @@
 
 - id: equipe
   fr: équipe
+  ipa: ekip
   en: team
   gender: f
   pos: noun
@@ -111,6 +128,7 @@
 
 - id: concert
   fr: concert
+  ipa: kɔ̃sɛʁ
   en: concert
   gender: m
   pos: noun

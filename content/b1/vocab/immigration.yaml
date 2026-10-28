@@ -1,5 +1,6 @@
 - id: immigration
   fr: immigration
+  ipa: imiɡʁasjɔ̃
   en: immigration
   gender: f
   pos: noun
@@ -7,14 +8,17 @@
 
 - id: immigrant
   fr: immigrant
+  ipa: imiɡʁɑ̃
   en: immigrant
   gender: mf
   fem: immigrante
+  fem_ipa: imiɡʁɑ̃t
   pos: noun
   tags: [immigration]
 
 - id: residence
   fr: résidence
+  ipa: ʁezidɑ̃s
   en: residence
   gender: f
   pos: noun
@@ -22,6 +26,7 @@
 
 - id: citoyennete
   fr: citoyenneté
+  ipa: sitwajɛnəte
   en: citizenship
   gender: f
   pos: noun
@@ -29,6 +34,7 @@
 
 - id: nationalite
   fr: nationalité
+  ipa: nasjonalite
   en: nationality
   gender: f
   pos: noun
@@ -36,6 +42,7 @@
 
 - id: visa
   fr: visa
+  ipa: viza
   en: visa
   gender: m
   pos: noun
@@ -43,6 +50,7 @@
 
 - id: permis_travail
   fr: permis de travail
+  ipa: pɛʁmi də tʁavaj
   en: "work permit"
   gender: m
   pos: noun
@@ -50,6 +58,7 @@
 
 - id: integration
   fr: intégration
+  ipa: ɛ̃teɡʁasjɔ̃
   en: integration
   gender: f
   pos: noun
@@ -57,6 +66,7 @@
 
 - id: demarche
   fr: démarche
+  ipa: demaʁʃ
   en: "procedure, step"
   gender: f
   pos: noun
@@ -64,6 +74,7 @@
 
 - id: formulaire
   fr: formulaire
+  ipa: fɔʁmylɛʁ
   en: form
   gender: m
   pos: noun
@@ -71,6 +82,7 @@
 
 - id: administration
   fr: administration
+  ipa: administʁasjɔ̃
   en: administration
   gender: f
   pos: noun
@@ -78,6 +90,7 @@
 
 - id: naturalisation
   fr: naturalisation
+  ipa: natyʁalizasjɔ̃
   en: naturalisation
   gender: f
   pos: noun
@@ -85,14 +98,17 @@
 
 - id: refugie
   fr: réfugié
+  ipa: ʁefyʒje
   en: refugee
   gender: mf
   fem: réfugiée
+  fem_ipa: ʁefyʒje
   pos: noun
   tags: [immigration]
 
 - id: accueil
   fr: accueil
+  ipa: akœj
   en: "welcome, reception"
   gender: m
   pos: noun
@@ -100,6 +116,7 @@
 
 - id: installation
   fr: installation
+  ipa: ɛ̃stalasjɔ̃
   en: "settling in"
   gender: f
   pos: noun
@@ -107,6 +124,7 @@
 
 - id: demande
   fr: demande
+  ipa: dəmɑ̃d
   en: "application, request"
   gender: f
   pos: noun
@@ -114,6 +132,7 @@
 
 - id: parrainage
   fr: parrainage
+  ipa: paʁɛnaʒ
   en: sponsorship
   gender: m
   pos: noun
@@ -121,6 +140,7 @@
 
 - id: statut
   fr: statut
+  ipa: staty
   en: status
   gender: m
   pos: noun
@@ -128,6 +148,7 @@
 
 - id: carte_residence
   fr: carte de résidence permanente
+  ipa: kaʁt də ʁezidɑ̃s pɛʁmanɑ̃t
   en: permanent resident card
   gender: f
   pos: noun
@@ -135,6 +156,7 @@
 
 - id: demandeur_asile
   fr: demandeur d'asile
+  ipa: dəmɑ̃dœʁ dazil
   en: asylum seeker
   gender: m
   pos: noun
@@ -142,6 +164,7 @@
 
 - id: recevabilite
   fr: recevabilité
+  ipa: ʁøsøvabilite
   en: admissibility (of a file)
   gender: f
   pos: noun
@@ -149,6 +172,7 @@
 
 - id: admissibilite
   fr: admissibilité
+  ipa: admisibilite
   en: eligibility
   gender: f
   pos: noun
@@ -156,6 +180,7 @@
 
 - id: biometrie
   fr: biométrie
+  ipa: bjɔmetʁi
   en: biometrics
   gender: f
   pos: noun
@@ -163,6 +188,7 @@
 
 - id: empreintes_digitales
   fr: empreintes digitales
+  ipa: ɑ̃pʁɛ̃t diʒital
   en: fingerprints
   gender: f
   pos: noun
@@ -170,6 +196,7 @@
 
 - id: casier_judiciaire
   fr: casier judiciaire
+  ipa: kazje ʒydisjɛʁ
   en: criminal record
   gender: m
   pos: noun
@@ -177,6 +204,7 @@
 
 - id: certificat_selection
   fr: certificat de sélection du Québec
+  ipa: sɛʁtifika də selɛksjɔ̃ dy kebɛk
   en: Québec selection certificate (CSQ)
   gender: m
   pos: noun
@@ -184,14 +212,17 @@
 
 - id: garant
   fr: garant
+  ipa: ɡaʁɑ̃
   en: sponsor, guarantor
   gender: mf
   fem: garante
+  fem_ipa: ɡaʁɑ̃t
   pos: noun
   tags: [immigration]
 
 - id: regroupement_familial
   fr: regroupement familial
+  ipa: ʁəɡʁupəmɑ̃ familjal
   en: family reunification
   gender: m
   pos: noun
@@ -199,6 +230,7 @@
 
 - id: travailleur_qualifie
   fr: travailleur qualifié
+  ipa: tʁavajœʁ kalifje
   en: skilled worker
   gender: m
   pos: noun
@@ -206,6 +238,7 @@
 
 - id: equivalence_diplome
   fr: équivalence de diplôme
+  ipa: ekivalɑ̃s də diplom
   en: credential equivalence
   gender: f
   pos: noun
@@ -213,6 +246,7 @@
 
 - id: reconnaissance_acquis
   fr: reconnaissance des acquis
+  ipa: ʁəkɔnɛsɑ̃s dez aki
   en: recognition of prior learning
   gender: f
   pos: noun
@@ -220,6 +254,7 @@
 
 - id: titre_sejour
   fr: titre de séjour
+  ipa: titʁ də seʒuʁ
   en: residence permit
   gender: m
   pos: noun
@@ -227,6 +262,7 @@
 
 - id: renouvellement
   fr: renouvellement
+  ipa: ʁənuvɛləmɑ̃
   en: renewal
   gender: m
   pos: noun
@@ -234,6 +270,7 @@
 
 - id: expiration
   fr: expiration
+  ipa: ɛkspiʁasjɔ̃
   en: expiry
   gender: f
   pos: noun
@@ -241,6 +278,7 @@
 
 - id: refus
   fr: refus
+  ipa: ʁəfy
   en: refusal
   gender: m
   pos: noun
@@ -248,6 +286,7 @@
 
 - id: delai_traitement
   fr: délai de traitement
+  ipa: delɛ də tʁɛtəmɑ̃
   en: processing time
   gender: m
   pos: noun
@@ -255,6 +294,7 @@
 
 - id: frais_dossier
   fr: frais de dossier
+  ipa: fʁɛ də dosje
   en: application fee
   gender: m
   pos: noun
@@ -262,6 +302,7 @@
 
 - id: residence_temporaire
   fr: résidence temporaire
+  ipa: ʁezidɑ̃s tɑ̃poʁɛʁ
   en: temporary residence
   gender: f
   pos: noun

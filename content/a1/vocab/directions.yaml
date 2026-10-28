@@ -1,5 +1,6 @@
 - id: gauche
   fr: gauche
+  ipa: ɡoʃ
   en: left
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: droite
   fr: droite
+  ipa: dʁwat
   en: right
   gender: f
   pos: noun
@@ -14,12 +16,14 @@
 
 - id: tout_droit
   fr: tout droit
+  ipa: tu dʁwa
   en: "straight ahead"
   pos: phrase
   tags: [directions]
 
 - id: rue
   fr: rue
+  ipa: ʁy
   en: street
   gender: f
   pos: noun
@@ -27,6 +31,7 @@
 
 - id: gare
   fr: gare
+  ipa: ɡaʁ
   en: "train station"
   gender: f
   pos: noun
@@ -34,6 +39,7 @@
 
 - id: hopital
   fr: hôpital
+  ipa: opital
   en: hospital
   gender: m
   pos: noun
@@ -41,6 +47,7 @@
 
 - id: banque
   fr: banque
+  ipa: bɑ̃k
   en: bank
   gender: f
   pos: noun
@@ -48,30 +55,35 @@
 
 - id: ici
   fr: ici
+  ipa: isi
   en: here
   pos: adverb
   tags: [directions]
 
 - id: la_bas
   fr: là-bas
+  ipa: laba
   en: "over there"
   pos: adverb
   tags: [directions]
 
 - id: loin
   fr: loin
+  ipa: lwɛ̃
   en: far
   pos: adverb
   tags: [directions]
 
 - id: pres
   fr: près
+  ipa: pʁɛ
   en: near
   pos: adverb
   tags: [directions]
 
 - id: coin
   fr: coin
+  ipa: kwɛ̃
   en: corner
   gender: m
   pos: noun
@@ -79,6 +91,7 @@
 
 - id: feu
   fr: feu
+  ipa: fø
   en: "traffic light"
   gender: m
   pos: noun
@@ -86,6 +99,7 @@
 
 - id: pont
   fr: pont
+  ipa: pɔ̃
   en: bridge
   gender: m
   pos: noun
@@ -93,6 +107,7 @@
 
 - id: place
   fr: place
+  ipa: plas
   en: square
   gender: f
   pos: noun
@@ -100,6 +115,7 @@
 
 - id: carrefour
   fr: carrefour
+  ipa: kaʁəfuʁ
   en: crossroads
   gender: m
   pos: noun
@@ -107,6 +123,7 @@
 
 - id: nord
   fr: nord
+  ipa: nɔʁ
   en: north
   gender: m
   pos: noun
@@ -114,6 +131,7 @@
 
 - id: sud
   fr: sud
+  ipa: syd
   en: south
   gender: m
   pos: noun

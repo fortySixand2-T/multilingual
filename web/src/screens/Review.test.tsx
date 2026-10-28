@@ -81,3 +81,28 @@ describe("Review queue exhaustion (issue 773)", () => {
     expect(api.queue).toHaveBeenCalledTimes(2);
   });
 });
+
+describe("Review IPA", () => {
+  it("shows a course word's checked IPA", async () => {
+    vi.mocked(api.queue).mockResolvedValue({
+      due: [{ card_key: "paquet", due: "2026-08-05T00:00:00", vocab: { fr: "paquet", en: "packet", ipa: "pakɛ" } }],
+    });
+    renderReview();
+    expect(await screen.findByText("/pakɛ/")).toBeInTheDocument();
+  });
+
+  it("hides a personal card's IPA", async () => {
+    vi.mocked(api.queue).mockResolvedValue({
+      due: [
+        {
+          card_key: "uv:paquet",
+          due: "2026-08-05T00:00:00",
+          vocab: { fr: "paquet", en: "packet", ipa: "pakɛ", personal: true },
+        },
+      ],
+    });
+    renderReview();
+    await screen.findByText("paquet");
+    expect(screen.queryByText("/pakɛ/")).not.toBeInTheDocument();
+  });
+});

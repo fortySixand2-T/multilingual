@@ -1,5 +1,6 @@
 - id: anxiete
   fr: anxiété
+  ipa: ɑ̃ksjete
   en: anxiety
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: depression
   fr: dépression
+  ipa: depʁesjɔ̃
   en: depression
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: epuisement
   fr: épuisement professionnel
+  ipa: epɥizəmɑ̃ pʁofɛsjonɛl
   en: burnout
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: resilience
   fr: résilience
+  ipa: ʁeziljɑ̃s
   en: resilience
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: estime_de_soi
   fr: estime de soi
+  ipa: ɛstim də swa
   en: self-esteem
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: empathie
   fr: empathie
+  ipa: ɑ̃pati
   en: empathy
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: therapie
   fr: thérapie
+  ipa: teʁapi
   en: therapy
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: psychologue
   fr: psychologue
+  ipa: psikolɔɡ
   en: psychologist
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: trouble
   fr: trouble
+  ipa: tʁubl
   en: disorder
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: phobie
   fr: phobie
+  ipa: fobi
   en: phobia
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: deni
   fr: déni
+  ipa: deni
   en: denial
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: emotion
   fr: émotion
+  ipa: emosjɔ̃
   en: emotion
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: comportement
   fr: comportement
+  ipa: kɔ̃pɔʁtəmɑ̃
   en: behaviour
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: perception
   fr: perception
+  ipa: pɛʁsɛpsjɔ̃
   en: perception
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: conscience
   fr: conscience
+  ipa: kɔ̃sjɑ̃s
   en: awareness, conscience
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: inconscient
   fr: inconscient
+  ipa: ɛ̃kɔ̃sjɑ̃
   en: the unconscious
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: traumatisme
   fr: traumatisme
+  ipa: tʁomatism
   en: trauma
   gender: m
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: charge_mentale
   fr: charge mentale
+  ipa: ʃaʁʒ mɑ̃tal
   en: mental load
   gender: f
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: pleine_conscience
   fr: pleine conscience
+  ipa: plɛn kɔ̃sjɑ̃s
   en: mindfulness
   gender: f
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: adaptation
   fr: adaptation
+  ipa: adaptasjɔ̃
   en: adaptation, coping
   gender: f
   pos: noun

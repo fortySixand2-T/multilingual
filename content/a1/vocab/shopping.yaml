@@ -1,5 +1,6 @@
 - id: magasin
   fr: magasin
+  ipa: maɡazɛ̃
   en: shop
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: prix
   fr: prix
+  ipa: pʁi
   en: price
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: argent
   fr: argent
+  ipa: aʁʒɑ̃
   en: money
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: carte
   fr: carte
+  ipa: kaʁt
   en: "card (payment)"
   gender: f
   pos: noun
@@ -28,18 +32,21 @@
 
 - id: acheter
   fr: acheter
+  ipa: aʃəte
   en: "to buy"
   pos: verb
   tags: [shopping]
 
 - id: cher
   fr: cher
+  ipa: ʃɛʁ
   en: expensive
   pos: adjective
   tags: [shopping]
 
 - id: soldes
   fr: soldes
+  ipa: sɔld
   en: sales
   gender: m
   pos: noun
@@ -47,6 +54,7 @@
 
 - id: taille
   fr: taille
+  ipa: taj
   en: size
   gender: f
   pos: noun
@@ -54,6 +62,7 @@
 
 - id: caisse
   fr: caisse
+  ipa: kɛs
   en: "checkout / till"
   gender: f
   pos: noun
@@ -61,6 +70,7 @@
 
 - id: euro
   fr: euro
+  ipa: øʁo
   en: euro
   gender: m
   pos: noun
@@ -68,34 +78,41 @@
 
 - id: vendeur
   fr: vendeur
+  ipa: vɑ̃dœʁ
   en: salesperson
   gender: mf
   fem: vendeuse
+  fem_ipa: vɑ̃døz
   pos: noun
   tags: [shopping]
 
 - id: client
   fr: client
+  ipa: klijɑ̃
   en: customer
   gender: mf
   fem: cliente
+  fem_ipa: klijɑ̃t
   pos: noun
   tags: [shopping]
 
 - id: payer
   fr: payer
+  ipa: peje
   en: "to pay"
   pos: verb
   tags: [shopping]
 
 - id: gratuit
   fr: gratuit
+  ipa: ɡʁatɥi
   en: free
   pos: adjective
   tags: [shopping]
 
 - id: monnaie
   fr: monnaie
+  ipa: monɛ
   en: "change (coins)"
   gender: f
   pos: noun
@@ -103,6 +120,7 @@
 
 - id: recu
   fr: reçu
+  ipa: ʁəsy
   en: receipt
   gender: m
   pos: noun
@@ -110,6 +128,7 @@
 
 - id: panier
   fr: panier
+  ipa: panje
   en: basket
   gender: m
   pos: noun
@@ -117,6 +136,7 @@
 
 - id: essayer
   fr: essayer
+  ipa: eseje
   en: "to try on"
   pos: verb
   tags: [shopping]

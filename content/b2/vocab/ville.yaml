@@ -1,5 +1,6 @@
 - id: urbanisme
   fr: urbanisme
+  ipa: yʁbanism
   en: "urban planning"
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: mobilite
   fr: mobilité
+  ipa: mobilite
   en: mobility
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: embouteillage
   fr: embouteillage
+  ipa: ɑ̃butɛjaʒ
   en: "traffic jam"
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: peripherie
   fr: périphérie
+  ipa: peʁifeʁi
   en: "outskirts"
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: amenagement
   fr: aménagement
+  ipa: amenaʒəmɑ̃
   en: "development, planning"
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: densite
   fr: densité
+  ipa: dɑ̃site
   en: density
   gender: f
   pos: noun
@@ -42,14 +48,17 @@
 
 - id: pieton
   fr: piéton
+  ipa: pjetɔ̃
   en: pedestrian
   gender: mf
   fem: piétonne
+  fem_ipa: pjetɔn
   pos: noun
   tags: [ville]
 
 - id: infrastructure
   fr: infrastructure
+  ipa: ɛ̃fʁastʁyktyʁ
   en: infrastructure
   gender: f
   pos: noun
@@ -57,6 +66,7 @@
 
 - id: gentrification
   fr: gentrification
+  ipa: ʒɑ̃tʁifikasjɔ̃
   en: gentrification
   gender: f
   pos: noun
@@ -64,6 +74,7 @@
 
 - id: logement_social
   fr: logement social
+  ipa: lɔʒəmɑ̃ sosjal
   en: "social housing"
   gender: m
   pos: noun
@@ -71,6 +82,7 @@
 
 - id: transport_commun
   fr: transport en commun
+  ipa: tʁɑ̃spɔʁ ɑ̃ komœ̃
   en: "public transport"
   gender: m
   pos: noun
@@ -78,6 +90,7 @@
 
 - id: voirie
   fr: voirie
+  ipa: vwaʁi
   en: "roads, public highways"
   gender: f
   pos: noun
@@ -85,6 +98,7 @@
 
 - id: metropole
   fr: métropole
+  ipa: metʁopɔl
   en: metropolis
   gender: f
   pos: noun
@@ -92,6 +106,7 @@
 
 - id: etalement_urbain
   fr: étalement urbain
+  ipa: etaləmɑ̃ yʁbɛ̃
   en: "urban sprawl"
   gender: m
   pos: noun
@@ -99,6 +114,7 @@
 
 - id: rehabilitation
   fr: réhabilitation
+  ipa: ʁeabilitasjɔ̃
   en: "renovation, rehabilitation"
   gender: f
   pos: noun
@@ -106,12 +122,14 @@
 
 - id: cyclable
   fr: cyclable
+  ipa: siklabl
   en: "cycling (path)"
   pos: adjective
   tags: [ville]
 
 - id: congestion
   fr: congestion
+  ipa: kɔ̃ʒɛstjɔ̃
   en: "congestion"
   gender: f
   pos: noun
@@ -119,6 +137,7 @@
 
 - id: espace_vert
   fr: espace vert
+  ipa: ɛspas vɛʁ
   en: "green space"
   gender: m
   pos: noun

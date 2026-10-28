@@ -1,5 +1,6 @@
 - id: transition_energetique
   fr: transition énergétique
+  ipa: tʁɑ̃zisjɔ̃ enɛʁʒetik
   en: "energy transition"
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: rechauffement_climatique
   fr: réchauffement climatique
+  ipa: ʁeʃofmɑ̃ klimatik
   en: "global warming"
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: empreinte_carbone
   fr: empreinte carbone
+  ipa: ɑ̃pʁɛ̃t kaʁbɔn
   en: "carbon footprint"
   gender: f
   pos: noun
@@ -21,12 +24,14 @@
 
 - id: renouvelable
   fr: renouvelable
+  ipa: ʁənuvəlabl
   en: renewable
   pos: adjective
   tags: [environnement]
 
 - id: durabilite
   fr: durabilité
+  ipa: dyʁabilite
   en: sustainability
   gender: f
   pos: noun
@@ -34,6 +39,7 @@
 
 - id: deforestation
   fr: déforestation
+  ipa: defoʁɛstasjɔ̃
   en: deforestation
   gender: f
   pos: noun
@@ -41,6 +47,7 @@
 
 - id: pesticide
   fr: pesticide
+  ipa: pɛstisid
   en: pesticide
   gender: m
   pos: noun
@@ -48,6 +55,7 @@
 
 - id: surconsommation
   fr: surconsommation
+  ipa: syʁkɔ̃sɔmasjɔ̃
   en: overconsumption
   gender: f
   pos: noun
@@ -55,6 +63,7 @@
 
 - id: sobriete
   fr: sobriété
+  ipa: sobʁijete
   en: "restraint, frugality"
   gender: f
   pos: noun
@@ -62,6 +71,7 @@
 
 - id: extinction
   fr: extinction
+  ipa: ɛkstɛ̃ksjɔ̃
   en: extinction
   gender: f
   pos: noun
@@ -69,14 +79,17 @@
 
 - id: pollueur
   fr: pollueur
+  ipa: polyœʁ
   en: polluter
   gender: mf
   fem: pollueuse
+  fem_ipa: polyøz
   pos: noun
   tags: [environnement]
 
 - id: militantisme
   fr: militantisme
+  ipa: militɑ̃tism
   en: activism
   gender: m
   pos: noun
@@ -84,6 +97,7 @@
 
 - id: catastrophe
   fr: catastrophe
+  ipa: katastʁɔf
   en: "disaster, catastrophe"
   gender: f
   pos: noun
@@ -91,6 +105,7 @@
 
 - id: secheresse
   fr: sécheresse
+  ipa: seʃəʁɛs
   en: drought
   gender: f
   pos: noun
@@ -98,6 +113,7 @@
 
 - id: inondation
   fr: inondation
+  ipa: inɔ̃dasjɔ̃
   en: flood
   gender: f
   pos: noun
@@ -105,6 +121,7 @@
 
 - id: covoiturage
   fr: covoiturage
+  ipa: kovwatyʁaʒ
   en: carpooling
   gender: m
   pos: noun
@@ -112,6 +129,7 @@
 
 - id: compostage
   fr: compostage
+  ipa: kɔ̃pɔstaʒ
   en: composting
   gender: m
   pos: noun
@@ -119,6 +137,7 @@
 
 - id: energie_verte
   fr: énergie verte
+  ipa: enɛʁʒi vɛʁt
   en: "green energy"
   gender: f
   pos: noun
@@ -126,6 +145,7 @@
 
 - id: gaz_effet_serre
   fr: gaz à effet de serre
+  ipa: ɡaz a efɛ də sɛʁ
   en: greenhouse gas
   gender: m
   pos: noun
@@ -133,6 +153,7 @@
 
 - id: carboneutralite
   fr: carboneutralité
+  ipa: kaʁbonøtʁalite
   en: carbon neutrality
   gender: f
   pos: noun
@@ -140,6 +161,7 @@
 
 - id: attenuation
   fr: atténuation
+  ipa: atenɥasjɔ̃
   en: mitigation
   gender: f
   pos: noun
@@ -147,6 +169,7 @@
 
 - id: eau_potable
   fr: eau potable
+  ipa: o potabl
   en: drinking water
   gender: f
   pos: noun
@@ -154,6 +177,7 @@
 
 - id: bassin_versant
   fr: bassin versant
+  ipa: basɛ̃ vɛʁsɑ̃
   en: watershed
   gender: m
   pos: noun
@@ -161,6 +185,7 @@
 
 - id: milieu_humide
   fr: milieu humide
+  ipa: miljø ymid
   en: wetland
   gender: m
   pos: noun
@@ -168,6 +193,7 @@
 
 - id: aire_protegee
   fr: aire protégée
+  ipa: ɛʁ pʁoteʒe
   en: protected area
   gender: f
   pos: noun
@@ -175,6 +201,7 @@
 
 - id: reboisement
   fr: reboisement
+  ipa: ʁəbwazəmɑ̃
   en: reforestation
   gender: m
   pos: noun
@@ -182,6 +209,7 @@
 
 - id: energie_fossile
   fr: énergie fossile
+  ipa: enɛʁʒi fosil
   en: fossil fuel
   gender: f
   pos: noun
@@ -189,6 +217,7 @@
 
 - id: hydroelectricite
   fr: hydroélectricité
+  ipa: idʁɔelɛktʁisite
   en: hydroelectricity
   gender: f
   pos: noun
@@ -196,6 +225,7 @@
 
 - id: eolienne
   fr: éolienne
+  ipa: eoljɛn
   en: wind turbine
   gender: f
   pos: noun
@@ -203,6 +233,7 @@
 
 - id: geothermie
   fr: géothermie
+  ipa: ʒeotɛʁmi
   en: geothermal energy
   gender: f
   pos: noun
@@ -210,6 +241,7 @@
 
 - id: consigne
   fr: consigne
+  ipa: kɔ̃siɲ
   en: container deposit
   gender: f
   pos: noun
@@ -217,6 +249,7 @@
 
 - id: enfouissement
   fr: enfouissement
+  ipa: ɑ̃fwisəmɑ̃
   en: landfilling
   gender: m
   pos: noun
@@ -224,6 +257,7 @@
 
 - id: valorisation
   fr: valorisation
+  ipa: valoʁizasjɔ̃
   en: recovery, repurposing
   gender: f
   pos: noun
@@ -231,6 +265,7 @@
 
 - id: ilot_chaleur
   fr: îlot de chaleur
+  ipa: ilo də ʃalœʁ
   en: heat island
   gender: m
   pos: noun
@@ -238,6 +273,7 @@
 
 - id: pergelisol
   fr: pergélisol
+  ipa: pɛʁʒelisɔl
   en: permafrost
   gender: m
   pos: noun

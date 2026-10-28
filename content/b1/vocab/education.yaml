@@ -1,5 +1,6 @@
 - id: formation
   fr: formation
+  ipa: fɔʁmasjɔ̃
   en: "training, education"
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: cursus
   fr: cursus
+  ipa: kyʁsys
   en: "course of study"
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: matiere
   fr: matière
+  ipa: matjɛʁ
   en: "school subject"
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: apprentissage
   fr: apprentissage
+  ipa: apʁɑ̃tisaʒ
   en: "learning, apprenticeship"
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: connaissance
   fr: connaissance
+  ipa: konɛsɑ̃s
   en: knowledge
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: examen
   fr: examen
+  ipa: ɛɡzamɛ̃
   en: exam
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: bourse
   fr: bourse
+  ipa: buʁs
   en: "scholarship, grant"
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: faculte
   fr: faculté
+  ipa: fakylte
   en: "faculty (university)"
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: memoire
   fr: mémoire
+  ipa: memwaʁ
   en: "thesis, dissertation"
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: recherche
   fr: recherche
+  ipa: ʁəʃɛʁʃ
   en: research
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: enseignement
   fr: enseignement
+  ipa: ɑ̃sɛɲəmɑ̃
   en: teaching
   gender: m
   pos: noun
@@ -77,14 +88,17 @@
 
 - id: enseignant
   fr: enseignant
+  ipa: ɑ̃sɛɲɑ̃
   en: teacher
   gender: mf
   fem: enseignante
+  fem_ipa: ɑ̃sɛɲɑ̃t
   pos: noun
   tags: [education]
 
 - id: inscription
   fr: inscription
+  ipa: ɛ̃skʁipsjɔ̃
   en: "enrolment, registration"
   gender: f
   pos: noun
@@ -92,6 +106,7 @@
 
 - id: niveau
   fr: niveau
+  ipa: nivo
   en: level
   gender: m
   pos: noun
@@ -99,6 +114,7 @@
 
 - id: autonomie
   fr: autonomie
+  ipa: otonomi
   en: autonomy
   gender: f
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: pedagogie
   fr: pédagogie
+  ipa: pedaɡoʒi
   en: pedagogy
   gender: f
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: savoir
   fr: savoir
+  ipa: savwaʁ
   en: "knowledge, know-how"
   gender: m
   pos: noun
@@ -120,6 +138,7 @@
 
 - id: etudes
   fr: études
+  ipa: etyd
   en: studies
   gender: f
   pos: noun

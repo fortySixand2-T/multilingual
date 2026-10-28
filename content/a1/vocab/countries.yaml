@@ -1,5 +1,6 @@
 - id: canada
   fr: le Canada
+  ipa: lə kanada
   en: Canada
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: quebec
   fr: le Québec
+  ipa: lə kebɛk
   en: Quebec
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: france
   fr: la France
+  ipa: la fʁɑ̃s
   en: France
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: belgique
   fr: la Belgique
+  ipa: la bɛlʒik
   en: Belgium
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: suisse
   fr: la Suisse
+  ipa: la sɥis
   en: Switzerland
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: maroc
   fr: le Maroc
+  ipa: lə maʁɔk
   en: Morocco
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: algerie
   fr: l'Algérie
+  ipa: lalʒeʁi
   en: Algeria
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: tunisie
   fr: la Tunisie
+  ipa: la tynizi
   en: Tunisia
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: senegal
   fr: le Sénégal
+  ipa: lə seneɡal
   en: Senegal
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: haiti
   fr: Haïti
+  ipa: aiti
   en: Haiti
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: etats_unis
   fr: les États-Unis
+  ipa: lez etazyni
   en: the United States
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: mexique
   fr: le Mexique
+  ipa: lə mɛksik
   en: Mexico
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: bresil
   fr: le Brésil
+  ipa: lə bʁezil
   en: Brazil
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: chine
   fr: la Chine
+  ipa: la ʃin
   en: China
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: japon
   fr: le Japon
+  ipa: lə ʒapɔ̃
   en: Japan
   gender: m
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: inde
   fr: l'Inde
+  ipa: lɛ̃d
   en: India
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: allemagne
   fr: l'Allemagne
+  ipa: laləmaɲ
   en: Germany
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: espagne
   fr: l'Espagne
+  ipa: lɛspaɲ
   en: Spain
   gender: f
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: italie
   fr: l'Italie
+  ipa: litali
   en: Italy
   gender: f
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: angleterre
   fr: l'Angleterre
+  ipa: lɑ̃ɡløtɛʁ
   en: England
   gender: f
   pos: noun

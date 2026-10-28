@@ -1,5 +1,6 @@
 - id: auberge
   fr: auberge
+  ipa: obɛʁʒ
   en: hostel, inn
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: chambre_hote
   fr: chambre d'hôte
+  ipa: ʃɑ̃bʁ dot
   en: bed and breakfast
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: croisiere
   fr: croisière
+  ipa: kʁwazjɛʁ
   en: cruise
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: excursion
   fr: excursion
+  ipa: ɛkskyʁsjɔ̃
   en: day trip
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: escale
   fr: escale
+  ipa: ɛskal
   en: layover, stopover
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: decalage_horaire
   fr: décalage horaire
+  ipa: dekalaʒ oʁɛʁ
   en: jet lag
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: bagage
   fr: bagage
+  ipa: baɡaʒ
   en: luggage
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: embarquement
   fr: embarquement
+  ipa: ɑ̃baʁkəmɑ̃
   en: boarding
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: escapade
   fr: escapade
+  ipa: ɛskapad
   en: getaway
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: depaysement
   fr: dépaysement
+  ipa: depeizəmɑ̃
   en: change of scenery
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: hebergement
   fr: hébergement
+  ipa: ebɛʁʒəmɑ̃
   en: accommodation
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: location_voiture
   fr: location de voiture
+  ipa: lokasjɔ̃ də vwatyʁ
   en: car rental
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: assurance_voyage
   fr: assurance voyage
+  ipa: asyʁɑ̃s vwajaʒ
   en: travel insurance
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: office_tourisme
   fr: office de tourisme
+  ipa: ofis də tuʁism
   en: tourist office
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: attraction
   fr: attraction
+  ipa: atʁaksjɔ̃
   en: attraction
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: belvedere
   fr: belvédère
+  ipa: bɛlvedɛʁ
   en: lookout
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: haute_saison
   fr: haute saison
+  ipa: ot sɛzɔ̃
   en: high season
   gender: f
   pos: noun
@@ -119,12 +136,14 @@
 
 - id: hors_saison
   fr: hors saison
+  ipa: ɔʁ sɛzɔ̃
   en: off-season
   pos: phrase
   tags: [tourism]
 
 - id: annulation
   fr: annulation
+  ipa: anylasjɔ̃
   en: cancellation
   gender: f
   pos: noun
@@ -132,6 +151,7 @@
 
 - id: sejourner
   fr: séjourner
+  ipa: seʒuʁne
   en: to stay
   pos: verb
   tags: [tourism]

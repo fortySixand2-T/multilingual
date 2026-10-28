@@ -1,5 +1,6 @@
 - id: sante
   fr: santé
+  ipa: sɑ̃te
   en: health
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: medecin
   fr: médecin
+  ipa: mɛdsɛ̃
   en: doctor
   gender: m
   pos: noun
@@ -14,12 +16,14 @@
 
 - id: malade
   fr: malade
+  ipa: malad
   en: sick
   pos: adjective
   tags: [health]
 
 - id: tete
   fr: tête
+  ipa: tɛt
   en: head
   gender: f
   pos: noun
@@ -27,6 +31,7 @@
 
 - id: ventre
   fr: ventre
+  ipa: vɑ̃tʁ
   en: stomach
   gender: m
   pos: noun
@@ -34,6 +39,7 @@
 
 - id: main
   fr: main
+  ipa: mɛ̃
   en: hand
   gender: f
   pos: noun
@@ -41,6 +47,7 @@
 
 - id: jambe
   fr: jambe
+  ipa: ʒɑ̃b
   en: leg
   gender: f
   pos: noun
@@ -48,6 +55,7 @@
 
 - id: medicament
   fr: médicament
+  ipa: medikamɑ̃
   en: medicine
   gender: m
   pos: noun
@@ -55,6 +63,7 @@
 
 - id: rendez_vous
   fr: rendez-vous
+  ipa: ʁɑ̃devu
   en: appointment
   gender: m
   pos: noun
@@ -62,12 +71,14 @@
 
 - id: avoir_mal
   fr: avoir mal
+  ipa: avwaʁ mal
   en: "to be in pain"
   pos: phrase
   tags: [health]
 
 - id: fievre
   fr: fièvre
+  ipa: fjɛvʁ
   en: fever
   gender: f
   pos: noun
@@ -75,6 +86,7 @@
 
 - id: rhume
   fr: rhume
+  ipa: ʁym
   en: "a cold"
   gender: m
   pos: noun
@@ -82,6 +94,7 @@
 
 - id: toux
   fr: toux
+  ipa: tu
   en: cough
   gender: f
   pos: noun
@@ -89,6 +102,7 @@
 
 - id: pharmacie
   fr: pharmacie
+  ipa: faʁmasi
   en: pharmacy
   gender: f
   pos: noun
@@ -96,6 +110,7 @@
 
 - id: ordonnance
   fr: ordonnance
+  ipa: ɔʁdonɑ̃s
   en: prescription
   gender: f
   pos: noun
@@ -103,6 +118,7 @@
 
 - id: dos
   fr: dos
+  ipa: do
   en: back
   gender: m
   pos: noun
@@ -110,6 +126,7 @@
 
 - id: bras
   fr: bras
+  ipa: bʁa
   en: arm
   gender: m
   pos: noun
@@ -117,6 +134,7 @@
 
 - id: pied
   fr: pied
+  ipa: pje
   en: foot
   gender: m
   pos: noun
@@ -124,6 +142,7 @@
 
 - id: gorge
   fr: gorge
+  ipa: ɡɔʁʒ
   en: throat
   gender: f
   pos: noun
@@ -131,6 +150,7 @@
 
 - id: estomac
   fr: estomac
+  ipa: ɛstoma
   en: stomach
   gender: m
   pos: noun
@@ -138,6 +158,7 @@
 
 - id: poumon
   fr: poumon
+  ipa: pumɔ̃
   en: lung
   gender: m
   pos: noun
@@ -145,6 +166,7 @@
 
 - id: cheville
   fr: cheville
+  ipa: ʃəvij
   en: ankle
   gender: f
   pos: noun
@@ -152,6 +174,7 @@
 
 - id: poignet
   fr: poignet
+  ipa: pwaɲɛ
   en: wrist
   gender: m
   pos: noun
@@ -159,6 +182,7 @@
 
 - id: orteil
   fr: orteil
+  ipa: ɔʁtɛj
   en: toe
   gender: m
   pos: noun
@@ -166,6 +190,7 @@
 
 - id: grippe
   fr: grippe
+  ipa: ɡʁip
   en: flu
   gender: f
   pos: noun
@@ -173,6 +198,7 @@
 
 - id: migraine
   fr: migraine
+  ipa: miɡʁɛn
   en: migraine
   gender: f
   pos: noun
@@ -180,30 +206,35 @@
 
 - id: vomir
   fr: vomir
+  ipa: vomiʁ
   en: to vomit
   pos: verb
   tags: [health]
 
 - id: tousser
   fr: tousser
+  ipa: tuse
   en: to cough
   pos: verb
   tags: [health]
 
 - id: eternuer
   fr: éternuer
+  ipa: etɛʁnɥe
   en: to sneeze
   pos: verb
   tags: [health]
 
 - id: saigner
   fr: saigner
+  ipa: seɲe
   en: to bleed
   pos: verb
   tags: [health]
 
 - id: pansement
   fr: pansement
+  ipa: pɑ̃səmɑ̃
   en: bandage
   gender: m
   pos: noun
@@ -211,6 +242,7 @@
 
 - id: sirop
   fr: sirop
+  ipa: siʁo
   en: cough syrup
   gender: m
   pos: noun
@@ -218,6 +250,7 @@
 
 - id: comprime
   fr: comprimé
+  ipa: kɔ̃pʁime
   en: tablet, pill
   gender: m
   pos: noun
@@ -225,6 +258,7 @@
 
 - id: piqure
   fr: piqûre
+  ipa: pikyʁ
   en: shot, sting
   gender: f
   pos: noun
@@ -232,6 +266,7 @@
 
 - id: thermometre
   fr: thermomètre
+  ipa: tɛʁmomɛtʁ
   en: thermometer
   gender: m
   pos: noun

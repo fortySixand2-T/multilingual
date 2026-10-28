@@ -1,5 +1,6 @@
 - id: portion
   fr: portion
+  ipa: pɔʁsjɔ̃
   en: serving
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: apport
   fr: apport
+  ipa: apɔʁ
   en: intake
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: calorie
   fr: calorie
+  ipa: kaloʁi
   en: calorie
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: proteine
   fr: protéine
+  ipa: pʁotein
   en: protein
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: glucide
   fr: glucide
+  ipa: ɡlysid
   en: carbohydrate
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: lipide
   fr: lipide
+  ipa: lipid
   en: fat (nutrient)
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: fibre
   fr: fibre
+  ipa: fibʁ
   en: fibre
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: vitamine
   fr: vitamine
+  ipa: vitamin
   en: vitamin
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: complement
   fr: complément alimentaire
+  ipa: kɔ̃plemɑ̃ alimɑ̃tɛʁ
   en: supplement
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: regime
   fr: régime
+  ipa: ʁeʒim
   en: diet
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: grignotage
   fr: grignotage
+  ipa: ɡʁiɲotaʒ
   en: snacking
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: digestion
   fr: digestion
+  ipa: diʒɛstjɔ̃
   en: digestion
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: intolerance
   fr: intolérance
+  ipa: ɛ̃toleʁɑ̃s
   en: intolerance
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: date_peremption
   fr: date de péremption
+  ipa: dat də peʁɑ̃psjɔ̃
   en: expiry date
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: provenance
   fr: provenance
+  ipa: pʁovənɑ̃s
   en: origin, source
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: tracabilite
   fr: traçabilité
+  ipa: tʁasabilite
   en: traceability
   gender: f
   pos: noun
@@ -112,24 +128,28 @@
 
 - id: surgele
   fr: surgelé
+  ipa: syʁʒəle
   en: frozen
   pos: adjective
   tags: [food]
 
 - id: transforme
   fr: transformé
+  ipa: tʁɑ̃sfɔʁme
   en: processed
   pos: adjective
   tags: [food]
 
 - id: assaisonner
   fr: assaisonner
+  ipa: asɛzone
   en: to season
   pos: verb
   tags: [food]
 
 - id: mijoter
   fr: mijoter
+  ipa: miʒote
   en: to simmer
   pos: verb
   tags: [food]

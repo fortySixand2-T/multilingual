@@ -1,5 +1,6 @@
 - id: portefeuille
   fr: portefeuille
+  ipa: pɔʁtəfœj
   en: wallet
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: piece_monnaie
   fr: pièce de monnaie
+  ipa: pjɛs də monɛ
   en: coin
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: compte_bancaire
   fr: compte bancaire
+  ipa: kɔ̃t bɑ̃kɛʁ
   en: bank account
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: guichet
   fr: guichet
+  ipa: ɡiʃɛ
   en: counter, teller window
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: distributeur
   fr: distributeur
+  ipa: distʁibytœʁ
   en: ATM
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: carte_bancaire
   fr: carte bancaire
+  ipa: kaʁt bɑ̃kɛʁ
   en: bank card
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: cheque
   fr: chèque
+  ipa: ʃɛk
   en: cheque
   gender: m
   pos: noun
@@ -49,42 +56,49 @@
 
 - id: couter
   fr: coûter
+  ipa: kute
   en: to cost
   pos: verb
   tags: [money]
 
 - id: depenser
   fr: dépenser
+  ipa: depɑ̃se
   en: to spend
   pos: verb
   tags: [money]
 
 - id: economiser
   fr: économiser
+  ipa: ekonomize
   en: to save (money)
   pos: verb
   tags: [money]
 
 - id: emprunter
   fr: emprunter
+  ipa: ɑ̃pʁœ̃te
   en: to borrow
   pos: verb
   tags: [money]
 
 - id: preter
   fr: prêter
+  ipa: pʁete
   en: to lend
   pos: verb
   tags: [money]
 
 - id: rembourser
   fr: rembourser
+  ipa: ʁɑ̃buʁse
   en: to pay back
   pos: verb
   tags: [money]
 
 - id: taxe
   fr: taxe
+  ipa: taks
   en: tax
   gender: f
   pos: noun
@@ -92,6 +106,7 @@
 
 - id: tarif
   fr: tarif
+  ipa: taʁif
   en: rate, fare
   gender: m
   pos: noun
@@ -99,6 +114,7 @@
 
 - id: reduction
   fr: réduction
+  ipa: ʁedyksjɔ̃
   en: discount
   gender: f
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: assurance
   fr: assurance
+  ipa: asyʁɑ̃s
   en: insurance
   gender: f
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: frais
   fr: frais
+  ipa: fʁɛ
   en: fees
   gender: m
   pos: noun
@@ -120,12 +138,14 @@
 
 - id: riche
   fr: riche
+  ipa: ʁiʃ
   en: rich
   pos: adjective
   tags: [money]
 
 - id: pauvre
   fr: pauvre
+  ipa: povʁ
   en: poor
   pos: adjective
   tags: [money]

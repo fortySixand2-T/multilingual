@@ -1,159 +1,199 @@
 - id: infirmier
   fr: infirmier
+  ipa: ɛ̃fiʁmje
   en: nurse
   gender: mf
   fem: infirmière
+  fem_ipa: ɛ̃fiʁmjɛʁ
   pos: noun
   tags: [jobs]
 
 - id: policier
   fr: policier
+  ipa: polisje
   en: police officer
   gender: mf
   fem: policière
+  fem_ipa: polisjɛʁ
   pos: noun
   tags: [jobs]
 
 - id: pompier
   fr: pompier
+  ipa: pɔ̃pje
   en: firefighter
   gender: mf
   fem: pompière
+  fem_ipa: pɔ̃pjɛʁ
   pos: noun
   tags: [jobs]
 
 - id: boulanger
   fr: boulanger
+  ipa: bulɑ̃ʒe
   en: baker
   gender: mf
   fem: boulangère
+  fem_ipa: bulɑ̃ʒɛʁ
   pos: noun
   tags: [jobs]
 
 - id: cuisinier
   fr: cuisinier
+  ipa: kɥizinje
   en: cook
   gender: mf
   fem: cuisinière
+  fem_ipa: kɥizinjɛʁ
   pos: noun
   tags: [jobs]
 
 - id: coiffeur
   fr: coiffeur
+  ipa: kwafœʁ
   en: hairdresser
   gender: mf
   fem: coiffeuse
+  fem_ipa: kwaføz
   pos: noun
   tags: [jobs]
 
 - id: facteur
   fr: facteur
+  ipa: faktœʁ
   en: mail carrier
   gender: mf
   fem: factrice
+  fem_ipa: faktʁis
   pos: noun
   tags: [jobs]
 
 - id: chauffeur
   fr: chauffeur
+  ipa: ʃofœʁ
   en: driver
   gender: mf
   fem: chauffeuse
+  fem_ipa: ʃoføz
   pos: noun
   tags: [jobs]
 
 - id: mecanicien
   fr: mécanicien
+  ipa: mekanisjɛ̃
   en: mechanic
   gender: mf
   fem: mécanicienne
+  fem_ipa: mekanisjɛn
   pos: noun
   tags: [jobs]
 
 - id: electricien
   fr: électricien
+  ipa: elɛktʁisjɛ̃
   en: electrician
   gender: mf
   fem: électricienne
+  fem_ipa: elɛktʁisjɛn
   pos: noun
   tags: [jobs]
 
 - id: plombier
   fr: plombier
+  ipa: plɔ̃bje
   en: plumber
   gender: mf
   fem: plombière
+  fem_ipa: plɔ̃bjɛʁ
   pos: noun
   tags: [jobs]
 
 - id: avocat
   fr: avocat
+  ipa: avoka
   en: lawyer
   gender: mf
   fem: avocate
+  fem_ipa: avokat
   pos: noun
   tags: [jobs]
 
 - id: ingenieur
   fr: ingénieur
+  ipa: ɛ̃ʒenjœʁ
   en: engineer
   gender: mf
   fem: ingénieure
+  fem_ipa: ɛ̃ʒenjœʁ
   pos: noun
   tags: [jobs]
 
 - id: caissier
   fr: caissier
+  ipa: kesje
   en: cashier
   gender: mf
   fem: caissière
+  fem_ipa: kesjɛʁ
   pos: noun
   tags: [jobs]
 
 - id: jardinier
   fr: jardinier
+  ipa: ʒaʁdinje
   en: gardener
   gender: mf
   fem: jardinière
+  fem_ipa: ʒaʁdinjɛʁ
   pos: noun
   tags: [jobs]
 
 - id: pharmacien
   fr: pharmacien
+  ipa: faʁmasjɛ̃
   en: pharmacist
   gender: mf
   fem: pharmacienne
+  fem_ipa: faʁmasjɛn
   pos: noun
   tags: [jobs]
 
 - id: traducteur
   fr: traducteur
+  ipa: tʁadyktœʁ
   en: translator
   gender: mf
   fem: traductrice
+  fem_ipa: tʁadyktʁis
   pos: noun
   tags: [jobs]
 
 - id: musicien
   fr: musicien
+  ipa: myzisjɛ̃
   en: musician
   gender: mf
   fem: musicienne
+  fem_ipa: myzisjɛn
   pos: noun
   tags: [jobs]
 
 - id: acteur
   fr: acteur
+  ipa: aktœʁ
   en: actor
   gender: mf
   fem: actrice
+  fem_ipa: aktʁis
   pos: noun
   tags: [jobs]
 
 - id: directeur
   fr: directeur
+  ipa: diʁɛktœʁ
   en: director, manager
   gender: mf
   fem: directrice
+  fem_ipa: diʁɛktʁis
   pos: noun
   tags: [jobs]

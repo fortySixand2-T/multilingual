@@ -1,5 +1,6 @@
 - id: lundi
   fr: lundi
+  ipa: lœ̃di
   en: Monday
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: mardi
   fr: mardi
+  ipa: maʁdi
   en: Tuesday
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: mercredi
   fr: mercredi
+  ipa: mɛʁkʁədi
   en: Wednesday
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: jeudi
   fr: jeudi
+  ipa: ʒødi
   en: Thursday
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: vendredi
   fr: vendredi
+  ipa: vɑ̃dʁədi
   en: Friday
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: samedi
   fr: samedi
+  ipa: samədi
   en: Saturday
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: dimanche
   fr: dimanche
+  ipa: dimɑ̃ʃ
   en: Sunday
   gender: m
   pos: noun
@@ -49,18 +56,21 @@
 
 - id: aujourdhui
   fr: aujourd'hui
+  ipa: oʒuʁdɥi
   en: today
   pos: adverb
   tags: [time]
 
 - id: demain
   fr: demain
+  ipa: dəmɛ̃
   en: tomorrow
   pos: adverb
   tags: [time]
 
 - id: heure
   fr: heure
+  ipa: œʁ
   en: "hour / time"
   gender: f
   pos: noun
@@ -68,12 +78,14 @@
 
 - id: hier
   fr: hier
+  ipa: jɛʁ
   en: yesterday
   pos: adverb
   tags: [time]
 
 - id: semaine
   fr: semaine
+  ipa: səmɛn
   en: week
   gender: f
   pos: noun
@@ -81,6 +93,7 @@
 
 - id: mois
   fr: mois
+  ipa: mwa
   en: month
   gender: m
   pos: noun
@@ -88,6 +101,7 @@
 
 - id: annee
   fr: année
+  ipa: ane
   en: year
   gender: f
   pos: noun
@@ -95,6 +109,7 @@
 
 - id: jour
   fr: jour
+  ipa: ʒuʁ
   en: day
   gender: m
   pos: noun
@@ -102,6 +117,7 @@
 
 - id: minute
   fr: minute
+  ipa: minyt
   en: minute
   gender: f
   pos: noun
@@ -109,6 +125,7 @@
 
 - id: soir
   fr: soir
+  ipa: swaʁ
   en: evening
   gender: m
   pos: noun
@@ -116,6 +133,7 @@
 
 - id: maintenant
   fr: maintenant
+  ipa: mɛ̃tənɑ̃
   en: now
   pos: adverb
   tags: [time]

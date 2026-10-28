@@ -1,5 +1,6 @@
 - id: logement
   fr: logement
+  ipa: lɔʒəmɑ̃
   en: "housing, accommodation"
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: caution
   fr: caution
+  ipa: kosjɔ̃
   en: "security deposit"
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: locataire
   fr: locataire
+  ipa: lokatɛʁ
   en: tenant
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: proprietaire
   fr: propriétaire
+  ipa: pʁopʁijetɛʁ
   en: "owner, landlord"
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: bail
   fr: bail
+  ipa: baj
   en: lease
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: immeuble
   fr: immeuble
+  ipa: imœbl
   en: "apartment building"
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: voisinage
   fr: voisinage
+  ipa: vwazinaʒ
   en: "vicinity, neighbours"
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: colocation
   fr: colocation
+  ipa: kolokasjɔ̃
   en: "flatshare, shared housing"
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: demenagement
   fr: déménagement
+  ipa: demenaʒəmɑ̃
   en: "moving house"
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: charges
   fr: charges
+  ipa: ʃaʁʒ
   en: "service charges, utilities"
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: agence_immobiliere
   fr: agence immobilière
+  ipa: aʒɑ̃s imobiljɛʁ
   en: "real estate agency"
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: surface
   fr: surface
+  ipa: syʁfas
   en: "floor area"
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: chauffage
   fr: chauffage
+  ipa: ʃofaʒ
   en: heating
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: ameublement
   fr: ameublement
+  ipa: amœbləmɑ̃
   en: furnishings
   gender: m
   pos: noun
@@ -98,12 +112,14 @@
 
 - id: emmenager
   fr: emménager
+  ipa: ɑ̃menaʒe
   en: "to move in"
   pos: verb
   tags: [housing]
 
 - id: hypotheque
   fr: hypothèque
+  ipa: ipotɛk
   en: mortgage
   gender: f
   pos: noun
@@ -111,6 +127,7 @@
 
 - id: banlieue
   fr: banlieue
+  ipa: bɑ̃ljø
   en: suburb
   gender: f
   pos: noun
@@ -118,6 +135,7 @@
 
 - id: copropriete
   fr: copropriété
+  ipa: kopʁopʁijete
   en: "co-ownership, condo"
   gender: f
   pos: noun
@@ -125,6 +143,7 @@
 
 - id: sous_location
   fr: sous-location
+  ipa: sulokasjɔ̃
   en: sublet
   gender: f
   pos: noun
@@ -132,6 +151,7 @@
 
 - id: etat_lieux
   fr: état des lieux
+  ipa: eta de ljø
   en: condition report, walkthrough
   gender: m
   pos: noun
@@ -139,6 +159,7 @@
 
 - id: depot_garantie
   fr: dépôt de garantie
+  ipa: depo də ɡaʁɑ̃ti
   en: security deposit
   gender: m
   pos: noun
@@ -146,6 +167,7 @@
 
 - id: concierge
   fr: concierge
+  ipa: kɔ̃sjɛʁʒ
   en: building superintendent
   gender: m
   pos: noun
@@ -153,6 +175,7 @@
 
 - id: syndic
   fr: syndic de copropriété
+  ipa: sɛ̃dik də kɔpʁɔpʁiete
   en: condo board manager
   gender: m
   pos: noun
@@ -160,6 +183,7 @@
 
 - id: renovation
   fr: rénovation
+  ipa: ʁenovasjɔ̃
   en: renovation
   gender: f
   pos: noun
@@ -167,6 +191,7 @@
 
 - id: isolation
   fr: isolation
+  ipa: izolasjɔ̃
   en: insulation
   gender: f
   pos: noun
@@ -174,6 +199,7 @@
 
 - id: humidite
   fr: humidité
+  ipa: ymidite
   en: damp, humidity
   gender: f
   pos: noun
@@ -181,6 +207,7 @@
 
 - id: moisissure
   fr: moisissure
+  ipa: mwazisyʁ
   en: mould
   gender: f
   pos: noun
@@ -188,6 +215,7 @@
 
 - id: infiltration
   fr: infiltration d'eau
+  ipa: ɛ̃filtʁasjɔ̃ do
   en: water leak
   gender: f
   pos: noun
@@ -195,6 +223,7 @@
 
 - id: plomberie
   fr: plomberie
+  ipa: plɔ̃bəʁi
   en: plumbing
   gender: f
   pos: noun
@@ -202,6 +231,7 @@
 
 - id: electricite
   fr: électricité
+  ipa: elɛktʁisite
   en: electricity
   gender: f
   pos: noun
@@ -209,6 +239,7 @@
 
 - id: climatisation
   fr: climatisation
+  ipa: klimatizasjɔ̃
   en: air conditioning
   gender: f
   pos: noun
@@ -216,6 +247,7 @@
 
 - id: thermostat
   fr: thermostat
+  ipa: tɛʁmosta
   en: thermostat
   gender: m
   pos: noun
@@ -223,6 +255,7 @@
 
 - id: sous_sol
   fr: sous-sol
+  ipa: susɔl
   en: basement
   gender: m
   pos: noun
@@ -230,6 +263,7 @@
 
 - id: rangement
   fr: rangement
+  ipa: ʁɑ̃ʒəmɑ̃
   en: storage space
   gender: m
   pos: noun
@@ -237,6 +271,7 @@
 
 - id: expulsion
   fr: expulsion
+  ipa: ɛkspylsjɔ̃
   en: eviction
   gender: f
   pos: noun
@@ -244,6 +279,7 @@
 
 - id: tribunal_logement
   fr: Tribunal administratif du logement
+  ipa: tʁibynal administʁatif dy lɔʒəmɑ̃
   en: rental board (Québec)
   gender: m
   pos: noun

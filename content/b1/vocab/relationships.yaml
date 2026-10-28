@@ -1,5 +1,6 @@
 - id: couple
   fr: couple
+  ipa: kupl
   en: couple
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: amitie
   fr: amitié
+  ipa: amitje
   en: friendship
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: confiance
   fr: confiance
+  ipa: kɔ̃fjɑ̃s
   en: trust
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: dispute
   fr: dispute
+  ipa: dispyt
   en: argument
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: rupture
   fr: rupture
+  ipa: ʁyptyʁ
   en: break-up
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: reconciliation
   fr: réconciliation
+  ipa: ʁekɔ̃siljasjɔ̃
   en: reconciliation
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: divorce
   fr: divorce
+  ipa: divɔʁs
   en: divorce
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: fiancailles
   fr: fiançailles
+  ipa: fjɑ̃saj
   en: engagement
   gender: f
   pos: noun
@@ -56,20 +64,24 @@
 
 - id: celibataire
   fr: célibataire
+  ipa: selibatɛʁ
   en: single
   pos: adjective
   tags: [relationships]
 
 - id: conjoint
   fr: conjoint
+  ipa: kɔ̃ʒwɛ̃
   en: spouse, partner
   gender: mf
   fem: conjointe
+  fem_ipa: kɔ̃ʒwɛ̃t
   pos: noun
   tags: [relationships]
 
 - id: belle_famille
   fr: belle-famille
+  ipa: bɛlfamij
   en: in-laws
   gender: f
   pos: noun
@@ -77,6 +89,7 @@
 
 - id: entente
   fr: entente
+  ipa: ɑ̃tɑ̃t
   en: understanding, agreement
   gender: f
   pos: noun
@@ -84,6 +97,7 @@
 
 - id: respect
   fr: respect
+  ipa: ʁɛspɛ
   en: respect
   gender: m
   pos: noun
@@ -91,6 +105,7 @@
 
 - id: jalousie
   fr: jalousie
+  ipa: ʒaluzi
   en: jealousy
   gender: f
   pos: noun
@@ -98,6 +113,7 @@
 
 - id: soutien
   fr: soutien
+  ipa: sutjɛ̃
   en: support
   gender: m
   pos: noun
@@ -105,6 +121,7 @@
 
 - id: complicite
   fr: complicité
+  ipa: kɔ̃plisite
   en: closeness, rapport
   gender: f
   pos: noun
@@ -112,6 +129,7 @@
 
 - id: malentendu
   fr: malentendu
+  ipa: malɑ̃tɑ̃dy
   en: misunderstanding
   gender: m
   pos: noun
@@ -119,12 +137,14 @@
 
 - id: se_disputer
   fr: se disputer
+  ipa: sə dispyte
   en: to argue
   pos: verb
   tags: [relationships]
 
 - id: rencontre
   fr: rencontre
+  ipa: ʁɑ̃kɔ̃tʁ
   en: meeting, encounter
   gender: f
   pos: noun
@@ -132,9 +152,11 @@
 
 - id: voisin
   fr: voisin
+  ipa: vwazɛ̃
   en: neighbour
   gender: mf
   fem: voisine
+  fem_ipa: vwazin
   pos: noun
   tags: [relationships]
 

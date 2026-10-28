@@ -1,209 +1,244 @@
 - id: grand
   fr: grand
+  ipa: ɡʁɑ̃
   en: big, tall
   pos: adjective
   tags: [adjectives]
 
 - id: petit
   fr: petit
+  ipa: pəti
   en: small
   pos: adjective
   tags: [adjectives]
 
 - id: nouveau
   fr: nouveau
+  ipa: nuvo
   en: new
   pos: adjective
   tags: [adjectives]
 
 - id: vieux
   fr: vieux
+  ipa: vjø
   en: old
   pos: adjective
   tags: [adjectives]
 
 - id: jeune
   fr: jeune
+  ipa: ʒœn
   en: young
   pos: adjective
   tags: [adjectives]
 
 - id: beau
   fr: beau
+  ipa: bo
   en: beautiful, handsome
   pos: adjective
   tags: [adjectives]
 
 - id: joli
   fr: joli
+  ipa: ʒoli
   en: pretty
   pos: adjective
   tags: [adjectives]
 
 - id: bon
   fr: bon
+  ipa: bɔ̃
   en: good
   pos: adjective
   tags: [adjectives]
 
 - id: mauvais
   fr: mauvais
+  ipa: movɛ
   en: bad
   pos: adjective
   tags: [adjectives]
 
 - id: facile
   fr: facile
+  ipa: fasil
   en: easy
   pos: adjective
   tags: [adjectives]
 
 - id: difficile
   fr: difficile
+  ipa: difisil
   en: difficult
   pos: adjective
   tags: [adjectives]
 
 - id: long
   fr: long
+  ipa: lɔ̃
   en: long
   pos: adjective
   tags: [adjectives]
 
 - id: court
   fr: court
+  ipa: kuʁ
   en: short
   pos: adjective
   tags: [adjectives]
 
 - id: fort
   fr: fort
+  ipa: fɔʁ
   en: strong
   pos: adjective
   tags: [adjectives]
 
 - id: faible
   fr: faible
+  ipa: fɛbl
   en: weak
   pos: adjective
   tags: [adjectives]
 
 - id: rapide
   fr: rapide
+  ipa: ʁapid
   en: fast
   pos: adjective
   tags: [adjectives]
 
 - id: lent
   fr: lent
+  ipa: lɑ̃
   en: slow
   pos: adjective
   tags: [adjectives]
 
 - id: propre
   fr: propre
+  ipa: pʁɔpʁ
   en: clean
   pos: adjective
   tags: [adjectives]
 
 - id: sale
   fr: sale
+  ipa: sal
   en: dirty
   pos: adjective
   tags: [adjectives]
 
 - id: plein
   fr: plein
+  ipa: plɛ̃
   en: full
   pos: adjective
   tags: [adjectives]
 
 - id: important
   fr: important
+  ipa: ɛ̃pɔʁtɑ̃
   en: important
   pos: adjective
   tags: [adjectives]
 
 - id: possible
   fr: possible
+  ipa: posibl
   en: possible
   pos: adjective
   tags: [adjectives]
 
 - id: vrai
   fr: vrai
+  ipa: vʁɛ
   en: "true"
   pos: adjective
   tags: [adjectives]
 
 - id: faux
   fr: faux
+  ipa: fo
   en: "false"
   pos: adjective
   tags: [adjectives]
 
 - id: seul
   fr: seul
+  ipa: sœl
   en: alone, only
   pos: adjective
   tags: [adjectives]
 
 - id: autre
   fr: autre
+  ipa: otʁ
   en: other
   pos: adjective
   tags: [adjectives]
 
 - id: premier
   fr: premier
+  ipa: pʁømje
   en: first
   pos: adjective
   tags: [adjectives]
 
 - id: dernier
   fr: dernier
+  ipa: dɛʁnje
   en: last
   pos: adjective
   tags: [adjectives]
 
 - id: prochain
   fr: prochain
+  ipa: pʁoʃɛ̃
   en: next
   pos: adjective
   tags: [adjectives]
 
 - id: libre
   fr: libre
+  ipa: libʁ
   en: free, available
   pos: adjective
   tags: [adjectives]
 
 - id: occupe
   fr: occupé
+  ipa: okype
   en: busy
   pos: adjective
   tags: [adjectives]
 
 - id: pret
   fr: prêt
+  ipa: pʁɛ
   en: ready
   pos: adjective
   tags: [adjectives]
 
 - id: leger
   fr: léger
+  ipa: leʒe
   en: light
   pos: adjective
   tags: [adjectives]
 
 - id: lourd
   fr: lourd
+  ipa: luʁ
   en: heavy
   pos: adjective
   tags: [adjectives]
 
 - id: haut
   fr: haut
+  ipa: o
   en: high, tall
   pos: adjective
   tags: [adjectives]

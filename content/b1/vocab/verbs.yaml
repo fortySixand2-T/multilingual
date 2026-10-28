@@ -10,120 +10,140 @@
 # --- verbe + infinitif (à / de) ---
 - id: commencer_a
   fr: commencer à
+  ipa: komɑ̃se a
   en: to start to (+ infinitive)
   pos: verb
   tags: [verbs]
 
 - id: se_mettre_a
   fr: se mettre à
+  ipa: sə mɛtʁ a
   en: to begin, to take up
   pos: verb
   tags: [verbs]
 
 - id: hesiter
   fr: hésiter à
+  ipa: ezite a
   en: to hesitate to
   pos: verb
   tags: [verbs]
 
 - id: chercher_a
   fr: chercher à
+  ipa: ʃɛʁʃe a
   en: to seek to (+ infinitive)
   pos: verb
   tags: [verbs]
 
 - id: apprendre_a
   fr: apprendre à
+  ipa: apʁɑ̃dʁ a
   en: to learn to (+ infinitive)
   pos: verb
   tags: [verbs]
 
 - id: arriver_a
   fr: arriver à
+  ipa: aʁive a
   en: to manage to (+ infinitive)
   pos: verb
   tags: [verbs]
 
 - id: continuer_a
   fr: continuer à
+  ipa: kɔ̃tinɥe a
   en: to carry on
   pos: verb
   tags: [verbs]
 
 - id: aider_a
   fr: aider à
+  ipa: ede a
   en: to help to (+ infinitive)
   pos: verb
   tags: [verbs]
 
 - id: essayer_de
   fr: essayer de
+  ipa: eseje də
   en: to try to (+ infinitive)
   pos: verb
   tags: [verbs]
 
 - id: decider_de
   fr: décider de
+  ipa: deside də
   en: to decide to
   pos: verb
   tags: [verbs]
 
 - id: accepter
   fr: accepter de
+  ipa: aksɛpte də
   en: to agree to
   pos: verb
   tags: [verbs]
 
 - id: refuser
   fr: refuser de
+  ipa: ʁəfyze də
   en: to refuse to
   pos: verb
   tags: [verbs]
 
 - id: oublier
   fr: oublier de
+  ipa: ublije də
   en: to forget to
   pos: verb
   tags: [verbs]
 
 - id: eviter
   fr: éviter de
+  ipa: evite də
   en: to avoid
   pos: verb
   tags: [verbs]
 
 - id: choisir_de
   fr: choisir de
+  ipa: ʃwaziʁ də
   en: to choose to
   pos: verb
   tags: [verbs]
 
 - id: permettre
   fr: permettre de
+  ipa: pɛʁmɛtʁ də
   en: to allow to
   pos: verb
   tags: [verbs]
 
 - id: promettre
   fr: promettre de
+  ipa: pʁomɛtʁ də
   en: to promise to
   pos: verb
   tags: [verbs]
 
 - id: proposer
   fr: proposer de
+  ipa: pʁopoze də
   en: to offer to
   pos: verb
   tags: [verbs]
 
 - id: risquer
   fr: risquer de
+  ipa: ʁiske də
   en: to be likely to
   pos: verb
   tags: [verbs]
 
 - id: finir_de
   fr: finir de
+  ipa: finiʁ də
   en: to finish doing (+ infinitive)
   pos: verb
   tags: [verbs]
@@ -132,90 +152,105 @@
 # --- verbes pronominaux et démarches ---
 - id: s_inscrire
   fr: s'inscrire
+  ipa: sɛ̃skʁiʁ
   en: to register, to sign up
   pos: verb
   tags: [verbs]
 
 - id: se_renseigner
   fr: se renseigner
+  ipa: sə ʁɑ̃sɛɲe
   en: to find out, to enquire
   pos: verb
   tags: [verbs]
 
 - id: se_plaindre
   fr: se plaindre
+  ipa: sə plɛ̃dʁ
   en: to complain
   pos: verb
   tags: [verbs]
 
 - id: se_debrouiller
   fr: se débrouiller
+  ipa: sə debʁuje
   en: to manage, to cope
   pos: verb
   tags: [verbs]
 
 - id: s_occuper
   fr: s'occuper de
+  ipa: sokype də
   en: to take care of
   pos: verb
   tags: [verbs]
 
 - id: se_rendre_compte
   fr: se rendre compte
+  ipa: sə ʁɑ̃dʁ kɔ̃t
   en: to realise
   pos: verb
   tags: [verbs]
 
 - id: s_habituer
   fr: s'habituer à
+  ipa: sabitɥe a
   en: to get used to
   pos: verb
   tags: [verbs]
 
 - id: se_souvenir
   fr: se souvenir de
+  ipa: sə suvəniʁ də
   en: to remember
   pos: verb
   tags: [verbs]
 
 - id: se_mefier
   fr: se méfier de
+  ipa: sə mefje də
   en: to be wary of
   pos: verb
   tags: [verbs]
 
 - id: s_excuser
   fr: s'excuser
+  ipa: sɛkskyze
   en: to apologise
   pos: verb
   tags: [verbs]
 
 - id: demenager
   fr: déménager
+  ipa: demenaʒe
   en: to move house
   pos: verb
   tags: [verbs]
 
 - id: regler
   fr: régler
+  ipa: ʁeɡle
   en: to settle, to pay
   pos: verb
   tags: [verbs]
 
 - id: remplir
   fr: remplir
+  ipa: ʁɑ̃pliʁ
   en: to fill in (a form)
   pos: verb
   tags: [verbs]
 
 - id: joindre
   fr: joindre
+  ipa: ʒwɛ̃dʁ
   en: to reach, to get hold of
   pos: verb
   tags: [verbs]
 
 - id: louer
   fr: louer
+  ipa: lwe
   en: to rent
   pos: verb
   tags: [verbs]
@@ -224,90 +259,105 @@
 # --- décrire une évolution ---
 - id: augmenter
   fr: augmenter
+  ipa: oɡmɑ̃te
   en: to increase
   pos: verb
   tags: [verbs]
 
 - id: diminuer
   fr: diminuer
+  ipa: diminɥe
   en: to decrease
   pos: verb
   tags: [verbs]
 
 - id: ameliorer
   fr: améliorer
+  ipa: ameljoʁe
   en: to improve
   pos: verb
   tags: [verbs]
 
 - id: s_aggraver
   fr: s'aggraver
+  ipa: saɡʁave
   en: to worsen
   pos: verb
   tags: [verbs]
 
 - id: evoluer
   fr: évoluer
+  ipa: evolɥe
   en: to evolve, to change
   pos: verb
   tags: [verbs]
 
 - id: transformer
   fr: transformer
+  ipa: tʁɑ̃sfɔʁme
   en: to transform
   pos: verb
   tags: [verbs]
 
 - id: remplacer
   fr: remplacer
+  ipa: ʁɑ̃plase
   en: to replace
   pos: verb
   tags: [verbs]
 
 - id: reduire
   fr: réduire
+  ipa: ʁedɥiʁ
   en: to reduce
   pos: verb
   tags: [verbs]
 
 - id: developper
   fr: développer
+  ipa: devəlope
   en: to develop
   pos: verb
   tags: [verbs]
 
 - id: maintenir
   fr: maintenir
+  ipa: mɛ̃təniʁ
   en: to maintain
   pos: verb
   tags: [verbs]
 
 - id: atteindre
   fr: atteindre
+  ipa: atɛ̃dʁ
   en: to reach
   pos: verb
   tags: [verbs]
 
 - id: depasser
   fr: dépasser
+  ipa: depase
   en: to exceed, to overtake
   pos: verb
   tags: [verbs]
 
 - id: durer
   fr: durer
+  ipa: dyʁe
   en: to last
   pos: verb
   tags: [verbs]
 
 - id: manquer
   fr: manquer
+  ipa: mɑ̃ke
   en: to miss, to lack
   pos: verb
   tags: [verbs]
 
 - id: prevoir
   fr: prévoir
+  ipa: pʁevwaʁ
   en: to plan, to foresee
   pos: verb
   tags: [verbs]
@@ -316,60 +366,70 @@
 # --- raconter, conseiller, conclure ---
 - id: raconter
   fr: raconter
+  ipa: ʁakɔ̃te
   en: to tell, to recount
   pos: verb
   tags: [verbs]
 
 - id: decrire
   fr: décrire
+  ipa: dekʁiʁ
   en: to describe
   pos: verb
   tags: [verbs]
 
 - id: comparer
   fr: comparer
+  ipa: kɔ̃paʁe
   en: to compare
   pos: verb
   tags: [verbs]
 
 - id: remarquer
   fr: remarquer
+  ipa: ʁəmaʁke
   en: to notice
   pos: verb
   tags: [verbs]
 
 - id: conseiller
   fr: conseiller
+  ipa: kɔ̃seje
   en: to advise
   pos: verb
   tags: [verbs]
 
 - id: recommander
   fr: recommander
+  ipa: ʁəkomɑ̃de
   en: to recommend
   pos: verb
   tags: [verbs]
 
 - id: reconnaitre
   fr: reconnaître
+  ipa: ʁəkonɛtʁ
   en: to acknowledge, to recognise
   pos: verb
   tags: [verbs]
 
 - id: preferer
   fr: préférer
+  ipa: pʁefeʁe
   en: to prefer
   pos: verb
   tags: [verbs]
 
 - id: resoudre
   fr: résoudre
+  ipa: ʁezudʁ
   en: to solve
   pos: verb
   tags: [verbs]
 
 - id: obtenir
   fr: obtenir
+  ipa: ɔptəniʁ
   en: to obtain
   pos: verb
   tags: [verbs]

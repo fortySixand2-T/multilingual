@@ -1,5 +1,6 @@
 - id: diaspora
   fr: diaspora
+  ipa: djaspoʁa
   en: diaspora
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: exil
   fr: exil
+  ipa: ɛɡzil
   en: exile
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: expatriation
   fr: expatriation
+  ipa: ɛkspatʁijasjɔ̃
   en: expatriation
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: asile
   fr: asile
+  ipa: azil
   en: asylum
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: apatride
   fr: apatride
+  ipa: apatʁid
   en: stateless person
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: quota
   fr: quota
+  ipa: kota
   en: quota
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: regularisation
   fr: régularisation
+  ipa: ʁeɡylaʁizasjɔ̃
   en: regularization of status
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: clandestinite
   fr: clandestinité
+  ipa: klɑ̃dɛstinite
   en: living without status
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: exode
   fr: exode
+  ipa: ɛɡzɔd
   en: exodus
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: fuite_cerveaux
   fr: fuite des cerveaux
+  ipa: fɥit de sɛʁvo
   en: brain drain
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: acculturation
   fr: acculturation
+  ipa: akyltyʁasjɔ̃
   en: acculturation
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: assimilation
   fr: assimilation
+  ipa: asimilasjɔ̃
   en: assimilation
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: cohabitation
   fr: cohabitation
+  ipa: koabitasjɔ̃
   en: living together, coexistence
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: deracinement
   fr: déracinement
+  ipa: deʁasinəmɑ̃
   en: uprooting
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: hospitalite
   fr: hospitalité
+  ipa: ɔspitalite
   en: hospitality
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: xenophobie
   fr: xénophobie
+  ipa: ɡzenofobi
   en: xenophobia
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: flux_migratoire
   fr: flux migratoire
+  ipa: fly miɡʁatwaʁ
   en: migration flow
   gender: m
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: rapatriement
   fr: rapatriement
+  ipa: ʁapatʁimɑ̃
   en: repatriation
   gender: m
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: residence_permanente
   fr: résidence permanente
+  ipa: ʁezidɑ̃s pɛʁmanɑ̃t
   en: permanent residence
   gender: f
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: francisation
   fr: francisation
+  ipa: fʁɑ̃sizasjɔ̃
   en: francization (Québec)
   gender: f
   pos: noun

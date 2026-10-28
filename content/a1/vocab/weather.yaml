@@ -1,5 +1,6 @@
 - id: soleil
   fr: soleil
+  ipa: solɛj
   en: sun
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: pluie
   fr: pluie
+  ipa: plɥi
   en: rain
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: neige
   fr: neige
+  ipa: nɛʒ
   en: snow
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: vent
   fr: vent
+  ipa: vɑ̃
   en: wind
   gender: m
   pos: noun
@@ -28,18 +32,21 @@
 
 - id: chaud
   fr: chaud
+  ipa: ʃo
   en: hot
   pos: adjective
   tags: [weather]
 
 - id: froid
   fr: froid
+  ipa: fʁwa
   en: cold
   pos: adjective
   tags: [weather]
 
 - id: nuage
   fr: nuage
+  ipa: nɥaʒ
   en: cloud
   gender: m
   pos: noun
@@ -47,12 +54,14 @@
 
 - id: beau_temps
   fr: beau temps
+  ipa: bo tɑ̃
   en: "nice weather"
   pos: phrase
   tags: [weather]
 
 - id: orage
   fr: orage
+  ipa: oʁaʒ
   en: storm
   gender: m
   pos: noun
@@ -60,6 +69,7 @@
 
 - id: meteo
   fr: météo
+  ipa: meteo
   en: "weather forecast"
   gender: f
   pos: noun
@@ -67,12 +77,14 @@
 
 - id: mauvais_temps
   fr: mauvais temps
+  ipa: movɛ tɑ̃
   en: "bad weather"
   pos: phrase
   tags: [weather]
 
 - id: temperature
   fr: température
+  ipa: tɑ̃peʁatyʁ
   en: temperature
   gender: f
   pos: noun
@@ -80,6 +92,7 @@
 
 - id: degre
   fr: degré
+  ipa: dəɡʁe
   en: degree
   gender: m
   pos: noun
@@ -87,12 +100,14 @@
 
 - id: humide
   fr: humide
+  ipa: ymid
   en: humid
   pos: adjective
   tags: [weather]
 
 - id: brouillard
   fr: brouillard
+  ipa: bʁujaʁ
   en: fog
   gender: m
   pos: noun
@@ -100,6 +115,7 @@
 
 - id: ciel
   fr: ciel
+  ipa: sjɛl
   en: sky
   gender: m
   pos: noun
@@ -107,6 +123,7 @@
 
 - id: saison
   fr: saison
+  ipa: sɛzɔ̃
   en: season
   gender: f
   pos: noun
@@ -114,6 +131,7 @@
 
 - id: parapluie
   fr: parapluie
+  ipa: paʁaplɥi
   en: umbrella
   gender: m
   pos: noun

@@ -1,5 +1,6 @@
 - id: famille
   fr: famille
+  ipa: famij
   en: family
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: mere
   fr: mère
+  ipa: mɛʁ
   en: mother
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: pere
   fr: père
+  ipa: pɛʁ
   en: father
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: frere
   fr: frère
+  ipa: fʁɛʁ
   en: brother
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: soeur
   fr: sœur
+  ipa: sœʁ
   en: sister
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: fils
   fr: fils
+  ipa: fis
   en: son
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: fille
   fr: fille
+  ipa: fij
   en: "daughter / girl"
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: enfant
   fr: enfant
+  ipa: ɑ̃fɑ̃
   en: child
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: mari
   fr: mari
+  ipa: maʁi
   en: husband
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: epouse
   fr: épouse
+  ipa: epuz
   en: wife
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: grand_mere
   fr: grand-mère
+  ipa: ɡʁɑ̃mɛʁ
   en: grandmother
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: grand_pere
   fr: grand-père
+  ipa: ɡʁɑ̃pɛʁ
   en: grandfather
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: oncle
   fr: oncle
+  ipa: ɔ̃kl
   en: uncle
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: tante
   fr: tante
+  ipa: tɑ̃t
   en: aunt
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: cousin
   fr: cousin
+  ipa: kuzɛ̃
   en: "cousin (m)"
   gender: m
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: cousine
   fr: cousine
+  ipa: kuzin
   en: "cousin (f)"
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: bebe
   fr: bébé
+  ipa: bebe
   en: baby
   gender: m
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: parents
   fr: parents
+  ipa: paʁɑ̃
   en: parents
   gender: m
   pos: noun

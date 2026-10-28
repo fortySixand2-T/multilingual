@@ -1,5 +1,6 @@
 - id: roman
   fr: roman
+  ipa: ʁomɑ̃
   en: novel
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: poesie
   fr: poésie
+  ipa: poezi
   en: poetry
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: piece_theatre
   fr: pièce de théâtre
+  ipa: pjɛs də teatʁ
   en: play
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: scene
   fr: scène
+  ipa: sɛn
   en: stage, scene
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: public
   fr: public
+  ipa: pyblik
   en: audience
   gender: m
   pos: noun
@@ -35,14 +40,17 @@
 
 - id: realisateur
   fr: réalisateur
+  ipa: ʁealizatœʁ
   en: film director
   gender: mf
   fem: réalisatrice
+  fem_ipa: ʁealizatʁis
   pos: noun
   tags: [arts]
 
 - id: tournage
   fr: tournage
+  ipa: tuʁnaʒ
   en: filming
   gender: m
   pos: noun
@@ -50,6 +58,7 @@
 
 - id: personnage
   fr: personnage
+  ipa: pɛʁsonaʒ
   en: character
   gender: m
   pos: noun
@@ -57,6 +66,7 @@
 
 - id: intrigue
   fr: intrigue
+  ipa: ɛ̃tʁiɡ
   en: plot
   gender: f
   pos: noun
@@ -64,6 +74,7 @@
 
 - id: chanson
   fr: chanson
+  ipa: ʃɑ̃sɔ̃
   en: song
   gender: f
   pos: noun
@@ -71,14 +82,17 @@
 
 - id: chanteur
   fr: chanteur
+  ipa: ʃɑ̃tœʁ
   en: singer
   gender: mf
   fem: chanteuse
+  fem_ipa: ʃɑ̃tøz
   pos: noun
   tags: [arts]
 
 - id: orchestre
   fr: orchestre
+  ipa: ɔʁkɛstʁ
   en: orchestra
   gender: m
   pos: noun
@@ -86,6 +100,7 @@
 
 - id: instrument
   fr: instrument
+  ipa: ɛ̃stʁymɑ̃
   en: instrument
   gender: m
   pos: noun
@@ -93,6 +108,7 @@
 
 - id: galerie
   fr: galerie
+  ipa: ɡaləʁi
   en: gallery
   gender: f
   pos: noun
@@ -100,6 +116,7 @@
 
 - id: atelier
   fr: atelier
+  ipa: atəlje
   en: workshop, studio
   gender: m
   pos: noun
@@ -107,6 +124,7 @@
 
 - id: critique
   fr: critique
+  ipa: kʁitik
   en: review
   gender: f
   pos: noun
@@ -114,6 +132,7 @@
 
 - id: billetterie
   fr: billetterie
+  ipa: bijɛtəʁi
   en: box office
   gender: f
   pos: noun
@@ -121,6 +140,7 @@
 
 - id: repetition
   fr: répétition
+  ipa: ʁepetisjɔ̃
   en: rehearsal
   gender: f
   pos: noun
@@ -128,6 +148,7 @@
 
 - id: toile
   fr: toile
+  ipa: twal
   en: canvas
   gender: f
   pos: noun
@@ -135,6 +156,7 @@
 
 - id: danse
   fr: danse
+  ipa: dɑ̃s
   en: dance
   gender: f
   pos: noun

@@ -1,5 +1,6 @@
 - id: actualite
   fr: actualité
+  ipa: aktɥalite
   en: "current events, news"
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: journal
   fr: journal
+  ipa: ʒuʁnal
   en: newspaper
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: chaine
   fr: chaîne
+  ipa: ʃɛn
   en: "TV channel"
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: emission
   fr: émission
+  ipa: emisjɔ̃
   en: "programme, broadcast"
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: publicite
   fr: publicité
+  ipa: pyblisite
   en: advertising
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: reseau_social
   fr: réseau social
+  ipa: ʁezo sosjal
   en: "social network"
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: abonnement
   fr: abonnement
+  ipa: abɔnəmɑ̃
   en: subscription
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: information
   fr: information
+  ipa: ɛ̃fɔʁmasjɔ̃
   en: "(piece of) information"
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: journaliste
   fr: journaliste
+  ipa: ʒuʁnalist
   en: journalist
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: rumeur
   fr: rumeur
+  ipa: ʁymœʁ
   en: rumour
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: debat
   fr: débat
+  ipa: deba
   en: debate
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: influence
   fr: influence
+  ipa: ɛ̃flyɑ̃s
   en: influence
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: presse
   fr: presse
+  ipa: pʁɛs
   en: "the press"
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: reportage
   fr: reportage
+  ipa: ʁəpɔʁtaʒ
   en: "report, news story"
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: censure
   fr: censure
+  ipa: sɑ̃syʁ
   en: censorship
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: desinformation
   fr: désinformation
+  ipa: dezɛ̃fɔʁmasjɔ̃
   en: disinformation
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: audience
   fr: audience
+  ipa: odjɑ̃s
   en: "audience, viewership"
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: source
   fr: source
+  ipa: suʁs
   en: source
   gender: f
   pos: noun

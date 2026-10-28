@@ -1,5 +1,6 @@
 - id: chaise
   fr: chaise
+  ipa: ʃɛz
   en: chair
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: armoire
   fr: armoire
+  ipa: aʁmwaʁ
   en: wardrobe
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: tiroir
   fr: tiroir
+  ipa: tiʁwaʁ
   en: drawer
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: etagere
   fr: étagère
+  ipa: etaʒɛʁ
   en: shelf
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: tapis
   fr: tapis
+  ipa: tapi
   en: rug, carpet
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: rideau
   fr: rideau
+  ipa: ʁido
   en: curtain
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: oreiller
   fr: oreiller
+  ipa: oʁeje
   en: pillow
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: couverture
   fr: couverture
+  ipa: kuvɛʁtyʁ
   en: blanket
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: drap
   fr: drap
+  ipa: dʁa
   en: bed sheet
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: miroir
   fr: miroir
+  ipa: miʁwaʁ
   en: mirror
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: lampe
   fr: lampe
+  ipa: lɑ̃p
   en: lamp
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: douche
   fr: douche
+  ipa: duʃ
   en: shower
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: baignoire
   fr: baignoire
+  ipa: bɛɲwaʁ
   en: bathtub
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: evier
   fr: évier
+  ipa: evje
   en: kitchen sink
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: frigo
   fr: frigo
+  ipa: fʁiɡo
   en: fridge
   gender: m
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: placard
   fr: placard
+  ipa: plakaʁ
   en: cupboard, closet
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: balcon
   fr: balcon
+  ipa: balkɔ̃
   en: balcony
   gender: m
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: garage
   fr: garage
+  ipa: ɡaʁaʒ
   en: garage
   gender: m
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: cave
   fr: cave
+  ipa: kav
   en: cellar, basement
   gender: f
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: toilettes
   fr: toilettes
+  ipa: twalɛt
   en: toilet, washroom
   gender: f
   pos: noun

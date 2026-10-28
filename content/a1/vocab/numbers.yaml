@@ -1,131 +1,153 @@
 - id: un
   fr: un
+  ipa: œ̃
   en: one
   pos: numeral
   tags: [numbers]
 
 - id: deux
   fr: deux
+  ipa: dø
   en: two
   pos: numeral
   tags: [numbers]
 
 - id: trois
   fr: trois
+  ipa: tʁwa
   en: three
   pos: numeral
   tags: [numbers]
 
 - id: quatre
   fr: quatre
+  ipa: katʁ
   en: four
   pos: numeral
   tags: [numbers]
 
 - id: cinq
   fr: cinq
+  ipa: sɛ̃k
   en: five
   pos: numeral
   tags: [numbers]
 
 - id: six
   fr: six
+  ipa: sis
   en: six
   pos: numeral
   tags: [numbers]
 
 - id: sept
   fr: sept
+  ipa: sɛt
   en: seven
   pos: numeral
   tags: [numbers]
 
 - id: huit
   fr: huit
+  ipa: ɥit
   en: eight
   pos: numeral
   tags: [numbers]
 
 - id: neuf
   fr: neuf
+  ipa: nœf
   en: nine
   pos: numeral
   tags: [numbers]
 
 - id: dix
   fr: dix
+  ipa: dis
   en: ten
   pos: numeral
   tags: [numbers]
 
 - id: onze
   fr: onze
+  ipa: ɔ̃z
   en: eleven
   pos: numeral
   tags: [numbers]
 
 - id: douze
   fr: douze
+  ipa: duz
   en: twelve
   pos: numeral
   tags: [numbers]
 
 - id: vingt
   fr: vingt
+  ipa: vɛ̃
   en: twenty
   pos: numeral
   tags: [numbers]
 
 - id: cent
   fr: cent
+  ipa: sɑ̃
   en: "a hundred"
   pos: numeral
   tags: [numbers]
 
 - id: treize
   fr: treize
+  ipa: tʁɛz
   en: thirteen
   pos: numeral
   tags: [numbers]
 
 - id: quatorze
   fr: quatorze
+  ipa: katɔʁz
   en: fourteen
   pos: numeral
   tags: [numbers]
 
 - id: quinze
   fr: quinze
+  ipa: kɛ̃z
   en: fifteen
   pos: numeral
   tags: [numbers]
 
 - id: seize
   fr: seize
+  ipa: sɛz
   en: sixteen
   pos: numeral
   tags: [numbers]
 
 - id: trente
   fr: trente
+  ipa: tʁɑ̃t
   en: thirty
   pos: numeral
   tags: [numbers]
 
 - id: quarante
   fr: quarante
+  ipa: kaʁɑ̃t
   en: forty
   pos: numeral
   tags: [numbers]
 
 - id: cinquante
   fr: cinquante
+  ipa: sɛ̃kɑ̃t
   en: fifty
   pos: numeral
   tags: [numbers]
 
 - id: mille
   fr: mille
+  ipa: mil
   en: "a thousand"
   pos: numeral
   tags: [numbers]

@@ -1,5 +1,6 @@
 - id: fete
   fr: fête
+  ipa: fɛt
   en: party, holiday
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: anniversaire
   fr: anniversaire
+  ipa: anivɛʁsɛʁ
   en: birthday
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: cadeau
   fr: cadeau
+  ipa: kado
   en: gift
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: invitation
   fr: invitation
+  ipa: ɛ̃vitasjɔ̃
   en: invitation
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: noel
   fr: Noël
+  ipa: noɛl
   en: Christmas
   gender: m
   pos: noun
@@ -35,12 +40,14 @@
 
 - id: paques
   fr: Pâques
+  ipa: pak
   en: Easter
   pos: noun
   tags: [celebrations]
 
 - id: jour_de_lan
   fr: jour de l'An
+  ipa: ʒuʁ də lɑ̃
   en: New Year's Day
   gender: m
   pos: noun
@@ -48,6 +55,7 @@
 
 - id: saint_valentin
   fr: Saint-Valentin
+  ipa: sɛ̃valɑ̃tɛ̃
   en: Valentine's Day
   gender: f
   pos: noun
@@ -55,6 +63,7 @@
 
 - id: action_de_graces
   fr: Action de grâce
+  ipa: aksjɔ̃ də ɡʁas
   en: Thanksgiving (Québec)
   gender: f
   pos: noun
@@ -62,6 +71,7 @@
 
 - id: halloween
   fr: Halloween
+  ipa: alowin
   en: Halloween
   gender: f
   pos: noun
@@ -69,6 +79,7 @@
 
 - id: mariage
   fr: mariage
+  ipa: maʁjaʒ
   en: wedding
   gender: m
   pos: noun
@@ -76,6 +87,7 @@
 
 - id: bapteme
   fr: baptême
+  ipa: batɛm
   en: christening
   gender: m
   pos: noun
@@ -83,6 +95,7 @@
 
 - id: feux_artifice
   fr: feux d'artifice
+  ipa: fø daʁtifis
   en: fireworks
   gender: m
   pos: noun
@@ -90,6 +103,7 @@
 
 - id: decoration
   fr: décoration
+  ipa: dekoʁasjɔ̃
   en: decoration
   gender: f
   pos: noun
@@ -97,6 +111,7 @@
 
 - id: bougie
   fr: bougie
+  ipa: buʒi
   en: candle
   gender: f
   pos: noun
@@ -104,24 +119,28 @@
 
 - id: souhaiter
   fr: souhaiter
+  ipa: swete
   en: to wish
   pos: verb
   tags: [celebrations]
 
 - id: feter
   fr: fêter
+  ipa: fete
   en: to celebrate
   pos: verb
   tags: [celebrations]
 
 - id: inviter
   fr: inviter
+  ipa: ɛ̃vite
   en: to invite
   pos: verb
   tags: [celebrations]
 
 - id: defile
   fr: défilé
+  ipa: defile
   en: parade
   gender: m
   pos: noun
@@ -129,6 +148,7 @@
 
 - id: costume
   fr: costume
+  ipa: kɔstym
   en: costume, suit
   gender: m
   pos: noun

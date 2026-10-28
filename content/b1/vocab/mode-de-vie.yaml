@@ -1,5 +1,6 @@
 - id: bien_etre
   fr: bien-être
+  ipa: bjɛ̃nɛtʁ
   en: well-being
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: equilibre
   fr: équilibre
+  ipa: ekilibʁ
   en: balance
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: alimentation
   fr: alimentation
+  ipa: alimɑ̃tasjɔ̃
   en: "diet, nutrition"
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: sommeil
   fr: sommeil
+  ipa: somɛj
   en: sleep
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: stress
   fr: stress
+  ipa: stʁɛs
   en: stress
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: detente
   fr: détente
+  ipa: detɑ̃t
   en: relaxation
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: energie
   fr: énergie
+  ipa: enɛʁʒi
   en: energy
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: effort
   fr: effort
+  ipa: efɔʁ
   en: effort
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: volonte
   fr: volonté
+  ipa: volɔ̃te
   en: willpower
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: forme
   fr: forme
+  ipa: fɔʁm
   en: "fitness, shape"
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: prevention
   fr: prévention
+  ipa: pʁevɑ̃sjɔ̃
   en: prevention
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: repos
   fr: repos
+  ipa: ʁəpo
   en: rest
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: epanouissement
   fr: épanouissement
+  ipa: epanwisəmɑ̃
   en: "fulfilment, flourishing"
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: exercice
   fr: exercice
+  ipa: ɛɡzɛʁsis
   en: exercise
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: surmenage
   fr: surmenage
+  ipa: syʁmənaʒ
   en: "burnout, overwork"
   gender: m
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: hygiene
   fr: hygiène
+  ipa: iʒjɛn
   en: hygiene
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: vitalite
   fr: vitalité
+  ipa: vitalite
   en: vitality
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: sedentarite
   fr: sédentarité
+  ipa: sedɑ̃taʁite
   en: "sedentary lifestyle"
   gender: f
   pos: noun

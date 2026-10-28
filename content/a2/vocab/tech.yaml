@@ -1,5 +1,6 @@
 - id: ordinateur
   fr: ordinateur
+  ipa: ɔʁdinatœʁ
   en: computer
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: telephone
   fr: téléphone
+  ipa: telefɔn
   en: phone
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: internet
   fr: internet
+  ipa: ɛ̃tɛʁnɛt
   en: internet
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: courriel
   fr: courriel
+  ipa: kuʁjɛl
   en: email
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: site_web
   fr: site web
+  ipa: sit wɛb
   en: website
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: mot_de_passe
   fr: mot de passe
+  ipa: mo də pas
   en: password
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: ecran
   fr: écran
+  ipa: ekʁɑ̃
   en: screen
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: clavier
   fr: clavier
+  ipa: klavje
   en: keyboard
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: souris
   fr: souris
+  ipa: suʁi
   en: mouse
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: fichier
   fr: fichier
+  ipa: fiʃje
   en: file
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: reseau
   fr: réseau
+  ipa: ʁezo
   en: network
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: application
   fr: application
+  ipa: aplikasjɔ̃
   en: app
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: telecharger
   fr: télécharger
+  ipa: teleʃaʁʒe
   en: "to download"
   pos: verb
   tags: [tech]

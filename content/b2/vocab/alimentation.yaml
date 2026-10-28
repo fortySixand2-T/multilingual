@@ -1,5 +1,6 @@
 - id: agriculture
   fr: agriculture
+  ipa: aɡʁikyltyʁ
   en: agriculture
   gender: f
   pos: noun
@@ -7,14 +8,17 @@
 
 - id: agriculteur
   fr: agriculteur
+  ipa: aɡʁikyltœʁ
   en: farmer
   gender: mf
   fem: agricultrice
+  fem_ipa: aɡʁikyltʁis
   pos: noun
   tags: [alimentation]
 
 - id: elevage
   fr: élevage
+  ipa: ɛləvaʒ
   en: "livestock farming"
   gender: m
   pos: noun
@@ -22,6 +26,7 @@
 
 - id: recolte
   fr: récolte
+  ipa: ʁekɔlt
   en: harvest
   gender: f
   pos: noun
@@ -29,6 +34,7 @@
 
 - id: engrais
   fr: engrais
+  ipa: ɑ̃ɡʁɛ
   en: fertilizer
   gender: m
   pos: noun
@@ -36,12 +42,14 @@
 
 - id: bio
   fr: bio
+  ipa: bjo
   en: "organic"
   pos: adjective
   tags: [alimentation]
 
 - id: circuit_court
   fr: circuit court
+  ipa: siʁkɥi kuʁ
   en: "short supply chain, local sourcing"
   gender: m
   pos: noun
@@ -49,6 +57,7 @@
 
 - id: gaspillage_alimentaire
   fr: gaspillage alimentaire
+  ipa: ɡaspijaʒ alimɑ̃tɛʁ
   en: "food waste"
   gender: m
   pos: noun
@@ -56,6 +65,7 @@
 
 - id: malbouffe
   fr: malbouffe
+  ipa: malbuf
   en: "junk food"
   gender: f
   pos: noun
@@ -63,6 +73,7 @@
 
 - id: souverainete_alimentaire
   fr: souveraineté alimentaire
+  ipa: suvəʁɛnəte alimɑ̃tɛʁ
   en: "food sovereignty"
   gender: f
   pos: noun
@@ -70,6 +81,7 @@
 
 - id: terroir
   fr: terroir
+  ipa: tɛʁwaʁ
   en: "local region, local produce"
   gender: m
   pos: noun
@@ -77,6 +89,7 @@
 
 - id: filiere
   fr: filière
+  ipa: filjɛʁ
   en: "sector, supply chain"
   gender: f
   pos: noun
@@ -84,6 +97,7 @@
 
 - id: cheptel
   fr: cheptel
+  ipa: ʃɛptɛl
   en: "livestock, herd"
   gender: m
   pos: noun
@@ -91,6 +105,7 @@
 
 - id: semence
   fr: semence
+  ipa: səmɑ̃s
   en: seed
   gender: f
   pos: noun
@@ -98,6 +113,7 @@
 
 - id: autosuffisance
   fr: autosuffisance
+  ipa: otosyfizɑ̃s
   en: "self-sufficiency"
   gender: f
   pos: noun
@@ -105,6 +121,7 @@
 
 - id: etiquetage
   fr: étiquetage
+  ipa: etikətaʒ
   en: labelling
   gender: m
   pos: noun
@@ -112,14 +129,17 @@
 
 - id: producteur
   fr: producteur
+  ipa: pʁodyktœʁ
   en: producer
   gender: mf
   fem: productrice
+  fem_ipa: pʁodyktʁis
   pos: noun
   tags: [alimentation]
 
 - id: denree
   fr: denrée
+  ipa: dɑ̃ʁe
   en: "commodity, foodstuff"
   gender: f
   pos: noun

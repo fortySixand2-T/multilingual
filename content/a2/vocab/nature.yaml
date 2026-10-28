@@ -1,5 +1,6 @@
 - id: montagne
   fr: montagne
+  ipa: mɔ̃taɲ
   en: mountain
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: riviere
   fr: rivière
+  ipa: ʁivjɛʁ
   en: river
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: lac
   fr: lac
+  ipa: lak
   en: lake
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: mer
   fr: mer
+  ipa: mɛʁ
   en: sea
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: foret
   fr: forêt
+  ipa: foʁɛ
   en: forest
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: arbre
   fr: arbre
+  ipa: aʁbʁ
   en: tree
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: fleur
   fr: fleur
+  ipa: flœʁ
   en: flower
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: herbe
   fr: herbe
+  ipa: ɛʁb
   en: grass
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: branche
   fr: branche
+  ipa: bʁɑ̃ʃ
   en: branch
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: ile
   fr: île
+  ipa: il
   en: island
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: colline
   fr: colline
+  ipa: kolin
   en: hill
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: champ
   fr: champ
+  ipa: ʃɑ̃
   en: field
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: sable
   fr: sable
+  ipa: sabl
   en: sand
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: pierre
   fr: pierre
+  ipa: pjɛʁ
   en: stone
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: etoile
   fr: étoile
+  ipa: etwal
   en: star
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: lune
   fr: lune
+  ipa: lyn
   en: moon
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: sentier
   fr: sentier
+  ipa: sɑ̃tje
   en: trail
   gender: m
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: randonnee
   fr: randonnée
+  ipa: ʁɑ̃done
   en: hike
   gender: f
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: campagne
   fr: campagne
+  ipa: kɑ̃paɲ
   en: countryside
   gender: f
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: vallee
   fr: vallée
+  ipa: vale
   en: valley
   gender: f
   pos: noun

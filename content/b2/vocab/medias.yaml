@@ -1,5 +1,6 @@
 - id: deontologie
   fr: déontologie
+  ipa: deɔ̃toloʒi
   en: professional ethics
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: ligne_editoriale
   fr: ligne éditoriale
+  ipa: liɲ editoʁjal
   en: editorial stance
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: redaction
   fr: rédaction
+  ipa: ʁedaksjɔ̃
   en: newsroom, editorial team
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: la_une
   fr: la une
+  ipa: la yn
   en: front page
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: editorial
   fr: éditorial
+  ipa: editoʁjal
   en: editorial
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: chronique
   fr: chronique
+  ipa: kʁonik
   en: column
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: enquete
   fr: enquête
+  ipa: ɑ̃kɛt
   en: investigation
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: verification_faits
   fr: vérification des faits
+  ipa: veʁifikasjɔ̃ de fɛ
   en: fact-checking
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: sensationnalisme
   fr: sensationnalisme
+  ipa: sɑ̃sasjonalism
   en: sensationalism
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: traitement_mediatique
   fr: traitement médiatique
+  ipa: tʁɛtəmɑ̃ medjatik
   en: media coverage, framing
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: couverture_presse
   fr: couverture de presse
+  ipa: kuvɛʁtyʁ də pʁɛs
   en: press coverage
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: pluralisme
   fr: pluralisme
+  ipa: plyʁalism
   en: pluralism
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: independance
   fr: indépendance
+  ipa: ɛ̃depɑ̃dɑ̃s
   en: independence
   gender: f
   pos: noun
@@ -91,14 +104,17 @@
 
 - id: abonne
   fr: abonné
+  ipa: abone
   en: subscriber
   gender: mf
   fem: abonnée
+  fem_ipa: abone
   pos: noun
   tags: [medias]
 
 - id: audimat
   fr: audimat
+  ipa: odimat
   en: ratings
   gender: m
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: viralite
   fr: viralité
+  ipa: viʁalite
   en: virality
   gender: f
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: clivage
   fr: clivage
+  ipa: klivaʒ
   en: divide, polarization
   gender: m
   pos: noun
@@ -120,6 +138,7 @@
 
 - id: bulle_informationnelle
   fr: bulle informationnelle
+  ipa: byl ɛ̃fɔʁmasjɔnɛl
   en: filter bubble
   gender: f
   pos: noun
@@ -127,6 +146,7 @@
 
 - id: recoupement
   fr: recoupement
+  ipa: ʁəkupəmɑ̃
   en: cross-checking
   gender: m
   pos: noun
@@ -134,6 +154,7 @@
 
 - id: credibilite
   fr: crédibilité
+  ipa: kʁedibilite
   en: credibility
   gender: f
   pos: noun
