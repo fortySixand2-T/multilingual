@@ -23,6 +23,10 @@ IPA_OVERRIDES: dict[str, str] = {
     "oignons": "ɔɲɔ̃",
     "cacahuète": "kakawɛt",
     "cacahuètes": "kakawɛt",
+    # Accentless spellings already cached/stored before headword voicing (QA 891): eSpeak
+    # reads "cacahuetes" as kakayət, and the old LLM IPA was English ("peanuts").
+    "cacahuete": "kakawɛt",
+    "cacahuetes": "kakawɛt",
 }
 
 _STRESS = re.compile("[ˈˌ]")
