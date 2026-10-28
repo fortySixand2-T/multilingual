@@ -548,3 +548,19 @@
 - [2026-10-26] Modified: qa/rounds/059-plan.md — filled in round 059 outcome: 7 issues filed (850-853, 866-868) against PR #121's own new code, 6 validated+fixed, 1 (867) deferred; verdict SHIP
 - [2026-10-26] Modified: app/content/forms.py — reflexive passé composé rewrite also strips an existing être auxiliary (no 'je me suis suis levé'; idempotent on read)
 - [2026-10-26] Modified: tests/test_forms.py — regression test for already-correct reflexive passé composé
+- [2026-10-27] Created: qa/rounds/060-plan.md — QA round 060 plan (Piper pronunciation)
+- [2026-10-27] Modified: qa/issues/890-893 — Appended triage blocks and statuses (QA round 060)
+- [2026-10-27] Created: app/content/ipa.py — QA 873/875/882: the one shared `normalize_ipa` (strip ˈ ˌ, collapse spaces, word-boundary cap at 64) plus the tiny display-only `IPA_OVERRIDES` dict (fils, oignon, cacahuète)
+- [2026-10-27] Modified: app/content/lookup.py — QA 869/871/884/890/891: `lookup_slug` spells ligatures out, `cached_lookup` re-runs a lookup typed with more accents than the cached `fr`, `_headword` accepts the model's accented headword only for the same word, `voice_with_ipa` normalizes IPA, new `heal_ipa`, `lookup_payload` renders `a|b` as `a, b`
+- [2026-10-27] Modified: app/content/enrich.py — QA 891: enrich prompt/JSON asks for the accented headword `fr`; `Enrichment.headword` carries it (validated in lookup.py)
+- [2026-10-27] Modified: app/content/personal_api.py — QA 869/870: cached-clip play and empty-IPA preview heal the IPA; adding a card ignores the client `ipa` and uses the lookup row's (found via `lookup_slug`)
+- [2026-10-27] Modified: tests/test_personal_vocab.py, tests/test_enrich.py — regression tests for QA 869/870/871/881/884/890/891/892; existing expectations updated for stress-free IPA
+- [2026-10-27] Created: tests/test_ipa.py — QA 873/875/882: ~30-word Wiktionary-style agreement table for the normalize/override layer, word-boundary cap test, and backfill dry-run/apply/idempotence test
+- [2026-10-27] Created: scripts/backfill_ipa.py — idempotent, dry-run-by-default IPA backfill over vocab_lookup and user_vocab via the shared normalize fn; deletes only slug-poisoned lookup rows (QA 871)
+- [2026-10-27] Modified: qa/issues/869-cached-clip-stale-ipa-never-corrected.md, qa/issues/870-add-card-trusts-client-ipa.md, qa/issues/871-slug-drops-ligature-oe-cache-collision.md, qa/issues/873-ipa-cut-at-64-chars-mid-phrase.md, qa/issues/875-espeak-ipa-anglicised-or-wrong-loanwords.md, qa/issues/882-ipa-shows-stress-marks-french-has-none.md, qa/issues/884-lookup-meaning-prefilled-with-pipe-separated-text.md, qa/issues/890-accent-fold-slug-correct-accented-input-returns-unaccented-row.md, qa/issues/891-accentless-input-not-normalised-to-headword.md — appended `## Fix` blocks and set `status: done`
+- [2026-10-27] Modified: app/content/ipa.py — accentless cacahuete(s) overrides for rows stored before headword voicing
+- [2026-10-27] Modified: tests/test_ipa.py — allow the accentless override keys
+- [2026-10-27] Modified: qa/rounds/060-plan.md — outcomes appended
+- [2026-10-27] Modified: app/content/personal_api.py — cached-clip play heals only an empty IPA (stale IPA left to backfill_ipa.py), no extra Piper run per play
+- [2026-10-27] Modified: tests/test_personal_vocab.py — heal-on-play test now covers empty-IPA heal and no re-voice on later plays
+- [2026-10-27] Modified: scripts/backfill_ipa.py — sort imports (CI ruff 0.15.17 I001)

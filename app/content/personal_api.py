@@ -26,14 +26,20 @@ from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
 from app.config.settings import Settings, get_settings
 from app.content.enrich import GenderTable
-from app.content.lookup import cached_lookup, fresh_lookup, lookup_payload, voice_with_ipa
+from app.content.lookup import (
+    cached_lookup,
+    fresh_lookup,
+    heal_ipa,
+    lookup_payload,
+    lookup_slug,
+    voice_with_ipa,
+)
 from app.content.personal import (
     EmptyLemmaError,
     add_personal,
     card_payload,
     get_personal,
     list_personal,
-    slugify,
 )
 from app.content.tables import UserVocab, VocabLookup
 from app.db.session import get_session
@@ -58,7 +64,7 @@ class AddBody(BaseModel):
     en: str = Field(min_length=1, max_length=255)
     gender: str = Field(default="", max_length=2)
     pos: str = Field(default="", max_length=16)
-    ipa: str = Field(default="", max_length=64)
+    ipa: str = Field(default="", max_length=64)  # accepted, ignored: IPA comes from Piper
     source: str = Field(default="manual", max_length=32)
 
 
@@ -80,6 +86,9 @@ async def _lookup(
             status.HTTP_422_UNPROCESSABLE_ENTITY, "word has no letters to make a card from"
         ) from None
     if row is not None:
+        tts = getattr(request.app.state, "tts", None)
+        if not row.ipa and tts is not None:  # a cold first run left it empty (QA 881)
+            await heal_ipa(session, tts, row, settings.word_voice)
         return row, False
     used = await tokens_used_today(session, user.id, "vocab", date.today())
     if used >= settings.vocab_daily_token_budget:
@@ -179,15 +188,16 @@ async def add(
             en=body.en,
             gender=body.gender,
             pos=body.pos,
-            ipa=body.ipa,
             source=body.source or "manual",
         )
     except EmptyLemmaError:
         raise HTTPException(
             status.HTTP_422_UNPROCESSABLE_ENTITY, "word has no letters to make a card from"
         ) from None
+    looked_up = await session.get(VocabLookup, lookup_slug(row.fr))
+    if created:  # IPA is Piper's, never the client's (QA 870); "" without a lookup row
+        row.ipa = looked_up.ipa if looked_up else ""
     if row.audio_key is None:
-        looked_up = await session.get(VocabLookup, slugify(row.fr)[:64])
         row.audio_key = looked_up.audio_key if looked_up else None
     seeded = await seed_cards(session, user.id, [row.card_key])
     await session.commit()
@@ -284,18 +294,20 @@ async def _serve_audio(
 ) -> Response:
     """Serve `row`'s stored clip, or synthesize `row.fr` once, store it at `key`, and
     remember it on the row (lazy TTS, same pattern as GET /speech/audio). `row.ipa` is
-    unconditionally overwritten with whatever IPA this synthesis run produced — whether
-    the row had no IPA yet (looked up while TTS was down) or a stale/wrong one (e.g. an
-    old LLM-guessed IPA from before QA 832), matching the sibling
-    `lookup.py::fresh_lookup` path's unconditional overwrite."""
+    unconditionally overwritten with the IPA Piper produces on a fresh synthesis; a cached
+    clip with an empty IPA is healed on play (`heal_ipa`). Stale non-empty IPA (old LLM
+    guesses, QA 869) is `scripts/backfill_ipa.py`'s job, so plays stay one storage read."""
+    tts = request.app.state.tts
     if row.audio_key:
         try:
             data = await anyio.to_thread.run_sync(lambda: storage.get(row.audio_key))
-            return Response(content=data, media_type="audio/wav")
         except Exception:
-            pass  # cached key missing — fall through and re-synthesize
+            data = None  # cached key missing — fall through and re-synthesize
+        if data is not None:
+            if not row.ipa and tts is not None:
+                await heal_ipa(session, tts, row, settings.word_voice)
+            return Response(content=data, media_type="audio/wav")
 
-    tts = request.app.state.tts
     if tts is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "no audio available")
     data, ipa = await anyio.to_thread.run_sync(
@@ -304,6 +316,6 @@ async def _serve_audio(
     await anyio.to_thread.run_sync(lambda: storage.put(key, data, "audio/wav"))
     row.audio_key = key
     if ipa:
-        row.ipa = ipa[:64]  # unconditional: replaces any stale/wrong IPA (QA 868)
+        row.ipa = ipa  # unconditional: replaces any stale/wrong IPA (QA 868)
     await session.commit()
     return Response(content=data, media_type="audio/wav")

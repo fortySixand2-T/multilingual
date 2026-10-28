@@ -149,9 +149,11 @@ def resolve_gender(
 _ENRICH_SYSTEM = (
     "You are a French-English lexicographer. For the given French word, return a "
     "concise dictionary entry as STRICT JSON only, no prose:\n"
-    '{"en": "...", "pos": "noun|verb|adjective|adverb|preposition|phrase", '
+    '{"fr": "...", "en": "...", "pos": "noun|verb|adjective|adverb|preposition|phrase", '
     '"gender": "m|f|mf|"}\n'
-    "Rules: `en` is a short gloss (a few words, no article). `pos` is the part of "
+    "Rules: `fr` is the word exactly as given but with its correct French accents and "
+    "spelling (eleve -> élève, cacahuetes -> cacahuètes); never a different word or form. "
+    "`en` is a short gloss (a few words, no article). `pos` is the part of "
     "speech. `gender` is the grammatical gender for NOUNS only (m, f, or mf when both "
     'a masculine and feminine form exist like ami/amie); use "" for anything that is '
     "not a noun. If unsure of gender, "
@@ -173,12 +175,14 @@ def _parse_enrichment(text: str) -> dict:
         return {}
     if not isinstance(data, dict):
         return {}
+    fr = data.get("fr")
     en = data.get("en")
     pos = data.get("pos")
     gender = data.get("gender")
     pos = pos.strip().lower() if isinstance(pos, str) else ""
     gender = gender.strip() if isinstance(gender, str) else ""
     return {
+        "fr": fr.strip() if isinstance(fr, str) else "",
         "en": en.strip() if isinstance(en, str) else "",
         "pos": pos if pos in _POS_VALUES else "",
         "gender": gender if gender in ("m", "f", "mf") else "",
@@ -192,6 +196,7 @@ class Enrichment:
     pos: str
     gender: str  # "" | m | f | mf
     gender_source: str  # "table" | "suffix" | "llm" | ""  (provenance / confidence)
+    headword: str = ""  # the model's accented spelling of `fr`; unvalidated (lookup checks it)
 
 
 async def propose(router, word: str, *, max_tokens: int = 128) -> tuple[dict, LLMResult | None]:
@@ -228,6 +233,7 @@ async def enrich(
             pos=entry.get("pos", ""),
             gender=gender,
             gender_source=source,
+            headword=entry.get("fr", ""),
         ),
         result,
     )
