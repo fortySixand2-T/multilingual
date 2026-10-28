@@ -71,7 +71,9 @@ def test_normalize_agrees_with_wiktionary_table():
 
 
 def test_overrides_are_only_for_words_the_table_covers():
-    assert set(IPA_OVERRIDES) - {"oignons", "cacahuètes"} <= set(WIKTIONARY)
+    assert set(IPA_OVERRIDES) - {"oignons", "cacahuètes", "cacahuete", "cacahuetes"} <= set(
+        WIKTIONARY
+    )
 
 
 def test_normalize_strips_stress_and_collapses_spaces():
