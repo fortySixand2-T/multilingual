@@ -1,0 +1,139 @@
+- id: temps
+  fr: temps
+  ipa: tɑ̃
+  en: time
+  gender: m
+  pos: noun
+  tags: [time]
+
+- id: fois
+  fr: fois
+  ipa: fwa
+  en: time (occasion)
+  gender: f
+  pos: noun
+  tags: [time]
+
+- id: an
+  fr: an
+  ipa: ɑ̃
+  en: year
+  gender: m
+  pos: noun
+  tags: [time]
+
+- id: nuit
+  fr: nuit
+  ipa: nɥi
+  en: night
+  gender: f
+  pos: noun
+  tags: [time]
+
+- id: journee
+  fr: journée
+  ipa: ʒuʁne
+  en: day (all day long)
+  gender: f
+  pos: noun
+  tags: [time]
+
+- id: vie
+  fr: vie
+  ipa: vi
+  en: life
+  gender: f
+  pos: noun
+  tags: [time]
+
+- id: instant
+  fr: instant
+  ipa: ɛ̃stɑ̃
+  en: moment
+  gender: m
+  pos: noun
+  tags: [time]
+
+- id: toujours
+  fr: toujours
+  ipa: tuʒuʁ
+  en: always
+  pos: adverb
+  tags: [time]
+
+- id: jamais
+  fr: jamais
+  ipa: ʒamɛ
+  en: never
+  pos: adverb
+  tags: [time]
+
+- id: souvent
+  fr: souvent
+  ipa: suvɑ̃
+  en: often
+  pos: adverb
+  tags: [time]
+
+- id: parfois
+  fr: parfois
+  ipa: paʁfwa
+  en: sometimes
+  pos: adverb
+  tags: [time]
+
+- id: deja
+  fr: déjà
+  ipa: deʒa
+  en: already
+  pos: adverb
+  tags: [time]
+
+- id: encore
+  fr: encore
+  ipa: ɑ̃kɔʁ
+  en: again; still
+  pos: adverb
+  tags: [time]
+
+- id: bientot
+  fr: bientôt
+  ipa: bjɛ̃to
+  en: soon
+  pos: adverb
+  tags: [time]
+
+- id: longtemps
+  fr: longtemps
+  ipa: lɔ̃tɑ̃
+  en: a long time
+  pos: adverb
+  tags: [time]
+
+- id: dabord
+  fr: "d'abord"
+  ipa: dabɔʁ
+  en: first
+  pos: adverb
+  tags: [time]
+
+- id: ensuite
+  fr: ensuite
+  ipa: ɑ̃sɥit
+  en: next
+  pos: adverb
+  tags: [time]
+
+- id: enfin
+  fr: enfin
+  ipa: ɑ̃fɛ̃
+  en: finally
+  pos: adverb
+  tags: [time]
+
+- id: puis
+  fr: puis
+  ipa: pɥi
+  en: then
+  pos: adverb
+  tags: [time]

@@ -1,0 +1,46 @@
+id: read-a1-mon-samedi
+level: a1
+skill: reading
+title: "Mon samedi"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Samedi, je me lève tôt. D'abord, je bois un café. Ensuite, je vais au marché :
+  il y a trop de monde, mais j'ai assez de temps. À midi, je mange avec ma mère.
+  Elle est malade depuis longtemps, mais aujourd'hui elle va mieux ! L'après-midi,
+  je vais à la piscine pour la première fois. J'ai déjà un maillot. Un instant, j'ai
+  peur… puis j'aime ça. Le soir, je suis fatigué. Enfin, je dors. Dimanche ? Encore
+  la piscine !
+questions:
+  - id: read-a1-mon-samedi.q1
+    prompt: "Qu'est-ce que la personne fait d'abord ?"
+    options:
+      - "Elle boit un café"
+      - "Elle va au marché"
+      - "Elle va à la piscine"
+    answer: "Elle boit un café"
+    explain: "« D'abord, je bois un café. »"
+  - id: read-a1-mon-samedi.q2
+    prompt: "Comment va la mère aujourd'hui ?"
+    options:
+      - "Elle va mieux"
+      - "Elle est toujours malade"
+      - "Elle est au marché"
+    answer: "Elle va mieux"
+    explain: "« aujourd'hui elle va mieux ! »"
+  - id: read-a1-mon-samedi.q3
+    prompt: "La piscine, c'est…"
+    options:
+      - "la première fois"
+      - "tous les jours"
+      - "jamais"
+    answer: "la première fois"
+    explain: "« je vais à la piscine pour la première fois »."
+  - id: read-a1-mon-samedi.q4
+    prompt: "Que fait la personne dimanche ?"
+    options:
+      - "Encore la piscine"
+      - "Encore le marché"
+      - "Elle dort toute la journée"
+    answer: "Encore la piscine"
+    explain: "« Dimanche ? Encore la piscine ! »"

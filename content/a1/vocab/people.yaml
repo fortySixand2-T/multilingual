@@ -1,0 +1,87 @@
+- id: homme
+  fr: homme
+  ipa: ɔm
+  en: man
+  gender: m
+  pos: noun
+  tags: [people]
+
+- id: femme
+  fr: femme
+  ipa: fam
+  en: woman; wife
+  gender: f
+  pos: noun
+  tags: [people]
+
+- id: garcon
+  fr: garçon
+  ipa: ɡaʁsɔ̃
+  en: boy
+  gender: m
+  pos: noun
+  tags: [people]
+
+- id: gens
+  fr: gens
+  ipa: ʒɑ̃
+  en: people
+  gender: m
+  pos: noun
+  tags: [people]
+
+- id: personne
+  fr: personne
+  ipa: pɛʁsɔn
+  en: person
+  gender: f
+  pos: noun
+  tags: [people]
+
+- id: maman
+  fr: maman
+  ipa: mamɑ̃
+  en: mum
+  gender: f
+  pos: noun
+  tags: [people]
+
+- id: papa
+  fr: papa
+  ipa: papa
+  en: dad
+  gender: m
+  pos: noun
+  tags: [people]
+
+- id: docteur
+  fr: docteur
+  ipa: dɔktœʁ
+  en: doctor
+  gender: m
+  pos: noun
+  tags: [people]
+
+- id: dame
+  fr: dame
+  ipa: dam
+  en: lady
+  gender: f
+  pos: noun
+  tags: [people]
+
+- id: nom
+  fr: nom
+  ipa: nɔ̃
+  en: name
+  gender: m
+  pos: noun
+  tags: [people]
+
+- id: age
+  fr: âge
+  ipa: aʒ
+  en: age
+  gender: m
+  pos: noun
+  tags: [people]

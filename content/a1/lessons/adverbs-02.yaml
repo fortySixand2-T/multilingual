@@ -1,0 +1,56 @@
+id: adverbs-02
+title: "Why, how, how much"
+grammar_point: "question words: pourquoi, comment, combien"
+grammar_category: Sentence structures
+est_minutes: 7
+new_vocab: [peut_etre, ensemble, la_adv, partout, dehors, pourquoi, comment, combien, surtout, seulement, presque]
+pass_threshold: 8.0
+exercises:
+  - id: adverbs-02.e1
+    type: match_pairs
+    pairs:
+      - [peut-être, maybe]
+      - [ensemble, together]
+      - [là, there]
+      - [partout, everywhere]
+
+  - id: adverbs-02.e2
+    type: match_pairs
+    pairs:
+      - [dehors, outside]
+      - [pourquoi, why]
+      - [comment, how]
+      - [combien, how much; how many]
+
+  - id: adverbs-02.e3
+    type: match_pairs
+    pairs:
+      - [surtout, especially]
+      - [seulement, only]
+      - [presque, almost]
+
+  - id: adverbs-02.e4
+    type: mcq
+    prompt: "« ___ ça coûte ? » (How much is it?)"
+    options: [Combien, Comment, Pourquoi]
+    answer: Combien
+    explain: combien asks about a quantity or price.
+
+  - id: adverbs-02.e5
+    type: mcq
+    prompt: "« ___ tu t'appelles ? »"
+    options: [Comment, Combien, Pourquoi]
+    answer: Comment
+    explain: "comment = how: comment tu t'appelles ?"
+
+  - id: adverbs-02.e6
+    type: word_bank
+    prompt: "Build: “Why are you outside?”"
+    tokens: [Pourquoi, es-tu, dehors, "?", partout]
+    answer: [Pourquoi, es-tu, dehors, "?"]
+
+  - id: adverbs-02.e7
+    type: translate
+    prompt: "Translate: “we eat together”"
+    answer: nous mangeons ensemble
+    accept: [Nous mangeons ensemble, on mange ensemble]

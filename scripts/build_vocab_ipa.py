@@ -92,6 +92,7 @@ REVIEWED: dict[str, str] = {
     "wifi": "wifi",
     "PIB": "peibe",
     "infonuagique": "ɛ̃fɔnɥaʒik",
+    "dehors": "dəɔʁ",
 }
 
 

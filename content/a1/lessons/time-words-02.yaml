@@ -1,0 +1,53 @@
+id: time-words-02
+title: Telling a story in order
+grammar_point: "sequencing: d'abord, ensuite, puis, enfin"
+grammar_category: Logical connectors
+est_minutes: 7
+new_vocab: [parfois, deja, encore, bientot, longtemps, dabord, ensuite, enfin, puis]
+pass_threshold: 8.0
+exercises:
+  - id: time-words-02.e1
+    type: match_pairs
+    pairs:
+      - [parfois, sometimes]
+      - [déjà, already]
+      - [encore, again; still]
+
+  - id: time-words-02.e2
+    type: match_pairs
+    pairs:
+      - [bientôt, soon]
+      - [longtemps, a long time]
+      - ["d'abord", first]
+
+  - id: time-words-02.e3
+    type: match_pairs
+    pairs:
+      - [ensuite, next]
+      - [enfin, finally]
+      - [puis, then]
+
+  - id: time-words-02.e4
+    type: word_bank
+    prompt: "Put the story in order: first, then, finally"
+    tokens: ["d'abord", ensuite, enfin]
+    answer: ["d'abord", ensuite, enfin]
+
+  - id: time-words-02.e5
+    type: mcq
+    prompt: "« Tu as ___ mangé ? » (Have you already eaten?)"
+    options: [déjà, bientôt, longtemps]
+    answer: déjà
+    explain: "déjà = already, placed between avoir and the past participle."
+
+  - id: time-words-02.e6
+    type: translate
+    prompt: "Translate: “see you soon”"
+    answer: à bientôt
+    accept: [A bientôt, À bientôt]
+
+  - id: time-words-02.e7
+    type: listen_type
+    prompt: Type the word you hear.
+    audio_ref: a1/audio/longtemps.mp3
+    answer: longtemps

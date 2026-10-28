@@ -1,0 +1,56 @@
+id: adverbs-01
+title: "Very, a lot, too much"
+grammar_point: "très + adjective, beaucoup + verb, beaucoup de + noun"
+grammar_category: Adjectives & comparison
+est_minutes: 7
+new_vocab: [tres, beaucoup, peu, trop, assez, aussi, bien, mal, mieux, vite, vraiment]
+pass_threshold: 8.0
+exercises:
+  - id: adverbs-01.e1
+    type: match_pairs
+    pairs:
+      - [très, very]
+      - [beaucoup, a lot]
+      - [peu, not much]
+      - [trop, too much]
+
+  - id: adverbs-01.e2
+    type: match_pairs
+    pairs:
+      - [assez, enough]
+      - [aussi, also]
+      - [bien, well]
+      - [mal, badly]
+
+  - id: adverbs-01.e3
+    type: match_pairs
+    pairs:
+      - [mieux, better]
+      - [vite, quickly]
+      - [vraiment, really]
+
+  - id: adverbs-01.e4
+    type: mcq
+    prompt: "« Elle est ___ grande. »"
+    options: [très, beaucoup]
+    answer: très
+    explain: très goes with an adjective (très grande).
+
+  - id: adverbs-01.e5
+    type: mcq
+    prompt: "« J'aime ___ le chocolat. »"
+    options: [beaucoup, très]
+    answer: beaucoup
+    explain: "beaucoup goes with a verb (j'aime beaucoup)."
+
+  - id: adverbs-01.e6
+    type: word_bank
+    prompt: "Build: “I have too much work”"
+    tokens: ["J'ai", trop, de, travail, très]
+    answer: ["J'ai", trop, de, travail]
+
+  - id: adverbs-01.e7
+    type: translate
+    prompt: "Translate: “it's going better”"
+    answer: ça va mieux
+    accept: [Ça va mieux, ca va mieux]

@@ -1,0 +1,153 @@
+- id: tres
+  fr: très
+  ipa: tʁɛ
+  en: very
+  pos: adverb
+  tags: [adverbs]
+
+- id: beaucoup
+  fr: beaucoup
+  ipa: boku
+  en: a lot
+  pos: adverb
+  tags: [adverbs]
+
+- id: peu
+  fr: peu
+  ipa: pø
+  en: not much
+  pos: adverb
+  tags: [adverbs]
+
+- id: trop
+  fr: trop
+  ipa: tʁo
+  en: too much
+  pos: adverb
+  tags: [adverbs]
+
+- id: assez
+  fr: assez
+  ipa: ase
+  en: enough
+  pos: adverb
+  tags: [adverbs]
+
+- id: aussi
+  fr: aussi
+  ipa: osi
+  en: also
+  pos: adverb
+  tags: [adverbs]
+
+- id: bien
+  fr: bien
+  ipa: bjɛ̃
+  en: well
+  pos: adverb
+  tags: [adverbs]
+
+- id: mal
+  fr: mal
+  ipa: mal
+  en: badly
+  pos: adverb
+  tags: [adverbs]
+
+- id: mieux
+  fr: mieux
+  ipa: mjø
+  en: better
+  pos: adverb
+  tags: [adverbs]
+
+- id: vite
+  fr: vite
+  ipa: vit
+  en: quickly
+  pos: adverb
+  tags: [adverbs]
+
+- id: vraiment
+  fr: vraiment
+  ipa: vʁɛmɑ̃
+  en: really
+  pos: adverb
+  tags: [adverbs]
+
+- id: peut_etre
+  fr: peut-être
+  ipa: pøtɛtʁ
+  en: maybe
+  pos: adverb
+  tags: [adverbs]
+
+- id: ensemble
+  fr: ensemble
+  ipa: ɑ̃sɑ̃bl
+  en: together
+  pos: adverb
+  tags: [adverbs]
+
+- id: la_adv
+  fr: là
+  ipa: la
+  en: there
+  pos: adverb
+  tags: [adverbs]
+
+- id: partout
+  fr: partout
+  ipa: paʁtu
+  en: everywhere
+  pos: adverb
+  tags: [adverbs]
+
+- id: dehors
+  fr: dehors
+  ipa: dəɔʁ
+  en: outside
+  pos: adverb
+  tags: [adverbs]
+
+- id: pourquoi
+  fr: pourquoi
+  ipa: puʁkwa
+  en: why
+  pos: adverb
+  tags: [adverbs]
+
+- id: comment
+  fr: comment
+  ipa: komɑ̃
+  en: how
+  pos: adverb
+  tags: [adverbs]
+
+- id: combien
+  fr: combien
+  ipa: kɔ̃bjɛ̃
+  en: how much; how many
+  pos: adverb
+  tags: [adverbs]
+
+- id: surtout
+  fr: surtout
+  ipa: syʁtu
+  en: especially
+  pos: adverb
+  tags: [adverbs]
+
+- id: seulement
+  fr: seulement
+  ipa: sœləmɑ̃
+  en: only
+  pos: adverb
+  tags: [adverbs]
+
+- id: presque
+  fr: presque
+  ipa: pʁɛsk
+  en: almost
+  pos: adverb
+  tags: [adverbs]

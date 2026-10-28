@@ -1,0 +1,55 @@
+id: time-words-01
+title: "How often?"
+grammar_point: "frequency adverbs go after the verb: je mange toujours, je ne mange jamais"
+grammar_category: Sentence structures
+est_minutes: 7
+new_vocab: [temps, fois, an, nuit, journee, vie, instant, toujours, jamais, souvent]
+pass_threshold: 8.0
+exercises:
+  - id: time-words-01.e1
+    type: match_pairs
+    pairs:
+      - [temps, time]
+      - [fois, time (occasion)]
+      - [an, year]
+      - [nuit, night]
+
+  - id: time-words-01.e2
+    type: match_pairs
+    pairs:
+      - [journée, day (all day long)]
+      - [vie, life]
+      - [instant, moment]
+
+  - id: time-words-01.e3
+    type: match_pairs
+    pairs:
+      - [toujours, always]
+      - [jamais, never]
+      - [souvent, often]
+
+  - id: time-words-01.e4
+    type: mcq
+    prompt: "« Je ___ le café. » (I never drink coffee)"
+    options: [ne bois jamais, bois jamais ne, jamais bois]
+    answer: ne bois jamais
+    explain: "ne … jamais wraps the verb: je ne bois jamais."
+
+  - id: time-words-01.e5
+    type: word_bank
+    prompt: "Build: “I often work at night”"
+    tokens: [Je, travaille, souvent, la, nuit, toujours]
+    answer: [Je, travaille, souvent, la, nuit]
+
+  - id: time-words-01.e6
+    type: mcq
+    prompt: "« Il a vingt ___. »"
+    options: [ans, fois, temps]
+    answer: ans
+    explain: "Age uses avoir + ans: il a vingt ans."
+
+  - id: time-words-01.e7
+    type: translate
+    prompt: "Translate: “one more time”"
+    answer: encore une fois
+    accept: [Encore une fois]
