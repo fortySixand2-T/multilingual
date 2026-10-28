@@ -561,3 +561,5 @@
 - [2026-10-27] Modified: app/content/ipa.py — accentless cacahuete(s) overrides for rows stored before headword voicing
 - [2026-10-27] Modified: tests/test_ipa.py — allow the accentless override keys
 - [2026-10-27] Modified: qa/rounds/060-plan.md — outcomes appended
+- [2026-10-27] Modified: app/content/personal_api.py — cached-clip play heals only an empty IPA (stale IPA left to backfill_ipa.py), no extra Piper run per play
+- [2026-10-27] Modified: tests/test_personal_vocab.py — heal-on-play test now covers empty-IPA heal and no re-voice on later plays

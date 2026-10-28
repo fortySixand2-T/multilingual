@@ -294,9 +294,9 @@ async def _serve_audio(
 ) -> Response:
     """Serve `row`'s stored clip, or synthesize `row.fr` once, store it at `key`, and
     remember it on the row (lazy TTS, same pattern as GET /speech/audio). `row.ipa` is
-    unconditionally overwritten with the IPA Piper produces — on a fresh synthesis, and
-    when serving a cached clip too (`heal_ipa`), so a row with a clip but an empty or
-    stale IPA (old LLM guess, QA 832/868/869) is corrected the next time it is played."""
+    unconditionally overwritten with the IPA Piper produces on a fresh synthesis; a cached
+    clip with an empty IPA is healed on play (`heal_ipa`). Stale non-empty IPA (old LLM
+    guesses, QA 869) is `scripts/backfill_ipa.py`'s job, so plays stay one storage read."""
     tts = request.app.state.tts
     if row.audio_key:
         try:
@@ -304,7 +304,7 @@ async def _serve_audio(
         except Exception:
             data = None  # cached key missing — fall through and re-synthesize
         if data is not None:
-            if tts is not None:
+            if not row.ipa and tts is not None:
                 await heal_ipa(session, tts, row, settings.word_voice)
             return Response(content=data, media_type="audio/wav")
 

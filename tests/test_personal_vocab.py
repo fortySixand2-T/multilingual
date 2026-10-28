@@ -619,19 +619,18 @@ def test_ligature_words_do_not_share_a_cache_row():
     assert il["fr"] == "il" and il["en"] == "he"
 
 
-def test_cached_clip_with_stale_ipa_heals_on_play():
-    """QA 869/880: a pre-#121 row (LLM IPA + clip) is corrected when the clip is played."""
+def test_cached_clip_play_heals_only_an_empty_ipa():
+    """QA 869/880: a clip with an empty IPA is filled on play; a filled IPA (stale ones
+    are the backfill's job) costs no extra Piper run per play."""
     tts = RecordingPiper(ipa="ɔʁibl")
     client, _ = _client(uid=64, router=FakeRouter({"en": "horrible", "pos": "adjective"}), tts=tts)
     enr = client.post("/vocab/personal/preview", json={"word": "horrible"}).json()["enrichment"]
-    _lookup_row("horrible", ipa="hɒrəbəl")
+    _lookup_row("horrible", ipa="")
     assert client.get(enr["audio_url"]).status_code == 200
-    assert (
-        client.post("/vocab/personal/preview", json={"word": "horrible"}).json()["enrichment"][
-            "ipa"
-        ]
-        == "ɔʁibl"
-    )
+    assert _lookup_row("horrible") == "ɔʁibl"
+    n = len(tts.voiced)
+    assert client.get(enr["audio_url"]).status_code == 200
+    assert len(tts.voiced) == n
 
 
 def test_empty_ipa_with_a_clip_is_filled_on_next_preview():
