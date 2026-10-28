@@ -21,7 +21,7 @@ from app.ai.interfaces import LLMResult
 from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
 from app.content import personal as P
-from app.content.tables import UserVocab
+from app.content.tables import UserVocab, VocabLookup
 from app.db.session import get_session
 from app.main import create_app
 from app.users.models import Base
@@ -426,7 +426,7 @@ def test_lookup_is_cached_across_users_case_and_accents():
     client, storage = _client(uid=31, router=router, tts=tts)
     first = client.post("/vocab/personal/preview", json={"word": "cacahuète"}).json()["enrichment"]
     # IPA comes from Piper's phonemes, not the LLM's English guess
-    assert first["en"] == "peanut" and first["ipa"] == "pakˈɛ"
+    assert first["en"] == "peanut" and first["ipa"] == "kakawɛt"  # no stress; curated override
     assert storage.objects["vocablookup/cacahuete.wav"].startswith(b"RIFFpiper-")
 
     # another user, different case, no accent: served from the DB — no LLM, no TTS
@@ -449,7 +449,7 @@ def test_without_tts_card_has_no_llm_ipa_until_first_voiced():
     voiced, _ = _client(uid=35, router=router, tts=FakePiper())
     assert voiced.get("/vocab/personal/audio/uv:ebouriffant").status_code == 200
     (card,) = voiced.get("/vocab/personal").json()["cards"]
-    assert card["ipa"] == "pakˈɛ"  # what Piper voiced
+    assert card["ipa"] == "pakɛ"  # what Piper voiced, stress stripped
 
 
 def test_stale_ipa_is_overwritten_on_next_voicing():
@@ -471,7 +471,7 @@ def test_stale_ipa_is_overwritten_on_next_voicing():
     voiced, _ = _client(uid=36, router=router, tts=FakePiper())
     assert voiced.get("/vocab/personal/audio/uv:horrible").status_code == 200
     (card,) = voiced.get("/vocab/personal").json()["cards"]
-    assert card["ipa"] == "pakˈɛ"  # overwritten with what Piper actually voiced
+    assert card["ipa"] == "pakɛ"  # overwritten with what Piper actually voiced
 
 
 def test_failed_lookup_is_not_cached_and_says_why():
@@ -491,8 +491,10 @@ def test_lookup_audio_is_served_and_reused_by_the_added_card():
 
     card = client.post("/vocab/personal", json={"fr": enr["fr"], "en": enr["en"]}).json()["card"]
     audio = client.get(card["audio_url"])
-    # the card plays the lookup's clip immediately — no second synthesis
-    assert audio.content.startswith(b"RIFFpiper-colis") and tts.calls == 1
+    # the card plays the lookup's clip immediately — no second clip is stored
+    assert audio.content.startswith(b"RIFFpiper-colis") and list(storage.objects) == [
+        "vocablookup/colis.wav"
+    ]
 
 
 def test_preview_of_a_course_word_skips_the_llm():
@@ -535,3 +537,130 @@ def test_piper_reads_ipa_from_debug_log(monkeypatch):
 
     monkeypatch.setattr(subprocess, "run", fake_run)
     assert PiperAdapter(voice_model="v.onnx").synthesize_ipa(text="paquet") == (b"RIFF", "pakˈɛ")
+
+
+# --- QA 060: Piper pronunciation correctness ----------------------------------
+
+
+class RecordingPiper(FakeTTS):
+    """Piper stand-in that records the text it voiced and reports IPA derived from it."""
+
+    def __init__(self, ipa="ɛlɛv"):
+        super().__init__()
+        self.voiced: list[str] = []
+        self.ipa = ipa
+
+    def synthesize_ipa(self, *, text, voice=""):
+        self.voiced.append(text)
+        return b"RIFFpiper-" + text.encode(), "ˈ" + self.ipa
+
+
+def _lookup_row(slug, **cols):
+    async def go():
+        async with _Session() as s:
+            row = await s.get(VocabLookup, slug)
+            for k, v in cols.items():
+                setattr(row, k, v)
+            await s.commit()
+            return row.ipa
+
+    return _run(go())
+
+
+def test_accentless_input_is_stored_and_voiced_as_the_headword():
+    """QA 891 (+892): "cacahuetes" is voiced and stored as the accented headword."""
+    router = FakeRouter({"fr": "cacahuètes", "en": "peanuts", "pos": "noun", "gender": "f"})
+    tts = RecordingPiper()
+    client, _ = _client(uid=60, router=router, tts=tts)
+    enr = client.post("/vocab/personal/preview", json={"word": "cacahuetes"}).json()["enrichment"]
+    assert enr["fr"] == "cacahuètes" and tts.voiced == ["cacahuètes"]
+    assert enr["ipa"] == "kakawɛt"  # override on the headword, never English-shaped IPA
+
+
+def test_headword_from_the_model_is_only_accepted_for_the_same_word():
+    def preview(typed, proposed, uid):
+        router = FakeRouter({"fr": proposed, "en": "x", "pos": "noun"})
+        client, _ = _client(uid=uid, router=router, tts=RecordingPiper())
+        return client.post("/vocab/personal/preview", json={"word": typed}).json()["enrichment"]
+
+    assert preview("zorgle", "zörgle", 61)["fr"] == "zörgle"  # accents added: same word
+    assert preview("blimpo", "chat", 61)["fr"] == "blimpo"  # a different word: ignored
+    assert preview("très", "tres", 61)["fr"] == "très"  # never drops a typed accent
+
+
+def test_accented_input_replaces_an_accentless_cached_row_once():
+    """QA 890: typing "éléphant" must not return the cached "elephant"; and a row that
+    already has the accents (or a model that adds none) never loops."""
+    tts = RecordingPiper()
+    plain, _ = _client(uid=62, router=FakeRouter({"en": "elephant", "pos": "noun"}), tts=tts)
+    assert (
+        plain.post("/vocab/personal/preview", json={"word": "elephant"}).json()["enrichment"]["fr"]
+        == "elephant"
+    )
+    router = FakeRouter({"en": "elephant", "pos": "noun"})  # model adds no headword
+    client, storage = _client(uid=62, router=router, tts=tts)
+    for _ in range(2):
+        enr = client.post("/vocab/personal/preview", json={"word": "éléphant"}).json()["enrichment"]
+        assert enr["fr"] == "éléphant"
+    assert router.calls == ["vocab_enrich"] and tts.voiced[-1] == "éléphant"  # one re-voice
+    # accentless input is served the accented row
+    again = client.post("/vocab/personal/preview", json={"word": "elephant"}).json()["enrichment"]
+    assert again["fr"] == "éléphant" and router.calls == ["vocab_enrich"]
+
+
+def test_ligature_words_do_not_share_a_cache_row():
+    """QA 871: "il" is the pronoun, not "œil"."""
+    tts = RecordingPiper()
+    client, _ = _client(uid=63, router=FakeRouter({"en": "eye", "pos": "noun"}), tts=tts)
+    eye = client.post("/vocab/personal/preview", json={"word": "œil"}).json()["enrichment"]
+    assert eye["audio_url"].endswith("/oeil")
+    pron, _ = _client(uid=63, router=FakeRouter({"en": "he", "pos": "pronoun"}), tts=tts)
+    il = pron.post("/vocab/personal/preview", json={"word": "il"}).json()["enrichment"]
+    assert il["fr"] == "il" and il["en"] == "he"
+
+
+def test_cached_clip_with_stale_ipa_heals_on_play():
+    """QA 869/880: a pre-#121 row (LLM IPA + clip) is corrected when the clip is played."""
+    tts = RecordingPiper(ipa="ɔʁibl")
+    client, _ = _client(uid=64, router=FakeRouter({"en": "horrible", "pos": "adjective"}), tts=tts)
+    enr = client.post("/vocab/personal/preview", json={"word": "horrible"}).json()["enrichment"]
+    _lookup_row("horrible", ipa="hɒrəbəl")
+    assert client.get(enr["audio_url"]).status_code == 200
+    assert (
+        client.post("/vocab/personal/preview", json={"word": "horrible"}).json()["enrichment"][
+            "ipa"
+        ]
+        == "ɔʁibl"
+    )
+
+
+def test_empty_ipa_with_a_clip_is_filled_on_next_preview():
+    """QA 881: a cold first run left ipa="" next to a clip; the next lookup fills it."""
+    tts = RecordingPiper(ipa="ɔʁibl")
+    client, _ = _client(uid=65, router=FakeRouter({"en": "awful", "pos": "adjective"}), tts=tts)
+    client.post("/vocab/personal/preview", json={"word": "affreux"})
+    _lookup_row("affreux", ipa="")
+    again = client.post("/vocab/personal/preview", json={"word": "affreux"}).json()["enrichment"]
+    assert again["ipa"] == "ɔʁibl"
+    n = len(tts.voiced)
+    client.post("/vocab/personal/preview", json={"word": "affreux"})
+    assert len(tts.voiced) == n  # healed once; a filled IPA is not re-derived on preview
+
+
+def test_add_card_ignores_client_ipa_and_takes_the_lookups():
+    """QA 870."""
+    tts = RecordingPiper(ipa="pakɛ")
+    client, _ = _client(uid=66, router=FakeRouter({"en": "packet", "pos": "noun"}), tts=tts)
+    client.post("/vocab/personal/preview", json={"word": "paquet"})
+    body = {"fr": "paquet", "en": "packet", "ipa": "WRONG"}
+    assert client.post("/vocab/personal", json=body).json()["card"]["ipa"] == "pakɛ"
+    other, _ = _client(uid=67, tts=tts)
+    body = {"fr": "inconnu", "en": "unknown", "ipa": "WRONG"}
+    assert other.post("/vocab/personal", json=body).json()["card"]["ipa"] == ""
+
+
+def test_pipe_separated_meanings_are_shown_as_a_list():
+    """QA 884."""
+    client, _ = _client(uid=68, router=FakeRouter({"en": "packet|package", "pos": "noun"}))
+    enr = client.post("/vocab/personal/preview", json={"word": "colisage"}).json()["enrichment"]
+    assert enr["en"] == "packet, package"

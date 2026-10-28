@@ -129,12 +129,12 @@ def test_resolve_gender_unresolved():
 def test_parse_enrichment_tolerates_fences_and_bad_pos():
     text = '```json\n{"en": "computer", "pos": "Noun", "gender": "m", "ipa": "/ɔʁdinatœʁ/"}\n```'
     d = E._parse_enrichment(text)
-    assert d == {"en": "computer", "pos": "noun", "gender": "m"}  # IPA comes from Piper
+    assert d == {"fr": "", "en": "computer", "pos": "noun", "gender": "m"}  # IPA comes from Piper
 
 
 def test_parse_enrichment_drops_junk():
     d = E._parse_enrichment('{"en": "x", "pos": "gibberish", "gender": "z", "ipa": 5}')
-    assert d == {"en": "x", "pos": "", "gender": ""}
+    assert d == {"fr": "", "en": "x", "pos": "", "gender": ""}
     assert E._parse_enrichment("not json") == {}
 
 
