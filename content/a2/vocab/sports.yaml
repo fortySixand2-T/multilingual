@@ -1,5 +1,6 @@
 - id: soccer
   fr: soccer
+  ipa: sɔkœʁ
   en: soccer
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: hockey
   fr: hockey
+  ipa: ɔkɛ
   en: hockey
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: basketball
   fr: basketball
+  ipa: baskɛtbol
   en: basketball
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: tennis
   fr: tennis
+  ipa: tenis
   en: tennis
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: natation
   fr: natation
+  ipa: natasjɔ̃
   en: swimming
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: course
   fr: course
+  ipa: kuʁs
   en: running, race
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: ski
   fr: ski
+  ipa: ski
   en: skiing
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: patin
   fr: patin
+  ipa: patɛ̃
   en: skate
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: patinoire
   fr: patinoire
+  ipa: patinwaʁ
   en: skating rink
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: match
   fr: match
+  ipa: matʃ
   en: game, match
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: entrainement
   fr: entraînement
+  ipa: ɑ̃tʁɛnəmɑ̃
   en: training
   gender: m
   pos: noun
@@ -77,22 +88,27 @@
 
 - id: entraineur
   fr: entraîneur
+  ipa: ɑ̃tʁɛnœʁ
   en: coach
   gender: mf
   fem: entraîneuse
+  fem_ipa: ɑ̃tʁɛnøz
   pos: noun
   tags: [sports]
 
 - id: joueur
   fr: joueur
+  ipa: ʒwœʁ
   en: player
   gender: mf
   fem: joueuse
+  fem_ipa: ʒwøz
   pos: noun
   tags: [sports]
 
 - id: ballon
   fr: ballon
+  ipa: balɔ̃
   en: ball
   gender: m
   pos: noun
@@ -100,6 +116,7 @@
 
 - id: raquette
   fr: raquette
+  ipa: ʁakɛt
   en: racket
   gender: f
   pos: noun
@@ -107,12 +124,14 @@
 
 - id: perdre
   fr: perdre
+  ipa: pɛʁdʁ
   en: to lose
   pos: verb
   tags: [sports]
 
 - id: echauffement
   fr: échauffement
+  ipa: eʃofmɑ̃
   en: warm-up
   gender: m
   pos: noun
@@ -120,6 +139,7 @@
 
 - id: gymnastique
   fr: gymnastique
+  ipa: ʒimnastik
   en: gymnastics
   gender: f
   pos: noun
@@ -127,6 +147,7 @@
 
 - id: marathon
   fr: marathon
+  ipa: maʁatɔ̃
   en: marathon
   gender: m
   pos: noun
@@ -134,6 +155,7 @@
 
 - id: terrain
   fr: terrain
+  ipa: tɛʁɛ̃
   en: field, court
   gender: m
   pos: noun

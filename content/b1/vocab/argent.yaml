@@ -1,5 +1,6 @@
 - id: budget
   fr: budget
+  ipa: bydʒɛ
   en: budget
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: depense
   fr: dépense
+  ipa: depɑ̃s
   en: expense
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: epargne
   fr: épargne
+  ipa: epaʁɲ
   en: savings
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: credit
   fr: crédit
+  ipa: kʁedi
   en: "credit, loan"
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: dette
   fr: dette
+  ipa: dɛt
   en: debt
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: facture
   fr: facture
+  ipa: faktyʁ
   en: "bill, invoice"
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: impot
   fr: impôt
+  ipa: ɛ̃po
   en: tax
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: revenu
   fr: revenu
+  ipa: ʁəvəny
   en: income
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: achat
   fr: achat
+  ipa: aʃa
   en: purchase
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: rabais
   fr: rabais
+  ipa: ʁabɛ
   en: "discount, rebate"
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: remboursement
   fr: remboursement
+  ipa: ʁɑ̃buʁsəmɑ̃
   en: "refund, repayment"
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: especes
   fr: espèces
+  ipa: ɛspɛs
   en: cash
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: pouvoir_achat
   fr: pouvoir d'achat
+  ipa: puvwaʁ daʃa
   en: "purchasing power"
   gender: m
   pos: noun
@@ -91,14 +104,17 @@
 
 - id: consommateur
   fr: consommateur
+  ipa: kɔ̃somatœʁ
   en: consumer
   gender: mf
   fem: consommatrice
+  fem_ipa: kɔ̃somatʁis
   pos: noun
   tags: [money]
 
 - id: prelevement
   fr: prélèvement
+  ipa: pʁelɛvəmɑ̃
   en: "direct debit"
   gender: m
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: virement
   fr: virement
+  ipa: viʁəmɑ̃
   en: "bank transfer"
   gender: m
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: decouvert
   fr: découvert
+  ipa: dekuvɛʁ
   en: overdraft
   gender: m
   pos: noun
@@ -120,6 +138,7 @@
 
 - id: emprunt
   fr: emprunt
+  ipa: ɑ̃pʁœ̃
   en: "loan, borrowing"
   gender: m
   pos: noun
@@ -127,6 +146,7 @@
 
 - id: compte_epargne
   fr: compte d'épargne
+  ipa: kɔ̃t depaʁɲ
   en: savings account
   gender: m
   pos: noun
@@ -134,6 +154,7 @@
 
 - id: interet
   fr: intérêt
+  ipa: ɛ̃teʁɛ
   en: interest
   gender: m
   pos: noun
@@ -141,6 +162,7 @@
 
 - id: taux_interet
   fr: taux d'intérêt
+  ipa: to dɛ̃teʁɛ
   en: interest rate
   gender: m
   pos: noun
@@ -148,6 +170,7 @@
 
 - id: pret_bancaire
   fr: prêt bancaire
+  ipa: pʁɛ bɑ̃kɛʁ
   en: bank loan
   gender: m
   pos: noun
@@ -155,6 +178,7 @@
 
 - id: faillite
   fr: faillite
+  ipa: fajit
   en: bankruptcy
   gender: f
   pos: noun
@@ -162,6 +186,7 @@
 
 - id: cote_credit
   fr: cote de crédit
+  ipa: kɔt də kʁedi
   en: credit score
   gender: f
   pos: noun
@@ -169,6 +194,7 @@
 
 - id: marge_credit
   fr: marge de crédit
+  ipa: maʁʒ də kʁedi
   en: line of credit
   gender: f
   pos: noun
@@ -176,6 +202,7 @@
 
 - id: placement
   fr: placement
+  ipa: plasəmɑ̃
   en: investment
   gender: m
   pos: noun
@@ -183,6 +210,7 @@
 
 - id: fonds
   fr: fonds
+  ipa: fɔ̃
   en: fund
   gender: m
   pos: noun
@@ -190,14 +218,17 @@
 
 - id: courtier
   fr: courtier
+  ipa: kuʁtje
   en: broker
   gender: mf
   fem: courtière
+  fem_ipa: kuʁtjɛʁ
   pos: noun
   tags: [money]
 
 - id: succession
   fr: succession
+  ipa: syksesjɔ̃
   en: estate, inheritance
   gender: f
   pos: noun
@@ -205,6 +236,7 @@
 
 - id: testament
   fr: testament
+  ipa: tɛstamɑ̃
   en: will
   gender: m
   pos: noun
@@ -212,6 +244,7 @@
 
 - id: don
   fr: don
+  ipa: dɔ̃
   en: donation
   gender: m
   pos: noun
@@ -219,6 +252,7 @@
 
 - id: declaration_revenus
   fr: déclaration de revenus
+  ipa: deklaʁasjɔ̃ də ʁəvəny
   en: tax return
   gender: f
   pos: noun
@@ -226,6 +260,7 @@
 
 - id: credit_impot
   fr: crédit d'impôt
+  ipa: kʁedi dɛ̃po
   en: tax credit
   gender: m
   pos: noun
@@ -233,6 +268,7 @@
 
 - id: frais_bancaires
   fr: frais bancaires
+  ipa: fʁɛ bɑ̃kɛʁ
   en: bank fees
   gender: m
   pos: noun
@@ -240,6 +276,7 @@
 
 - id: solde
   fr: solde
+  ipa: sɔld
   en: balance (of an account)
   gender: m
   pos: noun
@@ -247,6 +284,7 @@
 
 - id: devise
   fr: devise
+  ipa: dəviz
   en: currency
   gender: f
   pos: noun

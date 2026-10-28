@@ -1,5 +1,6 @@
 - id: voyage
   fr: voyage
+  ipa: vwajaʒ
   en: trip
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: vacances
   fr: vacances
+  ipa: vakɑ̃s
   en: holidays
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: valise
   fr: valise
+  ipa: valiz
   en: suitcase
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: hotel
   fr: hôtel
+  ipa: otɛl
   en: hotel
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: aeroport
   fr: aéroport
+  ipa: aeʁopɔʁ
   en: airport
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: passeport
   fr: passeport
+  ipa: paspɔʁ
   en: passport
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: plage
   fr: plage
+  ipa: plaʒ
   en: beach
   gender: f
   pos: noun
@@ -49,24 +56,28 @@
 
 - id: visiter
   fr: visiter
+  ipa: vizite
   en: "to visit"
   pos: verb
   tags: [travel]
 
 - id: reserver
   fr: réserver
+  ipa: ʁezɛʁve
   en: "to book"
   pos: verb
   tags: [travel]
 
 - id: partir
   fr: partir
+  ipa: paʁtiʁ
   en: "to leave"
   pos: verb
   tags: [travel]
 
 - id: frontiere
   fr: frontière
+  ipa: fʁɔ̃tjɛʁ
   en: border
   gender: f
   pos: noun
@@ -74,6 +85,7 @@
 
 - id: douane
   fr: douane
+  ipa: dwan
   en: customs
   gender: f
   pos: noun
@@ -81,6 +93,7 @@
 
 - id: souvenir
   fr: souvenir
+  ipa: suvəniʁ
   en: souvenir
   gender: m
   pos: noun
@@ -88,6 +101,7 @@
 
 - id: guide
   fr: guide
+  ipa: ɡid
   en: guide
   gender: m
   pos: noun
@@ -95,6 +109,7 @@
 
 - id: itineraire
   fr: itinéraire
+  ipa: itineʁɛʁ
   en: itinerary
   gender: m
   pos: noun
@@ -102,6 +117,7 @@
 
 - id: sejour
   fr: séjour
+  ipa: seʒuʁ
   en: stay
   gender: m
   pos: noun
@@ -109,6 +125,7 @@
 
 - id: depart
   fr: départ
+  ipa: depaʁ
   en: departure
   gender: m
   pos: noun
@@ -116,6 +133,7 @@
 
 - id: arrivee
   fr: arrivée
+  ipa: aʁive
   en: arrival
   gender: f
   pos: noun

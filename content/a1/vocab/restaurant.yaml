@@ -1,5 +1,6 @@
 - id: restaurant
   fr: restaurant
+  ipa: ʁɛstoʁɑ̃
   en: restaurant
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: menu
   fr: menu
+  ipa: məny
   en: menu
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: table
   fr: table
+  ipa: tabl
   en: table
   gender: f
   pos: noun
@@ -21,14 +24,17 @@
 
 - id: serveur
   fr: serveur
+  ipa: sɛʁvœʁ
   en: waiter
   gender: mf
   fem: serveuse
+  fem_ipa: sɛʁvøz
   pos: noun
   tags: [restaurant]
 
 - id: plat
   fr: plat
+  ipa: pla
   en: dish
   gender: m
   pos: noun
@@ -36,6 +42,7 @@
 
 - id: entree
   fr: entrée
+  ipa: ɑ̃tʁe
   en: starter
   gender: f
   pos: noun
@@ -43,6 +50,7 @@
 
 - id: dessert
   fr: dessert
+  ipa: desɛʁ
   en: dessert
   gender: m
   pos: noun
@@ -50,6 +58,7 @@
 
 - id: boisson
   fr: boisson
+  ipa: bwasɔ̃
   en: drink
   gender: f
   pos: noun
@@ -57,6 +66,7 @@
 
 - id: reservation
   fr: réservation
+  ipa: ʁezɛʁvasjɔ̃
   en: reservation
   gender: f
   pos: noun
@@ -64,12 +74,14 @@
 
 - id: commander
   fr: commander
+  ipa: komɑ̃de
   en: "to order"
   pos: verb
   tags: [restaurant]
 
 - id: fourchette
   fr: fourchette
+  ipa: fuʁʃɛt
   en: fork
   gender: f
   pos: noun
@@ -77,6 +89,7 @@
 
 - id: serviette
   fr: serviette
+  ipa: sɛʁvjɛt
   en: napkin
   gender: f
   pos: noun
@@ -84,12 +97,14 @@
 
 - id: plat_du_jour
   fr: plat du jour
+  ipa: pla dy ʒuʁ
   en: "dish of the day"
   pos: phrase
   tags: [restaurant]
 
 - id: nappe
   fr: nappe
+  ipa: nap
   en: tablecloth
   gender: f
   pos: noun
@@ -97,6 +112,7 @@
 
 - id: chef
   fr: chef
+  ipa: ʃɛf
   en: chef
   gender: m
   pos: noun
@@ -104,18 +120,21 @@
 
 - id: bon_appetit
   fr: bon appétit
+  ipa: bɔ̃n apeti
   en: "enjoy your meal"
   pos: phrase
   tags: [restaurant]
 
 - id: delicieux
   fr: délicieux
+  ipa: delisjø
   en: delicious
   pos: adjective
   tags: [restaurant]
 
 - id: vegetarien
   fr: végétarien
+  ipa: veʒetaʁjɛ̃
   en: vegetarian
   pos: adjective
   tags: [restaurant]

@@ -1,5 +1,6 @@
 - id: consultation
   fr: consultation
+  ipa: kɔ̃syltasjɔ̃
   en: appointment, consultation
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: diagnostic
   fr: diagnostic
+  ipa: djaɡnostik
   en: diagnosis
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: traitement
   fr: traitement
+  ipa: tʁɛtəmɑ̃
   en: treatment
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: chirurgie
   fr: chirurgie
+  ipa: ʃiʁyʁʒi
   en: surgery
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: analyse
   fr: analyse
+  ipa: analiz
   en: test, analysis
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: radiographie
   fr: radiographie
+  ipa: ʁadjoɡʁafi
   en: X-ray
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: specialiste
   fr: spécialiste
+  ipa: spesjalist
   en: specialist
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: generaliste
   fr: médecin généraliste
+  ipa: mɛdsɛ̃ ʒeneʁalist
   en: family doctor
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: assurance_maladie
   fr: assurance maladie
+  ipa: asyʁɑ̃s maladi
   en: health insurance
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: suivi
   fr: suivi
+  ipa: sɥivi
   en: follow-up
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: retablissement
   fr: rétablissement
+  ipa: ʁetablisəmɑ̃
   en: recovery
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: douleur
   fr: douleur
+  ipa: dulœʁ
   en: pain
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: allergie
   fr: allergie
+  ipa: alɛʁʒi
   en: allergy
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: antibiotique
   fr: antibiotique
+  ipa: ɑ̃tibjotik
   en: antibiotic
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: effets_secondaires
   fr: effets secondaires
+  ipa: efɛ səɡɔ̃dɛʁ
   en: side effects
   gender: m
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: hospitalisation
   fr: hospitalisation
+  ipa: ɔspitalizasjɔ̃
   en: hospital stay
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: convalescence
   fr: convalescence
+  ipa: kɔ̃valesɑ̃s
   en: convalescence
   gender: f
   pos: noun
@@ -119,18 +136,21 @@
 
 - id: guerir
   fr: guérir
+  ipa: ɡeʁiʁ
   en: to heal, to cure
   pos: verb
   tags: [health]
 
 - id: soigner
   fr: soigner
+  ipa: swaɲe
   en: to treat, to care for
   pos: verb
   tags: [health]
 
 - id: consulter
   fr: consulter
+  ipa: kɔ̃sylte
   en: to see a doctor
   pos: verb
   tags: [health]
@@ -138,6 +158,7 @@
 
 - id: carte_assurance
   fr: carte d'assurance maladie
+  ipa: kaʁt dasyʁɑ̃s maladi
   en: health insurance card
   gender: f
   pos: noun
@@ -145,6 +166,7 @@
 
 - id: salle_urgence
   fr: salle d'urgence
+  ipa: sal dyʁʒɑ̃s
   en: emergency room
   gender: f
   pos: noun
@@ -152,6 +174,7 @@
 
 - id: triage
   fr: triage
+  ipa: tʁijaʒ
   en: triage
   gender: m
   pos: noun
@@ -159,6 +182,7 @@
 
 - id: civiere
   fr: civière
+  ipa: sivjɛʁ
   en: stretcher, gurney
   gender: f
   pos: noun
@@ -166,14 +190,17 @@
 
 - id: ambulancier
   fr: ambulancier
+  ipa: ɑ̃bylɑ̃sje
   en: paramedic
   gender: mf
   fem: ambulancière
+  fem_ipa: ɑ̃bylɑ̃sjɛʁ
   pos: noun
   tags: [health]
 
 - id: prise_sang
   fr: prise de sang
+  ipa: pʁiz də sɑ̃
   en: blood test
   gender: f
   pos: noun
@@ -181,6 +208,7 @@
 
 - id: vaccination
   fr: vaccination
+  ipa: vaksinasjɔ̃
   en: vaccination
   gender: f
   pos: noun
@@ -188,30 +216,35 @@
 
 - id: aigu
   fr: aigu
+  ipa: eɡy
   en: acute
   pos: adjective
   tags: [health]
 
 - id: benin
   fr: bénin
+  ipa: benɛ̃
   en: benign, mild
   pos: adjective
   tags: [health]
 
 - id: grave
   fr: grave
+  ipa: ɡʁav
   en: serious
   pos: adjective
   tags: [health]
 
 - id: contagieux
   fr: contagieux
+  ipa: kɔ̃taʒjø
   en: contagious
   pos: adjective
   tags: [health]
 
 - id: immunite
   fr: immunité
+  ipa: imynite
   en: immunity
   gender: f
   pos: noun
@@ -219,6 +252,7 @@
 
 - id: posologie
   fr: posologie
+  ipa: pozoloʒi
   en: dosage
   gender: f
   pos: noun
@@ -226,6 +260,7 @@
 
 - id: physiotherapie
   fr: physiothérapie
+  ipa: fizjoteʁapi
   en: physiotherapy
   gender: f
   pos: noun
@@ -233,6 +268,7 @@
 
 - id: readaptation
   fr: réadaptation
+  ipa: ʁeadaptasjɔ̃
   en: rehabilitation
   gender: f
   pos: noun

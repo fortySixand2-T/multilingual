@@ -81,6 +81,8 @@ export default function Review() {
           </div>
         )}
         <div style={{ fontSize: 34, fontWeight: 800 }}>{card.vocab?.fr ?? card.card_key}</div>
+        {/* checked IPA ships with course words; personal cards' Piper-only IPA waits (QA 883) */}
+        {card.vocab?.ipa && !card.vocab.personal && <div className="muted vocab-ipa">/{card.vocab.ipa}/</div>}
         {vocabAudioUrl ? (
           <AudioButton audioUrl={vocabAudioUrl} label="🔊" slow />
         ) : (

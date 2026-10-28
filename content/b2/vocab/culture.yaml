@@ -1,5 +1,6 @@
 - id: patrimoine
   fr: patrimoine
+  ipa: patʁimwan
   en: heritage
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: oeuvre
   fr: œuvre
+  ipa: œvʁ
   en: "work (of art)"
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: artiste
   fr: artiste
+  ipa: aʁtist
   en: artist
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: spectacle
   fr: spectacle
+  ipa: spɛktakl
   en: "show, performance"
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: exposition
   fr: exposition
+  ipa: ɛkspozisjɔ̃
   en: exhibition
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: creation
   fr: création
+  ipa: kʁeasjɔ̃
   en: creation
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: tradition
   fr: tradition
+  ipa: tʁadisjɔ̃
   en: tradition
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: identite_culturelle
   fr: identité culturelle
+  ipa: idɑ̃tite kyltyʁɛl
   en: "cultural identity"
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: heritage
   fr: héritage
+  ipa: eʁitaʒ
   en: "legacy, inheritance"
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: chef_doeuvre
   fr: chef-d'œuvre
+  ipa: ʃɛdœvʁ
   en: masterpiece
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: sculpture
   fr: sculpture
+  ipa: skyltyʁ
   en: sculpture
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: litterature
   fr: littérature
+  ipa: liteʁatyʁ
   en: literature
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: peinture
   fr: peinture
+  ipa: pɛ̃tyʁ
   en: painting
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: festival
   fr: festival
+  ipa: fɛstival
   en: festival
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: representation
   fr: représentation
+  ipa: ʁəpʁezɑ̃tasjɔ̃
   en: "performance, representation"
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: mecenat
   fr: mécénat
+  ipa: mesena
   en: "patronage, sponsorship"
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: conservation
   fr: conservation
+  ipa: kɔ̃sɛʁvasjɔ̃
   en: "conservation, preservation"
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: diffusion
   fr: diffusion
+  ipa: difyzjɔ̃
   en: "broadcasting, dissemination"
   gender: f
   pos: noun

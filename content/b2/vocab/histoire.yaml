@@ -1,5 +1,6 @@
 - id: colonisation
   fr: colonisation
+  ipa: kolonizasjɔ̃
   en: colonization
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: decolonisation
   fr: décolonisation
+  ipa: dekolonizasjɔ̃
   en: decolonization
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: revolution
   fr: révolution
+  ipa: ʁevolysjɔ̃
   en: revolution
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: conquete
   fr: conquête
+  ipa: kɔ̃kɛt
   en: conquest
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: traite
   fr: traité
+  ipa: tʁete
   en: treaty
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: referendum
   fr: référendum
+  ipa: ʁefeʁɛ̃dɔm
   en: referendum
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: monarchie
   fr: monarchie
+  ipa: monaʁʃi
   en: monarchy
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: republique
   fr: république
+  ipa: ʁepyblik
   en: republic
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: empire
   fr: empire
+  ipa: ɑ̃piʁ
   en: empire
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: siecle
   fr: siècle
+  ipa: sjɛkl
   en: century
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: epoque
   fr: époque
+  ipa: epɔk
   en: era
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: vestige
   fr: vestige
+  ipa: vɛstiʒ
   en: remains, relic
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: archive
   fr: archives
+  ipa: aʁʃiv
   en: archives
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: commemoration
   fr: commémoration
+  ipa: komemoʁasjɔ̃
   en: commemoration
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: memoire_collective
   fr: mémoire collective
+  ipa: memwaʁ kolɛktiv
   en: collective memory
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: ancetre
   fr: ancêtre
+  ipa: ɑ̃sɛtʁ
   en: ancestor
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: chronologie
   fr: chronologie
+  ipa: kʁonoloʒi
   en: timeline
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: recit_national
   fr: récit national
+  ipa: ʁesi nasjonal
   en: national narrative
   gender: m
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: revisionnisme
   fr: révisionnisme
+  ipa: ʁevizjonism
   en: revisionism
   gender: m
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: autochtone
   fr: autochtone
+  ipa: otoktɔn
   en: Indigenous person
   gender: m
   pos: noun

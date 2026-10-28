@@ -1,5 +1,6 @@
 - id: actionnaire
   fr: actionnaire
+  ipa: aksjonɛʁ
   en: shareholder
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: gouvernance
   fr: gouvernance
+  ipa: ɡuvɛʁnɑ̃s
   en: governance
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: strategie
   fr: stratégie
+  ipa: stʁateʒi
   en: strategy
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: fusion
   fr: fusion
+  ipa: fyzjɔ̃
   en: merger
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: acquisition
   fr: acquisition
+  ipa: akizisjɔ̃
   en: acquisition
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: filiale
   fr: filiale
+  ipa: filjal
   en: subsidiary
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: sous_traitance
   fr: sous-traitance
+  ipa: sutʁɛtɑ̃s
   en: outsourcing
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: chaine_approvisionnement
   fr: chaîne d'approvisionnement
+  ipa: ʃɛn dapʁovizjɔnəmɑ̃
   en: supply chain
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: marge
   fr: marge
+  ipa: maʁʒ
   en: margin
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: tresorerie
   fr: trésorerie
+  ipa: tʁezɔʁəʁi
   en: cash flow
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: levee_fonds
   fr: levée de fonds
+  ipa: ləve də fɔ̃
   en: fundraising round
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: jeune_pousse
   fr: jeune pousse
+  ipa: ʒœn pus
   en: start-up
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: actif
   fr: actif
+  ipa: aktif
   en: asset
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: passif
   fr: passif
+  ipa: pasif
   en: liability
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: audit
   fr: audit
+  ipa: odit
   en: audit
   gender: m
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: conformite
   fr: conformité
+  ipa: kɔ̃fɔʁmite
   en: compliance
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: restructuration
   fr: restructuration
+  ipa: ʁəstʁyktyʁasjɔ̃
   en: restructuring
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: expansion
   fr: expansion
+  ipa: ɛkspɑ̃sjɔ̃
   en: expansion
   gender: f
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: part_marche
   fr: part de marché
+  ipa: paʁ də maʁʃe
   en: market share
   gender: f
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: positionnement
   fr: positionnement
+  ipa: pozisjɔnəmɑ̃
   en: positioning
   gender: m
   pos: noun

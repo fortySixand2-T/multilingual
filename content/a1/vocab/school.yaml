@@ -1,5 +1,6 @@
 - id: cahier
   fr: cahier
+  ipa: kaje
   en: notebook
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: stylo
   fr: stylo
+  ipa: stilo
   en: pen
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: crayon
   fr: crayon
+  ipa: kʁɛjɔ̃
   en: pencil
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: efface
   fr: efface
+  ipa: efas
   en: eraser (Québec)
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: regle
   fr: règle
+  ipa: ʁɛɡl
   en: ruler
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: trousse
   fr: trousse
+  ipa: tʁus
   en: pencil case
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: sac_a_dos
   fr: sac à dos
+  ipa: sak a do
   en: backpack
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: feuille
   fr: feuille
+  ipa: fœj
   en: sheet (of paper)
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: papier
   fr: papier
+  ipa: papje
   en: paper
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: tableau
   fr: tableau
+  ipa: tablo
   en: board
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: classe
   fr: classe
+  ipa: klas
   en: class, classroom
   gender: f
   pos: noun
@@ -77,22 +88,27 @@
 
 - id: professeur
   fr: professeur
+  ipa: pʁofɛsœʁ
   en: teacher
   gender: mf
   fem: professeure
+  fem_ipa: pʁɔfɛsœʁ
   pos: noun
   tags: [school]
 
 - id: etudiant
   fr: étudiant
+  ipa: etydjɑ̃
   en: student
   gender: mf
   fem: étudiante
+  fem_ipa: etydjɑ̃t
   pos: noun
   tags: [school]
 
 - id: devoirs
   fr: devoirs
+  ipa: dəvwaʁ
   en: homework
   gender: m
   pos: noun
@@ -100,6 +116,7 @@
 
 - id: lecon
   fr: leçon
+  ipa: ləsɔ̃
   en: lesson
   gender: f
   pos: noun
@@ -107,6 +124,7 @@
 
 - id: mot
   fr: mot
+  ipa: mo
   en: word
   gender: m
   pos: noun
@@ -114,6 +132,7 @@
 
 - id: dictionnaire
   fr: dictionnaire
+  ipa: diksjonɛʁ
   en: dictionary
   gender: m
   pos: noun
@@ -121,6 +140,7 @@
 
 - id: ciseaux
   fr: ciseaux
+  ipa: sizo
   en: scissors
   gender: m
   pos: noun
@@ -128,6 +148,7 @@
 
 - id: colle
   fr: colle
+  ipa: kɔl
   en: glue
   gender: f
   pos: noun
@@ -135,6 +156,7 @@
 
 - id: recreation
   fr: récréation
+  ipa: ʁekʁeasjɔ̃
   en: recess, break
   gender: f
   pos: noun

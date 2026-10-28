@@ -1,5 +1,6 @@
 - id: democratie
   fr: démocratie
+  ipa: demokʁasi
   en: democracy
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: justice
   fr: justice
+  ipa: ʒystis
   en: justice
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: loi
   fr: loi
+  ipa: lwa
   en: law
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: droit
   fr: droit
+  ipa: dʁwa
   en: "right, (a) law"
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: tribunal
   fr: tribunal
+  ipa: tʁibynal
   en: court
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: egalite
   fr: égalité
+  ipa: eɡalite
   en: equality
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: liberte
   fr: liberté
+  ipa: libɛʁte
   en: freedom
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: election
   fr: élection
+  ipa: elɛksjɔ̃
   en: election
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: scrutin
   fr: scrutin
+  ipa: skʁytɛ̃
   en: "ballot, vote"
   gender: m
   pos: noun
@@ -63,14 +72,17 @@
 
 - id: depute
   fr: député
+  ipa: depyte
   en: "member of parliament"
   gender: mf
   fem: députée
+  fem_ipa: depyte
   pos: noun
   tags: [politique]
 
 - id: mandat
   fr: mandat
+  ipa: mɑ̃da
   en: "mandate, term of office"
   gender: m
   pos: noun
@@ -78,6 +90,7 @@
 
 - id: corruption
   fr: corruption
+  ipa: koʁypsjɔ̃
   en: corruption
   gender: f
   pos: noun
@@ -85,6 +98,7 @@
 
 - id: reforme
   fr: réforme
+  ipa: ʁefɔʁm
   en: reform
   gender: f
   pos: noun
@@ -92,6 +106,7 @@
 
 - id: pouvoir
   fr: pouvoir
+  ipa: puvwaʁ
   en: power
   gender: m
   pos: noun
@@ -99,6 +114,7 @@
 
 - id: gouvernement
   fr: gouvernement
+  ipa: ɡuvɛʁnəmɑ̃
   en: government
   gender: m
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: constitution
   fr: constitution
+  ipa: kɔ̃stitysjɔ̃
   en: constitution
   gender: f
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: abstention
   fr: abstention
+  ipa: apstɑ̃sjɔ̃
   en: abstention
   gender: f
   pos: noun
@@ -120,6 +138,7 @@
 
 - id: souverainete
   fr: souveraineté
+  ipa: suvəʁɛnəte
   en: sovereignty
   gender: f
   pos: noun
@@ -127,6 +146,7 @@
 
 - id: suffrage
   fr: suffrage universel
+  ipa: syfʁaʒ ynivɛʁsɛl
   en: universal suffrage
   gender: m
   pos: noun
@@ -134,6 +154,7 @@
 
 - id: circonscription
   fr: circonscription
+  ipa: siʁkɔ̃skʁipsjɔ̃
   en: riding, constituency
   gender: f
   pos: noun
@@ -141,14 +162,17 @@
 
 - id: candidat
   fr: candidat
+  ipa: kɑ̃dida
   en: candidate
   gender: mf
   fem: candidate
+  fem_ipa: kɑ̃didat
   pos: noun
   tags: [politique]
 
 - id: campagne_electorale
   fr: campagne électorale
+  ipa: kɑ̃paɲ elɛktoʁal
   en: election campaign
   gender: f
   pos: noun
@@ -156,6 +180,7 @@
 
 - id: sondage
   fr: sondage
+  ipa: sɔ̃daʒ
   en: poll
   gender: m
   pos: noun
@@ -163,6 +188,7 @@
 
 - id: coalition
   fr: coalition
+  ipa: koalisjɔ̃
   en: coalition
   gender: f
   pos: noun
@@ -170,6 +196,7 @@
 
 - id: opposition
   fr: opposition
+  ipa: opozisjɔ̃
   en: the opposition
   gender: f
   pos: noun
@@ -177,6 +204,7 @@
 
 - id: majorite
   fr: majorité
+  ipa: maʒoʁite
   en: majority
   gender: f
   pos: noun
@@ -184,6 +212,7 @@
 
 - id: minorite
   fr: minorité
+  ipa: minoʁite
   en: minority
   gender: f
   pos: noun
@@ -191,6 +220,7 @@
 
 - id: laicite
   fr: laïcité
+  ipa: laisite
   en: secularism
   gender: f
   pos: noun
@@ -198,6 +228,7 @@
 
 - id: federalisme
   fr: fédéralisme
+  ipa: fedeʁalism
   en: federalism
   gender: m
   pos: noun
@@ -205,6 +236,7 @@
 
 - id: province
   fr: province
+  ipa: pʁovɛ̃s
   en: province
   gender: f
   pos: noun
@@ -212,6 +244,7 @@
 
 - id: assemblee_nationale
   fr: Assemblée nationale
+  ipa: asɑ̃ble nasjonal
   en: National Assembly (Québec)
   gender: f
   pos: noun
@@ -219,6 +252,7 @@
 
 - id: premier_ministre
   fr: premier ministre
+  ipa: pʁømje ministʁ
   en: premier, prime minister
   gender: m
   pos: noun
@@ -226,6 +260,7 @@
 
 - id: ministre
   fr: ministre
+  ipa: ministʁ
   en: minister
   gender: m
   pos: noun
@@ -233,6 +268,7 @@
 
 - id: populisme
   fr: populisme
+  ipa: popylism
   en: populism
   gender: m
   pos: noun
@@ -240,6 +276,7 @@
 
 - id: extremisme
   fr: extrémisme
+  ipa: ɛkstʁemism
   en: extremism
   gender: m
   pos: noun

@@ -1,5 +1,6 @@
 - id: jurisprudence
   fr: jurisprudence
+  ipa: ʒyʁispʁydɑ̃s
   en: case law
   gender: f
   pos: noun
@@ -7,14 +8,17 @@
 
 - id: magistrat
   fr: magistrat
+  ipa: maʒistʁa
   en: judge, magistrate
   gender: mf
   fem: magistrate
+  fem_ipa: maʒistʁat
   pos: noun
   tags: [justice]
 
 - id: proces
   fr: procès
+  ipa: pʁosɛ
   en: trial
   gender: m
   pos: noun
@@ -22,6 +26,7 @@
 
 - id: verdict
   fr: verdict
+  ipa: vɛʁdikt
   en: verdict
   gender: m
   pos: noun
@@ -29,6 +34,7 @@
 
 - id: peine
   fr: peine
+  ipa: pɛn
   en: sentence, penalty
   gender: f
   pos: noun
@@ -36,6 +42,7 @@
 
 - id: presomption_innocence
   fr: présomption d'innocence
+  ipa: pʁezɔ̃psjɔ̃ dinosɑ̃s
   en: presumption of innocence
   gender: f
   pos: noun
@@ -43,6 +50,7 @@
 
 - id: plaidoyer
   fr: plaidoyer
+  ipa: plɛdwaje
   en: plea, closing argument
   gender: m
   pos: noun
@@ -50,6 +58,7 @@
 
 - id: recidive
   fr: récidive
+  ipa: ʁesidiv
   en: reoffending
   gender: f
   pos: noun
@@ -57,6 +66,7 @@
 
 - id: impunite
   fr: impunité
+  ipa: ɛ̃pynite
   en: impunity
   gender: f
   pos: noun
@@ -64,6 +74,7 @@
 
 - id: sanction
   fr: sanction
+  ipa: sɑ̃ksjɔ̃
   en: penalty, sanction
   gender: f
   pos: noun
@@ -71,6 +82,7 @@
 
 - id: indemnisation
   fr: indemnisation
+  ipa: ɛ̃dɛmnizasjɔ̃
   en: compensation
   gender: f
   pos: noun
@@ -78,6 +90,7 @@
 
 - id: detention
   fr: détention
+  ipa: detɑ̃sjɔ̃
   en: detention
   gender: f
   pos: noun
@@ -85,6 +98,7 @@
 
 - id: reinsertion
   fr: réinsertion
+  ipa: ʁeɛ̃sɛʁsjɔ̃
   en: reintegration
   gender: f
   pos: noun
@@ -92,6 +106,7 @@
 
 - id: prescription
   fr: prescription
+  ipa: pʁɛskʁipsjɔ̃
   en: statute of limitations
   gender: f
   pos: noun
@@ -99,6 +114,7 @@
 
 - id: pourvoi
   fr: pourvoi en cassation
+  ipa: puʁvwa ɑ̃ kasasjɔ̃
   en: appeal to a higher court
   gender: m
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: equite
   fr: équité
+  ipa: ekite
   en: fairness, equity
   gender: f
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: legitimite
   fr: légitimité
+  ipa: leʒitimite
   en: legitimacy
   gender: f
   pos: noun
@@ -120,6 +138,7 @@
 
 - id: infraction
   fr: infraction
+  ipa: ɛ̃fʁaksjɔ̃
   en: offence
   gender: f
   pos: noun
@@ -127,6 +146,7 @@
 
 - id: delit
   fr: délit
+  ipa: deli
   en: misdemeanour
   gender: m
   pos: noun
@@ -134,6 +154,7 @@
 
 - id: poursuite
   fr: poursuite judiciaire
+  ipa: puʁsɥit ʒydisjɛʁ
   en: prosecution, lawsuit
   gender: f
   pos: noun

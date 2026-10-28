@@ -152,6 +152,10 @@ class Vocab(BaseModel):
     # pronunciation clip follows the convention `<level>/audio/<id>_f.mp3`.
     gender: Literal["", "m", "f", "mf"] = ""
     fem: str = ""
+    # Checked IPA for `fr` / `fem`, built by scripts/build_vocab_ipa.py (Lexique383 +
+    # Piper, disagreements hand-reviewed) — never hand-typed per card.
+    ipa: str = ""
+    fem_ipa: str = ""
 
     @model_validator(mode="after")
     def _fem_matches_gender(self) -> "Vocab":
@@ -159,6 +163,8 @@ class Vocab(BaseModel):
             raise ValueError(f"{self.id}: gender 'mf' requires a `fem` (feminine) form")
         if self.gender != "mf" and self.fem:
             raise ValueError(f"{self.id}: `fem` is only valid for gender 'mf'")
+        if self.fem_ipa and not self.fem:
+            raise ValueError(f"{self.id}: `fem_ipa` needs a `fem` form")
         return self
 
 

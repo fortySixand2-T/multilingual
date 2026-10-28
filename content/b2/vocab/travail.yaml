@@ -1,5 +1,6 @@
 - id: entrepreneuriat
   fr: entrepreneuriat
+  ipa: ɑ̃tʁəpʁənøʁja
   en: entrepreneurship
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: management
   fr: management
+  ipa: manaʒəmɑ̃
   en: management
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: recrutement
   fr: recrutement
+  ipa: ʁəkʁytəmɑ̃
   en: recruitment
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: qualification
   fr: qualification
+  ipa: kalifikasjɔ̃
   en: qualification
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: penibilite
   fr: pénibilité
+  ipa: penibilite
   en: "hardship (of work)"
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: harcelement
   fr: harcèlement
+  ipa: aʁsɛləmɑ̃
   en: harassment
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: reconnaissance
   fr: reconnaissance
+  ipa: ʁəkonɛsɑ̃s
   en: recognition
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: flexibilite
   fr: flexibilité
+  ipa: flɛksibilite
   en: flexibility
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: competitivite
   fr: compétitivité
+  ipa: kɔ̃petitivite
   en: competitiveness
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: prime
   fr: prime
+  ipa: pʁim
   en: "bonus"
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: conge
   fr: congé
+  ipa: kɔ̃ʒe
   en: "leave, time off"
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: penurie
   fr: pénurie
+  ipa: penyʁi
   en: "shortage"
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: requalification
   fr: requalification
+  ipa: ʁəkalifikasjɔ̃
   en: "reskilling"
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: absenteisme
   fr: absentéisme
+  ipa: apsɑ̃teism
   en: absenteeism
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: rendement
   fr: rendement
+  ipa: ʁɑ̃dəmɑ̃
   en: "output, yield"
   gender: m
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: cadre
   fr: cadre
+  ipa: kadʁ
   en: "executive, manager"
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: mobilite_professionnelle
   fr: mobilité professionnelle
+  ipa: mobilite pʁofɛsjonɛl
   en: "job mobility"
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: syndicalisme
   fr: syndicalisme
+  ipa: sɛ̃dikalism
   en: "trade unionism"
   gender: m
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: sous_effectif
   fr: sous-effectif
+  ipa: suzefɛktif
   en: understaffing
   gender: m
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: surcharge
   fr: surcharge de travail
+  ipa: syʁʃaʁʒ də tʁavaj
   en: work overload
   gender: f
   pos: noun
@@ -140,6 +160,7 @@
 
 - id: conciliation_travail_famille
   fr: conciliation travail-famille
+  ipa: kɔ̃siljasjɔ̃ tʁavajfamij
   en: work-life balance (Québec)
   gender: f
   pos: noun
@@ -147,6 +168,7 @@
 
 - id: equite_salariale
   fr: équité salariale
+  ipa: ekite salaʁjal
   en: pay equity
   gender: f
   pos: noun
@@ -154,6 +176,7 @@
 
 - id: plafond_verre
   fr: plafond de verre
+  ipa: plafɔ̃ də vɛʁ
   en: glass ceiling
   gender: m
   pos: noun
@@ -161,6 +184,7 @@
 
 - id: precarisation
   fr: précarisation
+  ipa: pʁekaʁizasjɔ̃
   en: growing job insecurity
   gender: f
   pos: noun
@@ -168,6 +192,7 @@
 
 - id: uberisation
   fr: ubérisation
+  ipa: ybeʁizasjɔ̃
   en: gig-economy shift
   gender: f
   pos: noun
@@ -175,6 +200,7 @@
 
 - id: sous_traitant
   fr: sous-traitant
+  ipa: sutʁɛtɑ̃
   en: subcontractor
   gender: m
   pos: noun
@@ -182,6 +208,7 @@
 
 - id: polyvalence
   fr: polyvalence
+  ipa: polivalɑ̃s
   en: versatility
   gender: f
   pos: noun
@@ -189,6 +216,7 @@
 
 - id: fidelisation
   fr: fidélisation
+  ipa: fidelizasjɔ̃
   en: staff retention
   gender: f
   pos: noun
@@ -196,6 +224,7 @@
 
 - id: roulement_personnel
   fr: roulement de personnel
+  ipa: ʁuləmɑ̃ də pɛʁsonɛl
   en: staff turnover
   gender: m
   pos: noun
@@ -203,6 +232,7 @@
 
 - id: climat_travail
   fr: climat de travail
+  ipa: klima də tʁavaj
   en: workplace atmosphere
   gender: m
   pos: noun
@@ -210,6 +240,7 @@
 
 - id: medecine_travail
   fr: médecine du travail
+  ipa: mɛdsin dy tʁavaj
   en: occupational health
   gender: f
   pos: noun
@@ -217,6 +248,7 @@
 
 - id: accident_travail
   fr: accident du travail
+  ipa: aksidɑ̃ dy tʁavaj
   en: workplace accident
   gender: m
   pos: noun
@@ -224,6 +256,7 @@
 
 - id: grief
   fr: grief
+  ipa: ɡʁijɛf
   en: grievance
   gender: m
   pos: noun
@@ -231,6 +264,7 @@
 
 - id: negociation_collective
   fr: négociation collective
+  ipa: neɡosjasjɔ̃ kolɛktiv
   en: collective bargaining
   gender: f
   pos: noun
@@ -238,6 +272,7 @@
 
 - id: greve
   fr: grève
+  ipa: ɡʁɛv
   en: strike
   gender: f
   pos: noun

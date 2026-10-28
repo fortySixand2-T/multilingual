@@ -1,5 +1,6 @@
 - id: travail
   fr: travail
+  ipa: tʁavaj
   en: work
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: bureau
   fr: bureau
+  ipa: byʁo
   en: office
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: collegue
   fr: collègue
+  ipa: kolɛɡ
   en: colleague
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: reunion
   fr: réunion
+  ipa: ʁeynjɔ̃
   en: meeting
   gender: f
   pos: noun
@@ -28,14 +32,17 @@
 
 - id: patron
   fr: patron
+  ipa: patʁɔ̃
   en: boss
   gender: mf
   fem: patronne
+  fem_ipa: patʁɔn
   pos: noun
   tags: [work]
 
 - id: entreprise
   fr: entreprise
+  ipa: ɑ̃tʁəpʁiz
   en: company
   gender: f
   pos: noun
@@ -43,6 +50,7 @@
 
 - id: salaire
   fr: salaire
+  ipa: salɛʁ
   en: salary
   gender: m
   pos: noun
@@ -50,6 +58,7 @@
 
 - id: emploi
   fr: emploi
+  ipa: ɑ̃plwa
   en: job
   gender: m
   pos: noun
@@ -57,18 +66,21 @@
 
 - id: chercher_travail
   fr: chercher un travail
+  ipa: ʃɛʁʃe œ̃ tʁavaj
   en: "to look for a job"
   pos: phrase
   tags: [work]
 
 - id: gagner
   fr: gagner
+  ipa: ɡaɲe
   en: "to earn"
   pos: verb
   tags: [work]
 
 - id: entretien
   fr: entretien
+  ipa: ɑ̃tʁətjɛ̃
   en: "job interview"
   gender: m
   pos: noun
@@ -76,6 +88,7 @@
 
 - id: contrat
   fr: contrat
+  ipa: kɔ̃tʁa
   en: contract
   gender: m
   pos: noun
@@ -83,6 +96,7 @@
 
 - id: experience
   fr: expérience
+  ipa: ɛkspeʁjɑ̃s
   en: experience
   gender: f
   pos: noun
@@ -90,6 +104,7 @@
 
 - id: competence
   fr: compétence
+  ipa: kɔ̃petɑ̃s
   en: skill
   gender: f
   pos: noun
@@ -97,6 +112,7 @@
 
 - id: carriere
   fr: carrière
+  ipa: kaʁjɛʁ
   en: career
   gender: f
   pos: noun
@@ -104,6 +120,7 @@
 
 - id: diplome
   fr: diplôme
+  ipa: diplom
   en: "degree / diploma"
   gender: m
   pos: noun
@@ -111,6 +128,7 @@
 
 - id: stage
   fr: stage
+  ipa: staʒ
   en: internship
   gender: m
   pos: noun
@@ -118,6 +136,7 @@
 
 - id: chomage
   fr: chômage
+  ipa: ʃomaʒ
   en: unemployment
   gender: m
   pos: noun
@@ -125,6 +144,7 @@
 
 - id: cv
   fr: CV
+  ipa: seve
   en: résumé, CV
   gender: m
   pos: noun
@@ -132,22 +152,27 @@
 
 - id: employe
   fr: employé
+  ipa: ɑ̃plwaje
   en: employee
   gender: mf
   fem: employée
+  fem_ipa: ɑ̃plwaje
   pos: noun
   tags: [work]
 
 - id: employeur
   fr: employeur
+  ipa: ɑ̃plwajœʁ
   en: employer
   gender: mf
   fem: employeuse
+  fem_ipa: ɑ̃plwajøz
   pos: noun
   tags: [work]
 
 - id: tache
   fr: tâche
+  ipa: taʃ
   en: task
   gender: f
   pos: noun
@@ -155,6 +180,7 @@
 
 - id: pause
   fr: pause
+  ipa: poz
   en: break
   gender: f
   pos: noun
@@ -162,6 +188,7 @@
 
 - id: conge_maladie
   fr: congé de maladie
+  ipa: kɔ̃ʒe də maladi
   en: sick leave
   gender: m
   pos: noun
@@ -169,6 +196,7 @@
 
 - id: salaire_minimum
   fr: salaire minimum
+  ipa: salɛʁ minimɔm
   en: minimum wage
   gender: m
   pos: noun
@@ -176,6 +204,7 @@
 
 - id: paie
   fr: paie
+  ipa: pɛ
   en: pay, paycheque
   gender: f
   pos: noun
@@ -183,6 +212,7 @@
 
 - id: temps_plein
   fr: temps plein
+  ipa: tɑ̃ plɛ̃
   en: full time
   gender: m
   pos: noun
@@ -190,6 +220,7 @@
 
 - id: temps_partiel
   fr: temps partiel
+  ipa: tɑ̃ paʁsjɛl
   en: part time
   gender: m
   pos: noun
@@ -197,6 +228,7 @@
 
 - id: quart_travail
   fr: quart de travail
+  ipa: kaʁ də tʁavaj
   en: work shift (Québec)
   gender: m
   pos: noun
@@ -204,24 +236,28 @@
 
 - id: postuler
   fr: postuler
+  ipa: pɔstyle
   en: to apply (for a job)
   pos: verb
   tags: [work]
 
 - id: embaucher
   fr: embaucher
+  ipa: ɑ̃boʃe
   en: to hire
   pos: verb
   tags: [work]
 
 - id: travailler
   fr: travailler
+  ipa: tʁavaje
   en: to work
   pos: verb
   tags: [work]
 
 - id: chef_equipe
   fr: chef d'équipe
+  ipa: ʃɛf dekip
   en: team lead
   gender: m
   pos: noun
@@ -229,6 +265,7 @@
 
 - id: securite_travail
   fr: sécurité au travail
+  ipa: sekyʁite o tʁavaj
   en: workplace safety
   gender: f
   pos: noun
@@ -236,6 +273,7 @@
 
 - id: outil
   fr: outil
+  ipa: uti
   en: tool
   gender: m
   pos: noun

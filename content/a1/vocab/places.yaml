@@ -1,5 +1,6 @@
 - id: cinema
   fr: cinéma
+  ipa: sinema
   en: movie theatre
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: theatre
   fr: théâtre
+  ipa: teatʁ
   en: theatre
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: piscine
   fr: piscine
+  ipa: pisin
   en: swimming pool
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: stade
   fr: stade
+  ipa: stad
   en: stadium
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: zoo
   fr: zoo
+  ipa: zo
   en: zoo
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: librairie
   fr: librairie
+  ipa: libʁeʁi
   en: bookshop
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: boucherie
   fr: boucherie
+  ipa: buʃəʁi
   en: butcher's shop
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: patisserie
   fr: pâtisserie
+  ipa: patisəʁi
   en: pastry shop
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: salon_de_coiffure
   fr: salon de coiffure
+  ipa: salɔ̃ də kwafyʁ
   en: hair salon
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: garderie
   fr: garderie
+  ipa: ɡaʁdəʁi
   en: daycare
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: universite
   fr: université
+  ipa: ynivɛʁsite
   en: university
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: epicerie
   fr: épicerie
+  ipa: episəʁi
   en: grocery store
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: centre_commercial
   fr: centre commercial
+  ipa: sɑ̃tʁ komɛʁsjal
   en: shopping mall
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: station_service
   fr: station-service
+  ipa: stasjɔ̃sɛʁvis
   en: gas station
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: clinique
   fr: clinique
+  ipa: klinik
   en: clinic
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: camping
   fr: camping
+  ipa: kɑ̃piŋ
   en: campground
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: gymnase
   fr: gymnase
+  ipa: ʒimnaz
   en: gym
   gender: m
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: depanneur
   fr: dépanneur
+  ipa: depanœʁ
   en: corner store (Québec)
   gender: m
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: buanderie
   fr: buanderie
+  ipa: bɥɑ̃dəʁi
   en: laundromat
   gender: f
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: terrain_de_jeu
   fr: terrain de jeu
+  ipa: tɛʁɛ̃ də ʒø
   en: playground
   gender: m
   pos: noun

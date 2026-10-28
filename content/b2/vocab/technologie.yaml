@@ -1,5 +1,6 @@
 - id: apprentissage_automatique
   fr: apprentissage automatique
+  ipa: apʁɑ̃tisaʒ otomatik
   en: machine learning
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: biais
   fr: biais
+  ipa: bjɛ
   en: bias
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: anonymisation
   fr: anonymisation
+  ipa: anonimizasjɔ̃
   en: anonymization
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: chiffrement
   fr: chiffrement
+  ipa: ʃifʁəmɑ̃
   en: encryption
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: souverainete_numerique
   fr: souveraineté numérique
+  ipa: suvəʁɛnəte nymeʁik
   en: digital sovereignty
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: obsolescence
   fr: obsolescence programmée
+  ipa: ɔpsɔlɛsɑ̃s pʁɔɡʁame
   en: planned obsolescence
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: interoperabilite
   fr: interopérabilité
+  ipa: ɛ̃tɛʁopeʁabilite
   en: interoperability
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: deploiement
   fr: déploiement
+  ipa: deplwamɑ̃
   en: rollout
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: prototype
   fr: prototype
+  ipa: pʁototip
   en: prototype
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: brevet
   fr: brevet
+  ipa: bʁøvɛ
   en: patent
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: logiciel_libre
   fr: logiciel libre
+  ipa: loʒisjɛl libʁ
   en: open-source software
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: fracture_numerique
   fr: fracture numérique
+  ipa: fʁaktyʁ nymeʁik
   en: digital divide
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: empreinte_numerique
   fr: empreinte numérique
+  ipa: ɑ̃pʁɛ̃t nymeʁik
   en: digital footprint
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: essor
   fr: essor
+  ipa: esɔʁ
   en: rapid growth, boom
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: moderation
   fr: modération
+  ipa: modeʁasjɔ̃
   en: content moderation
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: hyperconnexion
   fr: hyperconnexion
+  ipa: ipɛʁkɔnɛksjɔ̃
   en: hyperconnectivity
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: infonuagique
   fr: infonuagique
+  ipa: ɛ̃fɔnɥaʒik
   en: cloud computing (Québec)
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: exploitation
   fr: exploitation des données
+  ipa: ɛksplwatasjɔ̃ de done
   en: data exploitation
   gender: f
   pos: noun
@@ -126,6 +144,7 @@
 
 - id: transparence
   fr: transparence
+  ipa: tʁɑ̃spaʁɑ̃s
   en: transparency
   gender: f
   pos: noun
@@ -133,6 +152,7 @@
 
 - id: vigilance
   fr: vigilance
+  ipa: viʒilɑ̃s
   en: watchfulness
   gender: f
   pos: noun

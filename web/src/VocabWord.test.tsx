@@ -59,4 +59,18 @@ describe("VocabWord gender display", () => {
     expect(screen.getByText("(m/f)")).toBeInTheDocument();
     expect(screen.queryByText("(m)")).not.toBeInTheDocument();
   });
+
+  it("shows the IPA under the word", () => {
+    render(<VocabWord card={{ ...base, fr: "paquet", gender: "m", ipa: "pakɛ" }} />);
+    expect(screen.getByText("/pakɛ/")).toBeInTheDocument();
+  });
+
+  it("shows both IPAs for a dual-gender word, and none when absent", () => {
+    const { container } = render(
+      <VocabWord card={{ ...base, fr: "ami", gender: "mf", fem: "amie", ipa: "ami", fem_ipa: "ami" }} />,
+    );
+    expect(screen.getByText("/ami/ · /ami/")).toBeInTheDocument();
+    render(<VocabWord card={{ ...base, fr: "un", gender: "" }} />);
+    expect(container.ownerDocument.querySelectorAll(".vocab-ipa")).toHaveLength(1);
+  });
 });

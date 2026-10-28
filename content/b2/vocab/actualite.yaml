@@ -7,6 +7,7 @@
 
 - id: societe
   fr: société
+  ipa: sosjete
   en: "company / society"
   gender: f
   pos: noun
@@ -14,6 +15,7 @@
 
 - id: secteur
   fr: secteur
+  ipa: sektœʁ
   en: sector
   gender: m
   pos: noun
@@ -21,6 +23,7 @@
 
 - id: benefice
   fr: bénéfice
+  ipa: benefis
   en: profit
   gender: m
   pos: noun
@@ -28,6 +31,7 @@
 
 - id: hausse
   fr: hausse
+  ipa: os
   en: rise, increase
   gender: f
   pos: noun
@@ -35,6 +39,7 @@
 
 - id: baisse
   fr: baisse
+  ipa: bɛs
   en: fall, decrease
   gender: f
   pos: noun
@@ -42,6 +47,7 @@
 
 - id: vente
   fr: vente
+  ipa: vɑ̃t
   en: sale
   gender: f
   pos: noun
@@ -49,6 +55,7 @@
 
 - id: chiffre
   fr: chiffre
+  ipa: ʃifʁ
   en: figure, number
   gender: m
   pos: noun
@@ -56,6 +63,7 @@
 
 - id: taux
   fr: taux
+  ipa: to
   en: rate
   gender: m
   pos: noun
@@ -63,6 +71,7 @@
 
 - id: valeur
   fr: valeur
+  ipa: valœʁ
   en: value
   gender: f
   pos: noun
@@ -70,6 +79,7 @@
 
 - id: rapport
   fr: rapport
+  ipa: ʁapɔʁ
   en: "report / ratio"
   gender: m
   pos: noun
@@ -77,6 +87,7 @@
 
 - id: production
   fr: production
+  ipa: pʁodyksjɔ̃
   en: production
   gender: f
   pos: noun
@@ -84,6 +95,7 @@
 
 - id: groupe
   fr: groupe
+  ipa: ɡʁup
   en: group
   gender: m
   pos: noun
@@ -91,6 +103,7 @@
 
 - id: part
   fr: part
+  ipa: paʁ
   en: share, portion
   gender: f
   pos: noun
@@ -98,6 +111,7 @@
 
 - id: pays
   fr: pays
+  ipa: pei
   en: country
   gender: m
   pos: noun
@@ -105,6 +119,7 @@
 
 - id: monde
   fr: monde
+  ipa: mɔ̃d
   en: world
   gender: m
   pos: noun
@@ -112,6 +127,7 @@
 
 - id: situation
   fr: situation
+  ipa: sitɥasjɔ̃
   en: situation
   gender: f
   pos: noun
@@ -119,6 +135,7 @@
 
 - id: question
   fr: question
+  ipa: kɛstjɔ̃
   en: question
   gender: f
   pos: noun
@@ -126,6 +143,7 @@
 
 - id: exemple
   fr: exemple
+  ipa: ɛɡzɑ̃pl
   en: example
   gender: m
   pos: noun
@@ -133,6 +151,7 @@
 
 - id: effet
   fr: effet
+  ipa: efɛ
   en: effect
   gender: m
   pos: noun
@@ -140,6 +159,7 @@
 
 - id: cas
   fr: cas
+  ipa: ka
   en: case
   gender: m
   pos: noun
@@ -147,6 +167,7 @@
 
 - id: terme
   fr: terme
+  ipa: tɛʁm
   en: term
   gender: m
   pos: noun
@@ -154,6 +175,7 @@
 
 - id: debut
   fr: début
+  ipa: deby
   en: beginning, start
   gender: m
   pos: noun
@@ -161,6 +183,7 @@
 
 - id: raison
   fr: raison
+  ipa: ʁɛzɔ̃
   en: reason
   gender: f
   pos: noun
@@ -168,6 +191,7 @@
 
 - id: nombre
   fr: nombre
+  ipa: nɔ̃bʁ
   en: number, quantity
   gender: m
   pos: noun
@@ -175,6 +199,7 @@
 
 - id: fin
   fr: fin
+  ipa: fɛ̃
   en: end
   gender: f
   pos: noun
@@ -182,6 +207,7 @@
 
 - id: action
   fr: action
+  ipa: aksjɔ̃
   en: "action / share"
   gender: f
   pos: noun
@@ -189,6 +215,7 @@
 
 - id: qualite
   fr: qualité
+  ipa: kalite
   en: quality
   gender: f
   pos: noun
@@ -196,6 +223,7 @@
 
 - id: moment
   fr: moment
+  ipa: momɑ̃
   en: moment
   gender: m
   pos: noun
@@ -203,6 +231,7 @@
 
 - id: service
   fr: service
+  ipa: sɛʁvis
   en: service
   gender: m
   pos: noun
@@ -210,24 +239,28 @@
 
 - id: economique
   fr: économique
+  ipa: ekonomik
   en: economic
   pos: adjective
   tags: [actualite]
 
 - id: politique
   fr: politique
+  ipa: politik
   en: "political / politics"
   pos: adjective
   tags: [actualite]
 
 - id: notamment
   fr: notamment
+  ipa: notamɑ̃
   en: notably, in particular
   pos: adverb
   tags: [actualite]
 
 - id: toutefois
   fr: toutefois
+  ipa: tutəfwa
   en: however, nevertheless
   pos: adverb
   tags: [actualite]

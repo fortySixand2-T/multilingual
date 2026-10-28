@@ -1,5 +1,6 @@
 - id: cours
   fr: cours
+  ipa: kuʁ
   en: class, course
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: note
   fr: note
+  ipa: nɔt
   en: grade, mark
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: bulletin
   fr: bulletin
+  ipa: bylətɛ̃
   en: report card
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: semestre
   fr: semestre
+  ipa: səmɛstʁ
   en: semester
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: rentree
   fr: rentrée
+  ipa: ʁɑ̃tʁe
   en: back-to-school
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: cantine
   fr: cantine
+  ipa: kɑ̃tin
   en: cafeteria
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: uniforme
   fr: uniforme
+  ipa: ynifɔʁm
   en: uniform
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: bourse_etudes
   fr: bourse d'études
+  ipa: buʁs detyd
   en: scholarship
   gender: f
   pos: noun
@@ -56,42 +64,49 @@
 
 - id: memoriser
   fr: mémoriser
+  ipa: memoʁize
   en: to memorize
   pos: verb
   tags: [studies]
 
 - id: reviser
   fr: réviser
+  ipa: ʁevize
   en: to revise, to study
   pos: verb
   tags: [studies]
 
 - id: redoubler
   fr: redoubler
+  ipa: ʁəduble
   en: to repeat a year
   pos: verb
   tags: [studies]
 
 - id: reussir
   fr: réussir
+  ipa: ʁeysiʁ
   en: to pass, to succeed
   pos: verb
   tags: [studies]
 
 - id: echouer
   fr: échouer
+  ipa: eʃwe
   en: to fail
   pos: verb
   tags: [studies]
 
 - id: inscrire
   fr: inscrire
+  ipa: ɛ̃skʁiʁ
   en: to enrol
   pos: verb
   tags: [studies]
 
 - id: presentation
   fr: présentation
+  ipa: pʁezɑ̃tasjɔ̃
   en: presentation
   gender: f
   pos: noun
@@ -99,6 +114,7 @@
 
 - id: camarade
   fr: camarade de classe
+  ipa: kamaʁad də klas
   en: classmate
   gender: m
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: conference
   fr: conférence
+  ipa: kɔ̃feʁɑ̃s
   en: lecture
   gender: f
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: laboratoire
   fr: laboratoire
+  ipa: laboʁatwaʁ
   en: lab
   gender: m
   pos: noun
@@ -120,14 +138,17 @@
 
 - id: tuteur
   fr: tuteur
+  ipa: tytœʁ
   en: tutor
   gender: mf
   fem: tutrice
+  fem_ipa: tytʁis
   pos: noun
   tags: [studies]
 
 - id: casier
   fr: casier
+  ipa: kazje
   en: locker
   gender: m
   pos: noun

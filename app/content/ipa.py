@@ -6,7 +6,7 @@ read-time heal, and `scripts/backfill_ipa.py` — so they can never disagree.
   1. Display-only overrides for the few common words eSpeak gets wrong (fils, oignon,
      cacahuète). The clip still says what eSpeak voices; only the written IPA is fixed.
      A plain dict keyed by lowercase headword, so a larger table can feed it later.
-  2. Otherwise: drop stress marks (French has no lexical stress; eSpeak's final-syllable
+  2. Otherwise: drop stress and length marks (French has no lexical stress; eSpeak's final-syllable
      ˈ misleads beginners), collapse whitespace, and cap at the column width on a word
      boundary so a long phrase never ends mid-symbol.
 """
@@ -29,7 +29,7 @@ IPA_OVERRIDES: dict[str, str] = {
     "cacahuetes": "kakawɛt",
 }
 
-_STRESS = re.compile("[ˈˌ]")
+_STRESS = re.compile("[ˈˌː]")  # stress marks, and the length mark French IPA omits
 
 
 def normalize_ipa(raw: str, fr: str = "") -> str:

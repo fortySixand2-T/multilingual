@@ -1,5 +1,6 @@
 - id: stationnement
   fr: stationnement
+  ipa: stasjɔnəmɑ̃
   en: parking
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: autoroute
   fr: autoroute
+  ipa: otoʁut
   en: highway
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: peage
   fr: péage
+  ipa: peaʒ
   en: toll
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: panneau
   fr: panneau
+  ipa: pano
   en: road sign
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: limitation
   fr: limitation de vitesse
+  ipa: limitasjɔ̃ də vitɛs
   en: speed limit
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: casque
   fr: casque
+  ipa: kask
   en: helmet
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: deviation
   fr: déviation
+  ipa: devjasjɔ̃
   en: detour
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: chantier
   fr: chantier
+  ipa: ʃɑ̃tje
   en: roadworks, construction site
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: correspondance
   fr: correspondance
+  ipa: koʁɛspɔ̃dɑ̃s
   en: transfer, connection
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: navette
   fr: navette
+  ipa: navɛt
   en: shuttle
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: trajet
   fr: trajet
+  ipa: tʁaʒɛ
   en: trip, route
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: titre_transport
   fr: titre de transport
+  ipa: titʁ də tʁɑ̃spɔʁ
   en: transit fare, pass
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: borne_recharge
   fr: borne de recharge
+  ipa: bɔʁn də ʁəʃaʁʒ
   en: charging station
   gender: f
   pos: noun
@@ -91,12 +104,14 @@
 
 - id: electrique
   fr: électrique
+  ipa: elɛktʁik
   en: electric
   pos: adjective
   tags: [mobility]
 
 - id: pneu
   fr: pneu
+  ipa: pnø
   en: tire
   gender: m
   pos: noun
@@ -104,6 +119,7 @@
 
 - id: reparation
   fr: réparation
+  ipa: ʁepaʁasjɔ̃
   en: repair
   gender: f
   pos: noun
@@ -111,6 +127,7 @@
 
 - id: assurance_auto
   fr: assurance auto
+  ipa: asyʁɑ̃s oto
   en: car insurance
   gender: f
   pos: noun
@@ -118,14 +135,17 @@
 
 - id: conducteur
   fr: conducteur
+  ipa: kɔ̃dyktœʁ
   en: driver
   gender: mf
   fem: conductrice
+  fem_ipa: kɔ̃dyktʁis
   pos: noun
   tags: [mobility]
 
 - id: auto_partage
   fr: autopartage
+  ipa: otopaʁtaʒ
   en: car sharing
   gender: m
   pos: noun
@@ -133,6 +153,7 @@
 
 - id: trottinette
   fr: trottinette
+  ipa: tʁotinɛt
   en: scooter
   gender: f
   pos: noun

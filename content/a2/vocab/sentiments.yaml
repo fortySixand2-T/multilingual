@@ -1,35 +1,41 @@
 - id: content
   fr: content
+  ipa: kɔ̃tɑ̃
   en: happy
   pos: adjective
   tags: [feelings]
 
 - id: triste
   fr: triste
+  ipa: tʁist
   en: sad
   pos: adjective
   tags: [feelings]
 
 - id: fatigue
   fr: fatigué
+  ipa: fatiɡe
   en: tired
   pos: adjective
   tags: [feelings]
 
 - id: heureux
   fr: heureux
+  ipa: øʁø
   en: glad
   pos: adjective
   tags: [feelings]
 
 - id: en_colere
   fr: en colère
+  ipa: ɑ̃ kolɛʁ
   en: angry
   pos: phrase
   tags: [feelings]
 
 - id: peur
   fr: peur
+  ipa: pøʁ
   en: fear
   gender: f
   pos: noun
@@ -37,72 +43,84 @@
 
 - id: aimer
   fr: aimer
+  ipa: eme
   en: "to like / love"
   pos: verb
   tags: [feelings]
 
 - id: detester
   fr: détester
+  ipa: detɛste
   en: "to hate"
   pos: verb
   tags: [feelings]
 
 - id: penser
   fr: penser
+  ipa: pɑ̃se
   en: "to think"
   pos: verb
   tags: [feelings]
 
 - id: esperer
   fr: espérer
+  ipa: ɛspeʁe
   en: "to hope"
   pos: verb
   tags: [feelings]
 
 - id: inquiet
   fr: inquiet
+  ipa: ɛ̃kjɛ
   en: worried
   pos: adjective
   tags: [feelings]
 
 - id: surpris
   fr: surpris
+  ipa: syʁpʁi
   en: surprised
   pos: adjective
   tags: [feelings]
 
 - id: ennuye
   fr: ennuyé
+  ipa: ɑ̃nɥije
   en: bored
   pos: adjective
   tags: [feelings]
 
 - id: fier
   fr: fier
+  ipa: fjɛʁ
   en: proud
   pos: adjective
   tags: [feelings]
 
 - id: jaloux
   fr: jaloux
+  ipa: ʒalu
   en: jealous
   pos: adjective
   tags: [feelings]
 
 - id: rire
   fr: rire
+  ipa: ʁiʁ
   en: "to laugh"
   pos: verb
   tags: [feelings]
 
 - id: pleurer
   fr: pleurer
+  ipa: pløʁe
   en: "to cry"
   pos: verb
   tags: [feelings]
 
 - id: sourire
   fr: sourire
+  ipa: suʁiʁ
   en: "to smile"
   pos: verb
   tags: [feelings]

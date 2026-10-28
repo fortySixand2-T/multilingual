@@ -1,5 +1,6 @@
 - id: poste
   fr: poste
+  ipa: pɔst
   en: "post office"
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: mairie
   fr: mairie
+  ipa: meʁi
   en: "town hall"
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: bibliotheque
   fr: bibliothèque
+  ipa: biblijotɛk
   en: library
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: commissariat
   fr: commissariat
+  ipa: komisaʁja
   en: "police station"
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: marche
   fr: marché
+  ipa: maʁʃe
   en: market
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: eglise
   fr: église
+  ipa: eɡliz
   en: church
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: musee
   fr: musée
+  ipa: myze
   en: museum
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: parc
   fr: parc
+  ipa: paʁk
   en: park
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: ecole
   fr: école
+  ipa: ekɔl
   en: school
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: centre_ville
   fr: centre-ville
+  ipa: sɑ̃tʁəvil
   en: "city centre"
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: quartier
   fr: quartier
+  ipa: kaʁtje
   en: neighbourhood
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: boulangerie
   fr: boulangerie
+  ipa: bulɑ̃ʒəʁi
   en: bakery
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: supermarche
   fr: supermarché
+  ipa: sypɛʁmaʁʃe
   en: supermarket
   gender: m
   pos: noun

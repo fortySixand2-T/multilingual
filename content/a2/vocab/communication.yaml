@@ -1,5 +1,6 @@
 - id: appel
   fr: appel
+  ipa: apɛl
   en: call
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: message
   fr: message
+  ipa: mesaʒ
   en: message
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: texto
   fr: texto
+  ipa: tɛksto
   en: text message
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: boite_vocale
   fr: boîte vocale
+  ipa: bwat vokal
   en: voicemail
   gender: f
   pos: noun
@@ -28,30 +32,35 @@
 
 - id: sonner
   fr: sonner
+  ipa: sone
   en: to ring
   pos: verb
   tags: [communication]
 
 - id: repondre
   fr: répondre
+  ipa: ʁepɔ̃dʁ
   en: to answer
   pos: verb
   tags: [communication]
 
 - id: rappeler
   fr: rappeler
+  ipa: ʁapəle
   en: to call back
   pos: verb
   tags: [communication]
 
 - id: raccrocher
   fr: raccrocher
+  ipa: ʁakʁoʃe
   en: to hang up
   pos: verb
   tags: [communication]
 
 - id: numero
   fr: numéro
+  ipa: nymeʁo
   en: number
   gender: m
   pos: noun
@@ -59,6 +68,7 @@
 
 - id: lettre
   fr: lettre
+  ipa: lɛtʁ
   en: letter
   gender: f
   pos: noun
@@ -66,6 +76,7 @@
 
 - id: enveloppe
   fr: enveloppe
+  ipa: ɑ̃vəlɔp
   en: envelope
   gender: f
   pos: noun
@@ -73,6 +84,7 @@
 
 - id: timbre
   fr: timbre
+  ipa: tɛ̃bʁ
   en: stamp
   gender: m
   pos: noun
@@ -80,6 +92,7 @@
 
 - id: colis
   fr: colis
+  ipa: koli
   en: parcel
   gender: m
   pos: noun
@@ -87,6 +100,7 @@
 
 - id: adresse
   fr: adresse
+  ipa: adʁɛs
   en: address
   gender: f
   pos: noun
@@ -94,6 +108,7 @@
 
 - id: signature
   fr: signature
+  ipa: siɲatyʁ
   en: signature
   gender: f
   pos: noun
@@ -101,6 +116,7 @@
 
 - id: conversation
   fr: conversation
+  ipa: kɔ̃vɛʁsasjɔ̃
   en: conversation
   gender: f
   pos: noun
@@ -108,24 +124,28 @@
 
 - id: discuter
   fr: discuter
+  ipa: diskyte
   en: to chat, to discuss
   pos: verb
   tags: [communication]
 
 - id: expliquer
   fr: expliquer
+  ipa: ɛksplike
   en: to explain
   pos: verb
   tags: [communication]
 
 - id: demander
   fr: demander
+  ipa: dəmɑ̃de
   en: to ask
   pos: verb
   tags: [communication]
 
 - id: remercier
   fr: remercier
+  ipa: ʁəmɛʁsje
   en: to thank
   pos: verb
   tags: [communication]

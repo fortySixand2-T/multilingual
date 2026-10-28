@@ -1,5 +1,6 @@
 - id: vetement
   fr: vêtement
+  ipa: vɛtəmɑ̃
   en: "piece of clothing"
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: manteau
   fr: manteau
+  ipa: mɑ̃to
   en: coat
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: chemise
   fr: chemise
+  ipa: ʃəmiz
   en: shirt
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: pantalon
   fr: pantalon
+  ipa: pɑ̃talɔ̃
   en: trousers
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: robe
   fr: robe
+  ipa: ʁɔb
   en: dress
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: chaussures
   fr: chaussures
+  ipa: ʃosyʁ
   en: shoes
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: jupe
   fr: jupe
+  ipa: ʒyp
   en: skirt
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: veste
   fr: veste
+  ipa: vɛst
   en: jacket
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: chapeau
   fr: chapeau
+  ipa: ʃapo
   en: hat
   gender: m
   pos: noun
@@ -63,12 +72,14 @@
 
 - id: porter
   fr: porter
+  ipa: poʁte
   en: "to wear"
   pos: verb
   tags: [clothes]
 
 - id: pull
   fr: pull
+  ipa: pyl
   en: sweater
   gender: m
   pos: noun
@@ -76,6 +87,7 @@
 
 - id: short
   fr: short
+  ipa: ʃɔʁt
   en: shorts
   gender: m
   pos: noun
@@ -83,6 +95,7 @@
 
 - id: chaussette
   fr: chaussette
+  ipa: ʃosɛt
   en: sock
   gender: f
   pos: noun
@@ -90,6 +103,7 @@
 
 - id: gant
   fr: gant
+  ipa: ɡɑ̃
   en: glove
   gender: m
   pos: noun
@@ -97,6 +111,7 @@
 
 - id: echarpe
   fr: écharpe
+  ipa: eʃaʁp
   en: scarf
   gender: f
   pos: noun
@@ -104,6 +119,7 @@
 
 - id: ceinture
   fr: ceinture
+  ipa: sɛ̃tyʁ
   en: belt
   gender: f
   pos: noun
@@ -111,6 +127,7 @@
 
 - id: cravate
   fr: cravate
+  ipa: kʁavat
   en: tie
   gender: f
   pos: noun
@@ -118,6 +135,7 @@
 
 - id: couleur
   fr: couleur
+  ipa: kulœʁ
   en: colour
   gender: f
   pos: noun

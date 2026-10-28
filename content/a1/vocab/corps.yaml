@@ -1,5 +1,6 @@
 - id: visage
   fr: visage
+  ipa: vizaʒ
   en: face
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: cheveux
   fr: cheveux
+  ipa: ʃəvø
   en: hair
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: yeux
   fr: yeux
+  ipa: jø
   en: eyes
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: bouche
   fr: bouche
+  ipa: buʃ
   en: mouth
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: nez
   fr: nez
+  ipa: ne
   en: nose
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: oreille
   fr: oreille
+  ipa: oʁɛj
   en: ear
   gender: f
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: dent
   fr: dent
+  ipa: dɑ̃
   en: tooth
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: cou
   fr: cou
+  ipa: ku
   en: neck
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: epaule
   fr: épaule
+  ipa: epol
   en: shoulder
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: doigt
   fr: doigt
+  ipa: dwa
   en: finger
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: genou
   fr: genou
+  ipa: ʒənu
   en: knee
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: coeur
   fr: cœur
+  ipa: kœʁ
   en: heart
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: peau
   fr: peau
+  ipa: po
   en: skin
   gender: f
   pos: noun

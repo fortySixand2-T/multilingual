@@ -1,239 +1,279 @@
 - id: etre
   fr: être
+  ipa: ɛtʁ
   en: to be
   pos: verb
   tags: [verbs]
 
 - id: avoir
   fr: avoir
+  ipa: avwaʁ
   en: to have
   pos: verb
   tags: [verbs]
 
 - id: aller
   fr: aller
+  ipa: ale
   en: to go
   pos: verb
   tags: [verbs]
 
 - id: faire
   fr: faire
+  ipa: fɛʁ
   en: to do, to make
   pos: verb
   tags: [verbs]
 
 - id: parler
   fr: parler
+  ipa: paʁle
   en: to speak
   pos: verb
   tags: [verbs]
 
 - id: manger
   fr: manger
+  ipa: mɑ̃ʒe
   en: to eat
   pos: verb
   tags: [verbs]
 
 - id: boire
   fr: boire
+  ipa: bwaʁ
   en: to drink
   pos: verb
   tags: [verbs]
 
 - id: venir
   fr: venir
+  ipa: vəniʁ
   en: to come
   pos: verb
   tags: [verbs]
 
 - id: prendre
   fr: prendre
+  ipa: pʁɑ̃dʁ
   en: to take
   pos: verb
   tags: [verbs]
 
 - id: voir
   fr: voir
+  ipa: vwaʁ
   en: to see
   pos: verb
   tags: [verbs]
 
 - id: dire
   fr: dire
+  ipa: diʁ
   en: to say
   pos: verb
   tags: [verbs]
 
 - id: vouloir
   fr: vouloir
+  ipa: vulwaʁ
   en: to want
   pos: verb
   tags: [verbs]
 
 - id: devoir
   fr: devoir
+  ipa: dəvwaʁ
   en: to have to, must
   pos: verb
   tags: [verbs]
 
 - id: mettre
   fr: mettre
+  ipa: mɛtʁ
   en: to put
   pos: verb
   tags: [verbs]
 
 - id: ouvrir
   fr: ouvrir
+  ipa: uvʁiʁ
   en: to open
   pos: verb
   tags: [verbs]
 
 - id: fermer
   fr: fermer
+  ipa: fɛʁme
   en: to close
   pos: verb
   tags: [verbs]
 
 - id: ecouter
   fr: écouter
+  ipa: ekute
   en: to listen
   pos: verb
   tags: [verbs]
 
 - id: regarder
   fr: regarder
+  ipa: ʁəɡaʁde
   en: to watch, to look at
   pos: verb
   tags: [verbs]
 
 - id: lire
   fr: lire
+  ipa: liʁ
   en: to read
   pos: verb
   tags: [verbs]
 
 - id: ecrire
   fr: écrire
+  ipa: ekʁiʁ
   en: to write
   pos: verb
   tags: [verbs]
 
 - id: donner
   fr: donner
+  ipa: done
   en: to give
   pos: verb
   tags: [verbs]
 
 - id: trouver
   fr: trouver
+  ipa: tʁuve
   en: to find
   pos: verb
   tags: [verbs]
 
 - id: chercher
   fr: chercher
+  ipa: ʃɛʁʃe
   en: to look for
   pos: verb
   tags: [verbs]
 
 - id: rester
   fr: rester
+  ipa: ʁɛste
   en: to stay
   pos: verb
   tags: [verbs]
 
 - id: passer
   fr: passer
+  ipa: pase
   en: to pass, to spend (time)
   pos: verb
   tags: [verbs]
 
 - id: arriver
   fr: arriver
+  ipa: aʁive
   en: to arrive
   pos: verb
   tags: [verbs]
 
 - id: entrer
   fr: entrer
+  ipa: ɑ̃tʁe
   en: to go in
   pos: verb
   tags: [verbs]
 
 - id: sortir
   fr: sortir
+  ipa: sɔʁtiʁ
   en: to go out
   pos: verb
   tags: [verbs]
 
 - id: marcher
   fr: marcher
+  ipa: maʁʃe
   en: to walk
   pos: verb
   tags: [verbs]
 
 - id: courir
   fr: courir
+  ipa: kuʁiʁ
   en: to run
   pos: verb
   tags: [verbs]
 
 - id: apprendre
   fr: apprendre
+  ipa: apʁɑ̃dʁ
   en: to learn
   pos: verb
   tags: [verbs]
 
 - id: comprendre
   fr: comprendre
+  ipa: kɔ̃pʁɑ̃dʁ
   en: to understand
   pos: verb
   tags: [verbs]
 
 - id: connaitre
   fr: connaître
+  ipa: konɛtʁ
   en: to know (someone)
   pos: verb
   tags: [verbs]
 
 - id: croire
   fr: croire
+  ipa: kʁwaʁ
   en: to believe
   pos: verb
   tags: [verbs]
 
 - id: sentir
   fr: sentir
+  ipa: sɑ̃tiʁ
   en: to feel, to smell
   pos: verb
   tags: [verbs]
 
 - id: tenir
   fr: tenir
+  ipa: təniʁ
   en: to hold
   pos: verb
   tags: [verbs]
 
 - id: attendre
   fr: attendre
+  ipa: atɑ̃dʁ
   en: to wait
   pos: verb
   tags: [verbs]
 
 - id: commencer
   fr: commencer
+  ipa: komɑ̃se
   en: to start
   pos: verb
   tags: [verbs]
 
 - id: finir
   fr: finir
+  ipa: finiʁ
   en: to finish
   pos: verb
   tags: [verbs]
 
 - id: choisir
   fr: choisir
+  ipa: ʃwaziʁ
   en: to choose
   pos: verb
   tags: [verbs]

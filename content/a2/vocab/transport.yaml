@@ -1,5 +1,6 @@
 - id: bus
   fr: bus
+  ipa: bys
   en: bus
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: metro
   fr: métro
+  ipa: metʁo
   en: subway
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: voiture
   fr: voiture
+  ipa: vwatyʁ
   en: car
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: velo
   fr: vélo
+  ipa: velo
   en: bike
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: avion
   fr: avion
+  ipa: avjɔ̃
   en: plane
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: billet
   fr: billet
+  ipa: bijɛ
   en: ticket
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: station
   fr: station
+  ipa: stasjɔ̃
   en: station
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: arret
   fr: arrêt
+  ipa: aʁɛ
   en: stop
   gender: m
   pos: noun
@@ -56,12 +64,14 @@
 
 - id: conduire
   fr: conduire
+  ipa: kɔ̃dɥiʁ
   en: "to drive"
   pos: verb
   tags: [transport]
 
 - id: circulation
   fr: circulation
+  ipa: siʁkylasjɔ̃
   en: traffic
   gender: f
   pos: noun
@@ -69,6 +79,7 @@
 
 - id: train
   fr: train
+  ipa: tʁɛ̃
   en: train
   gender: m
   pos: noun
@@ -76,6 +87,7 @@
 
 - id: taxi
   fr: taxi
+  ipa: taksi
   en: taxi
   gender: m
   pos: noun
@@ -83,6 +95,7 @@
 
 - id: bateau
   fr: bateau
+  ipa: bato
   en: boat
   gender: m
   pos: noun
@@ -90,6 +103,7 @@
 
 - id: quai
   fr: quai
+  ipa: kɛ
   en: platform
   gender: m
   pos: noun
@@ -97,6 +111,7 @@
 
 - id: horaire
   fr: horaire
+  ipa: oʁɛʁ
   en: timetable
   gender: m
   pos: noun
@@ -104,6 +119,7 @@
 
 - id: retard
   fr: retard
+  ipa: ʁətaʁ
   en: delay
   gender: m
   pos: noun
@@ -111,6 +127,7 @@
 
 - id: essence
   fr: essence
+  ipa: esɑ̃s
   en: fuel
   gender: f
   pos: noun
@@ -118,6 +135,7 @@
 
 - id: permis
   fr: permis
+  ipa: pɛʁmi
   en: "driving licence"
   gender: m
   pos: noun
@@ -125,6 +143,7 @@
 
 - id: autobus
   fr: autobus
+  ipa: otobys
   en: bus (Québec)
   gender: m
   pos: noun
@@ -132,6 +151,7 @@
 
 - id: camion
   fr: camion
+  ipa: kamjɔ̃
   en: truck
   gender: m
   pos: noun
@@ -139,6 +159,7 @@
 
 - id: moto
   fr: moto
+  ipa: moto
   en: motorcycle
   gender: f
   pos: noun
@@ -146,6 +167,7 @@
 
 - id: siege
   fr: siège
+  ipa: sjɛʒ
   en: seat
   gender: m
   pos: noun
@@ -153,6 +175,7 @@
 
 - id: coffre
   fr: coffre
+  ipa: kɔfʁ
   en: trunk
   gender: m
   pos: noun
@@ -160,6 +183,7 @@
 
 - id: moteur
   fr: moteur
+  ipa: motœʁ
   en: engine
   gender: m
   pos: noun
@@ -167,6 +191,7 @@
 
 - id: frein
   fr: frein
+  ipa: fʁɛ̃
   en: brake
   gender: m
   pos: noun
@@ -174,6 +199,7 @@
 
 - id: volant
   fr: volant
+  ipa: volɑ̃
   en: steering wheel
   gender: m
   pos: noun
@@ -181,6 +207,7 @@
 
 - id: phare
   fr: phare
+  ipa: faʁ
   en: headlight
   gender: m
   pos: noun
@@ -188,6 +215,7 @@
 
 - id: roue
   fr: roue
+  ipa: ʁu
   en: wheel
   gender: f
   pos: noun
@@ -195,6 +223,7 @@
 
 - id: reservoir
   fr: réservoir
+  ipa: ʁezɛʁvwaʁ
   en: tank
   gender: m
   pos: noun
@@ -202,6 +231,7 @@
 
 - id: aller_retour
   fr: aller-retour
+  ipa: aleʁətuʁ
   en: round trip
   gender: m
   pos: noun
@@ -209,6 +239,7 @@
 
 - id: aller_simple
   fr: aller simple
+  ipa: ale sɛ̃pl
   en: one-way trip
   gender: m
   pos: noun
@@ -216,24 +247,28 @@
 
 - id: valider
   fr: valider
+  ipa: valide
   en: to validate (a ticket)
   pos: verb
   tags: [transport]
 
 - id: monter
   fr: monter
+  ipa: mɔ̃te
   en: to get on, to board
   pos: verb
   tags: [transport]
 
 - id: descendre
   fr: descendre
+  ipa: desɑ̃dʁ
   en: to get off
   pos: verb
   tags: [transport]
 
 - id: rater
   fr: rater
+  ipa: ʁate
   en: to miss (a bus)
   pos: verb
   tags: [transport]

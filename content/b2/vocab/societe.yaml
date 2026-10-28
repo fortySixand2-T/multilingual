@@ -1,5 +1,6 @@
 - id: engagement
   fr: engagement
+  ipa: ɑ̃ɡaʒəmɑ̃
   en: "commitment, involvement"
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: manipulation
   fr: manipulation
+  ipa: manipylasjɔ̃
   en: manipulation
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: diversite
   fr: diversité
+  ipa: divɛʁsite
   en: diversity
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: polemique
   fr: polémique
+  ipa: polemik
   en: "controversy"
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: liberte_expression
   fr: liberté d'expression
+  ipa: libɛʁte dɛkspʁɛsjɔ̃
   en: "freedom of expression"
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: civisme
   fr: civisme
+  ipa: sivism
   en: "civic-mindedness"
   gender: m
   pos: noun
@@ -42,14 +48,17 @@
 
 - id: militant
   fr: militant
+  ipa: militɑ̃
   en: activist
   gender: mf
   fem: militante
+  fem_ipa: militɑ̃t
   pos: noun
   tags: [societe]
 
 - id: manifestation
   fr: manifestation
+  ipa: manifɛstasjɔ̃
   en: "demonstration, protest"
   gender: f
   pos: noun
@@ -57,6 +66,7 @@
 
 - id: opinion_publique
   fr: opinion publique
+  ipa: opinjɔ̃ pyblik
   en: "public opinion"
   gender: f
   pos: noun
@@ -64,6 +74,7 @@
 
 - id: media
   fr: média
+  ipa: medja
   en: "media outlet"
   gender: m
   pos: noun
@@ -71,14 +82,17 @@
 
 - id: influenceur
   fr: influenceur
+  ipa: ɛ̃flyɑ̃sœʁ
   en: influencer
   gender: mf
   fem: influenceuse
+  fem_ipa: ɛ̃flyɑ̃søz
   pos: noun
   tags: [societe]
 
 - id: tolerance
   fr: tolérance
+  ipa: toleʁɑ̃s
   en: tolerance
   gender: f
   pos: noun
@@ -86,6 +100,7 @@
 
 - id: discrimination
   fr: discrimination
+  ipa: diskʁiminasjɔ̃
   en: discrimination
   gender: f
   pos: noun
@@ -93,6 +108,7 @@
 
 - id: entraide
   fr: entraide
+  ipa: ɑ̃tʁɛd
   en: "mutual aid"
   gender: f
   pos: noun
@@ -100,6 +116,7 @@
 
 - id: fracture_sociale
   fr: fracture sociale
+  ipa: fʁaktyʁ sosjal
   en: "social divide"
   gender: f
   pos: noun
@@ -107,6 +124,7 @@
 
 - id: mobilisation
   fr: mobilisation
+  ipa: mobilizasjɔ̃
   en: mobilization
   gender: f
   pos: noun
@@ -114,6 +132,7 @@
 
 - id: revendication
   fr: revendication
+  ipa: ʁəvɑ̃dikasjɔ̃
   en: "demand, claim"
   gender: f
   pos: noun
@@ -121,6 +140,7 @@
 
 - id: temoignage
   fr: témoignage
+  ipa: temwaɲaʒ
   en: "testimony, account"
   gender: m
   pos: noun
@@ -128,6 +148,7 @@
 
 - id: cohesion_sociale
   fr: cohésion sociale
+  ipa: koezjɔ̃ sosjal
   en: social cohesion
   gender: f
   pos: noun
@@ -135,6 +156,7 @@
 
 - id: vivre_ensemble
   fr: vivre-ensemble
+  ipa: vivʁɑ̃sɑ̃bl
   en: living together, social harmony
   gender: m
   pos: noun
@@ -142,6 +164,7 @@
 
 - id: inclusion
   fr: inclusion
+  ipa: ɛ̃klyzjɔ̃
   en: inclusion
   gender: f
   pos: noun
@@ -149,6 +172,7 @@
 
 - id: exclusion
   fr: exclusion
+  ipa: ɛksklyzjɔ̃
   en: exclusion
   gender: f
   pos: noun
@@ -156,6 +180,7 @@
 
 - id: marginalisation
   fr: marginalisation
+  ipa: maʁʒinalizasjɔ̃
   en: marginalization
   gender: f
   pos: noun
@@ -163,6 +188,7 @@
 
 - id: itinerance
   fr: itinérance
+  ipa: itineʁɑ̃s
   en: homelessness (Québec)
   gender: f
   pos: noun
@@ -170,6 +196,7 @@
 
 - id: banque_alimentaire
   fr: banque alimentaire
+  ipa: bɑ̃k alimɑ̃tɛʁ
   en: food bank
   gender: f
   pos: noun
@@ -177,6 +204,7 @@
 
 - id: benevolat
   fr: bénévolat
+  ipa: benevola
   en: volunteering
   gender: m
   pos: noun
@@ -184,6 +212,7 @@
 
 - id: organisme_communautaire
   fr: organisme communautaire
+  ipa: ɔʁɡanism komynotɛʁ
   en: community organization
   gender: m
   pos: noun
@@ -191,6 +220,7 @@
 
 - id: filet_social
   fr: filet social
+  ipa: filɛ sosjal
   en: social safety net
   gender: m
   pos: noun
@@ -198,6 +228,7 @@
 
 - id: aide_sociale
   fr: aide sociale
+  ipa: ɛd sosjal
   en: welfare
   gender: f
   pos: noun
@@ -205,6 +236,7 @@
 
 - id: logement_abordable
   fr: logement abordable
+  ipa: lɔʒəmɑ̃ abɔʁdabl
   en: affordable housing
   gender: m
   pos: noun
@@ -212,6 +244,7 @@
 
 - id: fosse_generationnel
   fr: fossé générationnel
+  ipa: fose ʒeneʁasjɔnɛl
   en: generation gap
   gender: m
   pos: noun
@@ -219,6 +252,7 @@
 
 - id: individualisme
   fr: individualisme
+  ipa: ɛ̃dividɥalism
   en: individualism
   gender: m
   pos: noun
@@ -226,6 +260,7 @@
 
 - id: consumerisme
   fr: consumérisme
+  ipa: kɔ̃symeʁism
   en: consumerism
   gender: m
   pos: noun
@@ -233,6 +268,7 @@
 
 - id: stigmatisation
   fr: stigmatisation
+  ipa: stiɡmatizasjɔ̃
   en: stigmatization
   gender: f
   pos: noun
@@ -240,6 +276,7 @@
 
 - id: prejuge
   fr: préjugé
+  ipa: pʁeʒyʒe
   en: prejudice
   gender: m
   pos: noun

@@ -1,5 +1,6 @@
 - id: epidemie
   fr: épidémie
+  ipa: epidemi
   en: epidemic
   gender: f
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: vaccin
   fr: vaccin
+  ipa: vaksɛ̃
   en: vaccine
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: systeme_de_sante
   fr: système de santé
+  ipa: sistɛm də sɑ̃te
   en: "health(care) system"
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: obesite
   fr: obésité
+  ipa: obezite
   en: obesity
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: esperance_de_vie
   fr: espérance de vie
+  ipa: ɛspeʁɑ̃s də vi
   en: "life expectancy"
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: depistage
   fr: dépistage
+  ipa: depistaʒ
   en: screening
   gender: m
   pos: noun
@@ -42,14 +48,17 @@
 
 - id: soignant
   fr: soignant
+  ipa: swaɲɑ̃
   en: "caregiver, health worker"
   gender: mf
   fem: soignante
+  fem_ipa: swaɲɑ̃t
   pos: noun
   tags: [sante]
 
 - id: remede
   fr: remède
+  ipa: ʁəmɛd
   en: remedy
   gender: m
   pos: noun
@@ -57,6 +66,7 @@
 
 - id: guerison
   fr: guérison
+  ipa: ɡeʁizɔ̃
   en: "recovery, cure"
   gender: f
   pos: noun
@@ -64,6 +74,7 @@
 
 - id: symptome
   fr: symptôme
+  ipa: sɛ̃ptom
   en: symptom
   gender: m
   pos: noun
@@ -71,6 +82,7 @@
 
 - id: contagion
   fr: contagion
+  ipa: kɔ̃taʒjɔ̃
   en: contagion
   gender: f
   pos: noun
@@ -78,6 +90,7 @@
 
 - id: nutrition
   fr: nutrition
+  ipa: nytʁisjɔ̃
   en: nutrition
   gender: f
   pos: noun
@@ -85,6 +98,7 @@
 
 - id: activite_physique
   fr: activité physique
+  ipa: aktivite fizik
   en: "physical activity"
   gender: f
   pos: noun
@@ -92,6 +106,7 @@
 
 - id: vieillissement
   fr: vieillissement
+  ipa: vjejisəmɑ̃
   en: ageing
   gender: m
   pos: noun
@@ -99,6 +114,7 @@
 
 - id: handicap
   fr: handicap
+  ipa: ɑ̃dikap
   en: disability
   gender: m
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: mutuelle
   fr: mutuelle
+  ipa: mytɥɛl
   en: "(complementary) health insurance"
   gender: f
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: addiction
   fr: addiction
+  ipa: adiksjɔ̃
   en: addiction
   gender: f
   pos: noun
@@ -120,6 +138,7 @@
 
 - id: urgences
   fr: urgences
+  ipa: yʁʒɑ̃s
   en: "emergency room"
   gender: f
   pos: noun
@@ -127,6 +146,7 @@
 
 - id: sante_publique
   fr: santé publique
+  ipa: sɑ̃te pyblik
   en: public health
   gender: f
   pos: noun
@@ -134,6 +154,7 @@
 
 - id: sante_mentale
   fr: santé mentale
+  ipa: sɑ̃te mɑ̃tal
   en: mental health
   gender: f
   pos: noun
@@ -141,6 +162,7 @@
 
 - id: confinement
   fr: confinement
+  ipa: kɔ̃finəmɑ̃
   en: lockdown
   gender: m
   pos: noun
@@ -148,6 +170,7 @@
 
 - id: quarantaine
   fr: quarantaine
+  ipa: kaʁɑ̃tɛn
   en: quarantine
   gender: f
   pos: noun
@@ -155,6 +178,7 @@
 
 - id: variant
   fr: variant
+  ipa: vaʁjɑ̃
   en: variant
   gender: m
   pos: noun
@@ -162,6 +186,7 @@
 
 - id: immunisation
   fr: immunisation
+  ipa: imynizasjɔ̃
   en: immunization
   gender: f
   pos: noun
@@ -169,6 +194,7 @@
 
 - id: liste_attente
   fr: liste d'attente
+  ipa: list datɑ̃t
   en: waiting list
   gender: f
   pos: noun
@@ -176,6 +202,7 @@
 
 - id: medecin_famille
   fr: médecin de famille
+  ipa: mɛdsɛ̃ də famij
   en: family doctor
   gender: m
   pos: noun
@@ -183,6 +210,7 @@
 
 - id: soins_domicile
   fr: soins à domicile
+  ipa: swɛ̃z a domisil
   en: home care
   gender: m
   pos: noun
@@ -190,6 +218,7 @@
 
 - id: soins_palliatifs
   fr: soins palliatifs
+  ipa: swɛ̃ paljatif
   en: palliative care
   gender: m
   pos: noun
@@ -197,6 +226,7 @@
 
 - id: aide_medicale_mourir
   fr: aide médicale à mourir
+  ipa: ɛd medikal a muʁiʁ
   en: medical assistance in dying
   gender: f
   pos: noun
@@ -204,6 +234,7 @@
 
 - id: maladie_chronique
   fr: maladie chronique
+  ipa: maladi kʁonik
   en: chronic illness
   gender: f
   pos: noun
@@ -211,6 +242,7 @@
 
 - id: comorbidite
   fr: comorbidité
+  ipa: komɔʁbidite
   en: comorbidity
   gender: f
   pos: noun
@@ -218,6 +250,7 @@
 
 - id: malnutrition
   fr: malnutrition
+  ipa: malnytʁisjɔ̃
   en: malnutrition
   gender: f
   pos: noun
@@ -225,6 +258,7 @@
 
 - id: toxicomanie
   fr: toxicomanie
+  ipa: tɔksikomani
   en: substance addiction
   gender: f
   pos: noun
@@ -232,6 +266,7 @@
 
 - id: surdose
   fr: surdose
+  ipa: syʁdoz
   en: overdose
   gender: f
   pos: noun
@@ -239,6 +274,7 @@
 
 - id: sevrage
   fr: sevrage
+  ipa: səvʁaʒ
   en: withdrawal
   gender: m
   pos: noun

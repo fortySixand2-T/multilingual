@@ -30,7 +30,23 @@ const EPICENE_IDS = new Set([
   "specialiste",
 ]);
 
+// The word's IPA under it ("/pakɛ/", or "/ami/ · /ami/" for both forms).
+function Ipa({ card }: { card: VocabCard }) {
+  const parts = [card.ipa, card.fem_ipa].filter(Boolean);
+  if (!parts.length) return null;
+  return <div className="muted vocab-ipa">{parts.map((p) => `/${p}/`).join(" · ")}</div>;
+}
+
 export default function VocabWord({ card }: { card: VocabCard }) {
+  return (
+    <div>
+      <Headword card={card} />
+      <Ipa card={card} />
+    </div>
+  );
+}
+
+function Headword({ card }: { card: VocabCard }) {
   // dual-gender: show both forms side by side, each with its own pronunciation
   if (card.gender === "mf") {
     return (

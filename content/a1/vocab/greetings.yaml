@@ -1,5 +1,6 @@
 - id: bonjour
   fr: bonjour
+  ipa: bɔ̃ʒuʁ
   en: "hello (formal)"
   audio: a1/audio/bonjour.mp3
   pos: interjection
@@ -7,120 +8,140 @@
 
 - id: salut
   fr: salut
+  ipa: saly
   en: "hi (casual)"
   pos: interjection
   tags: [greeting]
 
 - id: bonsoir
   fr: bonsoir
+  ipa: bɔ̃swaʁ
   en: "good evening"
   pos: interjection
   tags: [greeting]
 
 - id: au_revoir
   fr: au revoir
+  ipa: o ʁəvwaʁ
   en: "goodbye"
   pos: interjection
   tags: [greeting]
 
 - id: merci
   fr: merci
+  ipa: mɛʁsi
   en: "thank you"
   pos: interjection
   tags: [politeness]
 
 - id: svp
   fr: s'il vous plaît
+  ipa: sil vu plɛ
   en: "please (formal)"
   pos: phrase
   tags: [politeness]
 
 - id: pardon
   fr: pardon
+  ipa: paʁdɔ̃
   en: "sorry / excuse me"
   pos: interjection
   tags: [politeness]
 
 - id: oui
   fr: oui
+  ipa: wi
   en: "yes"
   pos: adverb
   tags: [basics]
 
 - id: non
   fr: non
+  ipa: nɔ̃
   en: "no"
   pos: adverb
   tags: [basics]
 
 - id: coucou
   fr: coucou
+  ipa: kuku
   en: "hey (very casual)"
   pos: interjection
   tags: [greeting]
 
 - id: ca_va
   fr: ça va
+  ipa: sa va
   en: "how's it going / I'm ok"
   pos: phrase
   tags: [greeting]
 
 - id: enchante
   fr: enchanté
+  ipa: ɑ̃ʃɑ̃te
   en: "pleased to meet you"
   pos: interjection
   tags: [greeting]
 
 - id: a_bientot
   fr: à bientôt
+  ipa: a bjɛ̃to
   en: "see you soon"
   pos: phrase
   tags: [greeting]
 
 - id: de_rien
   fr: de rien
+  ipa: də ʁjɛ̃
   en: "you're welcome"
   pos: phrase
   tags: [politeness]
 
 - id: excusez_moi
   fr: excusez-moi
+  ipa: ɛkskyzemwa
   en: "excuse me"
   pos: phrase
   tags: [politeness]
 
 - id: bienvenue
   fr: bienvenue
+  ipa: bjɛ̃vəny
   en: welcome
   pos: interjection
   tags: [greeting]
 
 - id: bonne_nuit
   fr: bonne nuit
+  ipa: bɔn nɥi
   en: "good night"
   pos: phrase
   tags: [greeting]
 
 - id: a_demain
   fr: à demain
+  ipa: a dəmɛ̃
   en: "see you tomorrow"
   pos: phrase
   tags: [greeting]
 
 - id: desole
   fr: désolé
+  ipa: dezole
   en: sorry
   pos: adjective
   tags: [politeness]
 
 - id: stp
   fr: s'il te plaît
+  ipa: sil tə plɛ
   en: "please (casual)"
   pos: phrase
   tags: [politeness]
 
 - id: monsieur
   fr: monsieur
+  ipa: məsjø
   en: "sir / Mr"
   gender: m
   pos: noun
@@ -128,6 +149,7 @@
 
 - id: madame
   fr: madame
+  ipa: madam
   en: "ma'am / Mrs"
   gender: f
   pos: noun
@@ -135,6 +157,7 @@
 
 - id: mademoiselle
   fr: mademoiselle
+  ipa: madəmwazɛl
   en: miss
   gender: f
   pos: noun

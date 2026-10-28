@@ -1,5 +1,6 @@
 - id: conseil
   fr: conseil
+  ipa: kɔ̃sɛj
   en: "advice, tip"
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: solution
   fr: solution
+  ipa: solysjɔ̃
   en: solution
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: probleme
   fr: problème
+  ipa: pʁoblɛm
   en: problem
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: choix
   fr: choix
+  ipa: ʃwa
   en: choice
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: consequence
   fr: conséquence
+  ipa: kɔ̃sekɑ̃s
   en: consequence
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: risque
   fr: risque
+  ipa: ʁisk
   en: risk
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: avantage
   fr: avantage
+  ipa: avɑ̃taʒ
   en: advantage
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: inconvenient
   fr: inconvénient
+  ipa: ɛ̃kɔ̃venjɑ̃
   en: drawback
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: hypothese
   fr: hypothèse
+  ipa: ipotɛz
   en: hypothesis
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: suggestion
   fr: suggestion
+  ipa: syɡʒɛstjɔ̃
   en: suggestion
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: erreur
   fr: erreur
+  ipa: ɛʁœʁ
   en: mistake
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: prudence
   fr: prudence
+  ipa: pʁydɑ̃s
   en: caution
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: recommandation
   fr: recommandation
+  ipa: ʁəkomɑ̃dasjɔ̃
   en: recommendation
   gender: f
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: alternative
   fr: alternative
+  ipa: altɛʁnativ
   en: alternative
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: precaution
   fr: précaution
+  ipa: pʁekosjɔ̃
   en: precaution
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: doute
   fr: doute
+  ipa: dut
   en: doubt
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: compromis
   fr: compromis
+  ipa: kɔ̃pʁomi
   en: compromise
   gender: m
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: bilan
   fr: bilan
+  ipa: bilɑ̃
   en: "assessment, review"
   gender: m
   pos: noun

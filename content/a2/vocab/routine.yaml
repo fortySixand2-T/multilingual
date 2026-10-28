@@ -1,41 +1,48 @@
 - id: se_lever
   fr: se lever
+  ipa: sə ləve
   en: "to get up"
   pos: verb
   tags: [routine]
 
 - id: se_laver
   fr: se laver
+  ipa: sə lave
   en: "to wash (oneself)"
   pos: verb
   tags: [routine]
 
 - id: se_coucher
   fr: se coucher
+  ipa: sə kuʃe
   en: "to go to bed"
   pos: verb
   tags: [routine]
 
 - id: se_reveiller
   fr: se réveiller
+  ipa: sə ʁeveje
   en: "to wake up"
   pos: verb
   tags: [routine]
 
 - id: shabiller
   fr: s'habiller
+  ipa: sabije
   en: "to get dressed"
   pos: verb
   tags: [routine]
 
 - id: dormir
   fr: dormir
+  ipa: dɔʁmiʁ
   en: "to sleep"
   pos: verb
   tags: [routine]
 
 - id: matin
   fr: matin
+  ipa: matɛ̃
   en: morning
   gender: m
   pos: noun
@@ -43,6 +50,7 @@
 
 - id: apres_midi
   fr: après-midi
+  ipa: apʁɛmidi
   en: afternoon
   gender: m
   pos: noun
@@ -50,30 +58,35 @@
 
 - id: tot
   fr: tôt
+  ipa: to
   en: early
   pos: adverb
   tags: [routine]
 
 - id: tard
   fr: tard
+  ipa: taʁ
   en: late
   pos: adverb
   tags: [routine]
 
 - id: se_brosser
   fr: se brosser
+  ipa: sə bʁose
   en: "to brush"
   pos: verb
   tags: [routine]
 
 - id: se_doucher
   fr: se doucher
+  ipa: sə duʃe
   en: "to shower"
   pos: verb
   tags: [routine]
 
 - id: petit_dejeuner
   fr: petit-déjeuner
+  ipa: pətideʒœne
   en: breakfast
   gender: m
   pos: noun
@@ -81,6 +94,7 @@
 
 - id: dejeuner
   fr: déjeuner
+  ipa: deʒœne
   en: lunch
   gender: m
   pos: noun
@@ -88,6 +102,7 @@
 
 - id: diner
   fr: dîner
+  ipa: dine
   en: dinner
   gender: m
   pos: noun
@@ -95,18 +110,21 @@
 
 - id: se_reposer
   fr: se reposer
+  ipa: sə ʁəpoze
   en: "to rest"
   pos: verb
   tags: [routine]
 
 - id: se_depecher
   fr: se dépêcher
+  ipa: sə depeʃe
   en: "to hurry"
   pos: verb
   tags: [routine]
 
 - id: habitude
   fr: habitude
+  ipa: abityd
   en: habit
   gender: f
   pos: noun

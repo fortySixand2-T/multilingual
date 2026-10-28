@@ -1,5 +1,6 @@
 - id: pain
   fr: pain
+  ipa: pɛ̃
   en: bread
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: fromage
   fr: fromage
+  ipa: fʁomaʒ
   en: cheese
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: pomme
   fr: pomme
+  ipa: pɔm
   en: apple
   gender: f
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: poulet
   fr: poulet
+  ipa: pulɛ
   en: chicken
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: poisson
   fr: poisson
+  ipa: pwasɔ̃
   en: fish
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: legume
   fr: légume
+  ipa: leɡym
   en: vegetable
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: viande
   fr: viande
+  ipa: vjɑ̃d
   en: meat
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: oeuf
   fr: œuf
+  ipa: œf
   en: egg
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: riz
   fr: riz
+  ipa: ʁi
   en: rice
   gender: m
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: soupe
   fr: soupe
+  ipa: sup
   en: soup
   gender: f
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: beurre
   fr: beurre
+  ipa: bœʁ
   en: butter
   gender: m
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: sel
   fr: sel
+  ipa: sɛl
   en: salt
   gender: m
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: poivre
   fr: poivre
+  ipa: pwavʁ
   en: pepper
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: salade
   fr: salade
+  ipa: salad
   en: salad
   gender: f
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: fruit
   fr: fruit
+  ipa: fʁɥi
   en: fruit
   gender: m
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: banane
   fr: banane
+  ipa: banan
   en: banana
   gender: f
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: tomate
   fr: tomate
+  ipa: tomat
   en: tomato
   gender: f
   pos: noun
@@ -119,6 +136,7 @@
 
 - id: gateau
   fr: gâteau
+  ipa: ɡato
   en: cake
   gender: m
   pos: noun

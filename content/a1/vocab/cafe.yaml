@@ -1,5 +1,6 @@
 - id: cafe
   fr: café
+  ipa: kafe
   en: coffee
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: eau
   fr: eau
+  ipa: o
   en: water
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: the
   fr: thé
+  ipa: te
   en: tea
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: lait
   fr: lait
+  ipa: lɛ
   en: milk
   gender: m
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: sucre
   fr: sucre
+  ipa: sykʁ
   en: sugar
   gender: m
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: jus
   fr: jus
+  ipa: ʒy
   en: juice
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: biere
   fr: bière
+  ipa: bjɛʁ
   en: beer
   gender: f
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: vin
   fr: vin
+  ipa: vɛ̃
   en: wine
   gender: m
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: addition
   fr: addition
+  ipa: adisjɔ̃
   en: "bill / check"
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: chocolat_chaud
   fr: chocolat chaud
+  ipa: ʃokola ʃo
   en: "hot chocolate"
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: limonade
   fr: limonade
+  ipa: limonad
   en: lemonade
   gender: f
   pos: noun
@@ -77,6 +88,7 @@
 
 - id: tasse
   fr: tasse
+  ipa: tas
   en: cup
   gender: f
   pos: noun
@@ -84,6 +96,7 @@
 
 - id: pourboire
   fr: pourboire
+  ipa: puʁbwaʁ
   en: tip
   gender: m
   pos: noun
@@ -91,6 +104,7 @@
 
 - id: croissant
   fr: croissant
+  ipa: kʁwasɑ̃
   en: croissant
   gender: m
   pos: noun
@@ -98,6 +112,7 @@
 
 - id: terrasse
   fr: terrasse
+  ipa: tɛʁas
   en: terrace
   gender: f
   pos: noun
@@ -105,6 +120,7 @@
 
 - id: glacon
   fr: glaçon
+  ipa: ɡlasɔ̃
   en: "ice cube"
   gender: m
   pos: noun
@@ -112,6 +128,7 @@
 
 - id: citron
   fr: citron
+  ipa: sitʁɔ̃
   en: lemon
   gender: m
   pos: noun

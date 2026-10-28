@@ -1,5 +1,6 @@
 - id: candidature
   fr: candidature
+  ipa: kɑ̃didatyʁ
   en: "job application"
   gender: f
   pos: noun
@@ -7,14 +8,17 @@
 
 - id: recruteur
   fr: recruteur
+  ipa: ʁəkʁytœʁ
   en: recruiter
   gender: mf
   fem: recruteuse
+  fem_ipa: ʁəkʁytøz
   pos: noun
   tags: [work]
 
 - id: embauche
   fr: embauche
+  ipa: ɑ̃boʃ
   en: hiring
   gender: f
   pos: noun
@@ -22,6 +26,7 @@
 
 - id: licenciement
   fr: licenciement
+  ipa: lisɑ̃simɑ̃
   en: "dismissal, layoff"
   gender: m
   pos: noun
@@ -29,6 +34,7 @@
 
 - id: promotion
   fr: promotion
+  ipa: pʁomosjɔ̃
   en: promotion
   gender: f
   pos: noun
@@ -36,6 +42,7 @@
 
 - id: responsabilite
   fr: responsabilité
+  ipa: ʁɛspɔ̃sabilite
   en: responsibility
   gender: f
   pos: noun
@@ -43,6 +50,7 @@
 
 - id: teletravail
   fr: télétravail
+  ipa: teletʁavaj
   en: "remote work"
   gender: m
   pos: noun
@@ -50,6 +58,7 @@
 
 - id: productivite
   fr: productivité
+  ipa: pʁodyktivite
   en: productivity
   gender: f
   pos: noun
@@ -57,6 +66,7 @@
 
 - id: freelance
   fr: freelance
+  ipa: fʁilɑ̃s
   en: freelance
   gender: m
   pos: noun
@@ -64,6 +74,7 @@
 
 - id: syndicat
   fr: syndicat
+  ipa: sɛ̃dika
   en: "trade union"
   gender: m
   pos: noun
@@ -71,6 +82,7 @@
 
 - id: remuneration
   fr: rémunération
+  ipa: ʁemyneʁasjɔ̃
   en: pay
   gender: f
   pos: noun
@@ -78,6 +90,7 @@
 
 - id: objectif
   fr: objectif
+  ipa: ɔbʒɛktif
   en: "goal, target"
   gender: m
   pos: noun
@@ -85,6 +98,7 @@
 
 - id: mutation
   fr: mutation
+  ipa: mytasjɔ̃
   en: "job transfer, relocation"
   gender: f
   pos: noun
@@ -92,6 +106,7 @@
 
 - id: hierarchie
   fr: hiérarchie
+  ipa: jeʁaʁʃi
   en: hierarchy
   gender: f
   pos: noun
@@ -99,6 +114,7 @@
 
 - id: reconversion
   fr: reconversion
+  ipa: ʁəkɔ̃vɛʁsjɔ̃
   en: "career change, retraining"
   gender: f
   pos: noun
@@ -106,6 +122,7 @@
 
 - id: negociation
   fr: négociation
+  ipa: neɡosjasjɔ̃
   en: negotiation
   gender: f
   pos: noun
@@ -113,6 +130,7 @@
 
 - id: avancement
   fr: avancement
+  ipa: avɑ̃səmɑ̃
   en: "advancement, progress"
   gender: m
   pos: noun
@@ -120,6 +138,7 @@
 
 - id: demission
   fr: démission
+  ipa: demisjɔ̃
   en: resignation
   gender: f
   pos: noun
@@ -127,6 +146,7 @@
 
 - id: lettre_motivation
   fr: lettre de motivation
+  ipa: lɛtʁ də motivasjɔ̃
   en: cover letter
   gender: f
   pos: noun
@@ -134,6 +154,7 @@
 
 - id: offre_emploi
   fr: offre d'emploi
+  ipa: ɔfʁ dɑ̃plwa
   en: job posting
   gender: f
   pos: noun
@@ -141,6 +162,7 @@
 
 - id: affichage_poste
   fr: affichage de poste
+  ipa: afiʃaʒ də pɔst
   en: job listing
   gender: m
   pos: noun
@@ -148,6 +170,7 @@
 
 - id: periode_essai
   fr: période d'essai
+  ipa: peʁjɔd desɛ
   en: probationary period
   gender: f
   pos: noun
@@ -155,6 +178,7 @@
 
 - id: convention_collective
   fr: convention collective
+  ipa: kɔ̃vɑ̃sjɔ̃ kolɛktiv
   en: collective agreement
   gender: f
   pos: noun
@@ -162,6 +186,7 @@
 
 - id: heures_supplementaires
   fr: heures supplémentaires
+  ipa: œʁ syplemɑ̃tɛʁ
   en: overtime
   gender: f
   pos: noun
@@ -169,6 +194,7 @@
 
 - id: avantages_sociaux
   fr: avantages sociaux
+  ipa: avɑ̃taʒ sosjo
   en: benefits package
   gender: m
   pos: noun
@@ -176,6 +202,7 @@
 
 - id: assurance_emploi
   fr: assurance-emploi
+  ipa: asyʁɑ̃sɑ̃plwa
   en: employment insurance (Canada)
   gender: f
   pos: noun
@@ -183,6 +210,7 @@
 
 - id: cotisation
   fr: cotisation
+  ipa: kotizasjɔ̃
   en: contribution, dues
   gender: f
   pos: noun
@@ -190,6 +218,7 @@
 
 - id: retraite
   fr: retraite
+  ipa: ʁətʁɛt
   en: retirement
   gender: f
   pos: noun
@@ -197,6 +226,7 @@
 
 - id: anciennete
   fr: ancienneté
+  ipa: ɑ̃sjɛnəte
   en: seniority
   gender: f
   pos: noun
@@ -204,6 +234,7 @@
 
 - id: mentorat
   fr: mentorat
+  ipa: mɑ̃toʁa
   en: mentoring
   gender: m
   pos: noun
@@ -211,6 +242,7 @@
 
 - id: reseautage
   fr: réseautage
+  ipa: ʁezotaʒ
   en: networking (Québec)
   gender: m
   pos: noun
@@ -218,14 +250,17 @@
 
 - id: superviseur
   fr: superviseur
+  ipa: sypɛʁvizœʁ
   en: supervisor
   gender: mf
   fem: superviseure
+  fem_ipa: sypɛʁvizœʁ
   pos: noun
   tags: [work]
 
 - id: portfolio
   fr: portfolio
+  ipa: pɔʁtfoljo
   en: portfolio
   gender: m
   pos: noun
@@ -233,6 +268,7 @@
 
 - id: entrevue
   fr: entrevue
+  ipa: ɑ̃tʁəvy
   en: job interview (Québec)
   gender: f
   pos: noun
@@ -240,6 +276,7 @@
 
 - id: reference
   fr: référence
+  ipa: ʁefeʁɑ̃s
   en: reference
   gender: f
   pos: noun
@@ -247,6 +284,7 @@
 
 - id: probation
   fr: probation
+  ipa: pʁobasjɔ̃
   en: probation
   gender: f
   pos: noun
@@ -254,6 +292,7 @@
 
 - id: conge_parental
   fr: congé parental
+  ipa: kɔ̃ʒe paʁɑ̃tal
   en: parental leave
   gender: m
   pos: noun
@@ -261,6 +300,7 @@
 
 - id: horaire_flexible
   fr: horaire flexible
+  ipa: oʁɛʁ flɛksibl
   en: flexible hours
   gender: m
   pos: noun

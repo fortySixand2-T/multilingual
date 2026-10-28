@@ -1,5 +1,6 @@
 - id: projet
   fr: projet
+  ipa: pʁoʒɛ
   en: "project, plan"
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: avenir
   fr: avenir
+  ipa: avəniʁ
   en: future
   gender: m
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: but
   fr: but
+  ipa: byt
   en: goal
   gender: m
   pos: noun
@@ -21,6 +24,7 @@
 
 - id: ambition
   fr: ambition
+  ipa: ɑ̃bisjɔ̃
   en: ambition
   gender: f
   pos: noun
@@ -28,6 +32,7 @@
 
 - id: reussite
   fr: réussite
+  ipa: ʁeysit
   en: success
   gender: f
   pos: noun
@@ -35,6 +40,7 @@
 
 - id: echec
   fr: échec
+  ipa: eʃɛk
   en: failure
   gender: m
   pos: noun
@@ -42,6 +48,7 @@
 
 - id: defi
   fr: défi
+  ipa: defi
   en: challenge
   gender: m
   pos: noun
@@ -49,6 +56,7 @@
 
 - id: etape
   fr: étape
+  ipa: etap
   en: "step, stage"
   gender: f
   pos: noun
@@ -56,6 +64,7 @@
 
 - id: decision
   fr: décision
+  ipa: desizjɔ̃
   en: decision
   gender: f
   pos: noun
@@ -63,6 +72,7 @@
 
 - id: changement
   fr: changement
+  ipa: ʃɑ̃ʒəmɑ̃
   en: change
   gender: m
   pos: noun
@@ -70,6 +80,7 @@
 
 - id: opportunite
   fr: opportunité
+  ipa: opɔʁtynite
   en: opportunity
   gender: f
   pos: noun
@@ -77,12 +88,14 @@
 
 - id: realiser
   fr: réaliser
+  ipa: ʁealize
   en: "to achieve, carry out"
   pos: verb
   tags: [future]
 
 - id: planification
   fr: planification
+  ipa: planifikasjɔ̃
   en: planning
   gender: f
   pos: noun
@@ -90,6 +103,7 @@
 
 - id: motivation
   fr: motivation
+  ipa: motivasjɔ̃
   en: motivation
   gender: f
   pos: noun
@@ -97,6 +111,7 @@
 
 - id: perseverance
   fr: persévérance
+  ipa: pɛʁseveʁɑ̃s
   en: perseverance
   gender: f
   pos: noun
@@ -104,6 +119,7 @@
 
 - id: obstacle
   fr: obstacle
+  ipa: ɔpstakl
   en: obstacle
   gender: m
   pos: noun
@@ -111,6 +127,7 @@
 
 - id: progres
   fr: progrès
+  ipa: pʁoɡʁɛ
   en: progress
   gender: m
   pos: noun
@@ -118,6 +135,7 @@
 
 - id: priorite
   fr: priorité
+  ipa: pʁijoʁite
   en: priority
   gender: f
   pos: noun

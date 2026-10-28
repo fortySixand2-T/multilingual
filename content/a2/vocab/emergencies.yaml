@@ -1,5 +1,6 @@
 - id: accident
   fr: accident
+  ipa: aksidɑ̃
   en: accident
   gender: m
   pos: noun
@@ -7,6 +8,7 @@
 
 - id: ambulance
   fr: ambulance
+  ipa: ɑ̃bylɑ̃s
   en: ambulance
   gender: f
   pos: noun
@@ -14,6 +16,7 @@
 
 - id: blessure
   fr: blessure
+  ipa: blesyʁ
   en: injury
   gender: f
   pos: noun
@@ -21,12 +24,14 @@
 
 - id: blesse
   fr: blessé
+  ipa: blese
   en: injured
   pos: adjective
   tags: [emergencies]
 
 - id: secours
   fr: secours
+  ipa: səkuʁ
   en: help, rescue
   gender: m
   pos: noun
@@ -34,6 +39,7 @@
 
 - id: police
   fr: police
+  ipa: polis
   en: police
   gender: f
   pos: noun
@@ -41,14 +47,17 @@
 
 - id: voleur
   fr: voleur
+  ipa: volœʁ
   en: thief
   gender: mf
   fem: voleuse
+  fem_ipa: voløz
   pos: noun
   tags: [emergencies]
 
 - id: vol
   fr: vol
+  ipa: vɔl
   en: theft
   gender: m
   pos: noun
@@ -56,6 +65,7 @@
 
 - id: incendie
   fr: incendie
+  ipa: ɛ̃sɑ̃di
   en: fire
   gender: m
   pos: noun
@@ -63,6 +73,7 @@
 
 - id: alarme
   fr: alarme
+  ipa: alaʁm
   en: alarm
   gender: f
   pos: noun
@@ -70,6 +81,7 @@
 
 - id: danger
   fr: danger
+  ipa: dɑ̃ʒe
   en: danger
   gender: m
   pos: noun
@@ -77,24 +89,28 @@
 
 - id: aider
   fr: aider
+  ipa: ede
   en: to help
   pos: verb
   tags: [emergencies]
 
 - id: appeler
   fr: appeler
+  ipa: apəle
   en: to call
   pos: verb
   tags: [emergencies]
 
 - id: prevenir
   fr: prévenir
+  ipa: pʁɛvəniʁ
   en: to warn, to notify
   pos: verb
   tags: [emergencies]
 
 - id: temoin
   fr: témoin
+  ipa: temwɛ̃
   en: witness
   gender: m
   pos: noun
@@ -102,6 +118,7 @@
 
 - id: plainte
   fr: plainte
+  ipa: plɛ̃t
   en: complaint
   gender: f
   pos: noun
@@ -109,6 +126,7 @@
 
 - id: panne
   fr: panne
+  ipa: pan
   en: breakdown
   gender: f
   pos: noun
@@ -116,6 +134,7 @@
 
 - id: remorquage
   fr: remorquage
+  ipa: ʁəmɔʁkaʒ
   en: towing
   gender: m
   pos: noun
@@ -123,6 +142,7 @@
 
 - id: premiers_soins
   fr: premiers soins
+  ipa: pʁømje swɛ̃
   en: first aid
   gender: m
   pos: noun
@@ -130,6 +150,7 @@
 
 - id: extincteur
   fr: extincteur
+  ipa: ɛkstɛ̃ktœʁ
   en: fire extinguisher
   gender: m
   pos: noun

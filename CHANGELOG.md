@@ -564,3 +564,14 @@
 - [2026-10-27] Modified: app/content/personal_api.py — cached-clip play heals only an empty IPA (stale IPA left to backfill_ipa.py), no extra Piper run per play
 - [2026-10-27] Modified: tests/test_personal_vocab.py — heal-on-play test now covers empty-IPA heal and no re-voice on later plays
 - [2026-10-27] Modified: scripts/backfill_ipa.py — sort imports (CI ruff 0.15.17 I001)
+- [2026-10-28] Created: scripts/build_vocab_ipa.py — fills checked `ipa`/`fem_ipa` on every content-bank vocab card from Lexique383 + Piper, reports disagreements for hand review
+- [2026-10-28] Created: tests/test_build_vocab_ipa.py — Lexique code mapping, homograph choice, ligature fallback, phrase cross-check, source precedence
+- [2026-10-28] Modified: app/content/ipa.py — normalize_ipa also strips the ː length mark French IPA omits
+- [2026-10-28] Modified: app/content/models.py — Vocab gains optional `ipa` and `fem_ipa` (fem_ipa needs a fem form)
+- [2026-10-28] Modified: scripts/check_content.py — every vocab card must carry ipa (and fem_ipa when it has a fem form)
+- [2026-10-28] Modified: web/src/api.ts — VocabCard ipa/fem_ipa
+- [2026-10-28] Modified: web/src/VocabWord.tsx — show /ipa/ (· /fem_ipa/) under the headword
+- [2026-10-28] Modified: web/src/screens/Review.tsx — course review cards show their checked IPA
+- [2026-10-28] Modified: web/src/styles.css — .vocab-ipa
+- [2026-10-28] Modified: web/src/VocabWord.test.tsx — IPA rendering tests
+- [2026-10-28] Modified: web/src/screens/Review.test.tsx — course card shows IPA, personal card hides it

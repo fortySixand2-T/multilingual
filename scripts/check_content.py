@@ -170,6 +170,8 @@ def check_vocab_fields(level, bundle, report):
             report(f"{level}/{vid}: no tags — it will not appear under any deck")
         if getattr(w, "gender", None) == "mf" and not getattr(w, "fem", None):
             report(f"{level}/{vid}: gender 'mf' needs a distinct `fem` spelling")
+        if not w.ipa or (w.fem and not w.fem_ipa):
+            report(f"{level}/{vid}: missing ipa — run scripts/build_vocab_ipa.py")
 
 
 def check_audio_present(level, bundle, report):

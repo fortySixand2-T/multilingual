@@ -1,77 +1,90 @@
 - id: rouge
   fr: rouge
+  ipa: ʁuʒ
   en: red
   pos: adjective
   tags: [colours]
 
 - id: bleu
   fr: bleu
+  ipa: blø
   en: blue
   pos: adjective
   tags: [colours]
 
 - id: vert
   fr: vert
+  ipa: vɛʁ
   en: green
   pos: adjective
   tags: [colours]
 
 - id: jaune
   fr: jaune
+  ipa: ʒon
   en: yellow
   pos: adjective
   tags: [colours]
 
 - id: noir
   fr: noir
+  ipa: nwaʁ
   en: black
   pos: adjective
   tags: [colours]
 
 - id: blanc
   fr: blanc
+  ipa: blɑ̃
   en: white
   pos: adjective
   tags: [colours]
 
 - id: gris
   fr: gris
+  ipa: ɡʁi
   en: grey
   pos: adjective
   tags: [colours]
 
 - id: rose
   fr: rose
+  ipa: ʁoz
   en: pink
   pos: adjective
   tags: [colours]
 
 - id: orange
   fr: orange
+  ipa: oʁɑ̃ʒ
   en: orange
   pos: adjective
   tags: [colours]
 
 - id: marron
   fr: marron
+  ipa: maʁɔ̃
   en: brown
   pos: adjective
   tags: [colours]
 
 - id: violet
   fr: violet
+  ipa: vjolɛ
   en: purple
   pos: adjective
   tags: [colours]
 
 - id: clair
   fr: clair
+  ipa: klɛʁ
   en: light
   pos: adjective
   tags: [colours]
 
 - id: fonce
   fr: foncé
+  ipa: fɔ̃se
   en: dark
   pos: adjective
   tags: [colours]

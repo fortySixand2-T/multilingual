@@ -1,5 +1,6 @@
 - id: intelligence_artificielle
   fr: intelligence artificielle
+  ipa: ɛ̃teliʒɑ̃s aʁtifisjɛl
   en: "artificial intelligence"
   gender: f
   pos: noun
@@ -7,12 +8,14 @@
 
 - id: numerique
   fr: numérique
+  ipa: nymeʁik
   en: "digital"
   pos: adjective
   tags: [sciences]
 
 - id: donnee
   fr: donnée
+  ipa: done
   en: "(piece of) data"
   gender: f
   pos: noun
@@ -20,6 +23,7 @@
 
 - id: algorithme
   fr: algorithme
+  ipa: alɡoʁitm
   en: algorithm
   gender: m
   pos: noun
@@ -27,6 +31,7 @@
 
 - id: innovation
   fr: innovation
+  ipa: inovasjɔ̃
   en: innovation
   gender: f
   pos: noun
@@ -34,6 +39,7 @@
 
 - id: objet_connecte
   fr: objet connecté
+  ipa: ɔbʒɛ konɛkte
   en: "connected device"
   gender: m
   pos: noun
@@ -41,6 +47,7 @@
 
 - id: cybersecurite
   fr: cybersécurité
+  ipa: sibɛʁsekyʁite
   en: cybersecurity
   gender: f
   pos: noun
@@ -48,6 +55,7 @@
 
 - id: vie_privee
   fr: vie privée
+  ipa: vi pʁive
   en: privacy
   gender: f
   pos: noun
@@ -55,6 +63,7 @@
 
 - id: ethique
   fr: éthique
+  ipa: etik
   en: ethics
   gender: f
   pos: noun
@@ -62,6 +71,7 @@
 
 - id: automatisation
   fr: automatisation
+  ipa: otomatizasjɔ̃
   en: automation
   gender: f
   pos: noun
@@ -69,6 +79,7 @@
 
 - id: logiciel
   fr: logiciel
+  ipa: loʒisjɛl
   en: software
   gender: m
   pos: noun
@@ -76,14 +87,17 @@
 
 - id: utilisateur
   fr: utilisateur
+  ipa: ytilizatœʁ
   en: user
   gender: mf
   fem: utilisatrice
+  fem_ipa: ytilizatʁis
   pos: noun
   tags: [sciences]
 
 - id: decouverte
   fr: découverte
+  ipa: dekuvɛʁt
   en: discovery
   gender: f
   pos: noun
@@ -91,6 +105,7 @@
 
 - id: experimentation
   fr: expérimentation
+  ipa: ɛkspeʁimɑ̃tasjɔ̃
   en: experimentation
   gender: f
   pos: noun
@@ -98,6 +113,7 @@
 
 - id: fiabilite
   fr: fiabilité
+  ipa: fjabilite
   en: reliability
   gender: f
   pos: noun
@@ -105,6 +121,7 @@
 
 - id: dependance
   fr: dépendance
+  ipa: depɑ̃dɑ̃s
   en: "dependence, addiction"
   gender: f
   pos: noun
@@ -112,6 +129,7 @@
 
 - id: robotique
   fr: robotique
+  ipa: ʁobotik
   en: robotics
   gender: f
   pos: noun
@@ -119,6 +137,7 @@
 
 - id: surveillance
   fr: surveillance
+  ipa: syʁvɛjɑ̃s
   en: surveillance
   gender: f
   pos: noun
