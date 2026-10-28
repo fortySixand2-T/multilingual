@@ -563,3 +563,4 @@
 - [2026-10-27] Modified: qa/rounds/060-plan.md — outcomes appended
 - [2026-10-27] Modified: app/content/personal_api.py — cached-clip play heals only an empty IPA (stale IPA left to backfill_ipa.py), no extra Piper run per play
 - [2026-10-27] Modified: tests/test_personal_vocab.py — heal-on-play test now covers empty-IPA heal and no re-voice on later plays
+- [2026-10-27] Modified: scripts/backfill_ipa.py — sort imports (CI ruff 0.15.17 I001)
