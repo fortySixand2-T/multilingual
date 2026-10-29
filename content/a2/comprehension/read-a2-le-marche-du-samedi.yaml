@@ -1,0 +1,37 @@
+id: read-a2-le-marche-du-samedi
+level: a2
+skill: reading
+title: "Le marché du samedi"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Le samedi, je suis debout à sept heures pour aller au marché. Autour de la place, il
+  y a des fruits, des fromages et des fleurs. J'aime tellement cet endroit ! Les
+  légumes sont frais et moins chers qu'au supermarché. Mon voisin Paul préfère faire
+  ses courses ailleurs, plutôt au centre commercial. Moi, j'y vais même quand il
+  pleut.
+questions:
+  - id: read-a2-le-marche-du-samedi.q1
+    prompt: "À quelle heure la personne est-elle debout le samedi ?"
+    options:
+      - "À sept heures"
+      - "À six heures"
+      - "À midi"
+    answer: "À sept heures"
+    explain: "« Le samedi, je suis debout à sept heures pour aller au marché. »"
+  - id: read-a2-le-marche-du-samedi.q2
+    prompt: "Comment sont les légumes du marché ?"
+    options:
+      - "Frais et moins chers qu'au supermarché"
+      - "Plus chers qu'au supermarché"
+      - "Pas très frais"
+    answer: "Frais et moins chers qu'au supermarché"
+    explain: "« Les légumes sont frais et moins chers qu'au supermarché. »"
+  - id: read-a2-le-marche-du-samedi.q3
+    prompt: "Où Paul préfère-t-il faire ses courses ?"
+    options:
+      - "Au centre commercial"
+      - "Au marché"
+      - "Au supermarché du quartier"
+    answer: "Au centre commercial"
+    explain: "« Mon voisin Paul préfère faire ses courses ailleurs, plutôt au centre commercial. »"

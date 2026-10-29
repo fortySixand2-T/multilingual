@@ -609,3 +609,10 @@
 - [2026-10-29] Modified: content/a2/path.yaml, content/b1/path.yaml — units a2.u31–u33 and b1.u29–u30
 - [2026-10-29] Created: content/a2/comprehension/read-a2-le-mariage-de-lea.yaml, read-a2-a-velo-en-hiver.yaml — reading sets keeping A2 coverage at 100%
 - [2026-10-29] Created: content/a2/audio/*.mp3, content/b1/audio/*.mp3 — 41 generated clips for the new verbs
+- [2026-10-29] Created: content/a2/vocab/adverbs.yaml — 10 high-frequency A2 adverbs (depuis, alors, comme, même, plutôt…)
+- [2026-10-29] Created: content/b1/vocab/connectors.yaml — 6 B1 connectors (ainsi, pourtant, cependant, donc, tant, autant)
+- [2026-10-29] Created: content/a2/lessons/adverbs-a2-01.yaml, adverbs-a2-02.yaml — lessons for the A2 adverbs
+- [2026-10-29] Created: content/b1/lessons/connecteurs-b1-01.yaml — lesson for the B1 connectors
+- [2026-10-29] Modified: content/a2/path.yaml, content/b1/path.yaml — units a2.u34–u35 and b1.u31
+- [2026-10-29] Created: content/a2/comprehension/read-a2-le-marche-du-samedi.yaml — reading set keeping A2 coverage at 100%
+- [2026-10-29] Created: content/a2/audio/*.mp3, content/b1/audio/*.mp3 — 16 generated clips for the new words
