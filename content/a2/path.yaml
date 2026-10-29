@@ -138,3 +138,27 @@ units:
     icon: bus
     lessons: [transport-a2-04]
     unlock: { type: all_of, requires: [a2.u22] }
+
+  - id: a2.u24
+    title: "Comings and goings"
+    icon: bolt
+    lessons: [verbs-a2-01]
+    unlock: { type: all_of, requires: [a2.u23] }
+
+  - id: a2.u25
+    title: "Giving and taking"
+    icon: bag
+    lessons: [verbs-a2-02]
+    unlock: { type: all_of, requires: [a2.u24] }
+
+  - id: a2.u26
+    title: "Thinking and deciding"
+    icon: bulb
+    lessons: [verbs-a2-03]
+    unlock: { type: all_of, requires: [a2.u25] }
+
+  - id: a2.u27
+    title: "Moving and handling"
+    icon: target
+    lessons: [verbs-a2-04]
+    unlock: { type: all_of, requires: [a2.u26] }

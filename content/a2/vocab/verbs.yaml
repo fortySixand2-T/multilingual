@@ -1,0 +1,272 @@
+- id: revenir
+  fr: revenir
+  ipa: ʁəvəniʁ
+  en: to come back
+  pos: verb
+  tags: [verbs]
+
+- id: rentrer
+  fr: rentrer
+  ipa: ʁɑ̃tʁe
+  en: to go home
+  pos: verb
+  tags: [verbs]
+
+- id: retourner
+  fr: retourner
+  ipa: ʁətuʁne
+  en: to go back
+  pos: verb
+  tags: [verbs]
+
+- id: quitter
+  fr: quitter
+  ipa: kite
+  en: "to leave (a place, a person)"
+  pos: verb
+  tags: [verbs]
+
+- id: tomber
+  fr: tomber
+  ipa: tɔ̃be
+  en: to fall
+  pos: verb
+  tags: [verbs]
+
+- id: devenir
+  fr: devenir
+  ipa: dəvəniʁ
+  en: to become
+  pos: verb
+  tags: [verbs]
+
+- id: mourir
+  fr: mourir
+  ipa: muʁiʁ
+  en: to die
+  pos: verb
+  tags: [verbs]
+
+- id: suivre
+  fr: suivre
+  ipa: sɥivʁ
+  en: to follow
+  pos: verb
+  tags: [verbs]
+
+- id: arreter
+  fr: arrêter
+  ipa: aʁete
+  en: to stop
+  pos: verb
+  tags: [verbs]
+
+- id: rendre
+  fr: rendre
+  ipa: ʁɑ̃dʁ
+  en: to give back
+  pos: verb
+  tags: [verbs]
+
+- id: envoyer
+  fr: envoyer
+  ipa: ɑ̃vwaje
+  en: to send
+  pos: verb
+  tags: [verbs]
+
+- id: offrir
+  fr: offrir
+  ipa: ofʁiʁ
+  en: to give (as a gift)
+  pos: verb
+  tags: [verbs]
+
+- id: apporter
+  fr: apporter
+  ipa: apɔʁte
+  en: to bring
+  pos: verb
+  tags: [verbs]
+
+- id: recevoir
+  fr: recevoir
+  ipa: ʁəsəvwaʁ
+  en: to receive
+  pos: verb
+  tags: [verbs]
+
+- id: montrer
+  fr: montrer
+  ipa: mɔ̃tʁe
+  en: to show
+  pos: verb
+  tags: [verbs]
+
+- id: poser
+  fr: poser
+  ipa: poze
+  en: to put down; to ask (a question)
+  pos: verb
+  tags: [verbs]
+
+- id: laisser
+  fr: laisser
+  ipa: lese
+  en: to leave; to let
+  pos: verb
+  tags: [verbs]
+
+- id: garder
+  fr: garder
+  ipa: ɡaʁde
+  en: to keep
+  pos: verb
+  tags: [verbs]
+
+- id: jeter
+  fr: jeter
+  ipa: ʒəte
+  en: to throw (away)
+  pos: verb
+  tags: [verbs]
+
+- id: vendre
+  fr: vendre
+  ipa: vɑ̃dʁ
+  en: to sell
+  pos: verb
+  tags: [verbs]
+
+- id: falloir
+  fr: falloir
+  ipa: falwaʁ
+  en: to be necessary (il faut)
+  pos: verb
+  tags: [verbs]
+
+- id: sembler
+  fr: sembler
+  ipa: sɑ̃ble
+  en: to seem
+  pos: verb
+  tags: [verbs]
+
+- id: plaire
+  fr: plaire
+  ipa: plɛʁ
+  en: to please (ça me plaît)
+  pos: verb
+  tags: [verbs]
+
+- id: imaginer
+  fr: imaginer
+  ipa: imaʒine
+  en: to imagine
+  pos: verb
+  tags: [verbs]
+
+- id: compter
+  fr: compter
+  ipa: kɔ̃te
+  en: to count
+  pos: verb
+  tags: [verbs]
+
+- id: entendre
+  fr: entendre
+  ipa: ɑ̃tɑ̃dʁ
+  en: to hear
+  pos: verb
+  tags: [verbs]
+
+- id: vivre
+  fr: vivre
+  ipa: vivʁ
+  en: to live
+  pos: verb
+  tags: [verbs]
+
+- id: changer
+  fr: changer
+  ipa: ʃɑ̃ʒe
+  en: to change
+  pos: verb
+  tags: [verbs]
+
+- id: preparer
+  fr: préparer
+  ipa: pʁepaʁe
+  en: to prepare
+  pos: verb
+  tags: [verbs]
+
+- id: sasseoir
+  fr: "s'asseoir"
+  ipa: saswaʁ
+  en: to sit down
+  pos: verb
+  tags: [verbs]
+
+- id: bouger
+  fr: bouger
+  ipa: buʒe
+  en: to move
+  pos: verb
+  tags: [verbs]
+
+- id: pousser
+  fr: pousser
+  ipa: puse
+  en: to push
+  pos: verb
+  tags: [verbs]
+
+- id: toucher
+  fr: toucher
+  ipa: tuʃe
+  en: to touch
+  pos: verb
+  tags: [verbs]
+
+- id: tourner
+  fr: tourner
+  ipa: tuʁne
+  en: to turn
+  pos: verb
+  tags: [verbs]
+
+- id: cacher
+  fr: cacher
+  ipa: kaʃe
+  en: to hide
+  pos: verb
+  tags: [verbs]
+
+- id: servir
+  fr: servir
+  ipa: sɛʁviʁ
+  en: to serve
+  pos: verb
+  tags: [verbs]
+
+- id: reprendre
+  fr: reprendre
+  ipa: ʁəpʁɑ̃dʁ
+  en: to take again; to resume
+  pos: verb
+  tags: [verbs]
+
+- id: retrouver
+  fr: retrouver
+  ipa: ʁətʁuve
+  en: to find again; to meet up with
+  pos: verb
+  tags: [verbs]
+
+- id: rencontrer
+  fr: rencontrer
+  ipa: ʁɑ̃kɔ̃tʁe
+  en: to meet
+  pos: verb
+  tags: [verbs]

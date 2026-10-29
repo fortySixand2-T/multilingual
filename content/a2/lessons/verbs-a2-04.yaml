@@ -1,0 +1,55 @@
+id: verbs-a2-04
+title: Moving and handling
+grammar_point: "the imperative: tournez, ne touchez pas, assieds-toi"
+grammar_category: Verb conjugation & tenses
+est_minutes: 7
+new_vocab: [sasseoir, bouger, pousser, toucher, tourner, cacher, servir, reprendre, retrouver, rencontrer]
+pass_threshold: 8.0
+exercises:
+  - id: verbs-a2-04.e1
+    type: match_pairs
+    pairs:
+      - ["s'asseoir", to sit down]
+      - [bouger, to move]
+      - [pousser, to push]
+      - [toucher, to touch]
+
+  - id: verbs-a2-04.e2
+    type: match_pairs
+    pairs:
+      - [tourner, to turn]
+      - [cacher, to hide]
+      - [servir, to serve]
+
+  - id: verbs-a2-04.e3
+    type: match_pairs
+    pairs:
+      - [reprendre, to take again; to resume]
+      - [retrouver, to find again; to meet up with]
+      - [rencontrer, to meet]
+
+  - id: verbs-a2-04.e4
+    type: mcq
+    prompt: "« ___ à gauche, puis allez tout droit. »"
+    options: [Tournez, Tourner, Tourné]
+    answer: Tournez
+    explain: "The vous imperative is the present without the pronoun: tournez."
+
+  - id: verbs-a2-04.e5
+    type: mcq
+    prompt: "Your friend is standing. You say: « ___ ! »"
+    options: [Assieds-toi, Asseyez-toi, "S'asseoir"]
+    answer: Assieds-toi
+    explain: "s'asseoir in the tu imperative: assieds-toi (vous: asseyez-vous)."
+
+  - id: verbs-a2-04.e6
+    type: word_bank
+    prompt: "Build: “Don't touch the paintings”"
+    tokens: [Ne, touchez, pas, les, tableaux, poussez]
+    answer: [Ne, touchez, pas, les, tableaux]
+
+  - id: verbs-a2-04.e7
+    type: translate
+    prompt: "Translate: “don't move!” (to a friend)"
+    answer: ne bouge pas !
+    accept: [Ne bouge pas !, ne bouge pas, Ne bouge pas]

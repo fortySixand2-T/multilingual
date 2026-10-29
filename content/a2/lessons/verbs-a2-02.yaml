@@ -1,0 +1,56 @@
+id: verbs-a2-02
+title: Giving and taking
+grammar_point: "indirect object pronouns: je lui offre, je leur envoie"
+grammar_category: Pronouns
+est_minutes: 7
+new_vocab: [rendre, envoyer, offrir, apporter, recevoir, montrer, poser, laisser, garder, jeter, vendre]
+pass_threshold: 8.0
+exercises:
+  - id: verbs-a2-02.e1
+    type: match_pairs
+    pairs:
+      - [rendre, to give back]
+      - [envoyer, to send]
+      - [offrir, to give (as a gift)]
+      - [apporter, to bring]
+
+  - id: verbs-a2-02.e2
+    type: match_pairs
+    pairs:
+      - [recevoir, to receive]
+      - [montrer, to show]
+      - [poser, to put down; to ask (a question)]
+      - [laisser, to leave; to let]
+
+  - id: verbs-a2-02.e3
+    type: match_pairs
+    pairs:
+      - [garder, to keep]
+      - [jeter, to throw (away)]
+      - [vendre, to sell]
+
+  - id: verbs-a2-02.e4
+    type: mcq
+    prompt: "« J'offre des fleurs à ma mère. » → « Je ___ offre des fleurs. »"
+    options: [lui, la, leur]
+    answer: lui
+    explain: offrir à une personne → lui.
+
+  - id: verbs-a2-02.e5
+    type: mcq
+    prompt: "« Tu envoies un message à tes parents ? » → « Tu ___ envoies un message ? »"
+    options: [leur, les, lui]
+    answer: leur
+    explain: envoyer à plusieurs personnes → leur.
+
+  - id: verbs-a2-02.e6
+    type: word_bank
+    prompt: "Build: “I give him back his book”"
+    tokens: [Je, lui, rends, son, livre, le]
+    answer: [Je, lui, rends, son, livre]
+
+  - id: verbs-a2-02.e7
+    type: translate
+    prompt: "Translate: “keep the change” (formal)"
+    answer: gardez la monnaie
+    accept: [Gardez la monnaie, gardez la monnaie !]

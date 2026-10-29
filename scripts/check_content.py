@@ -370,7 +370,8 @@ def check_global(levels: list[str]) -> list[str]:
 
 
 def main(argv: list[str]) -> int:
-    levels = argv[1:] or sorted(p.parent.name for p in CONTENT_ROOT.glob("*/path.yaml"))
+    all_levels = sorted(p.parent.name for p in CONTENT_ROOT.glob("*/path.yaml"))
+    levels = argv[1:] or all_levels
     total = 0
     for level in levels:
         failures = check_level(level)
@@ -378,7 +379,7 @@ def main(argv: list[str]) -> int:
         print(f"{level}: {'OK' if not failures else f'{len(failures)} problem(s)'}")
         for f in failures:
             print(f"  - {f}")
-    cross = check_global(levels)
+    cross = check_global(all_levels)  # ids are global keys, whichever levels were asked for
     total += len(cross)
     print(f"cross-level: {'OK' if not cross else f'{len(cross)} problem(s)'}")
     for f in cross:
