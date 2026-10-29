@@ -1,0 +1,60 @@
+id: verbs-a2-01
+title: Comings and goings
+grammar_point: "passé composé with être: je suis rentré(e), elle est tombée"
+grammar_category: Verb conjugation & tenses
+est_minutes: 8
+new_vocab: [revenir, rentrer, retourner, quitter, tomber, devenir, mourir, suivre, arreter]
+pass_threshold: 8.0
+exercises:
+  - id: verbs-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [revenir, to come back]
+      - [rentrer, to go home]
+      - [retourner, to go back]
+
+  - id: verbs-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [quitter, "to leave (a place, a person)"]
+      - [tomber, to fall]
+      - [devenir, to become]
+
+  - id: verbs-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [mourir, to die]
+      - [suivre, to follow]
+      - [arrêter, to stop]
+
+  - id: verbs-a2-01.e4
+    type: mcq
+    prompt: "« Hier, elle ___ tard. »"
+    options: [est rentrée, a rentré, est rentré]
+    answer: est rentrée
+    explain: "rentrer takes être, and the participle agrees: elle est rentrée."
+
+  - id: verbs-a2-01.e5
+    type: mcq
+    prompt: "« Il ___ médecin en 2010. »"
+    options: [est devenu, a devenu, devenu]
+    answer: est devenu
+    explain: "devenir takes être: il est devenu."
+
+  - id: verbs-a2-01.e6
+    type: word_bank
+    prompt: "Build: “I left the office at six”"
+    tokens: ["J'ai", quitté, le, bureau, à, six, heures, suis]
+    answer: ["J'ai", quitté, le, bureau, à, six, heures]
+
+  - id: verbs-a2-01.e7
+    type: translate
+    prompt: "Translate: “Stop!” (to a friend)"
+    answer: arrête !
+    accept: [Arrête !, arrête, Arrête]
+
+  - id: verbs-a2-01.e8
+    type: listen_type
+    prompt: Type the verb you hear.
+    audio_ref: a2/audio/revenir.mp3
+    answer: revenir

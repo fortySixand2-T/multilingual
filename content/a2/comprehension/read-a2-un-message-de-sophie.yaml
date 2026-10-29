@@ -1,0 +1,47 @@
+id: read-a2-un-message-de-sophie
+level: a2
+skill: reading
+title: "Un message de Sophie"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Salut Paul ! Je vais revenir de Québec samedi midi. Tu peux venir me retrouver à
+  la gare ? Ensuite, on va préparer la fête de Julie chez moi. Il va falloir pousser
+  la table et trouver des chaises : tout le monde doit pouvoir s'asseoir. Je vais
+  cacher le cadeau dans ma chambre. Pour venir chez moi, il faut suivre la grande
+  rue ; si tu vois la banque, tu es trop loin et il faut retourner au feu rouge. Tu
+  vas rencontrer mes nouveaux collègues ! Dimanche soir, je dois reprendre le train
+  pour Québec. À samedi ! Sophie
+questions:
+  - id: read-a2-un-message-de-sophie.q1
+    prompt: "Où Paul doit-il retrouver Sophie ?"
+    options:
+      - "À la gare"
+      - "À la banque"
+      - "Chez Julie"
+    answer: "À la gare"
+    explain: "« Tu peux venir me retrouver à la gare ? »"
+  - id: read-a2-un-message-de-sophie.q2
+    prompt: "Pourquoi faut-il trouver des chaises ?"
+    options:
+      - "Pour que tout le monde puisse s'asseoir"
+      - "Pour cacher le cadeau"
+      - "Pour les vendre"
+    answer: "Pour que tout le monde puisse s'asseoir"
+    explain: "« Il va falloir pousser la table et trouver des chaises : tout le monde doit pouvoir s'asseoir. »"
+  - id: read-a2-un-message-de-sophie.q3
+    prompt: "Que faut-il faire si on voit la banque ?"
+    options:
+      - "Retourner au feu rouge"
+      - "Suivre la grande rue"
+      - "Prendre le train"
+    answer: "Retourner au feu rouge"
+    explain: "« si tu vois la banque, tu es trop loin et il faut retourner au feu rouge »."
+  - id: read-a2-un-message-de-sophie.q4
+    prompt: "Quand Sophie part-elle pour Québec ?"
+    options:
+      - "Dimanche soir"
+      - "Samedi midi"
+      - "Lundi matin"
+    answer: "Dimanche soir"
+    explain: "« Dimanche soir, je dois reprendre le train pour Québec. »"

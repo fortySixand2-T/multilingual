@@ -583,3 +583,13 @@
 - [2026-10-28] Created: content/a1/comprehension/{read-a1-le-nouveau-voisin,read-a1-mon-samedi}.yaml — reading sets using the new words (keeps a1 coverage ≥95%)
 - [2026-10-28] Created: content/a1/audio/*.mp3 — 52 clips for the new words (gen_audio.py)
 - [2026-10-28] Modified: scripts/build_vocab_ipa.py — REVIEWED dehors /dəɔʁ/
+- [2026-10-28] Created: content/a2/vocab/verbs.yaml — 39 high-frequency A2 core verbs (deck "Verbs") with checked IPA
+- [2026-10-28] Created: content/a2/lessons/verbs-a2-01.yaml — "Comings and goings": passé composé with être
+- [2026-10-28] Created: content/a2/lessons/verbs-a2-02.yaml — "Giving and taking": lui / leur with giving verbs
+- [2026-10-28] Created: content/a2/lessons/verbs-a2-03.yaml — "Thinking and deciding": il faut + infinitive, ça me plaît
+- [2026-10-28] Created: content/a2/lessons/verbs-a2-04.yaml — "Moving and handling": the imperative
+- [2026-10-28] Modified: content/a2/path.yaml — units a2.u24–u27 for the new verb lessons
+- [2026-10-28] Created: content/a2/comprehension/read-a2-les-conseils-de-ma-grand-mere.yaml — reading set keeping A2 coverage at 100%
+- [2026-10-28] Created: content/a2/comprehension/read-a2-un-message-de-sophie.yaml — reading set keeping A2 coverage at 100%
+- [2026-10-28] Created: content/a2/audio/*.mp3 — 39 generated clips for the new verbs
+- [2026-10-28] Modified: scripts/check_content.py — cross-level id check always spans every level, even when one level is requested

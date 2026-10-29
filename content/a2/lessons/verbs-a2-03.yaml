@@ -1,0 +1,60 @@
+id: verbs-a2-03
+title: Thinking and deciding
+grammar_point: il faut + infinitive; ça me plaît
+grammar_category: Expressions & communication
+est_minutes: 8
+new_vocab: [falloir, sembler, plaire, imaginer, compter, entendre, vivre, changer, preparer]
+pass_threshold: 8.0
+exercises:
+  - id: verbs-a2-03.e1
+    type: match_pairs
+    pairs:
+      - [falloir, to be necessary (il faut)]
+      - [sembler, to seem]
+      - [plaire, to please (ça me plaît)]
+
+  - id: verbs-a2-03.e2
+    type: match_pairs
+    pairs:
+      - [imaginer, to imagine]
+      - [compter, to count]
+      - [entendre, to hear]
+
+  - id: verbs-a2-03.e3
+    type: match_pairs
+    pairs:
+      - [vivre, to live]
+      - [changer, to change]
+      - [préparer, to prepare]
+
+  - id: verbs-a2-03.e4
+    type: mcq
+    prompt: "« Il ___ partir maintenant. » (We have to leave now)"
+    options: [faut, fait, faux]
+    answer: faut
+    explain: "falloir only has an il form: il faut + infinitive."
+
+  - id: verbs-a2-03.e5
+    type: mcq
+    prompt: "« Ce film me ___ beaucoup. »"
+    options: [plaît, plaisent, plais]
+    answer: plaît
+    explain: "plaire agrees with the thing you like: ce film me plaît."
+
+  - id: verbs-a2-03.e6
+    type: word_bank
+    prompt: "Build: “It seems easy”"
+    tokens: [Ça, semble, facile, sembler]
+    answer: [Ça, semble, facile]
+
+  - id: verbs-a2-03.e7
+    type: translate
+    prompt: "Translate: “I live in Montreal” (use vivre)"
+    answer: je vis à Montréal
+    accept: [Je vis à Montréal, je vis à montréal]
+
+  - id: verbs-a2-03.e8
+    type: listen_type
+    prompt: Type the verb you hear.
+    audio_ref: a2/audio/imaginer.mp3
+    answer: imaginer
