@@ -1,0 +1,125 @@
+- id: paraitre
+  fr: paraître
+  ipa: paʁɛtʁ
+  en: to seem (il paraît que = apparently)
+  pos: verb
+  tags: [verbs]
+
+- id: valoir
+  fr: valoir
+  ipa: valwaʁ
+  en: "to be worth (il vaut mieux = it's better to)"
+  pos: verb
+  tags: [verbs]
+
+- id: suffire
+  fr: suffire
+  ipa: syfiʁ
+  en: "to be enough (ça suffit = that's enough)"
+  pos: verb
+  tags: [verbs]
+
+- id: agir
+  fr: agir
+  ipa: aʒiʁ
+  en: "to act (il s'agit de = it's about)"
+  pos: verb
+  tags: [verbs]
+
+- id: exister
+  fr: exister
+  ipa: ɛɡziste
+  en: to exist
+  pos: verb
+  tags: [verbs]
+
+- id: ignorer
+  fr: ignorer
+  ipa: iɲoʁe
+  en: to not know; to ignore
+  pos: verb
+  tags: [verbs]
+
+- id: empecher
+  fr: empêcher
+  ipa: ɑ̃peʃe
+  en: to prevent
+  pos: verb
+  tags: [verbs]
+
+- id: ressembler
+  fr: ressembler
+  ipa: ʁəsɑ̃ble
+  en: to look like (ressembler à)
+  pos: verb
+  tags: [verbs]
+
+- id: disparaitre
+  fr: disparaître
+  ipa: dispaʁɛtʁ
+  en: to disappear
+  pos: verb
+  tags: [verbs]
+
+- id: decouvrir
+  fr: découvrir
+  ipa: dekuvʁiʁ
+  en: to discover
+  pos: verb
+  tags: [verbs]
+
+- id: apercevoir
+  fr: apercevoir
+  ipa: apɛʁsəvwaʁ
+  en: to catch sight of
+  pos: verb
+  tags: [verbs]
+
+- id: revoir
+  fr: revoir
+  ipa: ʁəvwaʁ
+  en: to see again
+  pos: verb
+  tags: [verbs]
+
+- id: remettre
+  fr: remettre
+  ipa: ʁəmɛtʁ
+  en: to put back; to hand in
+  pos: verb
+  tags: [verbs]
+
+- id: sauver
+  fr: sauver
+  ipa: sove
+  en: "to save, to rescue"
+  pos: verb
+  tags: [verbs]
+
+- id: prier
+  fr: prier
+  ipa: pʁije
+  en: "to pray; to beg (je vous en prie = you're welcome)"
+  pos: verb
+  tags: [verbs]
+
+- id: tirer
+  fr: tirer
+  ipa: tiʁe
+  en: to pull; to shoot
+  pos: verb
+  tags: [verbs]
+
+- id: frapper
+  fr: frapper
+  ipa: fʁape
+  en: to knock; to hit
+  pos: verb
+  tags: [verbs]
+
+- id: battre
+  fr: battre
+  ipa: batʁ
+  en: to beat
+  pos: verb
+  tags: [verbs]

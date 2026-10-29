@@ -168,3 +168,15 @@ units:
     icon: hash
     lessons: [ideas-b1-03]
     unlock: { type: all_of, requires: [b1.u27] }
+
+  - id: b1.u29
+    title: "It seems, it's worth it"
+    icon: scale
+    lessons: [verbes-b1-04]
+    unlock: { type: all_of, requires: [b1.u28] }
+
+  - id: b1.u30
+    title: "Finding, saving, knocking"
+    icon: target
+    lessons: [verbes-b1-05]
+    unlock: { type: all_of, requires: [b1.u29] }

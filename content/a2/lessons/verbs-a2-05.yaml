@@ -1,0 +1,60 @@
+id: verbs-a2-05
+title: Things you do
+grammar_point: "passé composé with avoir: j'ai crié, il a cassé"
+grammar_category: Verb conjugation & tenses
+est_minutes: 8
+new_vocab: [crier, sauter, casser, traverser, embrasser, rever, repeter, presenter, voler]
+pass_threshold: 8.0
+exercises:
+  - id: verbs-a2-05.e1
+    type: match_pairs
+    pairs:
+      - [crier, to shout]
+      - [sauter, to jump]
+      - [casser, to break]
+
+  - id: verbs-a2-05.e2
+    type: match_pairs
+    pairs:
+      - [traverser, to cross]
+      - [embrasser, to kiss; to hug]
+      - [rêver, to dream]
+
+  - id: verbs-a2-05.e3
+    type: match_pairs
+    pairs:
+      - [répéter, to repeat; to rehearse]
+      - [présenter, to introduce; to present]
+      - [voler, to fly; to steal]
+
+  - id: verbs-a2-05.e4
+    type: mcq
+    prompt: "« Hier, j'___ un verre. » (I broke a glass)"
+    options: [ai cassé, suis cassé, ai casser]
+    answer: ai cassé
+    explain: "casser takes avoir, with the participle in -é: j'ai cassé."
+
+  - id: verbs-a2-05.e5
+    type: mcq
+    prompt: "« Quelqu'un a ___ mon vélo ! » (Someone stole my bike)"
+    options: [volé, voler, vole]
+    answer: volé
+    explain: voler = to steal (and to fly); the participle is volé.
+
+  - id: verbs-a2-05.e6
+    type: word_bank
+    prompt: "Build: “We crossed the street”"
+    tokens: [Nous, avons, traversé, la, rue, sommes]
+    answer: [Nous, avons, traversé, la, rue]
+
+  - id: verbs-a2-05.e7
+    type: translate
+    prompt: "Translate: “Can you repeat, please?” (formal)"
+    answer: "pouvez-vous répéter, s'il vous plaît ?"
+    accept: ["Pouvez-vous répéter, s'il vous plaît ?", "pouvez-vous répéter s'il vous plaît", "vous pouvez répéter, s'il vous plaît ?", "Vous pouvez répéter, s'il vous plaît ?"]
+
+  - id: verbs-a2-05.e8
+    type: listen_type
+    prompt: Type the verb you hear.
+    audio_ref: a2/audio/rever.mp3
+    answer: rêver

@@ -1,0 +1,61 @@
+id: verbes-b1-05
+title: "Finding, saving, knocking"
+grammar_point: "irregular past participles: découvert, aperçu, revu, remis, battu"
+grammar_category: Verb conjugation & tenses
+est_minutes: 8
+new_vocab: [decouvrir, apercevoir, revoir, remettre, sauver, prier, tirer, frapper, battre]
+pass_threshold: 8.0
+exercises:
+  - id: verbes-b1-05.e1
+    type: match_pairs
+    pairs:
+      - [découvrir, to discover]
+      - [apercevoir, to catch sight of]
+      - [revoir, to see again]
+
+  - id: verbes-b1-05.e2
+    type: match_pairs
+    pairs:
+      - [remettre, to put back; to hand in]
+      - [sauver, "to save, to rescue"]
+      - [prier, "to pray; to beg (je vous en prie = you're welcome)"]
+
+  - id: verbes-b1-05.e3
+    type: match_pairs
+    pairs:
+      - [tirer, to pull; to shoot]
+      - [frapper, to knock; to hit]
+      - [battre, to beat]
+
+  - id: verbes-b1-05.e4
+    type: mcq
+    prompt: "« J'ai ___ un petit restaurant. » (discovered)"
+    options: [découvert, découvri, découvré]
+    answer: découvert
+    explain: "découvrir → découvert, like ouvrir → ouvert."
+
+  - id: verbes-b1-05.e5
+    type: mcq
+    prompt: "« Je l'ai ___ dans la foule. » (caught sight of)"
+    options: [aperçu, apercevu, aperçé]
+    answer: aperçu
+    explain: "apercevoir → aperçu, like recevoir → reçu."
+
+  - id: verbes-b1-05.e6
+    type: mcq
+    prompt: "« Merci ! — Je vous en ___. »"
+    options: [prie, prière, pris]
+    answer: prie
+    explain: "je vous en prie = you're welcome (formal)."
+
+  - id: verbes-b1-05.e7
+    type: word_bank
+    prompt: "Build: “Someone is knocking at the door”"
+    tokens: ["Quelqu'un", frappe, à, la, porte, tire]
+    answer: ["Quelqu'un", frappe, à, la, porte]
+
+  - id: verbes-b1-05.e8
+    type: listen_type
+    prompt: Type the verb you hear.
+    audio_ref: b1/audio/decouvrir.mp3
+    answer: découvrir

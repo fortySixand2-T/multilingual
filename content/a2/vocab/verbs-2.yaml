@@ -1,0 +1,160 @@
+- id: crier
+  fr: crier
+  ipa: kʁije
+  en: to shout
+  pos: verb
+  tags: [verbs]
+
+- id: sauter
+  fr: sauter
+  ipa: sote
+  en: to jump
+  pos: verb
+  tags: [verbs]
+
+- id: casser
+  fr: casser
+  ipa: kase
+  en: to break
+  pos: verb
+  tags: [verbs]
+
+- id: traverser
+  fr: traverser
+  ipa: tʁavɛʁse
+  en: to cross
+  pos: verb
+  tags: [verbs]
+
+- id: embrasser
+  fr: embrasser
+  ipa: ɑ̃bʁase
+  en: to kiss; to hug
+  pos: verb
+  tags: [verbs]
+
+- id: rever
+  fr: rêver
+  ipa: ʁeve
+  en: to dream
+  pos: verb
+  tags: [verbs]
+
+- id: repeter
+  fr: répéter
+  ipa: ʁepete
+  en: to repeat; to rehearse
+  pos: verb
+  tags: [verbs]
+
+- id: presenter
+  fr: présenter
+  ipa: pʁezɑ̃te
+  en: to introduce; to present
+  pos: verb
+  tags: [verbs]
+
+- id: voler
+  fr: voler
+  ipa: vole
+  en: to fly; to steal
+  pos: verb
+  tags: [verbs]
+
+- id: emmener
+  fr: emmener
+  ipa: ɑ̃məne
+  en: to take (someone somewhere)
+  pos: verb
+  tags: [verbs]
+
+- id: amener
+  fr: amener
+  ipa: aməne
+  en: to bring (someone)
+  pos: verb
+  tags: [verbs]
+
+- id: ramener
+  fr: ramener
+  ipa: ʁaməne
+  en: to bring back; to drive home
+  pos: verb
+  tags: [verbs]
+
+- id: enlever
+  fr: enlever
+  ipa: ɑ̃ləve
+  en: "to take off, to remove"
+  pos: verb
+  tags: [verbs]
+
+- id: avancer
+  fr: avancer
+  ipa: avɑ̃se
+  en: to move forward
+  pos: verb
+  tags: [verbs]
+
+- id: lacher
+  fr: lâcher
+  ipa: laʃe
+  en: to let go of
+  pos: verb
+  tags: [verbs]
+
+- id: serrer
+  fr: serrer
+  ipa: seʁe
+  en: to squeeze (serrer la main = to shake hands)
+  pos: verb
+  tags: [verbs]
+
+- id: glisser
+  fr: glisser
+  ipa: ɡlise
+  en: "to slip, to slide"
+  pos: verb
+  tags: [verbs]
+
+- id: samuser
+  fr: "s'amuser"
+  ipa: samyze
+  en: to have fun
+  pos: verb
+  tags: [verbs]
+
+- id: sinquieter
+  fr: "s'inquiéter"
+  ipa: sɛ̃kjete
+  en: to worry
+  pos: verb
+  tags: [verbs]
+
+- id: se_marier
+  fr: se marier
+  ipa: sə maʁje
+  en: to get married
+  pos: verb
+  tags: [verbs]
+
+- id: se_taire
+  fr: se taire
+  ipa: sə tɛʁ
+  en: to be quiet
+  pos: verb
+  tags: [verbs]
+
+- id: sinteresser_a
+  fr: "s'intéresser à"
+  ipa: sɛ̃teʁese a
+  en: to be interested in
+  pos: verb
+  tags: [verbs]
+
+- id: sapprocher_de
+  fr: "s'approcher de"
+  ipa: sapʁoʃe də
+  en: to come closer to
+  pos: verb
+  tags: [verbs]

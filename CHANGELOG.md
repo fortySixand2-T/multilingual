@@ -602,3 +602,10 @@
 - [2026-10-28] Modified: content/a2/path.yaml, content/b1/path.yaml — units a2.u28–u30 and b1.u26–u28
 - [2026-10-28] Created: content/a2/comprehension/read-a2-mon-endroit-prefere.yaml — reading set keeping A2 coverage at 100%
 - [2026-10-28] Created: content/a2/audio/*.mp3, content/b1/audio/*.mp3 — 66 generated clips for the new words
+- [2026-10-29] Created: content/a2/vocab/verbs-2.yaml — 23 high-frequency A2 verbs: actions, stem-changing verbs, reflexives (s'amuser, se taire…)
+- [2026-10-29] Created: content/b1/vocab/verbs-2.yaml — 18 high-frequency B1 verbs: impersonal (valoir, suffire…) and irregular participles
+- [2026-10-29] Created: content/a2/lessons/verbs-a2-05.yaml, verbs-a2-06.yaml, reflexives-a2-01.yaml — lessons for the A2 verbs
+- [2026-10-29] Created: content/b1/lessons/verbes-b1-04.yaml, verbes-b1-05.yaml — lessons for the B1 verbs
+- [2026-10-29] Modified: content/a2/path.yaml, content/b1/path.yaml — units a2.u31–u33 and b1.u29–u30
+- [2026-10-29] Created: content/a2/comprehension/read-a2-le-mariage-de-lea.yaml, read-a2-a-velo-en-hiver.yaml — reading sets keeping A2 coverage at 100%
+- [2026-10-29] Created: content/a2/audio/*.mp3, content/b1/audio/*.mp3 — 41 generated clips for the new verbs
