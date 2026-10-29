@@ -1,0 +1,61 @@
+id: everyday-a2-02
+title: "Where, and what you notice"
+grammar_point: "places with de: à côté de, au bout de"
+grammar_category: Sentence structures
+est_minutes: 8
+new_vocab: [endroit, cote, bout, ligne, bruit, lumiere, voix, image, silence, corps]
+pass_threshold: 8.0
+exercises:
+  - id: everyday-a2-02.e1
+    type: match_pairs
+    pairs:
+      - [endroit, "place, spot"]
+      - [côté, side]
+      - [bout, end; bit]
+      - [ligne, line]
+
+  - id: everyday-a2-02.e2
+    type: match_pairs
+    pairs:
+      - [bruit, noise]
+      - [lumière, light]
+      - [voix, voice]
+
+  - id: everyday-a2-02.e3
+    type: match_pairs
+    pairs:
+      - [image, "picture, image"]
+      - [silence, silence]
+      - [corps, body]
+
+  - id: everyday-a2-02.e4
+    type: mcq
+    prompt: "« La pharmacie est ___ la banque. » (next to)"
+    options: [à côté de, au bout de, loin]
+    answer: à côté de
+    explain: à côté de = next to.
+
+  - id: everyday-a2-02.e5
+    type: mcq
+    prompt: "« Tournez à droite ___ la rue. » (at the end of)"
+    options: [au bout de, à côté de, au bord]
+    answer: au bout de
+    explain: au bout de = at the end of.
+
+  - id: everyday-a2-02.e6
+    type: word_bank
+    prompt: "Build: “There's too much noise”"
+    tokens: [Il, y, a, trop, de, bruit, voix]
+    answer: [Il, y, a, trop, de, bruit]
+
+  - id: everyday-a2-02.e7
+    type: translate
+    prompt: "Translate: “turn off the light” (to a friend)"
+    answer: éteins la lumière
+    accept: [Éteins la lumière, éteins la lumière !, Éteins la lumière !]
+
+  - id: everyday-a2-02.e8
+    type: listen_type
+    prompt: Type the word you hear.
+    audio_ref: a2/audio/voix.mp3
+    answer: voix

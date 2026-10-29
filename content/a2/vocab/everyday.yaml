@@ -1,0 +1,159 @@
+- id: chose
+  fr: chose
+  ipa: ʃoz
+  en: thing
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: idee
+  fr: idée
+  ipa: ide
+  en: idea
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: histoire_recit
+  fr: histoire
+  ipa: istwaʁ
+  en: story
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: ville_seule
+  fr: ville
+  ipa: vil
+  en: town; city
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: photo
+  fr: photo
+  ipa: foto
+  en: photo
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: sac
+  fr: sac
+  ipa: sak
+  en: bag
+  gender: m
+  pos: noun
+  tags: [everyday]
+
+- id: salle
+  fr: salle
+  ipa: sal
+  en: room (hall)
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: piece
+  fr: pièce
+  ipa: pjɛs
+  en: room (of a home)
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: route
+  fr: route
+  ipa: ʁut
+  en: road
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: chemin
+  fr: chemin
+  ipa: ʃəmɛ̃
+  en: path; way
+  gender: m
+  pos: noun
+  tags: [everyday]
+
+- id: endroit
+  fr: endroit
+  ipa: ɑ̃dʁwa
+  en: "place, spot"
+  gender: m
+  pos: noun
+  tags: [everyday]
+
+- id: cote
+  fr: côté
+  ipa: kote
+  en: side
+  gender: m
+  pos: noun
+  tags: [everyday]
+
+- id: bout
+  fr: bout
+  ipa: bu
+  en: end; bit
+  gender: m
+  pos: noun
+  tags: [everyday]
+
+- id: ligne
+  fr: ligne
+  ipa: liɲ
+  en: line
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: bruit
+  fr: bruit
+  ipa: bʁɥi
+  en: noise
+  gender: m
+  pos: noun
+  tags: [everyday]
+
+- id: lumiere
+  fr: lumière
+  ipa: lymjɛʁ
+  en: light
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: voix
+  fr: voix
+  ipa: vwa
+  en: voice
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: image
+  fr: image
+  ipa: imaʒ
+  en: "picture, image"
+  gender: f
+  pos: noun
+  tags: [everyday]
+
+- id: silence
+  fr: silence
+  ipa: silɑ̃s
+  en: silence
+  gender: m
+  pos: noun
+  tags: [everyday]
+
+- id: corps
+  fr: corps
+  ipa: kɔʁ
+  en: body
+  gender: m
+  pos: noun
+  tags: [everyday]

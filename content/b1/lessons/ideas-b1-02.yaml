@@ -1,0 +1,63 @@
+id: ideas-b1-02
+title: Wants and needs
+grammar_point: "avoir besoin de, avoir envie de, être d'accord, faire attention"
+grammar_category: Expressions & communication
+est_minutes: 8
+new_vocab: [besoin, envie, plaisir, chance, accord, cause, attention, parole, reve, regard, faute]
+pass_threshold: 8.0
+exercises:
+  - id: ideas-b1-02.e1
+    type: match_pairs
+    pairs:
+      - [besoin, need]
+      - [envie, "wish, urge"]
+      - [plaisir, pleasure]
+      - [chance, luck; chance]
+
+  - id: ideas-b1-02.e2
+    type: match_pairs
+    pairs:
+      - [accord, agreement]
+      - [cause, cause]
+      - [attention, attention]
+      - [parole, word (spoken); promise]
+
+  - id: ideas-b1-02.e3
+    type: match_pairs
+    pairs:
+      - [rêve, dream]
+      - [regard, "look, gaze"]
+      - [faute, fault; mistake]
+
+  - id: ideas-b1-02.e4
+    type: mcq
+    prompt: "« J'ai ___ de dormir. » (I feel like sleeping)"
+    options: [envie, besoin, plaisir]
+    answer: envie
+    explain: avoir envie de = to feel like; avoir besoin de = to need.
+
+  - id: ideas-b1-02.e5
+    type: mcq
+    prompt: "« Tu ___ d'accord avec moi ? »"
+    options: [es, as, fais]
+    answer: es
+    explain: "être d'accord = to agree."
+
+  - id: ideas-b1-02.e6
+    type: mcq
+    prompt: "« Ce n'est pas ma ___ ! » (It's not my fault)"
+    options: [faute, cause, parole]
+    answer: faute
+    explain: "c'est ma faute = it's my fault."
+
+  - id: ideas-b1-02.e7
+    type: word_bank
+    prompt: "Build: “I need help”"
+    tokens: ["J'ai", besoin, "d'aide", envie]
+    answer: ["J'ai", besoin, "d'aide"]
+
+  - id: ideas-b1-02.e8
+    type: translate
+    prompt: "Translate: “good luck!”"
+    answer: bonne chance !
+    accept: [Bonne chance !, bonne chance, Bonne chance]

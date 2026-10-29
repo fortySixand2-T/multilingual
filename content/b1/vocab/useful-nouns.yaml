@@ -1,0 +1,119 @@
+- id: facon
+  fr: façon
+  ipa: fasɔ̃
+  en: "way, manner"
+  gender: f
+  pos: noun
+  tags: [expressions]
+
+- id: sorte
+  fr: sorte
+  ipa: sɔʁt
+  en: "sort, kind"
+  gender: f
+  pos: noun
+  tags: [expressions]
+
+- id: genre
+  fr: genre
+  ipa: ʒɑ̃ʁ
+  en: kind; gender
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: partie
+  fr: partie
+  ipa: paʁti
+  en: part
+  gender: f
+  pos: noun
+  tags: [expressions]
+
+- id: reste
+  fr: reste
+  ipa: ʁɛst
+  en: "rest, remainder"
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: suite
+  fr: suite
+  ipa: sɥit
+  en: continuation (tout de suite = right away)
+  gender: f
+  pos: noun
+  tags: [expressions]
+
+- id: point
+  fr: point
+  ipa: pwɛ̃
+  en: point; full stop
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: fond
+  fr: fond
+  ipa: fɔ̃
+  en: bottom; back (au fond = basically)
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: lieu
+  fr: lieu
+  ipa: ljø
+  en: place (avoir lieu = to take place)
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: air
+  fr: air
+  ipa: ɛʁ
+  en: "air; look (avoir l'air = to seem)"
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: coup
+  fr: coup
+  ipa: ku
+  en: "blow, knock (tout à coup = suddenly)"
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: type
+  fr: type
+  ipa: tip
+  en: type; guy (informal)
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: tour
+  fr: tour
+  ipa: tuʁ
+  en: turn; tour
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: retour
+  fr: retour
+  ipa: ʁətuʁ
+  en: return
+  gender: m
+  pos: noun
+  tags: [expressions]
+
+- id: affaire
+  fr: affaire
+  ipa: afɛʁ
+  en: "matter, deal; (pl.) belongings"
+  gender: f
+  pos: noun
+  tags: [expressions]

@@ -1,0 +1,62 @@
+- id: sur_adj
+  fr: sûr
+  ipa: syʁ
+  en: sure; safe
+  pos: adjective
+  tags: [adjectives]
+
+- id: juste
+  fr: juste
+  ipa: ʒyst
+  en: fair; right
+  pos: adjective
+  tags: [adjectives]
+
+- id: fou
+  fr: fou
+  ipa: fu
+  en: crazy
+  pos: adjective
+  tags: [adjectives]
+
+- id: dur
+  fr: dur
+  ipa: dyʁ
+  en: hard
+  pos: adjective
+  tags: [adjectives]
+
+- id: simple
+  fr: simple
+  ipa: sɛ̃pl
+  en: simple
+  pos: adjective
+  tags: [adjectives]
+
+- id: certain
+  fr: certain
+  ipa: sɛʁtɛ̃
+  en: certain
+  pos: adjective
+  tags: [adjectives]
+
+- id: pareil
+  fr: pareil
+  ipa: paʁɛj
+  en: "the same, alike"
+  pos: adjective
+  tags: [adjectives]
+
+- id: meilleur
+  fr: meilleur
+  ipa: mɛjœʁ
+  en: better; best
+  pos: adjective
+  tags: [adjectives]
+
+- id: bas
+  fr: bas
+  ipa: ba
+  en: low
+  pos: adjective
+  tags: [adjectives]

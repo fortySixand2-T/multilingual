@@ -1,0 +1,175 @@
+- id: verite
+  fr: vérité
+  ipa: veʁite
+  en: truth
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: paix
+  fr: paix
+  ipa: pɛ
+  en: peace
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: guerre
+  fr: guerre
+  ipa: ɡɛʁ
+  en: war
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: amour
+  fr: amour
+  ipa: amuʁ
+  en: love
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: esprit
+  fr: esprit
+  ipa: ɛspʁi
+  en: mind; spirit
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: ame
+  fr: âme
+  ipa: am
+  en: soul
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: etat
+  fr: état
+  ipa: eta
+  en: "state, condition"
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: ordre
+  fr: ordre
+  ipa: ɔʁdʁ
+  en: order
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: sens
+  fr: sens
+  ipa: sɑ̃s
+  en: meaning; direction
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: force
+  fr: force
+  ipa: fɔʁs
+  en: strength
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: mort_nom
+  fr: mort
+  ipa: mɔʁ
+  en: death
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: besoin
+  fr: besoin
+  ipa: bəzwɛ̃
+  en: need
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: envie
+  fr: envie
+  ipa: ɑ̃vi
+  en: "wish, urge"
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: plaisir
+  fr: plaisir
+  ipa: pleziʁ
+  en: pleasure
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: chance
+  fr: chance
+  ipa: ʃɑ̃s
+  en: luck; chance
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: accord
+  fr: accord
+  ipa: akɔʁ
+  en: agreement
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: cause
+  fr: cause
+  ipa: koz
+  en: cause
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: attention
+  fr: attention
+  ipa: atɑ̃sjɔ̃
+  en: attention
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: parole
+  fr: parole
+  ipa: paʁɔl
+  en: word (spoken); promise
+  gender: f
+  pos: noun
+  tags: [ideas]
+
+- id: reve
+  fr: rêve
+  ipa: ʁɛv
+  en: dream
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: regard
+  fr: regard
+  ipa: ʁəɡaʁ
+  en: "look, gaze"
+  gender: m
+  pos: noun
+  tags: [ideas]
+
+- id: faute
+  fr: faute
+  ipa: fot
+  en: fault; mistake
+  gender: f
+  pos: noun
+  tags: [ideas]

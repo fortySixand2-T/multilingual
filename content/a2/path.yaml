@@ -162,3 +162,21 @@ units:
     icon: target
     lessons: [verbs-a2-04]
     unlock: { type: all_of, requires: [a2.u26] }
+
+  - id: a2.u28
+    title: "Things and places"
+    icon: map
+    lessons: [everyday-a2-01]
+    unlock: { type: all_of, requires: [a2.u27] }
+
+  - id: a2.u29
+    title: "Where, and what you notice"
+    icon: wave
+    lessons: [everyday-a2-02]
+    unlock: { type: all_of, requires: [a2.u28] }
+
+  - id: a2.u30
+    title: "Sure, fair, the same"
+    icon: smile
+    lessons: [adjectives-a2-01]
+    unlock: { type: all_of, requires: [a2.u29] }
