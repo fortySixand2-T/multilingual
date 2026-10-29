@@ -1,0 +1,54 @@
+id: connecteurs-b1-01
+title: "However, therefore"
+grammar_point: "linking ideas: cependant / pourtant (contrast), donc / ainsi (consequence)"
+grammar_category: Logical connectors
+est_minutes: 7
+new_vocab: [ainsi, pourtant, cependant, donc, tant, autant]
+pass_threshold: 8.0
+exercises:
+  - id: connecteurs-b1-01.e1
+    type: match_pairs
+    pairs:
+      - [ainsi, "thus, in this way"]
+      - [pourtant, "yet, and yet"]
+      - [cependant, however]
+
+  - id: connecteurs-b1-01.e2
+    type: match_pairs
+    pairs:
+      - [donc, "so, therefore"]
+      - [tant, "so much, so many (tant de)"]
+      - [autant, "as much, as many (autant de … que)"]
+
+  - id: connecteurs-b1-01.e3
+    type: mcq
+    prompt: "« Il a beaucoup étudié ; ___, il a raté l'examen. »"
+    options: [pourtant, donc, ainsi]
+    answer: pourtant
+    explain: "pourtant marks a surprising contrast: and yet."
+
+  - id: connecteurs-b1-01.e4
+    type: mcq
+    prompt: "« Je pense, ___ je suis. »"
+    options: [donc, cependant, pourtant]
+    answer: donc
+    explain: donc introduces a consequence.
+
+  - id: connecteurs-b1-01.e5
+    type: mcq
+    prompt: "« J'ai ___ de travail que toi. » (as much work as you)"
+    options: [autant, tant, ainsi]
+    answer: autant
+    explain: autant de … que = as much … as.
+
+  - id: connecteurs-b1-01.e6
+    type: word_bank
+    prompt: "Build: “There are so many people!”"
+    tokens: [Il, y, a, tant, de, monde, "!", autant]
+    answer: [Il, y, a, tant, de, monde, "!"]
+
+  - id: connecteurs-b1-01.e7
+    type: translate
+    prompt: "Translate: “however, the price is high” (use cependant)"
+    answer: "cependant, le prix est élevé"
+    accept: ["Cependant, le prix est élevé", cependant le prix est élevé, "Cependant, le prix est haut"]

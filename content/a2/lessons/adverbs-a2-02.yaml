@@ -1,0 +1,46 @@
+id: adverbs-a2-02
+title: "Less, rather, elsewhere"
+grammar_point: "moins … que and plutôt que: moins cher que, plutôt le train"
+grammar_category: Adjectives & comparison
+est_minutes: 6
+new_vocab: [moins, plutot, autour, ailleurs, debout]
+pass_threshold: 8.0
+exercises:
+  - id: adverbs-a2-02.e1
+    type: match_pairs
+    pairs:
+      - [moins, less]
+      - [plutôt, rather]
+      - [autour, around]
+
+  - id: adverbs-a2-02.e2
+    type: match_pairs
+    pairs:
+      - [ailleurs, elsewhere]
+      - [debout, standing; up (out of bed)]
+
+  - id: adverbs-a2-02.e3
+    type: mcq
+    prompt: "« Le bus est ___ cher que le taxi. »"
+    options: [moins, plutôt, même]
+    answer: moins
+    explain: moins + adjective + que = less … than.
+
+  - id: adverbs-a2-02.e4
+    type: mcq
+    prompt: "« Je préfère ___ le thé. » (I'd rather have tea)"
+    options: [plutôt, moins, ailleurs]
+    answer: plutôt
+    explain: plutôt = rather.
+
+  - id: adverbs-a2-02.e5
+    type: word_bank
+    prompt: "Build: “Let's eat elsewhere”"
+    tokens: [Mangeons, ailleurs, autour]
+    answer: [Mangeons, ailleurs]
+
+  - id: adverbs-a2-02.e6
+    type: translate
+    prompt: "Translate: “I'm up at six” (use debout)"
+    answer: je suis debout à six heures
+    accept: [Je suis debout à six heures, je suis debout à 6 heures, je suis debout à 6h]

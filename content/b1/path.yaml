@@ -180,3 +180,9 @@ units:
     icon: target
     lessons: [verbes-b1-05]
     unlock: { type: all_of, requires: [b1.u29] }
+
+  - id: b1.u31
+    title: "However, therefore"
+    icon: scale
+    lessons: [connecteurs-b1-01]
+    unlock: { type: all_of, requires: [b1.u30] }

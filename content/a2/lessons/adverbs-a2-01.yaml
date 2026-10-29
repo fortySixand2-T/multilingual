@@ -1,0 +1,46 @@
+id: adverbs-a2-01
+title: "Since, so, like"
+grammar_point: "depuis + present tense: j'habite ici depuis deux ans"
+grammar_category: Logical connectors
+est_minutes: 6
+new_vocab: [depuis, alors, comme, meme, tellement]
+pass_threshold: 8.0
+exercises:
+  - id: adverbs-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [depuis, since; for (time)]
+      - [alors, "so, then"]
+      - [comme, "like, as"]
+
+  - id: adverbs-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [même, even; same]
+      - [tellement, so (much)]
+
+  - id: adverbs-a2-01.e3
+    type: mcq
+    prompt: "« J'___ à Montréal depuis 2020. » (I've lived in Montreal since 2020)"
+    options: [habite, ai habité, habitais]
+    answer: habite
+    explain: "depuis + present: the action is still going on → j'habite."
+
+  - id: adverbs-a2-01.e4
+    type: mcq
+    prompt: "« Il pleut, ___ je reste à la maison. »"
+    options: [alors, comme, même]
+    answer: alors
+    explain: alors = so (a consequence).
+
+  - id: adverbs-a2-01.e5
+    type: word_bank
+    prompt: "Build: “It's so beautiful!”"
+    tokens: ["C'est", tellement, beau, "!", comme]
+    answer: ["C'est", tellement, beau, "!"]
+
+  - id: adverbs-a2-01.e6
+    type: translate
+    prompt: "Translate: “even on Sunday”"
+    answer: même le dimanche
+    accept: [Même le dimanche, même dimanche]

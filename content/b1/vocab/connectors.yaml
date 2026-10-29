@@ -1,0 +1,41 @@
+- id: ainsi
+  fr: ainsi
+  ipa: ɛ̃si
+  en: "thus, in this way"
+  pos: adverb
+  tags: [connectors]
+
+- id: pourtant
+  fr: pourtant
+  ipa: puʁtɑ̃
+  en: "yet, and yet"
+  pos: adverb
+  tags: [connectors]
+
+- id: cependant
+  fr: cependant
+  ipa: səpɑ̃dɑ̃
+  en: however
+  pos: adverb
+  tags: [connectors]
+
+- id: donc
+  fr: donc
+  ipa: dɔ̃k
+  en: "so, therefore"
+  pos: adverb
+  tags: [connectors]
+
+- id: tant
+  fr: tant
+  ipa: tɑ̃
+  en: "so much, so many (tant de)"
+  pos: adverb
+  tags: [connectors]
+
+- id: autant
+  fr: autant
+  ipa: otɑ̃
+  en: "as much, as many (autant de … que)"
+  pos: adverb
+  tags: [connectors]

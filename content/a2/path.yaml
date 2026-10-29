@@ -198,3 +198,15 @@ units:
     icon: people
     lessons: [reflexives-a2-01]
     unlock: { type: all_of, requires: [a2.u32] }
+
+  - id: a2.u34
+    title: "Since, so, like"
+    icon: clock
+    lessons: [adverbs-a2-01]
+    unlock: { type: all_of, requires: [a2.u33] }
+
+  - id: a2.u35
+    title: "Less, rather, elsewhere"
+    icon: map
+    lessons: [adverbs-a2-02]
+    unlock: { type: all_of, requires: [a2.u34] }

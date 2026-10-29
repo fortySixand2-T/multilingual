@@ -1,0 +1,69 @@
+- id: depuis
+  fr: depuis
+  ipa: dəpɥi
+  en: since; for (time)
+  pos: adverb
+  tags: [adverbs]
+
+- id: alors
+  fr: alors
+  ipa: alɔʁ
+  en: "so, then"
+  pos: adverb
+  tags: [adverbs]
+
+- id: comme
+  fr: comme
+  ipa: kɔm
+  en: "like, as"
+  pos: adverb
+  tags: [adverbs]
+
+- id: meme
+  fr: même
+  ipa: mɛm
+  en: even; same
+  pos: adverb
+  tags: [adverbs]
+
+- id: tellement
+  fr: tellement
+  ipa: tɛləmɑ̃
+  en: so (much)
+  pos: adverb
+  tags: [adverbs]
+
+- id: moins
+  fr: moins
+  ipa: mwɛ̃
+  en: less
+  pos: adverb
+  tags: [adverbs]
+
+- id: plutot
+  fr: plutôt
+  ipa: plyto
+  en: rather
+  pos: adverb
+  tags: [adverbs]
+
+- id: autour
+  fr: autour
+  ipa: otuʁ
+  en: around
+  pos: adverb
+  tags: [adverbs]
+
+- id: ailleurs
+  fr: ailleurs
+  ipa: ajœʁ
+  en: elsewhere
+  pos: adverb
+  tags: [adverbs]
+
+- id: debout
+  fr: debout
+  ipa: dəbu
+  en: standing; up (out of bed)
+  pos: adverb
+  tags: [adverbs]
