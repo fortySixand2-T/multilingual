@@ -1,0 +1,61 @@
+id: verbes-b1-04
+title: "It seems, it's worth it"
+grammar_point: "impersonal verbs: il paraît que, il vaut mieux, ça suffit, il s'agit de"
+grammar_category: Expressions & communication
+est_minutes: 8
+new_vocab: [paraitre, valoir, suffire, agir, exister, ignorer, empecher, ressembler, disparaitre]
+pass_threshold: 8.0
+exercises:
+  - id: verbes-b1-04.e1
+    type: match_pairs
+    pairs:
+      - [paraître, to seem (il paraît que = apparently)]
+      - [valoir, "to be worth (il vaut mieux = it's better to)"]
+      - [suffire, "to be enough (ça suffit = that's enough)"]
+
+  - id: verbes-b1-04.e2
+    type: match_pairs
+    pairs:
+      - [agir, "to act (il s'agit de = it's about)"]
+      - [exister, to exist]
+      - [ignorer, to not know; to ignore]
+
+  - id: verbes-b1-04.e3
+    type: match_pairs
+    pairs:
+      - [empêcher, to prevent]
+      - [ressembler, to look like (ressembler à)]
+      - [disparaître, to disappear]
+
+  - id: verbes-b1-04.e4
+    type: mcq
+    prompt: "« Il ___ mieux partir tôt. » (It's better to leave early)"
+    options: [vaut, faut, veut]
+    answer: vaut
+    explain: "il vaut mieux + infinitive = it's better to."
+
+  - id: verbes-b1-04.e5
+    type: mcq
+    prompt: "« Dans ce film, il ___ d'une famille immigrée. »"
+    options: ["s'agit", agit, est agi]
+    answer: "s'agit"
+    explain: "il s'agit de = it's about; it only has the il form."
+
+  - id: verbes-b1-04.e6
+    type: mcq
+    prompt: "« Tu ___ à ta mère. »"
+    options: [ressembles, ressembles de, ressemble]
+    answer: ressembles
+    explain: "ressembler à quelqu'un: tu ressembles à ta mère."
+
+  - id: verbes-b1-04.e7
+    type: word_bank
+    prompt: "Build: “Apparently it's going to rain”"
+    tokens: [Il, paraît, "qu'il", va, pleuvoir, semble]
+    answer: [Il, paraît, "qu'il", va, pleuvoir]
+
+  - id: verbes-b1-04.e8
+    type: translate
+    prompt: "Translate: “that's enough!”"
+    answer: ça suffit !
+    accept: [Ça suffit !, ça suffit, Ça suffit]

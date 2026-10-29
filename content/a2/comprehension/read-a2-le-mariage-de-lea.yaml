@@ -1,0 +1,48 @@
+id: read-a2-le-mariage-de-lea
+level: a2
+skill: reading
+title: "Le mariage de Léa"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Samedi, ma cousine Léa va se marier avec Karim. Elle aime rêver de ce jour depuis
+  qu'elle a dix ans ! Hier, nous avons dû répéter la cérémonie deux fois. Mon père va
+  amener notre grand-mère en voiture et la ramener chez elle à minuit. Pendant la
+  cérémonie, il faut se taire et ne pas crier. Après, tout le monde va embrasser les
+  mariés et leur serrer la main. Ensuite, on va danser, chanter et sauter pour
+  s'amuser. Mon petit frère commence à s'intéresser à la musique : il va jouer du
+  piano. Léa est un peu stressée, mais selon elle, il ne faut pas s'inquiéter : tout
+  est prêt.
+questions:
+  - id: read-a2-le-mariage-de-lea.q1
+    prompt: "Combien de fois la famille a-t-elle répété la cérémonie ?"
+    options:
+      - "Deux fois"
+      - "Une fois"
+      - "Dix fois"
+    answer: "Deux fois"
+    explain: "« Hier, nous avons dû répéter la cérémonie deux fois. »"
+  - id: read-a2-le-mariage-de-lea.q2
+    prompt: "Qui va ramener la grand-mère chez elle ?"
+    options:
+      - "Le père"
+      - "Léa"
+      - "Karim"
+    answer: "Le père"
+    explain: "« Mon père va amener notre grand-mère en voiture et la ramener chez elle à minuit. »"
+  - id: read-a2-le-mariage-de-lea.q3
+    prompt: "Que faut-il faire pendant la cérémonie ?"
+    options:
+      - "Se taire"
+      - "Chanter"
+      - "Jouer du piano"
+    answer: "Se taire"
+    explain: "« Pendant la cérémonie, il faut se taire et ne pas crier. »"
+  - id: read-a2-le-mariage-de-lea.q4
+    prompt: "Que va faire le petit frère ?"
+    options:
+      - "Jouer du piano"
+      - "Serrer la main des mariés"
+      - "Conduire la grand-mère"
+    answer: "Jouer du piano"
+    explain: "« Mon petit frère commence à s'intéresser à la musique : il va jouer du piano. »"

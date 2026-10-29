@@ -1,0 +1,47 @@
+id: reflexives-a2-01
+title: Reflexive verbs
+grammar_point: "reflexives take être in the passé composé: elle s'est mariée"
+grammar_category: Pronouns
+est_minutes: 6
+new_vocab: [samuser, sinquieter, se_marier, se_taire, sinteresser_a, sapprocher_de]
+pass_threshold: 8.0
+exercises:
+  - id: reflexives-a2-01.e1
+    type: match_pairs
+    pairs:
+      - ["s'amuser", to have fun]
+      - ["s'inquiéter", to worry]
+      - [se marier, to get married]
+
+  - id: reflexives-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [se taire, to be quiet]
+      - ["s'intéresser à", to be interested in]
+      - ["s'approcher de", to come closer to]
+
+  - id: reflexives-a2-01.e3
+    type: mcq
+    prompt: "« Ils ___ en juin. » (They got married in June)"
+    options: [se sont mariés, ont se marié, se ont mariés]
+    answer: se sont mariés
+    explain: "Reflexives use être, and the participle agrees: ils se sont mariés."
+
+  - id: reflexives-a2-01.e4
+    type: mcq
+    prompt: "« Ne ___ pas, tout va bien. »"
+    options: ["t'inquiète", "s'inquiéter", inquiète-toi]
+    answer: "t'inquiète"
+    explain: "Negative imperative keeps the pronoun in front: ne t'inquiète pas."
+
+  - id: reflexives-a2-01.e5
+    type: word_bank
+    prompt: "Build: “I'm interested in music”"
+    tokens: [Je, "m'intéresse", à, la, musique, de]
+    answer: [Je, "m'intéresse", à, la, musique]
+
+  - id: reflexives-a2-01.e6
+    type: translate
+    prompt: "Translate: “We had fun!”"
+    answer: "on s'est amusés !"
+    accept: ["On s'est amusés !", "on s'est amusé !", nous nous sommes amusés !, Nous nous sommes amusés !, "on s'est amusés", nous nous sommes amusés]

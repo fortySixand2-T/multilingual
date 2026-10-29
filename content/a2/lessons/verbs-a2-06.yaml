@@ -1,0 +1,49 @@
+id: verbs-a2-06
+title: "Take, bring, let go"
+grammar_point: "stem changes: j'emmène, nous emmenons; nous avançons"
+grammar_category: Verb conjugation & tenses
+est_minutes: 6
+new_vocab: [emmener, amener, ramener, enlever, avancer, lacher, serrer, glisser]
+pass_threshold: 8.0
+exercises:
+  - id: verbs-a2-06.e1
+    type: match_pairs
+    pairs:
+      - [emmener, to take (someone somewhere)]
+      - [amener, to bring (someone)]
+      - [ramener, to bring back; to drive home]
+      - [enlever, "to take off, to remove"]
+
+  - id: verbs-a2-06.e2
+    type: match_pairs
+    pairs:
+      - [avancer, to move forward]
+      - [lâcher, to let go of]
+      - [serrer, to squeeze (serrer la main = to shake hands)]
+      - [glisser, "to slip, to slide"]
+
+  - id: verbs-a2-06.e3
+    type: mcq
+    prompt: "« J'___ les enfants à l'école. »"
+    options: [emmène, emmene, emmenne]
+    answer: emmène
+    explain: "e becomes è before a silent ending: j'emmène (but nous emmenons)."
+
+  - id: verbs-a2-06.e4
+    type: mcq
+    prompt: "« Nous ___ vite. »"
+    options: [avançons, avancons, avanceons]
+    answer: avançons
+    explain: "c becomes ç before o to keep the s sound: nous avançons."
+
+  - id: verbs-a2-06.e5
+    type: word_bank
+    prompt: "Build: “Take off your shoes”"
+    tokens: [Enlève, tes, chaussures, Lâche]
+    answer: [Enlève, tes, chaussures]
+
+  - id: verbs-a2-06.e6
+    type: translate
+    prompt: "Translate: “we shake hands”"
+    answer: nous nous serrons la main
+    accept: [Nous nous serrons la main, on se serre la main, On se serre la main]

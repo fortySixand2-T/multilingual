@@ -180,3 +180,21 @@ units:
     icon: smile
     lessons: [adjectives-a2-01]
     unlock: { type: all_of, requires: [a2.u29] }
+
+  - id: a2.u31
+    title: "Things you do"
+    icon: bolt
+    lessons: [verbs-a2-05]
+    unlock: { type: all_of, requires: [a2.u30] }
+
+  - id: a2.u32
+    title: "Take, bring, let go"
+    icon: bag
+    lessons: [verbs-a2-06]
+    unlock: { type: all_of, requires: [a2.u31] }
+
+  - id: a2.u33
+    title: "Reflexive verbs"
+    icon: people
+    lessons: [reflexives-a2-01]
+    unlock: { type: all_of, requires: [a2.u32] }
