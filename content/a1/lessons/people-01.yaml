@@ -1,0 +1,62 @@
+id: people-01
+title: People
+grammar_point: "un / une with people: un homme, une femme"
+grammar_category: Articles & determiners
+est_minutes: 8
+new_vocab: [homme, femme, garcon, gens, personne, maman, papa, docteur, dame, nom, age]
+pass_threshold: 8.0
+exercises:
+  - id: people-01.e1
+    type: match_pairs
+    pairs:
+      - [homme, man]
+      - [femme, woman; wife]
+      - [garçon, boy]
+      - [gens, people]
+
+  - id: people-01.e2
+    type: match_pairs
+    pairs:
+      - [personne, person]
+      - [maman, mum]
+      - [papa, dad]
+      - [docteur, doctor]
+
+  - id: people-01.e3
+    type: match_pairs
+    pairs:
+      - [dame, lady]
+      - [nom, name]
+      - [âge, age]
+
+  - id: people-01.e4
+    type: mcq
+    prompt: "« ___ femme »"
+    options: [un, une]
+    answer: une
+    explain: femme is feminine → une femme.
+
+  - id: people-01.e5
+    type: mcq
+    prompt: "« ___ garçon »"
+    options: [un, une]
+    answer: un
+    explain: garçon is masculine → un garçon.
+
+  - id: people-01.e6
+    type: word_bank
+    prompt: "Build: “The man is a doctor”"
+    tokens: ["L'homme", est, docteur, dame]
+    answer: ["L'homme", est, docteur]
+
+  - id: people-01.e7
+    type: translate
+    prompt: "Translate: “What is your name?” (formal)"
+    answer: "quel est votre nom ?"
+    accept: ["Quel est votre nom ?", quel est votre nom]
+
+  - id: people-01.e8
+    type: listen_type
+    prompt: Type the word you hear.
+    audio_ref: a1/audio/femme.mp3
+    answer: femme

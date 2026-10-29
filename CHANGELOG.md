@@ -575,3 +575,11 @@
 - [2026-10-28] Modified: web/src/styles.css — .vocab-ipa
 - [2026-10-28] Modified: web/src/VocabWord.test.tsx — IPA rendering tests
 - [2026-10-28] Modified: web/src/screens/Review.test.tsx — course card shows IPA, personal card hides it
+- [2026-10-28] Created: content/a1/vocab/people.yaml — 11 core high-frequency people nouns (homme, femme, gens…)
+- [2026-10-28] Created: content/a1/vocab/time-words.yaml — 19 time nouns and adverbs (temps, fois, toujours, d'abord…), Time deck
+- [2026-10-28] Created: content/a1/vocab/adverbs.yaml — 22 core adverbs and question words (très, beaucoup, pourquoi…)
+- [2026-10-28] Created: content/a1/lessons/{people-01,time-words-01,time-words-02,adverbs-01,adverbs-02}.yaml — lessons teaching the 52 new words
+- [2026-10-28] Modified: content/a1/path.yaml — units a1.u22 People, a1.u23 Time words, a1.u24 Little words
+- [2026-10-28] Created: content/a1/comprehension/{read-a1-le-nouveau-voisin,read-a1-mon-samedi}.yaml — reading sets using the new words (keeps a1 coverage ≥95%)
+- [2026-10-28] Created: content/a1/audio/*.mp3 — 52 clips for the new words (gen_audio.py)
+- [2026-10-28] Modified: scripts/build_vocab_ipa.py — REVIEWED dehors /dəɔʁ/

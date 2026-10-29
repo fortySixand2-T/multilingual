@@ -126,3 +126,21 @@ units:
     icon: palette
     lessons: [adjectives-01, adjectives-02]
     unlock: { type: all_of, requires: [a1.u20] }
+
+  - id: a1.u22
+    title: "People"
+    icon: people
+    lessons: [people-01]
+    unlock: { type: all_of, requires: [a1.u21] }
+
+  - id: a1.u23
+    title: "Time words"
+    icon: clock
+    lessons: [time-words-01, time-words-02]
+    unlock: { type: all_of, requires: [a1.u22] }
+
+  - id: a1.u24
+    title: "Little words"
+    icon: bulb
+    lessons: [adverbs-01, adverbs-02]
+    unlock: { type: all_of, requires: [a1.u23] }

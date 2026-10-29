@@ -1,0 +1,45 @@
+id: read-a1-le-nouveau-voisin
+level: a1
+skill: reading
+title: "Le nouveau voisin"
+time_limit_seconds: 150
+pass_threshold: 0.6
+passage: |
+  Un homme arrive dans notre rue avec sa femme et leur garçon. Le papa s'appelle
+  Karim ; son nom de famille est Haddad. Le garçon a presque dix ans. Il joue
+  surtout dehors, avec ses amis. Les gens de la rue sont vraiment contents : ils
+  préparent ensemble un petit repas pour les nouveaux voisins. Peut-être samedi ?
+  Quel âge a la petite sœur du garçon ? Elle a deux ans.
+questions:
+  - id: read-a1-le-nouveau-voisin.q1
+    prompt: "Qui arrive dans la rue ?"
+    options:
+      - "Un homme, sa femme et leur garçon"
+      - "Une dame et sa fille"
+      - "Un docteur"
+    answer: "Un homme, sa femme et leur garçon"
+    explain: "« Un homme arrive dans notre rue avec sa femme et leur garçon. »"
+  - id: read-a1-le-nouveau-voisin.q2
+    prompt: "Quel est le nom de famille du papa ?"
+    options:
+      - "Haddad"
+      - "Karim"
+      - "Martin"
+    answer: "Haddad"
+    explain: "« son nom de famille est Haddad »."
+  - id: read-a1-le-nouveau-voisin.q3
+    prompt: "Où joue le garçon ?"
+    options:
+      - "Surtout dehors"
+      - "Surtout à l'école"
+      - "Seulement dans sa chambre"
+    answer: "Surtout dehors"
+    explain: "« Il joue surtout dehors »."
+  - id: read-a1-le-nouveau-voisin.q4
+    prompt: "Que font les gens de la rue ?"
+    options:
+      - "Ils préparent un repas ensemble"
+      - "Ils partent en vacances"
+      - "Ils ne disent rien"
+    answer: "Ils préparent un repas ensemble"
+    explain: "« ils préparent ensemble un petit repas pour les nouveaux voisins »."
