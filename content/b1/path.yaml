@@ -150,3 +150,21 @@ units:
     icon: chart
     lessons: [verbes-b1-03]
     unlock: { type: all_of, requires: [b1.u24] }
+
+  - id: b1.u26
+    title: "Big ideas"
+    icon: globe
+    lessons: [ideas-b1-01]
+    unlock: { type: all_of, requires: [b1.u25] }
+
+  - id: b1.u27
+    title: "Wants and needs"
+    icon: heart
+    lessons: [ideas-b1-02]
+    unlock: { type: all_of, requires: [b1.u26] }
+
+  - id: b1.u28
+    title: "Small nouns, big expressions"
+    icon: hash
+    lessons: [ideas-b1-03]
+    unlock: { type: all_of, requires: [b1.u27] }

@@ -1,0 +1,46 @@
+id: read-a2-mon-endroit-prefere
+level: a2
+skill: reading
+title: "Mon endroit préféré"
+time_limit_seconds: 180
+pass_threshold: 0.6
+passage: |
+  Mon endroit préféré, c'est un petit lac au bout d'une route de campagne. Le matin,
+  la lumière sur l'eau est magnifique : c'est une image que je garde dans ma tête.
+  Là-bas, il n'y a pas de bruit, seulement le silence et la voix des oiseaux. Je nage
+  un peu : c'est bon pour le corps et pour la tête. Mon ami Marc dit que la mer, c'est
+  meilleur. Je ne suis pas certain : pour moi, ce n'est pas pareil ! La mer, c'est une
+  autre chose. Alors j'ai une idée : l'été prochain, j'emmène Marc au lac.
+questions:
+  - id: read-a2-mon-endroit-prefere.q1
+    prompt: "Où se trouve le lac ?"
+    options:
+      - "Au bout d'une route de campagne"
+      - "Au centre-ville"
+      - "À côté de la mer"
+    answer: "Au bout d'une route de campagne"
+    explain: "« c'est un petit lac au bout d'une route de campagne »."
+  - id: read-a2-mon-endroit-prefere.q2
+    prompt: "Qu'est-ce qu'on entend au lac ?"
+    options:
+      - "La voix des oiseaux"
+      - "Le bruit des voitures"
+      - "La voix de Marc"
+    answer: "La voix des oiseaux"
+    explain: "« il n'y a pas de bruit, seulement le silence et la voix des oiseaux »."
+  - id: read-a2-mon-endroit-prefere.q3
+    prompt: "Que pense Marc ?"
+    options:
+      - "La mer, c'est meilleur"
+      - "Le lac est trop loin"
+      - "Nager n'est pas bon pour le corps"
+    answer: "La mer, c'est meilleur"
+    explain: "« Mon ami Marc dit que la mer, c'est meilleur. »"
+  - id: read-a2-mon-endroit-prefere.q4
+    prompt: "Quelle est l'idée de la personne ?"
+    options:
+      - "Emmener Marc au lac l'été prochain"
+      - "Aller à la mer avec Marc"
+      - "Prendre des photos du lac"
+    answer: "Emmener Marc au lac l'été prochain"
+    explain: "« l'été prochain, j'emmène Marc au lac »."

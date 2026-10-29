@@ -1,0 +1,61 @@
+id: everyday-a2-01
+title: Things and places
+grammar_point: "ce / cet / cette: cette idée, ce sac, cet endroit"
+grammar_category: Articles & determiners
+est_minutes: 8
+new_vocab: [chose, idee, histoire_recit, ville_seule, photo, sac, salle, piece, route, chemin]
+pass_threshold: 8.0
+exercises:
+  - id: everyday-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [chose, thing]
+      - [idée, idea]
+      - [histoire, story]
+      - [ville, town; city]
+
+  - id: everyday-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [photo, photo]
+      - [sac, bag]
+      - [salle, room (hall)]
+
+  - id: everyday-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [pièce, room (of a home)]
+      - [route, road]
+      - [chemin, path; way]
+
+  - id: everyday-a2-01.e4
+    type: mcq
+    prompt: "« J'adore ___ photo. »"
+    options: [cette, ce, cet]
+    answer: cette
+    explain: photo is feminine → cette photo.
+
+  - id: everyday-a2-01.e5
+    type: mcq
+    prompt: "« Tu prends ___ sac ? »"
+    options: [ce, cette, cet]
+    answer: ce
+    explain: sac is masculine → ce sac.
+
+  - id: everyday-a2-01.e6
+    type: word_bank
+    prompt: "Build: “That's a good idea!”"
+    tokens: ["C'est", une, bonne, idée, "!", chose]
+    answer: ["C'est", une, bonne, idée, "!"]
+
+  - id: everyday-a2-01.e7
+    type: translate
+    prompt: "Translate: “a three-room apartment” (use pièce)"
+    answer: un appartement de trois pièces
+    accept: [Un appartement de trois pièces, un appartement à trois pièces]
+
+  - id: everyday-a2-01.e8
+    type: listen_type
+    prompt: Type the word you hear.
+    audio_ref: a2/audio/chemin.mp3
+    answer: chemin

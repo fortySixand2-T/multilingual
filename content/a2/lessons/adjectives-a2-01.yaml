@@ -1,0 +1,61 @@
+id: adjectives-a2-01
+title: "Sure, fair, the same"
+grammar_point: "tricky feminines and meilleur vs mieux: fou → folle, bas → basse"
+grammar_category: Adjectives & comparison
+est_minutes: 8
+new_vocab: [sur_adj, juste, fou, dur, simple, certain, pareil, meilleur, bas]
+pass_threshold: 8.0
+exercises:
+  - id: adjectives-a2-01.e1
+    type: match_pairs
+    pairs:
+      - [sûr, sure; safe]
+      - [juste, fair; right]
+      - [fou, crazy]
+
+  - id: adjectives-a2-01.e2
+    type: match_pairs
+    pairs:
+      - [dur, hard]
+      - [simple, simple]
+      - [certain, certain]
+
+  - id: adjectives-a2-01.e3
+    type: match_pairs
+    pairs:
+      - [pareil, "the same, alike"]
+      - [meilleur, better; best]
+      - [bas, low]
+
+  - id: adjectives-a2-01.e4
+    type: mcq
+    prompt: "« Elle est complètement ___ ! »"
+    options: [folle, foue, fou]
+    answer: folle
+    explain: "fou has an irregular feminine: folle."
+
+  - id: adjectives-a2-01.e5
+    type: mcq
+    prompt: "« Ce gâteau est ___ que l'autre. »"
+    options: [meilleur, mieux, plus bon]
+    answer: meilleur
+    explain: meilleur is the comparative of the adjective bon (mieux goes with verbs).
+
+  - id: adjectives-a2-01.e6
+    type: mcq
+    prompt: "« Parle à voix ___. » (quietly)"
+    options: [basse, bas, base]
+    answer: basse
+    explain: "voix is feminine, and bas doubles the s: une voix basse."
+
+  - id: adjectives-a2-01.e7
+    type: word_bank
+    prompt: "Build: “It's not fair”"
+    tokens: [Ce, "n'est", pas, juste, dur]
+    answer: [Ce, "n'est", pas, juste]
+
+  - id: adjectives-a2-01.e8
+    type: translate
+    prompt: "Translate: “Are you sure?” (to a friend)"
+    answer: "tu es sûr ?"
+    accept: ["Tu es sûr ?", tu es sûr, "Tu es sûre ?", "tu es sûre ?", tu es sûre, "t'es sûr ?"]

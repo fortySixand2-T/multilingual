@@ -1,0 +1,71 @@
+id: ideas-b1-03
+title: "Small nouns, big expressions"
+grammar_point: "fixed expressions: de toute façon, avoir lieu, avoir l'air, tout à coup"
+grammar_category: Expressions & communication
+est_minutes: 9
+new_vocab: [facon, sorte, genre, partie, reste, suite, point, fond, lieu, air, coup, type, tour, retour, affaire]
+pass_threshold: 8.0
+exercises:
+  - id: ideas-b1-03.e1
+    type: match_pairs
+    pairs:
+      - [façon, "way, manner"]
+      - [sorte, "sort, kind"]
+      - [genre, kind; gender]
+      - [partie, part]
+
+  - id: ideas-b1-03.e2
+    type: match_pairs
+    pairs:
+      - [reste, "rest, remainder"]
+      - [suite, continuation (tout de suite = right away)]
+      - [point, point; full stop]
+      - [fond, bottom; back (au fond = basically)]
+
+  - id: ideas-b1-03.e3
+    type: match_pairs
+    pairs:
+      - [lieu, place (avoir lieu = to take place)]
+      - [air, "air; look (avoir l'air = to seem)"]
+      - [coup, "blow, knock (tout à coup = suddenly)"]
+      - [type, type; guy (informal)]
+
+  - id: ideas-b1-03.e4
+    type: match_pairs
+    pairs:
+      - [tour, turn; tour]
+      - [retour, return]
+      - [affaire, "matter, deal; (pl.) belongings"]
+
+  - id: ideas-b1-03.e5
+    type: mcq
+    prompt: "« Le concert va avoir ___ samedi. »"
+    options: [lieu, place, endroit]
+    answer: lieu
+    explain: avoir lieu = to take place.
+
+  - id: ideas-b1-03.e6
+    type: mcq
+    prompt: "« Il a ___ fatigué. » (He looks tired)"
+    options: ["l'air", le fond, le genre]
+    answer: "l'air"
+    explain: "avoir l'air + adjective = to look, to seem."
+
+  - id: ideas-b1-03.e7
+    type: mcq
+    prompt: "« De toute ___, je ne peux pas venir. »"
+    options: [façon, sorte, partie]
+    answer: façon
+    explain: de toute façon = anyway.
+
+  - id: ideas-b1-03.e8
+    type: word_bank
+    prompt: "Build: “I'm coming right away”"
+    tokens: ["J'arrive", tout, de, suite, coup]
+    answer: ["J'arrive", tout, de, suite]
+
+  - id: ideas-b1-03.e9
+    type: translate
+    prompt: "Translate: “suddenly”"
+    answer: tout à coup
+    accept: [Tout à coup, "tout d'un coup", soudain]

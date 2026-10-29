@@ -1,0 +1,62 @@
+id: ideas-b1-01
+title: Big ideas
+grammar_point: "the definite article for general ideas: la paix, l'amour"
+grammar_category: Articles & determiners
+est_minutes: 8
+new_vocab: [verite, paix, guerre, amour, esprit, ame, etat, ordre, sens, force, mort_nom]
+pass_threshold: 8.0
+exercises:
+  - id: ideas-b1-01.e1
+    type: match_pairs
+    pairs:
+      - [vérité, truth]
+      - [paix, peace]
+      - [guerre, war]
+      - [amour, love]
+
+  - id: ideas-b1-01.e2
+    type: match_pairs
+    pairs:
+      - [esprit, mind; spirit]
+      - [âme, soul]
+      - [état, "state, condition"]
+      - [ordre, order]
+
+  - id: ideas-b1-01.e3
+    type: match_pairs
+    pairs:
+      - [sens, meaning; direction]
+      - [force, strength]
+      - [mort, death]
+
+  - id: ideas-b1-01.e4
+    type: mcq
+    prompt: "« ___ amour est plus fort que tout. »"
+    options: ["L'", Un, "De l'"]
+    answer: "L'"
+    explain: "A general idea takes the definite article: l'amour."
+
+  - id: ideas-b1-01.e5
+    type: mcq
+    prompt: "« Il faut dire ___ vérité. »"
+    options: [la, une, de]
+    answer: la
+    explain: dire la vérité = to tell the truth.
+
+  - id: ideas-b1-01.e6
+    type: word_bank
+    prompt: "Build: “Peace is important”"
+    tokens: [La, paix, est, importante, guerre]
+    answer: [La, paix, est, importante]
+
+  - id: ideas-b1-01.e7
+    type: translate
+    prompt: "Translate: “it makes no sense”"
+    answer: "ça n'a pas de sens"
+    accept: ["Ça n'a pas de sens", "cela n'a pas de sens", "Cela n'a pas de sens"]
+
+  - id: ideas-b1-01.e8
+    type: listen_type
+    prompt: Type the word you hear.
+    audio_ref: b1/audio/verite.mp3
+    answer: vérité

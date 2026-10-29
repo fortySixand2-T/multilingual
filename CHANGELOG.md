@@ -593,3 +593,12 @@
 - [2026-10-28] Created: content/a2/comprehension/read-a2-un-message-de-sophie.yaml — reading set keeping A2 coverage at 100%
 - [2026-10-28] Created: content/a2/audio/*.mp3 — 39 generated clips for the new verbs
 - [2026-10-28] Modified: scripts/check_content.py — cross-level id check always spans every level, even when one level is requested
+- [2026-10-28] Created: content/a2/vocab/everyday.yaml — 20 high-frequency everyday nouns (chose, idée, ville, voix…) with checked IPA
+- [2026-10-28] Created: content/a2/vocab/adjectives.yaml — 9 high-frequency A2 adjectives (sûr, juste, fou, meilleur…)
+- [2026-10-28] Created: content/b1/vocab/ideas.yaml — 22 abstract nouns (vérité, paix, besoin, envie…)
+- [2026-10-28] Created: content/b1/vocab/useful-nouns.yaml — 15 multi-use nouns taught through their expressions (façon, lieu, coup, suite…)
+- [2026-10-28] Created: content/a2/lessons/everyday-a2-01.yaml, everyday-a2-02.yaml, adjectives-a2-01.yaml — lessons for the A2 words
+- [2026-10-28] Created: content/b1/lessons/ideas-b1-01.yaml, ideas-b1-02.yaml, ideas-b1-03.yaml — lessons for the B1 words
+- [2026-10-28] Modified: content/a2/path.yaml, content/b1/path.yaml — units a2.u28–u30 and b1.u26–u28
+- [2026-10-28] Created: content/a2/comprehension/read-a2-mon-endroit-prefere.yaml — reading set keeping A2 coverage at 100%
+- [2026-10-28] Created: content/a2/audio/*.mp3, content/b1/audio/*.mp3 — 66 generated clips for the new words
