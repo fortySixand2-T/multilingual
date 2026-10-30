@@ -51,7 +51,7 @@ exercises:
     type: translate
     prompt: "Translate: “Stop!” (to a friend)"
     answer: arrête !
-    accept: [Arrête !, arrête, Arrête]
+    accept: [Arrête !, arrête, Arrête, stop !, stop]
 
   - id: verbs-a2-01.e8
     type: listen_type

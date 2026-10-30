@@ -9,7 +9,7 @@ passage: |
   la lumière sur l'eau est magnifique : c'est une image que je garde dans ma tête.
   Là-bas, il n'y a pas de bruit, seulement le silence et la voix des oiseaux. Je nage
   un peu : c'est bon pour le corps et pour la tête. Mon ami Marc dit que la mer, c'est
-  meilleur. Je ne suis pas certain : pour moi, ce n'est pas pareil ! La mer, c'est une
+  mieux. Je ne suis pas certain : pour moi, ce n'est pas pareil, et le lac est meilleur pour la tête ! La mer, c'est
   autre chose. Alors j'ai une idée : l'été prochain, j'emmène Marc au lac.
 questions:
   - id: read-a2-mon-endroit-prefere.q1
@@ -31,11 +31,11 @@ questions:
   - id: read-a2-mon-endroit-prefere.q3
     prompt: "Que pense Marc ?"
     options:
-      - "La mer, c'est meilleur"
+      - "La mer, c'est mieux"
       - "Le lac est trop loin"
       - "Nager n'est pas bon pour le corps"
-    answer: "La mer, c'est meilleur"
-    explain: "« Mon ami Marc dit que la mer, c'est meilleur. »"
+    answer: "La mer, c'est mieux"
+    explain: "« Mon ami Marc dit que la mer, c'est mieux. »"
   - id: read-a2-mon-endroit-prefere.q4
     prompt: "Quelle est l'idée de la personne ?"
     options:

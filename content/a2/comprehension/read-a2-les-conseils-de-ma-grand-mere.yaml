@@ -8,8 +8,8 @@ passage: |
   Ma grand-mère a beaucoup de conseils. « Avant de quitter la maison, ferme les
   fenêtres. Il ne faut pas jeter le pain. Pour vivre longtemps, mange des légumes
   et marche un peu chaque jour. Ne laisse pas les enfants toucher les plantes du
-  jardin : elles peuvent mourir. Si tu veux devenir médecin, il faut beaucoup
-  travailler. Quand tu vas recevoir un cadeau, dis merci. Et c'est gentil d'offrir
+  jardin : les plantes peuvent mourir. Si tu veux devenir médecin, il faut beaucoup
+  travailler. Quand tu reçois un cadeau, dis merci. Et c'est gentil d'offrir
   des fleurs ! » Elle aime aussi imaginer l'avenir de ses petits-enfants. Ses
   conseils peuvent sembler un peu démodés, mais j'adore entendre ses histoires.
 questions:
@@ -24,11 +24,11 @@ questions:
   - id: read-a2-les-conseils-de-ma-grand-mere.q2
     prompt: "Pourquoi les enfants ne doivent-ils pas toucher les plantes ?"
     options:
-      - "Elles peuvent mourir"
+      - "Les plantes peuvent mourir"
       - "Elles sont dangereuses"
       - "Elles sont à vendre"
-    answer: "Elles peuvent mourir"
-    explain: "« Ne laisse pas les enfants toucher les plantes du jardin : elles peuvent mourir. »"
+    answer: "Les plantes peuvent mourir"
+    explain: "« Ne laisse pas les enfants toucher les plantes du jardin : les plantes peuvent mourir. »"
   - id: read-a2-les-conseils-de-ma-grand-mere.q3
     prompt: "Selon la grand-mère, que faut-il pour devenir médecin ?"
     options:

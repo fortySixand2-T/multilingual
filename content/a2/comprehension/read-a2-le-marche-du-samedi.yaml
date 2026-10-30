@@ -7,8 +7,8 @@ pass_threshold: 0.6
 passage: |
   Le samedi, je suis debout à sept heures pour aller au marché. Autour de la place, il
   y a des fruits, des fromages et des fleurs. J'aime tellement cet endroit ! Les
-  légumes sont frais et moins chers qu'au supermarché. Mon voisin Paul préfère faire
-  ses courses ailleurs, plutôt au centre commercial. Moi, j'y vais même quand il
+  légumes sont frais et moins chers qu'au supermarché. Mon voisin Paul fait plutôt
+  ses courses ailleurs, au centre commercial. Moi, j'y vais même quand il
   pleut.
 questions:
   - id: read-a2-le-marche-du-samedi.q1
@@ -34,4 +34,4 @@ questions:
       - "Au marché"
       - "Au supermarché du quartier"
     answer: "Au centre commercial"
-    explain: "« Mon voisin Paul préfère faire ses courses ailleurs, plutôt au centre commercial. »"
+    explain: "« Mon voisin Paul fait plutôt ses courses ailleurs, au centre commercial. »"

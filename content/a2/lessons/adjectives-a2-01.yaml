@@ -10,7 +10,7 @@ exercises:
     type: match_pairs
     pairs:
       - [sûr, sure; safe]
-      - [juste, fair; right]
+      - [juste, fair; right; (adv.) just]
       - [fou, crazy]
 
   - id: adjectives-a2-01.e2
@@ -39,7 +39,7 @@ exercises:
     prompt: "« Ce gâteau est ___ que l'autre. »"
     options: [meilleur, mieux, plus bon]
     answer: meilleur
-    explain: meilleur is the comparative of the adjective bon (mieux goes with verbs).
+    explain: "meilleur is the comparative of bon and qualifies a noun (un meilleur gâteau); mieux is the adverb of bien (il chante mieux)."
 
   - id: adjectives-a2-01.e6
     type: mcq
@@ -58,4 +58,4 @@ exercises:
     type: translate
     prompt: "Translate: “Are you sure?” (to a friend)"
     answer: "tu es sûr ?"
-    accept: ["Tu es sûr ?", tu es sûr, "Tu es sûre ?", "tu es sûre ?", tu es sûre, "t'es sûr ?"]
+    accept: ["Tu es sûr ?", tu es sûr, "Tu es sûre ?", "tu es sûre ?", tu es sûre, "t'es sûr ?", "es-tu sûr ?", "es-tu sûre ?"]

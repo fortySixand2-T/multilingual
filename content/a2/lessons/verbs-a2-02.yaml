@@ -25,7 +25,7 @@ exercises:
   - id: verbs-a2-02.e3
     type: match_pairs
     pairs:
-      - [garder, to keep]
+      - [garder, to keep; to look after]
       - [jeter, to throw (away)]
       - [vendre, to sell]
 
@@ -53,4 +53,4 @@ exercises:
     type: translate
     prompt: "Translate: “keep the change” (formal)"
     answer: gardez la monnaie
-    accept: [Gardez la monnaie, gardez la monnaie !]
+    accept: [Gardez la monnaie, gardez la monnaie !, vous pouvez garder la monnaie, Vous pouvez garder la monnaie]

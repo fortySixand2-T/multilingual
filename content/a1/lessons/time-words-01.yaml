@@ -9,7 +9,7 @@ exercises:
   - id: time-words-01.e1
     type: match_pairs
     pairs:
-      - [temps, time]
+      - [temps, time; weather]
       - [fois, time (occasion)]
       - [an, year]
       - [nuit, night]
@@ -37,9 +37,9 @@ exercises:
 
   - id: time-words-01.e5
     type: word_bank
-    prompt: "Build: “I often work at night”"
-    tokens: [Je, travaille, souvent, la, nuit, toujours]
-    answer: [Je, travaille, souvent, la, nuit]
+    prompt: "Build: “I work at night”"
+    tokens: [Je, travaille, la, nuit, jamais]
+    answer: [Je, travaille, la, nuit]
 
   - id: time-words-01.e6
     type: mcq

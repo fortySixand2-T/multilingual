@@ -31,14 +31,14 @@ exercises:
 
   - id: ideas-b1-01.e4
     type: mcq
-    prompt: "« ___ amour est plus fort que tout. »"
+    prompt: "« ___ amour est plus fort que tout. » (love, in general)"
     options: ["L'", Un, "De l'"]
     answer: "L'"
     explain: "A general idea takes the definite article: l'amour."
 
   - id: ideas-b1-01.e5
     type: mcq
-    prompt: "« Il faut dire ___ vérité. »"
+    prompt: "« Il faut dire ___ vérité. » (to tell the truth)"
     options: [la, une, de]
     answer: la
     explain: dire la vérité = to tell the truth.

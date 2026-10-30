@@ -11,7 +11,7 @@ exercises:
     pairs:
       - [chose, thing]
       - [idée, idea]
-      - [histoire, story]
+      - [histoire, story; history]
       - [ville, town; city]
 
   - id: everyday-a2-01.e2
@@ -24,7 +24,7 @@ exercises:
   - id: everyday-a2-01.e3
     type: match_pairs
     pairs:
-      - [pièce, room (of a home)]
+      - [pièce, room; coin; ID document]
       - [route, road]
       - [chemin, path; way]
 
@@ -52,7 +52,7 @@ exercises:
     type: translate
     prompt: "Translate: “a three-room apartment” (use pièce)"
     answer: un appartement de trois pièces
-    accept: [Un appartement de trois pièces, un appartement à trois pièces]
+    accept: [Un appartement de trois pièces, un appartement à trois pièces, un trois-pièces, un appartement de 3 pièces]
 
   - id: everyday-a2-01.e8
     type: listen_type

@@ -24,17 +24,17 @@ questions:
     prompt: "Comment va la mère aujourd'hui ?"
     options:
       - "Elle va mieux"
-      - "Elle est toujours malade"
+      - "Elle est plus malade"
       - "Elle est au marché"
     answer: "Elle va mieux"
     explain: "« aujourd'hui elle va mieux ! »"
   - id: read-a1-mon-samedi.q3
-    prompt: "La piscine, c'est…"
+    prompt: "La personne va-t-elle souvent à la piscine ?"
     options:
-      - "la première fois"
-      - "tous les jours"
-      - "jamais"
-    answer: "la première fois"
+      - "Non, c'est la première fois"
+      - "Oui, tous les jours"
+      - "Non, jamais"
+    answer: "Non, c'est la première fois"
     explain: "« je vais à la piscine pour la première fois »."
   - id: read-a1-mon-samedi.q4
     prompt: "Que fait la personne dimanche ?"

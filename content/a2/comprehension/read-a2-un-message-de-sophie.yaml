@@ -33,7 +33,7 @@ questions:
     prompt: "Que faut-il faire si on voit la banque ?"
     options:
       - "Retourner au feu rouge"
-      - "Suivre la grande rue"
+      - "Aller à la gare"
       - "Prendre le train"
     answer: "Retourner au feu rouge"
     explain: "« si tu vois la banque, tu es trop loin et il faut retourner au feu rouge »."

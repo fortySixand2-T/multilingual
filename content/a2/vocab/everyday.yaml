@@ -17,7 +17,7 @@
 - id: histoire_recit
   fr: histoire
   ipa: istwaʁ
-  en: story
+  en: story; history
   gender: f
   pos: noun
   tags: [everyday]
@@ -57,7 +57,7 @@
 - id: piece
   fr: pièce
   ipa: pjɛs
-  en: room (of a home)
+  en: room; coin; ID document
   gender: f
   pos: noun
   tags: [everyday]

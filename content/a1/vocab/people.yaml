@@ -33,7 +33,7 @@
 - id: personne
   fr: personne
   ipa: pɛʁsɔn
-  en: person
+  en: person; (with ne) nobody
   gender: f
   pos: noun
   tags: [people]
