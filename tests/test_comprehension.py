@@ -13,7 +13,7 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 import app.comprehension.tables  # noqa: F401
 import app.progress.models  # noqa: F401
 from app.api.auth import get_current_user
-from app.comprehension.api import get_storage
+from app.comprehension.api import _client_view, get_storage
 from app.comprehension.loader import load_sets
 from app.comprehension.models import ComprehensionSet
 from app.comprehension.sync import sync_comprehension, upload_audio
@@ -138,6 +138,21 @@ def test_get_set_does_not_leak_answers():
     for q in body["questions"]:
         assert "answer" not in q and "explain" not in q
         assert "options" in q
+
+
+def test_options_are_shuffled_but_complete():
+    authored = {"a", "b", "c", "d"}
+    data = {
+        "id": "x",
+        "skill": "reading",
+        "title": "t",
+        "level": "a1",
+        "passage": "p",
+        "questions": [{"id": "q", "prompt": "p", "options": sorted(authored), "answer": "a"}],
+    }
+    orders = {tuple(_client_view(data)["questions"][0]["options"]) for _ in range(60)}
+    assert all(set(o) == authored for o in orders)
+    assert len(orders) > 1  # not always the authored order
 
 
 def test_listening_set_exposes_audio_url_not_ref():

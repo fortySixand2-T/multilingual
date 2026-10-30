@@ -43,4 +43,4 @@ exercises:
     type: translate
     prompt: "Translate: “even on Sunday”"
     answer: même le dimanche
-    accept: [Même le dimanche, même dimanche]
+    accept: [Même le dimanche]

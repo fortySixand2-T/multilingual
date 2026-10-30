@@ -1,7 +1,7 @@
 - id: temps
   fr: temps
   ipa: tɑ̃
-  en: time
+  en: time; weather
   gender: m
   pos: noun
   tags: [time]

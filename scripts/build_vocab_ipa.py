@@ -93,6 +93,8 @@ REVIEWED: dict[str, str] = {
     "PIB": "peibe",
     "infonuagique": "ɛ̃fɔnɥaʒik",
     "dehors": "dəɔʁ",
+    "bon appétit": "bɔ̃ napeti",
+    "soins à domicile": "swɛ̃ a domisil",
 }
 
 

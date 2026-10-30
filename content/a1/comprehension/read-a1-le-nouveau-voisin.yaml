@@ -6,10 +6,9 @@ time_limit_seconds: 150
 pass_threshold: 0.6
 passage: |
   Un homme arrive dans notre rue avec sa femme et leur garçon. Le papa s'appelle
-  Karim ; son nom de famille est Haddad. Le garçon a presque dix ans. Il joue
-  surtout dehors, avec ses amis. Les gens de la rue sont vraiment contents : ils
+  Karim ; son nom de famille est Haddad. Le garçon a presque dix ans, l'âge des
+  jeux : il joue surtout dehors, avec ses amis. Les gens de la rue sont vraiment contents : ils
   préparent ensemble un petit repas pour les nouveaux voisins. Peut-être samedi ?
-  Quel âge a la petite sœur du garçon ? Elle a deux ans.
 questions:
   - id: read-a1-le-nouveau-voisin.q1
     prompt: "Qui arrive dans la rue ?"

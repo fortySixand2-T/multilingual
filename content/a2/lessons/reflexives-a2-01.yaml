@@ -44,4 +44,4 @@ exercises:
     type: translate
     prompt: "Translate: “We had fun!”"
     answer: "on s'est amusés !"
-    accept: ["On s'est amusés !", "on s'est amusé !", nous nous sommes amusés !, Nous nous sommes amusés !, "on s'est amusés", nous nous sommes amusés]
+    accept: ["On s'est amusés !", "on s'est amusé !", "on s'est amusées !", "on s'est bien amusés !", nous nous sommes amusées !, nous nous sommes amusés !, Nous nous sommes amusés !, "on s'est amusés", nous nous sommes amusés]

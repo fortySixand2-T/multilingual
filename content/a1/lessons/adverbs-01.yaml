@@ -20,7 +20,7 @@ exercises:
       - [assez, enough]
       - [aussi, also]
       - [bien, well]
-      - [mal, badly]
+      - [mal, badly; pain (avoir mal)]
 
   - id: adverbs-01.e3
     type: match_pairs

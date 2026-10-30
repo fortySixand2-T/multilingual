@@ -42,7 +42,7 @@ questions:
     prompt: "Que va faire le petit frère ?"
     options:
       - "Jouer du piano"
-      - "Serrer la main des mariés"
+      - "Danser avec Léa"
       - "Conduire la grand-mère"
     answer: "Jouer du piano"
     explain: "« Mon petit frère commence à s'intéresser à la musique : il va jouer du piano. »"

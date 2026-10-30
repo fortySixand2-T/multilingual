@@ -4,7 +4,12 @@ import { api, Exercise, Lesson as LessonT, LessonResult } from "../api";
 import AudioButton from "../AudioButton";
 import { shuffleLesson } from "../shuffle";
 
-const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, " ");
+// Case, spacing and the French space before ? ! : ; are not part of a right answer.
+const norm = (s: string) => s.trim().toLowerCase().replace(/\s+/g, " ").replace(/ (?=[?!:;])/g, "");
+
+/** The expected answer as text, for exercises where the learner types or builds it. */
+const answerText = (ex: Exercise) =>
+  ex.type === "match_pairs" ? "" : Array.isArray(ex.answer) ? ex.answer.join(" ") : (ex.answer as string);
 
 export default function Lesson() {
   const { id = "" } = useParams();
@@ -99,6 +104,10 @@ export default function Lesson() {
         {checked !== null && (
           <div className={`feedback ${checked ? "ok" : "no"}`}>
             {checked ? "Correct!" : "Not quite — keep going."}
+            {!checked && ex.type !== "mcq" && answerText(ex) && (
+              <div>Answer: <strong>{answerText(ex)}</strong></div>
+            )}
+            {!checked && ex.explain && <div className="muted">{ex.explain}</div>}
           </div>
         )}
       </div>

@@ -17,7 +17,7 @@ exercises:
   - id: people-01.e2
     type: match_pairs
     pairs:
-      - [personne, person]
+      - [personne, person; (with ne) nobody]
       - [maman, mum]
       - [papa, dad]
       - [docteur, doctor]
@@ -45,15 +45,15 @@ exercises:
 
   - id: people-01.e6
     type: word_bank
-    prompt: "Build: “The man is a doctor”"
+    prompt: "Build: “The man is a doctor” (French drops “a” before a job)"
     tokens: ["L'homme", est, docteur, dame]
     answer: ["L'homme", est, docteur]
 
   - id: people-01.e7
     type: translate
-    prompt: "Translate: “What is your name?” (formal)"
+    prompt: "Translate: “What is your name?” (formal). Hint: quel = what, est = is, votre = your, nom = name"
     answer: "quel est votre nom ?"
-    accept: ["Quel est votre nom ?", quel est votre nom]
+    accept: ["Quel est votre nom ?", quel est votre nom, "comment vous appelez-vous ?", comment vous appelez-vous]
 
   - id: people-01.e8
     type: listen_type

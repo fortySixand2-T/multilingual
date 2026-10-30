@@ -28,7 +28,7 @@ exercises:
 
   - id: adverbs-a2-02.e4
     type: mcq
-    prompt: "« Je préfère ___ le thé. » (I'd rather have tea)"
+    prompt: "« Je prends ___ le thé. » (I'd rather have tea)"
     options: [plutôt, moins, ailleurs]
     answer: plutôt
     explain: plutôt = rather.

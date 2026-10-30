@@ -46,4 +46,4 @@ exercises:
     type: translate
     prompt: "Translate: “we shake hands”"
     answer: nous nous serrons la main
-    accept: [Nous nous serrons la main, on se serre la main, On se serre la main]
+    accept: [Nous nous serrons la main, on se serre la main, On se serre la main, nous nous serrons les mains, on se serre les mains]
