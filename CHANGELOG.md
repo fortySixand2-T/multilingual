@@ -616,3 +616,6 @@
 - [2026-10-29] Modified: content/a2/path.yaml, content/b1/path.yaml — units a2.u34–u35 and b1.u31
 - [2026-10-29] Created: content/a2/comprehension/read-a2-le-marche-du-samedi.yaml — reading set keeping A2 coverage at 100%
 - [2026-10-29] Created: content/a2/audio/*.mp3, content/b1/audio/*.mp3 — 16 generated clips for the new words
+- [2026-10-29] Modified: qa/issues/894-952 (17 files) — appended Triage blocks and set status for round 061
+- [2026-10-29] Modified: web/src/screens/Lesson.tsx — norm() ignores space before ?!:; (qa-894); wrong answers show expected answer and explain (qa-950)
+- [2026-10-29] Modified: web/src/screens/Lesson.test.tsx — tests for unspaced punctuation and wrong-answer feedback (qa-894, qa-950)

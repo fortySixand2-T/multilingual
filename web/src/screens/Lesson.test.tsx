@@ -69,3 +69,35 @@ describe("Lesson — MCQ grading is unaffected by option shuffling", () => {
     expect(screen.getByText(/Not quite/)).toBeInTheDocument();
   });
 });
+
+const typedLesson = (ex: Record<string, unknown>) =>
+  vi.mocked(api.lesson).mockResolvedValue({ id: "l", title: "T", exercises: [{ id: "l.e1", ...ex }] } as never);
+
+describe("Lesson — typed answers and feedback", () => {
+  it("accepts an unspaced question/exclamation mark", async () => {
+    typedLesson({ type: "translate", prompt: "Stop!", answer: "arrête !" });
+    const user = userEvent.setup();
+    renderLesson();
+    await user.type(await screen.findByPlaceholderText("traduisez…"), "Arrête!");
+    await user.click(screen.getByRole("button", { name: "Check" }));
+    expect(screen.getByText("Correct!")).toBeInTheDocument();
+  });
+
+  it("shows the expected answer after a wrong translation", async () => {
+    typedLesson({ type: "translate", prompt: "Name?", answer: "quel est votre nom ?" });
+    const user = userEvent.setup();
+    renderLesson();
+    await user.type(await screen.findByPlaceholderText("traduisez…"), "nope");
+    await user.click(screen.getByRole("button", { name: "Check" }));
+    expect(screen.getByText("quel est votre nom ?")).toBeInTheDocument();
+  });
+
+  it("shows the authored explain after a wrong mcq", async () => {
+    typedLesson({ type: "mcq", prompt: "___ garçon", options: ["un", "une"], answer: "un", explain: "garçon is masculine." });
+    const user = userEvent.setup();
+    renderLesson();
+    await user.click(await screen.findByRole("button", { name: "une" }));
+    await user.click(screen.getByRole("button", { name: "Check" }));
+    expect(screen.getByText("garçon is masculine.")).toBeInTheDocument();
+  });
+});
