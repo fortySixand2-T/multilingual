@@ -619,3 +619,5 @@
 - [2026-10-29] Modified: qa/issues/894-952 (17 files) — appended Triage blocks and set status for round 061
 - [2026-10-29] Modified: web/src/screens/Lesson.tsx — norm() ignores space before ?!:; (qa-894); wrong answers show expected answer and explain (qa-950)
 - [2026-10-29] Modified: web/src/screens/Lesson.test.tsx — tests for unspaced punctuation and wrong-answer feedback (qa-894, qa-950)
+- [2026-10-29] Modified: app/comprehension/api.py — shuffle question options in client view so key position leaks nothing (qa-910)
+- [2026-10-29] Modified: tests/test_comprehension.py — test options are shuffled but complete (qa-910)

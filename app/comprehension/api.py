@@ -8,6 +8,7 @@ dev and S3/MinIO in prod.
 
 from __future__ import annotations
 
+import random
 from datetime import UTC, datetime
 
 import anyio
@@ -40,7 +41,9 @@ class SubmitBody(BaseModel):
 
 
 def _client_view(data: dict) -> dict:
-    """Strip answers/explanations for delivery."""
+    """Strip answers/explanations for delivery; options are shuffled so position leaks nothing.
+
+    Grading compares the chosen option text, so order never affects scoring."""
     view = {
         "id": data["id"],
         "skill": data["skill"],
@@ -50,7 +53,11 @@ def _client_view(data: dict) -> dict:
         "allow_replay": data.get("allow_replay", True),
         "accent": data.get("accent"),
         "questions": [
-            {"id": q["id"], "prompt": q["prompt"], "options": q["options"]}
+            {
+                "id": q["id"],
+                "prompt": q["prompt"],
+                "options": random.sample(q["options"], len(q["options"])),
+            }
             for q in data["questions"]
         ],
     }
