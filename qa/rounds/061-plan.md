@@ -58,3 +58,12 @@
 - Never write to live data; only `qa061-app` on :9301.
 
 <!-- Outcomes appended below after the round. -->
+
+## Outcomes (post-round)
+- H1 confirmed (895 single-sense glosses; fixed). H2 partly confirmed (894, 896, 897, 898, 901; fixed). H3 mostly refuted (899 only; fixed; 900 level mismatch deferred into 755).
+- H4 partly confirmed: 910 options never shuffled (fixed), 911/912 text and ambiguous-option fixes. Answer keys and explain quotes sound.
+- H5 mostly refuted: 920 liaison artifacts (fixed); 921 cosmetic, 922 docteur has no feminine form: deferred. H6 refuted (all 214 clips present, byte-identical to regenerated `say` output, served correctly).
+- H7, H8 refuted (no issues): unlock order, SRS seeding, counts, ids, icons all sound.
+- H9 refuted for layout/tiles/icons; 950 (no correct answer/explain on wrong answer) and 952 (people-01.e7 untaught) confirmed and fixed; 951 icon repetition deferred.
+- Filed 894-901, 910-912, 920-922, 950-952 (17): 13 validated and done, 4 deferred (900, 921, 922, 951), 0 rejected, 0 needs-info.
+- Scratch container qa061-app and ~/qa061 removed.
