@@ -140,7 +140,7 @@ async def preview(
                 "en": d.get("en", ""),
                 "pos": d.get("pos", ""),
                 "gender": d.get("gender", ""),
-                "ipa": "",
+                "ipa": d.get("ipa", ""),
                 "gender_source": "course",
                 "audio_url": f"/content/audio/{d['audio']}" if d.get("audio") else None,
             },

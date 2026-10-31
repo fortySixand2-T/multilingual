@@ -95,6 +95,13 @@ REVIEWED: dict[str, str] = {
     "dehors": "dəɔʁ",
     "bon appétit": "bɔ̃ napeti",
     "soins à domicile": "swɛ̃ a domisil",
+    # Lexique writes premier's schwa as ø and serrer's ɛ as e; dictionaries don't (QA 921)
+    "premier": "pʁəmje",
+    "premiers soins": "pʁəmje swɛ̃",
+    "premier ministre": "pʁəmje ministʁ",
+    "serrer": "sɛʁe",
+    "professeur": "pʁɔfɛsœʁ",  # same vowel as professeure (Piper), not Lexique's o
+    "docteure": "dɔktœʁ",  # not in Lexique; sounds as docteur
 }
 
 

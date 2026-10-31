@@ -46,8 +46,8 @@ exercises:
   - id: adverbs-02.e6
     type: word_bank
     prompt: "Build: “Why are you outside?”"
-    tokens: [Pourquoi, es-tu, dehors, "?", partout]
-    answer: [Pourquoi, es-tu, dehors, "?"]
+    tokens: [Pourquoi, tu, es, dehors, "?", partout]
+    answer: [Pourquoi, tu, es, dehors, "?"]
 
   - id: adverbs-02.e7
     type: translate

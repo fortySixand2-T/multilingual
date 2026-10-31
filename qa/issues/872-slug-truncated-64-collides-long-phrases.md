@@ -4,7 +4,7 @@ title: Lookup slug truncated to 64 chars: different long phrases share one cache
 severity: medium
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-27
 ---
 
@@ -31,3 +31,6 @@ Steps 2 and 3 return the step-1 entry (fr ends 'demain matin', same IPA, same au
 - Challenge: Needs a >64-char phrase differing only after char 64 (input is capped at 80); no learner realistically adds such vocabulary. Changing slug shape for long inputs touches the lookup PK, the clip storage key and the audio URL, for near-zero real impact; PM itself called it low priority.
 - Holds up? No. Theoretical for a vocab deck of words/short expressions, and the fix alters key derivation. Defer; revisit only if long phrases become a feature. Cheaper alternative if ever wanted: reject inputs whose slug exceeds 64.
 - Final verdict: deferred
+
+## Fix
+`clamp_slug` (`app/content/personal.py`) cuts an over-long slug to fit and appends an 8-char sha1 of the whole slug. `lookup_slug` and `personal_key` both use it, so long phrases that share a prefix get distinct lookup rows, clips and card keys. Short slugs are unchanged. Old truncated rows no longer match `lookup_slug(row.fr)`, so `scripts/backfill_ipa.py` prunes them as poisoned. Test: `test_long_phrases_sharing_a_prefix_get_distinct_keys`.

@@ -66,6 +66,8 @@ describe("MyDeck — add a word", () => {
     // the card appears in the list; the empty-state message is gone
     expect(await screen.findByText("silence")).toBeInTheDocument();
     expect(screen.queryByText(/No personal cards yet/)).not.toBeInTheDocument();
+    // the saved card keeps its IPA once the preview is gone (QA 883)
+    expect(screen.getByText("/silɑ̃s/")).toBeInTheDocument();
   });
 
   it("shows a limit message when over the daily budget", async () => {

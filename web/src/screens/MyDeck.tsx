@@ -66,6 +66,7 @@ export default function MyDeck() {
     }
   };
 
+  const ipaLine = (ipa: string) => (ipa ? <div className="muted" style={{ fontSize: 13 }}>/{ipa}/</div> : null);
   const genderTag = (g: string) => (g === "m" ? "(m)" : g === "f" ? "(fe)" : g === "mf" ? "(m/fe)" : "");
 
   return (
@@ -112,7 +113,7 @@ export default function MyDeck() {
               <span className="muted" style={{ fontSize: 15 }}>{genderTag(preview.gender)}</span>
               {preview.audio_url && <AudioButton audioUrl={preview.audio_url} label="🔊" slow />}
             </div>
-            {preview.ipa && <div className="muted" style={{ fontSize: 13 }}>/{preview.ipa}/</div>}
+            {ipaLine(preview.ipa)}
             {inCourse ? (
               <>
                 <div className="muted">{preview.en}</div>
@@ -156,6 +157,7 @@ export default function MyDeck() {
                 <div style={{ fontWeight: 700 }}>
                   {c.fr} <span className="muted" style={{ fontSize: 13 }}>{genderTag(c.gender)}</span>
                 </div>
+                {ipaLine(c.ipa)}
                 <div className="muted" style={{ fontSize: 14 }}>{c.en}</div>
                 <div style={{ marginTop: 6 }}>
                   <AudioButton audioUrl={c.audio_url} label="🔊" slow />

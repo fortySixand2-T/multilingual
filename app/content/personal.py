@@ -9,6 +9,7 @@ everything else to `ContentVocab`, so the two id spaces can never collide.
 
 from __future__ import annotations
 
+import hashlib
 import re
 import unicodedata
 
@@ -48,12 +49,19 @@ def slugify(fr: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", ascii_.lower()).strip("_")
 
 
+def clamp_slug(slug: str, size: int) -> str:
+    """`slug` cut to fit a String(`size`) key. A longer one ends in a hash of the whole
+    slug, so two long phrases sharing a prefix can't share one key (QA 872)."""
+    if len(slug) <= size:
+        return slug
+    return slug[: size - 9] + "_" + hashlib.sha1(slug.encode()).hexdigest()[:8]
+
+
 def personal_key(fr: str) -> str:
     # Clamp so `uv:<slug>` always fits the card_key String(64) column regardless of DB
     # backend (SQLite ignores the cap; Postgres would 500 on INSERT). fr is already
     # length-capped at the API, but keep the invariant here where the key is minted.
-    slug = slugify(fr)[: 64 - len(PERSONAL_PREFIX)]
-    return PERSONAL_PREFIX + slug
+    return PERSONAL_PREFIX + clamp_slug(slugify(fr), 64 - len(PERSONAL_PREFIX))
 
 
 def card_payload(v: UserVocab) -> dict:

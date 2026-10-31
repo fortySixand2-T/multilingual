@@ -144,7 +144,6 @@ function Feedback({
                 <span style={{ color: "var(--green-dk)", fontWeight: 700 }}>{c.correction}</span>
               </div>
               <div className="muted" style={{ fontSize: 14, marginTop: 4 }}>{c.explanation}</div>
-              {c.reference && <span className="pill" style={{ marginTop: 6, fontSize: 12 }}>📘 {c.reference}</span>}
             </div>
           ))}
         </div>
