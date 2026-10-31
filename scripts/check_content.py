@@ -236,6 +236,21 @@ def check_path_covers_lessons(level, bundle, report):
         report(f"{level}/{lid}: not referenced by any path unit — unreachable")
 
 
+def unit_icons() -> set[str]:
+    """The icon keys the Learn path can draw (`UNIT_ICONS` in web/src/screens/Path.tsx)."""
+    src = (CONTENT_ROOT.parent / "web/src/screens/Path.tsx").read_text(encoding="utf-8")
+    block = re.search(r"UNIT_ICONS[^{]*\{(.*?)\};", src, re.S).group(1)
+    return set(re.findall(r"(\w+):", block))
+
+
+def check_unit_icons_exist(level, bundle, report):
+    """An icon missing from UNIT_ICONS renders the fallback 📘 (QA 951)."""
+    icons = unit_icons()
+    for unit in bundle.path.units:
+        if unit.icon and unit.icon not in icons:
+            report(f"{level}/{unit.id}: icon {unit.icon!r} is not in UNIT_ICONS (Path.tsx)")
+
+
 def comprehension_blob(level: str) -> str:
     """Everything a learner reads or hears in a level's comprehension sets."""
     parts: list[str] = []
@@ -308,6 +323,7 @@ RULES = [
     check_known_gaps_not_stale,
     check_speaking_covers_both_sections,
     check_path_covers_lessons,
+    check_unit_icons_exist,
     check_comprehension_covers_vocab,
     check_explain_quotes_are_real,
 ]

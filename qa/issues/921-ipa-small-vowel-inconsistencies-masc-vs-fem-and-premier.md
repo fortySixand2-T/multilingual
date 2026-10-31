@@ -4,7 +4,7 @@ title: IPA vowel inconsistencies - professeur vs professeure differ (ofɛ/ɔfɛ)
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-29
 ---
 
@@ -38,3 +38,6 @@ Cosmetic; all within accepted variation of the script's `_loose` comparison, whi
 - Challenge: Within accepted variation.
 - Holds up? PM deferral is right; cosmetic.
 - Final verdict: deferred
+
+## Fix
+`REVIEWED` pins in `scripts/build_vocab_ipa.py`: premier, premiers soins and premier ministre use pʁəmje; serrer is sɛʁe; professeur is pʁɔfɛsœʁ, matching professeure. camping keeps ŋ, which is correct IPA.

@@ -141,13 +141,15 @@ function DailyGoal({ today, goal }: { today: number; goal: number }) {
 // Every name currently used across the four levels is covered — an unknown name still
 // falls back to 📘 rather than rendering nothing.
 const UNIT_ICONS: Record<string, string> = {
-  bag: "👜", ball: "⚽️", body: "🫀", bolt: "⚡️", book: "📚", briefcase: "💼",
-  bulb: "💡", bus: "🚌", chart: "📈", city: "🏙", clock: "🕐", coffee: "☕️",
-  cpu: "🖥", family: "👪", globe: "🌍", harvest: "🌾", hash: "🔢", health: "🩺",
-  heart: "❤️", home: "🏠", house: "🏡", laptop: "💻", leaf: "🍃", map: "🗺",
-  news: "📰", palette: "🎨", paw: "🐾", people: "👥", plane: "✈️", plate: "🍽",
-  scale: "⚖️", shirt: "👕", smile: "🙂", sun: "☀️", target: "🎯", wallet: "👛",
-  wave: "👋",
+  bag: "👜", ball: "⚽️", body: "🫀", bolt: "⚡️", book: "📚", box: "📦",
+  briefcase: "💼", bulb: "💡", bus: "🚌", chart: "📈", check: "✅", city: "🏙",
+  clock: "🕐", coffee: "☕️", compass: "🧭", cpu: "🖥", door: "🚪", eye: "👀",
+  family: "👪", globe: "🌍", hand: "✋", harvest: "🌾", hash: "🔢", health: "🩺",
+  heart: "❤️", home: "🏠", house: "🏡", laptop: "💻", leaf: "🍃", link: "🔗",
+  map: "🗺", mirror: "🪞", news: "📰", palette: "🎨", paw: "🐾", people: "👥",
+  plane: "✈️", plate: "🍽", puzzle: "🧩", scale: "⚖️", search: "🔍", shirt: "👕",
+  smile: "🙂", sparkle: "✨", speech: "💬", sun: "☀️", swap: "🔀", target: "🎯",
+  thought: "🤔", tools: "🛠", wallet: "👛", wave: "👋",
 };
 
 function iconFor(name: string): string {

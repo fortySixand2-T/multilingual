@@ -4,7 +4,7 @@ title: Preview of a course-vocab word shows no IPA and often no audio (vélo, ch
 severity: medium
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-27
 ---
 
@@ -29,3 +29,6 @@ Same pronunciation panel as other words: Piper IPA and a playable clip.
 - Challenge: The in_course branch is deliberately 'no model call'; routing it through the normal lookup spends LLM + Piper budget and creates vocab_lookup rows for words the learner already studies. The user's complaint was a personal word (cacahuetes), not course words; the course card already has its own gen_audio clip live (audio empty only in the scratch container); an absent IPA line is not wrong IPA, it is just absent. Also adds ipa from a different engine than the course clip.
 - Holds up? Overturned on scope: nothing nonsensical is shown, the course branch is not a cause of the reported bug, and the fix adds cost/latency to a path designed to be free and exposes still-imperfect eSpeak IPA on the most common words before the Lexique slice (same reasoning the PM used to defer 883). Defer to the Lexique/IPA slice.
 - Final verdict: deferred
+
+## Fix
+The in-course preview now returns the bank's checked IPA (`d.get("ipa")`, filled since #124) instead of `""`. That's Lexique/reviewed IPA, not eSpeak, and costs no model call. Audio was already served from the card's gen_audio clip. Test: `test_preview_of_a_course_word_skips_the_llm` asserts the ipa.

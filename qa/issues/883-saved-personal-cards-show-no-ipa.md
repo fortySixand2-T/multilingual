@@ -4,7 +4,7 @@ title: IPA is only visible in the add-preview; saved My deck cards (and Forms pa
 severity: low
 area: web
 persona: absolute-beginner
-status: deferred
+status: done
 found: 2026-10-27
 ---
 
@@ -32,3 +32,6 @@ H6 part: IPA lives only in the preview.
 - Challenge: Perhaps it is the missing piece of the complaint: the learner never sees IPA on cards.
 - Holds up? Deferral stands: the complaint was wrong IPA, not missing IPA; adding UI exposure before the IPA is trustworthy widens the blast radius. Not in this slice.
 - Final verdict: deferred
+
+## Fix
+Saved My deck cards show `/ipa/` under the word, through the same `ipaLine` helper the preview uses (`web/src/screens/MyDeck.tsx`). Test: MyDeck.test asserts `/silɑ̃s/` on the saved card.

@@ -123,7 +123,7 @@ units:
 
   - id: a1.u21
     title: "Describing things"
-    icon: palette
+    icon: sparkle
     lessons: [adjectives-01, adjectives-02]
     unlock: { type: all_of, requires: [a1.u20] }
 
@@ -141,6 +141,6 @@ units:
 
   - id: a1.u24
     title: "Little words"
-    icon: bulb
+    icon: puzzle
     lessons: [adverbs-01, adverbs-02]
     unlock: { type: all_of, requires: [a1.u23] }

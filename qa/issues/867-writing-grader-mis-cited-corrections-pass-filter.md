@@ -4,7 +4,7 @@ title: Writing grader's curated-reference filter catches uncited hallucinations 
 severity: medium
 area: writing
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-25
 ---
 
@@ -143,3 +143,6 @@ repro example.
   overall verdict either way, since both sub-classes point at the same
   "needs better judgment, not a bigger list" root cause.
 - Final verdict: deferred
+
+## Fix
+Hid the curated-reference pill (📘 accord-sujet-verbe…) from the Corrections list in `web/src/screens/WritingTask.tsx`. The key still drives the `_is_genuine` filter, but it's no longer shown to the learner as "the rule", which is where a mis-cited key did the harm. Residual: the model's free-text `explanation` can still mis-state the rule (e.g. "Agreement error" for intéressant→intéressé), and an invented fix on correct text that cites a curated key still gets through. Closing that needs a stronger grader model (see 831).

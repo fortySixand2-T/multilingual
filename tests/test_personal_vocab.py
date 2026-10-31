@@ -219,6 +219,19 @@ def test_card_key_never_exceeds_column_limit():
     assert card["card_key"].startswith("uv:")
 
 
+def test_long_phrases_sharing_a_prefix_get_distinct_keys():
+    # QA 872: slugs were cut at 64, so "...demain matin" and "...demain mardi" shared
+    # one cached lookup (the learner looked up "mardi" and heard "matin").
+    from app.content.lookup import lookup_slug
+
+    stem = "pas de problème mais il faut absolument que tu viennes demain "
+    keys = {lookup_slug(stem + end) for end in ("matin", "mardi", "matin tôt")}
+    assert len(keys) == 3 and all(len(k) <= 64 for k in keys)
+    cards = {P.personal_key(stem + end) for end in ("matin", "mardi")}
+    assert len(cards) == 2 and all(len(k) <= 64 for k in cards)
+    assert lookup_slug("café") == "cafe"  # short words keep their plain slug
+
+
 def test_add_strips_leading_article_like_preview():
     # A direct add of "le chien" should store the bare lemma (matching the preview flow),
     # not "le chien" with key uv:le_chien.
@@ -502,7 +515,13 @@ def test_preview_of_a_course_word_skips_the_llm():
 
     async def seed():
         async with _Session() as s:
-            data = {"fr": "la boulangerie", "en": "bakery", "gender": "f", "audio": "a1/b.mp3"}
+            data = {
+                "fr": "la boulangerie",
+                "en": "bakery",
+                "gender": "f",
+                "audio": "a1/b.mp3",
+                "ipa": "la bulɑ̃ʒʁi",
+            }
             s.add(ContentVocab(id="boulangerie", level="a1", data=data))
             await s.commit()
 
@@ -512,6 +531,7 @@ def test_preview_of_a_course_word_skips_the_llm():
     r = client.post("/vocab/personal/preview", json={"word": "Boulangerie"}).json()
     assert r["in_course"] == "a1" and r["enrichment"]["en"] == "bakery"
     assert r["enrichment"]["audio_url"] == "/content/audio/a1/b.mp3"
+    assert r["enrichment"]["ipa"] == "la bulɑ̃ʒʁi"  # the bank's checked IPA (QA 874)
     assert router.calls == []
 
 

@@ -58,7 +58,9 @@
   fr: docteur
   ipa: dɔktœʁ
   en: doctor
-  gender: m
+  gender: mf
+  fem: docteure
+  fem_ipa: dɔktœʁ
   pos: noun
   tags: [people]
 

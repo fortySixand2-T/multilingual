@@ -22,7 +22,7 @@ from app.ai.interfaces import LLMResult
 from app.ai.router import AIRouter
 from app.content.enrich import GenderTable, enrich
 from app.content.ipa import normalize_ipa
-from app.content.personal import normalize_lemma, slugify
+from app.content.personal import clamp_slug, normalize_lemma, slugify
 from app.content.tables import UserVocab, VocabLookup
 from app.storage.interface import ObjectStorage
 
@@ -36,7 +36,7 @@ _LIGATURES = str.maketrans({"œ": "oe", "Œ": "oe", "æ": "ae", "Æ": "ae"})
 def lookup_slug(word: str) -> str:
     """Cache key for a word: article-stripped ASCII slug (raises EmptyLemmaError).
     Ligatures spell out first (œil -> oeil) so they can't fold into another word (il)."""
-    return slugify(normalize_lemma(word).translate(_LIGATURES))[:64]
+    return clamp_slug(slugify(normalize_lemma(word).translate(_LIGATURES)), 64)
 
 
 def accent_count(text: str) -> int:
