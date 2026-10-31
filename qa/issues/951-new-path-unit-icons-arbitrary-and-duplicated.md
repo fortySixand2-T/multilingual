@@ -4,7 +4,7 @@ title: New path units reuse unrelated icons (keyword-matched), duplicating neigh
 severity: low
 area: content
 persona: absolute-beginner
-status: deferred
+status: done
 found: 2026-10-29
 ---
 
@@ -35,3 +35,6 @@ Cosmetic. Icon keys come from path.yaml; pick generic glyphs for abstract word-c
 - Challenge: Cosmetic design choice.
 - Holds up? PM deferral right.
 - Final verdict: deferred
+
+## Fix
+Gave the 15 flagged units distinct, word-class-neutral icons (✨ 🧩 🚪 ✋ 👀 ✅ 🛠 📦 🪞 🔗 🧭 💬 🤔 🔍 🔀), added to `UNIT_ICONS`. New check `check_unit_icons_exist` in check_content fails on any path icon missing from `UNIT_ICONS`.

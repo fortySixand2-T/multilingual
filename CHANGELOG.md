@@ -651,3 +651,20 @@
 - [2026-10-29] Modified: content/a2/comprehension/read-a2-le-mariage-de-lea.yaml — distractor no longer true (qa-912)
 - [2026-10-29] Modified: content/a2/comprehension/read-a2-un-message-de-sophie.yaml — distractor no longer an instruction (qa-912)
 - [2026-10-29] Modified: qa/issues — marked 894-899, 901, 910-912, 920, 950, 952 done with Fix notes
+- [2026-10-31] Modified: app/content/enrich.py — LLM gender only for nouns, lenient pos mapping, translation-not-definition gloss rule (qa-893)
+- [2026-10-31] Modified: app/content/personal.py — clamp_slug: over-long slugs end in a hash so long phrases can't share a key (qa-872)
+- [2026-10-31] Modified: app/content/lookup.py — lookup_slug uses clamp_slug (qa-872)
+- [2026-10-31] Modified: app/content/personal_api.py — in-course preview returns the bank's checked IPA (qa-874)
+- [2026-10-31] Modified: content/a1/lessons/time-words-02.yaml — déjà exercise without passé composé (qa-900)
+- [2026-10-31] Modified: content/a1/lessons/adverbs-02.yaml — "Pourquoi tu es dehors ?" without inversion (qa-900)
+- [2026-10-31] Modified: content/a1/path.yaml, content/a2/path.yaml, content/b1/path.yaml — distinct icons for the new word-class units (qa-951)
+- [2026-10-31] Modified: content/a1/vocab/people.yaml — docteur/docteure (gender mf, fem_ipa) (qa-922)
+- [2026-10-31] Created: content/a1/audio/docteur_f.mp3 — docteure pronunciation (qa-922)
+- [2026-10-31] Modified: content/a1/vocab/adjectives.yaml, content/a1/vocab/school.yaml, content/a2/vocab/emergencies.yaml, content/a2/vocab/verbs-2.yaml, content/b2/vocab/politique.yaml — premier pʁəmje, serrer sɛʁe, professeur pʁɔfɛsœʁ (qa-921)
+- [2026-10-31] Modified: scripts/build_vocab_ipa.py — REVIEWED entries for premier*, serrer, professeur, docteure (qa-921, qa-922)
+- [2026-10-31] Modified: scripts/check_content.py — check_unit_icons_exist: path icons must be in UNIT_ICONS (qa-951)
+- [2026-10-31] Modified: tests/test_enrich.py, tests/test_personal_vocab.py, web/src/screens/MyDeck.test.tsx — regression tests for 872, 874, 883, 893
+- [2026-10-31] Modified: web/src/screens/MyDeck.tsx — saved cards show their IPA (qa-883)
+- [2026-10-31] Modified: web/src/screens/Path.tsx — new unit icon glyphs (qa-951)
+- [2026-10-31] Modified: web/src/screens/WritingTask.tsx — no longer shows the grader's reference key as a rule pill (qa-867)
+- [2026-10-31] Modified: qa/issues — marked 867, 872, 874, 883, 893, 900, 921, 922, 951 done with Fix notes

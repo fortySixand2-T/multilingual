@@ -4,7 +4,7 @@ title: "A1 time-words-02 and adverbs-02 use passé composé and inverted questio
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-29
 ---
 
@@ -34,3 +34,6 @@ Low; vocabulary being tested is fine. Could use "Tu es déjà là ?" and "Pourqu
 - Challenge: Real but same as 755.
 - Holds up? PM deferral is right; folded into 755.
 - Final verdict: deferred
+
+## Fix
+a1 time-words-02.e5 is now « Tu es ___ là ? » (déjà after the verb, no passé composé). adverbs-02.e6 builds « Pourquoi tu es dehors ? » (no inversion).

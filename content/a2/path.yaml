@@ -141,7 +141,7 @@ units:
 
   - id: a2.u24
     title: "Comings and goings"
-    icon: bolt
+    icon: door
     lessons: [verbs-a2-01]
     unlock: { type: all_of, requires: [a2.u23] }
 
@@ -159,7 +159,7 @@ units:
 
   - id: a2.u27
     title: "Moving and handling"
-    icon: target
+    icon: hand
     lessons: [verbs-a2-04]
     unlock: { type: all_of, requires: [a2.u26] }
 
@@ -171,42 +171,42 @@ units:
 
   - id: a2.u29
     title: "Where, and what you notice"
-    icon: wave
+    icon: eye
     lessons: [everyday-a2-02]
     unlock: { type: all_of, requires: [a2.u28] }
 
   - id: a2.u30
     title: "Sure, fair, the same"
-    icon: smile
+    icon: check
     lessons: [adjectives-a2-01]
     unlock: { type: all_of, requires: [a2.u29] }
 
   - id: a2.u31
     title: "Things you do"
-    icon: bolt
+    icon: tools
     lessons: [verbs-a2-05]
     unlock: { type: all_of, requires: [a2.u30] }
 
   - id: a2.u32
     title: "Take, bring, let go"
-    icon: bag
+    icon: box
     lessons: [verbs-a2-06]
     unlock: { type: all_of, requires: [a2.u31] }
 
   - id: a2.u33
     title: "Reflexive verbs"
-    icon: people
+    icon: mirror
     lessons: [reflexives-a2-01]
     unlock: { type: all_of, requires: [a2.u32] }
 
   - id: a2.u34
     title: "Since, so, like"
-    icon: clock
+    icon: link
     lessons: [adverbs-a2-01]
     unlock: { type: all_of, requires: [a2.u33] }
 
   - id: a2.u35
     title: "Less, rather, elsewhere"
-    icon: map
+    icon: compass
     lessons: [adverbs-a2-02]
     unlock: { type: all_of, requires: [a2.u34] }

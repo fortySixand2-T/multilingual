@@ -4,7 +4,7 @@ title: Lookup gloss is a wrong sense or a definition, not a translation (educati
 severity: medium
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-27
 ---
 
@@ -33,3 +33,6 @@ Same shared cache means one bad gloss reaches every learner.
 - Challenge: The two cheap ride-alongs (prompt tightening, ignore LLM gender when pos empty) could be done now.
 - Holds up? Deferral stands, and the ride-alongs are struck: model-quality tuning of the prompt is untestable without a real LLM and risks regressing 891's headword output; gender-when-pos-empty is a separate behaviour change to resolve_gender. Re-file with a concrete failing list after the headword fix.
 - Final verdict: deferred
+
+## Fix
+Three changes in `app/content/enrich.py`. (1) The model's gender is used only when pos is `noun`, so "à" with an empty pos no longer gets m. (2) `_pos` maps pos variants (`adj`, `Adverb (time)`, `prep.`) onto the known values instead of dropping them to "". (3) The gloss rule asks for a learner translation, not a definition, with an (f. pl.) note for inflected forms. Tests cover (1) and (2). (3) is a prompt change and was NOT benched against the box's 7B model in this pass. Already-cached lookups keep their old gloss until re-looked-up.

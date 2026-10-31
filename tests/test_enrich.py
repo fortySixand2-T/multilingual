@@ -119,6 +119,18 @@ def test_resolve_gender_none_for_non_nouns():
     assert E.resolve_gender("rapidement", "adverb", "f") == ("", "")
 
 
+def test_llm_gender_needs_a_noun():
+    # QA 893: "à" came back with no pos and a guessed gender m; only a noun has one.
+    assert E.resolve_gender("à", "", "m", table=None) == ("", "")
+
+
+def test_pos_variants_map_onto_the_known_values():
+    assert E._pos("adj") == "adjective"
+    assert E._pos("Adverb (time)") == "adverb"
+    assert E._pos("prep.") == "preposition"
+    assert E._pos("conjunction") == "" and E._pos("") == ""
+
+
 def test_resolve_gender_unresolved():
     assert E.resolve_gender("xyzzy", "noun", "", table=None) == ("", "")
 

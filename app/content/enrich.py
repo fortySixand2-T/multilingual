@@ -139,7 +139,7 @@ def resolve_gender(
         return g, "table"
     if g := suffix_gender(word):
         return g, "suffix"
-    if llm_gender in ("m", "f", "mf"):
+    if pos == "noun" and llm_gender in ("m", "f", "mf"):  # a guess on "à" is not (QA 893)
         return llm_gender, "llm"
     return "", ""
 
@@ -153,7 +153,10 @@ _ENRICH_SYSTEM = (
     '"gender": "m|f|mf|"}\n'
     "Rules: `fr` is the word exactly as given but with its correct French accents and "
     "spelling (eleve -> élève, cacahuetes -> cacahuètes); never a different word or form. "
-    "`en` is a short gloss (a few words, no article). `pos` is the part of "
+    "`en` is the English translation a learner would use: the most common sense, one "
+    "to three words, no article, never a definition (baleine -> whale, not large "
+    "sea mammal; formation -> training). For a feminine or plural form, add it in "
+    "brackets (petites -> small (f. pl.)). `pos` is the part of "
     "speech. `gender` is the grammatical gender for NOUNS only (m, f, or mf when both "
     'a masculine and feminine form exist like ami/amie); use "" for anything that is '
     "not a noun. If unsure of gender, "
@@ -161,6 +164,13 @@ _ENRICH_SYSTEM = (
 )
 
 _POS_VALUES = {"noun", "verb", "adjective", "adverb", "preposition", "phrase"}
+
+
+def _pos(raw: str) -> str:
+    """The model's part of speech mapped onto _POS_VALUES by its first three letters,
+    so "adj", "Adverb (time)" or "prep." aren't dropped to "" (QA 893)."""
+    head = raw.strip().lower()[:3]
+    return next((v for v in sorted(_POS_VALUES) if head and v.startswith(head)), "")
 
 
 def _parse_enrichment(text: str) -> dict:
@@ -179,12 +189,11 @@ def _parse_enrichment(text: str) -> dict:
     en = data.get("en")
     pos = data.get("pos")
     gender = data.get("gender")
-    pos = pos.strip().lower() if isinstance(pos, str) else ""
     gender = gender.strip() if isinstance(gender, str) else ""
     return {
         "fr": fr.strip() if isinstance(fr, str) else "",
         "en": en.strip() if isinstance(en, str) else "",
-        "pos": pos if pos in _POS_VALUES else "",
+        "pos": _pos(pos) if isinstance(pos, str) else "",
         "gender": gender if gender in ("m", "f", "mf") else "",
     }
 

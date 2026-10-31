@@ -4,7 +4,7 @@ title: New a1 card "docteur" is gender m with no feminine (docteure) form or fem
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-29
 ---
 
@@ -31,3 +31,6 @@ Content gap, not an IPA error (fem_ipa would equal ipa).
 - Challenge: Missing extra info only.
 - Holds up? PM deferral right.
 - Final verdict: deferred
+
+## Fix
+docteur is now `gender: mf` with `fem: docteure` and fem_ipa dɔktœʁ (REVIEWED, since Lexique has no entry), plus a generated `docteur_f.mp3`.

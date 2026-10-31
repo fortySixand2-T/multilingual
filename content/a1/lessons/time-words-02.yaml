@@ -35,10 +35,10 @@ exercises:
 
   - id: time-words-02.e5
     type: mcq
-    prompt: "« Tu as ___ mangé ? » (Have you already eaten?)"
+    prompt: "« Tu es ___ là ? » (Are you here already?)"
     options: [déjà, bientôt, longtemps]
     answer: déjà
-    explain: "déjà = already, placed between avoir and the past participle."
+    explain: "déjà = already; like other adverbs it goes right after the verb: tu es déjà là."
 
   - id: time-words-02.e6
     type: translate

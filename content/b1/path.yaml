@@ -165,24 +165,24 @@ units:
 
   - id: b1.u28
     title: "Small nouns, big expressions"
-    icon: hash
+    icon: speech
     lessons: [ideas-b1-03]
     unlock: { type: all_of, requires: [b1.u27] }
 
   - id: b1.u29
     title: "It seems, it's worth it"
-    icon: scale
+    icon: thought
     lessons: [verbes-b1-04]
     unlock: { type: all_of, requires: [b1.u28] }
 
   - id: b1.u30
     title: "Finding, saving, knocking"
-    icon: target
+    icon: search
     lessons: [verbes-b1-05]
     unlock: { type: all_of, requires: [b1.u29] }
 
   - id: b1.u31
     title: "However, therefore"
-    icon: scale
+    icon: swap
     lessons: [connecteurs-b1-01]
     unlock: { type: all_of, requires: [b1.u30] }
