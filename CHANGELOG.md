@@ -687,3 +687,10 @@
 - [2026-10-31] Modified: web/src/screens/Path.tsx, content/a2/path.yaml, content/b1/path.yaml — party/memo icons replace repeated smile/wave units
 - [2026-10-31] Modified: tests/test_enrich.py, tests/test_personal_vocab.py — tests for round 062 deferred fixes
 - [2026-10-31] Modified: qa/issues/1000, 1001, 1002, 1004 — marked done with fix notes
+- [2026-10-31] Modified: app/content/lexicon.py — du/des kept as typed; typed article keeps noun; adjective-preposition fixed (qa-1060, qa-1065, qa-1085)
+- [2026-10-31] Modified: app/content/enrich.py — trailing-article strip case-sensitive; typed article passed to lexicon.pos (qa-1080, qa-1065)
+- [2026-10-31] Modified: app/speech/vocab_review.py — course match treats hyphen as space (qa-1086)
+- [2026-10-31] Modified: tests/test_enrich.py, tests/test_personal_vocab.py — regression tests for qa-1060, 1065, 1080, 1085, 1086
+- [2026-10-31] Modified: qa/issues/1060, 1065, 1080, 1085, 1086 — marked done with fix notes
+- [2026-10-31] Created: qa/rounds/063-plan.md and qa/issues/1060-1066, 1080-1086, 1100-1101 — round 063 QA plan and issue files
+- [2026-10-31] Modified: qa/rounds/063-plan.md — Appended round outcomes

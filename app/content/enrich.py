@@ -226,7 +226,7 @@ _BRACKET = re.compile(r"\s*\(([^()]*)\)")
 _FORM_NOTE = re.compile(r"(?:(?:fem(?:inine)?|masc(?:uline)?|plural|pl|[fm])\.?\s*)+", re.I)
 _LABEL = re.compile(r"(?:m|f|mf|n|v|adj|adv|noun|verb|adjective|adverb)\.?", re.I)
 _REGIONAL = re.compile(r"\b(?:English|Brit|British|UK|US|American)\b", re.I)
-_TRAILING_ARTICLE = re.compile(r"\s+(?:the|a|an)$", re.I)
+_TRAILING_ARTICLE = re.compile(r"\s+(?:the|a|an)$")  # case-sensitive: "vitamin A" keeps its A
 
 
 def _form_note(note: str) -> str:
@@ -297,7 +297,7 @@ async def enrich(
         return None, None
     entry, result = await propose(router, lemma, max_tokens=max_tokens)
     fr = headword(lemma, entry.get("fr", "")) if headword else lemma
-    pos = lexicon.pos(fr, entry.get("pos", ""))
+    pos = lexicon.pos(fr, entry.get("pos", ""), article=lemma != word.strip())
     gender, source = resolve_gender(fr, pos, entry.get("gender", ""), table=table)
     return (
         Enrichment(

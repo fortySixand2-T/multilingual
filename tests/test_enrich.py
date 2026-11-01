@@ -203,6 +203,33 @@ def test_inflected_adjective_and_preposition_are_not_nouns():
         assert result.pos == "noun" and result.gender, word
 
 
+def test_typed_article_keeps_the_noun_and_bare_words_still_flip():
+    """QA 1065 (+1064/1066): le pas / le son / la mure stay nouns; bare grandes still flips."""
+    t = E.GenderTable.load()
+    for word, gender in (("le pas", "m"), ("le son", "m"), ("la mure", "f")):
+        router = FakeRouter({"en": "x", "pos": "noun", "gender": gender})
+        result, _ = _run(E.enrich(router, word, table=t))
+        assert (result.pos, result.gender) == ("noun", gender), word
+    result, _ = _run(E.enrich(FakeRouter({"en": "x", "pos": "noun"}), "pas", table=t))
+    assert result.pos == "adverb"
+
+
+def test_lexique_pos_fixes_adjective_prepositions():
+    """QA 1085: derrière is a preposition; a true adjective stays one."""
+    from app.content import lexicon
+
+    assert lexicon.pos("derrière", "adjective") == "preposition"
+    assert lexicon.pos("grand", "adjective") == "adjective"
+
+
+def test_respell_keeps_du_des_and_still_fixes_accents():
+    """QA 1060 (+1061/1100): du / des are not misspellings of dû / dès; 1002 still holds."""
+    from app.content.lexicon import respell
+
+    assert (respell("du"), respell("des"), respell("Du")) == ("du", "des", "Du")
+    assert respell("cote") == "côté" and respell("chausseé") == "chaussée"
+
+
 def test_gender_resolves_on_the_kept_headword():
     """QA 1004: typed "elephant", kept "éléphant" -> the table's m, not unresolved."""
     router = FakeRouter({"fr": "éléphant", "en": "elephant", "pos": "noun"})
@@ -229,6 +256,8 @@ def test_clean_gloss_makes_notes_consistent():
         ("eggs (pl.)", "noun", "eggs"),
         ("ground floor (Brit. English: ground floor)", "noun", "ground floor"),
         ("at the", "preposition", "at"),
+        ("vitamin A", "noun", "vitamin A"),  # QA 1080: a capital A is content
+        ("Plan A", "noun", "Plan A"),
         ("speak (they)", "verb", "speak (they)"),  # other notes are left alone
     ]
     for en, pos, want in cases:
