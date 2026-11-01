@@ -4,7 +4,7 @@ title: Headword fr gets wrong accents for multiword/long words (à coté de, rez
 severity: medium
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-31
 ---
 
@@ -30,3 +30,6 @@ Stored/spoken and shown to every learner via the shared cache (the 891 headword-
 - Challenge: Agree with PM: misplaced accents share the slug and have more accents, so _headword accepts them; nothing deterministic can correct accent placement without a lexicon.
 - Holds up? Yes, deferral stands. Model quality only.
 - Final verdict: deferred
+
+## Fix
+When the learner typed no accents, lookup._headword respells the model's headword word by word against Lexique (lexicon.respell): an unknown spelling, or one ≥20x rarer than its accent variant, becomes the common one (coté -> côté, chausseé -> chaussée). Same letters, so the cache slug is unchanged. Test: tests/test_personal_vocab.py::test_accentless_input_gets_lexique_accents.

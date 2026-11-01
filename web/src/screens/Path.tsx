@@ -146,8 +146,9 @@ const UNIT_ICONS: Record<string, string> = {
   clock: "🕐", coffee: "☕️", compass: "🧭", cpu: "🖥", door: "🚪", eye: "👀",
   family: "👪", globe: "🌍", hand: "✋", harvest: "🌾", hash: "🔢", health: "🩺",
   heart: "❤️", home: "🏠", house: "🏡", laptop: "💻", leaf: "🍃", link: "🔗",
-  map: "🗺", mirror: "🪞", news: "📰", palette: "🎨", paw: "🐾", people: "👥",
-  plane: "✈️", plate: "🍽", puzzle: "🧩", scale: "⚖️", search: "🔍", shirt: "👕",
+  map: "🗺", memo: "📝", mirror: "🪞", news: "📰", palette: "🎨", party: "🎉",
+  paw: "🐾", people: "👥", plane: "✈️", plate: "🍽", puzzle: "🧩", scale: "⚖️",
+  search: "🔍", shirt: "👕",
   smile: "🙂", sparkle: "✨", speech: "💬", sun: "☀️", swap: "🔀", target: "🎯",
   thought: "🤔", tools: "🛠", wallet: "👛", wave: "👋",
 };

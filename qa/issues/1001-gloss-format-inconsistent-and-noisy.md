@@ -4,7 +4,7 @@ title: Gloss suffixes are inconsistent and noisy: "(f pl)", "(adj)", "(m)", "(Br
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-31
 ---
 
@@ -45,3 +45,6 @@ Three different spellings of the form note ("f pl", "f. pl.", "pl."), gender tag
 - Challenge: Entirely 7B improvisation of gloss suffixes ('(f pl)', '(adj)', 'Brit. English'); severity low, cosmetic, and the only remedy is another unbenched prompt rewrite (or regex scrubbing of free text, which risks mangling legitimate glosses). Prompt already asks for '(f. pl.)'. 'chez' = 'at the' and 'while during' are sense quality, not format bugs.
 - Holds up? No. Not deterministic, not small, not benchable. Fixer: no change.
 - Final verdict: deferred
+
+## Fix
+enrich.clean_gloss: inflection notes canonicalised to (f.), (pl.), (f. pl.) and kept on adjectives only; grammar labels ((m), (adj)…) and regional asides (Brit./US/English) dropped; a dangling trailing article removed (chez -> at). Prompt asks for comma-separated senses and no other notes. Sense quality ("while during") remains model-driven. Test: test_clean_gloss_makes_notes_consistent.

@@ -22,6 +22,7 @@ from app.ai.interfaces import LLMResult
 from app.ai.router import AIRouter
 from app.content.enrich import GenderTable, enrich
 from app.content.ipa import normalize_ipa
+from app.content.lexicon import respell
 from app.content.personal import clamp_slug, normalize_lemma, slugify
 from app.content.tables import UserVocab, VocabLookup
 from app.storage.interface import ObjectStorage
@@ -54,7 +55,10 @@ async def cached_lookup(session: AsyncSession, word: str) -> VocabLookup | None:
 
 def _headword(typed: str, proposed: str) -> str:
     """The model's accented spelling of `typed`, only if it is the same word (same slug)
-    with no accent lost; anything else falls back to what was typed (QA 891)."""
+    with no accent lost; anything else falls back to what was typed (QA 891). When the
+    learner typed no accents, the model's are checked against Lexique (QA 1002)."""
+    if not accent_count(typed):
+        proposed = respell(proposed or typed)
     if not proposed or len(proposed) > 128:
         return typed
     try:
@@ -77,11 +81,11 @@ async def fresh_lookup(
 ) -> tuple[VocabLookup | None, LLMResult | None]:
     """Enrich `word`, voice it, and store the result. Returns (row, llm) — row is None
     when the model gave no meaning, and nothing is cached so a retry can succeed."""
-    result, llm = await enrich(router, word, table=table)
+    result, llm = await enrich(router, word, table=table, headword=_headword)
     if result is None or not result.en:
         return None, llm
     slug = lookup_slug(word)
-    fr = _headword(result.fr, result.headword)
+    fr = result.fr
     row = VocabLookup(
         slug=slug,
         fr=fr,

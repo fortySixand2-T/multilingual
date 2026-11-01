@@ -141,7 +141,7 @@ units:
 
   - id: b1.u24
     title: "Everyday procedures"
-    icon: wave
+    icon: memo
     lessons: [verbes-b1-02]
     unlock: { type: all_of, requires: [b1.u23] }
 
