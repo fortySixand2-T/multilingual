@@ -556,6 +556,25 @@ def test_course_word_preview_matches_typed_variants_and_has_audio():
     assert router.calls == []
 
 
+def test_course_word_matches_space_for_hyphen():
+    """QA 1086: "peut etre" is the course word peut-être, not a new lookup."""
+    from app.content.tables import ContentVocab
+
+    async def seed():
+        async with _Session() as s:
+            data = {"id": "peut_etre", "fr": "peut-être", "en": "maybe", "audio": ""}
+            s.add(ContentVocab(id="peut_etre", level="a1", data=data))
+            await s.commit()
+
+    _run(seed())
+    router = FakeRouter({"en": "x"})
+    client, _ = _client(uid=37, router=router)
+    for word in ("peut etre", "peut-etre"):
+        r = client.post("/vocab/personal/preview", json={"word": word}).json()
+        assert r["in_course"] == "a1" and r["enrichment"]["en"] == "maybe", word
+    assert router.calls == []
+
+
 def test_word_voice_prefers_siwis_and_falls_back_when_missing(tmp_path):
     from app.config.settings import Settings
 

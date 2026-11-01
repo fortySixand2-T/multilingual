@@ -23,6 +23,10 @@ _RARER = 20
 # What a "noun" from the model may really be. Never a verb or pronoun: été (summer) and
 # personne (person) are mostly verb / pronoun in running text, yet a learner means the noun.
 _NOT_NOUNS = {"adjective", "adverb", "preposition", "conjunction"}
+# A model "adjective" among these is wrong (derrière); adverbs stay, many adjectives are one.
+_NOT_ADJECTIVES = {"preposition", "conjunction"}
+# Correct words Lexique lacks, so respell would take them for a misspelling of dû / dès.
+_KEEP_AS_TYPED = {"du", "des"}
 
 
 def _key(word: str) -> str:
@@ -50,6 +54,8 @@ def _forms() -> tuple[dict[str, tuple[str, float]], dict[str, str]]:
 def _respell_word(word: str) -> str:
     forms, best = _forms()
     low = word.lower()
+    if low in _KEEP_AS_TYPED:
+        return word
     top = best.get(_key(low))
     if not top or top == low.translate(_LIGATURES):  # Lexique spells cœur "coeur"
         return word
@@ -68,10 +74,15 @@ def respell(text: str) -> str:
     )
 
 
-def pos(word: str, model_pos: str) -> str:
+def pos(word: str, model_pos: str, *, article: bool = False) -> str:
     """The model's part of speech, unless it called a word a noun that French almost
-    always uses as something else (grandes -> adjective, pendant -> preposition)."""
+    always uses as something else (grandes -> adjective, pendant -> preposition), or an
+    adjective that is really a preposition (derrière). A typed article (le pas) says noun."""
     usual = _forms()[0].get(word.strip().lower(), ("", 0.0))[0]
-    if model_pos in ("", "noun") and usual in _NOT_NOUNS:
+    if article and model_pos in ("", "noun"):
+        return "noun"
+    if (model_pos in ("", "noun") and usual in _NOT_NOUNS) or (
+        model_pos == "adjective" and usual in _NOT_ADJECTIVES
+    ):
         return usual
     return model_pos or usual

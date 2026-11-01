@@ -125,6 +125,11 @@ def _deaccent(word: str) -> str:
     return "".join(c for c in unicodedata.normalize("NFD", word) if unicodedata.category(c) != "Mn")
 
 
+def _match_key(word: str) -> str:
+    """`_deaccent(_norm(word))` with hyphens as spaces, so peut etre matches peut-être."""
+    return _deaccent(_norm(word)).replace("-", " ")
+
+
 async def resolve_to_vocab(
     session: AsyncSession, user_id: int, words: list[str], *, limit: int = 12
 ) -> list[dict]:
@@ -179,13 +184,13 @@ async def find_content_match(session: AsyncSession, word: str) -> ContentVocab |
     POST /vocab/personal/from-word, called directly rather than via the Speaking
     debrief) reject a word that already has a real ContentVocab entry instead of
     silently minting a duplicate `uv:` personal card for it."""
-    n = _deaccent(_norm(word))
+    n = _match_key(word)
     if not n:
         return None
     rows = (await session.execute(select(ContentVocab))).scalars().all()
     for r in rows:
         fr = r.data.get("fr", "")
-        if fr and _deaccent(_norm(fr)) == n:
+        if fr and _match_key(fr) == n:
             return r
     return None
 
