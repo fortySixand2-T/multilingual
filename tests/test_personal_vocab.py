@@ -535,6 +535,27 @@ def test_preview_of_a_course_word_skips_the_llm():
     assert router.calls == []
 
 
+def test_course_word_preview_matches_typed_variants_and_has_audio():
+    """QA 1020/1021/1022: curly apostrophe + accent-less ligature still hit the course
+    word, and a card with a blank `audio` still gets the conventional clip key."""
+    from app.content.tables import ContentVocab
+
+    async def seed():
+        async with _Session() as s:
+            for id_, fr in (("coeur", "cœur"), ("eau", "eau")):
+                s.add(ContentVocab(id=id_, level="a1", data={"id": id_, "fr": fr, "audio": ""}))
+            await s.commit()
+
+    _run(seed())
+    router = FakeRouter({"en": "x"})
+    client, _ = _client(uid=36, router=router)
+    for word, fr in (("coeur", "cœur"), ("L\u2019eau", "eau")):
+        r = client.post("/vocab/personal/preview", json={"word": word}).json()
+        assert r["in_course"] == "a1" and r["enrichment"]["fr"] == fr
+    assert r["enrichment"]["audio_url"] == "/content/audio/a1/audio/eau.mp3"
+    assert router.calls == []
+
+
 def test_word_voice_prefers_siwis_and_falls_back_when_missing(tmp_path):
     from app.config.settings import Settings
 

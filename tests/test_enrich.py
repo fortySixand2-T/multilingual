@@ -40,6 +40,9 @@ def test_strip_leading_article():
     assert E.strip_leading_article("l'eau") == "eau"
     assert E.strip_leading_article("de la crème") == "crème"
     assert E.strip_leading_article("chat") == "chat"  # no article
+    # phone keyboards type U+2019 (QA 1020)
+    assert E.strip_leading_article("l\u2019eau") == "eau"
+    assert E.strip_leading_article("L\u2019été") == "été"
 
 
 def test_suffix_gender_high_confidence_endings():
@@ -119,6 +122,13 @@ def test_resolve_gender_none_for_non_nouns():
     assert E.resolve_gender("rapidement", "adverb", "f") == ("", "")
 
 
+def test_phrase_has_no_gender():
+    # QA 1050: "...ce soir" must not pick up the -oir masculine suffix
+    phrase = "je voudrais réserver une table pour quatre personnes ce soir"
+    assert E.resolve_gender(phrase, "", "m", table=E.GenderTable.load()) == ("", "")
+    assert E.resolve_gender(phrase, "noun", "m") == ("", "")
+
+
 def test_llm_gender_needs_a_noun():
     # QA 893: "à" came back with no pos and a guessed gender m; only a noun has one.
     assert E.resolve_gender("à", "", "m", table=None) == ("", "")
@@ -128,7 +138,8 @@ def test_pos_variants_map_onto_the_known_values():
     assert E._pos("adj") == "adjective"
     assert E._pos("Adverb (time)") == "adverb"
     assert E._pos("prep.") == "preposition"
-    assert E._pos("conjunction") == "" and E._pos("") == ""
+    assert E._pos("conjunction") == "conjunction" and E._pos("Pronoun") == "pronoun"  # QA 1003
+    assert E._pos("") == "" and E._pos("interjection") == ""
 
 
 def test_resolve_gender_unresolved():

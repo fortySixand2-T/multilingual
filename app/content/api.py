@@ -27,6 +27,13 @@ from app.srs.models import ReviewCard
 from app.storage.interface import ObjectStorage
 from app.users.models import User
 
+
+def card_audio_key(level: str, card: dict) -> str:
+    """Every word has a pronunciation clip, keyed by convention `<level>/audio/<id>.mp3`
+    (matches scripts/gen_audio.py) when the card doesn't name one; served by /content/audio."""
+    return card.get("audio") or f"{level}/audio/{card['id']}.mp3"
+
+
 router = APIRouter(prefix="/content", tags=["content"])
 
 # Audio storage keys are content-controlled (`<level>/audio/<file>.mp3`). Validate the
@@ -241,10 +248,7 @@ async def get_vocab(
     cards = []
     for r in rows:
         card = {**r.data, "level": r.level}
-        # every word has a pronunciation clip, keyed by convention `<level>/audio/<id>.mp3`
-        # (matches scripts/gen_audio.py); served by the /content/audio route.
-        if not card.get("audio"):
-            card["audio"] = f"{r.level}/audio/{card['id']}.mp3"
+        card["audio"] = card_audio_key(r.level, card)
         # dual-gender words (gender "mf") also carry a feminine clip `<id>_f.mp3`
         if card.get("gender") == "mf":
             card["fem_audio"] = f"{r.level}/audio/{card['id']}_f.mp3"

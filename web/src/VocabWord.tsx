@@ -51,15 +51,19 @@ function Headword({ card }: { card: VocabCard }) {
   if (card.gender === "mf") {
     return (
       <div className="vocab-word">
-        <span style={BIG}>
-          {card.fr} <span className="gender-mark">{MARK.m}</span>
+        <span className="vocab-form">
+          <span style={BIG}>
+            {card.fr} <span className="gender-mark">{MARK.m}</span>
+          </span>
+          {card.audio && <AudioButton key={`${card.id}-m`} audioKey={card.audio} label="🔊" slow />}
         </span>
-        {card.audio && <AudioButton key={`${card.id}-m`} audioKey={card.audio} label="🔊" slow />}
         <span className="muted" style={{ fontSize: 26, fontWeight: 800 }}>/</span>
-        <span style={BIG}>
-          {card.fem} <span className="gender-mark">{MARK.f}</span>
+        <span className="vocab-form">
+          <span style={BIG}>
+            {card.fem} <span className="gender-mark">{MARK.f}</span>
+          </span>
+          {card.fem_audio && <AudioButton key={`${card.id}-f`} audioKey={card.fem_audio} label="🔊" slow />}
         </span>
-        {card.fem_audio && <AudioButton key={`${card.id}-f`} audioKey={card.fem_audio} label="🔊" slow />}
       </div>
     );
   }

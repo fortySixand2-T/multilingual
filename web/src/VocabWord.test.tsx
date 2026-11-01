@@ -44,6 +44,19 @@ describe("VocabWord gender display", () => {
     expect(audioKeys()).toEqual(["a/serveur.mp3", "a/serveur_f.mp3"]);
   });
 
+  it("groups each dual-gender form with its own audio button so wrapping never splits them", () => {
+    const { container } = render(
+      <VocabWord
+        card={{ ...base, fr: "docteur", gender: "mf", fem: "docteure", audio: "a/d.mp3", fem_audio: "a/d_f.mp3" }}
+      />,
+    );
+    const forms = container.querySelectorAll(".vocab-form");
+    expect(forms).toHaveLength(2);
+    expect(forms[0]).toHaveTextContent("docteur");
+    expect(forms[1]).toHaveTextContent("docteure");
+    forms.forEach((f) => expect(f.querySelectorAll("button")).toHaveLength(1));
+  });
+
   it("shows no marker for an ungendered word", () => {
     render(<VocabWord card={{ ...base, fr: "un", gender: "" }} />);
     expect(screen.getByText("un")).toBeInTheDocument();

@@ -79,6 +79,7 @@ h2 { font-size: 18px; margin: 0 0 12px; }
 .node-sub { font-size: 13px; color: var(--muted); }
 
 /* vocab headword + gender marker */
+.vocab-form { display: inline-flex; gap: 10px; align-items: center; white-space: nowrap; }  /* a form wraps with its own buttons */
 .vocab-word { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; align-items: center; }
 .vocab-ipa { text-align: center; font-size: 15px; margin-top: 4px; }
 .gender-mark { font-size: 0.6em; font-weight: 700; color: var(--muted); vertical-align: middle; }
