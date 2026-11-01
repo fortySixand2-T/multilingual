@@ -60,4 +60,4 @@
 - H5 confirmed: "vitamin A" lost capital A (1080) fixed; a la carte (1081) rejected.
 - H6 refuted: 1000-1004 stay fixed, add/preview consistent, cache stable. 1083/1084 deferred (7B).
 - H7 refuted: icons and lookup cards render cleanly.
-- Filed 16 (1060-1066, 1080-1086, 1100-1101): 5 validated and done on fix/qa-063; 6 rejected; 5 deferred (1082, 1083, 1084, 1101 + none needs-info).
+- Filed 16 (1060-1066, 1080-1086, 1100-1101): 5 validated and done on fix/qa-063; 7 rejected (1061 1062 1063 1064 1066 1081 1100); 4 deferred (1082 1083 1084 1101); 0 needs-info.
