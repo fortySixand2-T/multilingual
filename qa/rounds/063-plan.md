@@ -51,3 +51,13 @@
 - STT unavailable.
 
 <!-- Outcomes appended below after the round. -->
+
+## Outcomes (post-round)
+- H1 confirmed: du->dû, des->dès (Lexique lacks both; 1060, dup 1061/1100) fixed. la/sur not a #133 fault (1062, 1063 rejected).
+- H2 refuted for peche/cote/coeur (headword correct; 1101 gloss is 7B quality, deferred).
+- H3 refuted: caps, apostrophes, hyphens, ligatures, slugs stable; boeuf ligature (1082) deferred; 1086 peut etre fixed.
+- H4 partly confirmed: typed-article nouns lost gender (1065, folds 1064/1066) fixed; derriere adjective (1085) fixed; bare son/mure flip by design.
+- H5 confirmed: "vitamin A" lost capital A (1080) fixed; a la carte (1081) rejected.
+- H6 refuted: 1000-1004 stay fixed, add/preview consistent, cache stable. 1083/1084 deferred (7B).
+- H7 refuted: icons and lookup cards render cleanly.
+- Filed 16 (1060-1066, 1080-1086, 1100-1101): 5 validated and done on fix/qa-063; 6 rejected; 5 deferred (1082, 1083, 1084, 1101 + none needs-info).

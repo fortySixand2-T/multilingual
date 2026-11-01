@@ -693,3 +693,4 @@
 - [2026-10-31] Modified: tests/test_enrich.py, tests/test_personal_vocab.py — regression tests for qa-1060, 1065, 1080, 1085, 1086
 - [2026-10-31] Modified: qa/issues/1060, 1065, 1080, 1085, 1086 — marked done with fix notes
 - [2026-10-31] Created: qa/rounds/063-plan.md and qa/issues/1060-1066, 1080-1086, 1100-1101 — round 063 QA plan and issue files
+- [2026-10-31] Modified: qa/rounds/063-plan.md — Appended round outcomes
