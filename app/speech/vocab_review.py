@@ -94,7 +94,7 @@ async def extract_review_words(
 
 def _norm(word: str) -> str:
     """Normalize for matching: lowercase, strip a leading article, trim punctuation."""
-    w = word.strip().lower()
+    w = word.strip().lower().replace("\u2019", "'").replace("\u2018", "'")  # QA 1020
     for art in (
         "de la ",
         "de l'",
@@ -116,7 +116,12 @@ def _norm(word: str) -> str:
     return w.strip(" .,;:!?\"'()")
 
 
+_LIGATURES = str.maketrans({"œ": "oe", "Œ": "oe", "æ": "ae", "Æ": "ae"})
+
+
 def _deaccent(word: str) -> str:
+    """Accent-free, ligature-spelled-out form, so keyboard-typed coeur matches cœur."""
+    word = word.translate(_LIGATURES)
     return "".join(c for c in unicodedata.normalize("NFD", word) if unicodedata.category(c) != "Mn")
 
 

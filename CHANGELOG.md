@@ -668,3 +668,9 @@
 - [2026-10-31] Modified: web/src/screens/Path.tsx — new unit icon glyphs (qa-951)
 - [2026-10-31] Modified: web/src/screens/WritingTask.tsx — no longer shows the grader's reference key as a rule pill (qa-867)
 - [2026-10-31] Modified: qa/issues — marked 867, 872, 874, 883, 893, 900, 921, 922, 951 done with Fix notes
+- [2026-10-31] Modified: app/content/enrich.py — conjunction/pronoun pos (qa-1003), U+2019 article strip (qa-1020), no gender for phrases (qa-1050)
+- [2026-10-31] Modified: app/speech/vocab_review.py — curly apostrophe in _norm (qa-1020), oe/ae ligature fold in _deaccent (qa-1022)
+- [2026-10-31] Modified: app/content/api.py, app/content/personal_api.py — shared card_audio_key so course-word previews get audio_url (qa-1021)
+- [2026-10-31] Modified: web/src/VocabWord.tsx, web/src/styles.css — group each mf form with its own audio buttons (qa-1051)
+- [2026-10-31] Modified: tests/test_enrich.py, tests/test_personal_vocab.py, web/src/VocabWord.test.tsx — regression tests for 1003, 1020-1022, 1050, 1051
+- [2026-10-31] Modified: qa/issues — marked 1003, 1020, 1021, 1022, 1050, 1051 done with Fix notes

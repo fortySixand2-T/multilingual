@@ -71,7 +71,7 @@ _EAU_FEM = {"eau", "peau"}
 
 def strip_leading_article(word: str) -> str:
     """Bare lemma: drop a leading article if the model returned e.g. 'le vélo'."""
-    w = word.strip()
+    w = word.strip().replace("\u2019", "'").replace("\u2018", "'")  # phone keyboards (QA 1020)
     low = w.lower()
     for art in _ARTICLES:
         if low.startswith(art):
@@ -137,6 +137,8 @@ def resolve_gender(
         return "", ""
     if table is not None and (g := table.get(word)):
         return g, "table"
+    if " " in word.strip():  # a phrase has no gender; "...ce soir" must not hit -oir (QA 1050)
+        return "", ""
     if g := suffix_gender(word):
         return g, "suffix"
     if pos == "noun" and llm_gender in ("m", "f", "mf"):  # a guess on "à" is not (QA 893)
@@ -149,7 +151,8 @@ def resolve_gender(
 _ENRICH_SYSTEM = (
     "You are a French-English lexicographer. For the given French word, return a "
     "concise dictionary entry as STRICT JSON only, no prose:\n"
-    '{"fr": "...", "en": "...", "pos": "noun|verb|adjective|adverb|preposition|phrase", '
+    '{"fr": "...", "en": "...", "pos": "noun|verb|adjective|adverb|preposition|'
+    'conjunction|pronoun|phrase", '
     '"gender": "m|f|mf|"}\n'
     "Rules: `fr` is the word exactly as given but with its correct French accents and "
     "spelling (eleve -> élève, cacahuetes -> cacahuètes); never a different word or form. "
@@ -163,7 +166,16 @@ _ENRICH_SYSTEM = (
     'use "".'
 )
 
-_POS_VALUES = {"noun", "verb", "adjective", "adverb", "preposition", "phrase"}
+_POS_VALUES = {
+    "noun",
+    "verb",
+    "adjective",
+    "adverb",
+    "preposition",
+    "conjunction",
+    "pronoun",
+    "phrase",
+}
 
 
 def _pos(raw: str) -> str:

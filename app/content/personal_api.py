@@ -25,6 +25,7 @@ from app.ai.router import AIRouter
 from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
 from app.config.settings import Settings, get_settings
+from app.content.api import card_audio_key
 from app.content.enrich import GenderTable
 from app.content.lookup import (
     cached_lookup,
@@ -142,7 +143,7 @@ async def preview(
                 "gender": d.get("gender", ""),
                 "ipa": d.get("ipa", ""),
                 "gender_source": "course",
-                "audio_url": f"/content/audio/{d['audio']}" if d.get("audio") else None,
+                "audio_url": f"/content/audio/{card_audio_key(match.level, d)}",
             },
             "in_course": match.level,
         }
