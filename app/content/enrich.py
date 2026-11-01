@@ -24,12 +24,15 @@ from __future__ import annotations
 
 import functools
 import json
+import re
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
 import anyio
 
 from app.ai.interfaces import LLMResult, Msg
+from app.content import lexicon
 
 _PROFILE = "vocab_enrich"
 _DATA_DIR = Path(__file__).resolve().parent / "data"
@@ -122,7 +125,8 @@ class GenderTable:
         return cls(by_word)
 
     def get(self, word: str) -> str:
-        return self._by_word.get(word.strip().lower(), "")
+        w = word.strip().lower()
+        return self._by_word.get(w) or self._by_word.get(w.replace("œ", "oe"), "")
 
     def __len__(self) -> int:
         return len(self._by_word)
@@ -158,8 +162,9 @@ _ENRICH_SYSTEM = (
     "spelling (eleve -> élève, cacahuetes -> cacahuètes); never a different word or form. "
     "`en` is the English translation a learner would use: the most common sense, one "
     "to three words, no article, never a definition (baleine -> whale, not large "
-    "sea mammal; formation -> training). For a feminine or plural form, add it in "
-    "brackets (petites -> small (f. pl.)). `pos` is the part of "
+    "sea mammal; formation -> training); separate two senses with a comma. For a "
+    "feminine or plural adjective, add it in brackets (petites -> small (f. pl.)); "
+    "no other notes. `pos` is the part of "
     "speech. `gender` is the grammatical gender for NOUNS only (m, f, or mf when both "
     'a masculine and feminine form exist like ami/amie); use "" for anything that is '
     "not a noun. If unsure of gender, "
@@ -185,6 +190,9 @@ def _pos(raw: str) -> str:
     return next((v for v in sorted(_POS_VALUES) if head and v.startswith(head)), "")
 
 
+_GENDER_WORDS = {"masculine": "m", "feminine": "f", "masculin": "m", "féminin": "f"}
+
+
 def _parse_enrichment(text: str) -> dict:
     """Pull the JSON entry out of the model reply, tolerantly (fences, junk keys)."""
     s = text.strip()
@@ -201,7 +209,8 @@ def _parse_enrichment(text: str) -> dict:
     en = data.get("en")
     pos = data.get("pos")
     gender = data.get("gender")
-    gender = gender.strip() if isinstance(gender, str) else ""
+    gender = gender.strip().lower().rstrip(".") if isinstance(gender, str) else ""
+    gender = _GENDER_WORDS.get(gender, gender)
     return {
         "fr": fr.strip() if isinstance(fr, str) else "",
         "en": en.strip() if isinstance(en, str) else "",
@@ -210,14 +219,49 @@ def _parse_enrichment(text: str) -> dict:
     }
 
 
+# Bracketed notes in a model gloss. A form note keeps one spelling, and only on an
+# adjective ("small (f. pl.)"): an English noun or verb shows its own number. Grammar
+# labels, regional asides and anything else in the house list go (QA 1001).
+_BRACKET = re.compile(r"\s*\(([^()]*)\)")
+_FORM_NOTE = re.compile(r"(?:(?:fem(?:inine)?|masc(?:uline)?|plural|pl|[fm])\.?\s*)+", re.I)
+_LABEL = re.compile(r"(?:m|f|mf|n|v|adj|adv|noun|verb|adjective|adverb)\.?", re.I)
+_REGIONAL = re.compile(r"\b(?:English|Brit|British|UK|US|American)\b", re.I)
+_TRAILING_ARTICLE = re.compile(r"\s+(?:the|a|an)$", re.I)
+
+
+def _form_note(note: str) -> str:
+    """ "(f. pl.)"-style canonical spelling of an inflection note, "" for the base form."""
+    words = note.lower().replace(".", " ").split()
+    fem = any(w.startswith("f") for w in words)
+    plural = any(w.startswith("pl") for w in words)
+    return " ".join(["f."] * fem + ["pl."] * plural)
+
+
+def clean_gloss(en: str, pos: str) -> str:
+    """The model's gloss with its bracketed notes made consistent: "large (f pl)" ->
+    "large (f. pl.)" on an adjective; "pavement (m)", "active (adj)", "ground floor
+    (Brit. English: …)" lose the note; "at the" loses its dangling article."""
+
+    def note(m: re.Match) -> str:
+        inner = m.group(1).strip()
+        if _FORM_NOTE.fullmatch(inner):
+            form = _form_note(inner)
+            return f" ({form})" if form and pos == "adjective" else ""
+        if _LABEL.fullmatch(inner) or _REGIONAL.search(inner):
+            return ""
+        return m.group(0)
+
+    en = _BRACKET.sub(note, en)
+    return _TRAILING_ARTICLE.sub("", " ".join(en.split()))
+
+
 @dataclass(frozen=True)
 class Enrichment:
-    fr: str  # bare lemma (article stripped)
+    fr: str  # headword: article stripped, accents checked by the caller's `headword`
     en: str
     pos: str
     gender: str  # "" | m | f | mf
     gender_source: str  # "table" | "suffix" | "llm" | ""  (provenance / confidence)
-    headword: str = ""  # the model's accented spelling of `fr`; unvalidated (lookup checks it)
 
 
 async def propose(router, word: str, *, max_tokens: int = 128) -> tuple[dict, LLMResult | None]:
@@ -236,25 +280,32 @@ async def propose(router, word: str, *, max_tokens: int = 128) -> tuple[dict, LL
 
 
 async def enrich(
-    router, word: str, *, table: GenderTable | None = None, max_tokens: int = 128
+    router,
+    word: str,
+    *,
+    table: GenderTable | None = None,
+    headword: Callable[[str, str], str] | None = None,
+    max_tokens: int = 128,
 ) -> tuple[Enrichment | None, LLMResult | None]:
     """Full enrichment for a bare French word: LLM gloss/pos + deterministic
-    gender backstop. Returns (Enrichment, llm_result); (None, None) for empty input."""
+    gender backstop. `headword(typed, proposed)` picks the spelling to keep (default:
+    as typed); pos and gender are settled on that spelling, so "elephant" typed and
+    "éléphant" kept finds éléphant's gender (QA 1004). Returns (Enrichment,
+    llm_result); (None, None) for empty input."""
     lemma = strip_leading_article(word)
     if not lemma:
         return None, None
     entry, result = await propose(router, lemma, max_tokens=max_tokens)
-    gender, source = resolve_gender(
-        lemma, entry.get("pos", ""), entry.get("gender", ""), table=table
-    )
+    fr = headword(lemma, entry.get("fr", "")) if headword else lemma
+    pos = lexicon.pos(fr, entry.get("pos", ""))
+    gender, source = resolve_gender(fr, pos, entry.get("gender", ""), table=table)
     return (
         Enrichment(
-            fr=lemma,
-            en=entry.get("en", ""),
-            pos=entry.get("pos", ""),
+            fr=fr,
+            en=clean_gloss(entry.get("en", ""), pos),
+            pos=pos,
             gender=gender,
             gender_source=source,
-            headword=entry.get("fr", ""),
         ),
         result,
     )

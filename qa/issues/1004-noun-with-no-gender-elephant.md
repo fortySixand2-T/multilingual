@@ -4,7 +4,7 @@ title: Fresh nouns can come back with pos noun but no gender (éléphant, rez-de
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-31
 ---
 
@@ -31,3 +31,6 @@ Most other fresh nouns (courage, trottoir, fleuve, vendeuse) resolve fine, so th
 - Challenge: The PM's mechanism (model replies 'masculine'/'M'/'masc') is a guess; the report never captured the raw model reply, and for rez-de-chaussee the PM admits there is no signal. elephant is not in the table and has no suffix rule, so the likelier cause is the model simply returning '' or a wrong pos, which no parse tweak fixes. Intermittent, low severity, and the gender is shown only as a cue. A parse tweak is speculative: it may not fix the reported case.
 - Holds up? No: the cause is unproven and the fix may be a no-op. Conservative default is no change. Optional if the fixer wants it: none required. Closing without a change; re-file with the raw model reply if gender is shown to be dropped by the strict ('m','f','mf') check.
 - Final verdict: deferred
+
+## Fix
+enrich() now takes the headword chooser and resolves pos and gender on the kept spelling, not the typed one, so elephant -> éléphant m (table). GenderTable.get also tries the oe spelling of œ. Model gender words (masculine, f.) are normalised. Tests: test_gender_resolves_on_the_kept_headword, test_accentless_input_gets_lexique_accents.

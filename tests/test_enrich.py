@@ -186,3 +186,50 @@ def test_enrich_empty_word_makes_no_call():
     result, llm = _run(E.enrich(router, "   "))
     assert result is None and llm is None
     assert router.calls == []  # no cost for empty input
+
+
+def test_inflected_adjective_and_preposition_are_not_nouns():
+    """QA 1000: the model calls grandes / pendant nouns; Lexique knows better, and a
+    non-noun gets no gender from the table."""
+    t = E.GenderTable.load()
+    cases = (("grandes", "adjective"), ("petits", "adjective"), ("pendant", "preposition"))
+    for word, pos in cases:
+        router = FakeRouter({"en": "x", "pos": "noun", "gender": "f"})
+        result, _ = _run(E.enrich(router, word, table=t))
+        assert (result.pos, result.gender) == (pos, ""), word
+    # été / personne stay nouns: a learner means summer / person
+    for word in ("été", "personne"):
+        result, _ = _run(E.enrich(FakeRouter({"en": "x", "pos": "noun"}), word, table=t))
+        assert result.pos == "noun" and result.gender, word
+
+
+def test_gender_resolves_on_the_kept_headword():
+    """QA 1004: typed "elephant", kept "éléphant" -> the table's m, not unresolved."""
+    router = FakeRouter({"fr": "éléphant", "en": "elephant", "pos": "noun"})
+    result, _ = _run(
+        E.enrich(router, "elephant", table=E.GenderTable.load(), headword=lambda t, p: p)
+    )
+    assert (result.fr, result.gender, result.gender_source) == ("éléphant", "m", "table")
+
+
+def test_model_gender_words_are_normalised():
+    assert E._parse_enrichment('{"en": "x", "gender": "Masculine"}')["gender"] == "m"
+    assert E._parse_enrichment('{"en": "x", "gender": "f."}')["gender"] == "f"
+
+
+def test_clean_gloss_makes_notes_consistent():
+    """QA 1001: one spelling of the form note, on adjectives only; no grammar labels,
+    regional asides or dangling articles."""
+    cases = [
+        ("large (f pl)", "adjective", "large (f. pl.)"),
+        ("small (feminine plural)", "adjective", "small (f. pl.)"),
+        ("beautiful (f.)", "adjective", "beautiful (f.)"),
+        ("active (adj)", "adjective", "active"),
+        ("pavement (m)", "noun", "pavement"),
+        ("eggs (pl.)", "noun", "eggs"),
+        ("ground floor (Brit. English: ground floor)", "noun", "ground floor"),
+        ("at the", "preposition", "at"),
+        ("speak (they)", "verb", "speak (they)"),  # other notes are left alone
+    ]
+    for en, pos, want in cases:
+        assert E.clean_gloss(en, pos) == want, en

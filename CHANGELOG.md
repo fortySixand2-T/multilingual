@@ -680,3 +680,10 @@
 - [2026-10-31] Modified: web/src/VocabWord.tsx, web/src/styles.css — each mf form wraps together with its audio buttons (qa-1051)
 - [2026-10-31] Modified: tests/test_enrich.py, tests/test_personal_vocab.py, web/src/VocabWord.test.tsx — regression tests for round 062 fixes
 - [2026-10-31] Created: qa/rounds/062-plan.md, qa/issues/1000-1004, 1020-1022, 1050-1051 — QA round 062 on the #131 fixes
+- [2026-10-31] Created: scripts/build_forms_table.py, app/content/data/fr_forms.tsv.gz — Lexique383 form table (dominant part of speech + frequency per spelling)
+- [2026-10-31] Created: app/content/lexicon.py — respell (Lexique accents) and pos (adjective/preposition not noun) for word lookups (qa-1000, qa-1002)
+- [2026-10-31] Modified: app/content/enrich.py — pos/gender resolved on the kept headword, gloss notes cleaned, model gender words normalised (qa-1000, qa-1001, qa-1004)
+- [2026-10-31] Modified: app/content/lookup.py — accentless input respelled against Lexique before the headword check (qa-1002)
+- [2026-10-31] Modified: web/src/screens/Path.tsx, content/a2/path.yaml, content/b1/path.yaml — party/memo icons replace repeated smile/wave units
+- [2026-10-31] Modified: tests/test_enrich.py, tests/test_personal_vocab.py — tests for round 062 deferred fixes
+- [2026-10-31] Modified: qa/issues/1000, 1001, 1002, 1004 — marked done with fix notes

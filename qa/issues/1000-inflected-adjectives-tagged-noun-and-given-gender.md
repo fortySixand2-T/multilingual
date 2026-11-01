@@ -4,7 +4,7 @@ title: Inflected adjectives (grandes, petites, longues, sportives, petits, belle
 severity: medium
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-31
 ---
 
@@ -40,3 +40,6 @@ The noun-only gender gate trusts the model's pos; when the model mislabels an ad
 - Challenge: Root cause is the 7B labelling an adjective as noun; the Lexique table only amplifies it. No deterministic signal in code distinguishes 'grandes' (adj) from a noun without a POS lexicon, and the prompt cannot be benched here. A prompt tweak or a table-pos guard is a regression risk on every shared-cache lookup, and the PM's own validation is 'partly model-quality' with no live re-run.
 - Holds up? No. The deterministic part does not exist at small cost; the remaining part is model quality, which the constraint says to defer. Fixer: do nothing for this issue. Revisit if the table gains a POS column or the prompt can be benched.
 - Final verdict: deferred
+
+## Fix
+Lexique383 form table (app/content/data/fr_forms.tsv.gz, scripts/build_forms_table.py) gives each spelling's dominant part of speech; app/content/lexicon.pos turns a model "noun" into adjective/adverb/preposition/conjunction when French uses the word that way ≥2/3 of the time (grandes, petits, pendant). Non-nouns get no gender. Never flips to verb/pronoun (été, personne stay nouns). Test: tests/test_enrich.py::test_inflected_adjective_and_preposition_are_not_nouns.

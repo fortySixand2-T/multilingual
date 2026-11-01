@@ -630,23 +630,24 @@ def test_headword_from_the_model_is_only_accepted_for_the_same_word():
 
 
 def test_accented_input_replaces_an_accentless_cached_row_once():
-    """QA 890: typing "éléphant" must not return the cached "elephant"; and a row that
+    """QA 890: typing "zörglub" must not return the cached "zorglub" (words Lexique can't
+    respell, so the accentless row stays accentless); and a row that
     already has the accents (or a model that adds none) never loops."""
     tts = RecordingPiper()
     plain, _ = _client(uid=62, router=FakeRouter({"en": "elephant", "pos": "noun"}), tts=tts)
     assert (
-        plain.post("/vocab/personal/preview", json={"word": "elephant"}).json()["enrichment"]["fr"]
-        == "elephant"
+        plain.post("/vocab/personal/preview", json={"word": "zorglub"}).json()["enrichment"]["fr"]
+        == "zorglub"
     )
     router = FakeRouter({"en": "elephant", "pos": "noun"})  # model adds no headword
     client, storage = _client(uid=62, router=router, tts=tts)
     for _ in range(2):
-        enr = client.post("/vocab/personal/preview", json={"word": "éléphant"}).json()["enrichment"]
-        assert enr["fr"] == "éléphant"
-    assert router.calls == ["vocab_enrich"] and tts.voiced[-1] == "éléphant"  # one re-voice
+        enr = client.post("/vocab/personal/preview", json={"word": "zörglub"}).json()["enrichment"]
+        assert enr["fr"] == "zörglub"
+    assert router.calls == ["vocab_enrich"] and tts.voiced[-1] == "zörglub"  # one re-voice
     # accentless input is served the accented row
-    again = client.post("/vocab/personal/preview", json={"word": "elephant"}).json()["enrichment"]
-    assert again["fr"] == "éléphant" and router.calls == ["vocab_enrich"]
+    again = client.post("/vocab/personal/preview", json={"word": "zorglub"}).json()["enrichment"]
+    assert again["fr"] == "zörglub" and router.calls == ["vocab_enrich"]
 
 
 def test_ligature_words_do_not_share_a_cache_row():
@@ -704,3 +705,20 @@ def test_pipe_separated_meanings_are_shown_as_a_list():
     client, _ = _client(uid=68, router=FakeRouter({"en": "packet|package", "pos": "noun"}))
     enr = client.post("/vocab/personal/preview", json={"word": "colisage"}).json()["enrichment"]
     assert enr["en"] == "packet, package"
+
+
+def test_accentless_input_gets_lexique_accents():
+    """QA 1002/1004: the model's misplaced accent is corrected, and gender is found on
+    the corrected headword."""
+
+    def preview(typed, proposed, uid):
+        router = FakeRouter({"fr": proposed, "en": "x", "pos": "noun"})
+        client, _ = _client(uid=uid, router=router, tts=RecordingPiper())
+        return client.post("/vocab/personal/preview", json={"word": typed}).json()["enrichment"]
+
+    assert preview("a cote de", "à coté de", 66)["fr"] == "à côté de"
+    floor = preview("rez-de-chaussee", "rez-de-chausseé", 66)
+    assert (floor["fr"], floor["gender"]) == ("rez-de-chaussée", "m")
+    elephant = preview("elephant", "", 66)  # model gave no headword
+    assert (elephant["fr"], elephant["gender"]) == ("éléphant", "m")
+    assert preview("coté", "côté", 66)["fr"] == "côté"  # typed accents: model's kept as before
