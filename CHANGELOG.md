@@ -674,3 +674,9 @@
 - [2026-10-31] Modified: web/src/VocabWord.tsx, web/src/styles.css — group each mf form with its own audio buttons (qa-1051)
 - [2026-10-31] Modified: tests/test_enrich.py, tests/test_personal_vocab.py, web/src/VocabWord.test.tsx — regression tests for 1003, 1020-1022, 1050, 1051
 - [2026-10-31] Modified: qa/issues — marked 1003, 1020, 1021, 1022, 1050, 1051 done with Fix notes
+- [2026-10-31] Modified: app/content/enrich.py — curly apostrophes normalised, phrases get no gender, conjunction/pronoun pos (qa-1003, qa-1020, qa-1050)
+- [2026-10-31] Modified: app/content/api.py, app/content/personal_api.py — course-word preview returns the convention audio clip (qa-1021)
+- [2026-10-31] Modified: app/speech/vocab_review.py — curly apostrophes and œ/æ ligatures match course words (qa-1020, qa-1022)
+- [2026-10-31] Modified: web/src/VocabWord.tsx, web/src/styles.css — each mf form wraps together with its audio buttons (qa-1051)
+- [2026-10-31] Modified: tests/test_enrich.py, tests/test_personal_vocab.py, web/src/VocabWord.test.tsx — regression tests for round 062 fixes
+- [2026-10-31] Created: qa/rounds/062-plan.md, qa/issues/1000-1004, 1020-1022, 1050-1051 — QA round 062 on the #131 fixes
