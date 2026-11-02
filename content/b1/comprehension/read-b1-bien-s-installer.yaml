@@ -1,0 +1,62 @@
+id: read-b1-bien-s-installer
+level: b1
+skill: reading
+title: "Forum : bien s'installer à Montréal"
+time_limit_seconds: 240
+pass_threshold: 0.6
+passage: |
+  Arrivée à Montréal il y a deux ans, Nadia partage ses conseils sur un forum.
+
+  « Pour bien s'installer, il faut d'abord se renseigner : sur le quartier, les
+  prix, les démarches. Certaines annonces ressemblent à de bonnes affaires, mais il
+  faut se méfier des loyers trop bas. Prenez votre temps avant de décider de signer
+  un bail. Ça peut valoir la peine de payer un peu plus pour un quartier calme : de
+  ma fenêtre, on peut apercevoir le fleuve, et je ne regrette rien. Je vous
+  recommande aussi de garder une copie de chaque document avant de le remettre à
+  l'administration. Et surtout, ne pas oublier de renouveler sa carte d'assurance
+  maladie avant la date limite.
+
+  Au début, j'ai voulu tout faire seule. Mon erreur ? Essayer de tout comprendre en
+  une semaine. Il m'a fallu des mois pour arriver à suivre une conversation rapide.
+  Puis un jour, je me suis rendu compte que je n'avais plus besoin de traduire dans
+  ma tête. Il faut savoir se débrouiller, mais il faut aussi accepter de demander de
+  l'aide : quand je voyage, une voisine a la gentillesse de s'occuper de mon chat.
+
+  Le plus dur, c'est l'hiver. Il faut s'habituer à la nuit qui tombe à seize heures.
+  Mon conseil : se mettre à un sport d'hiver dès la première année. On peut même
+  commencer à chercher un club avant d'arriver. Aujourd'hui, j'ai hâte de revoir ma
+  famille à Lyon cet été, mais c'est bon de se souvenir de ses débuts : je suis
+  fière du chemin parcouru. »
+questions:
+  - id: read-b1-bien-s-installer.q1
+    prompt: "Selon Nadia, de quoi faut-il se méfier ?"
+    options:
+      - "Des loyers trop bas"
+      - "Des voisins trop curieux"
+      - "Des quartiers trop calmes"
+    answer: "Des loyers trop bas"
+    explain: "« il faut se méfier des loyers trop bas »."
+  - id: read-b1-bien-s-installer.q2
+    prompt: "Quelle a été l'erreur de Nadia au début ?"
+    options:
+      - "Essayer de tout comprendre en une semaine"
+      - "Signer un bail trop vite"
+      - "Oublier sa carte d'assurance maladie"
+    answer: "Essayer de tout comprendre en une semaine"
+    explain: "« Mon erreur ? Essayer de tout comprendre en une semaine »."
+  - id: read-b1-bien-s-installer.q3
+    prompt: "Qu'est-ce qui a permis à Nadia de se rendre compte de ses progrès ?"
+    options:
+      - "Elle n'avait plus besoin de traduire dans sa tête"
+      - "Elle a trouvé un emploi"
+      - "Ses voisins l'ont félicitée"
+    answer: "Elle n'avait plus besoin de traduire dans sa tête"
+    explain: "« je me suis rendu compte que je n'avais plus besoin de traduire dans ma tête »."
+  - id: read-b1-bien-s-installer.q4
+    prompt: "Que conseille Nadia pour supporter l'hiver ?"
+    options:
+      - "Se mettre à un sport d'hiver dès la première année"
+      - "Rentrer en France chaque hiver"
+      - "Rester à la maison le soir"
+    answer: "Se mettre à un sport d'hiver dès la première année"
+    explain: "« se mettre à un sport d'hiver dès la première année »."
