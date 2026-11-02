@@ -1,0 +1,44 @@
+id: listen-b1-un-voisin-courageux
+level: b1
+skill: listening
+title: "Un voisin courageux"
+time_limit_seconds: 120
+audio_ref: b1/audio/listen-b1-un-voisin-courageux.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Hier soir, un incendie s'est déclaré dans un immeuble de la rue Saint-Denis.
+  Beaucoup d'habitants venaient de se mettre à table et n'ont pas eu le temps de
+  finir de manger. Karim, un voisin de vingt-cinq ans, a senti la fumée. Il est allé
+  frapper à toutes les portes pour réveiller les habitants. Une dame âgée a commencé
+  par refuser de sortir sans son chat. Karim a dû la tirer doucement par le bras
+  jusqu'à l'escalier, et elle a fini par accepter de le suivre. « Mon cœur n'a jamais
+  battu aussi vite », raconte-t-il. Les pompiers rappellent qu'il ne faut jamais
+  choisir de rester dans un bâtiment en feu : c'est risquer de respirer une fumée
+  toxique.
+questions:
+  - id: listen-b1-un-voisin-courageux.q1
+    prompt: "Comment Karim a-t-il réveillé les habitants ?"
+    options:
+      - "Il est allé frapper à toutes les portes"
+      - "Il a appelé chaque habitant"
+      - "Il a déclenché l'alarme"
+    answer: "Il est allé frapper à toutes les portes"
+    explain: "« Il est allé frapper à toutes les portes pour réveiller les habitants »."
+  - id: listen-b1-un-voisin-courageux.q2
+    prompt: "Pourquoi la dame âgée ne voulait-elle pas sortir ?"
+    options:
+      - "Elle ne voulait pas partir sans son chat"
+      - "Elle n'avait pas entendu l'alarme"
+      - "Elle était en train de manger"
+    answer: "Elle ne voulait pas partir sans son chat"
+    explain: "« Une dame âgée a commencé par refuser de sortir sans son chat »."
+  - id: listen-b1-un-voisin-courageux.q3
+    prompt: "Que rappellent les pompiers ?"
+    options:
+      - "Il ne faut jamais rester dans un bâtiment en feu"
+      - "Il faut toujours sauver ses animaux"
+      - "Il faut ouvrir les fenêtres"
+    answer: "Il ne faut jamais rester dans un bâtiment en feu"
+    explain: "« il ne faut jamais choisir de rester dans un bâtiment en feu »."

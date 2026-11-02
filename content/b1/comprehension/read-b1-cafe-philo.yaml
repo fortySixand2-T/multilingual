@@ -1,0 +1,60 @@
+id: read-b1-cafe-philo
+level: b1
+skill: reading
+title: "Le café-philo du jeudi"
+time_limit_seconds: 240
+pass_threshold: 0.6
+passage: |
+  Chaque jeudi soir, la bibliothèque du quartier organise un café-philo. Ce mois-ci,
+  la question était simple : « Peut-on vivre en paix avec tout le monde ? »
+
+  Chacun a pris la parole à son tour. Un étudiant a expliqué que la paix ne tombe pas
+  du ciel : il faut agir, tous les jours, pour la maintenir. Selon lui, la force ne
+  peut pas permettre de résoudre un conflit ; elle peut seulement empêcher l'autre de
+  parler.
+
+  Une dame âgée a parlé de l'amour. Elle a perdu son mari l'an dernier et, depuis sa
+  mort, ce sentiment ne l'a pas quittée : « L'amour ne peut pas disparaître, il change
+  de forme. »
+
+  Ensuite, un homme, le genre de personne qui a toujours une blague prête, a rappelé
+  qu'il existe tant de façons de donner un sens à sa vie : certains vont prier,
+  d'autres préfèrent chercher à créer, par la musique ou la peinture. « Ce qui compte,
+  a-t-il dit, c'est de sauver un peu de son âme dans un monde pressé. »
+
+  L'animatrice a conclu que l'affaire n'était pas réglée, et qu'on en reparlerait le
+  mois prochain. Selon elle, ce type de soirée aide surtout à développer son esprit
+  critique.
+questions:
+  - id: read-b1-cafe-philo.q1
+    prompt: "Selon l'étudiant, que faut-il faire pour la paix ?"
+    options:
+      - "Agir tous les jours pour la maintenir"
+      - "Attendre qu'elle arrive"
+      - "Utiliser la force"
+    answer: "Agir tous les jours pour la maintenir"
+    explain: "« il faut agir, tous les jours, pour la maintenir »."
+  - id: read-b1-cafe-philo.q2
+    prompt: "Que pense l'étudiant de la force ?"
+    options:
+      - "Elle peut seulement empêcher l'autre de parler"
+      - "Elle permet de résoudre les conflits"
+      - "Elle est nécessaire à la paix"
+    answer: "Elle peut seulement empêcher l'autre de parler"
+    explain: "« elle peut seulement empêcher l'autre de parler »."
+  - id: read-b1-cafe-philo.q3
+    prompt: "Que dit la dame âgée de l'amour ?"
+    options:
+      - "Il ne disparaît pas, il change de forme"
+      - "Il disparaît avec le temps"
+      - "Il est plus fort que la mort"
+    answer: "Il ne disparaît pas, il change de forme"
+    explain: "« L'amour ne peut pas disparaître, il change de forme »."
+  - id: read-b1-cafe-philo.q4
+    prompt: "D'après l'animatrice, à quoi sert ce type de soirée ?"
+    options:
+      - "À développer son esprit critique"
+      - "À trouver une réponse définitive"
+      - "À rencontrer des musiciens"
+    answer: "À développer son esprit critique"
+    explain: "« ce type de soirée aide surtout à développer son esprit critique »."
