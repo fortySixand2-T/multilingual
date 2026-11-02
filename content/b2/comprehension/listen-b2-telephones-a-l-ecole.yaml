@@ -5,7 +5,7 @@ title: "Débat : les téléphones à l'école"
 time_limit_seconds: 150
 audio_ref: b2/audio/listen-b2-telephones-a-l-ecole.mp3
 accent: qc
-allow_replay: true
+allow_replay: false
 pass_threshold: 0.6
 script: |
   Depuis septembre, les téléphones sont interdits dans les écoles secondaires de la
@@ -21,23 +21,23 @@ questions:
     prompt: "Selon la directrice, de quoi les élèves ont-ils appris à se passer ?"
     options:
       - "De leur écran pendant les pauses"
-      - "De leurs manuels scolaires"
-      - "Des cours en ligne"
+      - "De leurs manuels scolaires en papier"
+      - "Des cours en ligne à la maison"
     answer: "De leur écran pendant les pauses"
     explain: "« les élèves ont appris à se passer de leur écran pendant les pauses »."
   - id: listen-b2-telephones-a-l-ecole.q2
     prompt: "Que semblent craindre certains parents ?"
     options:
       - "De ne pas pouvoir joindre leur enfant à tout moment"
-      - "Que leur enfant ait de moins bonnes notes"
-      - "Que l'école achète des tablettes"
+      - "Que leur enfant ait de moins bonnes notes en classe"
+      - "Que l'école achète des tablettes pour tous les élèves"
     answer: "De ne pas pouvoir joindre leur enfant à tout moment"
     explain: "« ils veulent pouvoir joindre leur enfant à tout moment »."
   - id: listen-b2-telephones-a-l-ecole.q3
     prompt: "Que propose le chercheur en éducation ?"
     options:
       - "Apprendre aux jeunes à utiliser le numérique avec esprit critique"
-      - "Interdire les téléphones aussi à la maison"
-      - "Supprimer les pauses"
+      - "Interdire les téléphones à la maison comme à l'école"
+      - "Supprimer les pauses pour que les élèves restent en classe"
     answer: "Apprendre aux jeunes à utiliser le numérique avec esprit critique"
     explain: "« Il faut aussi veiller à apprendre aux jeunes à utiliser le numérique avec esprit critique »."

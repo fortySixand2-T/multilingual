@@ -10,7 +10,7 @@ passage: |
 
   Chacun a pris la parole à son tour. Un étudiant a expliqué que la paix ne tombe pas
   du ciel : il faut agir, tous les jours, pour la maintenir. Selon lui, la force ne
-  peut pas permettre de résoudre un conflit ; elle peut seulement empêcher l'autre de
+  permet pas de résoudre un conflit ; elle peut seulement empêcher l'autre de
   parler.
 
   Une dame âgée a parlé de l'amour. Elle a perdu son mari l'an dernier et, depuis sa
@@ -30,31 +30,31 @@ questions:
     prompt: "Selon l'étudiant, que faut-il faire pour la paix ?"
     options:
       - "Agir tous les jours pour la maintenir"
-      - "Attendre qu'elle arrive"
-      - "Utiliser la force"
+      - "Attendre tranquillement qu'elle arrive"
+      - "Utiliser la force quand c'est utile"
     answer: "Agir tous les jours pour la maintenir"
     explain: "« il faut agir, tous les jours, pour la maintenir »."
   - id: read-b1-cafe-philo.q2
     prompt: "Que pense l'étudiant de la force ?"
     options:
       - "Elle peut seulement empêcher l'autre de parler"
-      - "Elle permet de résoudre les conflits"
-      - "Elle est nécessaire à la paix"
+      - "Elle permet de résoudre les conflits rapidement"
+      - "Elle est nécessaire pour maintenir la paix"
     answer: "Elle peut seulement empêcher l'autre de parler"
     explain: "« elle peut seulement empêcher l'autre de parler »."
   - id: read-b1-cafe-philo.q3
     prompt: "Que dit la dame âgée de l'amour ?"
     options:
       - "Il ne disparaît pas, il change de forme"
-      - "Il disparaît avec le temps"
-      - "Il est plus fort que la mort"
+      - "Il disparaît peu à peu avec le temps"
+      - "Il devient plus faible au fil des années"
     answer: "Il ne disparaît pas, il change de forme"
     explain: "« L'amour ne peut pas disparaître, il change de forme »."
   - id: read-b1-cafe-philo.q4
     prompt: "D'après l'animatrice, à quoi sert ce type de soirée ?"
     options:
       - "À développer son esprit critique"
-      - "À trouver une réponse définitive"
-      - "À rencontrer des musiciens"
+      - "À trouver une réponse définitive au débat"
+      - "À rencontrer des musiciens du quartier"
     answer: "À développer son esprit critique"
     explain: "« ce type de soirée aide surtout à développer son esprit critique »."

@@ -19,16 +19,16 @@ questions:
     prompt: "Pourquoi Martine appelle-t-elle Julien ?"
     options:
       - "Pour un problème avec le logiciel de paie"
-      - "Pour annuler une réunion"
-      - "Pour parler de son salaire"
+      - "Pour annuler la réunion avec le fournisseur"
+      - "Pour parler de son salaire du mois prochain"
     answer: "Pour un problème avec le logiciel de paie"
     explain: "« Je t'appelle au sujet du problème avec le logiciel de paie »."
   - id: listen-b1-message-de-la-directrice.q2
     prompt: "Que propose Martine ?"
     options:
       - "Une réunion jeudi matin avec le fournisseur"
-      - "Un nouveau logiciel"
-      - "Un jour de congé lundi"
+      - "Un nouveau logiciel pour l'équipe de Julien"
+      - "Un jour de congé lundi pour toute l'équipe"
     answer: "Une réunion jeudi matin avec le fournisseur"
     explain: "« te proposer de faire une réunion jeudi matin avec le fournisseur »."
   - id: listen-b1-message-de-la-directrice.q3
@@ -36,6 +36,6 @@ questions:
     options:
       - "Maintenir l'ancien système"
       - "Payer les employés en avance"
-      - "Changer de fournisseur"
+      - "Changer de fournisseur de logiciel"
     answer: "Maintenir l'ancien système"
     explain: "« D'ici là, il faut maintenir l'ancien système »."

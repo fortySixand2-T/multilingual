@@ -32,31 +32,31 @@ questions:
     prompt: "Selon le texte, à quoi pouvait-on s'attendre avant la publication du rapport ?"
     options:
       - "À des résultats spectaculaires"
-      - "À l'échec de l'expérience"
-      - "À une baisse des salaires"
+      - "À l'échec complet de l'expérience"
+      - "À une forte baisse des salaires"
     answer: "À des résultats spectaculaires"
     explain: "« On pouvait s'attendre à des résultats spectaculaires »."
   - id: read-b2-semaine-de-quatre-jours.q2
     prompt: "Qu'est-ce que l'étude met d'abord en évidence ?"
     options:
       - "Un net recul de l'épuisement professionnel"
-      - "Une forte hausse de la productivité"
-      - "Une baisse du nombre de réunions"
+      - "Une forte hausse de la productivité globale"
+      - "Une baisse importante du nombre de réunions"
     answer: "Un net recul de l'épuisement professionnel"
     explain: "« mettre en évidence un net recul de l'épuisement professionnel »."
   - id: read-b2-semaine-de-quatre-jours.q3
     prompt: "D'après les chercheurs, de quoi une telle réforme doit-elle tenir compte ?"
     options:
       - "De la nature de chaque poste"
-      - "De l'avis des actionnaires"
-      - "Du salaire de chaque employé"
+      - "De l'avis de tous les actionnaires"
+      - "Du salaire de chaque employé concerné"
     answer: "De la nature de chaque poste"
     explain: "« une telle réforme doit tenir compte de la nature de chaque poste »."
   - id: read-b2-semaine-de-quatre-jours.q4
     prompt: "Selon les auteurs, de quoi devrait relever la question d'une loi ?"
     options:
       - "De la négociation collective, secteur par secteur"
-      - "D'un référendum national"
-      - "De chaque employé individuellement"
+      - "D'un référendum national organisé par le gouvernement"
+      - "De la décision de chaque employé, individuellement"
     answer: "De la négociation collective, secteur par secteur"
     explain: "« la question doit relever de la négociation collective, secteur par secteur »."

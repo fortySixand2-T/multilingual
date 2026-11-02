@@ -300,12 +300,16 @@ def check_comprehension_covers_vocab(level, bundle, report):
         return
     blob = comprehension_blob(level)
     words = list(bundle.vocab.values())
-    hit = sum(1 for w in words if shown_in_lesson(norm(strip_article(w.fr)), blob))
+    missing = sorted(
+        strip_article(w.fr) for w in words if not shown_in_lesson(norm(strip_article(w.fr)), blob)
+    )
+    hit = len(words) - len(missing)
     pct = 100 * hit // len(words)
     if pct < floor:
         report(
             f"{level}: comprehension uses {hit}/{len(words)} = {pct}% of the vocab bank, "
-            f"below the {floor}% floor — add sets, or author them from the theme files"
+            f"below the {floor}% floor — add sets, or author them from the theme files "
+            f"(uncovered: {', '.join(missing)})"
         )
     elif pct >= floor + 5:
         report(
