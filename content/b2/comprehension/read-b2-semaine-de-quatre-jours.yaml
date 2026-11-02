@@ -1,0 +1,62 @@
+id: read-b2-semaine-de-quatre-jours
+level: b2
+skill: reading
+title: "La semaine de quatre jours à l'épreuve"
+time_limit_seconds: 300
+pass_threshold: 0.6
+passage: |
+  Pendant un an, une quarantaine d'entreprises québécoises ont testé la semaine de
+  quatre jours, sans baisse de salaire. On pouvait s'attendre à des résultats
+  spectaculaires ; le rapport final, publié ce mois-ci, est plus nuancé.
+
+  L'étude permet d'abord de mettre en évidence un net recul de l'épuisement
+  professionnel. Les employés disent mieux concilier travail et vie familiale, et la
+  plupart des entreprises ont gardé le même niveau de productivité. Selon les
+  auteurs, cette amélioration semble découler de réunions plus courtes et mieux
+  préparées.
+
+  Certaines équipes ont toutefois dû faire face à de vraies difficultés. Dans les
+  services ouverts au public, il a fallu parvenir à une présence continue avec moins
+  de jours travaillés, et plusieurs gestionnaires disent se heurter à des horaires
+  impossibles à organiser. Pour les chercheurs, une telle réforme doit tenir compte
+  de la nature de chaque poste : elle ne peut pas aboutir à de bons résultats si elle
+  est imposée de la même façon à tous.
+
+  Le rapport invite donc les employeurs à veiller à ce que chaque équipe puisse
+  bénéficier de la mesure sans surcharger ses collègues. Quant à une éventuelle loi,
+  les auteurs estiment que la question doit relever de la négociation collective,
+  secteur par secteur, et que l'expérience pourrait contribuer à un débat plus large
+  sur le temps de travail.
+questions:
+  - id: read-b2-semaine-de-quatre-jours.q1
+    prompt: "Selon le texte, à quoi pouvait-on s'attendre avant la publication du rapport ?"
+    options:
+      - "À des résultats spectaculaires"
+      - "À l'échec de l'expérience"
+      - "À une baisse des salaires"
+    answer: "À des résultats spectaculaires"
+    explain: "« On pouvait s'attendre à des résultats spectaculaires »."
+  - id: read-b2-semaine-de-quatre-jours.q2
+    prompt: "Qu'est-ce que l'étude met d'abord en évidence ?"
+    options:
+      - "Un net recul de l'épuisement professionnel"
+      - "Une forte hausse de la productivité"
+      - "Une baisse du nombre de réunions"
+    answer: "Un net recul de l'épuisement professionnel"
+    explain: "« mettre en évidence un net recul de l'épuisement professionnel »."
+  - id: read-b2-semaine-de-quatre-jours.q3
+    prompt: "D'après les chercheurs, de quoi une telle réforme doit-elle tenir compte ?"
+    options:
+      - "De la nature de chaque poste"
+      - "De l'avis des actionnaires"
+      - "Du salaire de chaque employé"
+    answer: "De la nature de chaque poste"
+    explain: "« une telle réforme doit tenir compte de la nature de chaque poste »."
+  - id: read-b2-semaine-de-quatre-jours.q4
+    prompt: "Selon les auteurs, de quoi devrait relever la question d'une loi ?"
+    options:
+      - "De la négociation collective, secteur par secteur"
+      - "D'un référendum national"
+      - "De chaque employé individuellement"
+    answer: "De la négociation collective, secteur par secteur"
+    explain: "« la question doit relever de la négociation collective, secteur par secteur »."

@@ -1,0 +1,43 @@
+id: listen-b2-telephones-a-l-ecole
+level: b2
+skill: listening
+title: "Débat : les téléphones à l'école"
+time_limit_seconds: 150
+audio_ref: b2/audio/listen-b2-telephones-a-l-ecole.mp3
+accent: qc
+allow_replay: true
+pass_threshold: 0.6
+script: |
+  Depuis septembre, les téléphones sont interdits dans les écoles secondaires de la
+  province. La directrice d'une école de Laval accepte de prendre position. Selon
+  elle, les élèves ont appris à se passer de leur écran pendant les pauses, et la
+  mesure a pu contribuer à un climat plus calme. Elle reconnaît toutefois que
+  certains parents ont du mal à admettre la règle : ils veulent pouvoir joindre leur
+  enfant à tout moment. Pour un chercheur en éducation, interdire ne suffit pas. Il
+  faut aussi veiller à apprendre aux jeunes à utiliser le numérique avec esprit
+  critique, plutôt que de recourir à l'interdiction comme seule réponse.
+questions:
+  - id: listen-b2-telephones-a-l-ecole.q1
+    prompt: "Selon la directrice, de quoi les élèves ont-ils appris à se passer ?"
+    options:
+      - "De leur écran pendant les pauses"
+      - "De leurs manuels scolaires"
+      - "Des cours en ligne"
+    answer: "De leur écran pendant les pauses"
+    explain: "« les élèves ont appris à se passer de leur écran pendant les pauses »."
+  - id: listen-b2-telephones-a-l-ecole.q2
+    prompt: "Que semblent craindre certains parents ?"
+    options:
+      - "De ne pas pouvoir joindre leur enfant à tout moment"
+      - "Que leur enfant ait de moins bonnes notes"
+      - "Que l'école achète des tablettes"
+    answer: "De ne pas pouvoir joindre leur enfant à tout moment"
+    explain: "« ils veulent pouvoir joindre leur enfant à tout moment »."
+  - id: listen-b2-telephones-a-l-ecole.q3
+    prompt: "Que propose le chercheur en éducation ?"
+    options:
+      - "Apprendre aux jeunes à utiliser le numérique avec esprit critique"
+      - "Interdire les téléphones aussi à la maison"
+      - "Supprimer les pauses"
+    answer: "Apprendre aux jeunes à utiliser le numérique avec esprit critique"
+    explain: "« Il faut aussi veiller à apprendre aux jeunes à utiliser le numérique avec esprit critique »."

@@ -702,3 +702,6 @@
 - [2026-11-01] Created: content/b1/comprehension/read-b1-bien-s-installer.yaml, read-b1-cafe-philo.yaml — B1 readings authored from the growth decks (reflexives, verbs + à/de, ideas, expressions)
 - [2026-11-01] Created: content/b1/comprehension/listen-b1-un-voisin-courageux.yaml, listen-b1-message-de-la-directrice.yaml (+ audio) — B1 listenings for the remaining growth verbs
 - [2026-11-01] Modified: scripts/check_content.py — B1 comprehension floor 90% -> 100% (552/552 words used)
+- [2026-11-01] Created: content/b2/comprehension/read-b2-semaine-de-quatre-jours.yaml, read-b2-centre-ville-sans-voitures.yaml — B2 readings using the 27 verbes never read (verb + à/de, reflexives, opinion verbs in question stems)
+- [2026-11-01] Created: content/b2/comprehension/listen-b2-telephones-a-l-ecole.yaml (+ audio) — B2 listening reusing the same verbs
+- [2026-11-01] Modified: scripts/check_content.py — B2 comprehension floor 90% -> 100% (535/535 words used)
