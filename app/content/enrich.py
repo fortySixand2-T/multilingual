@@ -155,17 +155,18 @@ def resolve_gender(
 _ENRICH_SYSTEM = (
     "You are a French-English lexicographer. For the given French word, return a "
     "concise dictionary entry as STRICT JSON only, no prose:\n"
-    '{"fr": "...", "en": "...", "pos": "noun|verb|adjective|adverb|preposition|'
+    '{"fr": "...", "en": ["..."], "pos": "noun|verb|adjective|adverb|preposition|'
     'conjunction|pronoun|phrase", '
     '"gender": "m|f|mf|"}\n'
     "Rules: `fr` is the word exactly as given but with its correct French accents and "
     "spelling (eleve -> élève, cacahuetes -> cacahuètes); never a different word or form. "
-    "`en` is the English translation a learner would use: the most common sense, one "
-    "to three words, no article, never a definition (baleine -> whale, not large "
-    "sea mammal; formation -> training); separate two senses with a comma. For a "
-    "feminine or plural adjective, add it in brackets (petites -> small (f. pl.)); "
-    "no other notes. `pos` is the part of "
-    "speech. `gender` is the grammatical gender for NOUNS only (m, f, or mf when both "
+    "`en` lists what the exact form given means in English, most common sense first: "
+    'one sense, or two when French commonly uses both (avocat -> ["lawyer", '
+    '"avocado"]; livre -> ["book", "pound"]). Each is one to three words, no article, '
+    'no notes, never a definition (baleine -> ["whale"], not large sea mammal). A plural '
+    'noun with a meaning of its own gets that meaning (lunettes -> ["glasses"]; affaires '
+    '-> ["belongings", "business"]). Leave out any sense you are unsure of. `pos` is the '
+    "part of speech. `gender` is the grammatical gender for NOUNS only (m, f, or mf when both "
     'a masculine and feminine form exist like ami/amie); use "" for anything that is '
     "not a noun. If unsure of gender, "
     'use "".'
@@ -211,6 +212,8 @@ def _parse_enrichment(text: str) -> dict:
     gender = data.get("gender")
     gender = gender.strip().lower().rstrip(".") if isinstance(gender, str) else ""
     gender = _GENDER_WORDS.get(gender, gender)
+    if isinstance(en, list):  # the prompt asks for a list of senses
+        en = ", ".join(s.strip() for s in en if isinstance(s, str))
     return {
         "fr": fr.strip() if isinstance(fr, str) else "",
         "en": en.strip() if isinstance(en, str) else "",
@@ -219,40 +222,35 @@ def _parse_enrichment(text: str) -> dict:
     }
 
 
-# Bracketed notes in a model gloss. A form note keeps one spelling, and only on an
-# adjective ("small (f. pl.)"): an English noun or verb shows its own number. Grammar
-# labels, regional asides and anything else in the house list go (QA 1001).
+# Bracketed notes the model adds to a gloss: inflection notes (the adjective's comes
+# from Lexique instead), grammar labels and regional asides all go (QA 1001).
 _BRACKET = re.compile(r"\s*\(([^()]*)\)")
 _FORM_NOTE = re.compile(r"(?:(?:fem(?:inine)?|masc(?:uline)?|plural|pl|[fm])\.?\s*)+", re.I)
-_LABEL = re.compile(r"(?:m|f|mf|n|v|adj|adv|noun|verb|adjective|adverb)\.?", re.I)
+_LABELS = r"(?:m|f|mf|n|v|adj|adv|prep|conj|noun|verb|adjective|adverb|preposition|pronoun)\.?"
+_LABEL = re.compile(rf"{_LABELS}(?:\s*[/,&]\s*{_LABELS})*", re.I)
 _REGIONAL = re.compile(r"\b(?:English|Brit|British|UK|US|American)\b", re.I)
 _TRAILING_ARTICLE = re.compile(r"\s+(?:the|a|an)$")  # case-sensitive: "vitamin A" keeps its A
+_SENSES = re.compile(r"\s*[|,;]\s*")
 
 
-def _form_note(note: str) -> str:
-    """ "(f. pl.)"-style canonical spelling of an inflection note, "" for the base form."""
-    words = note.lower().replace(".", " ").split()
-    fem = any(w.startswith("f") for w in words)
-    plural = any(w.startswith("pl") for w in words)
-    return " ".join(["f."] * fem + ["pl."] * plural)
+def clean_gloss(en: str, note: str = "") -> str:
+    """The model's gloss made consistent: senses split on | , or ; and joined with ", ",
+    each once ("speak, speak"); "pavement (m)", "active (adj)", "large (f pl)", "ground
+    floor (Brit. English: …)" lose the note; "at the" loses its dangling article.
+    `note` is the adjective form note to show ("f. pl." -> "large (f. pl.)")."""
 
-
-def clean_gloss(en: str, pos: str) -> str:
-    """The model's gloss with its bracketed notes made consistent: "large (f pl)" ->
-    "large (f. pl.)" on an adjective; "pavement (m)", "active (adj)", "ground floor
-    (Brit. English: …)" lose the note; "at the" loses its dangling article."""
-
-    def note(m: re.Match) -> str:
+    def keep(m: re.Match) -> str:
         inner = m.group(1).strip()
-        if _FORM_NOTE.fullmatch(inner):
-            form = _form_note(inner)
-            return f" ({form})" if form and pos == "adjective" else ""
-        if _LABEL.fullmatch(inner) or _REGIONAL.search(inner):
-            return ""
-        return m.group(0)
+        drop = _FORM_NOTE.fullmatch(inner) or _LABEL.fullmatch(inner) or _REGIONAL.search(inner)
+        return "" if drop else m.group(0)
 
-    en = _BRACKET.sub(note, en)
-    return _TRAILING_ARTICLE.sub("", " ".join(en.split()))
+    senses: dict[str, str] = {}
+    for sense in _SENSES.split(_BRACKET.sub(keep, en)):
+        sense = _TRAILING_ARTICLE.sub("", " ".join(sense.split()))
+        if sense:
+            senses.setdefault(_BRACKET.sub("", sense).lower(), sense)
+    gloss = ", ".join(senses.values())
+    return f"{gloss} ({note})" if gloss and note else gloss
 
 
 @dataclass(frozen=True)
@@ -302,7 +300,9 @@ async def enrich(
     return (
         Enrichment(
             fr=fr,
-            en=clean_gloss(entry.get("en", ""), pos),
+            en=clean_gloss(
+                entry.get("en", ""), lexicon.form_note(fr) if pos == "adjective" else ""
+            ),
             pos=pos,
             gender=gender,
             gender_source=source,

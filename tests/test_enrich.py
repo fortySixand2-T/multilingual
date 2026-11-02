@@ -245,20 +245,65 @@ def test_model_gender_words_are_normalised():
 
 
 def test_clean_gloss_makes_notes_consistent():
-    """QA 1001: one spelling of the form note, on adjectives only; no grammar labels,
-    regional asides or dangling articles."""
+    """QA 1001: the model's inflection notes, grammar labels, regional asides and
+    dangling articles go; the adjective form note comes from Lexique."""
     cases = [
-        ("large (f pl)", "adjective", "large (f. pl.)"),
-        ("small (feminine plural)", "adjective", "small (f. pl.)"),
-        ("beautiful (f.)", "adjective", "beautiful (f.)"),
-        ("active (adj)", "adjective", "active"),
-        ("pavement (m)", "noun", "pavement"),
-        ("eggs (pl.)", "noun", "eggs"),
-        ("ground floor (Brit. English: ground floor)", "noun", "ground floor"),
-        ("at the", "preposition", "at"),
-        ("vitamin A", "noun", "vitamin A"),  # QA 1080: a capital A is content
-        ("Plan A", "noun", "Plan A"),
-        ("speak (they)", "verb", "speak (they)"),  # other notes are left alone
+        ("large (f pl)", "", "large"),
+        ("small (feminine plural)", "f. pl.", "small (f. pl.)"),
+        ("active (adj)", "", "active"),
+        ("French (adj/noun)", "", "French"),
+        ("pavement (m)", "", "pavement"),
+        ("eggs (pl.)", "", "eggs"),
+        ("ground floor (Brit. English: ground floor)", "", "ground floor"),
+        ("at the", "", "at"),
+        ("vitamin A", "", "vitamin A"),  # QA 1080: a capital A is content
+        ("Plan A", "", "Plan A"),
+        ("speak (they)", "", "speak (they)"),  # other notes are left alone
     ]
-    for en, pos, want in cases:
-        assert E.clean_gloss(en, pos) == want, en
+    for en, note, want in cases:
+        assert E.clean_gloss(en, note) == want, en
+
+
+def test_clean_gloss_separates_and_dedupes_senses():
+    """QA 1084: senses run together or split by | come out comma-separated, once each."""
+    assert E.clean_gloss("book|pound") == "book, pound"
+    assert E.clean_gloss("holidays,vacation") == "holidays, vacation"
+    assert E.clean_gloss("speak (they), speak") == "speak (they)"
+
+
+def test_senses_list_is_joined():
+    """The prompt asks for `en` as a list of senses (QA 1083/1084)."""
+    entry = E._parse_enrichment('{"en": ["news", "tidings"], "pos": "noun"}')
+    assert entry["en"] == "news, tidings"
+
+
+def test_adjective_form_note_comes_from_lexique():
+    """QA 1001: grandes gets (f. pl.) whatever the model wrote; a noun gets none."""
+    t = E.GenderTable.load()
+    for word, en, want in (
+        ("grandes", "large (f)", "large (f. pl.)"),
+        ("rouges", "red", "red (pl.)"),
+    ):
+        result, _ = _run(E.enrich(FakeRouter({"en": en, "pos": "adjective"}), word, table=t))
+        assert result.en == want, word
+    result, _ = _run(
+        E.enrich(FakeRouter({"en": "news (pl.)", "pos": "noun"}), "nouvelles", table=t)
+    )
+    assert (result.pos, result.en, result.gender) == ("noun", "news", "f")
+
+
+def test_lexique_prepositions_win_over_other_model_pos():
+    """chez came back as an adverb; Lexique says preposition."""
+    from app.content import lexicon
+
+    assert lexicon.pos("chez", "adverb") == "preposition"
+    assert lexicon.pos("devant", "verb") == "verb"  # a verb reading is never overruled
+
+
+def test_respell_writes_the_oe_ligature():
+    """QA 1082: boeuf -> bœuf like œil, cœur; coefficient / moelle keep their oe."""
+    from app.content.lexicon import respell
+
+    got = [respell(w) for w in ("boeuf", "voeu", "coeur", "Oeuvre", "chef-d'oeuvre")]
+    assert got == ["bœuf", "vœu", "cœur", "Œuvre", "chef-d'œuvre"]
+    assert (respell("coefficient"), respell("moelle")) == ("coefficient", "moelle")
