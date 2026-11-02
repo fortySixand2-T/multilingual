@@ -4,7 +4,7 @@ title: "nouvelles" comes back as noun, gender f, gloss "new" (adjective sense, n
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-31
 ---
 
@@ -33,3 +33,6 @@ Consistent entry: either adjective "new (f. pl.)" with no gender (as vieilles, c
 - Challenge: Could be a 1000 regression. nouvelles (news, f) is a legitimate noun reading and Lexique has no pos for it, so the code cannot know the sense; only the 7B gloss is off.
 - Holds up? Deferral confirmed.
 - Final verdict: deferred
+
+## Fix
+The prompt asks what the exact form given means, and says a plural noun with a meaning of its own gets that meaning (lunettes -> glasses). Real 7B, 3 runs: nouvelles -> "news" every time (was "new"). The adjective form note now comes from Lexique (fr_forms.tsv.gz note column), not the model, so a noun never carries one. Tests: test_adjective_form_note_comes_from_lexique, test_senses_list_is_joined.

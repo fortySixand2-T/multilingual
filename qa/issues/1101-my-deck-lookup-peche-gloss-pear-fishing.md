@@ -31,3 +31,6 @@ Likely 7B gloss quality rather than respell (respell chose pêche correctly), bu
 - Challenge: Maybe 'pear' is a prompt problem worth fixing. The respell chose pêche correctly; 'pear, fishing' is 7B gloss quality and the learner can edit the Meaning before saving. '(fe)' is the intentional VocabWord badge, confirmed by PM.
 - Holds up? Deferral confirmed.
 - Final verdict: deferred
+
+## Follow-up (deferred-063)
+Still deferred. With the new prompt the real 7B returns pêche -> "fruit" or "prune, peach" across runs: it does not reliably know pêche means peach. No prompt change fixed it without naming the word. A real fix is a dictionary-backed gloss (e.g. a CC BY-SA Wiktionary extract, as Lexique is) for common words, with the model as fallback.

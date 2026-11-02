@@ -694,3 +694,8 @@
 - [2026-10-31] Modified: qa/issues/1060, 1065, 1080, 1085, 1086 — marked done with fix notes
 - [2026-10-31] Created: qa/rounds/063-plan.md and qa/issues/1060-1066, 1080-1086, 1100-1101 — round 063 QA plan and issue files
 - [2026-10-31] Modified: qa/rounds/063-plan.md — Appended round outcomes
+- [2026-11-01] Modified: scripts/build_forms_table.py, app/content/data/fr_forms.tsv.gz — adjective form-note column (f., pl., f. pl.) from Lexique
+- [2026-11-01] Modified: app/content/lexicon.py — œ ligature in respell, form_note(), prepositions/conjunctions override any non-verb model pos (qa-1082)
+- [2026-11-01] Modified: app/content/enrich.py — en as a list of senses, gloss senses split/deduped, adjective note from Lexique (qa-1083, qa-1084)
+- [2026-11-01] Modified: tests/test_enrich.py — tests for ligatures, senses, Lexique form notes
+- [2026-11-01] Modified: qa/issues/1082, 1083, 1084 — marked done; 1101 — follow-up note, still deferred
