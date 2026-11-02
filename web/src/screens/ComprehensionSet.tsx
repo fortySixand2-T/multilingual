@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { api, CompResult, CompSetView, fetchAudioUrl } from "../api";
+import { passageParagraphs } from "../passageParagraphs";
 
 export default function ComprehensionSet() {
   const { id = "" } = useParams();
@@ -71,7 +72,13 @@ export default function ComprehensionSet() {
       </div>
 
       {set.skill === "reading" && set.passage && (
-        <div className="card" style={{ whiteSpace: "pre-wrap", marginTop: 14 }}>{set.passage}</div>
+        <div className="card stack" style={{ marginTop: 14 }}>
+          {passageParagraphs(set.passage).map((p, i) => (
+            <p key={i} style={{ margin: 0, whiteSpace: "pre-line" }}>
+              {p}
+            </p>
+          ))}
+        </div>
       )}
 
       {set.skill === "listening" && (

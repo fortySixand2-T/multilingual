@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import pytest
 
+from scripts import check_content
 from scripts.check_content import CONTENT_ROOT, check_global, check_level
 
 LEVELS = sorted(p.parent.name for p in CONTENT_ROOT.glob("*/path.yaml"))
@@ -22,3 +23,13 @@ def test_level_content_is_well_formed(level):
 def test_ids_that_are_database_keys_are_globally_unique():
     failures = check_global(LEVELS)
     assert not failures, "\n".join(["", *(f"  - {f}" for f in failures)])
+
+
+def test_coverage_gate_names_the_uncovered_headwords(monkeypatch):
+    monkeypatch.setattr(check_content, "comprehension_blob", lambda level: "")
+    problems = []
+    check_content.check_comprehension_covers_vocab(
+        "b1", check_content._load("b1")[0], problems.append
+    )
+    assert len(problems) == 1
+    assert "uncovered: " in problems[0] and "permettre de" in problems[0]

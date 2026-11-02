@@ -40,23 +40,23 @@ questions:
     prompt: "Quelle a été l'erreur de Nadia au début ?"
     options:
       - "Essayer de tout comprendre en une semaine"
-      - "Signer un bail trop vite"
-      - "Oublier sa carte d'assurance maladie"
+      - "Signer un bail trop rapidement sans visiter"
+      - "Oublier de renouveler sa carte d'assurance"
     answer: "Essayer de tout comprendre en une semaine"
     explain: "« Mon erreur ? Essayer de tout comprendre en une semaine »."
   - id: read-b1-bien-s-installer.q3
     prompt: "Qu'est-ce qui a permis à Nadia de se rendre compte de ses progrès ?"
     options:
       - "Elle n'avait plus besoin de traduire dans sa tête"
-      - "Elle a trouvé un emploi"
-      - "Ses voisins l'ont félicitée"
+      - "Elle a enfin trouvé un emploi stable"
+      - "Ses voisins l'ont félicitée pour son français"
     answer: "Elle n'avait plus besoin de traduire dans sa tête"
     explain: "« je me suis rendu compte que je n'avais plus besoin de traduire dans ma tête »."
   - id: read-b1-bien-s-installer.q4
     prompt: "Que conseille Nadia pour supporter l'hiver ?"
     options:
       - "Se mettre à un sport d'hiver dès la première année"
-      - "Rentrer en France chaque hiver"
-      - "Rester à la maison le soir"
+      - "Rentrer en France chaque hiver pour voir sa famille"
+      - "Rester à la maison tous les soirs jusqu'au printemps"
     answer: "Se mettre à un sport d'hiver dès la première année"
     explain: "« se mettre à un sport d'hiver dès la première année »."

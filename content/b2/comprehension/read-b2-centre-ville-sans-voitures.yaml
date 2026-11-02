@@ -11,48 +11,50 @@ passage: |
   ses courses. Personne ne pouvait se douter de l'ampleur du changement qui allait
   suivre.
 
-  Aujourd'hui, les chiffres semblent témoigner de la réussite du projet : la
-  fréquentation des commerces a augmenté de quinze pour cent, et les enfants, qui
-  étaient nombreux à souffrir de l'asthme, respirent mieux. La municipalité a promis
+  Aujourd'hui, il y a de quoi se réjouir : les chiffres semblent témoigner de la
+  réussite du projet, car la fréquentation des commerces a augmenté de quinze pour
+  cent, et les enfants, qui étaient nombreux à souffrir de l'asthme, respirent
+  mieux. La municipalité a promis
   de se charger de la livraison des achats lourds, et les familles peuvent recourir à
   un service d'autopartage pour les longs trajets.
 
   Tout n'est pas réglé pour autant. On ne doit pas priver de transport les personnes
-  âgées ou handicapées, et pour certains trajets, il peut valoir mieux garder la
-  voiture. Il importe que la ville écoute aussi ceux qui vivent loin du centre.
+  âgées ou handicapées, et pour certains trajets, il semble parfois valoir mieux
+  garder la voiture. Il importe que la ville écoute aussi ceux qui vivent loin du centre.
 
-  C'est pourquoi j'ai décidé de prendre position publiquement en faveur du projet.
+  Malgré ces réserves, j'ai décidé de prendre position publiquement en faveur du
+  projet.
   L'enjeu est maintenant de convaincre de son utilité ceux qui habitent en banlieue.
 questions:
   - id: read-b2-centre-ville-sans-voitures.q1
-    prompt: "Qu'est-ce que l'auteur pouvait craindre au début ?"
+    prompt: "Que pensait l'auteur au début ?"
     options:
-      - "Que personne ne puisse se passer de sa voiture pour faire ses courses"
-      - "Que les loyers du centre augmentent"
-      - "Que les enfants tombent malades"
-    answer: "Que personne ne puisse se passer de sa voiture pour faire ses courses"
+      - "Que personne ne pourrait se passer de sa voiture pour faire ses courses"
+      - "Que les loyers du centre allaient augmenter à cause du projet"
+      - "Que les enfants allaient souffrir davantage de l'asthme"
+    answer: "Que personne ne pourrait se passer de sa voiture pour faire ses courses"
     explain: "« je pensais que personne ne pourrait se passer de sa voiture pour faire ses courses »."
   - id: read-b2-centre-ville-sans-voitures.q2
-    prompt: "De quoi l'auteur peut-il se réjouir un an plus tard ?"
+    prompt: "Quel résultat positif l'auteur constate-t-il un an plus tard ?"
     options:
-      - "La fréquentation des commerces a augmenté"
-      - "Les voitures sont interdites tous les jours"
-      - "Les loyers ont baissé"
-    answer: "La fréquentation des commerces a augmenté"
+      - "Une hausse de la fréquentation des commerces"
+      - "Une interdiction des voitures sept jours sur sept"
+      - "Une baisse des loyers dans le centre-ville"
+    answer: "Une hausse de la fréquentation des commerces"
     explain: "« la fréquentation des commerces a augmenté de quinze pour cent »."
   - id: read-b2-centre-ville-sans-voitures.q3
     prompt: "Qui ne doit-on pas priver de transport, selon l'auteur ?"
     options:
       - "Les personnes âgées ou handicapées"
-      - "Les commerçants du centre"
-      - "Les familles avec enfants"
+      - "Les commerçants installés au centre"
+      - "Les familles avec de jeunes enfants"
     answer: "Les personnes âgées ou handicapées"
     explain: "« On ne doit pas priver de transport les personnes âgées ou handicapées »."
   - id: read-b2-centre-ville-sans-voitures.q4
     prompt: "Quel est maintenant l'enjeu, selon l'auteur ?"
     options:
       - "Convaincre les habitants de la banlieue de l'utilité du projet"
-      - "Interdire les voitures tous les jours"
-      - "Fermer le service d'autopartage"
+      - "Interdire les voitures tous les jours dans toute la ville"
+      - "Fermer le service d'autopartage et la livraison à domicile"
     answer: "Convaincre les habitants de la banlieue de l'utilité du projet"
     explain: "« L'enjeu est maintenant de convaincre de son utilité ceux qui habitent en banlieue »."

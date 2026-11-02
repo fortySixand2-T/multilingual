@@ -705,3 +705,21 @@
 - [2026-11-01] Created: content/b2/comprehension/read-b2-semaine-de-quatre-jours.yaml, read-b2-centre-ville-sans-voitures.yaml — B2 readings using the 27 verbes never read (verb + à/de, reflexives, opinion verbs in question stems)
 - [2026-11-01] Created: content/b2/comprehension/listen-b2-telephones-a-l-ecole.yaml (+ audio) — B2 listening reusing the same verbs
 - [2026-11-01] Modified: scripts/check_content.py — B2 comprehension floor 90% -> 100% (535/535 words used)
+- [2026-11-01] Created: qa/issues/1115-1123 — QA 064 tester B issues
+- [2026-11-01] Modified: scripts/check_content.py — qa-1130 coverage gate lists the uncovered deck headwords
+- [2026-11-01] Modified: tests/test_content_invariants.py — test that the coverage gate names missing headwords
+- [2026-11-01] Modified: content/b1/comprehension/read-b1-cafe-philo.yaml — qa-1104/1106/1120 distractor and phrasing fixes
+- [2026-11-01] Modified: content/b1/comprehension/listen-b1-un-voisin-courageux.yaml — qa-1107/1120 prévenir script, Q1, explain, distractors
+- [2026-11-01] Modified: content/b1/audio/listen-b1-un-voisin-courageux.mp3 — qa-1107 regenerated from the new script
+- [2026-11-01] Modified: content/b1/comprehension/read-b1-bien-s-installer.yaml — qa-1120 lengthened distractors
+- [2026-11-01] Modified: content/b1/comprehension/listen-b1-message-de-la-directrice.yaml — qa-1120 lengthened distractors
+- [2026-11-01] Modified: content/b2/comprehension/read-b2-centre-ville-sans-voitures.yaml — qa-1115/1117/1120/1121 wording, connector, Q1/Q2 rewrite
+- [2026-11-01] Modified: content/b2/comprehension/read-b2-semaine-de-quatre-jours.yaml — qa-1120 lengthened distractors
+- [2026-11-01] Modified: content/b2/comprehension/listen-b2-telephones-a-l-ecole.yaml — qa-1143 allow_replay false; qa-1120 distractors
+- [2026-11-01] Created: web/src/passageParagraphs.ts — qa-1140/1141 paragraph split and French non-breaking spaces
+- [2026-11-01] Created: web/src/passageParagraphs.test.ts — tests for passageParagraphs
+- [2026-11-01] Modified: web/src/screens/ComprehensionSet.tsx — render reading passages via passageParagraphs
+- [2026-11-01] Modified: qa/issues/1104,1106,1107,1115,1117,1120,1121,1130,1140,1141,1143 — marked done with Fix lines
+- [2026-11-01] Created: qa/rounds/064-plan.md — QA round 064 plan and outcomes
+- [2026-11-01] Modified: web/src/passageParagraphs.ts, passageParagraphs.test.ts, screens/ComprehensionSet.tsx — keep deliberate line breaks (menus, letters, itineraries, single-newline paragraphs) when rejoining wrapped passage lines; render with pre-line
+- [2026-11-01] Modified: content/b2/comprehension/read-b2-centre-ville-sans-voitures.yaml — re-wrapped lines lengthened by the QA fixes
