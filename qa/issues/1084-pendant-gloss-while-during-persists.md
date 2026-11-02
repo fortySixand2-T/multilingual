@@ -4,7 +4,7 @@ title: "pendant" still glosses as "while during" (1001 not fully fixed)
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-31
 ---
 
@@ -32,3 +32,6 @@ Listed in 1001 as noisy gloss; clean_gloss does not touch it (two glosses run to
 - Challenge: Predates #133 (1001), clean_gloss does not touch it, and the plan lists such glosses under Don't re-file.
 - Holds up? Deferral confirmed.
 - Final verdict: deferred
+
+## Fix
+`en` is now a JSON list of senses, joined with ", "; clean_gloss also splits on | , ; and drops repeats. Real 7B: pendant -> "while, during" (was "while during"), which the issue lists as acceptable. Sense order stays the model's. Test: test_clean_gloss_separates_and_dedupes_senses.

@@ -4,7 +4,7 @@ title: "boeuf" keeps the unligatured headword and glosses as "cow, ox" (oeuf/oei
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-10-31
 ---
 
@@ -33,3 +33,6 @@ Ligature restoration is table/model dependent; boeuf is not in the oe-ligature s
 - Challenge: Is it a regression? No: respell cannot restore a ligature Lexique lacks, and 'cow, ox' is 7B. Low value, model/data limits.
 - Holds up? Deferral confirmed.
 - Final verdict: deferred
+
+## Fix
+lexicon.respell writes œ where French does (oe before u or il: bœuf, vœu, cœur, œil, chef-d'œuvre; coefficient and moelle keep oe). The prompt now asks for a list of senses; against the real 7B boeuf gives "cattle, beef" (was "cow, ox"). Test: test_respell_writes_the_oe_ligature.
