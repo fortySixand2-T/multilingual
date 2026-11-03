@@ -32,7 +32,7 @@ from pathlib import Path
 import anyio
 
 from app.ai.interfaces import LLMResult, Msg
-from app.content import lexicon
+from app.content import dictionary, lexicon
 
 _PROFILE = "vocab_enrich"
 _DATA_DIR = Path(__file__).resolve().parent / "data"
@@ -133,10 +133,16 @@ class GenderTable:
 
 
 def resolve_gender(
-    word: str, pos: str, llm_gender: str, *, table: GenderTable | None = None
+    word: str,
+    pos: str,
+    llm_gender: str,
+    *,
+    table: GenderTable | None = None,
+    guess_source: str = "llm",
 ) -> tuple[str, str]:
     """(gender, source). Gender only applies to nouns; anything the model tagged as a
-    non-noun gets ''. Order: table > suffix rule > model guess > unresolved."""
+    non-noun gets ''. Order: table > suffix rule > model (or dictionary) guess >
+    unresolved."""
     if pos and pos != "noun":
         return "", ""
     if table is not None and (g := table.get(word)):
@@ -146,7 +152,7 @@ def resolve_gender(
     if g := suffix_gender(word):
         return g, "suffix"
     if pos == "noun" and llm_gender in ("m", "f", "mf"):  # a guess on "à" is not (QA 893)
-        return llm_gender, "llm"
+        return llm_gender, guess_source
     return "", ""
 
 
@@ -259,7 +265,7 @@ class Enrichment:
     en: str
     pos: str
     gender: str  # "" | m | f | mf
-    gender_source: str  # "table" | "suffix" | "llm" | ""  (provenance / confidence)
+    gender_source: str  # "table" | "suffix" | "llm" | "dictionary" | ""  (provenance)
 
 
 async def propose(router, word: str, *, max_tokens: int = 128) -> tuple[dict, LLMResult | None]:
@@ -277,6 +283,11 @@ async def propose(router, word: str, *, max_tokens: int = 128) -> tuple[dict, LL
     return _parse_enrichment(result.text), result
 
 
+def gloss(fr: str, pos: str, en: str) -> str:
+    """`en` cleaned for display, with an inflected adjective's form note."""
+    return clean_gloss(en, lexicon.form_note(fr) if pos == "adjective" else "")
+
+
 async def enrich(
     router,
     word: str,
@@ -285,27 +296,35 @@ async def enrich(
     headword: Callable[[str, str], str] | None = None,
     max_tokens: int = 128,
 ) -> tuple[Enrichment | None, LLMResult | None]:
-    """Full enrichment for a bare French word: LLM gloss/pos + deterministic
-    gender backstop. `headword(typed, proposed)` picks the spelling to keep (default:
-    as typed); pos and gender are settled on that spelling, so "elephant" typed and
-    "éléphant" kept finds éléphant's gender (QA 1004). Returns (Enrichment,
-    llm_result); (None, None) for empty input."""
+    """Full enrichment for a bare French word: the dictionary's meaning when it has the
+    word, else an LLM gloss/pos; then a deterministic gender backstop.
+    `headword(typed, proposed)` picks the spelling to keep (default: as typed); pos and
+    gender are settled on that spelling, so "elephant" typed and "éléphant" kept finds
+    éléphant's gender (QA 1004). Returns (Enrichment, llm_result); (None, None) for
+    empty input, or for a word the dictionary lacks when there is no `router` (the
+    caller is over its model budget)."""
     lemma = strip_leading_article(word)
     if not lemma:
         return None, None
-    entry, result = await propose(router, lemma, max_tokens=max_tokens)
-    fr = headword(lemma, entry.get("fr", "")) if headword else lemma
-    pos = lexicon.pos(fr, entry.get("pos", ""), article=lemma != word.strip())
-    gender, source = resolve_gender(fr, pos, entry.get("gender", ""), table=table)
+    article = lemma != word.strip()
+    fr = headword(lemma, "") if headword else lemma
+    entry, result, source = dictionary.entry(fr, pos="noun" if article else ""), None, "dictionary"
+    if entry is None:
+        if router is None:
+            return None, None
+        entry, result = await propose(router, lemma, max_tokens=max_tokens)
+        fr, source = (headword(lemma, entry.get("fr", "")) if headword else lemma), "llm"
+    pos = lexicon.pos(fr, entry.get("pos", ""), article=article)
+    gender, gender_source = resolve_gender(
+        fr, pos, entry.get("gender", ""), table=table, guess_source=source
+    )
     return (
         Enrichment(
             fr=fr,
-            en=clean_gloss(
-                entry.get("en", ""), lexicon.form_note(fr) if pos == "adjective" else ""
-            ),
+            en=gloss(fr, pos, entry.get("en", "")),
             pos=pos,
             gender=gender,
-            gender_source=source,
+            gender_source=gender_source,
         ),
         result,
     )

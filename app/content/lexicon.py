@@ -86,6 +86,11 @@ def _entry(word: str) -> tuple[str, float, str]:
     return _forms()[0].get(word.strip().lower().translate(_LIGATURES), ("", 0.0, ""))
 
 
+def usual_pos(word: str) -> str:
+    """The part of speech French mostly uses `word` as, "" when no reading dominates."""
+    return _entry(word)[0]
+
+
 def form_note(word: str) -> str:
     """ "f.", "pl." or "f. pl." for an inflected adjective form (grandes), else ""."""
     return _entry(word)[2]
@@ -96,7 +101,7 @@ def pos(word: str, model_pos: str, *, article: bool = False) -> str:
     always uses as something else (grandes -> adjective, pendant -> preposition), or a
     preposition or conjunction it called anything else (derrière, chez). A typed article
     (le pas) says noun."""
-    usual = _entry(word)[0]
+    usual = usual_pos(word)
     if article and model_pos in ("", "noun"):
         return "noun"
     if (model_pos in ("", "noun") and usual in _NOT_NOUNS) or (

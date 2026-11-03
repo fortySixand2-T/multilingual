@@ -9,9 +9,19 @@ from __future__ import annotations
 import asyncio
 import json
 
+import pytest
+
 from app.ai.accounting import make_usage
 from app.ai.interfaces import LLMResult
+from app.content import dictionary
 from app.content import enrich as E
+
+
+@pytest.fixture(autouse=True)
+def _model_only(monkeypatch):
+    """These tests drive the model path, which the dictionary would answer for common
+    words; dictionary tests set their own entries."""
+    monkeypatch.setattr(dictionary, "_entries", lambda: {})
 
 
 class FakeRouter:
@@ -307,3 +317,33 @@ def test_respell_writes_the_oe_ligature():
     got = [respell(w) for w in ("boeuf", "voeu", "coeur", "Oeuvre", "chef-d'oeuvre")]
     assert got == ["bœuf", "vœu", "cœur", "Œuvre", "chef-d'œuvre"]
     assert (respell("coefficient"), respell("moelle")) == ("coefficient", "moelle")
+
+
+# --- the dictionary ahead of the model ----------------------------------------
+
+
+def test_dictionary_word_needs_no_model(monkeypatch):
+    """QA 1101: a word the dictionary has is glossed from it, with no model call."""
+    monkeypatch.setattr(
+        dictionary,
+        "_entries",
+        lambda: {"pendant": {"adjective": ("", "hanging"), "preposition": ("", "during")}},
+    )
+    router = FakeRouter({"en": "pendant", "pos": "noun"})
+    result, llm = _run(E.enrich(router, "pendant"))
+    assert (result.en, result.pos, llm, router.calls) == ("during", "preposition", None, [])
+
+
+def test_typed_article_asks_the_dictionary_for_the_noun(monkeypatch):
+    monkeypatch.setattr(
+        dictionary,
+        "_entries",
+        lambda: {"pas": {"adverb": ("", "not"), "noun": ("m", "step, pace")}},
+    )
+    result, _ = _run(E.enrich(None, "le pas"))
+    assert (result.en, result.pos, result.gender) == ("step, pace", "noun", "m")
+    assert result.gender_source in ("table", "dictionary")
+
+
+def test_without_a_router_only_dictionary_words_are_enriched():
+    assert _run(E.enrich(None, "ordinateur")) == (None, None)

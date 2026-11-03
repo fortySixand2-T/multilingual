@@ -9,6 +9,7 @@ import asyncio
 import json
 import tempfile
 
+import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
@@ -20,6 +21,7 @@ from app.ai.accounting import make_usage
 from app.ai.interfaces import LLMResult
 from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
+from app.content import dictionary
 from app.content import personal as P
 from app.content.tables import UserVocab, VocabLookup
 from app.db.session import get_session
@@ -41,6 +43,13 @@ async def _create():
 
 
 _run(_create())
+
+
+@pytest.fixture(autouse=True)
+def _model_only(monkeypatch):
+    """These tests drive the model path, which the dictionary would answer for common
+    words; dictionary tests set their own entries."""
+    monkeypatch.setattr(dictionary, "_entries", lambda: {})
 
 
 class FakeRouter:
@@ -741,3 +750,49 @@ def test_accentless_input_gets_lexique_accents():
     elephant = preview("elephant", "", 66)  # model gave no headword
     assert (elephant["fr"], elephant["gender"]) == ("éléphant", "m")
     assert preview("coté", "côté", 66)["fr"] == "côté"  # typed accents: model's kept as before
+
+
+def _burn_budget(uid):
+    from datetime import date
+
+    from app.usage.service import add_usage
+
+    async def go():
+        async with _Session() as s:
+            await add_usage(s, uid, "vocab", 999_999, 0, date.today())
+            await s.commit()
+
+    _run(go())
+
+
+def test_dictionary_word_is_looked_up_free_even_over_budget(monkeypatch):
+    """QA 1101: pêche gets the dictionary's two meanings, with no model call and no
+    budget spent."""
+    monkeypatch.setattr(
+        dictionary, "_entries", lambda: {"pêche": {"noun": ("f", "peach, fishing, angling")}}
+    )
+    router = FakeRouter({"en": "fruit", "pos": "noun"})
+    client, _ = _client(uid=80, router=router)
+    _burn_budget(80)
+    enr = client.post("/vocab/personal/preview", json={"word": "pêche"}).json()["enrichment"]
+    assert (enr["fr"], enr["en"], enr["gender"]) == ("pêche", "peach, fishing, angling", "f")
+    assert router.calls == []
+
+
+def test_cached_model_meaning_is_healed_from_the_dictionary(monkeypatch):
+    """A word cached with the model's meaning takes the dictionary's once it has one,
+    for the same part of speech only."""
+    router = FakeRouter({"en": "fruit", "pos": "noun"})
+    client, _ = _client(uid=81, router=router)
+
+    def preview():
+        return client.post("/vocab/personal/preview", json={"word": "brugnon"}).json()[
+            "enrichment"
+        ]["en"]
+
+    assert preview() == "fruit"
+    monkeypatch.setattr(dictionary, "_entries", lambda: {"brugnon": {"verb": ("", "to x")}})
+    assert preview() == "fruit"  # another part of speech: not this word
+    monkeypatch.setattr(dictionary, "_entries", lambda: {"brugnon": {"noun": ("m", "nectarine")}})
+    assert preview() == "nectarine"
+    assert router.calls == ["vocab_enrich"]
