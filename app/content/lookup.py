@@ -1,11 +1,11 @@
 """Durable, shared word lookups for My deck (the `vocab_lookup` table).
 
 A lookup's result — meaning, gender, IPA and a pronunciation clip — is the same for
-every learner, so it's computed once and kept: the first lookup of a word pays one LLM
-call (meaning/pos/gender) plus one Piper run (audio + IPA); every later lookup, by
-anyone and across restarts, is a single DB read. IPA comes from Piper's own eSpeak
-phonemes, never the LLM, which often guessed English IPA ("vélo" -> /ˈbiːsɪkl/,
-"horrible" -> /hɒrəbəl/). Without a TTS backend a word has no IPA until its clip is
+every learner, so it's computed once and kept: the first lookup of a word pays one Piper
+run (audio + IPA) and, for a word the dictionary lacks, one LLM call (meaning/pos/gender);
+every later lookup, by anyone and across restarts, is a single DB read. IPA comes from
+Piper's own eSpeak phonemes, never the LLM, which often guessed English IPA ("vélo" ->
+/ˈbiːsɪkl/, "horrible" -> /hɒrəbəl/). Without a TTS backend a word has no IPA until its clip is
 first voiced (personal_api._serve_audio fills it in then).
 """
 
@@ -20,7 +20,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.interfaces import LLMResult
 from app.ai.router import AIRouter
-from app.content.enrich import GenderTable, enrich
+from app.content import dictionary
+from app.content.enrich import GenderTable, enrich, gloss
 from app.content.ipa import normalize_ipa
 from app.content.lexicon import respell
 from app.content.personal import clamp_slug, normalize_lemma, slugify
@@ -80,7 +81,8 @@ async def fresh_lookup(
     table: GenderTable | None = None,
 ) -> tuple[VocabLookup | None, LLMResult | None]:
     """Enrich `word`, voice it, and store the result. Returns (row, llm) — row is None
-    when the model gave no meaning, and nothing is cached so a retry can succeed."""
+    when the model gave no meaning, and nothing is cached so a retry can succeed. With
+    no `router`, only a word the dictionary has gets a row."""
     result, llm = await enrich(router, word, table=table, headword=_headword)
     if result is None or not result.en:
         return None, llm
@@ -132,6 +134,17 @@ async def heal_ipa(session: AsyncSession, tts, row: VocabLookup | UserVocab, voi
         return
     if ipa and ipa != row.ipa:
         row.ipa = ipa
+        await session.commit()
+
+
+async def heal_gloss(session: AsyncSession, row: VocabLookup) -> None:
+    """Give a row cached before the dictionary its meaning (pêche: "fruit" -> "peach,
+    fishing", QA 1101), and commit if it changed. Same part of speech only: a row
+    looked up as "la personne" must not turn into the pronoun."""
+    found = dictionary.entry(row.fr, pos=row.pos)
+    en = gloss(row.fr, row.pos, found["en"]) if found else ""
+    if en and en != row.en:
+        row.en = en
         await session.commit()
 
 

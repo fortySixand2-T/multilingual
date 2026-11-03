@@ -30,6 +30,7 @@ from app.content.enrich import GenderTable
 from app.content.lookup import (
     cached_lookup,
     fresh_lookup,
+    heal_gloss,
     heal_ipa,
     lookup_payload,
     lookup_slug,
@@ -79,7 +80,8 @@ async def _lookup(
     word: str,
 ) -> tuple[VocabLookup | None, bool]:
     """(row, over_budget). A word anyone looked up before is a free DB read; a new one
-    costs one LLM call + one Piper run, metered on the daily 'vocab' budget, then cached."""
+    costs one Piper run plus, when the dictionary lacks it, one LLM call metered on the
+    daily 'vocab' budget, then cached."""
     try:
         row = await cached_lookup(session, word)
     except EmptyLemmaError:
@@ -90,13 +92,13 @@ async def _lookup(
         tts = getattr(request.app.state, "tts", None)
         if not row.ipa and tts is not None:  # a cold first run left it empty (QA 881)
             await heal_ipa(session, tts, row, settings.word_voice)
+        await heal_gloss(session, row)
         return row, False
     used = await tokens_used_today(session, user.id, "vocab", date.today())
-    if used >= settings.vocab_daily_token_budget:
-        return None, True
+    over_budget = used >= settings.vocab_daily_token_budget
     row, llm = await fresh_lookup(
         session,
-        ai_router,
+        None if over_budget else ai_router,  # a dictionary word still costs nothing
         getattr(request.app.state, "tts", None),
         storage,
         word,
@@ -108,7 +110,7 @@ async def _lookup(
             session, user.id, "vocab", llm.usage.input_tokens, llm.usage.output_tokens, date.today()
         )
     await session.commit()
-    return row, False
+    return row, over_budget and row is None
 
 
 def _not_found(word: str) -> HTTPException:

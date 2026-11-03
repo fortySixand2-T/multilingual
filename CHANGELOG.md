@@ -723,3 +723,13 @@
 - [2026-11-01] Created: qa/rounds/064-plan.md — QA round 064 plan and outcomes
 - [2026-11-01] Modified: web/src/passageParagraphs.ts, passageParagraphs.test.ts, screens/ComprehensionSet.tsx — keep deliberate line breaks (menus, letters, itineraries, single-newline paragraphs) when rejoining wrapped passage lines; render with pre-line
 - [2026-11-01] Modified: content/b2/comprehension/read-b2-centre-ville-sans-voitures.yaml — re-wrapped lines lengthened by the QA fixes
+- [2026-11-02] Created: scripts/build_gloss_table.py — builds a short English meaning per common French word (Lexique ≥1/million) from kaikki.org's Wiktionary extract
+- [2026-11-02] Created: app/content/data/fr_gloss.tsv.gz — 15,922 words' Wiktionary meanings (CC BY-SA), by part of speech
+- [2026-11-02] Created: app/content/dictionary.py — dictionary lookup, picking Lexique's usual part of speech (noun when an article was typed)
+- [2026-11-02] Modified: app/content/enrich.py — a dictionary word skips the model (QA 1101: pêche -> "peach, fishing"); no router = dictionary only
+- [2026-11-02] Modified: app/content/lexicon.py — usual_pos helper
+- [2026-11-02] Modified: app/content/lookup.py — heal_gloss replaces a cached model meaning with the dictionary's (same part of speech)
+- [2026-11-02] Modified: app/content/personal_api.py — dictionary words are looked up even over the daily budget; cached rows healed on preview
+- [2026-11-02] Created: tests/test_dictionary.py; Modified: tests/test_enrich.py, tests/test_personal_vocab.py — dictionary path tests; model-path tests run with the dictionary emptied
+- [2026-11-02] Modified: app/content/dictionary.py, app/content/enrich.py, app/content/lexicon.py — an accentless word with several dictionary spellings (peche: pêche/péché) has the model pick the word; the meaning still comes from the dictionary
+- [2026-11-02] Modified: qa/issues/1101-my-deck-lookup-peche-gloss-pear-fishing.md — marked done
