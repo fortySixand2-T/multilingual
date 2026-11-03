@@ -731,3 +731,5 @@
 - [2026-11-02] Modified: app/content/lookup.py — heal_gloss replaces a cached model meaning with the dictionary's (same part of speech)
 - [2026-11-02] Modified: app/content/personal_api.py — dictionary words are looked up even over the daily budget; cached rows healed on preview
 - [2026-11-02] Created: tests/test_dictionary.py; Modified: tests/test_enrich.py, tests/test_personal_vocab.py — dictionary path tests; model-path tests run with the dictionary emptied
+- [2026-11-02] Modified: app/content/dictionary.py, app/content/enrich.py, app/content/lexicon.py — an accentless word with several dictionary spellings (peche: pêche/péché) has the model pick the word; the meaning still comes from the dictionary
+- [2026-11-02] Modified: qa/issues/1101-my-deck-lookup-peche-gloss-pear-fishing.md — marked done

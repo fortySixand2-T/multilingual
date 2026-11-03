@@ -34,7 +34,7 @@ _FUNCTION_WORDS = {"preposition", "conjunction"}
 _KEEP_AS_TYPED = {"du", "des"}
 
 
-def _key(word: str) -> str:
+def fold(word: str) -> str:
     """Accent-free, ligature-free spelling: the key accent variants share."""
     s = unicodedata.normalize("NFD", word.lower().translate(_LIGATURES))
     return "".join(c for c in s if unicodedata.category(c) != "Mn")
@@ -51,7 +51,7 @@ def _forms() -> tuple[dict[str, tuple[str, float, str]], dict[str, str]]:
             for line in f:
                 form, pos, freq, note = line.rstrip("\n").split("\t")
                 forms[form] = (pos, float(freq), note)
-                k = _key(form)
+                k = fold(form)
                 if k not in best or forms[best[k]][1] < forms[form][1]:
                     best[k] = form
     return forms, best
@@ -62,7 +62,7 @@ def _respell_word(word: str) -> str:
     low = word.lower()
     if low in _KEEP_AS_TYPED:
         return word
-    top = best.get(_key(low))
+    top = best.get(fold(low))
     if not top or top == low.translate(_LIGATURES):  # Lexique spells cœur "coeur"
         return word
     known = forms.get(low)

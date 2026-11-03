@@ -39,3 +39,9 @@ def test_gloss_takes_each_entrys_first_sense_first_without_repeats():
     assert gloss([peach, fishing]) == "peach, fishing, angling"
     assert gloss([[["to remove", "take off"], ["to take off"]]]) == "to remove, take off"
     assert gloss([[["law (legal code)"], ["law (scientific principle)"]]]) == "law (legal code)"
+
+
+def test_accentless_word_is_ambiguous_only_between_dictionary_words():
+    assert dictionary.ambiguous("peche")  # pêche, péché
+    assert not dictionary.ambiguous("pêche")  # typed as a word
+    assert not dictionary.ambiguous("maison")

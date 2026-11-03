@@ -30,6 +30,22 @@ def _entries() -> dict[str, dict[str, tuple[str, str]]]:
     return entries
 
 
+@functools.cache
+def _spellings() -> dict[str, list[str]]:
+    """{accent-free key: the dictionary words spelled that way bar accents}."""
+    spellings: dict[str, list[str]] = {}
+    for word in _entries():
+        spellings.setdefault(lexicon.fold(word), []).append(word)
+    return spellings
+
+
+def ambiguous(typed: str) -> bool:
+    """True when `typed` is no word itself but its accents could make several ("peche":
+    pêche, péché), so the spelling must be chosen before the meaning."""
+    word = typed.strip().lower()
+    return word not in _entries() and len(_spellings().get(lexicon.fold(word), ())) > 1
+
+
 def entry(word: str, *, pos: str = "") -> dict | None:
     """{"fr", "en", "pos", "gender"}, shaped like the model's proposal, or None when
     the dictionary doesn't have the word (or not as `pos`). Without `pos`, the reading

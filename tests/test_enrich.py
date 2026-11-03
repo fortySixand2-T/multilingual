@@ -22,6 +22,7 @@ def _model_only(monkeypatch):
     """These tests drive the model path, which the dictionary would answer for common
     words; dictionary tests set their own entries."""
     monkeypatch.setattr(dictionary, "_entries", lambda: {})
+    monkeypatch.setattr(dictionary, "_spellings", lambda: {})
 
 
 class FakeRouter:
@@ -347,3 +348,19 @@ def test_typed_article_asks_the_dictionary_for_the_noun(monkeypatch):
 
 def test_without_a_router_only_dictionary_words_are_enriched():
     assert _run(E.enrich(None, "ordinateur")) == (None, None)
+
+
+def test_accentless_word_with_several_spellings_asks_the_model_which(monkeypatch):
+    """QA 1101: "peche" could be pêche or péché; the model picks the word, the
+    dictionary still gives its meaning. Without the model, the commoner spelling."""
+    entries = {"pêche": {"noun": ("f", "peach, fishing")}, "péché": {"noun": ("m", "sin")}}
+    monkeypatch.setattr(dictionary, "_entries", lambda: entries)
+    monkeypatch.setattr(dictionary, "_spellings", lambda: {"peche": ["pêche", "péché"]})
+    from app.content.lookup import _headword
+
+    router = FakeRouter({"fr": "pêche", "en": "fruit", "pos": "noun"})
+    result, llm = _run(E.enrich(router, "peche", headword=_headword))
+    assert (result.fr, result.en, len(router.calls)) == ("pêche", "peach, fishing", 1)
+    assert llm is not None  # the call is billed
+    result, _ = _run(E.enrich(None, "peche", headword=_headword))
+    assert (result.fr, result.en) == ("péché", "sin")

@@ -302,18 +302,23 @@ async def enrich(
     gender are settled on that spelling, so "elephant" typed and "éléphant" kept finds
     éléphant's gender (QA 1004). Returns (Enrichment, llm_result); (None, None) for
     empty input, or for a word the dictionary lacks when there is no `router` (the
-    caller is over its model budget)."""
+    caller is over its model budget, so an accentless word keeps its usual spelling)."""
     lemma = strip_leading_article(word)
     if not lemma:
         return None, None
     article = lemma != word.strip()
+    want = "noun" if article else ""
     fr = headword(lemma, "") if headword else lemma
-    entry, result, source = dictionary.entry(fr, pos="noun" if article else ""), None, "dictionary"
+    entry, result, source = dictionary.entry(fr, pos=want), None, "dictionary"
+    if router is not None and (entry is None or dictionary.ambiguous(lemma)):
+        # The model glosses a word the dictionary lacks, and picks which word an
+        # accentless "peche" is (pêche, not péché); the dictionary's meaning still wins.
+        proposed, result = await propose(router, lemma, max_tokens=max_tokens)
+        fr = headword(lemma, proposed.get("fr", "")) if headword else lemma
+        entry = dictionary.entry(fr, pos=want) or proposed
+        source = "dictionary" if entry is not proposed else "llm"
     if entry is None:
-        if router is None:
-            return None, None
-        entry, result = await propose(router, lemma, max_tokens=max_tokens)
-        fr, source = (headword(lemma, entry.get("fr", "")) if headword else lemma), "llm"
+        return None, None
     pos = lexicon.pos(fr, entry.get("pos", ""), article=article)
     gender, gender_source = resolve_gender(
         fr, pos, entry.get("gender", ""), table=table, guess_source=source

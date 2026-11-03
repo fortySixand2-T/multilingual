@@ -4,7 +4,7 @@ title: My deck lookup of "peche" gives pêche (fe) with gloss "pear, fishing" (p
 severity: low
 area: web
 persona: absolute-beginner
-status: deferred
+status: done
 found: 2026-10-31
 ---
 
@@ -34,3 +34,6 @@ Likely 7B gloss quality rather than respell (respell chose pêche correctly), bu
 
 ## Follow-up (deferred-063)
 Still deferred. With the new prompt the real 7B returns pêche -> "fruit" or "prune, peach" across runs: it does not reliably know pêche means peach. No prompt change fixed it without naming the word. A real fix is a dictionary-backed gloss (e.g. a CC BY-SA Wiktionary extract, as Lexique is) for common words, with the model as fallback.
+
+## Resolution (2026-11-02)
+My deck now takes meanings from a Wiktionary table (app/content/dictionary.py) before the model. "pêche" -> "peach, fishing, angling". An accentless "peche" (pêche or péché) asks the model only to pick the spelling, and the meaning still comes from the dictionary. The cached "peche" row heals on its next preview.

@@ -50,6 +50,7 @@ def _model_only(monkeypatch):
     """These tests drive the model path, which the dictionary would answer for common
     words; dictionary tests set their own entries."""
     monkeypatch.setattr(dictionary, "_entries", lambda: {})
+    monkeypatch.setattr(dictionary, "_spellings", lambda: {})
 
 
 class FakeRouter:
