@@ -67,6 +67,13 @@ router.run("writing_feedback", system=..., messages=[Msg("user", "...")])
 - **Add one** → drop an adapter in `app/ai/adapters/`, register it in `registry.py`.
 - **Fallback** → set `fallback:` on the profile; a total outage degrades to a clean 503.
 
+## Credits
+
+Word meanings in My deck are adapted from English Wiktionary, and word gender and
+frequency from Lexique 383; both are CC BY-SA 4.0. See
+[`app/content/data/NOTICE.md`](app/content/data/NOTICE.md) for the attribution and
+the changes made.
+
 ## Develop
 
 ```bash

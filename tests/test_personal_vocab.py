@@ -797,3 +797,71 @@ def test_cached_model_meaning_is_healed_from_the_dictionary(monkeypatch):
     monkeypatch.setattr(dictionary, "_entries", lambda: {"brugnon": {"noun": ("m", "nectarine")}})
     assert preview() == "nectarine"
     assert router.calls == ["vocab_enrich"]
+
+
+def test_homograph_spellings_keep_their_own_cache_rows():
+    """QA 1175: où must not overwrite ou (or the reverse) for every learner."""
+
+    def preview(word, en, uid):
+        client, _ = _client(uid=uid, router=FakeRouter({"en": en, "pos": "adverb"}))
+        return client.post("/vocab/personal/preview", json={"word": word}).json()["enrichment"]
+
+    assert preview("où", "where", 90)["en"] == "where"
+    plain = preview("ou", "or", 90)
+    assert (plain["fr"], plain["en"]) == ("ou", "or")
+    again = preview("où", "never asked", 91)
+    assert (again["fr"], again["en"]) == ("où", "where")
+    assert preview("ou", "never asked", 91)["en"] == "or"
+
+
+def test_accentless_homograph_is_not_served_its_accented_row():
+    """QA 1175: a row an older build left as où under "ou" is re-looked-up, not served."""
+
+    async def poison():
+        async with _Session() as s:
+            s.add(VocabLookup(slug="du", fr="dû", en="due", gender="m", pos="noun", ipa=""))
+            await s.commit()
+
+    _run(poison())
+    client, _ = _client(uid=92, router=FakeRouter({"en": "some", "pos": "preposition"}))
+    enr = client.post("/vocab/personal/preview", json={"word": "du"}).json()["enrichment"]
+    assert (enr["fr"], enr["en"]) == ("du", "some")
+
+
+def test_course_match_never_folds_away_typed_accents(monkeypatch):
+    """QA 1176: mûr is not mur, and sur (the commoner word) is not sûr."""
+    from app.content.tables import ContentVocab
+
+    async def seed():
+        async with _Session() as s:
+            for id_, fr in (("q_sur", "sûr"), ("q_mur", "mur"), ("q_regle", "règle")):
+                s.add(ContentVocab(id=id_, level="a2", data={"id": id_, "fr": fr, "audio": ""}))
+            await s.commit()
+
+    _run(seed())
+    router = FakeRouter({"en": "ripe", "pos": "adjective"})
+    client, _ = _client(uid=93, router=router)
+
+    def preview(word):
+        return client.post("/vocab/personal/preview", json={"word": word}).json()
+
+    assert preview("mur")["in_course"] == "a2"
+    assert preview("sûr")["enrichment"]["fr"] == "sûr"
+    assert preview("regle")["enrichment"]["fr"] == "règle"  # accentless typing still reaches it
+    assert "in_course" not in preview("mûr")
+    assert "in_course" not in preview("sur")
+    assert "in_course" not in preview("d'accord")
+
+
+def test_non_words_cost_no_model_call_and_are_not_cached():
+    """QA 1178: digits get a clean 422 before any model spend; ligature glyphs are letters."""
+    router = FakeRouter({"en": "end", "pos": "noun"})
+    client, _ = _client(uid=94, router=router)
+    for path in ("preview", "from-word"):
+        r = client.post(f"/vocab/personal/{path}", json={"word": "12345"})
+        assert r.status_code == 422
+    assert router.calls == []
+    enr = client.post("/vocab/personal/preview", json={"word": "ﬁn"}).json()["enrichment"]
+    assert enr["fr"] == "fin"
+    plain = client.post("/vocab/personal/preview", json={"word": "fin"}).json()["enrichment"]
+    assert plain["fr"] == "fin" and router.calls == ["vocab_enrich"]

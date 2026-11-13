@@ -110,6 +110,26 @@ describe("MyDeck — add a word", () => {
     expect(await screen.findByText(/Couldn't find a meaning/)).toBeInTheDocument();
   });
 
+  it("says so when the word is already in the deck instead of claiming it was added", async () => {
+    const user = userEvent.setup();
+    vi.mocked(api.personalPreview).mockResolvedValue({
+      enrichment: { fr: "pendant", en: "during, throughout", pos: "preposition", gender: "", ipa: "", gender_source: "dictionary" },
+    });
+    vi.mocked(api.personalAdd).mockResolvedValue({
+      card: { card_key: "uv:pendant", fr: "pendant", en: "during (my edit)", gender: "", pos: "preposition", ipa: "", source: "manual", audio_url: "/vocab/personal/audio/uv:pendant" },
+      added: false,
+      review_seeded: false,
+    });
+
+    renderMyDeck();
+    await user.type(await screen.findByPlaceholderText(/épanouissement/), "pendant");
+    await user.click(screen.getByRole("button", { name: "Look up" }));
+    await user.click(await screen.findByRole("button", { name: "Add to my deck" }));
+
+    expect(await screen.findByText(/already in your deck \(“during \(my edit\)”\)/)).toBeInTheDocument();
+    expect(screen.queryByText(/Added “pendant”/)).not.toBeInTheDocument();
+  });
+
   it("lets the learner correct the meaning before adding", async () => {
     const user = userEvent.setup();
     vi.mocked(api.personalPreview).mockResolvedValue({

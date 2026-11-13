@@ -319,7 +319,13 @@ async def enrich(
         source = "dictionary" if entry is not proposed else "llm"
     if entry is None:
         return None, None
-    pos = lexicon.pos(fr, entry.get("pos", ""), article=article)
+    # A dictionary entry's pos is the one its meaning belongs to ("pas": adverb, "not");
+    # only the model's guess is corrected by Lexique (QA 1161).
+    pos = (
+        entry.get("pos", "")
+        if source == "dictionary"
+        else lexicon.pos(fr, entry.get("pos", ""), article=article)
+    )
     gender, gender_source = resolve_gender(
         fr, pos, entry.get("gender", ""), table=table, guess_source=source
     )

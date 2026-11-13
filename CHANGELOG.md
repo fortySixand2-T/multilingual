@@ -733,3 +733,49 @@
 - [2026-11-02] Created: tests/test_dictionary.py; Modified: tests/test_enrich.py, tests/test_personal_vocab.py — dictionary path tests; model-path tests run with the dictionary emptied
 - [2026-11-02] Modified: app/content/dictionary.py, app/content/enrich.py, app/content/lexicon.py — an accentless word with several dictionary spellings (peche: pêche/péché) has the model pick the word; the meaning still comes from the dictionary
 - [2026-11-02] Modified: qa/issues/1101-my-deck-lookup-peche-gloss-pear-fishing.md — marked done
+- [2026-11-12] Created: qa/rounds/065-plan.md — QA round 065 plan for dictionary-backed My deck lookup
+- [2026-11-12] Created: qa/issues/1190-my-deck-raw-validation-error-on-long-meaning.md — QA 065 browser issue
+- [2026-11-12] Created: qa/issues/1191-my-deck-readding-existing-word-says-added-and-ignores-new-meaning.md — QA 065 browser issue
+- [2026-11-12] Created: qa/issues/1192-wiktionary-cc-by-sa-attribution-missing-in-ui-and-docs.md — QA 065 browser issue
+- [2026-11-12] Created: qa/issues/1160-my-deck-typed-article-ignored-for-course-and-function-words.md — QA 065 exam-crammer: Typed article (le/la/un/une) is ignored by My deck lookup for course words and function words
+- [2026-11-12] Created: qa/issues/1161-my-deck-pas-adverb-with-noun-gloss-step-pace-strait.md — QA 065 exam-crammer: pas is shown as an adverb but glossed with the noun meaning "step, pace, strait"
+- [2026-11-12] Created: qa/issues/1162-my-deck-bare-adjective-homographs-resolve-to-noun.md — QA 065 exam-crammer: Bare adjective/noun homographs resolve to the noun reading (moyen, général, sourd, muet, ancien, calme, vide, bête, brave, double)
+- [2026-11-12] Created: qa/issues/1163-my-deck-one-gender-for-words-with-different-gender-by-meaning.md — QA 065 exam-crammer: Dictionary lookup gives one gender for nouns whose gender depends on the meaning (vase, moule, physique, mode, pendule, aide, page, voile, poste)
+- [2026-11-12] Created: qa/issues/1164-from-word-inflected-forms-no-lemma-and-inconsistent-gender.md — QA 065 exam-crammer: Speaking /from-word: plurals of course words make new cards with different gender/pos (livres mf, élèves no gender, sourds adjective)
+- [2026-11-12] Created: qa/issues/1165-post-vocab-personal-accepts-gender-on-non-nouns-and-invalid-gender.md — QA 065 exam-crammer: POST /vocab/personal stores gender on verbs/adjectives and accepts invalid gender values
+- [2026-11-12] Created: qa/issues/1166-my-deck-noun-with-empty-gender-manoeuvre-hors.md — QA 065 exam-crammer: Lookup returns pos noun with empty gender for some nouns (manœuvre, hors via article)
+- [2026-11-12] Created: qa/issues/1144-function-word-glosses-wrong-pos-or-meaning.md — QA 065 returning-learner: My deck preview: very common function words get a wrong pos or wrong meaning (nous, ou, celle, son, chez, celui)
+- [2026-11-12] Created: qa/issues/1145-gloss-includes-irrelevant-or-wrong-extra-senses.md — QA 065 returning-learner: My deck preview: glosses add rare/wrong extra senses next to the right one (traduire 'to summon', fraise 'bulwark, palisade', saumon 'wingtip')
+- [2026-11-12] Created: qa/issues/1146-main-meaning-missing-from-gloss.md — QA 065 returning-learner: My deck preview: common words lose their main meaning (sinon, exprès, sujet, plan, truc, pas, bête, ancien, pire, nouvelle)
+- [2026-11-12] Created: qa/issues/1147-gloss-formatting-capital-and-odd-parentheticals.md — QA 065 returning-learner: My deck preview: glosses with capitalised words, odd parentheticals or non-infinitive reflexive forms (sage 'Chaste', foi 'Faith', s'ennuyer 'bore oneself')
+- [2026-11-12] Created: qa/issues/1148-preview-folds-accents-and-apostrophe-prefix-to-wrong-course-word.md — QA 065 returning-learner: My deck preview: 'mûr' returns the course word 'mur' (wall) and "d'accord" returns 'accord' (agreement)
+- [2026-11-12] Created: qa/issues/1175-homograph-lookups-share-one-cache-row.md — My deck: a/à, ou/où, du/dû, des/dés share one cached row, so the plain common word returns the accented homograph
+- [2026-11-12] Created: qa/issues/1176-course-match-ignores-typed-accents.md — My deck preview: course match drops typed accents, so sur returns sûr (sure) and mûr returns mur (wall)
+- [2026-11-12] Created: qa/issues/1177-accented-typo-poisons-shared-cache-for-plain-word.md — My deck: an accented typo (mâ) makes the model invent a word and overwrite the cached valid word (ma -> mâ, male)
+- [2026-11-12] Created: qa/issues/1178-odd-inputs-get-model-meanings-billed-and-cached.md — My deck preview accepts digits, repeated letters, whole sentences and ligature glyphs as words, bills model tokens, and caches them for everyone
+- [2026-11-12] Created: qa/issues/1179-dictionary-gloss-wrong-marteau-cuite.md — My deck dictionary gloss misses the main meaning: marteau = rapper, door knocker, malleus (no hammer); cuite = batch of ore
+- [2026-11-12] Created: qa/issues/1180-over-budget-refuses-word-with-cached-row.md — Over budget, typing the correctly accented spelling of an already cached model word returns over_budget instead of the cached row
+- [2026-11-12] Created: qa/issues/1181-accentless-ambiguous-words-hide-alternatives.md — Accentless typing of ambiguous words silently picks one spelling (peche, eleve, pate, repere, releve) with no hint of the other
+- [2026-11-12] Modified: qa/issues/1144,1145,1146,1147,1148,1160,1161,1162,1163,1164,1165,1166,1175,1176,1177,1178,1179,1180,1181,1190,1191,1192 (*.md) — triaged (QA round 065)
+- [2026-11-12] Modified: qa/issues/ round 065 files — critic gate
+- [2026-11-12] Modified: scripts/build_gloss_table.py — QA 1144/1146/1162: header-line senses use the line below, a noun's long leading definition is cut where it describes, determiners kept, parts of speech ordered by Lexique frequency, small override block for the most common words
+- [2026-11-12] Modified: app/content/data/fr_gloss.tsv.gz — regenerated by scripts/build_gloss_table.py (17,270 -> 17,304 rows; nous, son, leur, pas, plan, sujet, truc, marteau, file, moyen, bête ...)
+- [2026-11-12] Modified: scripts/build_gender_table.py, app/content/data/fr_gender.tsv — QA 1163: vase = m, physique = f
+- [2026-11-12] Modified: app/content/enrich.py — QA 1161: a dictionary entry keeps its own part of speech; Lexique corrects only the model's guess
+- [2026-11-12] Modified: tests/test_dictionary.py — QA 1144/1146/1161/1162/1163 regression tests (table rows, build rules, pos/gloss agreement, vase/physique gender)
+- [2026-11-12] Modified: qa/issues/1144,1146,1161,1162,1163 (*.md) — status: done with Fix notes
+- [2026-11-12] Modified: app/content/lexicon.py — QA 1176/1178: frequency() and known() helpers
+- [2026-11-12] Modified: app/content/lookup.py — QA 1175/1176: homograph spellings get their own cache row; an accented typo or a different word never reuses a plain row
+- [2026-11-12] Modified: app/content/personal.py — QA 1178: normalize_lemma applies NFKC and rejects digits/empty slugs
+- [2026-11-12] Modified: app/content/personal_api.py — QA 1175/1178: NFKC on request words, stored_lookup for cached rows
+- [2026-11-12] Modified: app/speech/vocab_review.py — QA 1176: course match never folds away typed accents
+- [2026-11-12] Modified: tests/test_personal_vocab.py — QA 1175/1176/1178 regression tests
+- [2026-11-12] Modified: qa/issues/1175,1176,1178 (*.md) — status: done with Fix notes
+- [2026-11-12] Created: qa/rounds/065-plan.md — round 065 plan
+- [2026-11-12] Modified: web/src/screens/MyDeck.tsx, MyDeck.test.tsx — QA 1191: honour added:false with an "already in your deck" notice
+- [2026-11-12] Created: web/src/Credits.tsx, web/src/Credits.test.tsx — QA 1192: Wiktionary and Lexique attribution footer
+- [2026-11-12] Modified: web/src/App.tsx, web/src/styles.css — QA 1192: render Credits, style it
+- [2026-11-12] Created: app/content/data/NOTICE.md — QA 1192: data attribution and changes made
+- [2026-11-12] Modified: README.md — QA 1192: Credits section
+- [2026-11-12] Modified: qa/issues/1191,1192 (*.md) — status: done with Fix notes
+- [2026-11-12] Modified: qa/rounds/065-plan.md — appended round outcomes

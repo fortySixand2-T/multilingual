@@ -21,6 +21,7 @@ import Exam from "./screens/Exam";
 import Grammar from "./screens/Grammar";
 import Readiness from "./screens/Readiness";
 import WeakSpots from "./screens/WeakSpots";
+import Credits from "./Credits";
 
 export default function App() {
   const { authed, logout } = useAuth();
@@ -71,6 +72,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <Credits />
     </div>
     </SpeedProvider>
     </LevelProvider>

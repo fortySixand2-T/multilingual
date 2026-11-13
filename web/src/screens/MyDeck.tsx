@@ -13,6 +13,7 @@ export default function MyDeck() {
   const [preview, setPreview] = useState<PersonalEnrichment | null>(null);
   const [inCourse, setInCourse] = useState("");
   const [added, setAdded] = useState("");
+  const [already, setAlready] = useState<PersonalCard | null>(null);
   const [status, setStatus] = useState<"idle" | "looking" | "adding" | "over_budget">("idle");
 
   const load = () => api.myDeck().then((r) => setCards(r.cards)).catch((e) => setError(e.message));
@@ -27,6 +28,7 @@ export default function MyDeck() {
     setPreview(null);
     setInCourse("");
     setAdded("");
+    setAlready(null);
     setError("");
     try {
       const r = await api.personalPreview(w);
@@ -47,7 +49,7 @@ export default function MyDeck() {
     if (!preview?.en.trim()) return;
     setStatus("adding");
     try {
-      await api.personalAdd({
+      const r = await api.personalAdd({
         fr: preview.fr,
         en: preview.en,
         gender: preview.gender,
@@ -55,7 +57,9 @@ export default function MyDeck() {
         ipa: preview.ipa,
         source: "manual",
       });
-      setAdded(preview.fr);
+      // Adding is idempotent: a word already in the deck keeps its card and its meaning.
+      if (r.added) setAdded(preview.fr);
+      else setAlready(r.card);
       setPreview(null);
       setWord("");
       setStatus("idle");
@@ -105,6 +109,12 @@ export default function MyDeck() {
         )}
         {error && <div style={{ color: "var(--red, #c0392b)" }}>⚠️ {error}</div>}
         {added && <div style={{ color: "var(--green-dk)" }}>✅ Added “{added}” — it’s in your reviews now.</div>}
+
+        {already && (
+          <div className="muted">
+            ℹ️ “{already.fr}” is already in your deck (“{already.en}”) — nothing was changed.
+          </div>
+        )}
 
         {preview && (
           <div className="stack" style={{ gap: 8, borderTop: "1px solid var(--border,#333)", paddingTop: 10 }}>

@@ -14,11 +14,13 @@ the user_vocab table) and ride the same FSRS loop as content cards.
 
 from __future__ import annotations
 
+import unicodedata
 from datetime import date
+from typing import Annotated
 
 import anyio
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
-from pydantic import BaseModel, Field
+from pydantic import AfterValidator, BaseModel, Field
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.router import AIRouter
@@ -33,7 +35,7 @@ from app.content.lookup import (
     heal_gloss,
     heal_ipa,
     lookup_payload,
-    lookup_slug,
+    stored_lookup,
     voice_with_ipa,
 )
 from app.content.personal import (
@@ -57,8 +59,15 @@ router = APIRouter(prefix="/vocab/personal", tags=["personal-vocab"])
 _GENDER_TABLE = GenderTable.load()
 
 
+def _nfkc(word: str) -> str:
+    return unicodedata.normalize("NFKC", word)  # ligature glyphs (ﬁn) are letters (QA 1178)
+
+
+Word = Annotated[str, Field(min_length=1, max_length=80), AfterValidator(_nfkc)]
+
+
 class PreviewBody(BaseModel):
-    word: str = Field(min_length=1, max_length=80)
+    word: Word
 
 
 class AddBody(BaseModel):
@@ -197,7 +206,7 @@ async def add(
         raise HTTPException(
             status.HTTP_422_UNPROCESSABLE_ENTITY, "word has no letters to make a card from"
         ) from None
-    looked_up = await session.get(VocabLookup, lookup_slug(row.fr))
+    looked_up = await stored_lookup(session, row.fr)
     if created:  # IPA is Piper's, never the client's (QA 870); "" without a lookup row
         row.ipa = looked_up.ipa if looked_up else ""
     if row.audio_key is None:
@@ -208,7 +217,7 @@ async def add(
 
 
 class FromWordBody(BaseModel):
-    word: str = Field(min_length=1, max_length=80)
+    word: Word
     source: str = Field(default="speaking", max_length=32)
 
 
