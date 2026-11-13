@@ -78,6 +78,8 @@ for ortho in ortho_lemmas:
 OVERRIDES = {
     "fin": "f",
     "livre": "m",  # genre blank throughout Lexique; le livre (book) is dominant
+    "vase": "m",  # le vase (container); the silt sense is rare
+    "physique": "f",  # la physique (physics); the physique/build sense is rarer
     "enfant": "mf",
     "ami": "mf",
     "élève": "mf",
