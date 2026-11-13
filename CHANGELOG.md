@@ -772,3 +772,9 @@
 - [2026-11-12] Modified: tests/test_personal_vocab.py — QA 1175/1176/1178 regression tests
 - [2026-11-12] Modified: qa/issues/1175,1176,1178 (*.md) — status: done with Fix notes
 - [2026-11-12] Created: qa/rounds/065-plan.md — round 065 plan
+- [2026-11-12] Modified: web/src/screens/MyDeck.tsx, MyDeck.test.tsx — QA 1191: honour added:false with an "already in your deck" notice
+- [2026-11-12] Created: web/src/Credits.tsx, web/src/Credits.test.tsx — QA 1192: Wiktionary and Lexique attribution footer
+- [2026-11-12] Modified: web/src/App.tsx, web/src/styles.css — QA 1192: render Credits, style it
+- [2026-11-12] Created: app/content/data/NOTICE.md — QA 1192: data attribution and changes made
+- [2026-11-12] Modified: README.md — QA 1192: Credits section
+- [2026-11-12] Modified: qa/issues/1191,1192 (*.md) — status: done with Fix notes
