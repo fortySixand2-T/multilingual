@@ -56,3 +56,15 @@
 - Same root cause as another issue: file once, list examples inside.
 
 <!-- Outcomes appended below after the round. -->
+
+## Outcomes (post-round)
+- H1 confirmed: ~330 non-course words sampled, ~70 bad (function words, missing main meaning, junk second senses). 1144/1146 fixed in build_gloss_table.py; 1145 (junk extra senses) and 1147 (cosmetic) deferred.
+- H2 confirmed: ~230 lookups, ~40 bad. 1161 (pas), 1162 (bare adj homographs), 1163 (vase gender) fixed; 1160 (article ignored, lemma-keyed cache) and 1164 (plurals) deferred; 1165 rejected by critic (own-card only), 1166 rejected (designed).
+- H3 confirmed (5 defects): 1175 (shared cache poisoned by accented homographs; 1177 dup) and 1176 (course match folds accents; 1148 dup) fixed; 1181 (alternatives hidden) deferred, by design.
+- H4 mostly refuted (billing correct, dict words free over budget); 1180 (cached row refused over budget) deferred.
+- H5 refuted (heal_gloss same-pos only, user cards keep edits); 1179 rejected as dup of 1146.
+- H6 confirmed minor: 1191 (re-add says "Added") fixed; 1190 (long meaning raw error) deferred. H7 confirmed: 1192 (Wiktionary/Lexique attribution) fixed (UI credits, NOTICE, README).
+- H8 mostly refuted (from-word shares cache; plurals -> 1164 deferred). H9: no 500s; 1178 (junk billed/cached) fixed.
+- Filed 22 (1144-1148, 1160-1166, 1175-1181, 1190-1192): 10 validated and done (1144 1146 1161 1162 1163 1175 1176 1178 1191 1192), 4 rejected (1148 1165 1166 1177, plus 1179 = 5), 7 deferred (1145 1147 1160 1164 1180 1181 1190), 0 needs-info.
+- Fix branch fix/qa-065 (8c06d96, 6394ecb, 5075a34): pytest 444 passed 1 skipped, ruff clean, check_content OK, web tests 79 + build green.
+- Unreviewed follow-up: scripts/backfill_ipa.py poisoned-slug check may now flag accented-fr rows stored under a plain slug.
