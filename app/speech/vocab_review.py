@@ -25,6 +25,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.interfaces import LLMResult, Msg
+from app.content import lexicon
 from app.content.personal import personal_key
 from app.content.tables import ContentVocab, UserVocab
 from app.speech.tables import SpeechTurn
@@ -92,28 +93,33 @@ async def extract_review_words(
     return _parse_words(result.text), result
 
 
-def _norm(word: str) -> str:
-    """Normalize for matching: lowercase, strip a leading article, trim punctuation."""
+def _norm(word: str, *, article: bool = True) -> str:
+    """Normalize for matching: lowercase, strip a leading article (unless `article` is
+    False), trim punctuation."""
     w = word.strip().lower().replace("\u2019", "'").replace("\u2018", "'")  # QA 1020
-    for art in (
-        "de la ",
-        "de l'",
-        "l'",
-        "d'",
-        "le ",
-        "la ",
-        "les ",
-        "un ",
-        "une ",
-        "des ",
-        "du ",
-        "au ",
-        "aux ",
-    ):
+    for art in _ARTICLES if article else ():
         if w.startswith(art):
             w = w[len(art) :]
             break
     return w.strip(" .,;:!?\"'()")
+
+
+_ARTICLES = (
+    "de la ",
+    "de l'",
+    "l'",
+    "d'",
+    "le ",
+    "la ",
+    "les ",
+    "un ",
+    "une ",
+    "des ",
+    "du ",
+    "au ",
+    "aux ",
+)
+_PHRASES = {"d'accord"}  # "d'" here is no article: d'accord is not the word accord
 
 
 _LIGATURES = str.maketrans({"œ": "oe", "Œ": "oe", "æ": "ae", "Æ": "ae"})
@@ -179,20 +185,28 @@ async def resolve_to_vocab(
 
 
 async def find_content_match(session: AsyncSession, word: str) -> ContentVocab | None:
-    """Look up `word` against the shared content bank using the same normalized/
-    deaccented matching `resolve_new_words` uses. Lets other entry points (e.g.
+    """Look up `word` against the shared content bank. Lets other entry points (e.g.
     POST /vocab/personal/from-word, called directly rather than via the Speaking
     debrief) reject a word that already has a real ContentVocab entry instead of
-    silently minting a duplicate `uv:` personal card for it."""
-    n = _match_key(word)
+    silently minting a duplicate `uv:` personal card for it.
+
+    Accents the learner typed are never folded away (mûr is not mur). A word typed
+    without accents may still reach an accented course word (regle -> règle), unless the
+    spelling typed is itself the commoner word (sur, not sûr; QA 1176)."""
+    typed = _norm(word, article=False).replace("-", " ")
+    n = typed if typed in _PHRASES else _norm(word).replace("-", " ")
     if not n:
         return None
     rows = (await session.execute(select(ContentVocab))).scalars().all()
-    for r in rows:
-        fr = r.data.get("fr", "")
-        if fr and _match_key(fr) == n:
-            return r
-    return None
+    spelled = {_norm(r.data.get("fr", ""), article=False).replace("-", " "): r for r in rows}
+    if hit := spelled.get(typed) or spelled.get(n):
+        return hit
+    if n != _deaccent(n):  # typed accents are never folded away
+        return None
+    folded = next((r for r in rows if _match_key(r.data.get("fr", "")) == n), None)
+    if folded and lexicon.frequency(n) > lexicon.frequency(_norm(folded.data["fr"])):
+        return None
+    return folded
 
 
 async def resolve_new_words(

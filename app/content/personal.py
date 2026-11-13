@@ -34,9 +34,10 @@ def is_personal_key(card_key: str) -> bool:
 def normalize_lemma(fr: str) -> str:
     """The stored `fr` for a personal card: trimmed, with a leading article dropped so a
     direct API add matches what the preview flow (which enriches to a bare lemma) yields.
-    Raises EmptyLemmaError if nothing sluggable remains."""
-    fr = strip_leading_article(fr.strip())
-    if not slugify(fr):
+    NFKC folds ligature glyphs (ﬁn -> fin). Raises EmptyLemmaError if nothing sluggable
+    remains, or for digits: a number is no word, so it costs no model call (QA 1178)."""
+    fr = strip_leading_article(unicodedata.normalize("NFKC", fr).strip())
+    if not slugify(fr) or any(c.isdigit() for c in fr):
         raise EmptyLemmaError(fr)
     return fr
 

@@ -764,3 +764,11 @@
 - [2026-11-12] Modified: app/content/enrich.py — QA 1161: a dictionary entry keeps its own part of speech; Lexique corrects only the model's guess
 - [2026-11-12] Modified: tests/test_dictionary.py — QA 1144/1146/1161/1162/1163 regression tests (table rows, build rules, pos/gloss agreement, vase/physique gender)
 - [2026-11-12] Modified: qa/issues/1144,1146,1161,1162,1163 (*.md) — status: done with Fix notes
+- [2026-11-12] Modified: app/content/lexicon.py — QA 1176/1178: frequency() and known() helpers
+- [2026-11-12] Modified: app/content/lookup.py — QA 1175/1176: homograph spellings get their own cache row; an accented typo or a different word never reuses a plain row
+- [2026-11-12] Modified: app/content/personal.py — QA 1178: normalize_lemma applies NFKC and rejects digits/empty slugs
+- [2026-11-12] Modified: app/content/personal_api.py — QA 1175/1178: NFKC on request words, stored_lookup for cached rows
+- [2026-11-12] Modified: app/speech/vocab_review.py — QA 1176: course match never folds away typed accents
+- [2026-11-12] Modified: tests/test_personal_vocab.py — QA 1175/1176/1178 regression tests
+- [2026-11-12] Modified: qa/issues/1175,1176,1178 (*.md) — status: done with Fix notes
+- [2026-11-12] Created: qa/rounds/065-plan.md — round 065 plan

@@ -91,6 +91,16 @@ def usual_pos(word: str) -> str:
     return _entry(word)[0]
 
 
+def frequency(word: str) -> float:
+    """Occurrences per million words (films + books); 0 for a spelling Lexique lacks."""
+    return _entry(word)[1]
+
+
+def known(word: str) -> bool:
+    """True for a spelling Lexique has (or one it lacks but French writes: du, des)."""
+    return frequency(word) > 0 or word.lower() in _KEEP_AS_TYPED
+
+
 def form_note(word: str) -> str:
     """ "f.", "pl." or "f. pl." for an inflected adjective form (grandes), else ""."""
     return _entry(word)[2]

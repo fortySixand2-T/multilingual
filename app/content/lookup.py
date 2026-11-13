@@ -20,7 +20,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.interfaces import LLMResult
 from app.ai.router import AIRouter
-from app.content import dictionary
+from app.content import dictionary, lexicon
 from app.content.enrich import GenderTable, enrich, gloss
 from app.content.ipa import normalize_ipa
 from app.content.lexicon import respell
@@ -35,10 +35,34 @@ _PIPES = re.compile(r"\s*\|\s*")
 _LIGATURES = str.maketrans({"œ": "oe", "Œ": "oe", "æ": "ae", "Æ": "ae"})
 
 
-def lookup_slug(word: str) -> str:
-    """Cache key for a word: article-stripped ASCII slug (raises EmptyLemmaError).
-    Ligatures spell out first (œil -> oeil) so they can't fold into another word (il)."""
+def fold_slug(word: str) -> str:
+    """Accent-free article-stripped ASCII slug (raises EmptyLemmaError): the key every
+    spelling of a word shares. Ligatures spell out first (œil -> oeil) so they can't
+    fold into another word (il)."""
     return clamp_slug(slugify(normalize_lemma(word).translate(_LIGATURES)), 64)
+
+
+def is_word(text: str) -> bool:
+    """True for a spelling the dictionary or Lexique knows."""
+    return dictionary.entry(text) is not None or lexicon.known(text)
+
+
+def _own_word(typed: str) -> bool:
+    """True when `typed` is a word French spells just so, not a slip for an accented one
+    (ou, du: yes; eleve for élève: no)."""
+    low = typed.lower()
+    return is_word(low) and respell(low) == low
+
+
+def lookup_slug(word: str) -> str:
+    """Cache key for a word: its fold slug, except an accented spelling that is a word
+    of its own beside an accent-free one (où / ou, dû / du) gets a key of its own, so
+    neither overwrites the other for every learner (QA 1175)."""
+    slug = fold_slug(word)
+    typed = normalize_lemma(word).lower()
+    if accent_count(typed) and is_word(typed) and is_word(lexicon.fold(typed)):
+        return clamp_slug(f"{slug}_{typed.encode().hex()}", 64)
+    return slug
 
 
 def accent_count(text: str) -> int:
@@ -46,12 +70,29 @@ def accent_count(text: str) -> int:
 
 
 async def cached_lookup(session: AsyncSession, word: str) -> VocabLookup | None:
-    """The shared row for `word`, unless it holds a worse-accented spelling than the one
-    typed (row "ete", typed "été"): then it's a miss and the lookup re-runs (QA 890)."""
+    """The shared row for `word`, unless it holds another spelling of it than the one
+    typed: a worse-accented one (row "ete", typed "été": QA 890), or any other when the
+    typed spelling is a word itself (row "où", typed "ou": QA 1175). Then it's a miss and
+    the lookup re-runs."""
     row = await session.get(VocabLookup, lookup_slug(word))
-    if row is not None and accent_count(normalize_lemma(word)) > accent_count(row.fr):
+    if row is None:
+        return None
+    typed = normalize_lemma(word)
+    if accent_count(typed) > accent_count(row.fr) or (
+        typed.lower() != row.fr.lower() and _own_word(typed)
+    ):
         return None
     return row
+
+
+async def stored_lookup(session: AsyncSession, fr: str) -> VocabLookup | None:
+    """The shared row holding the headword `fr`, found under its own key or, when it was
+    looked up accent-free ("cote" -> côté), under the fold slug."""
+    for slug in (lookup_slug(fr), fold_slug(fr)):
+        row = await session.get(VocabLookup, slug)
+        if row is not None and row.fr == fr:
+            return row
+    return None
 
 
 def _headword(typed: str, proposed: str) -> str:
@@ -63,7 +104,7 @@ def _headword(typed: str, proposed: str) -> str:
     if not proposed or len(proposed) > 128:
         return typed
     try:
-        same = lookup_slug(proposed) == lookup_slug(typed)
+        same = fold_slug(proposed) == fold_slug(typed)
     except ValueError:  # EmptyLemmaError
         return typed
     proposed = normalize_lemma(proposed)
