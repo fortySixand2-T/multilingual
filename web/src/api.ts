@@ -269,6 +269,8 @@ export type CompSetSummary = {
   time_limit_seconds: number | null;
   allow_replay: boolean;
   questions: number;
+  exam: "tef" | "tcf";
+  topic: string | null;
 };
 export type CompQuestion = { id: string; prompt: string; options: string[] };
 export type CompSetView = {

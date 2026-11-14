@@ -792,3 +792,10 @@
 - [2026-11-14] Modified: web/src/api.ts — VocabCard verb_group, conjugation
 - [2026-11-14] Modified: web/src/styles.css — conjugation table styles
 - [2026-11-14] Modified: web/src/screens/Deck.test.tsx — verb deck test
+- [2026-11-14] Modified: app/comprehension/models.py — `exam` (tef/tcf) and `topic` on comprehension sets; a TCF set needs a topic and four choices per question
+- [2026-11-14] Modified: app/comprehension/api.py — set list carries `exam` and `topic`
+- [2026-11-14] Created: content/b1/comprehension/tcf-b1-{logement,travail,sante,environnement,consommation,demarches}.yaml — six B1 TCF reading sets: four short documents per topic, one question each, four choices
+- [2026-11-14] Modified: tests/test_comprehension.py — TCF validation and list fields
+- [2026-11-14] Modified: web/src/api.ts — CompSetSummary gains `exam` and `topic`
+- [2026-11-14] Modified: web/src/screens/Comprehension.tsx — a "TCF reading" group, each set labelled with its topic
+- [2026-11-14] Created: web/src/screens/Comprehension.test.tsx — TCF sets are grouped apart from TEF reading

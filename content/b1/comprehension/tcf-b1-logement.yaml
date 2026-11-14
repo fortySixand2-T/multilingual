@@ -1,0 +1,75 @@
+id: tcf-b1-logement
+level: b1
+skill: reading
+exam: tcf
+topic: logement
+title: "TCF · Se loger"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Document 1 — Avis dans le hall de l'immeuble
+
+  Madame, Monsieur, des travaux de plomberie auront lieu le mardi 12 mars de 9 h à
+  13 h. L'eau sera coupée dans tout l'immeuble pendant ces heures. Merci de ne pas
+  utiliser la machine à laver ce matin-là. Le concierge reste disponible au
+  rez-de-chaussée pour toute question.
+
+  Document 2 — Petite annonce
+
+  Chambre en colocation dans un grand appartement près du métro, 550 $ par mois,
+  charges comprises (chauffage, électricité, Internet). Cuisine et salon partagés
+  avec deux étudiantes. Disponible le 1er juillet. Dépôt de garantie d'un mois.
+  Pas d'animaux.
+
+  Document 3 — Courriel d'une propriétaire
+
+  Bonjour Monsieur Diallo, je vous confirme notre rendez-vous de vendredi pour
+  l'état des lieux de sortie. Je vérifierai les murs, le plancher et les appareils
+  de la cuisine. Si tout est en bon état, je vous rembourserai la caution dans les
+  quinze jours. Pensez à laisser les clés et à me donner votre nouvelle adresse.
+
+  Document 4 — Extrait d'un article
+
+  Dans les grandes villes, de plus en plus de jeunes choisissent la colocation.
+  Le loyer coûte souvent trop cher pour une seule personne, et partager un
+  logement permet aussi de rompre la solitude. Pourtant, la vie à plusieurs
+  demande des règles claires : qui paie les factures, qui fait le ménage, qui peut
+  inviter des amis. Selon une association de locataires, la plupart des conflits
+  naissent non pas de l'argent, mais de petites habitudes du quotidien.
+questions:
+  - id: tcf-b1-logement.q1
+    prompt: "Document 1 : que demande-t-on aux habitants de l'immeuble ?"
+    options:
+      - "De ne pas faire de lessive mardi matin"
+      - "De quitter leur appartement pendant les travaux"
+      - "D'aider le concierge au rez-de-chaussée"
+      - "De réparer eux-mêmes leur plomberie"
+    answer: "De ne pas faire de lessive mardi matin"
+    explain: "« Merci de ne pas utiliser la machine à laver ce matin-là »."
+  - id: tcf-b1-logement.q2
+    prompt: "Document 2 : qu'est-ce qui est inclus dans le prix de la chambre ?"
+    options:
+      - "Le chauffage, l'électricité et Internet"
+      - "Les repas préparés par les colocataires"
+      - "Le dépôt de garantie"
+      - "Une place pour un animal"
+    answer: "Le chauffage, l'électricité et Internet"
+    explain: "« charges comprises (chauffage, électricité, Internet) »."
+  - id: tcf-b1-logement.q3
+    prompt: "Document 3 : à quelle condition M. Diallo récupérera-t-il sa caution ?"
+    options:
+      - "Si le logement est en bon état"
+      - "S'il trouve un nouveau locataire"
+      - "S'il paie le loyer de vendredi"
+      - "S'il garde les clés quinze jours"
+    answer: "Si le logement est en bon état"
+    explain: "« Si tout est en bon état, je vous rembourserai la caution »."
+  - id: tcf-b1-logement.q4
+    prompt: "Document 4 : d'après l'association, d'où viennent la plupart des disputes entre colocataires ?"
+    options:
+      - "Des petites habitudes de tous les jours"
+      - "Du partage des factures"
+      - "Du prix trop élevé du loyer"
+      - "De la solitude des jeunes"
+    answer: "Des petites habitudes de tous les jours"
+    explain: "« la plupart des conflits naissent non pas de l'argent, mais de petites habitudes du quotidien »."
