@@ -4,7 +4,7 @@ title: Typed article (le/la/un/une) is ignored by My deck lookup for course word
 severity: medium
 area: content
 persona: exam-crammer
-status: deferred
+status: done
 found: 2026-11-12
 ---
 
@@ -37,3 +37,6 @@ Course-bank words also lose mf/gender-by-meaning (enfant, collègue only m). Roo
 - Challenge: Article-aware homograph resolution is a design change (cache key + course short-circuit); bare-word users get the usual reading.
 - Holds up? Deferral holds. The learner-visible parts that matter are covered by 1161-1163; revisit after those.
 - Final verdict: deferred
+
+## Resolution (2026-11-14)
+A typed article now picks the reading. find_content_match skips a course card when the article asks for a noun the card isn't, or for the other gender (la mémoire vs the course's le mémoire). The dictionary keeps a noun:m / noun:f gloss for nouns whose meaning depends on gender (la tour "tower", le tour "turn"), and enrich passes the typed gender through. The lookup cache keys these as tour__nf / tour__nm (pas__n for "le pas"), so the first person to look a word up no longer fixes its reading for everyone. scripts/backfill_ipa.py accepts noun keys. Tests: test_a_typed_article_picks_the_gendered_meaning, test_a_typed_article_of_the_other_gender_skips_the_course_card.

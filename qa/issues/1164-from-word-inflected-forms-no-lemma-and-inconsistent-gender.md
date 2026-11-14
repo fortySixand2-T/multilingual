@@ -4,7 +4,7 @@ title: Speaking /from-word: plurals of course words make new cards with differen
 severity: low
 area: content
 persona: exam-crammer
-status: deferred
+status: done
 found: 2026-11-12
 ---
 
@@ -36,3 +36,6 @@ find_content_match matches only exact lemma; the lookup does not lemmatise. Pari
 - Challenge: Needs a lemmatiser; direct-API edge for plurals.
 - Holds up? Deferral holds; out of scope for PR #139.
 - Final verdict: deferred
+
+## Resolution (2026-11-14)
+fr_forms gains a singular column (from Lexique's lemme for NOM rows). preview and from-word look a plural noun up as its singular: livres -> livre (the course card, so from-word returns 422 instead of minting a duplicate) and les enfants -> enfant. Plural-only or plural-meaning words stay as typed: vacances, lunettes, cheveux, fils. Test: test_plurals_are_looked_up_as_their_singular.

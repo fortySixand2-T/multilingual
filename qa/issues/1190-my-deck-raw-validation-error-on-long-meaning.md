@@ -4,7 +4,7 @@ title: My deck shows raw "en: String should have at most 255 characters" when th
 severity: low
 area: web
 persona: absolute-beginner
-status: deferred
+status: done
 found: 2026-11-12
 ---
 
@@ -33,3 +33,6 @@ Dictionary-supplied glosses are short (<30 chars sampled), so this only affects 
 - Challenge: Only reachable by pasting >255 characters into the meaning edit; dictionary glosses are short. Theoretical for learners; the error, while jargon-y, is still shown and nothing is lost.
 - Holds up? No. Rare hand-edit path; not worth a change now.
 - Final verdict: deferred
+
+## Resolution (2026-11-14)
+The meaning field in My deck has maxLength 255 (the server's limit) and shows a character counter within 30 characters of the limit, so the raw validation error can't come back. Test: MyDeck.test.tsx.

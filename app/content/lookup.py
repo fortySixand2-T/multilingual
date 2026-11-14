@@ -21,7 +21,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.ai.interfaces import LLMResult
 from app.ai.router import AIRouter
 from app.content import dictionary, lexicon
-from app.content.enrich import GenderTable, enrich, gloss
+from app.content.enrich import GenderTable, article_gender, enrich, gloss, strip_leading_article
 from app.content.ipa import normalize_ipa
 from app.content.lexicon import respell
 from app.content.personal import clamp_slug, normalize_lemma, slugify
@@ -54,15 +54,31 @@ def _own_word(typed: str) -> bool:
     return is_word(low) and respell(low) == low
 
 
+def _noun_key(word: str) -> str:
+    """The key suffix for a word typed with an article when that changes the answer:
+    "__n" for a noun whose bare word is read otherwise (un pas: step, pas: not), "__nm"
+    / "__nf" for a noun whose gender changes its meaning (la tour, le tour; QA 1160).
+    "" otherwise, so "le vélo" and "vélo" share one row."""
+    lemma = strip_leading_article(word).lower()
+    bare = dictionary.entry(lemma) if lemma != word.strip().lower() else None
+    if bare is None:
+        return ""
+    if (said := article_gender(word)) and dictionary.has_genders(lemma):
+        return f"__n{said}"
+    return "__n" if bare["pos"] != "noun" else ""
+
+
 def lookup_slug(word: str) -> str:
     """Cache key for a word: its fold slug, except an accented spelling that is a word
     of its own beside an accent-free one (où / ou, dû / du) gets a key of its own, so
-    neither overwrites the other for every learner (QA 1175)."""
+    neither overwrites the other for every learner (QA 1175), and a typed article that
+    changes the reading gets one too (`_noun_key`). Slugs never hold "__", so no word's
+    key can be another's."""
     slug = fold_slug(word)
     typed = normalize_lemma(word).lower()
     if accent_count(typed) and is_word(typed) and is_word(lexicon.fold(typed)):
-        return clamp_slug(f"{slug}_{typed.encode().hex()}", 64)
-    return slug
+        slug = f"{slug}_{typed.encode().hex()}"
+    return clamp_slug(slug + _noun_key(word), 64)
 
 
 def accent_count(text: str) -> int:
@@ -87,11 +103,13 @@ async def cached_lookup(session: AsyncSession, word: str) -> VocabLookup | None:
 
 async def stored_lookup(session: AsyncSession, fr: str) -> VocabLookup | None:
     """The shared row holding the headword `fr`, found under its own key or, when it was
-    looked up accent-free ("cote" -> côté), under the fold slug."""
+    looked up accent-free ("cote" -> côté) or with an article (la tour), under the fold
+    slug or a noun key."""
     for slug in (lookup_slug(fr), fold_slug(fr)):
-        row = await session.get(VocabLookup, slug)
-        if row is not None and row.fr == fr:
-            return row
+        for key in (slug, *(clamp_slug(slug + k, 64) for k in ("__n", "__nm", "__nf"))):
+            row = await session.get(VocabLookup, key)
+            if row is not None and row.fr == fr:
+                return row
     return None
 
 

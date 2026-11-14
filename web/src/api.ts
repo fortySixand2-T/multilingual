@@ -477,7 +477,12 @@ export const api = {
 
   // Personal decks (Slice E): preview a word's dictionary entry, add it, list "My deck".
   personalPreview: (word: string) =>
-    req<{ enrichment: PersonalEnrichment | null; over_budget?: boolean; in_course?: string }>(
+    req<{
+      enrichment: PersonalEnrichment | null;
+      over_budget?: boolean;
+      in_course?: string;
+      also?: { fr: string; en: string }[];
+    }>(
       "/vocab/personal/preview",
       { method: "POST", body: JSON.stringify({ word }) }
     ),

@@ -39,6 +39,11 @@ def _spellings() -> dict[str, list[str]]:
     return spellings
 
 
+def has_genders(word: str) -> bool:
+    """True for a noun whose gender changes its meaning (tour, livre, poêle)."""
+    return "noun:m" in _entries().get(word.strip().lower(), {})
+
+
 def ambiguous(typed: str) -> bool:
     """True when `typed` is no word itself but its accents could make several ("peche":
     pêche, péché), so the spelling must be chosen before the meaning."""
@@ -46,13 +51,29 @@ def ambiguous(typed: str) -> bool:
     return word not in _entries() and len(_spellings().get(lexicon.fold(word), ())) > 1
 
 
-def entry(word: str, *, pos: str = "") -> dict | None:
+def alternatives(typed: str, chosen: str) -> list[dict]:
+    """The other words `typed` could be with accents when it was typed with none
+    ("peche" looked up as pêche: péché "sin"), as [{"fr", "en"}], so the learner sees
+    them and can pick one (QA 1181). [] for a word typed with accents: that's a choice."""
+    word = typed.strip().lower()
+    if lexicon.fold(word) != word:
+        return []
+    others = (entry(w) for w in _spellings().get(word, ()) if w != chosen.strip().lower())
+    return [{"fr": e["fr"], "en": e["en"]} for e in others if e][:3]
+
+
+def entry(word: str, *, pos: str = "", gender: str = "") -> dict | None:
     """{"fr", "en", "pos", "gender"}, shaped like the model's proposal, or None when
     the dictionary doesn't have the word (or not as `pos`). Without `pos`, the reading
-    Lexique says the word usually has (pendant -> preposition), else Wiktionary's first."""
+    Lexique says the word usually has (pendant -> preposition), else Wiktionary's first.
+    A noun's `gender` (from a typed article) picks the meaning that goes with it when
+    gender changes it: la tour "tower", le tour "turn" (QA 1160)."""
     by_pos = _entries().get(word.strip().lower())
     if not by_pos:
         return None
+    if pos == "noun" and f"noun:{gender}" in by_pos:
+        g, en = by_pos[f"noun:{gender}"]
+        return {"fr": word.strip(), "en": en, "pos": "noun", "gender": g}
     if not pos:
         usual = lexicon.usual_pos(word)
         pos = usual if usual in by_pos else next(iter(by_pos))

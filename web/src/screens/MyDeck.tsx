@@ -3,6 +3,8 @@ import { api, PersonalCard, PersonalEnrichment } from "../api";
 import AudioButton from "../AudioButton";
 import WordDetail from "./WordDetail";
 
+const MAX_MEANING = 255; // the server's limit on a card's meaning
+
 // "My deck": a learner's own vocab cards. Add a word → look it up (meaning, gender,
 // IPA, pronunciation — cached server-side, so repeats are instant) → hear it, fix the
 // meaning if needed → add; it's stored and enters the normal review queue.
@@ -12,6 +14,7 @@ export default function MyDeck() {
   const [word, setWord] = useState("");
   const [preview, setPreview] = useState<PersonalEnrichment | null>(null);
   const [inCourse, setInCourse] = useState("");
+  const [also, setAlso] = useState<{ fr: string; en: string }[]>([]);
   const [added, setAdded] = useState("");
   const [already, setAlready] = useState<PersonalCard | null>(null);
   const [status, setStatus] = useState<"idle" | "looking" | "adding" | "over_budget">("idle");
@@ -21,12 +24,14 @@ export default function MyDeck() {
     load();
   }, []);
 
-  const lookup = async () => {
-    const w = word.trim();
+  const lookup = async (typed = word) => {
+    const w = typed.trim();
     if (!w) return;
+    setWord(w);
     setStatus("looking");
     setPreview(null);
     setInCourse("");
+    setAlso([]);
     setAdded("");
     setAlready(null);
     setError("");
@@ -38,6 +43,7 @@ export default function MyDeck() {
       }
       setPreview(r.enrichment);
       setInCourse(r.in_course ?? "");
+      setAlso(r.also ?? []);
       setStatus("idle");
     } catch (e) {
       setError((e as Error).message || "Lookup failed — please try again.");
@@ -94,7 +100,7 @@ export default function MyDeck() {
             onChange={(e) => setWord(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && lookup()}
           />
-          <button className="btn" onClick={lookup} disabled={status === "looking" || !word.trim()}>
+          <button className="btn" onClick={() => lookup()} disabled={status === "looking" || !word.trim()}>
             {status === "looking" ? "Looking up…" : "Look up"}
           </button>
         </div>
@@ -124,6 +130,21 @@ export default function MyDeck() {
               {preview.audio_url && <AudioButton audioUrl={preview.audio_url} label="🔊" slow />}
             </div>
             {ipaLine(preview.ipa)}
+            {also.length > 0 && (
+              // Typed without accents, the word could be another (peche: pêche or péché).
+              <div className="muted" style={{ fontSize: 13 }}>
+                Did you mean{" "}
+                {also.map((a, i) => (
+                  <span key={a.fr}>
+                    {i > 0 && " or "}
+                    <button className="btn secondary" style={{ padding: "2px 8px" }} onClick={() => lookup(a.fr)}>
+                      {a.fr} <span className="muted">({a.en})</span>
+                    </button>
+                  </span>
+                ))}
+                ?
+              </div>
+            )}
             {inCourse ? (
               <>
                 <div className="muted">{preview.en}</div>
@@ -140,8 +161,14 @@ export default function MyDeck() {
                     className="text-input"
                     style={{ width: "100%" }}
                     value={preview.en}
+                    maxLength={MAX_MEANING}
                     onChange={(e) => setPreview({ ...preview, en: e.target.value })}
                   />
+                  {preview.en.length >= MAX_MEANING - 30 && (
+                    <span>
+                      {preview.en.length}/{MAX_MEANING} characters — keep the meaning short.
+                    </span>
+                  )}
                 </label>
                 <div className="btn-row" style={{ gap: 8 }}>
                   <button className="btn" onClick={add} disabled={status === "adding" || !preview.en.trim()}>

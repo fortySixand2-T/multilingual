@@ -2,10 +2,11 @@
 extract of French: a short English meaning for every common French word.
 
 One line per (word, part of speech), in Wiktionary's order:
-`<word>\t<pos>\t<gender>\t<gloss>`. A word is kept when Lexique sees it at least once
-per million words (app/content/data/fr_forms.tsv.gz); a sense is kept when it is a
-current, neutral meaning (no form-of, slang, archaic …) that reads as a translation
-of three words or fewer ("peach", "to eat"), not a definition (a definition is cut
+`<word>\t<pos>\t<gender>\t<gloss>`, plus `noun:m` / `noun:f` lines for a noun whose
+gender changes its meaning (tour: f "tower", m "turn"). A word is kept when Lexique
+sees it at least once per million words (app/content/data/fr_forms.tsv.gz); a sense is
+kept when it is a current, neutral meaning (no form-of, slang, archaic …) that reads
+as a translation of three words or fewer ("peach", "to eat"), not a definition (a definition is cut
 where it starts describing: "hammer used for pounding" -> "hammer"). A word's parts of
 speech come most frequent first, by Lexique when imports/Lexique383.tsv is there. My
 deck's lookup uses it instead of the local model, which got two-meaning words wrong
@@ -109,6 +110,11 @@ _PAREN = re.compile(r"\s*\(([^()]*)\)")
 _SPLIT = re.compile(r"\s*[,;]\s*")
 _ARTICLE = re.compile(r"^(?:a|an|the) ", re.I)
 _DESCRIPTION = re.compile(r"(?:a|an|the|used|that|which|who|where)\b", re.I)
+_TAIL = re.compile(
+    r"(?:or|and|in particular|especially|specifically|usually|typically|often|chiefly|mainly) "
+    r"|in particular$|(?:synonym|alternative|variant) of\b",
+    re.I,
+)
 _LABEL = re.compile(r"^\([^()]*\)\s*")  # "(climbing) to climb"
 _DESCRIBES = re.compile(r"\s+(?:used|that|which|who|whose|where|placed|in which)\b.*")
 # a bracket that isn't a short note, a binomial (Allium cepa) or a spelling note (color/colour)
@@ -124,8 +130,7 @@ def _clean(piece: str) -> bool:
     """No list tail ("or privately hired", "usually pear-shaped"), label ("Audio: …") or
     broken bracket."""
     return (
-        not re.match(r"(?:or|and|in particular|especially|specifically|usually|typically|often|chiefly|mainly)\b", piece, re.I)
-        and not re.match(r"(?:synonym|alternative|variant) of\b", piece)
+        not _TAIL.match(piece)
         and not re.search(r"[:“”\[\]]", piece)
         and piece.count("(") == piece.count(")")
     )
@@ -233,7 +238,7 @@ def main(src: Path) -> None:
     common = set()
     with gzip.open(DATA / "fr_forms.tsv.gz", "rt", encoding="utf-8") as f:
         for line in f:
-            form, _, freq, _ = line.rstrip("\n").split("\t")
+            form, _, freq, *_ = line.rstrip("\n").split("\t")
             if float(freq) >= MIN_FREQ:
                 common.add(form)
     # (word, pos) -> [(gender, senses)] per Wiktionary entry
@@ -254,10 +259,16 @@ def main(src: Path) -> None:
                     senses[i] = [_normal(t, word, pos, _sentence(text)) for t in found_t]
             if any(senses.values()):
                 found.setdefault((word, pos), []).append((_gender(tags), senses))
-    rows = {}
+    rows, by_gender = {}, {}
     for (word, pos), entries in found.items():
         if text := gloss([senses for _, senses in entries], word):
             rows[word, pos] = (entries[0][0], text)
+        # A noun whose gender changes its meaning (la tour "tower", le tour "turn") also
+        # gets a row per gender, for a lookup typed with an article (QA 1160).
+        if pos == "noun" and {"m", "f"} <= {g for g, _ in entries}:
+            for g in "mf":
+                if text := gloss([senses for eg, senses in entries if eg == g], word):
+                    by_gender[word, f"noun:{g}"] = (g, text)
     rows |= OVERRIDES
     freq = _lexique_freq()
     first = {word: i for i, word in enumerate(dict.fromkeys(w for w, _ in rows))}
@@ -269,6 +280,8 @@ def main(src: Path) -> None:
             -freq[k],
         ),
     )
+    rows |= by_gender  # after each word's plain rows, which stay its default reading
+    ordered += sorted(by_gender, key=lambda k: first.get(k[0], len(first)))
     lines = [f"{w}\t{p}\t{rows[w, p][0]}\t{rows[w, p][1]}\n" for w, p in ordered]
     with gzip.open(OUT, "wt", encoding="utf-8", compresslevel=9) as f:
         f.writelines(lines)

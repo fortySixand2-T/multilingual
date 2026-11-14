@@ -4,7 +4,7 @@ title: Accentless typing of ambiguous words silently picks one spelling (peche, 
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-11-12
 ---
 
@@ -34,3 +34,6 @@ dictionary.ambiguous() + respell; low severity. Healing checks passed: same-pos-
 - Challenge: Enhancement (show alternatives), not a defect.
 - Holds up? Deferral holds.
 - Final verdict: deferred
+
+## Resolution (2026-11-14)
+preview now returns an "also" list: the other dictionary words that an accentless spelling could be ("peche" -> péché "sin"). My deck shows them as "Did you mean …?" buttons that look the word up again. Tests: test_accentless_typing_offers_the_other_words, MyDeck.test.tsx.

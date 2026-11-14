@@ -865,3 +865,65 @@ def test_non_words_cost_no_model_call_and_are_not_cached():
     assert enr["fr"] == "fin"
     plain = client.post("/vocab/personal/preview", json={"word": "fin"}).json()["enrichment"]
     assert plain["fr"] == "fin" and router.calls == ["vocab_enrich"]
+
+
+def test_over_budget_accented_typing_reaches_the_cached_row():
+    """QA 1180: "zebu" is cached; typing zébu over budget reads it rather than refusing."""
+
+    async def seed():
+        async with _Session() as s:
+            s.add(VocabLookup(slug="zebu", fr="zebu", en="zebu (humped ox)", pos="noun", ipa=""))
+            await s.commit()
+
+    _run(seed())
+    client, _ = _client(uid=95)
+    _burn_budget(95)
+    enr = client.post("/vocab/personal/preview", json={"word": "zébu"}).json()["enrichment"]
+    assert enr["en"] == "zebu (humped ox)"
+
+
+def test_plurals_are_looked_up_as_their_singular():
+    """QA 1164: livres is the course's livre, les enfants a card for enfant; plural-only
+    words (vacances) stay as typed."""
+    from app.content.tables import ContentVocab
+
+    async def seed():
+        async with _Session() as s:
+            data = {"id": "q_livre", "fr": "livre", "en": "book", "gender": "m", "audio": ""}
+            s.add(ContentVocab(id="q_livre", level="a1", data=data))
+            await s.commit()
+
+    _run(seed())
+    client, _ = _client(uid=96, router=FakeRouter({"en": "x", "pos": "noun"}))
+
+    def preview(word):
+        return client.post("/vocab/personal/preview", json={"word": word}).json()
+
+    assert preview("livres")["in_course"] == "a1"
+    assert preview("les enfants")["enrichment"]["fr"] == "enfant"
+    assert preview("vacances")["enrichment"]["fr"] == "vacances"
+    r = client.post("/vocab/personal/from-word", json={"word": "livres"})
+    assert r.status_code == 422  # no second card for a course word
+
+
+def test_a_typed_article_of_the_other_gender_skips_the_course_card():
+    """QA 1160: the course's mémoire is le mémoire "thesis"; la mémoire is memory."""
+    from app.content.tables import ContentVocab
+
+    async def seed():
+        async with _Session() as s:
+            data = {"id": "q_memoire", "fr": "mémoire", "en": "thesis", "gender": "m"}
+            s.add(ContentVocab(id="q_memoire", level="b1", data={**data, "audio": ""}))
+            await s.commit()
+
+    _run(seed())
+    client, _ = _client(uid=97, router=FakeRouter({"en": "memory", "pos": "noun"}))
+
+    def preview(word):
+        return client.post("/vocab/personal/preview", json={"word": word}).json()
+
+    assert preview("le mémoire")["in_course"] == "b1"
+    assert preview("mémoire")["in_course"] == "b1"
+    other = preview("la mémoire")
+    assert "in_course" not in other and other["enrichment"]["en"] == "memory"
+    assert other["enrichment"]["fr"] == "mémoire"  # the headword, stored under a noun key

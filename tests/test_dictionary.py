@@ -39,7 +39,8 @@ def test_gloss_takes_each_entrys_first_sense_first_without_repeats():
     fishing = {0: ["fishing", "angling"]}
     assert gloss([peach, fishing]) == "peach, fishing, angling"
     assert gloss([{0: ["to remove", "take off"], 1: ["to take off"]}]) == "to remove, take off"
-    assert gloss([{0: ["law (legal code)"], 1: ["law (scientific principle)"]}]) == "law (legal code)"
+    law = {0: ["law (legal code)"], 1: ["law (scientific principle)"]}
+    assert gloss([law]) == "law (legal code)"
 
 
 def test_extra_senses_must_be_everyday_and_near_the_top():
@@ -140,3 +141,21 @@ def test_pos_stays_the_dictionarys_when_the_gloss_is_for_it():
     assert (pas.pos, pas.en) == ("adverb", "not")
     assert asyncio.run(_enrich("le pas")).pos == "noun"
     assert asyncio.run(_enrich("son")).pos == "adjective"
+
+
+def test_a_typed_article_picks_the_gendered_meaning():
+    """QA 1160: la tour is a tower, le tour a turn; the lookup keys keep them apart."""
+    from app.content.lookup import lookup_slug
+
+    assert dictionary.entry("tour", pos="noun", gender="f")["en"].startswith("tower")
+    assert dictionary.entry("tour", pos="noun", gender="m")["en"].startswith("turn")
+    assert (lookup_slug("la tour"), lookup_slug("le tour")) == ("tour__nf", "tour__nm")
+    assert lookup_slug("le vélo") == lookup_slug("vélo")  # an article that changes nothing
+    assert lookup_slug("le pas") == "pas__n"  # the noun, not the adverb
+
+
+def test_accentless_typing_offers_the_other_words():
+    """QA 1181: peche looked up as pêche still shows péché "sin"."""
+    assert "péché" in [a["fr"] for a in dictionary.alternatives("peche", "pêche")]
+    assert dictionary.alternatives("pêche", "pêche") == []  # typed accents are a choice
+    assert dictionary.alternatives("maison", "maison") == []

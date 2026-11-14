@@ -4,7 +4,7 @@ title: My deck preview: glosses add rare/wrong extra senses next to the right on
 severity: medium
 area: content
 persona: returning-learner
-status: deferred
+status: done
 found: 2026-11-12
 ---
 
@@ -40,3 +40,6 @@ Root cause: gloss() takes the first sense of each same-pos entry (homograph entr
 - Challenge: Main meaning is present in most listed cases (strawberry, salmon, rat, bean); the extra sense is noise the learner can edit away. Any fix is a heuristic on which homograph entry is 'common' that needs data we do not have, with real risk of dropping legitimate second senses (pêche). Items where the main meaning is lost (rang, file, réclamer, bouquin) are really 1146.
 - Holds up? Partly. Cosmetic/noise rather than a wrong card; the genuinely wrong cases belong to 1146. Not worth a heuristic now.
 - Final verdict: deferred
+
+## Resolution (2026-11-14)
+The gloss build (scripts/build_gloss_table.py) now admits a sense after the first only when every English word in it is everyday (wordfreq zipf >= 3.0). It skips figurative, literary, reflexive and regional senses. Senses are numbered among the usable ones, so a definition that can't be used still holds its place. Results: fraise "strawberry", foule "crowd", plaindre "to pity", file "line, queue". Tests: test_extra_senses_must_be_everyday_and_near_the_top.

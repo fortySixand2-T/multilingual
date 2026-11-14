@@ -4,7 +4,7 @@ title: Over budget, typing the correctly accented spelling of an already cached 
 severity: low
 area: content
 persona: edge-case-breaker
-status: deferred
+status: done
 found: 2026-11-12
 ---
 
@@ -33,3 +33,6 @@ cached_lookup treats the row as a miss because accent_count(typed) > accent_coun
 - Challenge: Narrow: over budget AND model-only word AND typed accents the cached row lacks; the message is wrong but harm is tiny.
 - Holds up? Doesn't justify its own change. If the 1175 cache rework stops treating accent-count differences as misses, this disappears; re-test then.
 - Final verdict: deferred
+
+## Resolution (2026-11-14)
+When over budget, _lookup falls back to a free DB read of the word's fold-slug row, so zébu returns the cached "zebu" row instead of over_budget. Test: test_over_budget_accented_typing_reaches_the_cached_row.

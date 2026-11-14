@@ -27,10 +27,12 @@ from app.ai.router import AIRouter
 from app.api.auth import get_current_user
 from app.api.deps import get_ai_router, get_storage
 from app.config.settings import Settings, get_settings
+from app.content import dictionary, lexicon
 from app.content.api import card_audio_key
-from app.content.enrich import GenderTable
+from app.content.enrich import GenderTable, strip_leading_article
 from app.content.lookup import (
     cached_lookup,
+    fold_slug,
     fresh_lookup,
     heal_gloss,
     heal_ipa,
@@ -119,7 +121,20 @@ async def _lookup(
             session, user.id, "vocab", llm.usage.input_tokens, llm.usage.output_tokens, date.today()
         )
     await session.commit()
+    if row is None and over_budget:  # zébu typed, "zebu" cached: a DB read is free (QA 1180)
+        row = await session.get(VocabLookup, fold_slug(word))
     return row, over_budget and row is None
+
+
+def _singular(word: str) -> str:
+    """A plural noun as the word a card is for: livres -> livre, les enfants -> enfant
+    (QA 1164), so it finds the course card or shares the singular's lookup. Les / des
+    say nothing about gender, so they go too."""
+    head, _, last = word.strip().rpartition(" ")
+    one = lexicon.singular(last)
+    if one == last or head.lower() not in ("", "les", "des"):
+        return word
+    return one
 
 
 def _not_found(word: str) -> HTTPException:
@@ -143,10 +158,12 @@ async def preview(
     """Look a French word up (meaning, gender, IPA, pronunciation) for the learner to
     review before adding. A word already in the course vocab is returned from the content
     bank as `in_course` (no model call, nothing to add — it's in their reviews already)."""
-    match = await find_content_match(session, body.word)
+    word = _singular(body.word)
+    match = await find_content_match(session, word)
     if match is not None:
         d = match.data
         return {
+            "also": dictionary.alternatives(strip_leading_article(word), d.get("fr", "")),
             "enrichment": {
                 "fr": d.get("fr", ""),
                 "en": d.get("en", ""),
@@ -158,14 +175,13 @@ async def preview(
             },
             "in_course": match.level,
         }
-    row, over_budget = await _lookup(
-        request, session, user, ai_router, storage, settings, body.word
-    )
+    row, over_budget = await _lookup(request, session, user, ai_router, storage, settings, word)
     if over_budget:
         return {"enrichment": None, "over_budget": True}
     if row is None:
         raise _not_found(body.word)
-    return {"enrichment": lookup_payload(row)}
+    also = dictionary.alternatives(strip_leading_article(word), row.fr)
+    return {"enrichment": lookup_payload(row), "also": also}
 
 
 @router.get("/lookup-audio/{slug}")
@@ -233,16 +249,15 @@ async def add_from_word(
 ) -> dict:
     """One-click look-up-and-add: the Speaking rich tier (Slice 3c) uses this to add a
     spoken word the learner reached for. Shares /preview's cached lookup."""
-    if await find_content_match(session, body.word) is not None:
+    word = _singular(body.word)
+    if await find_content_match(session, word) is not None:
         # Already a real content-bank word — the intended Speaking UI flow never offers
         # these (resolve_new_words filters them out first), but a caller hitting this
         # endpoint directly must not mint a duplicate `uv:` card for it.
         raise HTTPException(
             status.HTTP_422_UNPROCESSABLE_ENTITY, "word is already in the content bank"
         )
-    result, over_budget = await _lookup(
-        request, session, user, ai_router, storage, settings, body.word
-    )
+    result, over_budget = await _lookup(request, session, user, ai_router, storage, settings, word)
     if over_budget:
         return {"card": None, "added": False, "over_budget": True}
     if result is None:
