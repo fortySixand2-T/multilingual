@@ -779,3 +779,16 @@
 - [2026-11-12] Modified: README.md — QA 1192: Credits section
 - [2026-11-12] Modified: qa/issues/1191,1192 (*.md) — status: done with Fix notes
 - [2026-11-12] Modified: qa/rounds/065-plan.md — appended round outcomes
+- [2026-11-14] Created: scripts/build_conj_table.py — builds the present-tense table from Wiktionary (kaikki), checked against Lexique, one variant series per verb
+- [2026-11-14] Created: app/content/data/fr_conj.tsv.gz — present tense of 3,743 common verbs
+- [2026-11-14] Modified: app/content/data/NOTICE.md — fr_conj.tsv.gz attribution and changes
+- [2026-11-14] Created: app/content/conjugation.py — present() per subject pronoun (elision, pronominal verbs, phrases, impersonals) and group() regular/irregular
+- [2026-11-14] Modified: app/content/api.py — verb cards carry verb_group and conjugation
+- [2026-11-14] Created: tests/test_conjugation.py — conjugation rules + every course verb has a table
+- [2026-11-14] Modified: tests/test_content_sync.py — vocab endpoint returns verb group and present tense
+- [2026-11-14] Created: web/src/Conjugation.tsx — present-tense table
+- [2026-11-14] Modified: web/src/screens/Decks.tsx — Verbs section: regular / irregular decks per level
+- [2026-11-14] Modified: web/src/screens/Deck.tsx, web/src/App.tsx — /vocab/:level/verbs/:group decks; table on flip instead of model forms
+- [2026-11-14] Modified: web/src/api.ts — VocabCard verb_group, conjugation
+- [2026-11-14] Modified: web/src/styles.css — conjugation table styles
+- [2026-11-14] Modified: web/src/screens/Deck.test.tsx — verb deck test

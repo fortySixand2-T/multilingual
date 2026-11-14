@@ -20,6 +20,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
+from app.content import conjugation
 from app.content.tables import ContentLesson, ContentUnit, ContentVocab, KnownVocab
 from app.db.session import get_session
 from app.progress.service import completed_lesson_ids, lesson_states
@@ -227,7 +228,8 @@ async def get_vocab(
 ) -> dict:
     """Vocabulary as browsable decks (id/fr/en/audio/pos/tags/gender, each tagged with
     its `level`). Omit `level` to get every level at once; `tag` narrows to one theme.
-    Dual-gender words carry `fem` + `fem_audio` for the feminine form. Free-study
+    Dual-gender words carry `fem` + `fem_audio` for the feminine form; verbs carry
+    `verb_group` (regular / irregular) and their present-tense `conjugation`. Free-study
     companion to the scheduled SRS review."""
     query = select(ContentVocab).order_by(ContentVocab.level, ContentVocab.id)
     if level:
@@ -252,6 +254,9 @@ async def get_vocab(
         # dual-gender words (gender "mf") also carry a feminine clip `<id>_f.mp3`
         if card.get("gender") == "mf":
             card["fem_audio"] = f"{r.level}/audio/{card['id']}_f.mp3"
+        if card.get("pos") == "verb" and (table := conjugation.present(card["fr"])):
+            card["verb_group"] = conjugation.group(card["fr"])
+            card["conjugation"] = table
         card["known"] = card["id"] in known
         card["in_review"] = card["id"] in in_review
         cards.append(card)

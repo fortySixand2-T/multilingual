@@ -60,6 +60,7 @@ export default function App() {
           <Route path="/my-deck" element={<MyDeck />} />
           <Route path="/hardest" element={<Hardest />} />
           <Route path="/vocab/:level/:tag" element={<Deck />} />
+          <Route path="/vocab/:level/verbs/:group" element={<Deck />} />
           <Route path="/comprehension" element={<Comprehension />} />
           <Route path="/comprehension/:id" element={<ComprehensionSet />} />
           <Route path="/writing" element={<Writing />} />

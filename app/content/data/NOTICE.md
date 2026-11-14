@@ -17,6 +17,14 @@ definitions are cut or dropped), at most three translations per word and part of
 speech, and a few high-frequency rows are corrected by hand. Rebuild with
 `scripts/build_gloss_table.py`.
 
+## fr_conj.tsv.gz: English Wiktionary
+
+The present tense of common French verbs, from the conjugation tables of the English
+Wiktionary through the same kaikki.org extract. **Changes made:** reduced to the six
+present-indicative forms of verbs Lexique counts at least once per million, without
+their reflexive pronouns; where Wiktionary lists variant spellings, the series Lexique
+sees most often is kept. Rebuild with `scripts/build_conj_table.py`.
+
 ## fr_forms.tsv.gz, fr_gender.tsv: Lexique 3
 
 Each spelling's usual part of speech, frequency (films and books, per million) and
