@@ -779,3 +779,7 @@
 - [2026-11-12] Modified: README.md — QA 1192: Credits section
 - [2026-11-12] Modified: qa/issues/1191,1192 (*.md) — status: done with Fix notes
 - [2026-11-12] Modified: qa/rounds/065-plan.md — appended round outcomes
+- [2026-11-14] Modified: scripts/build_gloss_table.py — QA 1145/1147: extra senses must be near the top and everyday English (wordfreq), figurative/literary/reflexive/regional senses skipped, one house style (lower case, "to" on infinitives, no binomials or French cognate repeats), fragments and descriptions dropped
+- [2026-11-14] Modified: app/content/data/fr_gloss.tsv.gz — rebuilt with the QA 1145/1147 rules
+- [2026-11-14] Modified: pyproject.toml, uv.lock — wordfreq as a dev dependency (gloss build + its tests)
+- [2026-11-14] Modified: tests/test_dictionary.py — tests for the QA 1145/1147 gloss rules

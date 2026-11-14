@@ -35,11 +35,35 @@ def test_translations_keep_short_meanings_and_drop_definitions():
 
 
 def test_gloss_takes_each_entrys_first_sense_first_without_repeats():
-    peach = [["peach"], ["form", "energy"]]
-    fishing = [["fishing", "angling"]]
+    peach = {0: ["peach"], 1: ["form", "energy"]}
+    fishing = {0: ["fishing", "angling"]}
     assert gloss([peach, fishing]) == "peach, fishing, angling"
-    assert gloss([[["to remove", "take off"], ["to take off"]]]) == "to remove, take off"
-    assert gloss([[["law (legal code)"], ["law (scientific principle)"]]]) == "law (legal code)"
+    assert gloss([{0: ["to remove", "take off"], 1: ["to take off"]}]) == "to remove, take off"
+    assert gloss([{0: ["law (legal code)"], 1: ["law (scientific principle)"]}]) == "law (legal code)"
+
+
+def test_extra_senses_must_be_everyday_and_near_the_top():
+    """QA 1145: fraise was "strawberry, bulwark", foule "crowd, oppression"."""
+    assert gloss([{0: ["strawberry"]}, {0: ["bulwark", "palisade"]}]) == "strawberry"
+    assert gloss([{0: ["salmon (fish)"], 1: ["wingtip (of an aircraft)"]}]) == "salmon (fish)"
+    # a definition we couldn't use still holds its place: oppression is a 2nd sense
+    assert gloss([{0: ["crowd"]}, {0: [], 1: ["oppression"]}]) == "crowd"
+    assert dictionary.entry("plaindre")["en"] == "to pity"  # se plaindre: to complain
+    assert dictionary.entry("file")["en"] == "line, queue"  # not Belgian "traffic jam"
+
+
+def test_glosses_share_one_house_style():
+    """QA 1147: "Chaste", "Faith", "onion (Allium cepa)", "carotte" in an English gloss."""
+    assert dictionary.entry("foi")["en"] == "faith"
+    assert dictionary.entry("sage")["en"] == "wise"
+    assert dictionary.entry("jeudi")["en"] == "Thursday"
+    assert dictionary.entry("oignon")["en"].startswith("onion,")
+    assert dictionary.entry("brun")["en"] == "brown"
+    assert "carotte" not in dictionary.entry("carotte")["en"]
+    assert dictionary.entry("passion")["en"].startswith("passion")  # a cognate is kept
+    assert dictionary.entry("grimper")["en"] == "to climb, to climb up"
+    assert dictionary.entry("pouvoir")["en"].startswith("can, may")
+    assert dictionary.entry("eau")["en"] == "water"  # not "water, colorless, In particular"
 
 
 def test_accentless_word_is_ambiguous_only_between_dictionary_words():
