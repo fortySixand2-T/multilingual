@@ -263,6 +263,16 @@ def test_vocab_cards_carry_gender():
     assert "fem_audio" not in cards["cafe"]
 
 
+def test_vocab_verbs_carry_group_and_present_tense():
+    cards = {
+        c["id"]: c for c in client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    }
+    assert cards["aller"]["verb_group"] == "irregular"
+    assert cards["aller"]["conjugation"][0] == ["je", "vais"]
+    assert cards["parler"]["verb_group"] == "regular"
+    assert "conjugation" not in cards["cafe"]
+
+
 def test_vocab_known_mark_and_reset():
     # default: nothing known
     cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
