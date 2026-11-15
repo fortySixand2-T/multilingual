@@ -1,0 +1,76 @@
+id: tcf-b1-travail
+level: b1
+skill: reading
+exam: tcf
+topic: travail
+title: "TCF · Le monde du travail"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Document 1 — Offre d'emploi
+
+  Restaurant du centre-ville cherche serveur ou serveuse à temps partiel, le soir
+  et le week-end. Expérience souhaitée mais pas obligatoire : une formation est
+  offerte. Salaire horaire plus pourboires. Envoyez votre candidature avec un CV
+  avant le 30 avril ; les entrevues auront lieu la semaine suivante.
+
+  Document 2 — Message d'un superviseur
+
+  Bonjour à toute l'équipe. À partir de lundi, chacun pourra choisir ses horaires
+  entre 7 h et 19 h, à condition d'être présent de 10 h à 15 h. Les heures
+  supplémentaires devront être approuvées par moi à l'avance. Merci de noter vos
+  horaires dans le calendrier partagé.
+
+  Document 3 — Page d'information d'un syndicat
+
+  Vous venez d'être embauché ? Votre période d'essai dure en général trois mois.
+  Pendant cette période, l'employeur peut mettre fin à votre contrat plus
+  facilement, mais vous gardez les mêmes droits que vos collègues : salaire,
+  congés et protection en cas d'accident. En cas de doute, consultez votre
+  convention collective ou écrivez-nous.
+
+  Document 4 — Extrait d'un article
+
+  Après dix ans dans la vente, Karima a décidé de changer de métier. Elle suit
+  une formation en informatique le soir et garde son emploi le jour. Ce genre de
+  reconversion n'est plus rare : beaucoup de salariés cherchent un travail qui a
+  plus de sens. Mais les spécialistes rappellent qu'il faut bien préparer son
+  projet : parler à des professionnels du secteur, calculer son budget et
+  prévoir une période plus difficile.
+questions:
+  - id: tcf-b1-travail.q1
+    prompt: "Document 1 : que propose le restaurant aux candidats sans expérience ?"
+    options:
+      - "Une formation"
+      - "Un poste à temps plein"
+      - "Un salaire plus élevé"
+      - "Des horaires seulement le matin"
+    answer: "Une formation"
+    explain: "« Expérience souhaitée mais pas obligatoire : une formation est offerte »."
+  - id: tcf-b1-travail.q2
+    prompt: "Document 2 : quelle règle les employés doivent-ils respecter ?"
+    options:
+      - "Être au travail entre 10 h et 15 h"
+      - "Commencer tous à 7 h"
+      - "Faire des heures supplémentaires chaque semaine"
+      - "Partir avant 15 h"
+    answer: "Être au travail entre 10 h et 15 h"
+    explain: "« à condition d'être présent de 10 h à 15 h »."
+  - id: tcf-b1-travail.q3
+    prompt: "Document 3 : pendant la période d'essai, un nouvel employé…"
+    options:
+      - "a les mêmes droits que ses collègues"
+      - "ne reçoit pas de salaire"
+      - "ne peut pas prendre de congés"
+      - "peut être renvoyé sans aucune protection"
+    answer: "a les mêmes droits que ses collègues"
+    explain: "« vous gardez les mêmes droits que vos collègues : salaire, congés et protection en cas d'accident »."
+  - id: tcf-b1-travail.q4
+    prompt: "Document 4 : que conseillent les spécialistes aux personnes qui veulent changer de métier ?"
+    options:
+      - "De bien préparer leur projet"
+      - "De quitter leur emploi tout de suite"
+      - "De choisir l'informatique"
+      - "D'éviter de parler de leur projet"
+    answer: "De bien préparer leur projet"
+    explain: "« les spécialistes rappellent qu'il faut bien préparer son projet »."

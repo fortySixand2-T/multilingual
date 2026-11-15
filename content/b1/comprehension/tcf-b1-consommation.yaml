@@ -1,0 +1,75 @@
+id: tcf-b1-consommation
+level: b1
+skill: reading
+exam: tcf
+topic: consommation
+title: "TCF · Consommer et payer"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Document 1 — Affiche dans un magasin
+
+  Grande vente de fin de saison : rabais de 30 % sur tous les manteaux et de 50 %
+  sur les bottes. Les articles en solde ne sont ni repris ni échangés. Conservez
+  votre reçu : pour les autres achats, le remboursement est possible dans les
+  trente jours.
+
+  Document 2 — Message de la banque
+
+  Chère cliente, votre compte présente un découvert de 85 $. Des frais bancaires
+  de 5 $ par jour s'appliqueront tant que le solde restera négatif. Pour éviter
+  ces frais, effectuez un virement ou un dépôt avant vendredi. Vous pouvez aussi
+  demander une marge de crédit à votre conseiller.
+
+  Document 3 — Courriel d'un service client
+
+  Bonjour, nous avons bien reçu votre plainte concernant l'aspirateur commandé le
+  3 février. Nous sommes désolés qu'il soit arrivé abîmé. Un livreur passera le
+  reprendre gratuitement mardi, et un appareil neuf vous sera envoyé dès sa
+  réception dans notre entrepôt. Vous n'avez rien à payer.
+
+  Document 4 — Extrait d'un article
+
+  Avec la hausse des prix, le pouvoir d'achat des ménages diminue. Pour
+  économiser, de plus en plus de consommateurs comparent les prix en ligne,
+  achètent d'occasion ou font leur budget chaque mois. Les associations de
+  consommateurs mettent pourtant en garde contre le crédit facile : payer en
+  plusieurs fois paraît pratique, mais peut vite conduire à une dette difficile à
+  rembourser.
+questions:
+  - id: tcf-b1-consommation.q1
+    prompt: "Document 1 : que peut-on faire avec une paire de bottes en solde ?"
+    options:
+      - "Rien : on ne peut ni la rendre ni l'échanger"
+      - "L'échanger dans les trente jours"
+      - "Se faire rembourser avec le reçu"
+      - "La rendre contre un manteau"
+    answer: "Rien : on ne peut ni la rendre ni l'échanger"
+    explain: "« Les articles en solde ne sont ni repris ni échangés »."
+  - id: tcf-b1-consommation.q2
+    prompt: "Document 2 : pourquoi la banque écrit-elle à cette cliente ?"
+    options:
+      - "Son compte est à découvert"
+      - "Elle a reçu un virement"
+      - "Sa marge de crédit est acceptée"
+      - "Son conseiller a changé"
+    answer: "Son compte est à découvert"
+    explain: "« votre compte présente un découvert de 85 $ »."
+  - id: tcf-b1-consommation.q3
+    prompt: "Document 3 : que va faire l'entreprise ?"
+    options:
+      - "Remplacer l'aspirateur sans frais"
+      - "Rembourser le client en espèces"
+      - "Réparer l'appareil chez le client"
+      - "Demander au client de payer la livraison"
+    answer: "Remplacer l'aspirateur sans frais"
+    explain: "« un appareil neuf vous sera envoyé » et « Vous n'avez rien à payer »."
+  - id: tcf-b1-consommation.q4
+    prompt: "Document 4 : contre quoi les associations mettent-elles en garde ?"
+    options:
+      - "Le crédit facile"
+      - "Les achats d'occasion"
+      - "La comparaison des prix en ligne"
+      - "Le budget mensuel"
+    answer: "Le crédit facile"
+    explain: "« Les associations de consommateurs mettent pourtant en garde contre le crédit facile »."

@@ -3,6 +3,10 @@
 A set is a passage (reading) or an audio clip (listening) with MCQ questions, each
 carrying its own explanation (shown after grading). Listening sets are accent-
 tagged (R6) and carry a no-replay flag for exam-style practice.
+
+A TCF set (`exam: tcf`) follows the TCF reading paper instead of the TEF: short
+documents on one `topic` (a notice, an email, an article), one question each, four
+choices.
 """
 
 from typing import Literal
@@ -40,6 +44,8 @@ class ComprehensionSet(BaseModel):
     accent: str | None = None  # e.g. "qc", "fr" — accent-tagged library
     allow_replay: bool = True  # False = no-replay (exam mode)
     pass_threshold: float = 0.6
+    exam: Literal["tef", "tcf"] = "tef"
+    topic: str | None = None  # a TCF set's theme: logement, travail, …
     questions: list[ComprehensionQuestion]
 
     @model_validator(mode="after")
@@ -50,4 +56,8 @@ class ComprehensionSet(BaseModel):
             raise ValueError(f"{self.id}: reading set requires a passage")
         if self.skill == "listening" and not self.audio_ref:
             raise ValueError(f"{self.id}: listening set requires an audio_ref")
+        if self.exam == "tcf" and not self.topic:
+            raise ValueError(f"{self.id}: a TCF set needs a topic")
+        if self.exam == "tcf" and any(len(q.options) != 4 for q in self.questions):
+            raise ValueError(f"{self.id}: TCF questions have four choices")
         return self

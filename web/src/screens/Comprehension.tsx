@@ -18,9 +18,11 @@ export default function Comprehension() {
   if (error) return <div className="card center">Couldn't load comprehension: {error}</div>;
   if (!sets) return <div className="muted">Loading…</div>;
 
-  const groups: { skill: "reading" | "listening"; label: string; icon: string }[] = [
-    { skill: "reading", label: "Reading", icon: "📖" },
-    { skill: "listening", label: "Listening", icon: "🎧" },
+  // TCF sets (short documents on one topic, four choices) are their own group.
+  const groups: { skill: "reading" | "listening"; exam: "tef" | "tcf"; label: string; icon: string }[] = [
+    { skill: "reading", exam: "tef", label: "Reading", icon: "📖" },
+    { skill: "reading", exam: "tcf", label: "TCF reading", icon: "📝" },
+    { skill: "listening", exam: "tef", label: "Listening", icon: "🎧" },
   ];
 
   return (
@@ -29,10 +31,10 @@ export default function Comprehension() {
       <p className="muted" style={{ marginTop: -10 }}>Timed comprehension sets — graded with explanations.</p>
 
       {groups.map((g) => {
-        const items = sets.filter((s) => s.skill === g.skill);
+        const items = sets.filter((s) => s.skill === g.skill && (s.exam ?? "tef") === g.exam);
         if (items.length === 0) return null;
         return (
-          <div className="unit" key={g.skill}>
+          <div className="unit" key={g.label}>
             <div className="unit-head">
               <div className="unit-icon">{g.icon}</div>
               <div className="unit-title">{g.label}</div>
@@ -43,6 +45,7 @@ export default function Comprehension() {
                 <span className="grow">
                   <div className="node-title">{s.title}</div>
                   <div className="node-sub">
+                    {s.topic && <span style={{ textTransform: "capitalize" }}>{s.topic} · </span>}
                     {s.questions} questions
                     {s.time_limit_seconds ? ` · ${s.time_limit_seconds}s` : ""}
                     {s.accent ? ` · ${s.accent.toUpperCase()} accent` : ""}

@@ -1,0 +1,74 @@
+id: tcf-b1-sante
+level: b1
+skill: reading
+exam: tcf
+topic: santé
+title: "TCF · Se soigner"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Document 1 — Affiche à la pharmacie
+
+  Campagne de vaccination contre la grippe : du 1er octobre au 30 novembre, sans
+  rendez-vous, du lundi au samedi. Le vaccin est gratuit pour les personnes de
+  plus de 65 ans et pour les femmes enceintes. Apportez votre carte d'assurance
+  maladie.
+
+  Document 2 — Ordonnance (extrait)
+
+  Antibiotique : un comprimé matin et soir pendant sept jours, au milieu du repas.
+  Continuez le traitement jusqu'au bout, même si vous vous sentez mieux. En cas
+  d'effets secondaires importants (boutons, difficulté à respirer), arrêtez le
+  médicament et consultez immédiatement.
+
+  Document 3 — Message d'une clinique
+
+  Bonjour Madame Lopez, les résultats de votre prise de sang sont arrivés. Ils ne
+  montrent rien de grave, mais le médecin souhaite faire un suivi dans trois mois.
+  Vous pouvez prendre rendez-vous en ligne ou en appelant l'accueil. Il n'est pas
+  nécessaire de rappeler avant cette date.
+
+  Document 4 — Extrait d'un article
+
+  Chaque hiver, les salles d'urgence sont pleines. Pourtant, une partie des
+  patients pourrait être soignée ailleurs. Pour une douleur bénigne ou une
+  fièvre légère, les autorités conseillent d'abord d'appeler une ligne
+  d'information santé, où une infirmière oriente la personne vers le bon service.
+  Cela permet de réduire l'attente pour les cas vraiment graves.
+questions:
+  - id: tcf-b1-sante.q1
+    prompt: "Document 1 : qui peut se faire vacciner sans payer ?"
+    options:
+      - "Les personnes de plus de 65 ans"
+      - "Tous les clients de la pharmacie"
+      - "Les enfants de moins de 5 ans"
+      - "Les personnes qui ont pris rendez-vous"
+    answer: "Les personnes de plus de 65 ans"
+    explain: "« Le vaccin est gratuit pour les personnes de plus de 65 ans et pour les femmes enceintes »."
+  - id: tcf-b1-sante.q2
+    prompt: "Document 2 : que doit faire le patient s'il se sent mieux après trois jours ?"
+    options:
+      - "Continuer à prendre le médicament"
+      - "Arrêter le traitement"
+      - "Prendre un seul comprimé par jour"
+      - "Retourner voir le médecin"
+    answer: "Continuer à prendre le médicament"
+    explain: "« Continuez le traitement jusqu'au bout, même si vous vous sentez mieux »."
+  - id: tcf-b1-sante.q3
+    prompt: "Document 3 : que doit faire Mme Lopez ?"
+    options:
+      - "Prendre rendez-vous pour un suivi dans trois mois"
+      - "Rappeler la clinique tout de suite"
+      - "Refaire une prise de sang demain"
+      - "Aller aux urgences"
+    answer: "Prendre rendez-vous pour un suivi dans trois mois"
+    explain: "« le médecin souhaite faire un suivi dans trois mois »."
+  - id: tcf-b1-sante.q4
+    prompt: "Document 4 : pourquoi conseille-t-on d'appeler une ligne d'information santé ?"
+    options:
+      - "Pour réduire l'attente aux urgences"
+      - "Pour obtenir un médicament gratuit"
+      - "Pour parler directement à un spécialiste"
+      - "Pour éviter de payer la consultation"
+    answer: "Pour réduire l'attente aux urgences"
+    explain: "« Cela permet de réduire l'attente pour les cas vraiment graves »."

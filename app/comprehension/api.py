@@ -89,6 +89,8 @@ async def list_sets(
                 "time_limit_seconds": r.data.get("time_limit_seconds"),
                 "allow_replay": r.data.get("allow_replay", True),
                 "questions": len(r.data["questions"]),
+                "exam": r.data.get("exam", "tef"),
+                "topic": r.data.get("topic"),
             }
             for r in rows
         ]
