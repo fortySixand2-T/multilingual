@@ -10,8 +10,8 @@ import { shuffled } from "../shuffle";
 // mark known / still-learning. "Known" is persisted per user; "Still learning" resets
 // it. Free study — independent of the scheduled SRS review.
 export default function Deck() {
-  const { level = "", tag = "", group = "" } = useParams();
-  const label = group ? `${group} verbs` : tag === "all" ? "all words" : tag;
+  const { level = "", tag = "", group = "", topic = "" } = useParams();
+  const label = group ? `${group} verbs` : topic ? `TCF · ${topic}` : tag === "all" ? "all words" : tag;
   const [cards, setCards] = useState<VocabCard[] | null>(null);
   const [error, setError] = useState("");
   const [idx, setIdx] = useState(0);
@@ -21,16 +21,21 @@ export default function Deck() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    api
-      .vocab(level, group || tag === "all" ? undefined : tag)
+    // a TCF topic deck draws its words from every level
+    const fetched = topic ? api.vocab() : api.vocab(level, group || tag === "all" ? undefined : tag);
+    fetched
       .then((r) => {
-        const picked = group ? r.cards.filter((c) => c.verb_group === group) : r.cards;
+        const picked = group
+          ? r.cards.filter((c) => c.verb_group === group)
+          : topic
+            ? r.cards.filter((c) => c.tcf_decks?.some((d) => d.level === level && d.topic === topic))
+            : r.cards;
         setCards(picked);
         setKnownIds(new Set(picked.filter((c) => c.known).map((c) => c.id)));
         setReviewIds(new Set(picked.filter((c) => c.in_review).map((c) => c.id)));
       })
       .catch((e) => setError(e.message));
-  }, [level, tag, group]);
+  }, [level, tag, group, topic]);
 
   // shuffle once per load so the deck isn't always in the same order
   const deck = useMemo(() => (cards ? shuffled(cards) : []), [cards]);

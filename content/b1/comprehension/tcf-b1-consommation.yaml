@@ -3,6 +3,7 @@ level: b1
 skill: reading
 exam: tcf
 topic: consommation
+vocab: [magasin, rabais, achat, recu, remboursement, rembourser, decouvert, frais_bancaires, solde, virement, marge_credit, plainte, consommateur, pouvoir_achat, prix, budget, credit, dette, economiser]  # the topic's flash-card deck
 title: "TCF · Consommer et payer"
 time_limit_seconds: 360
 pass_threshold: 0.6

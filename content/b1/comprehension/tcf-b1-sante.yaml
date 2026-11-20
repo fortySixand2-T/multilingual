@@ -3,6 +3,7 @@ level: b1
 skill: reading
 exam: tcf
 topic: santé
+vocab: [vaccination, vaccin, grippe, pharmacie, carte_assurance, assurance_maladie, ordonnance, antibiotique, comprime, traitement, effets_secondaires, prise_sang, suivi, clinique, medecin, douleur, fievre, grave, patient]  # the topic's flash-card deck
 title: "TCF · Se soigner"
 time_limit_seconds: 360
 pass_threshold: 0.6

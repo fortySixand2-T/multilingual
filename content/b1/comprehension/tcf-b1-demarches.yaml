@@ -3,6 +3,7 @@ level: b1
 skill: reading
 exam: tcf
 topic: démarches
+vocab: [renouvellement, permis_travail, expiration, formulaire, frais_dossier, refus, delai_traitement, rendez_vous, empreintes_digitales, passeport, equivalence_diplome, diplome, demande, remplir, demarche, etape, compte_bancaire, accueil]  # the topic's flash-card deck
 title: "TCF · Démarches administratives"
 time_limit_seconds: 360
 pass_threshold: 0.6

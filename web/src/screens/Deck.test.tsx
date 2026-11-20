@@ -33,6 +33,7 @@ const renderDeck = (path = "/vocab/a1/greeting") =>
       <Routes>
         <Route path="/vocab/:level/:tag" element={<Deck />} />
         <Route path="/vocab/:level/verbs/:group" element={<Deck />} />
+        <Route path="/vocab/:level/tcf/:topic" element={<Deck />} />
       </Routes>
     </MemoryRouter>,
   );
@@ -147,5 +148,21 @@ describe("Deck flashcards", () => {
     expect(screen.getByRole("rowheader", { name: "il / elle / on" })).toBeInTheDocument();
     expect(screen.getByRole("cell", { name: "vais" })).toBeInTheDocument();
     expect(api.vocabForms).not.toHaveBeenCalled(); // the checked table, not the model's
+  });
+
+  it("a TCF topic deck gathers its words from every level", async () => {
+    const tcf = [{ level: "b1", topic: "santé" }];
+    vi.mocked(api.vocab).mockResolvedValue({
+      cards: [
+        { id: "pharmacie", fr: "pharmacie", en: "pharmacy", level: "a2", tcf_decks: tcf },
+        { id: "vaccination", fr: "vaccination", en: "vaccination", level: "b1", tcf_decks: tcf },
+        { id: "loyer", fr: "loyer", en: "rent", level: "a2", tcf_decks: [{ level: "b1", topic: "logement" }] },
+        { id: "chien", fr: "chien", en: "dog", level: "a1" },
+      ],
+    } as never);
+    renderDeck(`/vocab/b1/tcf/${encodeURIComponent("santé")}`);
+
+    expect(await screen.findByText(/1 \/ 2 · TCF · santé/)).toBeInTheDocument();
+    expect(api.vocab).toHaveBeenCalledWith(); // every level, not just b1
   });
 });

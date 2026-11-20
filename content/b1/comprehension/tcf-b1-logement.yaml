@@ -3,6 +3,7 @@ level: b1
 skill: reading
 exam: tcf
 topic: logement
+vocab: [logement, locataire, proprietaire, immeuble, appartement, chambre, colocation, loyer, charges, chauffage, electricite, caution, depot_garantie, etat_lieux, concierge, plomberie, facture, partager, cle]  # the topic's flash-card deck
 title: "TCF · Se loger"
 time_limit_seconds: 360
 pass_threshold: 0.6

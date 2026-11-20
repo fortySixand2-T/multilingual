@@ -3,6 +3,7 @@ level: b1
 skill: reading
 exam: tcf
 topic: environnement
+vocab: [mairie, recyclage, dechet, meuble, citoyen, gant, sac, thermostat, chauffage, facture, isolation, fenetre, empreinte, climat, gaspillage, gaspillage_alimentaire, application, commerce, habitude, changement]  # the topic's flash-card deck
 title: "TCF · Environnement et quartier"
 time_limit_seconds: 360
 pass_threshold: 0.6

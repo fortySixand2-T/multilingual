@@ -817,3 +817,13 @@
 - [2026-11-14] Modified: web/src/api.ts — CompSetSummary gains `exam` and `topic`
 - [2026-11-14] Modified: web/src/screens/Comprehension.tsx — a "TCF reading" group, each set labelled with its topic
 - [2026-11-14] Created: web/src/screens/Comprehension.test.tsx — TCF sets are grouped apart from TEF reading
+- [2026-11-19] Modified: app/comprehension/models.py — TCF sets carry `vocab` (bank word ids) for their topic deck; required alongside the topic
+- [2026-11-19] Modified: content/b1/comprehension/tcf-b1-*.yaml — each TCF set lists 18–20 key words from its documents
+- [2026-11-19] Modified: scripts/check_content.py — every TCF deck word is a bank word that its set's documents use
+- [2026-11-19] Modified: app/content/api.py — vocab cards carry `tcf_decks` ({level, topic})
+- [2026-11-19] Modified: tests/test_content_sync.py, tests/test_comprehension.py — TCF deck tags and the vocab requirement
+- [2026-11-19] Modified: web/src/api.ts, web/src/App.tsx — VocabCard.tcf_decks; /vocab/:level/tcf/:topic
+- [2026-11-19] Modified: web/src/screens/Deck.tsx — TCF topic decks draw words from every level
+- [2026-11-19] Modified: web/src/screens/Decks.tsx — a "TCF topics" section, one deck per TCF reading set
+- [2026-11-19] Modified: web/src/screens/Deck.test.tsx — TCF topic deck test
+- [2026-11-19] Created: web/src/screens/Decks.test.tsx — TCF topic tiles and counts

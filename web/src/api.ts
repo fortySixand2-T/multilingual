@@ -429,6 +429,7 @@ export type VocabCard = {
   in_review?: boolean;
   verb_group?: "regular" | "irregular"; // verbs only
   conjugation?: [string, string][]; // verbs only: present tense, [subject, verb] rows
+  tcf_decks?: { level: string; topic: string }[]; // TCF reading sets that picked this word
 };
 
 export type GrammarItem = {
