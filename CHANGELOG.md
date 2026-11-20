@@ -779,6 +779,24 @@
 - [2026-11-12] Modified: README.md — QA 1192: Credits section
 - [2026-11-12] Modified: qa/issues/1191,1192 (*.md) — status: done with Fix notes
 - [2026-11-12] Modified: qa/rounds/065-plan.md — appended round outcomes
+- [2026-11-14] Modified: scripts/build_gloss_table.py — QA 1145/1147: extra senses must be near the top and everyday English (wordfreq), figurative/literary/reflexive/regional senses skipped, one house style (lower case, "to" on infinitives, no binomials or French cognate repeats), fragments and descriptions dropped
+- [2026-11-14] Modified: app/content/data/fr_gloss.tsv.gz — rebuilt with the QA 1145/1147 rules
+- [2026-11-14] Modified: pyproject.toml, uv.lock — wordfreq as a dev dependency (gloss build + its tests)
+- [2026-11-14] Modified: tests/test_dictionary.py — tests for the QA 1145/1147 gloss rules
+- [2026-11-14] Modified: scripts/build_gloss_table.py — QA 1160: noun:m / noun:f rows for nouns whose meaning follows their gender; `mon` override; lint fixes
+- [2026-11-14] Modified: app/content/data/fr_gloss.tsv.gz — rebuilt with the gendered noun rows
+- [2026-11-14] Modified: scripts/build_forms_table.py, app/content/data/fr_forms.tsv.gz — QA 1164: a singular column from Lexique's lemme
+- [2026-11-14] Modified: app/content/lexicon.py — QA 1164: singular() for plural nouns, keeping plural-meaning words
+- [2026-11-14] Modified: app/content/dictionary.py — QA 1160/1181: gendered noun entries, has_genders(), alternatives()
+- [2026-11-14] Modified: app/content/enrich.py — QA 1160: article_gender(); the typed gender picks the dictionary meaning
+- [2026-11-14] Modified: app/content/lookup.py — QA 1160: noun keys (__n, __nm, __nf) in the lookup cache
+- [2026-11-14] Modified: app/speech/vocab_review.py — QA 1160: course match honours a typed article's noun/gender
+- [2026-11-14] Modified: app/content/personal_api.py — QA 1164/1180/1181: singular lookup, free cached read over budget, "also" alternatives
+- [2026-11-14] Modified: scripts/backfill_ipa.py — noun-key rows are not mistaken for poisoned ones
+- [2026-11-14] Modified: web/src/api.ts, web/src/screens/MyDeck.tsx — QA 1181/1190: "Did you mean" alternatives; meaning capped at 255 with a counter
+- [2026-11-14] Modified: web/src/screens/MyDeck.test.tsx — QA 1181/1190 tests
+- [2026-11-14] Modified: tests/test_dictionary.py, tests/test_personal_vocab.py, tests/test_ipa.py — QA 1160/1164/1180/1181 regression tests
+- [2026-11-14] Modified: qa/issues/1145,1147,1160,1164,1180,1181,1190 (*.md) — status: done with Resolution notes
 - [2026-11-14] Created: scripts/build_conj_table.py — builds the present-tense table from Wiktionary (kaikki), checked against Lexique, one variant series per verb
 - [2026-11-14] Created: app/content/data/fr_conj.tsv.gz — present tense of 3,743 common verbs
 - [2026-11-14] Modified: app/content/data/NOTICE.md — fr_conj.tsv.gz attribution and changes

@@ -26,6 +26,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.ai.interfaces import LLMResult, Msg
 from app.content import lexicon
+from app.content.enrich import article_gender, strip_leading_article
 from app.content.personal import personal_key
 from app.content.tables import ContentVocab, UserVocab
 from app.speech.tables import SpeechTurn
@@ -200,13 +201,23 @@ async def find_content_match(session: AsyncSession, word: str) -> ContentVocab |
     rows = (await session.execute(select(ContentVocab))).scalars().all()
     spelled = {_norm(r.data.get("fr", ""), article=False).replace("-", " "): r for r in rows}
     if hit := spelled.get(typed) or spelled.get(n):
-        return hit
+        return hit if _fits_article(word, hit) else None
     if n != _deaccent(n):  # typed accents are never folded away
         return None
     folded = next((r for r in rows if _match_key(r.data.get("fr", "")) == n), None)
     if folded and lexicon.frequency(n) > lexicon.frequency(_norm(folded.data["fr"])):
         return None
-    return folded
+    return folded if folded and _fits_article(word, folded) else None
+
+
+def _fits_article(word: str, row: ContentVocab) -> bool:
+    """False when a typed article asks for another word than the course card: a noun
+    where the card is none (le plus), or the other gender (la mémoire "memory", where
+    the course has le mémoire "thesis"; QA 1160)."""
+    if strip_leading_article(word) == word.strip():
+        return True
+    said, gender = article_gender(word), row.data.get("gender", "")
+    return row.data.get("pos", "noun") == "noun" and (not said or gender in ("", "mf", said))
 
 
 async def resolve_new_words(

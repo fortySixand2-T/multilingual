@@ -35,11 +35,36 @@ def test_translations_keep_short_meanings_and_drop_definitions():
 
 
 def test_gloss_takes_each_entrys_first_sense_first_without_repeats():
-    peach = [["peach"], ["form", "energy"]]
-    fishing = [["fishing", "angling"]]
+    peach = {0: ["peach"], 1: ["form", "energy"]}
+    fishing = {0: ["fishing", "angling"]}
     assert gloss([peach, fishing]) == "peach, fishing, angling"
-    assert gloss([[["to remove", "take off"], ["to take off"]]]) == "to remove, take off"
-    assert gloss([[["law (legal code)"], ["law (scientific principle)"]]]) == "law (legal code)"
+    assert gloss([{0: ["to remove", "take off"], 1: ["to take off"]}]) == "to remove, take off"
+    law = {0: ["law (legal code)"], 1: ["law (scientific principle)"]}
+    assert gloss([law]) == "law (legal code)"
+
+
+def test_extra_senses_must_be_everyday_and_near_the_top():
+    """QA 1145: fraise was "strawberry, bulwark", foule "crowd, oppression"."""
+    assert gloss([{0: ["strawberry"]}, {0: ["bulwark", "palisade"]}]) == "strawberry"
+    assert gloss([{0: ["salmon (fish)"], 1: ["wingtip (of an aircraft)"]}]) == "salmon (fish)"
+    # a definition we couldn't use still holds its place: oppression is a 2nd sense
+    assert gloss([{0: ["crowd"]}, {0: [], 1: ["oppression"]}]) == "crowd"
+    assert dictionary.entry("plaindre")["en"] == "to pity"  # se plaindre: to complain
+    assert dictionary.entry("file")["en"] == "line, queue"  # not Belgian "traffic jam"
+
+
+def test_glosses_share_one_house_style():
+    """QA 1147: "Chaste", "Faith", "onion (Allium cepa)", "carotte" in an English gloss."""
+    assert dictionary.entry("foi")["en"] == "faith"
+    assert dictionary.entry("sage")["en"] == "wise"
+    assert dictionary.entry("jeudi")["en"] == "Thursday"
+    assert dictionary.entry("oignon")["en"].startswith("onion,")
+    assert dictionary.entry("brun")["en"] == "brown"
+    assert "carotte" not in dictionary.entry("carotte")["en"]
+    assert dictionary.entry("passion")["en"].startswith("passion")  # a cognate is kept
+    assert dictionary.entry("grimper")["en"] == "to climb, to climb up"
+    assert dictionary.entry("pouvoir")["en"].startswith("can, may")
+    assert dictionary.entry("eau")["en"] == "water"  # not "water, colorless, In particular"
 
 
 def test_accentless_word_is_ambiguous_only_between_dictionary_words():
@@ -116,3 +141,21 @@ def test_pos_stays_the_dictionarys_when_the_gloss_is_for_it():
     assert (pas.pos, pas.en) == ("adverb", "not")
     assert asyncio.run(_enrich("le pas")).pos == "noun"
     assert asyncio.run(_enrich("son")).pos == "adjective"
+
+
+def test_a_typed_article_picks_the_gendered_meaning():
+    """QA 1160: la tour is a tower, le tour a turn; the lookup keys keep them apart."""
+    from app.content.lookup import lookup_slug
+
+    assert dictionary.entry("tour", pos="noun", gender="f")["en"].startswith("tower")
+    assert dictionary.entry("tour", pos="noun", gender="m")["en"].startswith("turn")
+    assert (lookup_slug("la tour"), lookup_slug("le tour")) == ("tour__nf", "tour__nm")
+    assert lookup_slug("le vélo") == lookup_slug("vélo")  # an article that changes nothing
+    assert lookup_slug("le pas") == "pas__n"  # the noun, not the adverb
+
+
+def test_accentless_typing_offers_the_other_words():
+    """QA 1181: peche looked up as pêche still shows péché "sin"."""
+    assert "péché" in [a["fr"] for a in dictionary.alternatives("peche", "pêche")]
+    assert dictionary.alternatives("pêche", "pêche") == []  # typed accents are a choice
+    assert dictionary.alternatives("maison", "maison") == []

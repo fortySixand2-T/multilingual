@@ -130,6 +130,7 @@ def test_backfill_dry_run_apply_and_idempotence():
                     VocabLookup(slug="fils", fr="fils", en="son", ipa="", audio_key="k/fils"),
                     VocabLookup(slug="il", fr="œil", en="eye", ipa="œj", audio_key="k/il"),
                     VocabLookup(slug="ete", fr="été", en="summer", ipa=""),
+                    VocabLookup(slug="tour__nf", fr="tour", en="tower", ipa="tuʁ"),
                     UserVocab(user_id=1, card_key="uv:chat", fr="chat", en="cat", ipa="WRONG"),
                     UserVocab(user_id=1, card_key="uv:ete", fr="ete", en="summer", ipa="x"),
                 ]
@@ -157,6 +158,7 @@ def test_backfill_dry_run_apply_and_idempotence():
     asyncio.run(run(True, storage))
     lookups, cards = asyncio.run(snapshot())
     assert "il" not in lookups and storage.keys == set()  # poisoned row + clip gone
+    assert "tour__nf" in lookups  # a noun key holds its bare headword
     assert lookups["fils"] == "fis"  # override; empty IPA with a clip is filled
     assert lookups["chat"] == "cha" and lookups["ete"] == "été"[:3]
     assert cards == {"uv:chat": "cha", "uv:ete": "ete"}  # IPA only; fr untouched

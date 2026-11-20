@@ -65,7 +65,9 @@ async def backfill(session: AsyncSession, tts, storage, voice: str, *, apply: bo
 
     lookups = (await session.scalars(select(VocabLookup))).all()
     for row in lookups:
-        if lookup_slug(row.fr) != row.slug:  # poisoned: the shared slug holds another word
+        # poisoned: the shared slug holds another word (a noun key, la tour's
+        # "tour__nf", holds its bare headword)
+        if lookup_slug(row.fr) != row.slug.partition("__")[0]:
             log.info("delete lookup %r (fr=%r)", row.slug, row.fr)
             done["lookup_deleted"] += 1
             if apply:

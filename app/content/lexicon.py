@@ -6,7 +6,8 @@ The lookup uses it to correct the local model where it is reliably wrong:
     and writes the œ ligature (boeuf -> bœuf),
   - `pos` stops an inflected adjective or a preposition being called a noun (grandes,
     pendant), which would otherwise get a gender stamped on it (QA 1000),
-  - `form_note` says which inflected form an adjective is (grandes -> "f. pl.").
+  - `form_note` says which inflected form an adjective is (grandes -> "f. pl."),
+  - `singular` makes a plural noun the word a card is for (livres -> livre).
 """
 
 from __future__ import annotations
@@ -30,6 +31,9 @@ _NOT_NOUNS = {"adjective", "adverb", "preposition", "conjunction"}
 # Lexique's reading wins over any model pos but a verb or pronoun (derrière was an
 # "adjective", chez an "adverb"): these words are closed classes with no other use.
 _FUNCTION_WORDS = {"preposition", "conjunction"}
+# A plural stays a plural (vacances, lunettes, cheveux) unless its singular is at least
+# this common relative to it: French mostly means the plural word itself.
+_PLURAL_WORD = 4
 # Correct words Lexique lacks, so respell would take them for a misspelling of dû / dès.
 _KEEP_AS_TYPED = {"du", "des"}
 
@@ -41,16 +45,16 @@ def fold(word: str) -> str:
 
 
 @functools.cache
-def _forms() -> tuple[dict[str, tuple[str, float, str]], dict[str, str]]:
-    """({form: (pos, frequency, adjective form note)}, {key: most frequent form with
-    that key})."""
-    forms: dict[str, tuple[str, float, str]] = {}
+def _forms() -> tuple[dict[str, tuple[str, float, str, str]], dict[str, str]]:
+    """({form: (pos, frequency, adjective form note, singular)}, {key: most frequent
+    form with that key})."""
+    forms: dict[str, tuple[str, float, str, str]] = {}
     best: dict[str, str] = {}
     if _PATH.exists():
         with gzip.open(_PATH, "rt", encoding="utf-8") as f:
             for line in f:
-                form, pos, freq, note = line.rstrip("\n").split("\t")
-                forms[form] = (pos, float(freq), note)
+                form, pos, freq, note, singular = line.rstrip("\n").split("\t")
+                forms[form] = (pos, float(freq), note, singular)
                 k = fold(form)
                 if k not in best or forms[best[k]][1] < forms[form][1]:
                     best[k] = form
@@ -82,8 +86,8 @@ def respell(text: str) -> str:
     return _OE.sub(lambda m: "Œ" if m.group(1) == "O" else "œ", text)
 
 
-def _entry(word: str) -> tuple[str, float, str]:
-    return _forms()[0].get(word.strip().lower().translate(_LIGATURES), ("", 0.0, ""))
+def _entry(word: str) -> tuple[str, float, str, str]:
+    return _forms()[0].get(word.strip().lower().translate(_LIGATURES), ("", 0.0, "", ""))
 
 
 def usual_pos(word: str) -> str:
@@ -104,6 +108,16 @@ def known(word: str) -> bool:
 def form_note(word: str) -> str:
     """ "f.", "pl." or "f. pl." for an inflected adjective form (grandes), else ""."""
     return _entry(word)[2]
+
+
+def singular(word: str) -> str:
+    """The singular a plural noun is a form of (livres -> livre, yeux -> œil, QA 1164), or
+    `word` itself: a word that's no plural noun, or a plural French means in its own right
+    (vacances is no "vacancy")."""
+    _, freq, _, one = _entry(word)
+    if not one or frequency(one) * _PLURAL_WORD < freq:
+        return word
+    return respell(one)
 
 
 def pos(word: str, model_pos: str, *, article: bool = False) -> str:

@@ -4,7 +4,7 @@ title: My deck preview: glosses with capitalised words, odd parentheticals or no
 severity: low
 area: content
 persona: returning-learner
-status: deferred
+status: done
 found: 2026-11-12
 ---
 
@@ -36,3 +36,6 @@ Root cause: pieces are kept verbatim from Wiktionary (only _ARTICLE stripped, ca
 - Challenge: Purely cosmetic: capitalised 'Faith', 'carotte' repeated, missing 'to' on reflexives. Meaning is still understandable and editable. Three normalisations (case, headword, to-prefix) add code for little learner value.
 - Holds up? No. Cosmetic; if 1146 rebuilds the table, lowercasing can ride along opportunistically but is not worth its own fix.
 - Final verdict: deferred
+
+## Resolution (2026-11-14)
+All glosses now follow one house style: lower case unless it's a proper word (Thursday), "to" before infinitives (but not before modals like can/may), no binomials or colour notes in parentheses, no repeat of the French headword after the first sense, and no fragments ("or …", "in particular", "synonym of …"). Overrides fix mon, traduire, réclamer, visser, raisin and bouquin. Tests: test_glosses_share_one_house_style.

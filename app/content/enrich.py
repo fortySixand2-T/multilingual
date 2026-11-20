@@ -41,6 +41,7 @@ _DEFAULT_TABLE = _DATA_DIR / "fr_gender.tsv"
 # Articles we strip off the front so the table/rules see a bare lemma. Mirrors
 # import_anki.strip_article but returns no gender — gender is resolved separately here.
 _ARTICLES = ("de la ", "de l'", "l'", "d'", "le ", "la ", "les ", "un ", "une ", "des ")
+_GENDERED = {"m": ("le ", "un "), "f": ("la ", "une ", "de la ")}
 
 # --- deterministic gender by word ending --------------------------------------
 # Only endings reliable enough to beat a local model's guess. Ordered longest-first
@@ -283,6 +284,13 @@ async def propose(router, word: str, *, max_tokens: int = 128) -> tuple[dict, LL
     return _parse_enrichment(result.text), result
 
 
+def article_gender(word: str) -> str:
+    """ "m" or "f" when `word` is typed with an article that says which (le / un tour),
+    else "" (l', les, no article)."""
+    low = word.strip().lower()
+    return next((g for g, arts in _GENDERED.items() if low.startswith(arts)), "")
+
+
 def gloss(fr: str, pos: str, en: str) -> str:
     """`en` cleaned for display, with an inflected adjective's form note."""
     return clean_gloss(en, lexicon.form_note(fr) if pos == "adjective" else "")
@@ -307,15 +315,15 @@ async def enrich(
     if not lemma:
         return None, None
     article = lemma != word.strip()
-    want = "noun" if article else ""
+    want, said = ("noun" if article else ""), article_gender(word)  # la tour: tower (f)
     fr = headword(lemma, "") if headword else lemma
-    entry, result, source = dictionary.entry(fr, pos=want), None, "dictionary"
+    entry, result, source = dictionary.entry(fr, pos=want, gender=said), None, "dictionary"
     if router is not None and (entry is None or dictionary.ambiguous(lemma)):
         # The model glosses a word the dictionary lacks, and picks which word an
         # accentless "peche" is (pêche, not péché); the dictionary's meaning still wins.
         proposed, result = await propose(router, lemma, max_tokens=max_tokens)
         fr = headword(lemma, proposed.get("fr", "")) if headword else lemma
-        entry = dictionary.entry(fr, pos=want) or proposed
+        entry = dictionary.entry(fr, pos=want, gender=said) or proposed
         source = "dictionary" if entry is not proposed else "llm"
     if entry is None:
         return None, None
