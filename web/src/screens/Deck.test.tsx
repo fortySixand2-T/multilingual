@@ -32,6 +32,7 @@ const renderDeck = (path = "/vocab/a1/greeting") =>
     <MemoryRouter initialEntries={[path]}>
       <Routes>
         <Route path="/vocab/:level/:tag" element={<Deck />} />
+        <Route path="/vocab/:level/verbs/:group" element={<Deck />} />
       </Routes>
     </MemoryRouter>,
   );
@@ -124,5 +125,27 @@ describe("Deck flashcards", () => {
 
     expect(vi.mocked(api.addToReview)).toHaveBeenCalledWith(expect.any(String));
     expect(screen.getByRole("button", { name: /In review/ })).toBeInTheDocument();
+  });
+
+  it("a verb deck holds its group's verbs and shows the present tense on flip", async () => {
+    const user = userEvent.setup();
+    const aller = {
+      id: "aller",
+      fr: "aller",
+      en: "to go",
+      pos: "verb",
+      verb_group: "irregular",
+      conjugation: [["je", "vais"], ["tu", "vas"], ["il / elle / on", "va"]],
+    };
+    const parler = { ...aller, id: "parler", fr: "parler", en: "to speak", verb_group: "regular" };
+    vi.mocked(api.vocab).mockResolvedValue({ cards: [aller, parler] } as never);
+    renderDeck("/vocab/a1/verbs/irregular");
+
+    expect(await screen.findByText("aller")).toBeInTheDocument();
+    expect(screen.getByText(/1 \/ 1 · irregular verbs/)).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: "Show meaning" }));
+    expect(screen.getByRole("rowheader", { name: "il / elle / on" })).toBeInTheDocument();
+    expect(screen.getByRole("cell", { name: "vais" })).toBeInTheDocument();
+    expect(api.vocabForms).not.toHaveBeenCalled(); // the checked table, not the model's
   });
 });

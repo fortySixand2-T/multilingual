@@ -3,14 +3,15 @@ import { Link, useParams } from "react-router-dom";
 import { api, VocabCard } from "../api";
 import VocabWord from "../VocabWord";
 import WordDetail from "./WordDetail";
+import Conjugation from "../Conjugation";
 import { shuffled } from "../shuffle";
 
 // Flashcard study for one deck: show French (+ pronunciation), flip to the meaning,
 // mark known / still-learning. "Known" is persisted per user; "Still learning" resets
 // it. Free study — independent of the scheduled SRS review.
 export default function Deck() {
-  const { level = "", tag = "" } = useParams();
-  const label = tag === "all" ? "all words" : tag;
+  const { level = "", tag = "", group = "" } = useParams();
+  const label = group ? `${group} verbs` : tag === "all" ? "all words" : tag;
   const [cards, setCards] = useState<VocabCard[] | null>(null);
   const [error, setError] = useState("");
   const [idx, setIdx] = useState(0);
@@ -21,14 +22,15 @@ export default function Deck() {
 
   useEffect(() => {
     api
-      .vocab(level, tag === "all" ? undefined : tag)
+      .vocab(level, group || tag === "all" ? undefined : tag)
       .then((r) => {
-        setCards(r.cards);
-        setKnownIds(new Set(r.cards.filter((c) => c.known).map((c) => c.id)));
-        setReviewIds(new Set(r.cards.filter((c) => c.in_review).map((c) => c.id)));
+        const picked = group ? r.cards.filter((c) => c.verb_group === group) : r.cards;
+        setCards(picked);
+        setKnownIds(new Set(picked.filter((c) => c.known).map((c) => c.id)));
+        setReviewIds(new Set(picked.filter((c) => c.in_review).map((c) => c.id)));
       })
       .catch((e) => setError(e.message));
-  }, [level, tag]);
+  }, [level, tag, group]);
 
   // shuffle once per load so the deck isn't always in the same order
   const deck = useMemo(() => (cards ? shuffled(cards) : []), [cards]);
@@ -89,7 +91,10 @@ export default function Deck() {
         </div>
         <VocabWord card={card} />
         {flipped ? (
-          <div style={{ fontSize: 20 }} className="muted">{card.en}</div>
+          <>
+            <div style={{ fontSize: 20 }} className="muted">{card.en}</div>
+            {card.conjugation && <Conjugation rows={card.conjugation} />}
+          </>
         ) : (
           <button className="btn secondary" onClick={() => setFlipped(true)}>Show meaning</button>
         )}
@@ -112,9 +117,15 @@ export default function Deck() {
           </p>
           {/* key by card id so the panel's fetched forms/examples reset per card.
               defaultOpen: the panel only appears once the meaning is revealed, so
-              forms & examples show straight away — no extra expander click. */}
+              forms & examples show straight away — no extra expander click. A verb
+              with a checked table skips the model's forms. */}
           <div className="card" style={{ marginTop: 12 }}>
-            <WordDetail key={card.id} cardKey={card.id} pos={card.pos} defaultOpen />
+            <WordDetail
+              key={card.id}
+              cardKey={card.id}
+              pos={card.conjugation ? undefined : card.pos}
+              defaultOpen
+            />
           </div>
         </>
       )}

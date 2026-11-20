@@ -1,0 +1,74 @@
+id: tcf-b1-environnement
+level: b1
+skill: reading
+exam: tcf
+topic: environnement
+title: "TCF · Environnement et quartier"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Document 1 — Avis de la mairie
+
+  Nouveau calendrier de collecte : à partir du 1er mai, le recyclage sera ramassé
+  le jeudi et les déchets ordinaires le lundi. Les bacs doivent être sortis la
+  veille après 19 h. Les gros objets (meubles, matelas) ne sont plus acceptés :
+  apportez-les à l'écocentre.
+
+  Document 2 — Message d'une association
+
+  Samedi prochain, venez nettoyer le parc avec nous ! Rendez-vous à 10 h devant
+  la bibliothèque. Nous fournissons les gants et les sacs. L'an dernier, une
+  cinquantaine de citoyens ont ramassé plus de 200 kilos de déchets. Un repas
+  sera offert aux participants à midi.
+
+  Document 3 — Conseil sur un site d'énergie
+
+  En hiver, baisser le thermostat de seulement un degré permet d'économiser
+  environ 7 % sur votre facture de chauffage. Fermez les rideaux la nuit et
+  vérifiez l'isolation des fenêtres : ce sont des gestes simples qui réduisent
+  aussi votre empreinte sur le climat.
+
+  Document 4 — Extrait d'un article
+
+  Le gaspillage alimentaire représente près d'un tiers de la nourriture produite
+  dans le monde. Dans plusieurs villes, des applications permettent maintenant
+  aux commerces de vendre à bas prix les produits qui ne seront pas vendus le
+  soir. Ces initiatives sont utiles, disent les experts, mais elles ne remplacent
+  pas un changement de nos habitudes : acheter moins, et mieux.
+questions:
+  - id: tcf-b1-environnement.q1
+    prompt: "Document 1 : que faut-il faire avec un vieux matelas ?"
+    options:
+      - "L'apporter à l'écocentre"
+      - "Le sortir le lundi avec les déchets"
+      - "Le mettre dans le bac de recyclage"
+      - "Le laisser devant la mairie"
+    answer: "L'apporter à l'écocentre"
+    explain: "« Les gros objets (meubles, matelas) ne sont plus acceptés : apportez-les à l'écocentre »."
+  - id: tcf-b1-environnement.q2
+    prompt: "Document 2 : qu'est-ce que l'association fournit aux bénévoles ?"
+    options:
+      - "Des gants, des sacs et un repas"
+      - "Des livres de la bibliothèque"
+      - "Un salaire pour la journée"
+      - "Le transport jusqu'au parc"
+    answer: "Des gants, des sacs et un repas"
+    explain: "« Nous fournissons les gants et les sacs » et « Un repas sera offert aux participants à midi »."
+  - id: tcf-b1-environnement.q3
+    prompt: "Document 3 : quel est l'effet de baisser le thermostat d'un degré ?"
+    options:
+      - "On paie moins cher le chauffage"
+      - "Les fenêtres sont mieux isolées"
+      - "La maison reste plus chaude la nuit"
+      - "On consomme plus d'électricité"
+    answer: "On paie moins cher le chauffage"
+    explain: "« permet d'économiser environ 7 % sur votre facture de chauffage »."
+  - id: tcf-b1-environnement.q4
+    prompt: "Document 4 : quelle est l'opinion des experts sur les applications anti-gaspillage ?"
+    options:
+      - "Elles sont utiles mais ne suffisent pas"
+      - "Elles résolvent le problème du gaspillage"
+      - "Elles font augmenter les prix"
+      - "Elles sont inutiles pour les commerces"
+    answer: "Elles sont utiles mais ne suffisent pas"
+    explain: "« Ces initiatives sont utiles, disent les experts, mais elles ne remplacent pas un changement de nos habitudes »."

@@ -59,6 +59,7 @@ async def _setup():
         await conn.run_sync(Base.metadata.create_all)
     async with _Session() as s:
         await sync_comprehension(s, _storage, CONTENT_ROOT, "a1")
+        await sync_comprehension(s, _storage, CONTENT_ROOT, "b1")
 
 
 _run(_setup())
@@ -115,6 +116,22 @@ def test_question_answer_must_be_in_options():
         )
 
 
+def _tcf(**over):
+    q = {"id": "q", "prompt": "p", "options": ["a", "b", "c", "d"], "answer": "a"}
+    fields = {"id": "x", "level": "b1", "skill": "reading", "title": "t", "passage": "p"}
+    fields |= {"exam": "tcf", "topic": "logement", "questions": [q]}
+    return ComprehensionSet(**{**fields, **over})
+
+
+def test_tcf_set_needs_a_topic_and_four_choices():
+    assert _tcf().exam == "tcf"
+    with pytest.raises(ValidationError, match="topic"):
+        _tcf(topic=None)
+    three = {"id": "q", "prompt": "p", "options": ["a", "b", "c"], "answer": "a"}
+    with pytest.raises(ValidationError, match="four choices"):
+        _tcf(questions=[three])
+
+
 # --- delivery (no answers leaked) ---------------------------------------------
 
 
@@ -129,6 +146,15 @@ def test_list_sets_filters_by_skill():
     all_sets = client.get("/comprehension/sets", params={"level": "a1"}).json()["sets"]
     assert {"read-cafe-01", "listen-greet-01"} <= {s["id"] for s in all_sets}
     assert len(all_sets) >= len(ids)
+
+
+def test_list_sets_tells_tcf_sets_apart():
+    sets = client.get("/comprehension/sets", params={"level": "b1"}).json()["sets"]
+    by_id = {s["id"]: s for s in sets}
+    assert by_id["tcf-b1-logement"]["exam"] == "tcf"
+    assert by_id["tcf-b1-logement"]["topic"] == "logement"
+    assert by_id["read-b1-work-life-balance"]["exam"] == "tef"
+    assert by_id["read-b1-work-life-balance"]["topic"] is None
 
 
 def test_get_set_does_not_leak_answers():

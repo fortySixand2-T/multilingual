@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api, VocabCard } from "../api";
 
-// Vocabulary across every level, grouped into themed decks (by tag), with an
-// "All words" deck per level for one big study session.
+// Vocabulary across every level: verb decks first (regular / irregular per level,
+// each card with its present tense), then themed decks (by tag), with an "All words"
+// deck per level for one big study session.
 export default function Decks() {
   const [cards, setCards] = useState<VocabCard[] | null>(null);
   const [error, setError] = useState("");
@@ -32,6 +33,8 @@ export default function Decks() {
     }
   }
   for (const l of levels) l.tags.sort((a, b) => a[0].localeCompare(b[0]));
+  const verbs = (level: string, group: string) =>
+    cards.filter((c) => c.level === level && c.verb_group === group).length;
 
   return (
     <div>
@@ -39,6 +42,30 @@ export default function Decks() {
       <p className="muted" style={{ marginTop: 0 }}>
         Flip through a theme to memorize — {cards.length} words across {levels.length} levels.
       </p>
+
+      <section style={{ marginTop: 20 }}>
+        <h3 style={{ margin: "0 0 4px" }}>Verbs</h3>
+        <p className="muted" style={{ marginTop: 0, fontSize: 14 }}>
+          Regular and irregular verbs by level — flip a card for its present tense.
+        </p>
+        {levels.map(({ level }) => (
+          <div key={level} style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 12 }}>
+            {(["regular", "irregular"] as const).map((group) => (
+              <Link
+                key={group}
+                to={`/vocab/${level}/verbs/${group}`}
+                className="card"
+                style={{ flex: "1 1 140px", textDecoration: "none" }}
+              >
+                <div style={{ fontWeight: 700 }}>
+                  <span style={{ textTransform: "uppercase" }}>{level}</span> · {group} verbs
+                </div>
+                <div className="muted" style={{ fontSize: 13 }}>{verbs(level, group)} cards</div>
+              </Link>
+            ))}
+          </div>
+        ))}
+      </section>
 
       {levels.map(({ level, total, tags }) => (
         <section key={level} style={{ marginTop: 20 }}>

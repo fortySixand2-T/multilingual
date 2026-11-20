@@ -269,6 +269,8 @@ export type CompSetSummary = {
   time_limit_seconds: number | null;
   allow_replay: boolean;
   questions: number;
+  exam: "tef" | "tcf";
+  topic: string | null;
 };
 export type CompQuestion = { id: string; prompt: string; options: string[] };
 export type CompSetView = {
@@ -425,6 +427,8 @@ export type VocabCard = {
   fem_ipa?: string; // checked IPA for `fem`
   known?: boolean;
   in_review?: boolean;
+  verb_group?: "regular" | "irregular"; // verbs only
+  conjugation?: [string, string][]; // verbs only: present tense, [subject, verb] rows
 };
 
 export type GrammarItem = {

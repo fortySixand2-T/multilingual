@@ -1,0 +1,75 @@
+id: tcf-b1-demarches
+level: b1
+skill: reading
+exam: tcf
+topic: démarches
+title: "TCF · Démarches administratives"
+time_limit_seconds: 360
+pass_threshold: 0.6
+passage: |
+  Document 1 — Avis sur le site d'un service public
+
+  Renouvellement du permis de travail : déposez votre demande au moins trente
+  jours avant la date d'expiration. Le formulaire se remplit en ligne. Les frais
+  de dossier sont de 155 $ et ne sont pas remboursés en cas de refus. Le délai de
+  traitement actuel est d'environ quatre mois.
+
+  Document 2 — Lettre de convocation
+
+  Madame, vous êtes invitée à vous présenter le 18 juin à 14 h au centre de
+  service pour la prise de vos données biométriques (photo et empreintes
+  digitales). Apportez cette lettre et votre passeport. Si vous ne pouvez pas
+  venir, prévenez-nous au moins 48 heures à l'avance pour fixer un autre
+  rendez-vous.
+
+  Document 3 — Courriel d'un organisme d'accueil
+
+  Bonjour Ahmed, comme convenu, je vous envoie la liste des documents pour votre
+  demande d'équivalence de diplôme : copie du diplôme, relevé de notes et
+  traduction officielle si les documents ne sont pas en français ou en anglais.
+  Notre conseillère peut vous aider à remplir le formulaire jeudi après-midi.
+
+  Document 4 — Extrait d'un témoignage
+
+  Quand je suis arrivée, les démarches me semblaient sans fin : carte d'assurance
+  maladie, numéro d'assurance sociale, compte bancaire… Ce qui m'a sauvée, c'est
+  l'organisme d'accueil de mon quartier. Au lieu de courir d'un bureau à l'autre,
+  j'ai eu une seule personne qui m'expliquait chaque étape. Aujourd'hui, j'y suis
+  bénévole à mon tour.
+questions:
+  - id: tcf-b1-demarches.q1
+    prompt: "Document 1 : que se passe-t-il si la demande est refusée ?"
+    options:
+      - "Les frais ne sont pas rendus"
+      - "Le délai de traitement est plus court"
+      - "On peut redemander sans payer"
+      - "Le permis est prolongé de quatre mois"
+    answer: "Les frais ne sont pas rendus"
+    explain: "« Les frais de dossier sont de 155 $ et ne sont pas remboursés en cas de refus »."
+  - id: tcf-b1-demarches.q2
+    prompt: "Document 2 : que doit faire la personne si elle n'est pas disponible le 18 juin ?"
+    options:
+      - "Avertir le centre deux jours avant"
+      - "Envoyer sa photo par la poste"
+      - "Venir le lendemain sans rendez-vous"
+      - "Envoyer une copie de son passeport"
+    answer: "Avertir le centre deux jours avant"
+    explain: "« prévenez-nous au moins 48 heures à l'avance pour fixer un autre rendez-vous »."
+  - id: tcf-b1-demarches.q3
+    prompt: "Document 3 : dans quel cas Ahmed doit-il fournir une traduction officielle ?"
+    options:
+      - "Si ses documents ne sont ni en français ni en anglais"
+      - "Si son diplôme a plus de dix ans"
+      - "S'il remplit le formulaire seul"
+      - "Si la conseillère n'est pas disponible"
+    answer: "Si ses documents ne sont ni en français ni en anglais"
+    explain: "« traduction officielle si les documents ne sont pas en français ou en anglais »."
+  - id: tcf-b1-demarches.q4
+    prompt: "Document 4 : qu'est-ce qui a aidé cette personne ?"
+    options:
+      - "Avoir une seule personne pour la guider"
+      - "Aller dans tous les bureaux elle-même"
+      - "Ouvrir un compte bancaire en ligne"
+      - "Devenir bénévole dès son arrivée"
+    answer: "Avoir une seule personne pour la guider"
+    explain: "« j'ai eu une seule personne qui m'expliquait chaque étape »."
