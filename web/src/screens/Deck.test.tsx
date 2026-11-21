@@ -165,4 +165,27 @@ describe("Deck flashcards", () => {
     expect(await screen.findByText(/1 \/ 2 · TCF · santé/)).toBeInTheDocument();
     expect(api.vocab).toHaveBeenCalledWith(); // every level, not just b1
   });
+
+  it("a theme deck leaves its verbs to the Verbs decks", async () => {
+    vi.mocked(api.vocab).mockResolvedValue({
+      cards: [
+        { id: "maison", fr: "maison", en: "house", pos: "noun", tags: ["house"] },
+        { id: "habiter", fr: "habiter", en: "to live", pos: "verb", verb_group: "regular", tags: ["house"] },
+      ],
+    } as never);
+    renderDeck("/vocab/a1/house");
+    expect(await screen.findByText(/1 \/ 1 · house/)).toBeInTheDocument();
+    expect(screen.getByText("maison")).toBeInTheDocument();
+  });
+
+  it("the All words deck still has the verbs", async () => {
+    vi.mocked(api.vocab).mockResolvedValue({
+      cards: [
+        { id: "maison", fr: "maison", en: "house", pos: "noun", tags: ["house"] },
+        { id: "habiter", fr: "habiter", en: "to live", pos: "verb", verb_group: "regular", tags: ["house"] },
+      ],
+    } as never);
+    renderDeck("/vocab/a1/all");
+    expect(await screen.findByText(/1 \/ 2 · all words/)).toBeInTheDocument();
+  });
 });
