@@ -6,7 +6,8 @@ tagged (R6) and carry a no-replay flag for exam-style practice.
 
 A TCF set (`exam: tcf`) follows the TCF reading paper instead of the TEF: short
 documents on one `topic` (a notice, an email, an article), one question each, four
-choices.
+choices. Its `vocab` (bank word ids, any level, each one used in the documents) makes the
+topic's flash-card deck.
 """
 
 from typing import Literal
@@ -46,6 +47,7 @@ class ComprehensionSet(BaseModel):
     pass_threshold: float = 0.6
     exam: Literal["tef", "tcf"] = "tef"
     topic: str | None = None  # a TCF set's theme: logement, travail, …
+    vocab: list[str] = []  # a TCF set's deck: bank word ids
     questions: list[ComprehensionQuestion]
 
     @model_validator(mode="after")
@@ -56,8 +58,8 @@ class ComprehensionSet(BaseModel):
             raise ValueError(f"{self.id}: reading set requires a passage")
         if self.skill == "listening" and not self.audio_ref:
             raise ValueError(f"{self.id}: listening set requires an audio_ref")
-        if self.exam == "tcf" and not self.topic:
-            raise ValueError(f"{self.id}: a TCF set needs a topic")
+        if self.exam == "tcf" and not (self.topic and self.vocab):
+            raise ValueError(f"{self.id}: a TCF set needs a topic and its vocab")
         if self.exam == "tcf" and any(len(q.options) != 4 for q in self.questions):
             raise ValueError(f"{self.id}: TCF questions have four choices")
         return self

@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { api, VocabCard } from "../api";
 
 // Vocabulary across every level: verb decks first (regular / irregular per level,
-// each card with its present tense), then themed decks (by tag), with an "All words"
-// deck per level for one big study session.
+// each card with its present tense), TCF topic decks (words picked from each TCF
+// reading set), then themed decks (by tag), with an "All words" deck per level for
+// one big study session.
 export default function Decks() {
   const [cards, setCards] = useState<VocabCard[] | null>(null);
   const [error, setError] = useState("");
@@ -35,6 +36,11 @@ export default function Decks() {
   for (const l of levels) l.tags.sort((a, b) => a[0].localeCompare(b[0]));
   const verbs = (level: string, group: string) =>
     cards.filter((c) => c.level === level && c.verb_group === group).length;
+  // "level/topic" -> word count, for each TCF reading set's deck
+  const tcf = new Map<string, number>();
+  for (const c of cards)
+    for (const d of c.tcf_decks ?? []) tcf.set(`${d.level}/${d.topic}`, (tcf.get(`${d.level}/${d.topic}`) ?? 0) + 1);
+  const tcfDecks = [...tcf].sort((a, b) => a[0].localeCompare(b[0]));
 
   return (
     <div>
@@ -66,6 +72,34 @@ export default function Decks() {
           </div>
         ))}
       </section>
+
+      {tcfDecks.length > 0 && (
+        <section style={{ marginTop: 20 }}>
+          <h3 style={{ margin: "0 0 4px" }}>TCF topics</h3>
+          <p className="muted" style={{ marginTop: 0, fontSize: 14 }}>
+            The key words of each TCF reading set — learn them before or after you read.
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+            {tcfDecks.map(([key, count]) => {
+              const [level, topic] = key.split("/");
+              return (
+                <Link
+                  key={key}
+                  to={`/vocab/${level}/tcf/${encodeURIComponent(topic)}`}
+                  className="card"
+                  style={{ flex: "1 1 140px", textDecoration: "none" }}
+                >
+                  <div style={{ fontWeight: 700 }}>
+                    <span style={{ textTransform: "uppercase" }}>{level}</span> ·{" "}
+                    <span style={{ textTransform: "capitalize" }}>{topic}</span>
+                  </div>
+                  <div className="muted" style={{ fontSize: 13 }}>{count} cards</div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {levels.map(({ level, total, tags }) => (
         <section key={level} style={{ marginTop: 20 }}>

@@ -3,6 +3,7 @@ level: b1
 skill: reading
 exam: tcf
 topic: travail
+vocab: [offre_emploi, candidature, entrevue, experience, formation, embauche, periode_essai, contrat, salaire, pourboire, temps_partiel, horaire, heures_supplementaires, superviseur, collegue, syndicat, convention_collective, conge, reconversion, secteur]  # the topic's flash-card deck
 title: "TCF · Le monde du travail"
 time_limit_seconds: 360
 pass_threshold: 0.6

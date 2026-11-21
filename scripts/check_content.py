@@ -366,6 +366,7 @@ def check_global(levels: list[str]) -> list[str]:
     failures: list[str] = []
     seen_vocab: dict[str, str] = {}
     seen_ex: dict[str, str] = {}
+    bank: dict[str, str] = {}
     for level in levels:
         bundle, errors = _load(level)
         if bundle is None:
@@ -378,6 +379,7 @@ def check_global(levels: list[str]) -> list[str]:
                     f"— ids are DB primary keys and FSRS card keys"
                 )
             seen_vocab[vid] = level
+            bank[vid] = bundle.vocab[vid].fr
         for lid, lesson in bundle.lessons.items():
             for ex in lesson.exercises:
                 if ex.id in seen_ex:
@@ -386,6 +388,22 @@ def check_global(levels: list[str]) -> list[str]:
                         f"and {level}/{lid} — copy-paste slip?"
                     )
                 seen_ex[ex.id] = f"{level}/{lid}"
+    failures += tcf_deck_failures(levels, bank)
+    return failures
+
+
+def tcf_deck_failures(levels: list[str], bank: dict[str, str]) -> list[str]:
+    """A TCF set's `vocab` is its topic's flash-card deck, "picked from the reading":
+    each id must be a bank word (any level) that the set's documents actually use."""
+    failures = []
+    for level in levels:
+        for cset in load_sets(CONTENT_ROOT, level).values():
+            text = norm(cset.passage or cset.script or "")
+            for vid in cset.vocab:
+                if vid not in bank:
+                    failures.append(f"{cset.id}: vocab {vid!r} is not in any level's bank")
+                elif not shown_in_lesson(norm(strip_article(bank[vid])), text):
+                    failures.append(f"{cset.id}: vocab {vid!r} ({bank[vid]}) is not in the text")
     return failures
 
 

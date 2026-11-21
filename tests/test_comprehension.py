@@ -119,14 +119,16 @@ def test_question_answer_must_be_in_options():
 def _tcf(**over):
     q = {"id": "q", "prompt": "p", "options": ["a", "b", "c", "d"], "answer": "a"}
     fields = {"id": "x", "level": "b1", "skill": "reading", "title": "t", "passage": "p"}
-    fields |= {"exam": "tcf", "topic": "logement", "questions": [q]}
+    fields |= {"exam": "tcf", "topic": "logement", "vocab": ["loyer"], "questions": [q]}
     return ComprehensionSet(**{**fields, **over})
 
 
-def test_tcf_set_needs_a_topic_and_four_choices():
+def test_tcf_set_needs_a_topic_vocab_and_four_choices():
     assert _tcf().exam == "tcf"
     with pytest.raises(ValidationError, match="topic"):
         _tcf(topic=None)
+    with pytest.raises(ValidationError, match="vocab"):
+        _tcf(vocab=[])
     three = {"id": "q", "prompt": "p", "options": ["a", "b", "c"], "answer": "a"}
     with pytest.raises(ValidationError, match="four choices"):
         _tcf(questions=[three])

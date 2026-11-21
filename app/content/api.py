@@ -20,6 +20,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.auth import get_current_user
+from app.comprehension.tables import ComprehensionSetRow
 from app.content import conjugation
 from app.content.tables import ContentLesson, ContentUnit, ContentVocab, KnownVocab
 from app.db.session import get_session
@@ -229,8 +230,9 @@ async def get_vocab(
     """Vocabulary as browsable decks (id/fr/en/audio/pos/tags/gender, each tagged with
     its `level`). Omit `level` to get every level at once; `tag` narrows to one theme.
     Dual-gender words carry `fem` + `fem_audio` for the feminine form; verbs carry
-    `verb_group` (regular / irregular) and their present-tense `conjugation`. Free-study
-    companion to the scheduled SRS review."""
+    `verb_group` (regular / irregular) and their present-tense `conjugation`; a word a
+    TCF reading set picked for its topic deck carries `tcf_decks` ({level, topic}).
+    Free-study companion to the scheduled SRS review."""
     query = select(ContentVocab).order_by(ContentVocab.level, ContentVocab.id)
     if level:
         query = query.where(ContentVocab.level == level)
@@ -247,6 +249,12 @@ async def get_vocab(
         .scalars()
         .all()
     )
+    tcf_decks: dict[str, list[dict]] = {}
+    sets = select(ComprehensionSetRow.level, ComprehensionSetRow.data)
+    for set_level, data in (await session.execute(sets)).all():
+        if data.get("exam") == "tcf":
+            for vid in data.get("vocab", []):
+                tcf_decks.setdefault(vid, []).append({"level": set_level, "topic": data["topic"]})
     cards = []
     for r in rows:
         card = {**r.data, "level": r.level}
@@ -257,6 +265,8 @@ async def get_vocab(
         if card.get("pos") == "verb" and (table := conjugation.present(card["fr"])):
             card["verb_group"] = conjugation.group(card["fr"])
             card["conjugation"] = table
+        if decks := tcf_decks.get(card["id"]):
+            card["tcf_decks"] = decks
         card["known"] = card["id"] in known
         card["in_review"] = card["id"] in in_review
         cards.append(card)

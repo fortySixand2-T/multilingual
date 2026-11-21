@@ -273,6 +273,23 @@ def test_vocab_verbs_carry_group_and_present_tense():
     assert "conjugation" not in cards["cafe"]
 
 
+def test_vocab_words_carry_their_tcf_decks():
+    from app.comprehension.loader import load_sets
+    from app.comprehension.sync import sync_sets
+
+    async def go():
+        async with _Session() as session:
+            await sync_sets(session, "b1", load_sets(CONTENT_ROOT, "b1"))
+
+    _run(go())
+    cards = {
+        c["id"]: c for c in client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
+    }
+    # an a1 word the b1 TCF consommation set picked for its deck
+    assert cards["magasin"]["tcf_decks"] == [{"level": "b1", "topic": "consommation"}]
+    assert "tcf_decks" not in cards["cafe"]
+
+
 def test_vocab_known_mark_and_reset():
     # default: nothing known
     cards = client.get("/content/vocab", params={"level": "a1"}).json()["cards"]
