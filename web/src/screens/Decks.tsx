@@ -4,8 +4,8 @@ import { api, VocabCard } from "../api";
 
 // Vocabulary across every level: verb decks first (regular / irregular per level,
 // each card with its present tense), TCF topic decks (words picked from each TCF
-// reading set), then themed decks (by tag), with an "All words" deck per level for
-// one big study session.
+// reading set), then themed decks (by tag, without the verbs), with an "All words"
+// deck per level for one big study session.
 export default function Decks() {
   const [cards, setCards] = useState<VocabCard[] | null>(null);
   const [error, setError] = useState("");
@@ -27,6 +27,7 @@ export default function Decks() {
       levels.push(entry);
     }
     entry.total += 1;
+    if (c.verb_group) continue; // verbs live in the Verbs decks, not in the themes
     for (const t of c.tags ?? []) {
       const tc = entry.tags.find((x) => x[0] === t);
       if (tc) tc[1] += 1;

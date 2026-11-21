@@ -25,11 +25,14 @@ export default function Deck() {
     const fetched = topic ? api.vocab() : api.vocab(level, group || tag === "all" ? undefined : tag);
     fetched
       .then((r) => {
+        // a theme deck leaves its verbs to the Verbs decks; "all" keeps everything
         const picked = group
           ? r.cards.filter((c) => c.verb_group === group)
           : topic
             ? r.cards.filter((c) => c.tcf_decks?.some((d) => d.level === level && d.topic === topic))
-            : r.cards;
+            : tag === "all"
+              ? r.cards
+              : r.cards.filter((c) => !c.verb_group);
         setCards(picked);
         setKnownIds(new Set(picked.filter((c) => c.known).map((c) => c.id)));
         setReviewIds(new Set(picked.filter((c) => c.in_review).map((c) => c.id)));

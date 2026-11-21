@@ -827,3 +827,6 @@
 - [2026-11-19] Modified: web/src/screens/Decks.tsx — a "TCF topics" section, one deck per TCF reading set
 - [2026-11-19] Modified: web/src/screens/Deck.test.tsx — TCF topic deck test
 - [2026-11-19] Created: web/src/screens/Decks.test.tsx — TCF topic tiles and counts
+- [2026-11-20] Modified: web/src/screens/Decks.tsx — theme deck tiles no longer count verbs (they have their own Verbs decks); the old per-level "verbs" tiles disappear
+- [2026-11-20] Modified: web/src/screens/Deck.tsx — a theme deck leaves out verbs; "All words" keeps every word
+- [2026-11-20] Modified: web/src/screens/Deck.test.tsx — theme deck without verbs; All words with them
